@@ -2,63 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const projects = [
-  {
-    title: "โครงการสื่อสารเพื่อคุณภาพชีวิต",
-    titleEn: "Communication for Quality of Life",
-    outcome: "สร้างการรับรู้และเปลี่ยนพฤติกรรมในระดับชุมชน",
-    sdg: "SDG 3",
-    sdgLabel: "Good Health",
-    image: "https://static.wixstatic.com/media/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg",
-    alt: "กิจกรรมนวัตกรรมการสื่อสารเพื่อพัฒนาคุณภาพชีวิต โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
-  },
-  {
-    title: "การพัฒนาศักยภาพบุคลากรด้านสื่อ",
-    titleEn: "Media Capacity Building",
-    outcome: "อบรมบุคลากรมากกว่า 1,000 คน จากหลากหลายองค์กร",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
-    image: "https://static.wixstatic.com/media/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg",
-    alt: "การอบรมพัฒนาศักยภาพบุคลากรด้านสื่อและนวัตกรรมการสื่อสาร โดย ComInnoCenter จุฬาลงกรณ์มหาวิทยาลัย",
-  },
-  {
-    title: "ความร่วมมือเพื่อความยั่งยืน",
-    titleEn: "Partnerships for Sustainability",
-    outcome: "สร้างเครือข่ายความร่วมมือระหว่างภาครัฐและภาคประชาสังคม",
-    sdg: "SDG 17",
-    sdgLabel: "Partnerships",
-    image: "https://static.wixstatic.com/media/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg",
-    alt: "เครือข่ายความร่วมมือด้านนวัตกรรมการสื่อสารเพื่อความยั่งยืน ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร",
-  },
-  {
-    title: "แคมเปญรณรงค์เพื่อสังคม",
-    titleEn: "Social Campaign",
-    outcome: "ออกแบบแคมเปญที่สร้างการมีส่วนร่วมและเปลี่ยนทัศนคติ",
-    sdg: "SDG 11",
-    sdgLabel: "Sustainable Cities",
-    image: "https://static.wixstatic.com/media/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg",
-    alt: "แคมเปญรณรงค์เพื่อสังคมด้วยนวัตกรรมการสื่อสาร โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร จุฬาฯ",
-  },
-  {
-    title: "วิจัยและประเมินผลโครงการสื่อสาร",
-    titleEn: "Communication Research & Evaluation",
-    outcome: "พัฒนากรอบการประเมินผลที่นำไปใช้ได้จริง",
-    sdg: "SDG 12",
-    sdgLabel: "Responsible Consumption",
-    image: "https://static.wixstatic.com/media/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg",
-    alt: "งานวิจัยและประเมินผลโครงการสื่อสารเพื่อความยั่งยืน โดย ComInnoCenter คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
-  },
-  {
-    title: "สื่อสร้างสรรค์เพื่อการเรียนรู้",
-    titleEn: "Creative Media for Learning",
-    outcome: "ผลิตสื่อที่ช่วยเสริมการเรียนรู้และสร้างแรงบันดาลใจ",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
-    image: "https://static.wixstatic.com/media/25218b_bfb45e4c56094da99ba6feba3b842fca~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/dsc00677jpg.jpg",
-    alt: "สื่อสร้างสรรค์และนวัตกรรมการสื่อสารเพื่อการเรียนรู้ โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function ImpactPage() {
   return (
@@ -80,8 +24,9 @@ export default function ImpactPage() {
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <div
-              key={project.title}
+            <Link
+              key={project.slug}
+              href={`/impact/${project.slug}`}
               className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
             >
               <div className="relative h-52 overflow-hidden">
@@ -104,8 +49,11 @@ export default function ImpactPage() {
                 <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
                   {project.outcome}
                 </p>
+                <p className="mt-4 text-sm font-medium text-pink-500 group-hover:text-pink-600">
+                  อ่านรายละเอียด →
+                </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
