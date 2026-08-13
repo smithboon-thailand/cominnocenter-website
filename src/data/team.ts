@@ -31,6 +31,7 @@ export const postdocs: TeamMember[] = [
     focus:
       "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
+    // ยังไม่พบรูปสาธารณะคุณภาพดีออนไลน์ — แสดงอักษรย่อจนกว่าจะได้รับรูปจากศูนย์
     alt: "ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F",
     links: [
       {
@@ -53,7 +54,9 @@ export const postdocs: TeamMember[] = [
     focus:
       "Indigenous communication, disaster public opinion, SALIGAN framework, AI in higher education, ASEAN media & communication",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
-    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F",
+    image:
+      "https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=gfq4xogAAAAJ&citpid=2",
+    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar",
     links: [
       {
         label: "Google Scholar",
@@ -75,6 +78,7 @@ export const phdCandidates: TeamMember[] = [
     focus:
       "Digital communication preferences and environmental behavior; youth waste management education in Bhutan",
     funding: "PhD scholarship (C2F / related funding) · co-research with the Center",
+    // ยังไม่พบรูปสาธารณะออนไลน์ — แสดงอักษรย่อจนกว่าจะได้รับรูปจากศูนย์
     alt: "Thinley Lhendup นักศึกษาปริญญาเอกหลักสูตร EDS จุฬาฯ ที่ร่วมงานกับศูนย์",
     links: [
       {
