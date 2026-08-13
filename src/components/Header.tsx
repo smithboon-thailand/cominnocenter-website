@@ -31,7 +31,6 @@ export default function Header({ active }: HeaderProps) {
           ComInnoCenter
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           <Link href="/about" className={linkClass("about")}>
             เกี่ยวกับเรา
@@ -48,9 +47,12 @@ export default function Header({ active }: HeaderProps) {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button className="text-sm font-medium text-neutral-600 hover:text-blue-700 hidden sm:block">
+          <Link
+            href="/en"
+            className="text-sm font-medium text-neutral-600 hover:text-blue-700 hidden sm:block"
+          >
             EN
-          </button>
+          </Link>
 
           <Link
             href="/collaborate"
@@ -59,7 +61,6 @@ export default function Header({ active }: HeaderProps) {
             ร่วมงานกับเรา
           </Link>
 
-          {/* Mobile menu button */}
           <button
             type="button"
             className="md:hidden p-2 -mr-2 text-neutral-700"
@@ -79,7 +80,6 @@ export default function Header({ active }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
         <div className="md:hidden border-t border-neutral-200 bg-neutral-50">
           <nav className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
@@ -96,7 +96,9 @@ export default function Header({ active }: HeaderProps) {
               ร่วมงานกับเรา
             </Link>
             <div className="pt-4 border-t border-neutral-200 flex items-center justify-between">
-              <button className="text-sm font-medium text-neutral-600">EN</button>
+              <Link href="/en" className="text-sm font-medium text-neutral-600" onClick={() => setOpen(false)}>
+                EN
+              </Link>
               <Link
                 href="/collaborate"
                 onClick={() => setOpen(false)}
