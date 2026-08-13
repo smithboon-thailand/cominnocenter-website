@@ -117,6 +117,41 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Newsletter Section */}
+      <section className="bg-neutral-100 border-y border-neutral-200">
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-700">
+              รับข่าวสารและโอกาสความร่วมมือ
+            </h2>
+            <p className="mt-4 text-neutral-600">
+              สมัครรับจดหมายข่าวจากศูนย์ เพื่อติดตามผลงาน โอกาสอบรม
+              และช่องทาง Collaborate ใหม่ๆ
+            </p>
+
+            <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="อีเมลของคุณ"
+                className="flex-1 px-4 py-3 rounded-lg border border-neutral-300 bg-white text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors whitespace-nowrap"
+              >
+                สมัครรับข่าวสาร
+              </button>
+            </form>
+
+            <p className="mt-4 text-xs text-neutral-500">
+              เราจะไม่ส่งสแปม และคุณสามารถยกเลิกได้ทุกเมื่อ
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="bg-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-6 py-20 text-center">
@@ -139,7 +174,8 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-neutral-900 text-neutral-300">
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="flex flex-col md:flex-row justify-between gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* Brand */}
             <div>
               <div className="text-white font-semibold text-lg">ComInnoCenter</div>
               <p className="mt-2 text-sm max-w-xs">
@@ -147,7 +183,10 @@ export default function HomePage() {
                 คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
               </p>
             </div>
+
+            {/* Contact */}
             <div className="text-sm">
+              <div className="text-white font-medium mb-3">ติดต่อเรา</div>
               <p>อีเมล: comminno@chula.ac.th</p>
               <p className="mt-1">โทร: 02-218-2262</p>
               <div className="mt-4 flex gap-4">
@@ -155,7 +194,7 @@ export default function HomePage() {
                   href="https://www.instagram.com/comm.inno21/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-400"
+                  className="hover:text-pink-400 transition-colors"
                 >
                   Instagram
                 </a>
@@ -163,13 +202,37 @@ export default function HomePage() {
                   href="https://www.facebook.com/comm.inno21"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-400"
+                  className="hover:text-pink-400 transition-colors"
                 >
                   Facebook
                 </a>
               </div>
             </div>
+
+            {/* Newsletter in Footer */}
+            <div>
+              <div className="text-white font-medium mb-3">รับข่าวสาร</div>
+              <p className="text-sm mb-4">
+                สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate
+              </p>
+              <form className="flex flex-col gap-2">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="อีเมลของคุณ"
+                  className="px-3 py-2 rounded-md bg-neutral-800 border border-neutral-700 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-pink-500"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-md bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors"
+                >
+                  สมัคร
+                </button>
+              </form>
+            </div>
           </div>
+
           <div className="mt-10 pt-6 border-t border-neutral-800 text-xs text-neutral-500">
             © {new Date().getFullYear()} Center of Excellence in Communication Innovation,
             Faculty of Communication Arts, Chulalongkorn University
