@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ร่วมงานกับเรา",
   description:
-    "ร่วมงานกับศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร จุฬาฯ ทั้งด้าน Partnership, Training และ Research",
+    "ร่วมงานกับศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร จุฬาฯ ทั้งด้าน Partnership, Training และ Research",
 };
 
 export default function CollaborateLayout({
