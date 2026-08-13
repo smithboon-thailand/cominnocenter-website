@@ -64,10 +64,13 @@ type Leader = {
 };
 
 /**
- * ข้อมูลอ้างอิง:
- * - Faculty: https://www.commarts.chula.ac.th/th/department-pr/
- * - Google Scholar Smith: LKEmLP0AAAAJ
- * - Scopus Smith: 56167805200
+ * ข้อมูลอ้างอิง (fact-check 2026-08-13 จากแหล่งทางการ):
+ * - Faculty list: https://www.commarts.chula.ac.th/th/department-pr/
+ * - Smith ORCID: https://orcid.org/0000-0001-7412-4506
+ * - Teerada ORCID: https://orcid.org/0000-0003-2785-8595
+ * - Google Scholar Smith: LKEmLP0AAAAJ | Scopus: 56167805200
+ * - Pavel: ResearchGate / Harmony Institute / GS 1v6dmxQAAAAJ
+ * - Wattana rank confirmed by center as ศาสตราจารย์ (Professor)
  */
 const leadership: Leader[] = [
   {
@@ -76,10 +79,10 @@ const leadership: Leader[] = [
     role: "Head of Research Operations Unit",
     roleTh: "หัวหน้าศูนย์ / Head of Research Operations Unit",
     image: media("8e0d14_ecc50ab1da21439b9bc9043a1e5c9b6b"),
-    alt: "รศ.ดร.สมิทธิ์ บุญชุติมา หัวหน้าศูนย์ — ภาพจากหน้า Smith.B เว็บเดิม ComInnoCenter",
+    alt: "รศ.ดร.สมิทธิ์ บุญชุติมา หัวหน้าศูนย์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     education: [
-      "Doctor of Philosophy in Sports Science, Chulalongkorn University, 2018",
-      "Transnational Communications & The Global Media, University of London, 2548",
+      "Doctor of Philosophy in Health Promotion Sciences (Sports Sciences), Chulalongkorn University, 2018",
+      "Transnational Communications & The Global Media, Goldsmiths, University of London, 2005",
       "Master of Arts in Mass Communication (Advertising), Chulalongkorn University, 2000",
       "Bachelor of Communication Arts (Advertising) (First-Class Honors), Chulalongkorn University, 2000",
     ],
@@ -139,26 +142,25 @@ const leadership: Leader[] = [
     role: "Deputy Head of Research Operations Unit",
     roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
     image: media("25218b_89b42fbbe4814a6482683b96cc6f59e7"),
-    alt: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ — ภาพจากหน้า Teerada.Ne เว็บเดิม ComInnoCenter",
+    alt: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ หัวหน้าภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ",
     education: [
       "Ph.D. International Communication, Macquarie University, Australia, 2013",
       "Ph.D. Communication Arts, Chulalongkorn University, Thailand, 2012",
       "M.A. Speech and Communication Studies, San Francisco State University, USA, 2005",
-      "B.A. English, Chulalongkorn University, Thailand, 2002",
+      "B.A. English, Chulalongkorn University, Thailand, 1998",
     ],
     work: [
-      "Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2022–Present)",
+      "Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (October 2022–Present)",
       "Assistant Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2009–Present)",
-      "Deputy Dean of Research and International Affairs, 2017",
     ],
     focus:
       "Crisis Communication, Environmental Communications, Persuasion and Negotiation, International Image and Reputation, Framing Theory and Public Relations Campaigns",
     metrics: [
       { label: "Publications", value: 15, suffix: "+" },
       { label: "Thesis advised", value: 25, suffix: "+" },
-      { label: "Years in academia", value: 20, suffix: "+" },
+      { label: "Years in academia", value: 17, suffix: "+" },
     ],
-    metricsNote: "อ้างอิงหน้าโปรไฟล์ Teerada.Ne บนเว็บเดิม ComInnoCenter",
+    metricsNote: "อ้างอิง ORCID 0000-0003-2785-8595 และหน้ารายชื่อภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ",
     links: [
       { label: "LinkedIn", href: "https://th.linkedin.com/in/teerada-chongkolrattanaporn-058588b2" },
       { label: "ORCID", href: "https://orcid.org/0000-0003-2785-8595" },
@@ -189,7 +191,7 @@ const leadership: Leader[] = [
     role: "Deputy Head of Research Operations Unit",
     roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
     image: media("8e0d14_bb83dfe119da43c19b9ba2cc2480023f"),
-    alt: "Assoc. Prof. Dr. Pavel Slutskiy รองหัวหน้าศูนย์ — ภาพจากเว็บเดิม ComInnoCenter",
+    alt: "Assoc. Prof. Dr. Pavel Slutskiy รองหัวหน้าศูนย์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     education: [
       "Ph.D., Saint-Petersburg State University (2008) — Journalism (Political Science)",
       "M.A./B.A. (cum laude) Public Relations — double degree, Saint-Petersburg State Electrotechnical University and Towson University, USA (1996–2001)",
@@ -452,7 +454,8 @@ export default function AboutPage() {
         </div>
 
         <p className="mt-12 text-xs text-neutral-400 max-w-3xl">
-          ชื่อ ตำแหน่ง และประวัติอ้างอิงจากเว็บไซต์เดิม ComInnoCenter และเว็บทางการคณะนิเทศศาสตร์ จุฬาฯ
+          ชื่อ ตำแหน่ง และประวัติอ้างอิงจาก ORCID, Google Scholar, Scopus, ResearchGate
+          และหน้ารายชื่อคณาจารย์ภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ (fact-check ส.ค. 2026)
           ตัวเลขของรศ.ดร.สมิทธิ์ อ้างอิง Google Scholar และ Scopus Author ID 56167805200
         </p>
       </section>
@@ -522,9 +525,10 @@ export default function AboutPage() {
           </div>
 
           <p className="mt-8 text-xs text-neutral-400 max-w-3xl">
-            ข้อมูลและรูปภาพอ้างอิงจากเว็บทางการคณะนิเทศศาสตร์ คณะพาณิชยศาสตร์และการบัญชี
-            และคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย รวมถึงโปรไฟล์ Google Scholar
-            รูปของดร.วรรษยุตยังไม่ปรากฏในหน้ารายชื่อภาควิชา จึงแสดงเป็นอักษรย่อชั่วคราว
+            ข้อมูลอ้างอิงจากหน้ารายชื่อคณาจารย์คณะนิเทศศาสตร์ คณะพาณิชยศาสตร์และการบัญชี
+            และคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย รวมถึง ORCID / Google Scholar / ข่าวจุฬาฯ
+            ตำแหน่งศ.ดร.วธนน์ ยืนยันจากศูนย์แล้ว — รูปอ้างอิงจากข่าวจุฬาฯ รางวัลนักวิจัยดีเด่นแห่งชาติ 2565
+            และช่อง YouTube ทางการของดร.วรรษยุต
           </p>
         </div>
       </section>
