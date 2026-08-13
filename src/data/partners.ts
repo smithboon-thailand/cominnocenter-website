@@ -71,7 +71,7 @@ export const partners: Partner[] = [
   },
   {
     name: "มูลนิธิราชประชานุเคราะห์",
-    nameEn: "Anandamahidol Foundation",
+    nameEn: "Rajaprajanugroh Foundation",
     image: logo("8e0d14_dde36c281c0f418ca4fb69d7b4b43d79"),
     alt: "โลโก้มูลนิธิราชประชานุเคราะห์ ในพระบรมราชูปถัมภ์ — พันธมิตรจากเว็บเดิม ComInnoCenter",
   },
