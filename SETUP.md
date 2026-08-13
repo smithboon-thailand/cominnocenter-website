@@ -1,27 +1,20 @@
 # Setup Guide — ComInnoCenter Website
 
-## 1. เปิดใช้ Contact Form + Newsletter (Formspree)
+## 1. Contact Form + Newsletter (Formspree) ✅
 
-1. สมัครที่ [https://formspree.io](https://formspree.io) (ฟรี)
-2. สร้างฟอร์ม 2 อัน:
-   - **Contact Form** → สำหรับหน้า Collaborate
-   - **Newsletter** → สำหรับสมัครรับข่าวสาร
-3. คัดลอก Form ID (รูปแบบประมาณ `xyzabcde`)
-4. แก้ไฟล์:
+**สถานะ: ใช้งานได้แล้ว**
 
-**Contact Form**
-```
-src/components/ContactForm.tsx
-```
-แทนที่ `YOUR_FORM_ID` ด้วย ID จริง
+- Contact Form → หน้า Collaborate
+- Newsletter Form → Footer / หน้า Collaborate
+- แจ้งเตือนอีเมล: **smith.boon@gmail.com** (ทั้ง Contact และ Newsletter)
 
-**Newsletter**
-```
-src/components/NewsletterForm.tsx
-```
-แทนที่ `YOUR_NEWSLETTER_FORM_ID` ด้วย ID จริง
-
-5. ใน Formspree ตั้งค่าให้ส่งอีเมลไปที่ `comminno@chula.ac.th`
+ถ้าต้องเปลี่ยน Form ID หรืออีเมลรับข้อความ:
+1. เข้า [formspree.io](https://formspree.io) → เปิดฟอร์มที่ต้องการ
+2. คัดลอก Form ID จาก endpoint `https://formspree.io/f/xxxx`
+3. แก้ในโค้ด:
+   - Contact: `src/components/ContactForm.tsx`
+   - Newsletter: `src/components/NewsletterForm.tsx`
+4. ใน Formspree → Settings → เปลี่ยน notification email ตามต้องการ
 
 ---
 
@@ -42,10 +35,11 @@ src/components/NewsletterForm.tsx
 
 ## 3. สิ่งที่ควรอัปเดตภายหลัง
 
+- [x] ใส่ Formspree Form ID (Contact + Newsletter)
 - [ ] ใส่รูป Leadership จริงในหน้า About
-- [ ] ใส่ Formspree Form ID
 - [ ] ตรวจสอบตัวเลขสถิติบนหน้า Home (50+, 30+ ฯลฯ) ให้ตรงกับข้อมูลจริง
-- [ ] เพิ่ม Case Study รายละเอียดเมื่อมีเนื้อหาพร้อม
+- [ ] เติมภาพ gallery ที่เหลือของแต่ละ Case Study (ถ้าต้องการครบทุกใบ)
+- [ ] ปรับข้อความไทย Challenge/Approach ให้เป็นภาษาราชการมากขึ้น
 - [ ] ระบบสลับภาษา TH/EN แบบเต็ม
 
 ---
