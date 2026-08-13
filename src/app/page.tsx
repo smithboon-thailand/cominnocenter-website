@@ -9,6 +9,7 @@ import AnimatedCounter from "@/components/effects/AnimatedCounter";
 import GlassCard from "@/components/effects/GlassCard";
 import { projects } from "@/data/projects";
 import { homeHighlights } from "@/data/highlights";
+import VideoShowcase from "@/components/VideoShowcase";
 
 const highlightTypeLabel: Record<string, string> = {
   research: "งานวิจัย",
@@ -315,6 +316,26 @@ export default function HomePage() {
               </article>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Research Insights — YouTube */}
+      <section className="relative bg-neutral-50 border-y border-neutral-200">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <Reveal>
+            <div className="mb-12">
+              <p className="text-sm font-medium text-pink-500 mb-2">Research Insights</p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">
+                วิดีโองานวิจัย
+              </h2>
+              <p className="mt-3 text-neutral-600 max-w-xl">
+                คลิปนำเสนองานวิจัยจากช่อง YouTube ทางการ Communication Innovation ของศูนย์
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <VideoShowcase />
+          </Reveal>
         </div>
       </section>
 
