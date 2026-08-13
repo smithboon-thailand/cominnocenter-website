@@ -30,7 +30,22 @@ export type Highlight = {
 };
 
 export const highlights: Highlight[] = [
-  // ——— จากข่าวภายนอก / ผลงานวิชาการ (ชุดเดิม) ———
+  // ——— ข่าวเด่นล่าสุด ———
+  {
+    id: "smith-impulse-lgbtq-10y",
+    titleTh: "เปิดข้อมูลสุขภาพ LGBTQ+ รอบ 10 ปี — Impulse Bangkok",
+    titleEn: "10-year LGBTQ+ urban health data — Impulse Bangkok",
+    summaryTh:
+      "รศ.ดร.สมิทธิ์ ในฐานะประธาน Impulse Bangkok เปิดเผยข้อมูล 10 ปี (2016–2025) พบอัตราซิฟิลิสสูงกว่าเอชไอวี คนเมืองยัง ‘รู้แต่ไม่ตรวจ’ เพราะตีตรา ผลักดัน Dual Testing และระบบสุขภาพเมืองแบบองค์รวม",
+    summaryEn:
+      "As President of Impulse Bangkok, Assoc. Prof. Dr. Smith released 10-year data (2016–2025): syphilis positivity exceeded HIV; stigma still blocks testing. Advocates Dual Testing and a holistic urban health system.",
+    date: "2026-07-22",
+    type: "media",
+    person: ["smith", "center"],
+    href: "https://www.matichon.co.th/local/quality-life/news_5817075",
+    source: "มติชน",
+    featuredOnHome: true,
+  },
   {
     id: "teerada-rueang-khong-rao",
     titleTh: "ภาพยนตร์ ‘เรื่องของเรา’ จากงานวิจัยสู่สันติภาพชายแดนใต้",
@@ -60,6 +75,36 @@ export const highlights: Highlight[] = [
     href: "https://www.asianmediacongress.org/",
     source: "ACMC / ORCID",
     featuredOnHome: true,
+  },
+  {
+    id: "smith-thai-media-trends-2024",
+    titleTh: "วิเคราะห์ Thai Media Trends 2024 — นิเทศจุฬาฯ × DataXet",
+    titleEn: "Thai Media Trends 2024 analysis — Comm Arts Chula × DataXet",
+    summaryTh:
+      "รศ.ดร.สมิทธิ์ วิเคราะห์แนวโน้มสื่อไทย 2024–2025: สตรีมมิงโตเร็ว AR/VR ในแคมเปญ นิชคอนเทนต์แทนมวลชน ความจริงใจของอินฟลูเอนเซอร์ และบทบาท AI ในการสร้างคอนเทนต์",
+    summaryEn:
+      "Assoc. Prof. Dr. Smith analyzed Thai media trends for 2024–2025: faster streaming, AR/VR in campaigns, niche over mass content, authenticity of influencers, and AI in content creation.",
+    date: "2023-12-12",
+    type: "media",
+    person: ["smith"],
+    href: "https://www.dataxet.co/media-landscape/2024-th/thai-media-trends/nitade-chula",
+    source: "DataXet",
+    featuredOnHome: false,
+  },
+  {
+    id: "smith-ha-public-communication",
+    titleTh: "รศ.ดร.สมิทธิ์ ในคณะอนุกรรมการขับเคลื่อนการสื่อสารสาธารณะ — HA Forum",
+    titleEn: "Assoc. Prof. Dr. Smith on the Public Communication Subcommittee — HA Forum",
+    summaryTh:
+      "ร่วมเป็นคณะอนุกรรมการขับเคลื่อนการสื่อสารสาธารณะ ในเวที HA National Forum สะท้อนบทบาทด้านสื่อสารสุขภาพระดับชาติ",
+    summaryEn:
+      "Serves on the Public Communication Subcommittee at the HA National Forum, reflecting a national role in health communication.",
+    date: "2024-01-01",
+    type: "leadership",
+    person: ["smith"],
+    href: "https://www.youtube.com/watch?v=cR7j0njbOVI",
+    source: "HA Thailand",
+    featuredOnHome: false,
   },
   {
     id: "wattana-nrct-award",
@@ -92,7 +137,7 @@ export const highlights: Highlight[] = [
     featuredOnHome: true,
   },
 
-  // ——— ข่าว/อบรมจากเว็บเดิม ComInnoCenter (ชุดใหม่ 7 รายการ) ———
+  // ——— ข่าว/อบรมจากเว็บเดิม ComInnoCenter ———
   {
     id: "keio-bunkyo-collaboration",
     titleTh: "คณะนิเทศศาสตร์ จุฬาฯ เสริมความร่วมมือวิชาการกับ Keio และ Bunkyo University",
@@ -199,7 +244,37 @@ export const highlights: Highlight[] = [
     featuredOnHome: false,
   },
 
-  // ——— งานวิจัยเพิ่มเติม ———
+  // ——— หนังสือ / งานวิจัยของ สมิทธิ์ และทีม ———
+  {
+    id: "smith-risk-communication-book",
+    titleTh: "หนังสือ “การสื่อสารความเสี่ยง” โดย รศ.ดร.สมิทธิ์ และ เกริดา โคตรชาลี",
+    titleEn: "Book: Risk Communication by Assoc. Prof. Dr. Smith & Kreda Kotchasalee",
+    summaryTh:
+      "ตำราด้านการสื่อสารความเสี่ยง จัดพิมพ์โดย 21 เซ็นจูรี่ เป็นองค์ความรู้พื้นฐานด้าน risk communication ในบริบทไทย",
+    summaryEn:
+      "A foundational Thai textbook on risk communication, published by 21 Century.",
+    date: "2017-01-01",
+    type: "book",
+    person: ["smith"],
+    href: "https://www.car.chula.ac.th/display7.php?bib=2123974",
+    source: "จุฬาลงกรณ์มหาวิทยาลัย / 21 Century",
+    featuredOnHome: false,
+  },
+  {
+    id: "smith-strategic-comm-plan-book",
+    titleTh: "Strategic Communication Plan: Writing and Planning",
+    titleEn: "Strategic Communication Plan: Writing and Planning",
+    summaryTh:
+      "ตำราเขียนและวางแผนการสื่อสารเชิงกลยุทธ์ โดย รศ.ดร.สมิทธิ์ บุญชุติมา เผยแพร่ผ่านคณะนิเทศศาสตร์ จุฬาฯ",
+    summaryEn:
+      "Textbook on writing and planning strategic communication by Assoc. Prof. Dr. Smith Boonchutima, published via the Faculty of Communication Arts, Chula.",
+    date: "2020-01-01",
+    type: "book",
+    person: ["smith"],
+    href: "https://www.commarts.chula.ac.th/th/research/textbooks-publications/",
+    source: "คณะนิเทศศาสตร์ จุฬาฯ",
+    featuredOnHome: false,
+  },
   {
     id: "smith-dengue-study",
     titleTh: "งานวิจัยระยะยาวเรื่องสื่อกับการป้องกันไข้เลือดออกในไทย",
