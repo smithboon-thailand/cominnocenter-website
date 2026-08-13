@@ -1,3 +1,5 @@
+import NewsletterForm from "./NewsletterForm";
+
 export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-neutral-300">
@@ -48,21 +50,7 @@ export default function Footer() {
             <p className="text-sm mb-4">
               สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate
             </p>
-            <form className="flex flex-col gap-2">
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="อีเมลของคุณ"
-                className="px-3 py-2 rounded-md bg-neutral-800 border border-neutral-700 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-pink-500"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 rounded-md bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors"
-              >
-                สมัคร
-              </button>
-            </form>
+            <NewsletterForm variant="dark" />
           </div>
         </div>
 
