@@ -65,8 +65,10 @@ type Leader = {
 /**
  * ข้อมูลอ้างอิง:
  * - cominnocenter.com/about, /blank (Smith.B), /about/teerada-ne
- * - Google Scholar (Smith: LKEmLP0AAAAJ, Pavel: 1v6dmxQAAAAJ)
- * - AD Scientific Index / ResearchGate / ORCID / Faculty of Communication Arts
+ * - Google Scholar Smith: https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en
+ *   (Citations 263, h-index 9, i10-index 9 — อ่านจากโปรไฟล์จริง)
+ * - Google Scholar Pavel: 1v6dmxQAAAAJ
+ * - ResearchGate / ORCID / Faculty of Communication Arts
  */
 const leadership: Leader[] = [
   {
@@ -91,11 +93,12 @@ const leadership: Leader[] = [
       "Health Communication, Risk Communication, Digital Media, Transnational Communication, Social Media Research, Public Relations",
     email: "smith.b@chula.ac.th",
     metrics: [
-      { label: "Citations", value: 234 },
+      { label: "Citations", value: 263 },
       { label: "h-index", value: 9 },
-      { label: "i10-index", value: 8 },
+      { label: "i10-index", value: 9 },
     ],
-    metricsNote: "อ้างอิง AD Scientific Index / โปรไฟล์ Smith.B (ประมาณการจาก Google Scholar)",
+    metricsNote:
+      "อ้างอิง Google Scholar (user=LKEmLP0AAAAJ) — Citations 263 · h-index 9 · i10-index 9 (Since 2020: 192 / 9 / 7)",
     links: [
       { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en" },
       { label: "ORCID", href: "https://orcid.org/0000-0001-7412-4506" },
@@ -126,10 +129,10 @@ const leadership: Leader[] = [
       },
       {
         title:
-          "The Chinese media narrative of Thailand as a tourist destination after the legalisation of cannabis",
-        venue: "Heliyon (with P. Slutskiy)",
-        year: 2023,
-        citations: 10,
+          "Evaluation of public health communication performance by Stufflebeam's CIPP model: A case study of Thailand's department of disease control",
+        venue: "Journal of Business and Behavioral Sciences",
+        year: 2013,
+        citations: 15,
       },
     ],
   },
@@ -481,8 +484,9 @@ export default function AboutPage() {
 
         <p className="mt-12 text-xs text-neutral-400 max-w-3xl">
           ชื่อ ตำแหน่ง และประวัติอ้างอิงจากเว็บไซต์เดิม ComInnoCenter และเว็บทางการคณะนิเทศศาสตร์ จุฬาฯ
-          ตัวเลข citation / h-index อ้างอิง Google Scholar, AD Scientific Index และ ResearchGate ณ เวลาที่รวบรวมข้อมูล
-          — อาจมีการอัปเดตตามเวลา
+          ตัวเลข citation / h-index ของรศ.ดร.สมิทธิ์ อ้างอิงโดยตรงจาก Google Scholar
+          (https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en) ณ เวลาที่อัปเดต
+          — ตัวเลขอาจเปลี่ยนแปลงตามเวลา
         </p>
       </section>
 
