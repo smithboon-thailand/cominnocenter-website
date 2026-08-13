@@ -1,11 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 type HeaderProps = {
   active?: "home" | "about" | "expertise" | "impact" | "collaborate";
 };
+
+const LOGO_SRC =
+  "https://static.wixstatic.com/media/8e0d14_0564f38949dd4891a2359cb0daa61bb4~mv2.png/v1/fill/w_400,h_120,al_c,q_90,enc_auto/logo-communication-innovation.png";
 
 export default function Header({ active }: HeaderProps) {
   const [open, setOpen] = useState(false);
@@ -25,10 +29,18 @@ export default function Header({ active }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl font-semibold tracking-tight text-blue-700"
+          className="flex items-center shrink-0"
           onClick={() => setOpen(false)}
+          aria-label="ComInnoCenter หน้าแรก"
         >
-          ComInnoCenter
+          <Image
+            src={LOGO_SRC}
+            alt="โลโก้ Communication Innovation Center — จากเว็บเดิม ComInnoCenter"
+            width={180}
+            height={54}
+            className="h-10 w-auto md:h-12 object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
