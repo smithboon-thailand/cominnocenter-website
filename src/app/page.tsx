@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
+import { projects } from "@/data/projects";
 
 const expertiseItems = [
   {
@@ -23,29 +24,7 @@ const expertiseItems = [
   },
 ];
 
-const featuredImpact = [
-  {
-    title: "โครงการสื่อสารเพื่อคุณภาพชีวิต",
-    outcome: "สร้างการรับรู้และเปลี่ยนพฤติกรรมในระดับชุมชน",
-    tag: "SDG 3",
-    image: "https://static.wixstatic.com/media/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg",
-    alt: "กิจกรรมนวัตกรรมการสื่อสารเพื่อพัฒนาคุณภาพชีวิต โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
-  },
-  {
-    title: "การพัฒนาศักยภาพบุคลากรด้านสื่อ",
-    outcome: "อบรมบุคลากรมากกว่า 1,000 คน จากหลากหลายองค์กร",
-    tag: "SDG 4",
-    image: "https://static.wixstatic.com/media/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg",
-    alt: "การอบรมพัฒนาศักยภาพบุคลากรด้านสื่อและนวัตกรรมการสื่อสาร โดย ComInnoCenter จุฬาลงกรณ์มหาวิทยาลัย",
-  },
-  {
-    title: "ความร่วมมือเพื่อความยั่งยืน",
-    outcome: "สร้างเครือข่ายความร่วมมือระหว่างภาครัฐและภาคประชาสังคม",
-    tag: "SDG 17",
-    image: "https://static.wixstatic.com/media/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg",
-    alt: "เครือข่ายความร่วมมือด้านนวัตกรรมการสื่อสารเพื่อความยั่งยืน ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร",
-  },
-];
+const featuredImpact = projects.slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -179,8 +158,9 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredImpact.map((item) => (
-            <div
-              key={item.title}
+            <Link
+              key={item.slug}
+              href={`/impact/${item.slug}`}
               className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
             >
               <div className="relative h-52 overflow-hidden">
@@ -194,14 +174,14 @@ export default function HomePage() {
               </div>
               <div className="p-6">
                 <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
-                  {item.tag}
+                  {item.sdg}
                 </span>
                 <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{item.outcome}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
