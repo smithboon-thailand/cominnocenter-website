@@ -30,7 +30,7 @@ export const postdocs: TeamMember[] = [
     roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",
     role: "C2F Postdoctoral Fellow",
     affiliation:
-      "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+      "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
