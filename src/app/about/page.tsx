@@ -30,68 +30,83 @@ const objectives = [
 const media = (id: string, ext: string = "jpg") =>
   `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_800,h_1000,al_c,q_85,enc_auto/${id}~mv2.${ext}`;
 
+/**
+ * ข้อมูล Leadership อ้างอิงจาก:
+ * - https://www.cominnocenter.com/about
+ * - https://www.cominnocenter.com/blank (Smith.B)
+ * - https://www.cominnocenter.com/about/teerada-ne
+ * - https://www.commarts.chula.ac.th/th/department-pr/
+ * - https://www.iscm.commarts.chula.ac.th/faculty-staff/
+ * ไม่ใส่ข้อมูลที่ไม่มีแหล่งอ้างอิงชัดเจน
+ */
 const leadership = [
   {
-    name: "รศ.ดร.สมิทธ์ บุญชุติมา",
+    // ชื่อไทยตามเว็บคณะนิเทศศาสตร์: สมิทธิ์ บุญชุติมา
+    name: "รศ.ดร.สมิทธิ์ บุญชุติมา",
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
-    role: "Head of the Center",
+    role: "Head of Research Operations Unit",
     roleTh: "หัวหน้าศูนย์ / Head of Research Operations Unit",
-    // จากหน้า Smith.B ของเว็บเดิม (ไม่ใช่รูป อ.วรรษยุต)
     image: media("8e0d14_ecc50ab1da21439b9bc9043a1e5c9b6b"),
-    alt: "รศ.ดร.สมิทธ์ บุญชุติมา หัวหน้าศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร — ภาพจากหน้า Smith.B เว็บเดิม ComInnoCenter",
+    alt: "รศ.ดร.สมิทธิ์ บุญชุติมา หัวหน้าศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร — ภาพจากหน้า Smith.B เว็บเดิม ComInnoCenter",
     education: [
-      "Ph.D. in Sports Science (Health Promotion), Chulalongkorn University, 2018",
-      "M.A. Transnational Communications & Global Media, Goldsmiths, University of London",
-      "M.A. in Mass Communication (Advertising), Chulalongkorn University, 2000",
-      "B.Com.Arts (Advertising), First-Class Honors, Chulalongkorn University, 2000",
+      "Doctor of Philosophy in Sports Science, Chulalongkorn University, 2018",
+      "Transnational Communications & The Global Media, University of London, 2548",
+      "Master of Arts in Mass Communication (Advertising), Chulalongkorn University, 2000",
+      "Bachelor of Communication Arts (Advertising) (First-Class Honors), Chulalongkorn University, 2000",
     ],
     work: [
-      "Associate Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
-      "President, Asian Congress for Media and Communication (ACMC)",
-      "Former international television commercial producer, Hub Ho Hin Bangkok",
+      "Associate Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2007–Present)",
+      "Head, Center of Excellence in Communication Innovation for Development of Quality of Life and Sustainability (2024–Present)",
+      "President, Asian Congress for Media and Communication (2024–Present)",
     ],
     focus:
-      "สนใจงานวิจัยด้านการสื่อสารข้ามชาติ สื่อใหม่ การสื่อสารสุขภาพ และการสื่อสารเพื่อการเรียนรู้ เคยได้รับรางวัลจากจุฬาลงกรณ์มหาวิทยาลัยด้านการสอนในสาขาสังคมศาสตร์",
+      "Health Communication, Risk Communication, Digital Media, Transnational Communication, Social Media Research, Public Relations",
+    email: "smith.b@chula.ac.th",
   },
   {
-    name: "รศ.ดร.ธีรดา จงกลรัตนาภรณ์",
-    nameEn: "Assoc. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
-    role: "Deputy Head",
+    // ชื่อไทยตามเว็บคณะ: ธีรดา จงกลรัตนาภรณ์
+    // ตำแหน่งวิชาการตามเว็บคณะ: ผู้ช่วยศาสตราจารย์
+    // ตำแหน่งในศูนย์ตามเว็บเดิม: Deputy Head of Research Operations Unit
+    name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
+    nameEn: "Asst. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
+    role: "Deputy Head of Research Operations Unit",
     roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
-    // จากหน้าโปรไฟล์ Teerada.Ne ของเว็บเดิม
     image: media("25218b_89b42fbbe4814a6482683b96cc6f59e7"),
-    alt: "รศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ — ภาพจากหน้า Teerada.Ne เว็บเดิม ComInnoCenter",
+    alt: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ — ภาพจากหน้า Teerada.Ne เว็บเดิม ComInnoCenter",
     education: [
-      "Ph.D. in International Communication, Macquarie University",
-      "Ph.D. in Communication Studies, Chulalongkorn University",
-      "M.A. in Speech and Communication Studies, San Francisco State University",
-      "B.A. in English Language, Chulalongkorn University",
+      "Ph.D. International Communication, Macquarie University, Australia, 2013",
+      "Ph.D. Communication Arts, Chulalongkorn University, Thailand, 2012",
+      "M.A. Speech and Communication Studies, San Francisco State University, USA, 2005",
+      "B.A. English, Chulalongkorn University, Thailand, 2002",
     ],
     work: [
-      "Associate Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
-      "Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
+      "Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2022–Present)",
+      "Assistant Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2009–Present)",
+      "Deputy Dean of Research and International Affairs, 2017",
     ],
     focus:
-      "เชี่ยวชาญด้าน Crisis Communication, Environmental Communications, Persuasion and Negotiation, International Image and Reputation และ Framing Theory / Public Relations Campaigns",
+      "Crisis Communication, Environmental Communications, Persuasion and Negotiation, International Image and Reputation, Framing Theory and Public Relations Campaigns",
+    email: undefined as string | undefined,
   },
   {
     name: "รศ.ดร. Pavel Slutskiy",
     nameEn: "Assoc. Prof. Dr. Pavel Slutskiy",
-    role: "Deputy Head",
+    role: "Deputy Head of Research Operations Unit",
     roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
     image: media("8e0d14_bb83dfe119da43c19b9ba2cc2480023f"),
     alt: "Assoc. Prof. Dr. Pavel Slutskiy รองหัวหน้าศูนย์ — ภาพจากเว็บเดิม ComInnoCenter",
     education: [
       "Ph.D., Saint-Petersburg State University (2008) — Journalism (Political Science)",
-      "M.A./B.A. (cum laude) Public Relations — double degree, Saint-Petersburg State Electrotechnical University & Towson University, USA (1996–2001)",
+      "M.A./B.A. (cum laude) Public Relations — double degree, Saint-Petersburg State Electrotechnical University and Towson University, USA (1996–2001)",
     ],
     work: [
-      "Associate Professor, Faculty of Communication Arts, Chulalongkorn University (2014–present)",
-      "Faculty, Faculty of Journalism, PR and Advertising, Saint-Petersburg State University (2007–2014)",
-      "Faculty, PR Department, Saint-Petersburg State Electrotechnical University (LETI) (2001–2009)",
+      "Associate Professor, Faculty of Communication Arts, Chulalongkorn University (October 2014–Present)",
+      "Faculty, Faculty of Journalism, PR and Advertising, Saint-Petersburg State University (September 2007–September 2014)",
+      "Faculty, PR Department, Saint-Petersburg State Electrotechnical University / LETI (September 2001–September 2009)",
     ],
     focus:
-      "เชี่ยวชาญงานวิจัยด้านการสื่อสาร การเมือง และสื่อระหว่างประเทศ รวมถึงความร่วมมือทางวิชาการระดับนานาชาติ",
+      "Political and legal philosophy of communication, communication theory, cross-cultural communication, strategic communication and public relations",
+    email: "pavel.a@chula.ac.th",
   },
 ];
 
@@ -203,6 +218,13 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-neutral-500">{person.nameEn}</p>
                 <p className="text-xs text-neutral-400 mt-1">{person.role}</p>
+                {person.email && (
+                  <p className="text-sm text-neutral-500 mt-1">
+                    <a href={`mailto:${person.email}`} className="hover:text-pink-500">
+                      {person.email}
+                    </a>
+                  </p>
+                )}
 
                 <p className="mt-5 text-neutral-700 leading-relaxed">{person.focus}</p>
 
@@ -234,7 +256,7 @@ export default function AboutPage() {
         </div>
 
         <p className="mt-10 text-xs text-neutral-400">
-          ภาพและข้อมูลประวัติอ้างอิงจากหน้า About / โปรไฟล์บุคคลของเว็บไซต์เดิม ComInnoCenter
+          ชื่อ ตำแหน่ง และประวัติอ้างอิงจากเว็บไซต์เดิม ComInnoCenter และเว็บทางการคณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
         </p>
       </section>
 
