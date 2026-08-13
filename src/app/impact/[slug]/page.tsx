@@ -29,17 +29,14 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!project) notFound();
 
   const related = projects.filter((p) => p.slug !== slug).slice(0, 3);
+  const gallery = project.gallery?.length ? project.gallery : [{ src: project.image, alt: project.alt }];
 
   return (
     <div className="min-h-screen">
       <Header active="impact" />
 
-      {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">
-        <Link
-          href="/impact"
-          className="text-sm text-pink-500 font-medium hover:text-pink-600"
-        >
+        <Link href="/impact" className="text-sm text-pink-500 font-medium hover:text-pink-600">
           ← กลับไปหน้าผลงาน
         </Link>
         <div className="mt-6 max-w-3xl">
@@ -53,8 +50,8 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Image */}
-      <section className="max-w-7xl mx-auto px-6 pb-12">
+      {/* Cover */}
+      <section className="max-w-7xl mx-auto px-6 pb-8">
         <div className="relative aspect-[21/9] md:aspect-[2.4/1] rounded-2xl overflow-hidden">
           <Image
             src={project.image}
@@ -68,7 +65,7 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       {/* Content */}
-      <section className="max-w-3xl mx-auto px-6 pb-16">
+      <section className="max-w-3xl mx-auto px-6 pb-12">
         <div className="space-y-12">
           <div>
             <h2 className="text-xl font-semibold text-blue-700 mb-3">Challenge</h2>
@@ -87,9 +84,42 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="mt-12 p-6 rounded-2xl bg-neutral-100 border border-neutral-200">
           <p className="text-neutral-700 font-medium">{project.outcome}</p>
         </div>
+
+        {project.sourceUrl && (
+          <p className="mt-6 text-sm text-neutral-500">
+            แหล่งที่มา:{" "}
+            <a
+              href={project.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-500 hover:text-pink-600"
+            >
+              {project.sourceUrl}
+            </a>
+          </p>
+        )}
       </section>
 
-      {/* Related */}
+      {/* Gallery */}
+      {gallery.length > 1 && (
+        <section className="max-w-7xl mx-auto px-6 pb-16">
+          <h2 className="text-2xl font-semibold text-blue-700 mb-6">Gallery</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {gallery.map((img, i) => (
+              <div key={`${img.src}-${i}`} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-neutral-200">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {related.length > 0 && (
         <section className="bg-white border-y border-neutral-200">
           <div className="max-w-7xl mx-auto px-6 py-16">
@@ -123,7 +153,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
       )}
 
-      {/* CTA */}
       <section className="bg-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-6 py-16 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold">
