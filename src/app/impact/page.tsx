@@ -9,7 +9,7 @@ const projects = [
     sdg: "SDG 3",
     sdgLabel: "Good Health",
     image: "https://static.wixstatic.com/media/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg",
-    alt: "ภาพจากกิจกรรมของศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร (ที่มา: cominnocenter.com)",
+    alt: "กิจกรรมนวัตกรรมการสื่อสารเพื่อพัฒนาคุณภาพชีวิต โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
   },
   {
     title: "การพัฒนาศักยภาพบุคลากรด้านสื่อ",
@@ -18,7 +18,7 @@ const projects = [
     sdg: "SDG 4",
     sdgLabel: "Quality Education",
     image: "https://static.wixstatic.com/media/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg",
-    alt: "ภาพทีมงานและกิจกรรมอบรมของศูนย์ (ที่มา: cominnocenter.com)",
+    alt: "การอบรมพัฒนาศักยภาพบุคลากรด้านสื่อและนวัตกรรมการสื่อสาร โดย ComInnoCenter จุฬาลงกรณ์มหาวิทยาลัย",
   },
   {
     title: "ความร่วมมือเพื่อความยั่งยืน",
@@ -27,7 +27,7 @@ const projects = [
     sdg: "SDG 17",
     sdgLabel: "Partnerships",
     image: "https://static.wixstatic.com/media/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg",
-    alt: "ภาพจากโครงการความร่วมมือของศูนย์ (ที่มา: cominnocenter.com)",
+    alt: "เครือข่ายความร่วมมือด้านนวัตกรรมการสื่อสารเพื่อความยั่งยืน ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร",
   },
   {
     title: "แคมเปญรณรงค์เพื่อสังคม",
@@ -36,7 +36,7 @@ const projects = [
     sdg: "SDG 11",
     sdgLabel: "Sustainable Cities",
     image: "https://static.wixstatic.com/media/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg",
-    alt: "ภาพจากโครงการแคมเปญของศูนย์ (ที่มา: cominnocenter.com)",
+    alt: "แคมเปญรณรงค์เพื่อสังคมด้วยนวัตกรรมการสื่อสาร โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร จุฬาฯ",
   },
   {
     title: "วิจัยและประเมินผลโครงการสื่อสาร",
@@ -45,7 +45,7 @@ const projects = [
     sdg: "SDG 12",
     sdgLabel: "Responsible Consumption",
     image: "https://static.wixstatic.com/media/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg",
-    alt: "ภาพจากงานวิจัยและกิจกรรมของศูนย์ (ที่มา: cominnocenter.com)",
+    alt: "งานวิจัยและประเมินผลโครงการสื่อสารเพื่อความยั่งยืน โดย ComInnoCenter คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
   },
   {
     title: "สื่อสร้างสรรค์เพื่อการเรียนรู้",
@@ -54,7 +54,7 @@ const projects = [
     sdg: "SDG 4",
     sdgLabel: "Quality Education",
     image: "https://static.wixstatic.com/media/25218b_bfb45e4c56094da99ba6feba3b842fca~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/dsc00677jpg.jpg",
-    alt: "ภาพจากกิจกรรมสื่อสร้างสรรค์ของศูนย์ (ที่มา: cominnocenter.com)",
+    alt: "สื่อสร้างสรรค์และนวัตกรรมการสื่อสารเพื่อการเรียนรู้ โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร",
   },
 ];
 
