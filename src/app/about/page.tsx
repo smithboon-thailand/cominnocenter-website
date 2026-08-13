@@ -64,11 +64,11 @@ type Leader = {
 
 /**
  * ข้อมูลอ้างอิง:
- * - Faculty directory: https://www.commarts.chula.ac.th/th/department-pr/
- * - Google Scholar Smith: https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en
- * - Kudos Smith: https://www.growkudos.com/profile/smith_boonchutima
- * - Google Scholar Pavel: 1v6dmxQAAAAJ
- * - ISCM: https://www.iscm.commarts.chula.ac.th/faculty-staff/
+ * - Faculty: https://www.commarts.chula.ac.th/th/department-pr/
+ * - Google Scholar Smith: LKEmLP0AAAAJ (Citations 263, h 9, i10 9)
+ * - Scopus Smith: 56167805200 (24 documents, 97 citations, h-index 6)
+ * - Kudos: https://www.growkudos.com/profile/smith_boonchutima
+ * - ORCID: 0000-0001-7412-4506
  */
 const leadership: Leader[] = [
   {
@@ -93,17 +93,30 @@ const leadership: Leader[] = [
       "Health Communication, Risk Communication, Digital Media, Transnational Communication, Social Media Research, Public Relations",
     email: "smith.b@chula.ac.th",
     metrics: [
-      { label: "Citations", value: 263 },
-      { label: "h-index", value: 9 },
-      { label: "i10-index", value: 9 },
+      { label: "Citations (GS)", value: 263 },
+      { label: "h-index (GS)", value: 9 },
+      { label: "Docs (Scopus)", value: 24 },
     ],
     metricsNote:
-      "อ้างอิง Google Scholar (user=LKEmLP0AAAAJ) — Citations 263 · h-index 9 · i10-index 9 (Since 2020: 192 / 9 / 7)",
+      "Google Scholar: Citations 263 · h-index 9 · i10-index 9 | Scopus (ID 56167805200): 24 documents · 97 citations · h-index 6",
     links: [
-      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en" },
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en",
+      },
+      {
+        label: "Scopus",
+        href: "https://www.scopus.com/authid/detail.uri?authorId=56167805200",
+      },
       { label: "ORCID", href: "https://orcid.org/0000-0001-7412-4506" },
-      { label: "ResearchGate", href: "https://www.researchgate.net/profile/Smith-Boonchutima" },
-      { label: "Kudos", href: "https://www.growkudos.com/profile/smith_boonchutima" },
+      {
+        label: "ResearchGate",
+        href: "https://www.researchgate.net/profile/Smith-Boonchutima",
+      },
+      {
+        label: "Kudos",
+        href: "https://www.growkudos.com/profile/smith_boonchutima",
+      },
       {
         label: "Faculty Profile",
         href: "https://www.commarts.chula.ac.th/th/department-pr/",
@@ -223,8 +236,14 @@ const leadership: Leader[] = [
     ],
     metricsNote: "อ้างอิง ResearchGate และ Google Scholar (user=1v6dmxQAAAAJ)",
     links: [
-      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=1v6dmxQAAAAJ&hl=en" },
-      { label: "ResearchGate", href: "https://www.researchgate.net/profile/Pavel-Slutskiy" },
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=1v6dmxQAAAAJ&hl=en",
+      },
+      {
+        label: "ResearchGate",
+        href: "https://www.researchgate.net/profile/Pavel-Slutskiy",
+      },
       {
         label: "Faculty Profile",
         href: "https://www.iscm.commarts.chula.ac.th/faculty-staff/",
@@ -232,7 +251,8 @@ const leadership: Leader[] = [
     ],
     publications: [
       {
-        title: "Companies’ accountability in sustainability: A comparative analysis of SDGs in five countries",
+        title:
+          "Companies’ accountability in sustainability: A comparative analysis of SDGs in five countries",
         venue: "Sustainable Development Goals in the Asian Context",
         year: 2016,
         citations: 47,
@@ -491,8 +511,8 @@ export default function AboutPage() {
 
         <p className="mt-12 text-xs text-neutral-400 max-w-3xl">
           ชื่อ ตำแหน่ง และประวัติอ้างอิงจากเว็บไซต์เดิม ComInnoCenter และเว็บทางการคณะนิเทศศาสตร์ จุฬาฯ
-          (https://www.commarts.chula.ac.th/th/department-pr/) — เว็บคณะแสดงรายชื่อคณาจารย์ในหน้ารายชื่อภาควิชา
-          ไม่มีหน้าโปรไฟล์รายบุคคลแยก ตัวเลข citation ของรศ.ดร.สมิทธิ์ อ้างอิง Google Scholar โดยตรง
+          ตัวเลขของรศ.ดร.สมิทธิ์ อ้างอิง Google Scholar และ Scopus Author ID 56167805200
+          (Scopus มักต่ำกว่า Scholar เพราะนับเฉพาะวารสารในฐานข้อมูล Scopus)
         </p>
       </section>
 
