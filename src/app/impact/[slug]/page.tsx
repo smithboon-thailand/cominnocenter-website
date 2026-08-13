@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ProjectGallery from "@/components/ProjectGallery";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type Props = {
@@ -29,7 +30,10 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!project) notFound();
 
   const related = projects.filter((p) => p.slug !== slug).slice(0, 3);
-  const gallery = project.gallery?.length ? project.gallery : [{ src: project.image, alt: project.alt }];
+  const gallery =
+    project.gallery?.length > 0
+      ? project.gallery
+      : [{ src: project.image, alt: project.alt }];
 
   return (
     <div className="min-h-screen">
@@ -50,7 +54,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Cover */}
       <section className="max-w-7xl mx-auto px-6 pb-8">
         <div className="relative aspect-[21/9] md:aspect-[2.4/1] rounded-2xl overflow-hidden">
           <Image
@@ -64,7 +67,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Content */}
       <section className="max-w-3xl mx-auto px-6 pb-12">
         <div className="space-y-12">
           <div>
@@ -94,29 +96,17 @@ export default async function CaseStudyPage({ params }: Props) {
               rel="noopener noreferrer"
               className="text-pink-500 hover:text-pink-600"
             >
-              {project.sourceUrl}
+              ดูโพสต์ต้นฉบับ
             </a>
           </p>
         )}
       </section>
 
-      {/* Gallery */}
-      {gallery.length > 1 && (
+      {gallery.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 pb-16">
-          <h2 className="text-2xl font-semibold text-blue-700 mb-6">Gallery</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {gallery.map((img, i) => (
-              <div key={`${img.src}-${i}`} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-neutral-200">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-semibold text-blue-700 mb-2">Gallery</h2>
+          <p className="text-sm text-neutral-500 mb-6">คลิกที่ภาพเพื่อดูขนาดใหญ่</p>
+          <ProjectGallery images={gallery} />
         </section>
       )}
 
@@ -144,7 +134,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     <h3 className="font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-sm text-neutral-600">{item.outcome}</p>
+                    <p className="mt-1 text-sm text-neutral-600 line-clamp-2">{item.outcome}</p>
                   </div>
                 </Link>
               ))}
