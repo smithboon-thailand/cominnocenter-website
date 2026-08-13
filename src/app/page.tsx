@@ -1,5 +1,42 @@
 import Link from "next/link";
 
+const expertiseItems = [
+  {
+    title: "การอบรมและพัฒนาศักยภาพ",
+    description: "ออกแบบและจัดอบรมด้านนวัตกรรมการสื่อสารให้กับองค์กร",
+  },
+  {
+    title: "วิจัยและประเมินผล",
+    description: "วิจัยเชิงลึกและประเมินผลโครงการสื่อสารอย่างเป็นระบบ",
+  },
+  {
+    title: "แคมเปญและการสื่อสาร",
+    description: "วางกลยุทธ์และบริหารแคมเปญเพื่อสร้างการเปลี่ยนแปลง",
+  },
+  {
+    title: "วิดีโอและสื่อมัลติมีเดีย",
+    description: "ผลิตสื่อวิดีโอ AR และสื่อสร้างสรรค์คุณภาพสูง",
+  },
+];
+
+const featuredImpact = [
+  {
+    title: "โครงการสื่อสารเพื่อคุณภาพชีวิต",
+    outcome: "สร้างการรับรู้และเปลี่ยนพฤติกรรมในระดับชุมชน",
+    tag: "SDG 3",
+  },
+  {
+    title: "การพัฒนาศักยภาพบุคลากรด้านสื่อ",
+    outcome: "อบรมบุคลากรมากกว่า 1,000 คน จากหลากหลายองค์กร",
+    tag: "SDG 4",
+  },
+  {
+    title: "ความร่วมมือเพื่อความยั่งยืน",
+    outcome: "สร้างเครือข่ายความร่วมมือระหว่างภาครัฐและภาคประชาสังคม",
+    tag: "SDG 17",
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">
@@ -117,6 +154,91 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Selected Expertise */}
+      <section className="bg-white border-y border-neutral-200">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">
+                ความเชี่ยวชาญของเรา
+              </h2>
+              <p className="mt-3 text-neutral-600 max-w-xl">
+                เรามีความเชี่ยวชาญหลากหลายด้าน เพื่อตอบโจทย์การสื่อสารที่สร้างผลกระทบจริง
+              </p>
+            </div>
+            <Link
+              href="/expertise"
+              className="text-pink-500 font-medium hover:text-pink-600 whitespace-nowrap"
+            >
+              ดูทั้งหมด →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {expertiseItems.map((item) => (
+              <div
+                key={item.title}
+                className="group p-6 rounded-2xl border border-neutral-200 bg-neutral-50 hover:border-pink-300 hover:shadow-md transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <div className="w-3 h-3 rounded-full bg-blue-700" />
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Impact */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">
+              ผลงานเด่น
+            </h2>
+            <p className="mt-3 text-neutral-600 max-w-xl">
+              ตัวอย่างโครงการที่สร้างผลกระทบต่อการพัฒนาคุณภาพชีวิตและความยั่งยืน
+            </p>
+          </div>
+          <Link
+            href="/impact"
+            className="text-pink-500 font-medium hover:text-pink-600 whitespace-nowrap"
+          >
+            ดูผลงานทั้งหมด →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredImpact.map((item) => (
+            <div
+              key={item.title}
+              className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="h-48 bg-gradient-to-br from-blue-100 to-pink-100 flex items-center justify-center">
+                <span className="text-sm text-neutral-500">ภาพโครงการ</span>
+              </div>
+              <div className="p-6">
+                <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
+                  {item.tag}
+                </span>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
+                  {item.outcome}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Newsletter Section */}
       <section className="bg-neutral-100 border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
@@ -175,7 +297,6 @@ export default function HomePage() {
       <footer className="bg-neutral-900 text-neutral-300">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Brand */}
             <div>
               <div className="text-white font-semibold text-lg">ComInnoCenter</div>
               <p className="mt-2 text-sm max-w-xs">
@@ -184,7 +305,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Contact */}
             <div className="text-sm">
               <div className="text-white font-medium mb-3">ติดต่อเรา</div>
               <p>อีเมล: comminno@chula.ac.th</p>
@@ -209,7 +329,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Newsletter in Footer */}
             <div>
               <div className="text-white font-medium mb-3">รับข่าวสาร</div>
               <p className="text-sm mb-4">
