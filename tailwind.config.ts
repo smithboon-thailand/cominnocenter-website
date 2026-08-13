@@ -47,7 +47,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Sarabun", "system-ui", "sans-serif"],
+        sans: ["var(--font-sarabun)", "var(--font-inter)", "system-ui", "sans-serif"],
       },
     },
   },
