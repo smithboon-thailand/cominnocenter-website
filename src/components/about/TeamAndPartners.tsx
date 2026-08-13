@@ -92,7 +92,6 @@ export default function TeamAndPartners() {
         <p className="mt-8 text-xs text-neutral-400 max-w-3xl">
           ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) และ ดร.Robbie Buelo — ทุน C2F High-Potential Postdoctoral Fellowship
           · Thinley Lhendup — ปริญญาเอกหลักสูตร Environment, Development and Sustainability (EDS) จุฬาฯ
-          · รูปยังไม่มีในระบบ แสดงเป็นอักษรย่อชั่วคราว — ส่งรูปมาได้จะอัปเดตให้
         </p>
       </section>
 
@@ -142,30 +141,35 @@ export default function TeamAndPartners() {
         </div>
       </section>
 
-      {/* Partners / Clients */}
+      {/* Partners / Clients — full logos, no crop */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <Reveal>
-          <div className="mb-10 text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">พันธมิตรและองค์กรที่ร่วมงาน</h2>
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
+              พันธมิตรและองค์กรที่ร่วมงาน
+            </h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
               องค์กรที่เคยร่วมงานและสนับสนุนโครงการของศูนย์ (Our Clients จากเว็บเดิม)
             </p>
           </div>
         </Reveal>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6">
           {partners.map((p, i) => (
             <Reveal key={p.nameEn} delay={i * 40}>
-              <div className="flex flex-col items-center gap-2 p-4 rounded-xl border border-neutral-100 bg-white hover:border-pink-200 hover:shadow-sm transition-all">
-                <div className="relative w-full h-16">
+              <div className="flex flex-col items-center justify-center gap-3 p-5 md:p-6 rounded-2xl border border-neutral-100 bg-white hover:border-pink-200 hover:shadow-md transition-all min-h-[140px]">
+                <div className="relative w-full h-20 md:h-24">
                   <Image
                     src={p.image}
                     alt={p.alt}
                     fill
-                    className="object-contain"
-                    sizes="160px"
+                    className="object-contain p-1"
+                    sizes="(max-width: 768px) 45vw, 200px"
+                    unoptimized
                   />
                 </div>
-                <p className="text-[11px] text-neutral-500 text-center leading-tight">{p.name}</p>
+                <p className="text-xs text-neutral-600 text-center leading-tight font-medium">
+                  {p.name}
+                </p>
               </div>
             </Reveal>
           ))}
