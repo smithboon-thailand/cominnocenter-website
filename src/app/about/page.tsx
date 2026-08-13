@@ -64,11 +64,9 @@ type Leader = {
 
 /**
  * ข้อมูลอ้างอิง:
- * - cominnocenter.com/about, /blank, /about/teerada-ne
+ * - cominnocenter.com/about, /blank (Smith.B), /about/teerada-ne
  * - Google Scholar (Smith: LKEmLP0AAAAJ, Pavel: 1v6dmxQAAAAJ)
  * - AD Scientific Index / ResearchGate / ORCID / Faculty of Communication Arts
- * - LinkedIn: Teerada เท่านั้นที่มีโปรไฟล์ยืนยันได้ชัด
- * - Kudos: ยังไม่พบโปรไฟล์สาธารณะที่ยืนยันได้ จึงใช้ ORCID / ResearchGate แทนช่องที่ 3
  */
 const leadership: Leader[] = [
   {
@@ -102,6 +100,7 @@ const leadership: Leader[] = [
       { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en" },
       { label: "ORCID", href: "https://orcid.org/0000-0001-7412-4506" },
       { label: "ResearchGate", href: "https://www.researchgate.net/profile/Smith-Boonchutima" },
+      { label: "Faculty Profile", href: "https://www.cominnocenter.com/blank" },
     ],
     publications: [
       {
@@ -274,7 +273,6 @@ export default function AboutPage() {
     <div className="min-h-screen overflow-x-hidden">
       <Header active="about" />
 
-      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-pink-400/15 blur-3xl animate-float-slow" />
@@ -298,7 +296,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <Reveal>
@@ -335,7 +332,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Objectives */}
       <section className="bg-white border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <Reveal>
@@ -356,7 +352,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <Reveal>
           <div className="mb-14">
@@ -407,7 +402,6 @@ export default function AboutPage() {
 
                     <AcademicLinks links={person.links} />
 
-                    {/* Metrics */}
                     <div className="mt-6 grid grid-cols-3 gap-3">
                       {person.metrics.map((m) => (
                         <div
@@ -448,7 +442,6 @@ export default function AboutPage() {
                       </div>
                     </div>
 
-                    {/* Top publications */}
                     <div className="mt-8">
                       <h4 className="text-sm font-semibold text-blue-700 mb-3">ผลงานเด่น</h4>
                       <div className="space-y-3">
@@ -489,12 +482,10 @@ export default function AboutPage() {
         <p className="mt-12 text-xs text-neutral-400 max-w-3xl">
           ชื่อ ตำแหน่ง และประวัติอ้างอิงจากเว็บไซต์เดิม ComInnoCenter และเว็บทางการคณะนิเทศศาสตร์ จุฬาฯ
           ตัวเลข citation / h-index อ้างอิง Google Scholar, AD Scientific Index และ ResearchGate ณ เวลาที่รวบรวมข้อมูล
-          — อาจมีการอัปเดตตามเวลา ลิงก์ LinkedIn แสดงเฉพาะโปรไฟล์ที่ยืนยันได้
-          (ยังไม่พบโปรไฟล์ Kudos สาธารณะของทั้งสามท่าน จึงใช้ ORCID / ResearchGate แทน)
+          — อาจมีการอัปเดตตามเวลา
         </p>
       </section>
 
-      {/* CTA */}
       <section className="relative overflow-hidden bg-blue-700 text-white">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-pink-500 blur-3xl animate-float-slow" />
