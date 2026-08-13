@@ -31,8 +31,9 @@ export const postdocs: TeamMember[] = [
     focus:
       "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
-    // ยังไม่พบรูปสาธารณะคุณภาพดีออนไลน์ — แสดงอักษรย่อจนกว่าจะได้รับรูปจากศูนย์
-    alt: "ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F",
+    image:
+      "https://static.wixstatic.com/media/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_90,enc_auto/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg",
+    alt: "ดร.พยู ฮนิน ไหล่ (Rashida / Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก thesharpener.school",
     links: [
       {
         label: "Google Scholar",
@@ -78,7 +79,6 @@ export const phdCandidates: TeamMember[] = [
     focus:
       "Digital communication preferences and environmental behavior; youth waste management education in Bhutan",
     funding: "PhD scholarship (C2F / related funding) · co-research with the Center",
-    // ยังไม่พบรูปสาธารณะออนไลน์ — แสดงอักษรย่อจนกว่าจะได้รับรูปจากศูนย์
     alt: "Thinley Lhendup นักศึกษาปริญญาเอกหลักสูตร EDS จุฬาฯ ที่ร่วมงานกับศูนย์",
     links: [
       {
@@ -92,13 +92,13 @@ export const phdCandidates: TeamMember[] = [
 /** นักวิจัยร่วม (จากเว็บเดิม — นอกเหนือจากอาจารย์ประจำศูนย์ 3 ท่าน) */
 export const affiliatedResearchers: TeamMember[] = [
   {
-    name: "ดร.อัจฉรา บุญชุ่ม",
+    name: "ดร.อัจฉรา บุญชุม",
     nameEn: "Dr. Atchara Boonchum",
     roleTh: "นักวิจัย",
     role: "Researcher",
     affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_41e6a251793c40019370309bce59a0d3"),
-    alt: "ดร.อัจฉรา บุญชุ่ม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
+    alt: "ดร.อัจฉรา บุญชุม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
     name: "รศ.ดร.ไวพจน์ จันทร์เสม",
