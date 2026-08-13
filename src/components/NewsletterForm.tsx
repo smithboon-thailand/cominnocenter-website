@@ -18,7 +18,7 @@ export default function NewsletterForm({ variant = "light" }: NewsletterFormProp
 
     try {
       // เปลี่ยน YOUR_NEWSLETTER_FORM_ID เป็น Formspree ID จริง
-      const res = await fetch("https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID", {
+      const res = await fetch("https://formspree.io/f/mdenzqkp", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
