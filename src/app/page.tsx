@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const expertiseItems = [
   {
@@ -51,7 +52,6 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Header active="home" />
 
-      {/* Hero */}
       <section className="relative max-w-7xl mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
@@ -83,7 +83,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Impact Highlights */}
       <section className="bg-white border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -107,7 +106,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* The Center Brief */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">เกี่ยวกับศูนย์</h2>
@@ -125,7 +123,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Selected Expertise */}
       <section className="bg-white border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
@@ -164,7 +161,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Impact */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
@@ -210,32 +206,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter */}
       <section className="bg-neutral-100 border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-blue-700">
               รับข่าวสารและโอกาสความร่วมมือ
             </h2>
-            <p className="mt-4 text-neutral-600">
+            <p className="mt-4 text-neutral-600 mb-8">
               สมัครรับจดหมายข่าวจากศูนย์ เพื่อติดตามผลงาน โอกาสอบรม
               และช่องทาง Collaborate ใหม่ๆ
             </p>
-            <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="อีเมลของคุณ"
-                className="flex-1 px-4 py-3 rounded-lg border border-neutral-300 bg-white text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors whitespace-nowrap"
-              >
-                สมัครรับข่าวสาร
-              </button>
-            </form>
+            <div className="max-w-md mx-auto">
+              <NewsletterForm variant="light" />
+            </div>
             <p className="mt-4 text-xs text-neutral-500">
               เราจะไม่ส่งสแปม และคุณสามารถยกเลิกได้ทุกเมื่อ
             </p>
@@ -243,7 +226,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="bg-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-6 py-20 text-center">
           <h2 className="text-3xl md:text-4xl font-semibold">
