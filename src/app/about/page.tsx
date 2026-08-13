@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,27 +27,69 @@ const objectives = [
   },
 ];
 
+const media = (id: string, ext: string = "jpg") =>
+  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_800,h_1000,al_c,q_85,enc_auto/${id}~mv2.${ext}`;
+
 const leadership = [
   {
     name: "รศ.ดร.สมิทธ์ บุญชุติมา",
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
     role: "Head of the Center",
-    roleTh: "ผู้อำนวยการศูนย์",
-    focus: "นวัตกรรมการสื่อสาร · การพัฒนาคุณภาพชีวิต",
+    roleTh: "หัวหน้าศูนย์ / Head of Research Operations Unit",
+    image: media("8e0d14_27002b53ad3f4a7483a8a841792edda7"),
+    alt: "รศ.ดร.สมิทธ์ บุญชุติมา หัวหน้าศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร — ภาพจากเว็บเดิม ComInnoCenter",
+    education: [
+      "Ph.D. in Sports Science (Health Promotion), Chulalongkorn University, 2018",
+      "M.A. Transnational Communications & Global Media, Goldsmiths, University of London",
+      "M.A. in Mass Communication (Advertising), Chulalongkorn University, 2000",
+      "B.Com.Arts (Advertising), First-Class Honors, Chulalongkorn University, 2000",
+    ],
+    work: [
+      "Associate Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
+      "President, Asian Congress for Media and Communication (ACMC)",
+      "Former international television commercial producer, Hub Ho Hin Bangkok",
+    ],
+    focus:
+      "สนใจงานวิจัยด้านการสื่อสารข้ามชาติ สื่อใหม่ การสื่อสารสุขภาพ และการสื่อสารเพื่อการเรียนรู้ เคยได้รับรางวัลจากจุฬาลงกรณ์มหาวิทยาลัยด้านการสอนในสาขาสังคมศาสตร์",
   },
   {
-    name: "ผศ.ดร.ธีรดา ชาญวิเศษ",
+    name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
     nameEn: "Asst. Prof. Dr. Teerada Chongkolrattanaporn",
     role: "Deputy Head",
-    roleTh: "รองผู้อำนวยการ",
-    focus: "การสื่อสารเพื่อสังคม · การวิจัย",
+    roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
+    image: media("8e0d14_5a96e0382f644f8a89821a9ad06438f5"),
+    alt: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ — ภาพจากเว็บเดิม ComInnoCenter",
+    education: [
+      "Ph.D. in International Communication, Macquarie University",
+      "Ph.D. in Communication Studies, Chulalongkorn University",
+      "M.A. in Speech and Communication Studies, San Francisco State University",
+      "B.A. in English Language, Chulalongkorn University",
+    ],
+    work: [
+      "Assistant Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2009–present)",
+      "Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
+    ],
+    focus:
+      "เชี่ยวชาญด้านการประชาสัมพันธ์ การสื่อสารระหว่างประเทศ และการพัฒนาศักยภาพบุคลากรผ่านการอบรมและการวิจัย",
   },
   {
-    name: "Dr. Pavel Slutskiy",
-    nameEn: "Dr. Pavel Slutskiy",
+    name: "รศ.ดร. Pavel Slutskiy",
+    nameEn: "Assoc. Prof. Dr. Pavel Slutskiy",
     role: "Deputy Head",
-    roleTh: "รองผู้อำนวยการ",
-    focus: "Communication Research · International Collaboration",
+    roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
+    image: media("8e0d14_bb83dfe119da43c19b9ba2cc2480023f"),
+    alt: "Assoc. Prof. Dr. Pavel Slutskiy รองหัวหน้าศูนย์ — ภาพจากเว็บเดิม ComInnoCenter",
+    education: [
+      "Ph.D., Saint-Petersburg State University (2008) — Journalism (Political Science)",
+      "M.A./B.A. (cum laude) Public Relations — double degree, Saint-Petersburg State Electrotechnical University & Towson University, USA (1996–2001)",
+    ],
+    work: [
+      "Associate Professor, Faculty of Communication Arts, Chulalongkorn University (2014–present)",
+      "Faculty, Faculty of Journalism, PR and Advertising, Saint-Petersburg State University (2007–2014)",
+      "Faculty, PR Department, Saint-Petersburg State Electrotechnical University (LETI) (2001–2009)",
+    ],
+    focus:
+      "เชี่ยวชาญงานวิจัยด้านการสื่อสาร การเมือง และสื่อระหว่างประเทศ รวมถึงความร่วมมือทางวิชาการระดับนานาชาติ",
   },
 ];
 
@@ -55,7 +98,6 @@ export default function AboutPage() {
     <div className="min-h-screen">
       <Header active="about" />
 
-      {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="max-w-3xl">
           <p className="text-sm font-medium text-pink-500 mb-3">เกี่ยวกับเรา</p>
@@ -71,7 +113,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
@@ -106,7 +147,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3 Objectives */}
       <section className="bg-white border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-10">
@@ -125,9 +165,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="mb-10">
+        <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
             ผู้นำของศูนย์
           </h2>
@@ -137,35 +176,68 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {leadership.map((person) => (
-            <div
-              key={person.name}
-              className="rounded-2xl border border-neutral-200 bg-white overflow-hidden hover:shadow-md transition-shadow"
+        <div className="space-y-16">
+          {leadership.map((person, index) => (
+            <article
+              key={person.nameEn}
+              className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start ${
+                index % 2 === 1 ? "md:direction-rtl" : ""
+              }`}
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-neutral-100 to-pink-100 flex items-center justify-center">
-                <div className="text-center px-4">
-                  <div className="w-16 h-16 rounded-full bg-white/80 mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl font-semibold text-blue-700">
-                      {person.nameEn.charAt(0)}
-                    </span>
-                  </div>
-                  <p className="text-xs text-neutral-500">รูปภาพจะอัปเดตเร็วๆ นี้</p>
+              <div className={`md:col-span-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-100">
+                  <Image
+                    src={person.image}
+                    alt={person.alt}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-neutral-900">{person.name}</h3>
-                <p className="text-sm text-neutral-500 mt-0.5">{person.nameEn}</p>
-                <p className="text-sm font-medium text-pink-500 mt-3">{person.roleTh}</p>
-                <p className="text-xs text-neutral-500">{person.role}</p>
-                <p className="text-sm text-neutral-600 mt-3">{person.focus}</p>
+
+              <div className={`md:col-span-8 ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                <p className="text-sm font-medium text-pink-500">{person.roleTh}</p>
+                <h3 className="mt-1 text-2xl md:text-3xl font-semibold text-neutral-900">
+                  {person.name}
+                </h3>
+                <p className="text-neutral-500">{person.nameEn}</p>
+                <p className="text-xs text-neutral-400 mt-1">{person.role}</p>
+
+                <p className="mt-5 text-neutral-700 leading-relaxed">{person.focus}</p>
+
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-sm font-semibold text-blue-700 mb-2">ประวัติการศึกษา</h4>
+                    <ul className="space-y-2 text-sm text-neutral-600 leading-relaxed">
+                      {person.education.map((item) => (
+                        <li key={item} className="pl-3 border-l-2 border-pink-200">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-blue-700 mb-2">ประสบการณ์การทำงาน</h4>
+                    <ul className="space-y-2 text-sm text-neutral-600 leading-relaxed">
+                      {person.work.map((item) => (
+                        <li key={item} className="pl-3 border-l-2 border-blue-200">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
+
+        <p className="mt-10 text-xs text-neutral-400">
+          ภาพและข้อมูลประวัติอ้างอิงจากหน้า About ของเว็บไซต์เดิม ComInnoCenter และข้อมูลสาธารณะของคณะนิเทศศาสตร์ จุฬาฯ
+        </p>
       </section>
 
-      {/* CTA */}
       <section className="bg-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-6 py-16 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold">สนใจร่วมงานกับเรา?</h2>
