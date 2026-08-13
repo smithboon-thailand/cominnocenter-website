@@ -36,8 +36,9 @@ const leadership = [
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
     role: "Head of the Center",
     roleTh: "หัวหน้าศูนย์ / Head of Research Operations Unit",
-    image: media("8e0d14_27002b53ad3f4a7483a8a841792edda7"),
-    alt: "รศ.ดร.สมิทธ์ บุญชุติมา หัวหน้าศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร — ภาพจากเว็บเดิม ComInnoCenter",
+    // จากหน้า Smith.B ของเว็บเดิม (ไม่ใช่รูป อ.วรรษยุต)
+    image: media("8e0d14_ecc50ab1da21439b9bc9043a1e5c9b6b"),
+    alt: "รศ.ดร.สมิทธ์ บุญชุติมา หัวหน้าศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร — ภาพจากหน้า Smith.B เว็บเดิม ComInnoCenter",
     education: [
       "Ph.D. in Sports Science (Health Promotion), Chulalongkorn University, 2018",
       "M.A. Transnational Communications & Global Media, Goldsmiths, University of London",
@@ -53,12 +54,13 @@ const leadership = [
       "สนใจงานวิจัยด้านการสื่อสารข้ามชาติ สื่อใหม่ การสื่อสารสุขภาพ และการสื่อสารเพื่อการเรียนรู้ เคยได้รับรางวัลจากจุฬาลงกรณ์มหาวิทยาลัยด้านการสอนในสาขาสังคมศาสตร์",
   },
   {
-    name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
-    nameEn: "Asst. Prof. Dr. Teerada Chongkolrattanaporn",
+    name: "รศ.ดร.ธีรดา จงกลรัตนาภรณ์",
+    nameEn: "Assoc. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
     role: "Deputy Head",
     roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
-    image: media("8e0d14_5a96e0382f644f8a89821a9ad06438f5"),
-    alt: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ — ภาพจากเว็บเดิม ComInnoCenter",
+    // จากหน้าโปรไฟล์ Teerada.Ne ของเว็บเดิม
+    image: media("25218b_89b42fbbe4814a6482683b96cc6f59e7"),
+    alt: "รศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ — ภาพจากหน้า Teerada.Ne เว็บเดิม ComInnoCenter",
     education: [
       "Ph.D. in International Communication, Macquarie University",
       "Ph.D. in Communication Studies, Chulalongkorn University",
@@ -66,11 +68,11 @@ const leadership = [
       "B.A. in English Language, Chulalongkorn University",
     ],
     work: [
-      "Assistant Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University (2009–present)",
+      "Associate Professor, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
       "Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
     ],
     focus:
-      "เชี่ยวชาญด้านการประชาสัมพันธ์ การสื่อสารระหว่างประเทศ และการพัฒนาศักยภาพบุคลากรผ่านการอบรมและการวิจัย",
+      "เชี่ยวชาญด้าน Crisis Communication, Environmental Communications, Persuasion and Negotiation, International Image and Reputation และ Framing Theory / Public Relations Campaigns",
   },
   {
     name: "รศ.ดร. Pavel Slutskiy",
@@ -180,9 +182,7 @@ export default function AboutPage() {
           {leadership.map((person, index) => (
             <article
               key={person.nameEn}
-              className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start ${
-                index % 2 === 1 ? "md:direction-rtl" : ""
-              }`}
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start"
             >
               <div className={`md:col-span-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-100">
@@ -234,7 +234,7 @@ export default function AboutPage() {
         </div>
 
         <p className="mt-10 text-xs text-neutral-400">
-          ภาพและข้อมูลประวัติอ้างอิงจากหน้า About ของเว็บไซต์เดิม ComInnoCenter และข้อมูลสาธารณะของคณะนิเทศศาสตร์ จุฬาฯ
+          ภาพและข้อมูลประวัติอ้างอิงจากหน้า About / โปรไฟล์บุคคลของเว็บไซต์เดิม ComInnoCenter
         </p>
       </section>
 
