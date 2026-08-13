@@ -1,16 +1,20 @@
-import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const collaborationWays = [
   {
     title: "Partnership",
+    titleTh: "ความร่วมมือเชิงโครงการ",
     description: "ร่วมพัฒนาโครงการและสร้างผลกระทบระยะยาวร่วมกัน",
   },
   {
     title: "Training & Capacity Building",
+    titleTh: "การอบรมและพัฒนาศักยภาพ",
     description: "ออกแบบและจัดอบรมด้านนวัตกรรมการสื่อสารให้กับองค์กรของคุณ",
   },
   {
     title: "Research & Evaluation",
+    titleTh: "วิจัยและประเมินผล",
     description: "วิจัยและประเมินผลโครงการสื่อสารอย่างเป็นระบบและน่าเชื่อถือ",
   },
 ];
@@ -18,37 +22,8 @@ const collaborationWays = [
 export default function CollaboratePage() {
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-neutral-50/90 backdrop-blur-md border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="text-xl font-semibold tracking-tight text-blue-700">
-            ComInnoCenter
-          </Link>
+      <Header active="collaborate" />
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-700">
-            <Link href="/about" className="hover:text-pink-500 transition-colors">
-              เกี่ยวกับเรา
-            </Link>
-            <Link href="/expertise" className="hover:text-pink-500 transition-colors">
-              ความเชี่ยวชาญ
-            </Link>
-            <Link href="/impact" className="hover:text-pink-500 transition-colors">
-              ผลงาน
-            </Link>
-            <Link href="/collaborate" className="text-pink-500 font-semibold">
-              ร่วมงานกับเรา
-            </Link>
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <button className="text-sm font-medium text-neutral-600 hover:text-blue-700">
-              EN
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
@@ -64,7 +39,6 @@ export default function CollaboratePage() {
         </div>
       </section>
 
-      {/* Ways to Collaborate */}
       <section className="max-w-7xl mx-auto px-6 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {collaborationWays.map((item) => (
@@ -75,18 +49,17 @@ export default function CollaboratePage() {
               <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4">
                 <div className="w-3 h-3 rounded-full bg-blue-700" />
               </div>
-              <h3 className="text-lg font-semibold text-neutral-900">{item.title}</h3>
+              <h3 className="text-lg font-semibold text-neutral-900">{item.titleTh}</h3>
+              <p className="text-sm text-neutral-500 mt-0.5">{item.title}</p>
               <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Contact Form + Direct Contact */}
       <section className="bg-white border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Form */}
             <div className="lg:col-span-3">
               <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-2">
                 ส่งข้อความถึงเรา
@@ -183,7 +156,6 @@ export default function CollaboratePage() {
               </form>
             </div>
 
-            {/* Direct Contact */}
             <div className="lg:col-span-2">
               <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-200 h-full">
                 <h3 className="text-xl font-semibold text-blue-700 mb-6">
@@ -250,7 +222,6 @@ export default function CollaboratePage() {
         </div>
       </section>
 
-      {/* Newsletter */}
       <section className="bg-neutral-100">
         <div className="max-w-7xl mx-auto px-6 py-14">
           <div className="max-w-xl mx-auto text-center">
@@ -279,32 +250,7 @@ export default function CollaboratePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-neutral-900 text-neutral-300">
-        <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="flex flex-col md:flex-row justify-between gap-6">
-            <div>
-              <div className="text-white font-semibold">ComInnoCenter</div>
-              <p className="mt-1 text-sm">
-                คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
-              </p>
-            </div>
-            <div className="text-sm">
-              <a href="mailto:comminno@chula.ac.th" className="hover:text-pink-400">
-                comminno@chula.ac.th
-              </a>
-              <span className="mx-2">·</span>
-              <a href="tel:022182262" className="hover:text-pink-400">
-                02-218-2262
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 pt-6 border-t border-neutral-800 text-xs text-neutral-500">
-            © {new Date().getFullYear()} Center of Excellence in Communication Innovation,
-            Faculty of Communication Arts, Chulalongkorn University
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
