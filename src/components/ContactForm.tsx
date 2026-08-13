@@ -15,7 +15,7 @@ export default function ContactForm() {
     try {
       // ใช้ Formspree — เปลี่ยน YOUR_FORM_ID เป็น ID จริงหลังจากสมัครที่ formspree.io
       // หรือเปลี่ยน action เป็น endpoint ของตัวเอง
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const res = await fetch("https://formspree.io/f/mgawygve", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
