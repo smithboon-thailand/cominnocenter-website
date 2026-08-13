@@ -1,6 +1,9 @@
 /**
  * ทีมผู้ช่วยวิจัย / นักออกแบบ / นักวิจัยร่วม / Postdoc / PhD
  * ดึงจากหน้า About ของเว็บเดิม + ข้อมูลจากศูนย์ (C2F / EDS)
+ *
+ * หมายเหตุ: นักวิจัยร่วม / ผู้ช่วยวิจัย / นักออกแบบ — ไม่ใส่สังกัดศูนย์
+ * เพราะอาจทำงานหลายที่ และไม่ต้องการให้เกิดปัญหาด้านสังกัด
  */
 
 const media = (id: string, ext: string = "jpg") =>
@@ -90,14 +93,13 @@ export const phdCandidates: TeamMember[] = [
   },
 ];
 
-/** นักวิจัยร่วม (จากเว็บเดิม — นอกเหนือจากอาจารย์ประจำศูนย์ 3 ท่าน) */
+/** นักวิจัยร่วม — ไม่ใส่สังกัดศูนย์ */
 export const affiliatedResearchers: TeamMember[] = [
   {
     name: "ดร.อัจฉรา บุญชุม",
     nameEn: "Dr. Atchara Boonchum",
     roleTh: "นักวิจัย",
     role: "Researcher",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     // ไฟล์บนเว็บเดิมเป็น .png ไม่ใช่ .jpg
     image: media("8e0d14_41e6a251793c40019370309bce59a0d3", "png"),
     alt: "ดร.อัจฉรา บุญชุม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
@@ -107,20 +109,18 @@ export const affiliatedResearchers: TeamMember[] = [
     nameEn: "Assoc. Prof. Dr. Wai Phan Chansem",
     roleTh: "นักวิจัย",
     role: "Researcher",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_1c1c8fde9c5c4013892804a6d82da63e"),
     alt: "รศ.ดร.ไวพจน์ จันทร์เสม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
 ];
 
-/** ผู้ช่วยวิจัย */
+/** ผู้ช่วยวิจัย — ไม่ใส่สังกัดศูนย์ */
 export const researchAssistants: TeamMember[] = [
   {
     name: "วรรณวิสา เวชประสิทธิ์",
     nameEn: "Wanwisa Wetchprasit",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_de18afe153e9498ba2f6886f70a2ef35"),
     alt: "วรรณวิสา เวชประสิทธิ์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
@@ -129,7 +129,6 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Chanapa Itthiamornkulchai",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_31a4089134c7492b9152bb547c2e358c", "png"),
     alt: "ชนาภา อิทธิอมรกุลชัย ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
@@ -138,7 +137,6 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Supatra Petchree",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_1e13d671d6524c9e8a3e394adc2a3bcc"),
     alt: "สุพัตรา เพ็ชรี ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
@@ -147,7 +145,6 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Ekasit Sumana",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_17484343fc0b423e86bf30bc9954242b"),
     alt: "เอกสิทธิ์ สุมนา ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
@@ -156,7 +153,6 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Hrut Sitthipuwabun",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a", "png"),
     alt: "หฤทัย สิทธิภูวบุณย์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
@@ -165,20 +161,18 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Thavin Chaemchaeng",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_7fd4bdf8ae7b48efac5cf79fc4fdd215"),
     alt: "ธวินท์ แจ่มแจ้ง ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
 ];
 
-/** นักออกแบบมัลติมีเดีย */
+/** นักออกแบบมัลติมีเดีย — ไม่ใส่สังกัดศูนย์ */
 export const designers: TeamMember[] = [
   {
     name: "พรปวีณ์ ทิวทิพย์สกุล",
     nameEn: "Pornpavee Thiuthipsakul",
     roleTh: "นักออกแบบมัลติมีเดีย",
     role: "Multimedia Designer",
-    affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
     image: media("8e0d14_583440d112834e438b0d6b8215b45858"),
     alt: "พรปวีณ์ ทิวทิพย์สกุล นักออกแบบมัลติมีเดีย — ภาพจากเว็บเดิม ComInnoCenter",
   },
