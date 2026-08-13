@@ -1,12 +1,14 @@
 /**
  * อาจารย์นักวิจัยประจำศูนย์ (Researchers)
- * แหล่งอ้างอิง:
- * - https://www.commarts.chula.ac.th/th/department-pr/
- * - Google Scholar Watsayut: wyldatkAAAAJ
- * - Google Scholar Wattana: RKI-mqcAAAAJ
- * - https://ee.eng.chula.ac.th/lunchakorn-wuttisittikulkij/
- * รูป Watsayut / Wattana ใช้ proxy ผ่าน images.weserv.nl เพราะ
- *   scholar.googleusercontent.com มักถูกบล็อกตอน next/image optimize บน Vercel
+ *
+ * แหล่งรูปภาพ:
+ * - ดร.วรรษยุต: ช่อง YouTube ทางการของท่าน (channel avatar)
+ *   https://www.youtube.com/@WatsayutKongchan / UC6Bqg8a_jZFUr2__YxmaXjw
+ * - ศ.ดร.วธนน์: ข่าวจุฬาฯ รางวัลนักวิจัยดีเด่นแห่งชาติ 2565
+ *   https://www.chula.ac.th/news/58581/
+ *   https://www.chula.ac.th/wp-content/uploads/2022/01/C695B217-A394-4444-A123-08A87085054C-1.jpg
+ * - ศ.ดร.ลัญฉกร: ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์
+ *   https://ee.eng.chula.ac.th/wp-content/uploads/2025/09/LWK2.jpg
  */
 
 export type Researcher = {
@@ -22,12 +24,6 @@ export type Researcher = {
   links: { label: string; href: string }[];
 };
 
-/** Proxy Google Scholar portrait so Next/Image can load it on Vercel */
-const scholarPhoto = (userId: string) =>
-  `https://images.weserv.nl/?url=${encodeURIComponent(
-    `https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=${userId}&citpid=1`
-  )}&w=800&h=1000&fit=cover&output=jpg`;
-
 export const researchers: Researcher[] = [
   {
     name: "ดร.วรรษยุต คงจันทร์",
@@ -38,8 +34,9 @@ export const researchers: Researcher[] = [
       "อาจารย์ ภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "การสื่อสารประเด็นสังคม นวัตกรรมการสื่อสาร และการเชื่อมโยงสังคม — รองคณบดีคณะนิเทศศาสตร์ ด้านบริการวิชาการและเชื่อมโยงสังคม",
-    image: scholarPhoto("wyldatkAAAAJ"),
-    alt: "ดร.วรรษยุต คงจันทร์ นักวิจัยประจำศูนย์ — ภาพจาก Google Scholar (user=wyldatkAAAAJ) / คณะนิเทศศาสตร์ จุฬาฯ",
+    image:
+      "https://yt3.googleusercontent.com/ytc/AIdro_m1qfmIOSFu6yvHXJxdWd5q4sDUFEnIMZiKoQTzGRorMkw=s800-c-k-c0x00ffffff-no-rj",
+    alt: "ดร.วรรษยุต คงจันทร์ นักวิจัยประจำศูนย์ — ภาพจากช่อง YouTube ทางการของท่าน (คณะนิเทศศาสตร์ จุฬาฯ)",
     links: [
       {
         label: "Google Scholar",
@@ -48,6 +45,10 @@ export const researchers: Researcher[] = [
       {
         label: "ORCID",
         href: "https://orcid.org/0000-0002-7868-3249",
+      },
+      {
+        label: "YouTube",
+        href: "https://www.youtube.com/@WatsayutKongchan",
       },
       {
         label: "Faculty Profile",
@@ -64,8 +65,9 @@ export const researchers: Researcher[] = [
       "ศาสตราจารย์ ภาควิชาสถิติ (Business Information Technology) คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "Blockchain, Internet of Things, Business Process Management, Service Workflows, Cyber-Physical Systems",
-    image: scholarPhoto("RKI-mqcAAAAJ"),
-    alt: "ศ.ดร.วธนน์ วิริยสิทธาวัฒน์ นักวิจัยประจำศูนย์ — ภาพจาก Google Scholar (user=RKI-mqcAAAAJ) / คณะพาณิชยศาสตร์และการบัญชี จุฬาฯ",
+    image:
+      "https://www.chula.ac.th/wp-content/uploads/2022/01/C695B217-A394-4444-A123-08A87085054C-1.jpg",
+    alt: "ศ.ดร.วธนน์ วิริยสิทธาวัฒน์ นักวิจัยประจำศูนย์ — ภาพจากข่าวจุฬาฯ รางวัลนักวิจัยดีเด่นแห่งชาติ 2565",
     links: [
       {
         label: "Google Scholar",
@@ -74,6 +76,10 @@ export const researchers: Researcher[] = [
       {
         label: "ResearchGate",
         href: "https://www.researchgate.net/profile/Wattana-Viriyasitavat",
+      },
+      {
+        label: "Chula News",
+        href: "https://www.chula.ac.th/news/58581/",
       },
     ],
   },
