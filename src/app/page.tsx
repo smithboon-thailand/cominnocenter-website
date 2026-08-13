@@ -59,7 +59,6 @@ export default function HomePage() {
     <div className="min-h-screen overflow-x-hidden">
       <Header active="home" />
 
-      {/* Parallax Hero + Innovation Graphics */}
       <ParallaxHero>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
@@ -85,7 +84,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={240}>
               <p className="mt-8 text-lg text-neutral-700 max-w-xl leading-relaxed">
-                ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน
+                ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน
                 คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
               </p>
             </Reveal>
@@ -107,7 +106,6 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Innovation graphic panel */}
           <div className="lg:col-span-5 relative hidden lg:block">
             <Reveal direction="right" delay={200}>
               <div className="relative aspect-square max-w-md ml-auto">
@@ -123,7 +121,6 @@ export default function HomePage() {
                     <div className="mt-2 text-[10px] text-pink-500 font-medium">COMM · INNO · SDG</div>
                   </div>
                 </div>
-                {/* Orbit dots */}
                 <span className="absolute top-8 left-1/2 w-3 h-3 -ml-1.5 rounded-full bg-pink-500 shadow-lg shadow-pink-500/40 animate-pulse-glow" />
                 <span className="absolute bottom-12 right-10 w-2.5 h-2.5 rounded-full bg-blue-700 shadow-lg shadow-blue-700/30" />
                 <span className="absolute top-1/3 left-8 w-2 h-2 rounded-full bg-amber-400" />
@@ -134,7 +131,6 @@ export default function HomePage() {
         </div>
       </ParallaxHero>
 
-      {/* SDG marquee strip */}
       <div className="border-y border-neutral-200 bg-white/80 backdrop-blur overflow-hidden">
         <div className="flex whitespace-nowrap animate-marquee py-3 text-xs tracking-wide text-neutral-500">
           {[...sdgLabels, ...sdgLabels].map((label, i) => (
@@ -146,7 +142,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Stats */}
       <section className="relative bg-white grain">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -169,7 +164,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About teaser */}
       <section className="relative max-w-7xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <Reveal>
@@ -215,7 +209,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Expertise */}
       <section className="relative bg-gradient-to-b from-white to-neutral-50 border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
@@ -255,7 +248,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Impact */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <Reveal>
@@ -305,7 +297,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter */}
       <section className="relative overflow-hidden border-y border-neutral-200">
         <div className="absolute inset-0 bg-neutral-100" />
         <div className="absolute -top-24 right-0 w-96 h-96 rounded-full bg-pink-300/20 blur-3xl" />
@@ -331,7 +322,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="relative overflow-hidden bg-blue-700 text-white">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-pink-500 blur-3xl animate-float-slow" />
