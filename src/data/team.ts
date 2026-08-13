@@ -55,9 +55,10 @@ export const postdocs: TeamMember[] = [
     focus:
       "Indigenous communication, disaster public opinion, SALIGAN framework, AI in higher education, ASEAN media & communication",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
+    // Proxy via images.weserv.nl เพราะ next/image ดึง scholar.googleusercontent.com โดยตรงไม่สำเร็จบน Vercel
     image:
-      "https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=gfq4xogAAAAJ&citpid=2",
-    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar",
+      "https://images.weserv.nl/?url=https%3A%2F%2Fscholar.googleusercontent.com%2Fcitations%3Fview_op%3Dmedium_photo%26user%3Dgfq4xogAAAAJ%26citpid%3D2&w=600&h=750&fit=cover&output=jpg",
+    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar (ผ่าน proxy)",
     links: [
       {
         label: "Google Scholar",
@@ -97,7 +98,8 @@ export const affiliatedResearchers: TeamMember[] = [
     roleTh: "นักวิจัย",
     role: "Researcher",
     affiliation: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
-    image: media("8e0d14_41e6a251793c40019370309bce59a0d3"),
+    // ไฟล์บนเว็บเดิมเป็น .png ไม่ใช่ .jpg
+    image: media("8e0d14_41e6a251793c40019370309bce59a0d3", "png"),
     alt: "ดร.อัจฉรา บุญชุม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
