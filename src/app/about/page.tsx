@@ -64,11 +64,11 @@ type Leader = {
 
 /**
  * ข้อมูลอ้างอิง:
- * - cominnocenter.com/about, /blank (Smith.B), /about/teerada-ne
+ * - Faculty directory: https://www.commarts.chula.ac.th/th/department-pr/
  * - Google Scholar Smith: https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en
- *   (Citations 263, h-index 9, i10-index 9 — อ่านจากโปรไฟล์จริง)
+ * - Kudos Smith: https://www.growkudos.com/profile/smith_boonchutima
  * - Google Scholar Pavel: 1v6dmxQAAAAJ
- * - ResearchGate / ORCID / Faculty of Communication Arts
+ * - ISCM: https://www.iscm.commarts.chula.ac.th/faculty-staff/
  */
 const leadership: Leader[] = [
   {
@@ -103,7 +103,11 @@ const leadership: Leader[] = [
       { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en" },
       { label: "ORCID", href: "https://orcid.org/0000-0001-7412-4506" },
       { label: "ResearchGate", href: "https://www.researchgate.net/profile/Smith-Boonchutima" },
-      { label: "Faculty Profile", href: "https://www.cominnocenter.com/blank" },
+      { label: "Kudos", href: "https://www.growkudos.com/profile/smith_boonchutima" },
+      {
+        label: "Faculty Profile",
+        href: "https://www.commarts.chula.ac.th/th/department-pr/",
+      },
     ],
     publications: [
       {
@@ -170,7 +174,7 @@ const leadership: Leader[] = [
       { label: "ORCID", href: "https://orcid.org/0000-0003-2785-8595" },
       {
         label: "Faculty Profile",
-        href: "https://www.cominnocenter.com/about/teerada-ne",
+        href: "https://www.commarts.chula.ac.th/th/department-pr/",
       },
     ],
     publications: [
@@ -221,7 +225,10 @@ const leadership: Leader[] = [
     links: [
       { label: "Google Scholar", href: "https://scholar.google.com/citations?user=1v6dmxQAAAAJ&hl=en" },
       { label: "ResearchGate", href: "https://www.researchgate.net/profile/Pavel-Slutskiy" },
-      { label: "ISCM Faculty", href: "https://www.iscm.commarts.chula.ac.th/faculty-staff/" },
+      {
+        label: "Faculty Profile",
+        href: "https://www.iscm.commarts.chula.ac.th/faculty-staff/",
+      },
     ],
     publications: [
       {
@@ -484,9 +491,8 @@ export default function AboutPage() {
 
         <p className="mt-12 text-xs text-neutral-400 max-w-3xl">
           ชื่อ ตำแหน่ง และประวัติอ้างอิงจากเว็บไซต์เดิม ComInnoCenter และเว็บทางการคณะนิเทศศาสตร์ จุฬาฯ
-          ตัวเลข citation / h-index ของรศ.ดร.สมิทธิ์ อ้างอิงโดยตรงจาก Google Scholar
-          (https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en) ณ เวลาที่อัปเดต
-          — ตัวเลขอาจเปลี่ยนแปลงตามเวลา
+          (https://www.commarts.chula.ac.th/th/department-pr/) — เว็บคณะแสดงรายชื่อคณาจารย์ในหน้ารายชื่อภาควิชา
+          ไม่มีหน้าโปรไฟล์รายบุคคลแยก ตัวเลข citation ของรศ.ดร.สมิทธิ์ อ้างอิง Google Scholar โดยตรง
         </p>
       </section>
 
