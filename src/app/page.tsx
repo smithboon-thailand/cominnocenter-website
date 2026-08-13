@@ -8,6 +8,16 @@ import Reveal from "@/components/effects/Reveal";
 import AnimatedCounter from "@/components/effects/AnimatedCounter";
 import GlassCard from "@/components/effects/GlassCard";
 import { projects } from "@/data/projects";
+import { homeHighlights } from "@/data/highlights";
+
+const highlightTypeLabel: Record<string, string> = {
+  research: "งานวิจัย",
+  award: "รางวัล",
+  media: "สื่อ / ภาพยนตร์",
+  event: "กิจกรรม",
+  book: "หนังสือ",
+  leadership: "บทบาทผู้นำ",
+};
 
 const expertiseItems = [
   {
@@ -245,6 +255,66 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Highlights — ข่าวและผลกระทบของผู้นำ/ศูนย์ */}
+      <section className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <Reveal>
+            <div>
+              <p className="text-sm font-medium text-pink-500 mb-2">Highlights</p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">
+                ข่าวและผลกระทบ
+              </h2>
+              <p className="mt-3 text-neutral-600 max-w-xl">
+                ผลงาน รางวัล และบทบาทของผู้นำศูนย์ ที่สร้างผลกระทบต่อสังคมและวงการวิชาการ
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <Link
+              href="/about"
+              className="text-pink-500 font-medium hover:text-pink-600 whitespace-nowrap"
+            >
+              รู้จักผู้นำของเรา →
+            </Link>
+          </Reveal>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {homeHighlights.map((h, i) => (
+            <Reveal key={h.id} delay={i * 80}>
+              <article className="group h-full rounded-2xl border border-neutral-200 bg-white p-6 md:p-7 hover:border-pink-200 hover:shadow-lg transition-all duration-300">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-pink-500/10 text-pink-600">
+                    {highlightTypeLabel[h.type] || h.type}
+                  </span>
+                  <span className="text-[11px] text-neutral-400">
+                    {h.date.slice(0, 4)}
+                    {h.source ? ` · ${h.source}` : ""}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 leading-snug group-hover:text-blue-700 transition-colors">
+                  {h.titleTh}
+                </h3>
+                <p className="mt-2 text-sm text-neutral-600 leading-relaxed line-clamp-3">
+                  {h.summaryTh}
+                </p>
+                {h.href && (
+                  <a
+                    href={h.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-4 text-sm font-medium text-pink-600 hover:text-pink-700"
+                  >
+                    อ่านแหล่งต้นทาง
+                    <span className="ml-1.5 opacity-50 group-hover:translate-x-0.5 transition-transform">↗</span>
+                  </a>
+                )}
+              </article>
+            </Reveal>
+          ))}
         </div>
       </section>
 
