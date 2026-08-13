@@ -16,7 +16,11 @@ const sarabun = Sarabun({
 });
 
 export const metadata: Metadata = {
-  title: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
+  metadataBase: new URL("https://www.cominnocenter.com"),
+  title: {
+    default: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
+    template: "%s | ComInnoCenter",
+  },
   description:
     "Center of Excellence in Communication Innovation for the Development of Quality of Life and Sustainability, Faculty of Communication Arts, Chulalongkorn University",
   keywords: [
@@ -25,7 +29,29 @@ export const metadata: Metadata = {
     "จุฬาลงกรณ์มหาวิทยาลัย",
     "คณะนิเทศศาสตร์",
     "ComInnoCenter",
+    "คุณภาพชีวิต",
+    "ความยั่งยืน",
+    "Sustainability",
   ],
+  authors: [{ name: "ComInnoCenter, Chulalongkorn University" }],
+  openGraph: {
+    type: "website",
+    locale: "th_TH",
+    siteName: "ComInnoCenter",
+    title: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
+    description:
+      "นวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ComInnoCenter | Communication Innovation",
+    description:
+      "Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
