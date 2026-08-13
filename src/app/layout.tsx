@@ -18,7 +18,7 @@ const sarabun = Sarabun({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cominnocenter.com"),
   title: {
-    default: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
+    default: "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
     template: "%s | ComInnoCenter",
   },
   description:
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "th_TH",
     siteName: "ComInnoCenter",
-    title: "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
+    title: "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
     description:
       "นวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
   },

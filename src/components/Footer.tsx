@@ -18,7 +18,7 @@ export default function Footer() {
               className="h-12 w-auto object-contain brightness-0 invert opacity-90"
             />
             <p className="mt-4 text-sm max-w-xs leading-relaxed">
-              ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร
+              ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร
               คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
             </p>
           </div>
