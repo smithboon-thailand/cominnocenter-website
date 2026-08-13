@@ -2,10 +2,11 @@
  * อาจารย์นักวิจัยประจำศูนย์ (Researchers)
  * แหล่งอ้างอิง:
  * - https://www.commarts.chula.ac.th/th/department-pr/
- * - https://www.eng.chula.ac.th/en/staff/prof-lunchakorn-wuttisittikulkij-ph-d
- * - https://ee.eng.chula.ac.th/lunchakorn-wuttisittikulkij/
+ * - Google Scholar Watsayut: wyldatkAAAAJ
  * - Google Scholar Wattana: RKI-mqcAAAAJ
- * - ResearchGate Wattana Viriyasitavat
+ * - https://ee.eng.chula.ac.th/lunchakorn-wuttisittikulkij/
+ * รูป Watsayut / Wattana ใช้ proxy ผ่าน images.weserv.nl เพราะ
+ *   scholar.googleusercontent.com มักถูกบล็อกตอน next/image optimize บน Vercel
  */
 
 export type Researcher = {
@@ -21,6 +22,12 @@ export type Researcher = {
   links: { label: string; href: string }[];
 };
 
+/** Proxy Google Scholar portrait so Next/Image can load it on Vercel */
+const scholarPhoto = (userId: string) =>
+  `https://images.weserv.nl/?url=${encodeURIComponent(
+    `https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=${userId}&citpid=1`
+  )}&w=800&h=1000&fit=cover&output=jpg`;
+
 export const researchers: Researcher[] = [
   {
     name: "ดร.วรรษยุต คงจันทร์",
@@ -31,9 +38,17 @@ export const researchers: Researcher[] = [
       "อาจารย์ ภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "การสื่อสารประเด็นสังคม นวัตกรรมการสื่อสาร และการเชื่อมโยงสังคม — รองคณบดีคณะนิเทศศาสตร์ ด้านบริการวิชาการและเชื่อมโยงสังคม",
-    // หน้ารายชื่อภาควิชาไม่แสดงรูปโปรไฟล์รายบุคคล — ใช้ placeholder บน UI
-    alt: "ดร.วรรษยุต คงจันทร์ นักวิจัยประจำศูนย์ — คณะนิเทศศาสตร์ จุฬาฯ",
+    image: scholarPhoto("wyldatkAAAAJ"),
+    alt: "ดร.วรรษยุต คงจันทร์ นักวิจัยประจำศูนย์ — ภาพจาก Google Scholar (user=wyldatkAAAAJ) / คณะนิเทศศาสตร์ จุฬาฯ",
     links: [
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=wyldatkAAAAJ&hl=th",
+      },
+      {
+        label: "ORCID",
+        href: "https://orcid.org/0000-0002-7868-3249",
+      },
       {
         label: "Faculty Profile",
         href: "https://www.commarts.chula.ac.th/th/department-pr/",
@@ -49,9 +64,8 @@ export const researchers: Researcher[] = [
       "ศาสตราจารย์ ภาควิชาสถิติ (Business Information Technology) คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "Blockchain, Internet of Things, Business Process Management, Service Workflows, Cyber-Physical Systems",
-    image:
-      "https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=RKI-mqcAAAAJ&citpid=1",
-    alt: "ศ.ดร.วธนน์ วิริยสิทธาวัฒน์ นักวิจัยประจำศูนย์ — ภาพจาก Google Scholar / คณะพาณิชยศาสตร์และการบัญชี จุฬาฯ",
+    image: scholarPhoto("RKI-mqcAAAAJ"),
+    alt: "ศ.ดร.วธนน์ วิริยสิทธาวัฒน์ นักวิจัยประจำศูนย์ — ภาพจาก Google Scholar (user=RKI-mqcAAAAJ) / คณะพาณิชยศาสตร์และการบัญชี จุฬาฯ",
     links: [
       {
         label: "Google Scholar",
