@@ -3,22 +3,27 @@
 **Center of Excellence in Communication Innovation for the Development of Quality of Life and Sustainability**  
 Faculty of Communication Arts, Chulalongkorn University
 
-## สถานะปัจจุบัน
+## สถานะปัจจุบัน — MVP พร้อมใช้งาน
 
-### หน้าที่เสร็จแล้ว (Core MVP)
-- [x] **Home** (`/`)
-- [x] **About** (`/about`)
-- [x] **Expertise** (`/expertise`)
-- [x] **Impact** (`/impact`)
-- [x] **Collaborate** (`/collaborate`)
+### หน้าที่เสร็จแล้ว
+| หน้า | Path | สถานะ |
+|------|------|--------|
+| Home | `/` | ✅ |
+| About | `/about` | ✅ |
+| Expertise | `/expertise` | ✅ |
+| Impact | `/impact` | ✅ |
+| Collaborate | `/collaborate` | ✅ |
 
-### คุณสมบัติหลักที่มีแล้ว
+### คุณสมบัติที่มีแล้ว
 - ภาษาไทยเป็นค่าเริ่มต้น + ปุ่ม EN
 - สี CU Pink (`#DE5C8E`) + Faculty Blue (`#002D73`)
 - ฟอนต์ Sarabun (ไทย) + Inter
-- Newsletter form (Home + Footer + Collaborate)
+- Shared Header + Footer
+- **Mobile Menu** (hamburger)
+- Newsletter form (หลายจุด)
 - Contact form บนหน้า Collaborate
-- Responsive structure
+- ภาพจริงจากเว็บเดิม + alt SEO
+- Responsive layout
 
 ## Tech Stack
 - Next.js 15 (App Router)
@@ -40,10 +45,11 @@ npm run dev
 ```
 
 ## Deploy on Vercel
-1. Import this repository on [vercel.com](https://vercel.com)
-2. Deploy
-3. Later point `cominnocenter.com` DNS to Vercel
+1. ไปที่ [vercel.com](https://vercel.com)
+2. Import repository นี้
+3. Deploy
+4. ภายหลังชี้ DNS `cominnocenter.com` มาที่ Vercel ได้เลย
 
 ---
 
-**Design System Reference**: [cominnocenter-premium-redesign](https://github.com/smithboon-thailand/cominnocenter-premium-redesign)
+**Design System**: [cominnocenter-premium-redesign](https://github.com/smithboon-thailand/cominnocenter-premium-redesign)
