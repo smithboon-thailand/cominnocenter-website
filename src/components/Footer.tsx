@@ -1,4 +1,8 @@
+import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
+
+const LOGO_SRC =
+  "https://static.wixstatic.com/media/8e0d14_0564f38949dd4891a2359cb0daa61bb4~mv2.png/v1/fill/w_400,h_120,al_c,q_90,enc_auto/logo-communication-innovation.png";
 
 export default function Footer() {
   return (
@@ -6,8 +10,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <div className="text-white font-semibold text-lg">ComInnoCenter</div>
-            <p className="mt-2 text-sm max-w-xs leading-relaxed">
+            <Image
+              src={LOGO_SRC}
+              alt="โลโก้ Communication Innovation Center — จากเว็บเดิม ComInnoCenter"
+              width={200}
+              height={60}
+              className="h-12 w-auto object-contain brightness-0 invert opacity-90"
+            />
+            <p className="mt-4 text-sm max-w-xs leading-relaxed">
               ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร
               คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
             </p>
