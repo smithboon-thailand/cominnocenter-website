@@ -137,6 +137,132 @@ export const highlights: Highlight[] = [
     featuredOnHome: true,
   },
 
+  // ——— ธีรดา: บทบาท / งานวิจัยเพิ่มเติม ———
+  {
+    id: "teerada-pr-dept-head",
+    titleTh: "ผศ.ดร.ธีรดา หัวหน้าภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ",
+    titleEn: "Asst. Prof. Dr. Teerada — Head of Department of Public Relations",
+    summaryTh:
+      "ดำรงตำแหน่งหัวหน้าภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย เคยเป็นรองคณบดีฝ่ายวิจัยและกิจการต่างประเทศ",
+    summaryEn:
+      "Serves as Head of the Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University; formerly Deputy Dean for Research and International Affairs.",
+    date: "2022-01-01",
+    type: "leadership",
+    person: ["teerada", "center"],
+    href: "https://www.commarts.chula.ac.th/en/department-pr/",
+    source: "คณะนิเทศศาสตร์ จุฬาฯ",
+    featuredOnHome: false,
+  },
+  {
+    id: "teerada-chatgpt-journalists",
+    titleTh: "งานวิจัยผลกระทบ ChatGPT ต่อห้องข่าวไทย",
+    titleEn: "Survey on journalists’ use and impact of ChatGPT on Thai newsrooms",
+    summaryTh:
+      "ศึกษาการใช้และการรับรู้ผลกระทบของ ChatGPT ในห้องข่าวไทย — งานวิจัยล่าสุดด้านสื่อสารมวลชนและเทคโนโลยี AI",
+    summaryEn:
+      "Research on how Thai journalists use ChatGPT and perceive its impact on newsroom practice — recent work on AI and journalism.",
+    date: "2025-01-01",
+    type: "research",
+    person: ["teerada"],
+    href: "https://scholar.google.com/citations?user=9xkSA7sAAAAJ&hl=en",
+    source: "Google Scholar",
+    featuredOnHome: false,
+  },
+  {
+    id: "teerada-env-comm-universities",
+    titleTh: "บทบาทมหาวิทยาลัยกับการสื่อสารสิ่งแวดล้อมในไทย",
+    titleEn: "Roles of universities in environmental communication in Thailand",
+    summaryTh:
+      "งานวิจัยบทบาทของมหาวิทยาลัยและนักวิชาการในการสื่อสารสิ่งแวดล้อมในประเทศไทย เชื่อมโยงกับความเชี่ยวชาญด้าน green / environmental communication",
+    summaryEn:
+      "Research on the roles of universities and academic researchers in environmental communication in Thailand.",
+    date: "2024-01-01",
+    type: "research",
+    person: ["teerada"],
+    href: "https://scholar.google.com/citations?user=9xkSA7sAAAAJ&hl=en",
+    source: "Google Scholar",
+    featuredOnHome: false,
+  },
+  {
+    id: "teerada-cognitive-load-technostress",
+    titleTh: "งานวิจัย Cognitive Load และ Technostress ในการเรียนออนไลน์",
+    titleEn: "Cognitive Load Theory and technostress in online education",
+    summaryTh:
+      "งานวิจัยเรื่อง Cognitive Load Theory และการรับรู้ technostress ของนิสิตในช่วงโควิด — ตีพิมพ์ปี 2023",
+    summaryEn:
+      "Published research (2023) on Cognitive Load Theory in online education and technostress among first-year university students during COVID-19.",
+    date: "2023-01-01",
+    type: "research",
+    person: ["teerada"],
+    href: "https://scholar.google.com/citations?user=9xkSA7sAAAAJ&hl=en",
+    source: "Google Scholar",
+    featuredOnHome: false,
+  },
+
+  // ——— Pavel: งานวิจัยเพิ่มเติม ———
+  {
+    id: "pavel-sdg-sustainability",
+    titleTh: "วิเคราะห์ความรับผิดชอบด้าน SDGs ขององค์กร 5 ประเทศ",
+    titleEn: "Companies’ accountability in sustainability: SDGs in five countries",
+    summaryTh:
+      "งานวิจัยเปรียบเทียบการสื่อสารความรับผิดชอบด้าน SDGs ของบริษัทใน 5 ประเทศ — เป็นหนึ่งในผลงานที่ถูกอ้างอิงสูงของ รศ.ดร.Pavel",
+    summaryEn:
+      "Comparative analysis of companies’ SDG accountability communication across five countries — among Assoc. Prof. Dr. Pavel’s most cited works.",
+    date: "2016-01-01",
+    type: "research",
+    person: ["pavel"],
+    href: "https://scholar.google.com/citations?user=1v6dmxQAAAAJ&hl=en",
+    source: "Google Scholar",
+    featuredOnHome: false,
+  },
+  {
+    id: "pavel-freedom-expression",
+    titleTh: "เสรีภาพในการแสดงออก การเซ็นเซอร์โซเชียลมีเดีย และสิทธิในทรัพย์สิน",
+    titleEn: "Freedom of expression, social media censorship, and property rights",
+    summaryTh:
+      "งานวิจัยด้านเสรีภาพสื่อ การเซ็นเซอร์บนโซเชียลมีเดีย และแนวคิด libertarian ในบริบทการสื่อสาร",
+    summaryEn:
+      "Research on freedom of expression, social media censorship, and property rights — core themes in his libertarian communication scholarship.",
+    date: "2020-01-01",
+    type: "research",
+    person: ["pavel"],
+    href: "https://scholar.google.com/citations?user=1v6dmxQAAAAJ&hl=en",
+    source: "Google Scholar",
+    featuredOnHome: false,
+  },
+  {
+    id: "pavel-sustainability-comm-eval",
+    titleTh: "กรอบประเมินการสื่อสารความยั่งยืนตามเป้าหมายที่ตั้งไว้",
+    titleEn: "Evaluating sustainability communication based on intended goals",
+    summaryTh:
+      "งานวิจัยปี 2024 เสนอแนวทางประเมินการสื่อสารความยั่งยืนโดยยึดเป้าหมายที่องค์กรตั้งไว้",
+    summaryEn:
+      "2024 research proposing approaches to evaluate sustainability communication against organizations’ intended goals.",
+    date: "2024-01-01",
+    type: "research",
+    person: ["pavel"],
+    href: "https://scholar.google.com/citations?user=1v6dmxQAAAAJ&hl=en",
+    source: "Google Scholar",
+    featuredOnHome: false,
+  },
+
+  // ——— วธนน์: งานวิจัย / บทบาท ———
+  {
+    id: "wattana-blockchain-iot",
+    titleTh: "วิจัย Blockchain และ IoT เพื่อ Digital Transformation กระบวนการธุรกิจ",
+    titleEn: "Blockchain and IoT for business process Digital Transformation",
+    summaryTh:
+      "ผลงานวิจัยหลักที่นำไปสู่รางวัลนักวิจัยดีเด่นแห่งชาติ — ประยุกต์ Blockchain ร่วมกับ IoT เพื่อความปลอดภัยของข้อมูล ประสิทธิภาพ และ Smart City",
+    summaryEn:
+      "Core research applying Blockchain with IoT for secure data, process automation, Digital Transformation, and Smart City applications — foundation of the national research award.",
+    date: "2022-01-06",
+    type: "research",
+    person: ["wattana", "center"],
+    href: "https://www.chula.ac.th/news/58581/",
+    source: "จุฬาลงกรณ์มหาวิทยาลัย",
+    featuredOnHome: false,
+  },
+
   // ——— ข่าว/อบรมจากเว็บเดิม ComInnoCenter ———
   {
     id: "keio-bunkyo-collaboration",
