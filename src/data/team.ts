@@ -1,7 +1,6 @@
 /**
- * ทีมผู้ช่วยวิจัย / นักออกแบบ / นักวิจัยร่วม
- * ดึงจากหน้า About ของเว็บเดิม https://www.cominnocenter.com/about
- * รูปจาก static.wixstatic.com (เว็บเดิม)
+ * ทีมผู้ช่วยวิจัย / นักออกแบบ / นักวิจัยร่วม / Postdoc / PhD
+ * ดึงจากหน้า About ของเว็บเดิม + ข้อมูลจากศูนย์ (C2F / EDS)
  */
 
 const media = (id: string, ext: string = "jpg") =>
@@ -13,9 +12,78 @@ export type TeamMember = {
   roleTh: string;
   role: string;
   affiliation?: string;
-  image: string;
+  focus?: string;
+  funding?: string;
+  image?: string;
   alt: string;
+  links?: { label: string; href: string }[];
 };
+
+/** Postdoctoral researchers (C2F) under the center */
+export const postdocs: TeamMember[] = [
+  {
+    name: "ดร.พยู ฮนิน ไหล่ (Rashida)",
+    nameEn: "Dr. Phyu Hnin Hlaing",
+    roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",
+    role: "C2F Postdoctoral Fellow",
+    affiliation:
+      "ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    focus:
+      "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
+    funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
+    alt: "ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F",
+    links: [
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=608OCiIAAAAJ&hl=en",
+      },
+      {
+        label: "Co-authored paper",
+        href: "https://wellcomeopenresearch.org/articles/9-347",
+      },
+    ],
+  },
+  {
+    name: "ดร.ร็อบบี้ แจน วินเซนต์ ที. บูเอโล",
+    nameEn: "Dr. Robbie Jan Vincent T. Buelo",
+    roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",
+    role: "C2F Postdoctoral Fellow",
+    affiliation:
+      "Faculty of Communication Arts, Chulalongkorn University · Program Chair, AB Communication, National University Dasmariñas (Philippines)",
+    focus:
+      "Indigenous communication, disaster public opinion, SALIGAN framework, AI in higher education, ASEAN media & communication",
+    funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
+    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F",
+    links: [
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=gfq4xogAAAAJ&hl=en",
+      },
+    ],
+  },
+];
+
+/** PhD candidates affiliated with the center */
+export const phdCandidates: TeamMember[] = [
+  {
+    name: "ทินเลย์ เลนดุบ",
+    nameEn: "Thinley Lhendup",
+    roleTh: "นักศึกษาปริญญาเอก",
+    role: "PhD Candidate",
+    affiliation:
+      "Ph.D. Program in Environment, Development and Sustainability (EDS), Graduate School, Chulalongkorn University",
+    focus:
+      "Digital communication preferences and environmental behavior; youth waste management education in Bhutan",
+    funding: "PhD scholarship (C2F / related funding) · co-research with the Center",
+    alt: "Thinley Lhendup นักศึกษาปริญญาเอกหลักสูตร EDS จุฬาฯ ที่ร่วมงานกับศูนย์",
+    links: [
+      {
+        label: "Co-authored preprint",
+        href: "https://www.biorxiv.org/content/10.1101/2025.08.10.669562v1",
+      },
+    ],
+  },
+];
 
 /** นักวิจัยร่วม (จากเว็บเดิม — นอกเหนือจากอาจารย์ประจำศูนย์ 3 ท่าน) */
 export const affiliatedResearchers: TeamMember[] = [
