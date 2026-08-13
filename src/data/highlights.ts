@@ -30,6 +30,7 @@ export type Highlight = {
 };
 
 export const highlights: Highlight[] = [
+  // ——— จากข่าวภายนอก / ผลงานวิชาการ (ชุดเดิม) ———
   {
     id: "teerada-rueang-khong-rao",
     titleTh: "ภาพยนตร์ ‘เรื่องของเรา’ จากงานวิจัยสู่สันติภาพชายแดนใต้",
@@ -90,6 +91,115 @@ export const highlights: Highlight[] = [
     source: "Springer Nature",
     featuredOnHome: true,
   },
+
+  // ——— ข่าว/อบรมจากเว็บเดิม ComInnoCenter (ชุดใหม่ 7 รายการ) ———
+  {
+    id: "keio-bunkyo-collaboration",
+    titleTh: "คณะนิเทศศาสตร์ จุฬาฯ เสริมความร่วมมือวิชาการกับ Keio และ Bunkyo University",
+    titleEn: "Chula Communication Arts strengthens collaboration with Keio and Bunkyo University",
+    summaryTh:
+      "คณาจารย์และนิสิตภาควิชาการประชาสัมพันธ์ เยือน Keio University (KMD) และ Bunkyo University จัดเวิร์กช็อป Peace Playground โดย ผศ.ดร.ธีรดา และหารือแลกเปลี่ยนนักศึกษา หลักสูตร และวิจัยร่วม",
+    summaryEn:
+      "Faculty and students from the Department of Public Relations visited Keio University’s KMD and Bunkyo University for a Peace Playground workshop led by Asst. Prof. Dr. Teerada and discussions on exchanges, curriculum, and joint research.",
+    date: "2026-03-15",
+    type: "event",
+    person: ["teerada", "center"],
+    href: "https://www.cominnocenter.com/post/chula-communication-arts-strengthens-academic-collaboration-with-keio-university-and-bunkyo-universi",
+    source: "ComInnoCenter",
+    featuredOnHome: true,
+  },
+  {
+    id: "smith-treasury-officer-lecture",
+    titleTh: "รศ.ดร.สมิทธิ์ บรรยายพิเศษหลักสูตรนายคลังมืออาชีพ รุ่นที่ 15",
+    titleEn: "Assoc. Prof. Dr. Smith delivers special lecture at Professional Treasury Officer Program",
+    summaryTh:
+      "บรรยาย “เทคนิคการสื่อสารเพื่อการบริหารและการประชาสัมพันธ์” ให้ผู้บริหารภาครัฐ 60 คน ครอบคลุมกลยุทธ์สื่อสารองค์กร การจัดการสารสนเทศดิจิทัล และการสื่อสารวิกฤต จัดโดยมูลนิธิสถาบันวิจัยนโยบายเศรษฐกิจการคลัง",
+    summaryEn:
+      "Special lecture on communication techniques for administration and public relations for 60 government executives, covering strategy, digital information management, and crisis communication — organized by the Fiscal Policy Research Institute Foundation.",
+    date: "2025-08-06",
+    type: "event",
+    person: ["smith", "center"],
+    href: "https://www.cominnocenter.com/post/associate-professor-dr-smith-boonchutima-delivers-special-lecture-at-professional-treasury-officer",
+    source: "ComInnoCenter",
+    featuredOnHome: false,
+  },
+  {
+    id: "smith-krungthai-leadership",
+    titleTh: "รศ.ดร.สมิทธิ์ วิทยากร Leadership Acceleration Program ธนาคารกรุงไทย",
+    titleEn: "Assoc. Prof. Dr. Smith leads Leadership training at Krungthai Bank",
+    summaryTh:
+      "บรรยาย “The Art of Communication & Influencing” ให้ผู้บริหารระดับกลาง ครอบคลุมการสื่อสารองค์กร การจัดการความขัดแย้ง การสื่อสารวิกฤต และการใช้ AI ในการประชาสัมพันธ์ จัดโดยศศินทร์",
+    summaryEn:
+      "Keynote on “The Art of Communication & Influencing” for Krungthai Bank middle managers — organizational communication, conflict and crisis communication, and AI tools for PR — organized by Sasin.",
+    date: "2025-07-23",
+    type: "event",
+    person: ["smith", "center"],
+    href: "https://www.cominnocenter.com/post/associate-professor-dr-smith-boonchotima-delivers-leadership-training-at-krungthai-bank",
+    source: "ComInnoCenter / Sasin",
+    featuredOnHome: true,
+  },
+  {
+    id: "teerada-thaihealth-drug-communication",
+    titleTh: "ผศ.ดร.ธีรดา วิทยากรอบรม สสส. “พูดเรื่อง(ยา)ง่ายๆ ให้เป็น Routine”",
+    titleEn: "Asst. Prof. Dr. Teerada leads ThaiHealth workshop on simple drug communication",
+    summaryTh:
+      "อบรมเชิงปฏิบัติการที่อยุธยา เรื่องการสื่อสารเรื่องยาให้เข้าใจง่าย สร้างเครือข่ายผู้ถ่ายทอดความรู้การใช้ยาอย่างสมเหตุผลในครอบครัวและชุมชน",
+    summaryEn:
+      "Hands-on workshop in Ayutthaya on communicating about medicines simply, building a network of facilitators for rational drug use in families and communities — organized by ThaiHealth.",
+    date: "2025-07-21",
+    type: "event",
+    person: ["teerada", "center"],
+    href: "https://www.cominnocenter.com/post/thai-health-promotion-foundation-organises-simple-drug-communication-as-daily-routine-training-by",
+    source: "ComInnoCenter / สสส.",
+    featuredOnHome: false,
+  },
+  {
+    id: "teerada-fda-rational-drug-summit",
+    titleTh: "ศูนย์ฯ ร่วม อย. และ สสส. ขับเคลื่อนความตระหนักใช้ยาอย่างสมเหตุผล",
+    titleEn: "Comm Art Chula & CE drives national drug safety awareness at FDA Summit",
+    summaryTh:
+      "ผศ.ดร.ธีรดา และทีม จัดนิทรรศการเชิงโต้ตอบ “กินยาสมเหตุ หายโรคสมผล ทุกคนสมใจ” ในงานประชุมระดับชาติครั้งที่ 1 ด้านการส่งเสริมการใช้ยาอย่างสมเหตุผล จากโครงการวิจัยทุน สสส.",
+    summaryEn:
+      "Asst. Prof. Dr. Teerada and team presented the interactive exhibition on rational drug use at Thailand’s First National Forum, as part of a ThaiHealth-funded research project on communication to reduce kidney disease risk.",
+    date: "2025-07-09",
+    type: "event",
+    person: ["teerada", "center"],
+    href: "https://www.cominnocenter.com/post/comm-art-chula-ce-drives-national-drug-safety-awareness-at-fda-summit",
+    source: "ComInnoCenter / อย. / สสส.",
+    featuredOnHome: false,
+  },
+  {
+    id: "teerada-turkiye-workforce-workshop",
+    titleTh: "ผศ.ดร.ธีรดา นำเวิร์กช็อปเตรียมนักศึกษาไทยในตุรกีเข้าสู่โลกการทำงาน",
+    titleEn: "Asst. Prof. Dr. Teerada leads workshop for Thai students in Türkiye",
+    summaryTh:
+      "วิทยากรหลักโครงการ Preparing Thai Students in Türkiye to the World of Work ที่อิสตันบูล จัดโดยสถานเอกอัครราชทูต ณ อังการา ครอบคลุมการสื่อสาร การเจรจา เรซูเม่ และการสัมภาษณ์งาน",
+    summaryEn:
+      "Key speaker in Istanbul for the Royal Thai Embassy’s project preparing Thai students in Türkiye for work — communication, negotiation, résumés, and interview skills.",
+    date: "2025-07-05",
+    type: "event",
+    person: ["teerada", "center"],
+    href: "https://www.cominnocenter.com/post/dr-teerada-of-chulalongkorn-university-leads-workshop-preparing-thai-students-in-t%C3%BCrkiye-for-the-wo",
+    source: "ComInnoCenter / Royal Thai Embassy Ankara",
+    featuredOnHome: false,
+  },
+  {
+    id: "smith-crisis-communication-executives",
+    titleTh: "รศ.ดร.สมิทธิ์ ได้รับเชิญนำอบรม Strategic Crisis Communication สำหรับ C-Level",
+    titleEn: "Center Head invited to lead executive crisis communication training",
+    summaryTh:
+      "นำหลักสูตรเข้มข้นหนึ่งวัน Strategic Crisis Communication: Empowering C-Level Executives จัดโดย The Sharpener ครอบคลุมการจัดการภาพลักษณ์ การตอบสื่อ และการเปลี่ยนวิกฤตเป็นโอกาส",
+    summaryEn:
+      "Led a one-day intensive course for C-suite executives on strategic crisis communication, media response, and turning crises into opportunities — hosted by The Sharpener.",
+    date: "2024-06-22",
+    type: "event",
+    person: ["smith", "center"],
+    href: "https://www.cominnocenter.com/post/center-of-excellence-head-invited-to-lead-executive-crisis-communication-training",
+    source: "ComInnoCenter / The Sharpener",
+    featuredOnHome: false,
+  },
+
+  // ——— งานวิจัยเพิ่มเติม ———
   {
     id: "smith-dengue-study",
     titleTh: "งานวิจัยระยะยาวเรื่องสื่อกับการป้องกันไข้เลือดออกในไทย",
@@ -152,7 +262,7 @@ export const highlights: Highlight[] = [
   },
 ];
 
-/** รายการที่แสดงบนหน้า Home */
+/** รายการที่แสดงบนหน้า Home (featuredOnHome: true) */
 export const homeHighlights = highlights.filter((h) => h.featuredOnHome);
 
 /** รายการตามบุคคล (ใช้ใต้โปรไฟล์ในหน้า About) */
