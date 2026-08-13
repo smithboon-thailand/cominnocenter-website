@@ -3,39 +3,40 @@
 **Center of Excellence in Communication Innovation for the Development of Quality of Life and Sustainability**  
 Faculty of Communication Arts, Chulalongkorn University
 
-## สถานะปัจจุบัน — MVP พร้อมใช้งาน
+## สถานะปัจจุบัน
 
-### หน้าที่เสร็จแล้ว
+### หน้าหลัก
 | หน้า | Path | สถานะ |
 |------|------|--------|
 | Home | `/` | ✅ |
 | About | `/about` | ✅ |
 | Expertise | `/expertise` | ✅ |
 | Impact | `/impact` | ✅ |
+| Case Study | `/impact/[slug]` | ✅ (13 โปรเจกต์ + Gallery) |
 | Collaborate | `/collaborate` | ✅ |
+| English Home | `/en` | ✅ เริ่มต้น |
+| 404 | — | ✅ |
 
-### คุณสมบัติที่มีแล้ว
-- ภาษาไทยเป็นค่าเริ่มต้น + ปุ่ม EN
-- สี CU Pink (`#DE5C8E`) + Faculty Blue (`#002D73`)
-- ฟอนต์ Sarabun (ไทย) + Inter
-- Shared Header + Footer
-- **Mobile Menu** (hamburger)
-- Newsletter form (หลายจุด)
-- Contact form บนหน้า Collaborate
-- ภาพจริงจากเว็บเดิม + alt SEO
-- Responsive layout
+### คุณสมบัติ
+- ภาษาไทยเป็นค่าเริ่มต้น + ปุ่ม EN → `/en`
+- สี CU Pink + Faculty Blue
+- ฟอนต์ Sarabun + Inter
+- Mobile Menu
+- Contact Form + Newsletter (รอใส่ Formspree ID)
+- ผลงานจริงจากเว็บเดิม + ภาพขนาดใหญ่ (w_1920)
+- Gallery คลิกดูภาพใหญ่ (lightbox)
+- SEO metadata, sitemap, robots.txt
 
-## Tech Stack
-- Next.js 15 (App Router)
-- TypeScript
-- Tailwind CSS
-- next/font (Sarabun + Inter)
+### ผลงานในระบบ (13)
+Chula Zero Waste · NBTC Encyclopedia · NIA 100 FACES · NIA Media Innovation · NIA Satisfaction Survey · มูลนิธิปิดทองหลังพระ · Seeds for CU Sustainability · กรมควบคุมโรค · ท่องเที่ยวเชิงสร้างสรรค์น่าน · กระทรวงทรัพยากรฯ · ILO · ASEAN University Network · ITD
+
+## Tech
+- Next.js 15 (App Router) · TypeScript · Tailwind CSS
 
 ## Contact
-- Email: [comminno@chula.ac.th](mailto:comminno@chula.ac.th)
-- Phone: 02-218-2262
-- Instagram: [comm.inno21](https://www.instagram.com/comm.inno21/)
-- Facebook: [comm.inno21](https://www.facebook.com/comm.inno21)
+- [comminno@chula.ac.th](mailto:comminno@chula.ac.th)
+- 02-218-2262
+- [Instagram](https://www.instagram.com/comm.inno21/) · [Facebook](https://www.facebook.com/comm.inno21)
 
 ## Getting Started
 
@@ -44,12 +45,7 @@ npm install
 npm run dev
 ```
 
+ดูคู่มือ Deploy / Formspree: [SETUP.md](./SETUP.md)
+
 ## Deploy on Vercel
-1. ไปที่ [vercel.com](https://vercel.com)
-2. Import repository นี้
-3. Deploy
-4. ภายหลังชี้ DNS `cominnocenter.com` มาที่ Vercel ได้เลย
-
----
-
-**Design System**: [cominnocenter-premium-redesign](https://github.com/smithboon-thailand/cominnocenter-premium-redesign)
+Import repo นี้ → Deploy → ชี้ DNS `cominnocenter.com` ภายหลังได้เลย
