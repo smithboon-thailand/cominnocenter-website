@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
@@ -7,6 +8,8 @@ const projects = [
     outcome: "สร้างการรับรู้และเปลี่ยนพฤติกรรมในระดับชุมชน",
     sdg: "SDG 3",
     sdgLabel: "Good Health",
+    image: "https://static.wixstatic.com/media/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg",
+    alt: "ภาพจากกิจกรรมของศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร (ที่มา: cominnocenter.com)",
   },
   {
     title: "การพัฒนาศักยภาพบุคลากรด้านสื่อ",
@@ -14,6 +17,8 @@ const projects = [
     outcome: "อบรมบุคลากรมากกว่า 1,000 คน จากหลากหลายองค์กร",
     sdg: "SDG 4",
     sdgLabel: "Quality Education",
+    image: "https://static.wixstatic.com/media/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg",
+    alt: "ภาพทีมงานและกิจกรรมอบรมของศูนย์ (ที่มา: cominnocenter.com)",
   },
   {
     title: "ความร่วมมือเพื่อความยั่งยืน",
@@ -21,6 +26,8 @@ const projects = [
     outcome: "สร้างเครือข่ายความร่วมมือระหว่างภาครัฐและภาคประชาสังคม",
     sdg: "SDG 17",
     sdgLabel: "Partnerships",
+    image: "https://static.wixstatic.com/media/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg",
+    alt: "ภาพจากโครงการความร่วมมือของศูนย์ (ที่มา: cominnocenter.com)",
   },
   {
     title: "แคมเปญรณรงค์เพื่อสังคม",
@@ -28,6 +35,8 @@ const projects = [
     outcome: "ออกแบบแคมเปญที่สร้างการมีส่วนร่วมและเปลี่ยนทัศนคติ",
     sdg: "SDG 11",
     sdgLabel: "Sustainable Cities",
+    image: "https://static.wixstatic.com/media/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg",
+    alt: "ภาพจากโครงการแคมเปญของศูนย์ (ที่มา: cominnocenter.com)",
   },
   {
     title: "วิจัยและประเมินผลโครงการสื่อสาร",
@@ -35,6 +44,8 @@ const projects = [
     outcome: "พัฒนากรอบการประเมินผลที่นำไปใช้ได้จริง",
     sdg: "SDG 12",
     sdgLabel: "Responsible Consumption",
+    image: "https://static.wixstatic.com/media/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg",
+    alt: "ภาพจากงานวิจัยและกิจกรรมของศูนย์ (ที่มา: cominnocenter.com)",
   },
   {
     title: "สื่อสร้างสรรค์เพื่อการเรียนรู้",
@@ -42,6 +53,8 @@ const projects = [
     outcome: "ผลิตสื่อที่ช่วยเสริมการเรียนรู้และสร้างแรงบันดาลใจ",
     sdg: "SDG 4",
     sdgLabel: "Quality Education",
+    image: "https://static.wixstatic.com/media/25218b_bfb45e4c56094da99ba6feba3b842fca~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/dsc00677jpg.jpg",
+    alt: "ภาพจากกิจกรรมสื่อสร้างสรรค์ของศูนย์ (ที่มา: cominnocenter.com)",
   },
 ];
 
@@ -105,8 +118,14 @@ export default function ImpactPage() {
               key={project.title}
               className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="h-48 bg-gradient-to-br from-blue-100 via-neutral-100 to-pink-100 flex items-center justify-center">
-                <span className="text-sm text-neutral-500">ภาพโครงการ</span>
+              <div className="relative h-52 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
               <div className="p-6">
                 <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
