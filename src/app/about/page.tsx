@@ -7,7 +7,23 @@ import GlassCard from "@/components/effects/GlassCard";
 import AnimatedCounter from "@/components/effects/AnimatedCounter";
 import { researchers } from "@/data/researchers";
 import { leadership, objectives, type SocialLink } from "@/data/leadership";
+import { highlightsFor, type HighlightPerson } from "@/data/highlights";
 import TeamAndPartners from "@/components/about/TeamAndPartners";
+
+const leaderPersonKey: Record<string, HighlightPerson> = {
+  "Assoc. Prof. Dr. Smith Boonchutima": "smith",
+  "Asst. Prof. Dr. Teerada (Ne) Chongkolrattanaporn": "teerada",
+  "Assoc. Prof. Dr. Pavel Slutskiy": "pavel",
+};
+
+const typeLabel: Record<string, string> = {
+  research: "งานวิจัย",
+  award: "รางวัล",
+  media: "สื่อ / ภาพยนตร์",
+  event: "กิจกรรม",
+  book: "หนังสือ",
+  leadership: "บทบาทผู้นำ",
+};
 
 function AcademicLinks({ links }: { links: SocialLink[] }) {
   return (
@@ -189,6 +205,48 @@ export default function AboutPage() {
                         </ul>
                       </div>
                     </div>
+
+                    {(() => {
+                      const key = leaderPersonKey[person.nameEn];
+                      const items = key ? highlightsFor(key) : [];
+                      if (items.length === 0) return null;
+                      return (
+                        <div className="mt-8">
+                          <h4 className="text-sm font-semibold text-blue-700 mb-3">ข่าวและผลกระทบ</h4>
+                          <div className="space-y-3">
+                            {items.slice(0, 3).map((h) => (
+                              <div
+                                key={h.id}
+                                className="rounded-xl border border-pink-100 bg-gradient-to-br from-pink-50/60 to-white p-4 hover:border-pink-300 transition-colors"
+                              >
+                                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                                  <span className="inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium bg-pink-500/10 text-pink-600">
+                                    {typeLabel[h.type] || h.type}
+                                  </span>
+                                  <span className="text-[11px] text-neutral-400">
+                                    {h.date.slice(0, 4)}
+                                    {h.source ? ` · ${h.source}` : ""}
+                                  </span>
+                                </div>
+                                <p className="text-sm font-medium text-neutral-900 leading-snug">{h.titleTh}</p>
+                                <p className="mt-1 text-xs text-neutral-600 leading-relaxed">{h.summaryTh}</p>
+                                {h.href && (
+                                  <a
+                                    href={h.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center mt-2 text-xs font-medium text-pink-600 hover:text-pink-700"
+                                  >
+                                    ดูแหล่งต้นทาง
+                                    <span className="ml-1 opacity-60">↗</span>
+                                  </a>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
 
                     <div className="mt-8">
                       <h4 className="text-sm font-semibold text-blue-700 mb-3">ผลงานเด่น</h4>
