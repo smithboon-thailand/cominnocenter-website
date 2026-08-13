@@ -32,18 +32,21 @@ const leadership = [
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
     role: "Head of the Center",
     roleTh: "ผู้อำนวยการศูนย์",
+    focus: "นวัตกรรมการสื่อสาร · การพัฒนาคุณภาพชีวิต",
   },
   {
     name: "ผศ.ดร.ธีรดา ชาญวิเศษ",
     nameEn: "Asst. Prof. Dr. Teerada Chongkolrattanaporn",
     role: "Deputy Head",
     roleTh: "รองผู้อำนวยการ",
+    focus: "การสื่อสารเพื่อสังคม · การวิจัย",
   },
   {
     name: "Dr. Pavel Slutskiy",
     nameEn: "Dr. Pavel Slutskiy",
     role: "Deputy Head",
     roleTh: "รองผู้อำนวยการ",
+    focus: "Communication Research · International Collaboration",
   },
 ];
 
@@ -55,11 +58,14 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="max-w-3xl">
+          <p className="text-sm font-medium text-pink-500 mb-3">เกี่ยวกับเรา</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-            เกี่ยวกับศูนย์
+            ศูนย์ความเป็นเลิศ
+            <br />
+            <span className="text-blue-700">ด้านนวัตกรรมการสื่อสาร</span>
           </h1>
           <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน
+            เพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน
             คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
           </p>
         </div>
@@ -67,20 +73,34 @@ export default function AboutPage() {
 
       {/* Our Story */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-6">
-            เรื่องราวของเรา
-          </h2>
-          <div className="space-y-4 text-neutral-700 leading-relaxed text-lg">
-            <p>
-              ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร ก่อตั้งขึ้นภายใต้คณะนิเทศศาสตร์
-              จุฬาลงกรณ์มหาวิทยาลัย เพื่อเป็นศูนย์กลางในการสร้างองค์ความรู้
-              พัฒนานวัตกรรม และขับเคลื่อนการสื่อสารที่ส่งผลต่อคุณภาพชีวิตและความยั่งยืน
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-6">
+              เรื่องราวของเรา
+            </h2>
+            <div className="space-y-4 text-neutral-700 leading-relaxed">
+              <p>
+                ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร ก่อตั้งขึ้นภายใต้คณะนิเทศศาสตร์
+                จุฬาลงกรณ์มหาวิทยาลัย เพื่อเป็นศูนย์กลางในการสร้างองค์ความรู้
+                พัฒนานวัตกรรม และขับเคลื่อนการสื่อสารที่ส่งผลต่อคุณภาพชีวิตและความยั่งยืน
+              </p>
+              <p>
+                เราทำงานร่วมกับภาครัฐ ภาคเอกชน และภาคประชาสังคม
+                ผ่านการวิจัย การพัฒนาเครื่องมือ การอบรม และการสร้างเครือข่ายความร่วมมือ
+                เพื่อให้นวัตกรรมการสื่อสารเกิดประโยชน์อย่างแท้จริงต่อสังคมไทยและภูมิภาค
+              </p>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-gradient-to-br from-blue-50 via-neutral-50 to-pink-50 border border-neutral-200 p-8 md:p-10">
+            <h3 className="text-lg font-semibold text-blue-700 mb-4">วิสัยทัศน์</h3>
+            <p className="text-neutral-700 leading-relaxed">
+              เป็นศูนย์ชั้นนำด้านนวัตกรรมการสื่อสาร ที่สร้างผลกระทบเชิงบวกต่อคุณภาพชีวิต
+              และความยั่งยืนในระดับประเทศและภูมิภาค
             </p>
-            <p>
-              เราทำงานร่วมกับภาครัฐ ภาคเอกชน และภาคประชาสังคม
-              ผ่านการวิจัย การพัฒนาเครื่องมือ การอบรม และการสร้างเครือข่ายความร่วมมือ
-              เพื่อให้นวัตกรรมการสื่อสารเกิดประโยชน์อย่างแท้จริงต่อสังคมไทยและภูมิภาค
+            <h3 className="text-lg font-semibold text-blue-700 mt-8 mb-4">พันธกิจ</h3>
+            <p className="text-neutral-700 leading-relaxed">
+              สร้างองค์ความรู้ พัฒนานวัตกรรม และเชื่อมโยงเครือข่าย
+              เพื่อยกระดับศักยภาพการสื่อสารของสังคมไทยอย่างยั่งยืน
             </p>
           </div>
         </div>
@@ -107,27 +127,39 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
-          ผู้นำของศูนย์
-        </h2>
-        <p className="text-neutral-600 mb-10 max-w-2xl">
-          ทีมผู้นำที่มีประสบการณ์ด้านวิชาการและการปฏิบัติจริง
-          เพื่อขับเคลื่อนภารกิจของศูนย์ให้เกิดผลอย่างเป็นรูปธรรม
-        </p>
+        <div className="mb-10">
+          <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
+            ผู้นำของศูนย์
+          </h2>
+          <p className="text-neutral-600 max-w-2xl">
+            ทีมผู้นำที่มีประสบการณ์ด้านวิชาการและการปฏิบัติจริง
+            เพื่อขับเคลื่อนภารกิจของศูนย์ให้เกิดผลอย่างเป็นรูปธรรม
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {leadership.map((person) => (
             <div
               key={person.name}
-              className="rounded-2xl border border-neutral-200 bg-white p-6 hover:shadow-md transition-shadow"
+              className="rounded-2xl border border-neutral-200 bg-white overflow-hidden hover:shadow-md transition-shadow"
             >
-              <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-blue-50 to-pink-50 mb-5 flex items-center justify-center">
-                <span className="text-sm text-neutral-400">รูปภาพผู้นำ</span>
+              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 via-neutral-100 to-pink-100 flex items-center justify-center">
+                <div className="text-center px-4">
+                  <div className="w-16 h-16 rounded-full bg-white/80 mx-auto mb-3 flex items-center justify-center">
+                    <span className="text-2xl font-semibold text-blue-700">
+                      {person.nameEn.charAt(0)}
+                    </span>
+                  </div>
+                  <p className="text-xs text-neutral-500">รูปภาพจะอัปเดตเร็วๆ นี้</p>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold text-neutral-900">{person.name}</h3>
-              <p className="text-sm text-neutral-500 mt-0.5">{person.nameEn}</p>
-              <p className="text-sm font-medium text-pink-500 mt-2">{person.roleTh}</p>
-              <p className="text-xs text-neutral-500 mt-0.5">{person.role}</p>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-neutral-900">{person.name}</h3>
+                <p className="text-sm text-neutral-500 mt-0.5">{person.nameEn}</p>
+                <p className="text-sm font-medium text-pink-500 mt-3">{person.roleTh}</p>
+                <p className="text-xs text-neutral-500">{person.role}</p>
+                <p className="text-sm text-neutral-600 mt-3">{person.focus}</p>
+              </div>
             </div>
           ))}
         </div>
