@@ -1,3 +1,8 @@
+export type ProjectImage = {
+  src: string;
+  alt: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -5,13 +10,19 @@ export type Project = {
   outcome: string;
   sdg: string;
   sdgLabel: string;
+  /** Cover image for cards / listing */
   image: string;
   alt: string;
+  /** Full gallery from original post */
+  gallery: ProjectImage[];
   challenge: string;
   approach: string;
   impact: string;
-  sourceUrl?: string;
+  sourceUrl: string;
 };
+
+const wix = (id: string, ext: "jpg" | "png" = "jpg") =>
+  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_1200,h_800,al_c,q_85/${id}~mv2.${ext}`;
 
 export const projects: Project[] = [
   {
@@ -22,9 +33,58 @@ export const projects: Project[] = [
       "ต้นแบบแคมเปญลดขยะในมหาวิทยาลัยที่นำโดยนักศึกษา เน้นสนุก เข้าใจง่าย และนำไปใช้ได้จริง",
     sdg: "SDG 12",
     sdgLabel: "Responsible Consumption",
-    image:
-      "https://static.wixstatic.com/media/25218b_0cbe70a072264848be104927c800cdc2~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_85/25218b_0cbe70a072264848be104927c800cdc2~mv2.jpg",
-    alt: "แคมเปญ Chula Zero Waste ต้นแบบการสื่อสารเพื่อลดขยะในจุฬาลงกรณ์มหาวิทยาลัย โดย ComInnoCenter",
+    image: wix("25218b_0cbe70a072264848be104927c800cdc2"),
+    alt: "แคมเปญ Chula Zero Waste — ป้ายและถังขยะในพื้นที่จุฬาลงกรณ์มหาวิทยาลัย",
+    gallery: [
+      {
+        src: wix("25218b_0cbe70a072264848be104927c800cdc2"),
+        alt: "ป้าย Chula Zero Waste ในพื้นที่มหาวิทยาลัย",
+      },
+      {
+        src: wix("25218b_e61a0df2ac404c42b60e2f743ba1922f"),
+        alt: "ภาพกิจกรรมแคมเปญ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_22bfdef3302f4991a2bd11ef81819cff"),
+        alt: "ภาพจากแคมเปญลดขยะ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_b34abe46ff40476b93affd7f29ec76ec"),
+        alt: "ภาพกิจกรรมนักศึกษาในโครงการ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_99f4b08cc5614fe28fcf24459fc3821e"),
+        alt: "ภาพสื่อแคมเปญ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_3848646dca9c4fc792552222d59b75f1"),
+        alt: "ภาพประกอบโครงการ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_435a1f9db0584d5b8edeb85c6eaff1b6", "png"),
+        alt: "สื่อออกแบบแคมเปญ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_eb46de9e4bc44c60b9f562d87b4ccd2e", "png"),
+        alt: "สื่อกราฟิกแคมเปญ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_c80bd0576b1e437cad527055772fcf24", "png"),
+        alt: "สื่อรณรงค์ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_7b09e2c8993f4268851844c1be7312b1", "png"),
+        alt: "โปสเตอร์แคมเปญ Chula Zero Waste",
+      },
+      {
+        src: wix("25218b_8af411897da3411fa74f6b2f49f9d238", "png"),
+        alt: "สื่อออกแบบแคมเปญลดขยะ",
+      },
+      {
+        src: wix("25218b_4449dc75285e439782314b410eeded34", "png"),
+        alt: "สื่อแคมเปญ Chula Zero Waste",
+      },
+    ],
     challenge:
       "จุฬาลงกรณ์มหาวิทยาลัยมีเป้าหมายลดขยะภายในมหาวิทยาลัยอย่างน้อย 30% ภายในปี 2021 ภายใต้แผน Chula Zero Waste (2017–2021) ซึ่งมี 6 โปรแกรม และ 18 โครงการ ต้องการแนวทางการสื่อสารที่ทำให้นักศึกษาและชุมชนในมหาวิทยาลัยมีส่วนร่วมได้จริง",
     approach:
@@ -34,25 +94,6 @@ export const projects: Project[] = [
     sourceUrl: "https://www.cominnocenter.com/post/chula-zero-waste",
   },
   {
-    slug: "nbtc-encyclopedia",
-    title: "สารานุกรม กสทช.",
-    titleEn: "NBTC Encyclopedia",
-    outcome:
-      "สารานุกรมที่อธิบายประเด็นสำคัญด้วยภาษาเข้าใจง่าย พร้อมภาพประกอบและวิดีโอสำหรับคนรุ่นใหม่",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
-    image:
-      "https://static.wixstatic.com/media/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg",
-    alt: "โครงการสารานุกรม กสทช. โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาฯ",
-    challenge:
-      "เนื้อหาด้านกิจการโทรคมนาคมและประเด็นที่เกี่ยวข้องมักซับซ้อนและเข้าถึงยากสำหรับคนรุ่นใหม่",
-    approach:
-      "รวบรวมความคิดเห็นจากทั้งคนรุ่นใหม่และผู้ใหญ่ แล้วออกแบบสารานุกรมสมัยใหม่ที่เชื่อมโยงประเด็น อธิบายด้วยภาษาเข้าใจง่าย มีภาพประกอบน่าสนใจ และมีวิดีโอสำหรับผู้ที่ชอบรับชม",
-    impact:
-      "ได้สื่อความรู้ที่อ่านง่าย เข้าถึงกลุ่มเป้าหมายได้กว้างขึ้น และรองรับทั้งการอ่านและการรับชม",
-    sourceUrl: "https://www.cominnocenter.com/post/nbtc-encyclopedia",
-  },
-  {
     slug: "nia-100-faces",
     title: "NIA 100 FACES",
     titleEn: "NIA 100 FACES",
@@ -60,109 +101,21 @@ export const projects: Project[] = [
       "รวบรวม 100 นักนวัตกรรมในระยะ 3 ปี นำเสนอผ่านเว็บไซต์ Instagram หนังสือ และภาพ AR",
     sdg: "SDG 9",
     sdgLabel: "Industry & Innovation",
-    image:
-      "https://static.wixstatic.com/media/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg",
-    alt: "โครงการ NIA 100 FACES นำเสนอนักนวัตกรรมผ่านสื่อหลากหลายรูปแบบ โดย ComInnoCenter",
+    image: wix("25218b_4caad4d894fc4108b321da6753a27a44", "png"),
+    alt: "NIA 100 Faces of Thailand’s innovation inspirers — ปกโครงการ",
+    gallery: [
+      {
+        src: wix("25218b_4caad4d894fc4108b321da6753a27a44", "png"),
+        alt: "ปกโครงการ NIA 100 FACES — 100 Faces of Thailand’s innovation inspirers",
+      },
+    ],
     challenge:
       "ต้องการนำเสนอเรื่องราวของนักนวัตกรรมให้สร้างแรงบันดาลใจ และเข้าถึงผู้คนผ่านหลายช่องทาง",
     approach:
-      "รวบรวม 100 นักนวัตกรรมที่สร้างแรงบันดาลใจด้านการคิดสร้างสรรค์ แล้วนำเสนอผ่านเว็บไซต์ Instagram หนังสือ และภาพ AR",
+      "รวบรวม 100 นักนวัตกรรมที่สร้างแรงบันดาลใจด้านการคิดสร้างสรรค์ แล้วนำเสนอผ่านเว็บไซต์ Instagram หนังสือ และภาพ AR — https://www.nia100faces.com/",
     impact:
       "สร้างชุดสื่อหลายแพลตฟอร์มที่ถ่ายทอดเรื่องราวของนักนวัตกรรมได้อย่างกว้างขวางและน่าสนใจ",
     sourceUrl: "https://www.cominnocenter.com/post/nia-100-faces",
-  },
-  {
-    slug: "pid-thong-lang-phra-foundation",
-    title: "มูลนิธิปิดทองหลังพระ",
-    titleEn: "Pid Thong Lang Phra Foundation",
-    outcome:
-      "อบรมการผลิตสื่อออนไลน์ เทคนิคการโน้มน้าวใจ และการพัฒนาบุคลิกภาพ ให้กับบุคลากรมูลนิธิ",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
-    image:
-      "https://static.wixstatic.com/media/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg",
-    alt: "การอบรมผลิตสื่อและพัฒนาศักยภาพบุคลากรมูลนิธิปิดทองหลังพระ โดย ComInnoCenter",
-    challenge:
-      "บุคลากรมูลนิธิต้องการทักษะการผลิตสื่อออนไลน์ การสื่อสารเพื่อโน้มน้าวใจ และการพัฒนาบุคลิกภาพ เพื่อขับเคลื่อนงานเพื่อสังคม",
-    approach:
-      "จัดอบรมโดยผู้เชี่ยวชาญ ครอบคลุม 3 ด้าน ได้แก่ การผลิตสื่อออนไลน์อย่างง่ายด้วย PowerPoint เทคนิคการโน้มน้าวผู้ฟัง และการพัฒนาบุคลิกภาพ",
-    impact:
-      "เสริมศักยภาพบุคลากรมูลนิธิให้สื่อสารและผลิตสื่อเพื่อขับเคลื่อนสังคมได้มีประสิทธิภาพขึ้น",
-    sourceUrl: "https://www.cominnocenter.com/post/pid-thong-lang-phra-foundation",
-  },
-  {
-    slug: "seeds-for-cu-sustainability",
-    title: "Seeds for CU Sustainability",
-    titleEn: "Seeds for CU Sustainability",
-    outcome:
-      "ผลิตวิดีโอนำเสนอโครงการความยั่งยืน ทั้งในกรุงเทพฯ และต่างจังหวัด พร้อมภาพมุมสูงและสัมภาษณ์ผู้มีส่วนเกี่ยวข้อง",
-    sdg: "SDG 11",
-    sdgLabel: "Sustainable Cities",
-    image:
-      "https://static.wixstatic.com/media/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg",
-    alt: "วิดีโอโครงการ Seeds for CU Sustainability โดยศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร",
-    challenge:
-      "ต้องการสื่อวิดีโอคุณภาพสูงเพื่อนำเสนอความมุ่งมั่นด้านความยั่งยืนของโครงการในหลายพื้นที่",
-    approach:
-      "ผลิตวิดีโอตั้งแต่ pre-production ถึง post-production มีการประชุมรายสัปดาห์เพื่อรับฟีดแบ็กจากลูกค้า ใช้ภาพมุมสูงและสัมภาษณ์ผู้มีส่วนเกี่ยวข้อง",
-    impact:
-      "ได้วิดีโอนำเสนอที่สะท้อนพันธกิจด้านความยั่งยืน และสื่อสารเรื่องราวของโครงการได้อย่างชัดเจน",
-    sourceUrl: "https://www.cominnocenter.com/post/seeds-for-cu-sustainability",
-  },
-  {
-    slug: "department-of-disease-control",
-    title: "กรมควบคุมโรค",
-    titleEn: "Department of Disease Control",
-    outcome:
-      "เวิร์กช็อปออกแบบกระบวนการบริการ เน้นหลักการสื่อสารตรงกลุ่มเป้าหมายและเทคนิคผลิตสื่อสมัยใหม่",
-    sdg: "SDG 3",
-    sdgLabel: "Good Health",
-    image:
-      "https://static.wixstatic.com/media/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg",
-    alt: "เวิร์กช็อปการสื่อสารและออกแบบบริการให้กรมควบคุมโรค โดย ComInnoCenter",
-    challenge:
-      "องค์กรต้องการเสริมความเข้าใจเรื่องการสื่อสารตรงกลุ่มเป้าหมาย และการผลิตสื่อสมัยใหม่ เพื่อสร้างความสัมพันธ์และภาพลักษณ์องค์กร",
-    approach:
-      "จัดเวิร์กช็อปออกแบบกระบวนการบริการ เน้นหลักการสื่อสารตรงกลุ่มเป้าหมายและเทคนิคการผลิตสื่อสมัยใหม่",
-    impact:
-      "ผู้เข้าร่วมได้แนวทางสื่อสารและออกแบบบริการที่ช่วยสร้างความเข้าใจภายในองค์กรและยกระดับภาพลักษณ์",
-    sourceUrl: "https://www.cominnocenter.com/post/department-of-disease-control",
-  },
-  {
-    slug: "international-labour-organization",
-    title: "องค์การแรงงานระหว่างประเทศ",
-    titleEn: "International Labour Organization",
-    outcome: "อบรมด้านนวัตกรรมการสื่อสารร่วมกับ ILO เพื่อเสริมศักยภาพการสื่อสารเชิงองค์กร",
-    sdg: "SDG 8",
-    sdgLabel: "Decent Work",
-    image:
-      "https://static.wixstatic.com/media/25218b_bfb45e4c56094da99ba6feba3b842fca~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/dsc00677jpg.jpg",
-    alt: "การอบรมร่วมกับองค์การแรงงานระหว่างประเทศ (ILO) โดย ComInnoCenter",
-    challenge:
-      "องค์กรระหว่างประเทศต้องการยกระดับทักษะการสื่อสารของบุคลากรให้สอดคล้องกับบริบทการทำงานสมัยใหม่",
-    approach:
-      "ออกแบบและจัดอบรมด้านนวัตกรรมการสื่อสารให้สอดคล้องกับภารกิจและกลุ่มเป้าหมายของ ILO",
-    impact:
-      "เสริมศักยภาพบุคลากรด้านสื่อสาร และสร้างแนวทางที่นำไปใช้ในงานจริงได้",
-    sourceUrl: "https://www.cominnocenter.com/post/international-labour-organization",
-  },
-  {
-    slug: "asean-university-network",
-    title: "ASEAN University Network",
-    titleEn: "ASEAN University Network",
-    outcome: "อบรมและแลกเปลี่ยนความรู้ด้านนวัตกรรมการสื่อสารในเครือข่ายมหาวิทยาลัยอาเซียน",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
-    image:
-      "https://static.wixstatic.com/media/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg/v1/fit/w_1200,h_800,al_c/25218b_3012f8f955424b788d79a19cd91abd99%7Emv2.jpg",
-    alt: "ความร่วมมือด้านอบรมกับ ASEAN University Network โดย ComInnoCenter",
-    challenge:
-      "เครือข่ายมหาวิทยาลัยในอาเซียนต้องการพื้นที่แลกเปลี่ยนและพัฒนาศักยภาพด้านการสื่อสาร",
-    approach:
-      "จัดอบรมและกิจกรรมแลกเปลี่ยนความรู้ด้านนวัตกรรมการสื่อสารภายใต้เครือข่าย ASEAN University Network",
-    impact:
-      "สร้างการเรียนรู้ร่วมกันระหว่างสถาบัน และขยายเครือข่ายความร่วมมือในภูมิภาค",
-    sourceUrl: "https://www.cominnocenter.com/post/asean-university-network",
   },
 ];
 
