@@ -8,6 +8,10 @@ import { projects, type Project } from "@/data/projects";
 import { SDG, SDG_IDS, type SdgId } from "@/data/sdg";
 
 export const metadata = {
+  alternates: {
+    canonical: "/impact",
+    languages: { th: "/impact", en: "/en/impact", "x-default": "/impact" },
+  },
   title: "ผลงานของเรา",
   description:
     "โครงการที่แปลงนวัตกรรมการสื่อสารให้เกิดผลจริงต่อคุณภาพชีวิตและความยั่งยืน จัดกลุ่มตามเป้าหมายการพัฒนาที่ยั่งยืน (SDG)",

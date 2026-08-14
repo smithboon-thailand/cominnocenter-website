@@ -22,6 +22,11 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: post.titleTh,
     description: post.bodyTh[0],
+    alternates: {
+      canonical: `/news/${slug}`,
+      languages: { th: `/news/${slug}`, en: `/en/news/${slug}`, "x-default": `/news/${slug}` },
+    },
+    openGraph: { title: post.titleTh, description: post.bodyTh[0], images: [newsCover(slug)] },
   };
 }
 

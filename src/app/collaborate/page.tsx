@@ -5,6 +5,10 @@ import NewsletterForm from "@/components/NewsletterForm";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata = {
+  alternates: {
+    canonical: "/collaborate",
+    languages: { th: "/collaborate", en: "/en/collaborate", "x-default": "/collaborate" },
+  },
   title: "ร่วมงานกับเรา",
   description:
     "ชวนศูนย์ฯ ร่วมพัฒนาโครงการ วิจัย อบรม หรือแคมเปญการสื่อสารที่วัดผลได้ — เรายินดีร่วมงานกับภาครัฐ ภาคเอกชน และภาคประชาสังคม",

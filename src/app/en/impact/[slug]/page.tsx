@@ -27,6 +27,11 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: project.titleEn,
     description: copy.outcome,
+    alternates: {
+      canonical: `/en/impact/${slug}`,
+      languages: { th: `/impact/${slug}`, en: `/en/impact/${slug}`, "x-default": `/impact/${slug}` },
+    },
+    openGraph: { title: project.titleEn, description: copy.outcome, images: [project.image] },
   };
 }
 

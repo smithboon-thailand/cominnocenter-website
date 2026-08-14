@@ -10,6 +10,10 @@ import { SDG_IDS } from "@/data/sdg";
 const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(id))).length;
 
 export const metadata = {
+  alternates: {
+    canonical: "/sdg",
+    languages: { th: "/sdg", en: "/en/sdg", "x-default": "/sdg" },
+  },
   title: "เป้าหมายการพัฒนาที่ยั่งยืน (SDG)",
   description: `งานของศูนย์ฯ เชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืนแล้ว ${coveredGoals} จาก 17 เป้าหมาย — สำรวจผลงานตามเป้าหมาย หรือชวนเราเปิดเป้าหมายใหม่ไปด้วยกัน`,
   openGraph: {

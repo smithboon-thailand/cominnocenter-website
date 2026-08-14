@@ -11,6 +11,10 @@ import { SDG, SDG_IDS } from "@/data/sdg";
 import TeamAndPartners from "@/components/about/TeamAndPartners";
 
 export const metadata = {
+  alternates: {
+    canonical: "/en/about",
+    languages: { th: "/about", en: "/en/about", "x-default": "/about" },
+  },
   title: "About",
   description:
     "Center of Excellence in Communication Innovation for the Development of Quality of Life and Sustainability, Faculty of Communication Arts, Chulalongkorn University — mission, leadership, researchers, and partners",

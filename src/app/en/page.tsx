@@ -12,6 +12,13 @@ import { partners } from "@/data/partners";
 import { newsSorted, newsCover } from "@/data/news";
 import { SDG, SDG_IDS } from "@/data/sdg";
 
+export const metadata = {
+  alternates: {
+    canonical: "/en",
+    languages: { th: "/", en: "/en", "x-default": "/" },
+  },
+};
+
 const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(id))).length;
 
 /** Featured trio — combined badges stay within the 6-color viewport cap (PART H) */

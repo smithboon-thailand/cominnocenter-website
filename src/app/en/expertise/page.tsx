@@ -5,6 +5,10 @@ import { services } from "@/data/services";
 import { SDG, sdgAria } from "@/data/sdg";
 
 export const metadata = {
+  alternates: {
+    canonical: "/en/expertise",
+    languages: { th: "/expertise", en: "/en/expertise", "x-default": "/expertise" },
+  },
   title: "Expertise",
   description:
     "Nine services from research and training to print, video, and campaigns — each connected to the Sustainable Development Goals",

@@ -5,6 +5,10 @@ import { services } from "@/data/services";
 import { SDG, sdgAria } from "@/data/sdg";
 
 export const metadata = {
+  alternates: {
+    canonical: "/expertise",
+    languages: { th: "/expertise", en: "/en/expertise", "x-default": "/expertise" },
+  },
   title: "ความเชี่ยวชาญ",
   description:
     "บริการทั้ง 9 ด้านของศูนย์ฯ ตั้งแต่งานวิจัย การอบรม สื่อสิ่งพิมพ์ วิดีโอ ไปจนถึงแคมเปญ — ทุกบริการเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน",

@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 import { newsSorted, newsCover } from "@/data/news";
 
 export const metadata = {
+  alternates: {
+    canonical: "/en/news",
+    languages: { th: "/news", en: "/en/news", "x-default": "/news" },
+  },
   title: "News & Events",
   description:
     "News, events, and stories from the Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",

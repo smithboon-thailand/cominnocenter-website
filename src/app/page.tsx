@@ -12,6 +12,13 @@ import { partners } from "@/data/partners";
 import { newsSorted, newsCover } from "@/data/news";
 import { SDG, SDG_IDS } from "@/data/sdg";
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+    languages: { th: "/", en: "/en", "x-default": "/" },
+  },
+};
+
 const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(id))).length;
 
 /** ผลงานเด่น 3 ชิ้น — เลือกให้สี SDG รวมทุก badge ไม่เกิน 6 สีต่อ viewport (PART H) */

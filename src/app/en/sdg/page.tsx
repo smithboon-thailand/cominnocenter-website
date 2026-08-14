@@ -10,6 +10,10 @@ import { SDG_IDS } from "@/data/sdg";
 const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(id))).length;
 
 export const metadata = {
+  alternates: {
+    canonical: "/en/sdg",
+    languages: { th: "/sdg", en: "/en/sdg", "x-default": "/sdg" },
+  },
   title: "Sustainable Development Goals",
   description: `Our work connects to ${coveredGoals} of the 17 Sustainable Development Goals — explore projects by goal, or start a new goal with us`,
   openGraph: {

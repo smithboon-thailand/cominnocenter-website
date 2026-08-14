@@ -11,6 +11,10 @@ import { SDG, SDG_IDS } from "@/data/sdg";
 import TeamAndPartners from "@/components/about/TeamAndPartners";
 
 export const metadata = {
+  alternates: {
+    canonical: "/about",
+    languages: { th: "/about", en: "/en/about", "x-default": "/about" },
+  },
   title: "เกี่ยวกับเรา",
   description:
     "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย — พันธกิจ ผู้นำ นักวิจัย และเครือข่ายพันธมิตร",
