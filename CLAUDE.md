@@ -48,7 +48,7 @@ public/
 
 | ไฟล์ | เนื้อหา |
 |---|---|
-| `projects.ts` | โครงการทั้งหมด 22 โครงการ — field `sdg` ปัจจุบันเป็น string เช่น `"SDG 12"` (Phase 1-C จะ migrate เป็น `SdgId[]`) · `sourceUrl` หลายรายการชี้ไป `cominnocenter.com/post/...` (Wix) |
+| `projects.ts` | โครงการทั้งหมด 18 โครงการ (17 โครงการมี gallery ใน `projectMedia.ts`) — field `sdg` ปัจจุบันเป็น string เช่น `"SDG 12"` (Phase 1-C จะ migrate เป็น `SdgId[]`) · `sourceUrl` 17 รายการชี้ไป `cominnocenter.com/post/...` (Wix) |
 | `projectMedia.ts` | mapping slug → Wix media id ของภาพ gallery |
 | `projectCopyEn.ts` | คำแปลอังกฤษของเนื้อหาโครงการ |
 | `leadership.ts` | ผู้บริหารศูนย์ |
