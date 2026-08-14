@@ -4,7 +4,30 @@ import NewsletterForm from "./NewsletterForm";
 const LOGO_SRC =
   "https://static.wixstatic.com/media/8e0d14_0564f38949dd4891a2359cb0daa61bb4~mv2.png/v1/fill/w_400,h_120,al_c,q_90,enc_auto/logo-communication-innovation.png";
 
-export default function Footer() {
+type FooterProps = {
+  locale?: "th" | "en";
+};
+
+const COPY = {
+  th: {
+    blurb:
+      "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    contact: "ติดต่อเรา",
+    newsletter: "รับข่าวสาร",
+    newsletterHint: "สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate",
+  },
+  en: {
+    blurb:
+      "Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",
+    contact: "Contact",
+    newsletter: "Newsletter",
+    newsletterHint: "Subscribe for collaboration opportunities and updates",
+  },
+} as const;
+
+export default function Footer({ locale = "th" }: FooterProps) {
+  const t = COPY[locale];
+
   return (
     <footer className="bg-neutral-900 text-neutral-300">
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -12,19 +35,16 @@ export default function Footer() {
           <div>
             <Image
               src={LOGO_SRC}
-              alt="โลโก้ Communication Innovation Center — จากเว็บเดิม ComInnoCenter"
+              alt="Communication Innovation Center logo — from original ComInnoCenter site"
               width={200}
               height={60}
               className="h-12 w-auto object-contain brightness-0 invert opacity-90"
             />
-            <p className="mt-4 text-sm max-w-xs leading-relaxed">
-              ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร
-              คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
-            </p>
+            <p className="mt-4 text-sm max-w-xs leading-relaxed">{t.blurb}</p>
           </div>
 
           <div className="text-sm">
-            <div className="text-white font-medium mb-3">ติดต่อเรา</div>
+            <div className="text-white font-medium mb-3">{t.contact}</div>
             <p>
               <a href="mailto:comminno@chula.ac.th" className="hover:text-pink-400 transition-colors">
                 comminno@chula.ac.th
@@ -56,10 +76,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <div className="text-white font-medium mb-3">รับข่าวสาร</div>
-            <p className="text-sm mb-4">
-              สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate
-            </p>
+            <div className="text-white font-medium mb-3">{t.newsletter}</div>
+            <p className="text-sm mb-4">{t.newsletterHint}</p>
             <NewsletterForm variant="dark" />
           </div>
         </div>
