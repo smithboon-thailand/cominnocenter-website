@@ -10,6 +10,11 @@ import GlassCard from "@/components/effects/GlassCard";
 import { projects } from "@/data/projects";
 import { homeHighlights } from "@/data/highlights";
 import VideoShowcase from "@/components/VideoShowcase";
+import { illustration } from "@/data/illustrations";
+
+const heroIllust = illustration("hero-network")!;
+const sdgIllust = illustration("sdg-ring")!;
+const parallaxIllust = illustration("parallax-overlay")!;
 
 const highlightTypeLabel: Record<string, string> = {
   research: "งานวิจัย",
@@ -119,23 +124,20 @@ export default function HomePage() {
 
           <div className="lg:col-span-5 relative hidden lg:block">
             <Reveal direction="right" delay={200}>
-              <div className="relative aspect-square max-w-md ml-auto">
-                <div className="absolute inset-6 rounded-full sdg-ring opacity-30 blur-sm animate-spin-slow" />
-                <div className="absolute inset-10 rounded-full border border-blue-700/10" />
-                <div className="absolute inset-16 rounded-full border border-pink-400/20" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-40 h-40 rounded-3xl glass shadow-xl flex flex-col items-center justify-center text-center p-4">
-                    <div className="text-xs tracking-widest text-neutral-500 mb-1">CENTER OF</div>
-                    <div className="text-lg font-semibold text-blue-700 leading-tight">
-                      EXCELLENCE
-                    </div>
-                    <div className="mt-2 text-[10px] text-pink-500 font-medium">COMM · INNO · SDG</div>
+              <div className="relative aspect-[4/3] max-w-md ml-auto rounded-3xl overflow-hidden border border-neutral-200/80 shadow-xl shadow-blue-900/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={heroIllust.src}
+                  alt={heroIllust.altTh}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="rounded-2xl glass px-4 py-3 shadow-lg">
+                    <div className="text-[10px] tracking-widest text-neutral-500">CENTER OF EXCELLENCE</div>
+                    <div className="text-sm font-semibold text-blue-700">Communication · Innovation · SDG</div>
                   </div>
                 </div>
-                <span className="absolute top-8 left-1/2 w-3 h-3 -ml-1.5 rounded-full bg-pink-500 shadow-lg shadow-pink-500/40 animate-pulse-glow" />
-                <span className="absolute bottom-12 right-10 w-2.5 h-2.5 rounded-full bg-blue-700 shadow-lg shadow-blue-700/30" />
-                <span className="absolute top-1/3 left-8 w-2 h-2 rounded-full bg-amber-400" />
-                <span className="absolute bottom-1/4 left-1/4 w-2 h-2 rounded-full bg-emerald-500" />
               </div>
             </Reveal>
           </div>
@@ -202,15 +204,21 @@ export default function HomePage() {
           <Reveal direction="right" delay={120}>
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-pink-200/40 via-blue-100/30 to-amber-100/40 blur-xl" />
-              <div className="relative rounded-3xl border border-neutral-200 bg-white p-8 md:p-10 shadow-sm">
-                <div className="grid grid-cols-2 gap-4">
+              <div className="relative rounded-3xl border border-neutral-200 bg-white overflow-hidden shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={sdgIllust.src}
+                  alt={sdgIllust.altTh}
+                  className="w-full aspect-[4/3] object-cover"
+                />
+                <div className="grid grid-cols-2 gap-3 p-5">
                   {["Teaching", "Advocacy", "Tools", "Networks"].map((t, i) => (
                     <div
                       key={t}
-                      className="rounded-2xl border border-neutral-100 bg-neutral-50 p-5 hover:border-pink-200 transition-colors"
+                      className="rounded-xl border border-neutral-100 bg-neutral-50 px-4 py-3 hover:border-pink-200 transition-colors"
                     >
-                      <div className="text-xs text-neutral-400 mb-1">0{i + 1}</div>
-                      <div className="font-semibold text-blue-700">{t}</div>
+                      <div className="text-[10px] text-neutral-400 mb-0.5">0{i + 1}</div>
+                      <div className="text-sm font-semibold text-blue-700">{t}</div>
                     </div>
                   ))}
                 </div>
@@ -414,7 +422,16 @@ export default function HomePage() {
       </section>
 
       <section className="relative overflow-hidden bg-blue-700 text-white">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={parallaxIllust.src}
+            alt={parallaxIllust.altTh}
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-blue-700/55" />
+        </div>
+        <div className="absolute inset-0 opacity-30 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-pink-500 blur-3xl animate-float-slow" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-cyan-400 blur-3xl animate-float-medium" />
         </div>
