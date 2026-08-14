@@ -2,19 +2,27 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
+import SectionHeader from "@/components/ui/SectionHeader";
 
+export const metadata = {
+  title: "Collaborate",
+  description:
+    "Partner with the center on research, training, or measurable communication campaigns — we welcome government, business, and civil society",
+};
+
+/** No SDG colors on this page — action (pink) leads, per BRAND.md PART H */
 const collaborationWays = [
   {
-    title: "Partnership",
-    description: "Co-develop projects and create long-term impact together.",
+    title: "Project partnership",
+    description: "Develop projects together and create long-term impact",
   },
   {
-    title: "Training & Capacity Building",
-    description: "Design and deliver communication innovation training for your organization.",
+    title: "Training & capacity building",
+    description: "Design and deliver communication innovation training for your organization",
   },
   {
-    title: "Research & Evaluation",
-    description: "Research and evaluate communication projects systematically and rigorously.",
+    title: "Research & evaluation",
+    description: "Systematic, credible research and evaluation of communication projects",
   },
 ];
 
@@ -23,78 +31,68 @@ export default function EnglishCollaboratePage() {
     <div className="min-h-screen">
       <Header active="collaborate" locale="en" />
 
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-            Create impact
-            <br />
-            <span className="text-blue-700">together</span>
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            Whether research, training, campaigns, or other forms of collaboration — we welcome
-            partnerships with government, business, and civil society to build communication
-            innovation for quality of life and sustainability.
-          </p>
-        </div>
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
+        <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
+          Collaborate
+        </p>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">Create impact together</h1>
+        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          Whether research, training, campaigns, or other forms of collaboration — we welcome
+          partnerships with government, business, and civil society to build communication
+          innovation for quality of life and sustainability.
+        </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {collaborationWays.map((item) => (
-            <div
-              key={item.title}
-              className="p-6 rounded-2xl border border-neutral-200 bg-white hover:border-pink-300 hover:shadow-md transition-all"
-            >
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                <div className="w-3 h-3 rounded-full bg-blue-700" />
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{item.description}</p>
+            <div key={item.title} className="rounded-lg border border-ink-300 bg-white p-6">
+              <h3 className="text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-white border-y border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-7">
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-2">
-                Send us a message
-              </h2>
-              <p className="text-neutral-600 mb-8">
-                Share a brief outline of your project or needs. Our team will follow up.
-              </p>
-              <ContactForm locale="en" />
+      <section className="border-y border-ink-300 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+            <div className="lg:col-span-3">
+              <SectionHeader
+                locale="en"
+                title="Send us a message"
+                description="Share a brief outline of your project or needs. Our team will follow up."
+              />
+              <div className="mt-8">
+                <ContactForm locale="en" />
+              </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sticky top-28">
-                <h3 className="text-lg font-semibold text-blue-700 mb-6">Contact details</h3>
-                <div className="space-y-6 text-sm">
+            <div className="lg:col-span-2">
+              <div className="h-full rounded-lg border border-ink-300 bg-ink-0 p-8">
+                <h3 className="text-h3-m md:text-h3 text-ink-900">Contact details</h3>
+                <div className="mt-6 space-y-6 text-[15px] leading-[1.6]">
                   <div>
-                    <div className="text-neutral-500 mb-1">Email</div>
+                    <p className="mb-1 text-ink-500">Email</p>
                     <a
                       href="mailto:comminno@chula.ac.th"
-                      className="text-neutral-900 font-medium hover:text-pink-500"
+                      className="font-medium text-ink-900 hover:text-pink-500"
                     >
                       comminno@chula.ac.th
                     </a>
                   </div>
-
                   <div>
-                    <div className="text-neutral-500 mb-1">Phone</div>
+                    <p className="mb-1 text-ink-500">Phone</p>
                     <a
                       href="tel:022182262"
-                      className="text-neutral-900 font-medium hover:text-pink-500"
+                      className="font-medium text-ink-900 hover:text-pink-500"
                     >
                       02-218-2262
                     </a>
                   </div>
-
                   <div>
-                    <div className="text-neutral-500 mb-1">Address</div>
-                    <p className="text-neutral-900 leading-relaxed">
+                    <p className="mb-1 text-ink-500">Address</p>
+                    <p className="text-ink-900">
                       Faculty of Communication Arts
                       <br />
                       Chulalongkorn University
@@ -102,15 +100,14 @@ export default function EnglishCollaboratePage() {
                       Bangkok, Thailand
                     </p>
                   </div>
-
                   <div>
-                    <div className="text-neutral-500 mb-2">Social</div>
+                    <p className="mb-2 text-ink-500">Social media</p>
                     <div className="flex gap-4">
                       <a
                         href="https://www.instagram.com/comm.inno21/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-neutral-900 font-medium hover:text-pink-500"
+                        className="font-medium text-ink-900 hover:text-pink-500"
                       >
                         Instagram
                       </a>
@@ -118,7 +115,7 @@ export default function EnglishCollaboratePage() {
                         href="https://www.facebook.com/comm.inno21"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-neutral-900 font-medium hover:text-pink-500"
+                        className="font-medium text-ink-900 hover:text-pink-500"
                       >
                         Facebook
                       </a>
@@ -131,16 +128,14 @@ export default function EnglishCollaboratePage() {
         </div>
       </section>
 
-      <section className="bg-neutral-100">
-        <div className="max-w-7xl mx-auto px-6 py-14">
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-xl md:text-2xl font-semibold text-blue-700">
-              Not ready to reach out yet?
-            </h2>
-            <p className="mt-2 text-neutral-600 text-sm mb-6">
+      <section className="bg-ink-100">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="mx-auto max-w-xl text-center">
+            <h2 className="text-h2-m md:text-h2 text-ink-900">Not ready to reach out yet?</h2>
+            <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">
               Subscribe to our newsletter for future collaboration opportunities.
             </p>
-            <div className="max-w-md mx-auto">
+            <div className="mx-auto mt-6 max-w-md">
               <NewsletterForm variant="light" locale="en" />
             </div>
           </div>
