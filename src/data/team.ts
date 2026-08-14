@@ -15,8 +15,12 @@ export type TeamMember = {
   roleTh: string;
   role: string;
   affiliation?: string;
+  affiliationTh?: string;
+  affiliationEn?: string;
   focus?: string;
+  focusTh?: string;
   funding?: string;
+  fundingTh?: string;
   image?: string;
   alt: string;
   links?: { label: string; href: string }[];
@@ -33,7 +37,12 @@ export const postdocs: TeamMember[] = [
       "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
+    focusTh:
+      "การสื่อสารสุขภาพ เกมิฟิเคชันเชิงจริยธรรมเพื่อการปรับพฤติกรรม สุขภาพอาชีวอนามัยของแรงงานข้ามชาติ (WMSDs) และการมีส่วนร่วมของสาธารณะ",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
+    fundingTh: "ทุน C2F High-Potential Postdoctoral Fellowship จุฬาลงกรณ์มหาวิทยาลัย",
+    affiliationEn:
+      "Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",
     image: media("34cff6_29040465434b4a43bab2432065a820ab"),
     alt: "ดร.พยู ฮนิน ไหล่ (Rashida / Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก thesharpener.school",
     links: [
@@ -56,7 +65,12 @@ export const postdocs: TeamMember[] = [
       "Faculty of Communication Arts, Chulalongkorn University · Program Chair, AB Communication, National University Dasmariñas (Philippines)",
     focus:
       "Indigenous communication, disaster public opinion, SALIGAN framework, AI in higher education, ASEAN media & communication",
+    focusTh:
+      "การสื่อสารของชนพื้นเมือง ความคิดเห็นสาธารณะต่อภัยพิบัติ กรอบแนวคิด SALIGAN, AI ในอุดมศึกษา และสื่อกับการสื่อสารอาเซียน",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
+    fundingTh: "ทุน C2F High-Potential Postdoctoral Fellowship จุฬาลงกรณ์มหาวิทยาลัย",
+    affiliationTh:
+      "คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย · หัวหน้าหลักสูตร AB Communication, National University Dasmariñas (ฟิลิปปินส์)",
     image: "/images/team/robbie-buelo.webp",
     alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar",
     links: [
@@ -79,7 +93,12 @@ export const phdCandidates: TeamMember[] = [
       "Ph.D. Program in Environment, Development and Sustainability (EDS), Graduate School, Chulalongkorn University",
     focus:
       "Digital communication preferences and environmental behavior; youth waste management education in Bhutan",
+    focusTh:
+      "ความชอบด้านการสื่อสารดิจิทัลกับพฤติกรรมสิ่งแวดล้อม และการศึกษาเรื่องการจัดการขยะของเยาวชนในภูฏาน",
     funding: "PhD scholarship (C2F / related funding) · co-research with the Center",
+    fundingTh: "ทุนปริญญาเอก (C2F และทุนที่เกี่ยวข้อง) · วิจัยร่วมกับศูนย์ฯ",
+    affiliationTh:
+      "หลักสูตรปริญญาเอกสิ่งแวดล้อม การพัฒนา และความยั่งยืน (EDS) บัณฑิตวิทยาลัย จุฬาลงกรณ์มหาวิทยาลัย",
     alt: "Thinley Lhendup นักศึกษาปริญญาเอกหลักสูตร EDS จุฬาฯ ที่ร่วมงานกับศูนย์",
     links: [
       {
