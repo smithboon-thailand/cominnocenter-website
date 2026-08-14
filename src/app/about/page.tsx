@@ -60,6 +60,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <Header active="about" />
+      <main>
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
         <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
@@ -392,6 +393,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

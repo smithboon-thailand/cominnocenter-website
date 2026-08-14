@@ -34,6 +34,7 @@ export default function CollaboratePage() {
   return (
     <div className="min-h-screen">
       <Header active="collaborate" />
+      <main>
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
         <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
@@ -145,6 +146,7 @@ export default function CollaboratePage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

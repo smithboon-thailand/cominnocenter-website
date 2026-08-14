@@ -64,6 +64,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <Header active="home" />
+      <main>
 
       {/* Hero — two-tone display ตาม BRAND v1.2 · ระยะหายใจ ≥ sp-12 */}
       <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
@@ -242,6 +243,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

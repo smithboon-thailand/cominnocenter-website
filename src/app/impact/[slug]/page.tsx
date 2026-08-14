@@ -53,6 +53,7 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header active="impact" />
+      <main>
 
       {/* แถบ hero 6px สี pure ของ SDG หลัก เต็มความกว้าง */}
       <div aria-hidden className="h-1.5 w-full" style={{ backgroundColor: goal.pure }} />
@@ -165,6 +166,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

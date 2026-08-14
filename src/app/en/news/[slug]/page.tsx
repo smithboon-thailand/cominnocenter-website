@@ -55,6 +55,7 @@ export default async function NewsDetailPageEn({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header locale="en" />
+      <main>
 
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">
         <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" aria-label="breadcrumb">
@@ -125,6 +126,7 @@ export default async function NewsDetailPageEn({ params }: Props) {
         </section>
       )}
 
+      </main>
       <Footer locale="en" />
     </div>
   );

@@ -56,6 +56,7 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header active="impact" locale="en" />
+      <main>
 
       <div aria-hidden className="h-1.5 w-full" style={{ backgroundColor: goal.pure }} />
 
@@ -172,6 +173,7 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );

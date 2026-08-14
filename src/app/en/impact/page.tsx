@@ -43,6 +43,7 @@ export default async function ImpactPageEn({ searchParams }: Props) {
   return (
     <div className="min-h-screen">
       <Header active="impact" locale="en" />
+      <main>
 
       <section className="mx-auto max-w-7xl px-6 pb-8 pt-20 md:pt-28">
         <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
@@ -140,6 +141,7 @@ export default async function ImpactPageEn({ searchParams }: Props) {
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );

@@ -26,6 +26,7 @@ export default function SdgPageEn() {
   return (
     <div className="min-h-screen">
       <Header active="sdg" locale="en" />
+      <main>
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
         <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
@@ -61,6 +62,7 @@ export default function SdgPageEn() {
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );

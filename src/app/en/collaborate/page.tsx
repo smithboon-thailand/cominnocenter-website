@@ -34,6 +34,7 @@ export default function EnglishCollaboratePage() {
   return (
     <div className="min-h-screen">
       <Header active="collaborate" locale="en" />
+      <main>
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
         <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
@@ -146,6 +147,7 @@ export default function EnglishCollaboratePage() {
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );

@@ -63,6 +63,7 @@ export default function EnglishHomePage() {
   return (
     <div className="min-h-screen">
       <Header active="home" locale="en" />
+      <main>
 
       {/* Hero — two-tone display per BRAND v1.2 */}
       <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
@@ -241,6 +242,7 @@ export default function EnglishHomePage() {
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );

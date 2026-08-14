@@ -27,6 +27,7 @@ export default function NewsPageEn() {
   return (
     <div className="min-h-screen">
       <Header locale="en" />
+      <main>
 
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="max-w-3xl">
@@ -73,6 +74,7 @@ export default function NewsPageEn() {
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );
