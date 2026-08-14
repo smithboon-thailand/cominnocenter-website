@@ -83,7 +83,7 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
         >
           <Image
             src={LOGO_SRC}
-            alt="Communication Innovation Center logo — from original ComInnoCenter site"
+            alt={locale === "th" ? "โลโก้ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร" : "Communication Innovation Center logo"}
             width={180}
             height={54}
             className="h-10 w-auto md:h-12 object-contain"

@@ -23,6 +23,7 @@ export type Leader = {
   education: string[];
   work: string[];
   focus: string;
+  focusTh: string;
   email?: string;
   metrics: { label: string; value: number; suffix?: string }[];
   links: SocialLink[];
@@ -54,6 +55,8 @@ export const leadership: Leader[] = [
     ],
     focus:
       "Health Communication, Risk Communication, Digital Media, Transnational Communication, Social Media Research, Public Relations",
+    focusTh:
+      "การสื่อสารสุขภาพ การสื่อสารความเสี่ยง สื่อดิจิทัล การสื่อสารข้ามชาติ การวิจัยโซเชียลมีเดีย และการประชาสัมพันธ์",
     email: "smith.b@chula.ac.th",
     metrics: [
       { label: "Citations (GS)", value: 263 },
@@ -116,6 +119,8 @@ export const leadership: Leader[] = [
     ],
     focus:
       "Crisis Communication, Environmental Communications, Persuasion and Negotiation, International Image and Reputation, Framing Theory and Public Relations Campaigns",
+    focusTh:
+      "การสื่อสารภาวะวิกฤต การสื่อสารสิ่งแวดล้อม การโน้มน้าวใจและการเจรจาต่อรอง ภาพลักษณ์และชื่อเสียงระหว่างประเทศ ทฤษฎีการวางกรอบและแคมเปญประชาสัมพันธ์",
     metrics: [
       { label: "Publications", value: 15, suffix: "+" },
       { label: "Thesis advised", value: 25, suffix: "+" },
@@ -164,6 +169,8 @@ export const leadership: Leader[] = [
     ],
     focus:
       "Political and legal philosophy of communication, communication theory, cross-cultural communication, strategic communication and public relations",
+    focusTh:
+      "ปรัชญาการเมืองและกฎหมายของการสื่อสาร ทฤษฎีการสื่อสาร การสื่อสารข้ามวัฒนธรรม การสื่อสารเชิงกลยุทธ์และการประชาสัมพันธ์",
     email: "pavel.a@chula.ac.th",
     metrics: [
       { label: "Citations (RG)", value: 150 },

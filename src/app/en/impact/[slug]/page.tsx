@@ -42,10 +42,11 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
   const copy = getLocalizedProjectCopy(project);
   const primary = project.sdg[0];
   const goal = SDG[primary];
-  const gallery =
+  const gallery = (
     project.gallery?.length > 0
       ? project.gallery
-      : [{ src: project.image, alt: project.alt }];
+      : [{ src: project.image, alt: project.alt }]
+  ).map((img, i) => ({ src: img.src, alt: `${project.titleEn} — project photo ${i + 1}` }));
 
   return (
     <div className="min-h-screen">
@@ -89,7 +90,7 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
         <div className="relative aspect-[21/9] overflow-hidden rounded-lg border border-ink-300 md:aspect-[2.4/1]">
           <Image
             src={project.image}
-            alt={project.alt}
+            alt={`${project.titleEn} — project cover photo`}
             fill
             className="object-cover"
             sizes="100vw"

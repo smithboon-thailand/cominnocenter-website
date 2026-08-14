@@ -144,7 +144,7 @@ export default function EnglishHomePage() {
                 title={p.titleEn}
                 description={p.outcome}
                 image={p.image}
-                alt={p.alt}
+                alt={`${p.titleEn} — project photo from the center's archive`}
                 sdgIds={p.sdg}
                 locale="en"
               />

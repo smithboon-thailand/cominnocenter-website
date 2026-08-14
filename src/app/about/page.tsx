@@ -195,7 +195,7 @@ export default function AboutPage() {
                   </div>
                   <p className="mt-2 text-[11px] leading-[1.6] text-ink-500">{person.metricsNote}</p>
                   <p className="mt-5 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-                    {person.focus}
+                    {person.focusTh}
                   </p>
 
                   <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">

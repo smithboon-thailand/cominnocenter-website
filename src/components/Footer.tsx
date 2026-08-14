@@ -34,7 +34,11 @@ export default function Footer({ locale = "th" }: FooterProps) {
           <div>
             <Image
               src={LOGO_SRC}
-              alt="Communication Innovation Center logo — from original ComInnoCenter site"
+              alt={
+                locale === "th"
+                  ? "โลโก้ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร"
+                  : "Communication Innovation Center logo"
+              }
               width={200}
               height={60}
               className="h-12 w-auto object-contain brightness-0 invert opacity-90"
