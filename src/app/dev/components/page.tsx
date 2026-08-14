@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Stat from "@/components/ui/Stat";
 import ProjectCard from "@/components/ui/ProjectCard";
+import DisplayHeading from "@/components/ui/DisplayHeading";
 import { SDG_IDS, SDG_WHITE_TEXT_OK } from "@/data/sdg";
 
 export const metadata = {
@@ -10,10 +11,10 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-/** ข้อความไทยที่วรรณยุกต์/สระซ้อนเยอะ ไว้เช็คความชัดของ Kanit น้ำหนักเบา */
+/** ข้อความไทยที่วรรณยุกต์/สระซ้อนเยอะ ไว้เช็คความชัดของ Kanit */
 const THAI_SAMPLE = "นวัตกรรมการสื่อสารเพื่อคุณภาพชีวิตที่ดีขึ้น ทั้งผู้คน ป่าเขา น้ำใส และวิถีชีวิตที่ยั่งยืน";
 
-/** แถบเทียบ type scale ตาม BRAND.md PART C */
+/** แถบเทียบ type scale ตาม BRAND.md v1.2 PART C — display/h1 = 500, h2 = 400 */
 function TypeScaleStrip({ dark = false }: { dark?: boolean }) {
   const heading = dark ? "text-ink-0" : "text-ink-900";
   const body = dark ? "text-ink-100" : "text-ink-700";
@@ -23,18 +24,28 @@ function TypeScaleStrip({ dark = false }: { dark?: boolean }) {
       <p className={`text-[13px] font-medium tracking-[0.12em] ${muted}`}>
         {dark ? "บนพื้น ink-900" : "บนพื้นขาว"}
       </p>
-      <p className={`text-[34px] font-light leading-[1.2] md:text-[56px] md:leading-[1.15] ${heading}`}>
-        display 56/300 — {THAI_SAMPLE}
-      </p>
-      <p className={`text-[28px] font-light leading-[1.25] md:text-[40px] md:leading-[1.2] ${heading}`}>
-        h1 40/300 — {THAI_SAMPLE}
-      </p>
-      <p className={`text-2xl font-medium leading-[1.3] md:text-[28px] ${heading}`}>
-        h2 28/500 — {THAI_SAMPLE}
-      </p>
-      <p className={`text-lg font-medium leading-[1.4] md:text-xl ${heading}`}>
-        h3 20/500 — {THAI_SAMPLE}
-      </p>
+      <div className="space-y-1">
+        <p className={`text-[13px] ${muted}`}>display 52/500 · two-tone (ลายเซ็นแบรนด์ · ≤2 บรรทัด)</p>
+        <DisplayHeading
+          as="p"
+          primary="นวัตกรรมการสื่อสาร"
+          secondary="เพื่อคุณภาพชีวิตที่ยั่งยืน"
+          onDark={dark}
+        />
+      </div>
+      <div className="space-y-1">
+        <p className={`text-[13px] ${muted}`}>ตัวอย่าง accentWord (pink-500 เฉพาะคำเดียวที่สำคัญจริง)</p>
+        <DisplayHeading
+          as="p"
+          primary="งานวิจัยที่เปลี่ยน"
+          secondary="ชีวิตผู้คนได้จริง"
+          accentWord="เปลี่ยน"
+          onDark={dark}
+        />
+      </div>
+      <p className={`text-h1-m md:text-h1 ${heading}`}>h1 38/500 — {THAI_SAMPLE}</p>
+      <p className={`text-h2-m md:text-h2 ${heading}`}>h2 28/400 — {THAI_SAMPLE}</p>
+      <p className={`text-h3-m md:text-h3 ${heading}`}>h3 20/500 — {THAI_SAMPLE}</p>
       <p className={`max-w-prose text-[17px] leading-[1.7] ${body}`}>
         body 17/400 — {THAI_SAMPLE} ข้อความยาวคุมความกว้างไม่เกิน 65ch
         เพื่อให้อ่านสบายตามข้อกำหนดของฟอนต์ Kanit ที่ค่อนข้างแน่น
@@ -60,14 +71,14 @@ export default function DevComponentsPage() {
   return (
     <main className="mx-auto max-w-6xl space-y-16 px-6 py-16">
       <header className="space-y-2">
-        <h1 className="text-[40px] font-light leading-[1.2] text-ink-900">Design System — Phase 1</h1>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">Design System — Phase 1 (BRAND v1.2)</h1>
         <p className="max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          หน้าตรวจ component ตาม BRAND.md (ลบทิ้งใน Phase 4) — ทุกส่วนใช้ token จาก globals.css
-          และฟอนต์ Kanit 300/400/500
+          หน้าตรวจ component ตาม BRAND.md v1.2 (ลบทิ้งใน Phase 4) — Kanit 400/500 ·
+          display/h1 หนัก 500 · h2 เบา 400 · hero แบบ two-tone
         </p>
       </header>
 
-      <Section title="Typography — เช็ควรรณยุกต์ไทยบน Kanit น้ำหนักเบา">
+      <Section title="Typography v1.2 — two-tone display + ลำดับชั้น h1 (500) เหนือ h2 (400)">
         <div className="space-y-6">
           <TypeScaleStrip />
           <TypeScaleStrip dark />

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
 
-/** ฟอนต์เดียวทั้งเว็บตาม BRAND.md PART C — น้ำหนัก 300/400/500 เท่านั้น */
+/** ฟอนต์เดียวทั้งเว็บตาม BRAND.md PART C (v1.2) — น้ำหนัก 400/500 เท่านั้น ห้าม 300 และ 600/700 */
 const kanit = Kanit({
-  weight: ["300", "400", "500"],
+  weight: ["400", "500"],
   subsets: ["thai", "latin"],
   variable: "--font-kanit",
   display: "swap",

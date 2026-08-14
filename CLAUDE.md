@@ -14,7 +14,7 @@
 |---|---|
 | Framework | Next.js 15 (App Router) + React 19 + TypeScript 5 |
 | Styling | Tailwind CSS 3.4 (config: `tailwind.config.ts`) + CSS variables ใน `src/app/globals.css` |
-| ฟอนต์ปัจจุบัน | Inter + Sarabun ผ่าน `next/font/google` (จะเปลี่ยนเป็น **Kanit** ตาม BRAND.md ใน Phase 1) |
+| ฟอนต์ | **Kanit** ตัวเดียวทั้งเว็บ ผ่าน `next/font/google` — weights **400/500 เท่านั้น** (BRAND.md v1.2: ห้าม 300/600/700 · display/h1 = 500 two-tone · h2 = 400) |
 | Utilities | clsx, tailwind-merge |
 | Deploy | Vercel — ทุก branch ที่ push ได้ Preview URL อัตโนมัติ |
 | รูปภาพ | **self-host แล้ว** (Phase 0-B) ใน `public/images/` — 246 ไฟล์ ดู mapping ใน `scripts/wix-image-manifest.json` · เหลือ remote เฉพาะรูปหลักสูตรวัฒนธรรมจาก `cuculturecom-static.vercel.app` |

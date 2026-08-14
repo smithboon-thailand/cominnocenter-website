@@ -10,8 +10,8 @@ type SectionHeaderProps = {
 };
 
 /**
- * Section header pattern ตาม BRAND.md G4
- * EYEBROW → หัวเรื่อง (Kanit 500 h2: 28/1.3 desktop · 24/1.3 mobile) → คำอธิบาย
+ * Section header pattern ตาม BRAND.md G4 (v1.2)
+ * EYEBROW → หัวเรื่อง (Kanit 400 h2: 28/1.35 desktop · 24/1.35 mobile — ต้องเป็น 400 ไม่แย่งน้ำหนัก h1) → คำอธิบาย
  */
 export default function SectionHeader({
   eyebrow,
@@ -30,7 +30,7 @@ export default function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-2xl font-medium leading-[1.3] text-ink-900 md:text-[28px]">{title}</h2>
+      <h2 className="text-h2-m text-ink-900 md:text-h2">{title}</h2>
       {description && (
         <p className="max-w-prose text-[17px] leading-[1.7] text-ink-700">{description}</p>
       )}

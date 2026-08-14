@@ -63,6 +63,17 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-kanit)", "system-ui", "sans-serif"],
       },
+      // Type scale ตาม BRAND.md v1.2 PART C — ใช้คู่ mobile-first เช่น `text-display-m md:text-display`
+      fontSize: {
+        display: ["52px", { lineHeight: "1.25", fontWeight: "500" }],
+        "display-m": ["34px", { lineHeight: "1.3", fontWeight: "500" }],
+        h1: ["38px", { lineHeight: "1.3", fontWeight: "500" }],
+        "h1-m": ["28px", { lineHeight: "1.3", fontWeight: "500" }],
+        h2: ["28px", { lineHeight: "1.35", fontWeight: "400" }],
+        "h2-m": ["24px", { lineHeight: "1.35", fontWeight: "400" }],
+        h3: ["20px", { lineHeight: "1.45", fontWeight: "500" }],
+        "h3-m": ["18px", { lineHeight: "1.45", fontWeight: "500" }],
+      },
       maxWidth: {
         prose: "65ch",
       },

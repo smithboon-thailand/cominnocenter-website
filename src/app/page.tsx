@@ -95,7 +95,7 @@ export default function HomePage() {
               </h1>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-6 text-xl md:text-2xl text-neutral-600 font-light tracking-[0.18em]">
+              <p className="mt-6 text-xl md:text-2xl text-neutral-600 font-normal tracking-[0.18em]">
                 FOR A BETTER LIFE
               </p>
             </Reveal>
