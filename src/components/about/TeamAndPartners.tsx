@@ -10,7 +10,10 @@ import {
 } from "@/data/team";
 import { partners } from "@/data/partners";
 
-function MemberCard({ person }: { person: TeamMember }) {
+type Locale = "th" | "en";
+
+function MemberCard({ person, locale }: { person: TeamMember; locale: Locale }) {
+  const isEn = locale === "en";
   const initial =
     (person.nameEn.split(" ").filter(Boolean).slice(-1)[0] || "R").charAt(0).toUpperCase();
 
@@ -34,13 +37,20 @@ function MemberCard({ person }: { person: TeamMember }) {
         )}
       </div>
       <div className="p-4">
-        <p className="text-[11px] font-medium text-pink-500">{person.roleTh}</p>
-        <h3 className="mt-0.5 text-sm font-semibold text-neutral-900 leading-snug">{person.name}</h3>
-        <p className="text-xs text-neutral-500">{person.nameEn}</p>
+        <p className="text-[11px] font-medium text-pink-500">
+          {isEn ? person.role : person.roleTh}
+        </p>
+        <h3 className="mt-0.5 text-sm font-semibold text-neutral-900 leading-snug">
+          {isEn ? person.nameEn : person.name}
+        </h3>
+        {!isEn && <p className="text-xs text-neutral-500">{person.nameEn}</p>}
+        {isEn && person.name !== person.nameEn && (
+          <p className="text-xs text-neutral-500">{person.name}</p>
+        )}
         {person.funding && (
           <p className="mt-2 text-[10px] font-medium text-blue-700 leading-snug">{person.funding}</p>
         )}
-        {person.affiliation && (
+        {person.affiliation && !isEn && (
           <p className="mt-1.5 text-[11px] text-neutral-500 leading-relaxed">{person.affiliation}</p>
         )}
         {person.focus && (
@@ -67,89 +77,96 @@ function MemberCard({ person }: { person: TeamMember }) {
   );
 }
 
-export default function TeamAndPartners() {
+export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) {
+  const isEn = locale === "en";
+
   return (
     <>
-      {/* C2F Postdocs + PhD */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <Reveal>
           <div className="mb-10">
             <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
-              Postdoc และนักศึกษาปริญญาเอก
+              {isEn ? "Postdocs and PhD candidates" : "Postdoc และนักศึกษาปริญญาเอก"}
             </h2>
             <p className="text-neutral-600 max-w-2xl">
-              นักวิจัยหลังปริญญาเอกทุน C2F และนักศึกษาปริญญาเอกที่อยู่ภายใต้การดูแลและร่วมงานกับศูนย์
+              {isEn
+                ? "C2F postdoctoral fellows and PhD candidates supervised by and collaborating with the center."
+                : "นักวิจัยหลังปริญญาเอกทุน C2F และนักศึกษาปริญญาเอกที่อยู่ภายใต้การดูแลและร่วมงานกับศูนย์"}
             </p>
           </div>
         </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...postdocs, ...phdCandidates].map((person, i) => (
             <Reveal key={person.nameEn} delay={i * 70}>
-              <MemberCard person={person} />
+              <MemberCard person={person} locale={locale} />
             </Reveal>
           ))}
         </div>
         <p className="mt-8 text-xs text-neutral-400 max-w-3xl">
-          ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) และ ดร.Robbie Buelo — ทุน C2F High-Potential Postdoctoral Fellowship
-          · Thinley Lhendup — ปริญญาเอกหลักสูตร Environment, Development and Sustainability (EDS) จุฬาฯ
+          {isEn
+            ? "Dr. Phyu Hnin Hlaing and Dr. Robbie Buelo — C2F High-Potential Postdoctoral Fellowship · Thinley Lhendup — PhD in Environment, Development and Sustainability (EDS), Chulalongkorn University"
+            : "ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) และ ดร.Robbie Buelo — ทุน C2F High-Potential Postdoctoral Fellowship · Thinley Lhendup — ปริญญาเอกหลักสูตร Environment, Development and Sustainability (EDS) จุฬาฯ"}
         </p>
       </section>
 
-      {/* Affiliated researchers from old site */}
       <section className="bg-neutral-50 border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <Reveal>
             <div className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">นักวิจัยร่วม</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
+                {isEn ? "Affiliated researchers" : "นักวิจัยร่วม"}
+              </h2>
               <p className="text-neutral-600 max-w-2xl">
-                นักวิจัยที่ร่วมงานกับศูนย์ ตามข้อมูลจากเว็บไซต์เดิมของศูนย์
+                {isEn
+                  ? "Researchers who have collaborated with the center (from the original center website)."
+                  : "นักวิจัยที่ร่วมงานกับศูนย์ ตามข้อมูลจากเว็บไซต์เดิมของศูนย์"}
               </p>
             </div>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
             {affiliatedResearchers.map((person, i) => (
               <Reveal key={person.nameEn} delay={i * 70}>
-                <MemberCard person={person} />
+                <MemberCard person={person} locale={locale} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Research assistants + designer */}
       <section className="bg-white border-y border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
           <Reveal>
             <div className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">ผู้ช่วยวิจัยและทีมสนับสนุน</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
+                {isEn ? "Research assistants and support team" : "ผู้ช่วยวิจัยและทีมสนับสนุน"}
+              </h2>
               <p className="text-neutral-600 max-w-2xl">
-                ทีมผู้ช่วยวิจัยและนักออกแบบมัลติมีเดีย ที่สนับสนุนงานวิจัยและผลงานของศูนย์
+                {isEn
+                  ? "Research assistants and multimedia designers supporting the center’s work."
+                  : "ทีมผู้ช่วยวิจัยและนักออกแบบมัลติมีเดีย ที่สนับสนุนงานวิจัยและผลงานของศูนย์"}
               </p>
             </div>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
             {[...researchAssistants, ...designers].map((person, i) => (
               <Reveal key={person.nameEn} delay={i * 50}>
-                <MemberCard person={person} />
+                <MemberCard person={person} locale={locale} />
               </Reveal>
             ))}
           </div>
-          <p className="mt-8 text-xs text-neutral-400 max-w-3xl">
-            ชื่อ ตำแหน่ง และรูปภาพอ้างอิงจากหน้า About ของเว็บเดิม ComInnoCenter
-            (ชื่อภาษาไทยเป็นการถอดจากชื่ออังกฤษบนเว็บเดิม — โปรดแจ้งหากต้องการแก้การสะกด)
-          </p>
         </div>
       </section>
 
-      {/* Partners / Clients — full logos, no crop */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <Reveal>
           <div className="mb-12 text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
-              พันธมิตรและองค์กรที่ร่วมงาน
+              {isEn ? "Partners and client organizations" : "พันธมิตรและองค์กรที่ร่วมงาน"}
             </h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
-              องค์กรที่เคยร่วมงานและสนับสนุนโครงการของศูนย์ (Our Clients จากเว็บเดิม)
+              {isEn
+                ? "Organizations that have collaborated with and supported the center’s projects."
+                : "องค์กรที่เคยร่วมงานและสนับสนุนโครงการของศูนย์ (Our Clients จากเว็บเดิม)"}
             </p>
           </div>
         </Reveal>
@@ -168,7 +185,7 @@ export default function TeamAndPartners() {
                   />
                 </div>
                 <p className="text-xs text-neutral-600 text-center leading-tight font-medium">
-                  {p.name}
+                  {isEn ? p.nameEn : p.name}
                 </p>
               </div>
             </Reveal>
