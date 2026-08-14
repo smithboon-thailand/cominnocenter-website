@@ -4,10 +4,34 @@ import { useState } from "react";
 
 type NewsletterFormProps = {
   variant?: "light" | "dark" | "compact";
+  locale?: "th" | "en";
 };
 
-export default function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
+const COPY = {
+  th: {
+    success: "สมัครรับข่าวสารเรียบร้อยแล้ว ขอบคุณครับ",
+    placeholder: "อีเมลของคุณ",
+    loading: "กำลังสมัคร...",
+    submitDark: "สมัคร",
+    submitLight: "สมัครรับข่าวสาร",
+    error: "เกิดข้อผิดพลาด กรุณาลองใหม่",
+  },
+  en: {
+    success: "Subscribed successfully. Thank you!",
+    placeholder: "Your email",
+    loading: "Subscribing...",
+    submitDark: "Subscribe",
+    submitLight: "Subscribe",
+    error: "Something went wrong. Please try again.",
+  },
+} as const;
+
+export default function NewsletterForm({
+  variant = "light",
+  locale = "th",
+}: NewsletterFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const t = COPY[locale];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -17,7 +41,6 @@ export default function NewsletterForm({ variant = "light" }: NewsletterFormProp
     const data = new FormData(form);
 
     try {
-      // เปลี่ยน YOUR_NEWSLETTER_FORM_ID เป็น Formspree ID จริง
       const res = await fetch("https://formspree.io/f/mdenzqkp", {
         method: "POST",
         body: data,
@@ -38,7 +61,7 @@ export default function NewsletterForm({ variant = "light" }: NewsletterFormProp
   if (status === "success") {
     return (
       <p className={variant === "dark" ? "text-sm text-pink-300" : "text-sm text-pink-600"}>
-        สมัครรับข่าวสารเรียบร้อยแล้ว ขอบคุณครับ
+        {t.success}
       </p>
     );
   }
@@ -62,14 +85,14 @@ export default function NewsletterForm({ variant = "light" }: NewsletterFormProp
         type="email"
         name="email"
         required
-        placeholder="อีเมลของคุณ"
+        placeholder={t.placeholder}
         className={inputClass}
       />
       <button type="submit" disabled={status === "loading"} className={buttonClass}>
-        {status === "loading" ? "กำลังสมัคร..." : variant === "dark" ? "สมัคร" : "สมัครรับข่าวสาร"}
+        {status === "loading" ? t.loading : variant === "dark" ? t.submitDark : t.submitLight}
       </button>
       {status === "error" && (
-        <p className="text-xs text-red-500 col-span-full">เกิดข้อผิดพลาด กรุณาลองใหม่</p>
+        <p className="text-xs text-red-500 col-span-full">{t.error}</p>
       )}
     </form>
   );
