@@ -84,7 +84,7 @@ public/
 
 ## สรุปแผนงาน (รายละเอียดเต็มใน cominno-workflow.md)
 
-- **Phase 0 — Asset Independence:** ✅ 0-A สำรวจ · ✅ 0-B self-host ภาพ 246 ไฟล์ + favicon ชั่วคราว · ✅ 0-C เก็บ 24 โพสต์เป็น `/news/[slug]` + `/en/news/[slug]` + ภาพในโพสต์ 39 ไฟล์ใหม่ → **ถัดไป 0-D:** 301 redirects จาก path เดิม (`/post/...`) → ตรวจทั้ง Phase
+- **Phase 0 — Asset Independence: ✅ เสร็จสมบูรณ์** — 0-A สำรวจ · 0-B self-host ภาพ 246 ไฟล์ + favicon ชั่วคราว · 0-C เก็บ 24 โพสต์เป็น `/news/[slug]` + `/en/news/[slug]` (+39 ภาพ) · 0-D redirects 33 กฎใน `next.config.ts` (โพสต์เดิม 24 + /insights /contact /blog ฯลฯ + catch-all `/post/:slug*`) · 0-E ตรวจแล้ว runtime เหลือ dependency ภายนอกแค่ `cuculturecom-static.vercel.app` (รูป 7), YouTube (thumbnail+embed) และ `formspree.io` (backend ฟอร์มติดต่อ/newsletter — บริการเดิมของเว็บ)
 - **Phase 1 — Design System:** tokens + Kanit + `src/data/sdg.ts` → components (SdgBadge, Button, SectionHeader, Stat, ProjectCard) + หน้า `/dev/components` → migrate `projects.ts` เป็น `sdg: SdgId[]` (เสนอ mapping ให้ตรวจก่อน)
 - **Phase 2 — Assets จาก Grok:** ทำขนานกับ Phase 3 ได้ ใช้ placeholder ไปก่อน
 - **Phase 3 — Implementation ทีละหน้า:** Impact list → Impact detail → `/sdg` → Home → About/Expertise/Collaborate → แปลภาษา → EN parity
