@@ -78,7 +78,7 @@ export default function Footer({ locale = "th" }: FooterProps) {
           <div>
             <div className="text-white font-medium mb-3">{t.newsletter}</div>
             <p className="text-sm mb-4">{t.newsletterHint}</p>
-            <NewsletterForm variant="dark" />
+            <NewsletterForm variant="dark" locale={locale} />
           </div>
         </div>
 

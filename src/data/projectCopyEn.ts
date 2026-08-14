@@ -2,6 +2,8 @@
  * English body copy for projects whose outcome/challenge/approach/impact
  * are stored in Thai in projects.ts. EN pages prefer these values.
  */
+import type { Project } from "./projects";
+
 export type ProjectCopyEn = {
   outcome: string;
   challenge: string;
@@ -64,4 +66,15 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
 
 export function getProjectCopyEn(slug: string): ProjectCopyEn | undefined {
   return projectCopyEn[slug];
+}
+
+/** Prefer EN copy when available; otherwise fall back to fields on the project. */
+export function getLocalizedProjectCopy(project: Project): ProjectCopyEn {
+  const en = projectCopyEn[project.slug];
+  return {
+    outcome: en?.outcome ?? project.outcome,
+    challenge: en?.challenge ?? project.challenge,
+    approach: en?.approach ?? project.approach,
+    impact: en?.impact ?? project.impact,
+  };
 }

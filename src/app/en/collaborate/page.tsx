@@ -141,7 +141,7 @@ export default function EnglishCollaboratePage() {
               Subscribe to our newsletter for future collaboration opportunities.
             </p>
             <div className="max-w-md mx-auto">
-              <NewsletterForm variant="light" />
+              <NewsletterForm variant="light" locale="en" />
             </div>
           </div>
         </div>
