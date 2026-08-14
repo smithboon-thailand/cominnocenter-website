@@ -1,77 +1,138 @@
-import Image from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { projects } from "@/data/projects";
+import ProjectCard from "@/components/ui/ProjectCard";
+import SdgBadge from "@/components/ui/SdgBadge";
+import SdgFilterChips from "@/components/ui/SdgFilterChips";
+import Button from "@/components/ui/Button";
+import { projects, type Project } from "@/data/projects";
+import { SDG, SDG_IDS, type SdgId } from "@/data/sdg";
 
-export default function ImpactPage() {
+export const metadata = {
+  title: "ผลงานของเรา",
+  description:
+    "โครงการที่แปลงนวัตกรรมการสื่อสารให้เกิดผลจริงต่อคุณภาพชีวิตและความยั่งยืน จัดกลุ่มตามเป้าหมายการพัฒนาที่ยั่งยืน (SDG)",
+};
+
+type Props = {
+  searchParams: Promise<{ sdg?: string }>;
+};
+
+function parseSdg(value?: string): SdgId | undefined {
+  const n = Number(value);
+  return Number.isInteger(n) && n >= 1 && n <= 17 ? (n as SdgId) : undefined;
+}
+
+export default async function ImpactPage({ searchParams }: Props) {
+  const { sdg } = await searchParams;
+  const active = parseSdg(sdg);
+
+  // filter: โครงการที่มีเป้าหมายนี้อยู่ในรายการ (ไม่ใช่แค่เป้าหมายหลัก)
+  const filtered = active ? projects.filter((p) => p.sdg.includes(active)) : [];
+
+  // ไม่มี filter: เรียงกลุ่มตาม SDG หลัก เลขน้อย → มาก (BRAND.md PART H)
+  const groups: { id: SdgId; items: Project[] }[] = [];
+  if (!active) {
+    for (const id of SDG_IDS) {
+      const items = projects.filter((p) => p.sdg[0] === id);
+      if (items.length > 0) groups.push({ id, items });
+    }
+  }
+
   return (
     <div className="min-h-screen">
       <Header active="impact" />
 
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-            ผลงานของเรา
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            ตัวอย่างโครงการที่เปลี่ยนนวัตกรรมการสื่อสารให้เกิดผลกระทบจริง
-            ต่อคุณภาพชีวิตและความยั่งยืน
-          </p>
+      <section className="mx-auto max-w-7xl px-6 pb-8 pt-20 md:pt-28">
+        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
+          ผลงาน
+        </p>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">
+          นวัตกรรมการสื่อสารที่เกิดผลจริง
+        </h1>
+        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          ทุกโครงการของเราเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน
+          เลือกเป้าหมายเพื่อดูผลงานในเรื่องนั้น
+        </p>
+        <div className="mt-8">
+          <SdgFilterChips basePath="/impact" active={active} />
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/impact/${project.slug}`}
-              className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+      {active ? (
+        <section className="mx-auto max-w-7xl px-6 pb-24">
+          <div className="mb-6 flex flex-wrap items-center gap-3">
+            <SdgBadge id={active} />
+            <p className="text-[15px] leading-[1.6] text-ink-500">
+              {filtered.length} โครงการ
+            </p>
+          </div>
+          {filtered.length > 0 ? (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {filtered.map((p) => (
+                <ProjectCard
+                  key={p.slug}
+                  href={`/impact/${p.slug}`}
+                  title={p.title}
+                  description={p.outcome}
+                  image={p.image}
+                  alt={p.alt}
+                  sdgIds={p.sdg}
                 />
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-lg border border-ink-300 bg-white p-8">
+              <p className="max-w-prose text-[17px] leading-[1.7] text-ink-700">
+                ยังไม่มีโครงการในเป้าหมาย SDG {active} — {SDG[active].th}
+                เราเปิดรับความร่วมมือในเป้าหมายนี้
+              </p>
+              <div className="mt-6">
+                <Button variant="secondary" href="/collaborate">
+                  ชวนเราทำโครงการแรก
+                </Button>
               </div>
-              <div className="p-6">
-                <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
-                  {project.sdg} · {project.sdgLabel}
-                </span>
-                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-neutral-500 mt-1">{project.titleEn}</p>
-                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
-                  {project.outcome}
-                </p>
-                <p className="mt-4 text-sm font-medium text-pink-500 group-hover:text-pink-600">
-                  อ่านรายละเอียด →
+            </div>
+          )}
+        </section>
+      ) : (
+        <section className="mx-auto max-w-7xl space-y-16 px-6 pb-24">
+          {groups.map((group) => (
+            <div key={group.id}>
+              <div className="mb-6 flex flex-wrap items-center gap-3 border-b border-ink-300 pb-4">
+                <SdgBadge id={group.id} />
+                <p className="text-[15px] leading-[1.6] text-ink-500">
+                  {group.items.length} โครงการ
                 </p>
               </div>
-            </Link>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {group.items.map((p) => (
+                  <ProjectCard
+                    key={p.slug}
+                    href={`/impact/${p.slug}`}
+                    title={p.title}
+                    description={p.outcome}
+                    image={p.image}
+                    alt={p.alt}
+                    sdgIds={p.sdg}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="bg-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            อยากสร้างผลกระทบแบบนี้ไปด้วยกัน?
+      <section className="bg-ink-900">
+        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <h2 className="text-h2-m md:text-h2 text-white">
+            อยากสร้างผลลัพธ์แบบนี้กับเป้าหมายของคุณ
           </h2>
-          <p className="mt-3 text-blue-100 max-w-xl mx-auto">
-            บอกเราเกี่ยวกับโครงการหรือความต้องการของคุณได้เลย
+          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
+            เล่าโจทย์ขององค์กรให้เราฟัง แล้วออกแบบการสื่อสารที่วัดผลได้ไปด้วยกัน
           </p>
-          <Link
-            href="/collaborate"
-            className="inline-flex items-center mt-8 px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors"
-          >
-            ร่วมงานกับเรา
-          </Link>
+          <div className="mt-8 flex justify-center">
+            <Button href="/collaborate">ร่วมงานกับเรา</Button>
+          </div>
         </div>
       </section>
 

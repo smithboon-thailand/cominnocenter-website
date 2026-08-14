@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectGallery from "@/components/ProjectGallery";
+import SdgBadge from "@/components/ui/SdgBadge";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type Props = {
@@ -58,9 +59,11 @@ export default async function CaseStudyPage({ params }: Props) {
           </Link>
         </nav>
         <div className="mt-6 max-w-3xl">
-          <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-4">
-            {project.sdg} · {project.sdgLabel}
-          </span>
+          <div className="mb-4 flex flex-wrap gap-1.5">
+            {project.sdg.map((id) => (
+              <SdgBadge key={id} id={id} />
+            ))}
+          </div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900">
             {project.title}
           </h1>

@@ -1,4 +1,5 @@
 import { projectMedia } from "./projectMedia";
+import type { SdgId } from "./sdg";
 
 export type ProjectImage = {
   src: string;
@@ -10,8 +11,12 @@ export type Project = {
   title: string;
   titleEn: string;
   outcome: string;
-  sdg: string;
-  sdgLabel: string;
+  /**
+   * เป้าหมาย SDG ของโครงการ — ตัวแรกคือสีหลักของการ์ด (BRAND.md I2)
+   * เกณฑ์การ map: อิงผลลัพธ์ปลายทางของโครงการ ไม่ใช่รูปแบบกิจกรรม
+   * ใส่เป้าหมายรองเฉพาะที่เนื้องานรองรับจริง (ดู CLAUDE.md)
+   */
+  sdg: SdgId[];
   image: string;
   alt: string;
   gallery: ProjectImage[];
@@ -46,8 +51,7 @@ export const projects: Project[] = [
     title: "Chula Zero Waste",
     titleEn: "Chula Zero Waste",
     outcome: "Create a Campaign Prototype for Reducing Waste in the University Led by Students, Emphasizing Fun, Brightness, Simplicity, and Practicality.",
-    sdg: "SDG 12",
-    sdgLabel: "Responsible Consumption",
+    sdg: [12, 11, 13],
     image: cover("chula-zero-waste", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "Chula Zero Waste — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("chula-zero-waste", "Chula Zero Waste"),
@@ -61,8 +65,7 @@ export const projects: Project[] = [
     title: "สารานุกรม กสทช.",
     titleEn: "NBTC Encyclopedia",
     outcome: "This encyclopedia compiles important topics, creates connections, explains in language that the younger generation can easily understand, and uses engaging illustrations.",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
+    sdg: [4, 9],
     image: cover("nbtc-encyclopedia", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "สารานุกรม กสทช. — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("nbtc-encyclopedia", "สารานุกรม กสทช."),
@@ -76,8 +79,7 @@ export const projects: Project[] = [
     title: "NIA 100 FACES",
     titleEn: "NIA 100 FACES",
     outcome: "We gathered 100 innovators (3 Years) who inspire creativity, presenting them through a website, Instagram, a book, and AR images.",
-    sdg: "SDG 9",
-    sdgLabel: "Industry & Innovation",
+    sdg: [9],
     image: cover("nia-100-faces", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "NIA 100 FACES — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("nia-100-faces", "NIA 100 FACES"),
@@ -91,8 +93,7 @@ export const projects: Project[] = [
     title: "NIA Media Innovation",
     titleEn: "NIA Media Innovation",
     outcome: "Research on the meaning of media innovation and a small projection mapping display event for NIA.",
-    sdg: "SDG 9",
-    sdgLabel: "Industry & Innovation",
+    sdg: [9],
     image: cover("nia-media-innovation", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "NIA Media Innovation — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("nia-media-innovation", "NIA Media Innovation"),
@@ -106,8 +107,7 @@ export const projects: Project[] = [
     title: "NIA Satisfaction Survey 2020",
     titleEn: "NIA Satisfaction Survey 2020",
     outcome: "Customer satisfaction survey using mixed methods for the National Innovation Agency (Public Organization).",
-    sdg: "SDG 9",
-    sdgLabel: "Industry & Innovation",
+    sdg: [9, 16],
     image: cover("nia-satisfaction-survey-2020", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "NIA Satisfaction Survey 2020 — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("nia-satisfaction-survey-2020", "NIA Satisfaction Survey 2020"),
@@ -121,8 +121,7 @@ export const projects: Project[] = [
     title: "มูลนิธิปิดทองหลังพระ",
     titleEn: "Pid Thong Lang Phra Foundation",
     outcome: "Training on online media production, persuasion techniques, and personality development for foundation trainees.",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
+    sdg: [4, 1],
     image: cover("pid-thong-lang-phra-foundation", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "มูลนิธิปิดทองหลังพระ — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("pid-thong-lang-phra-foundation", "มูลนิธิปิดทองหลังพระ"),
@@ -136,8 +135,7 @@ export const projects: Project[] = [
     title: "Seeds for CU Sustainability",
     titleEn: "Seeds for CU Sustainability",
     outcome: "Project presentation videos in Bangkok and other provinces, from pre-production to post-production, with aerial footage and stakeholder interviews.",
-    sdg: "SDG 11",
-    sdgLabel: "Sustainable Cities",
+    sdg: [11, 13],
     image: cover("seeds-for-cu-sustainability", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "Seeds for CU Sustainability — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("seeds-for-cu-sustainability", "Seeds for CU Sustainability"),
@@ -151,8 +149,7 @@ export const projects: Project[] = [
     title: "กรมควบคุมโรค",
     titleEn: "Department of Disease Control",
     outcome: "Workshop on service process design focusing on targeted communication and modern media production techniques.",
-    sdg: "SDG 3",
-    sdgLabel: "Good Health",
+    sdg: [3],
     image: cover("department-of-disease-control", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "กรมควบคุมโรค — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("department-of-disease-control", "กรมควบคุมโรค"),
@@ -166,8 +163,7 @@ export const projects: Project[] = [
     title: "โครงการพัฒนาการท่องเที่ยวเชิงสร้างสรรค์ จังหวัดน่าน",
     titleEn: "Creative Tourism Development Project in Nan Province",
     outcome: "Workshop in Nan to enhance communication skills with photography and video practice for local residents.",
-    sdg: "SDG 8",
-    sdgLabel: "Decent Work",
+    sdg: [8, 11],
     image: cover("creative-tourism-development-project-in-nan-province", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "โครงการพัฒนาการท่องเที่ยวเชิงสร้างสรรค์ จังหวัดน่าน — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("creative-tourism-development-project-in-nan-province", "โครงการพัฒนาการท่องเที่ยวเชิงสร้างสรรค์ จังหวัดน่าน"),
@@ -181,8 +177,7 @@ export const projects: Project[] = [
     title: "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม",
     titleEn: "Ministry of Natural Resources and Environment",
     outcome: "Personnel development training on impactful writing and photography for the Department of Environmental Quality Promotion.",
-    sdg: "SDG 13",
-    sdgLabel: "Climate Action",
+    sdg: [13, 15],
     image: cover("ministry-of-natural-resources-and-environment", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("ministry-of-natural-resources-and-environment", "กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม"),
@@ -196,8 +191,7 @@ export const projects: Project[] = [
     title: "องค์การแรงงานระหว่างประเทศ (ILO)",
     titleEn: "International Labour Organization",
     outcome: "United Nations workshop on text, photography, videography, and TikTok for sustainable development communication.",
-    sdg: "SDG 8",
-    sdgLabel: "Decent Work",
+    sdg: [8, 17],
     image: cover("international-labour-organization", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "องค์การแรงงานระหว่างประเทศ (ILO) — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("international-labour-organization", "องค์การแรงงานระหว่างประเทศ (ILO)"),
@@ -211,8 +205,7 @@ export const projects: Project[] = [
     title: "ASEAN University Network",
     titleEn: "ASEAN University Network",
     outcome: "Annual Report design for ASEAN University Network (2016–2019) with print-ready and digital versions.",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
+    sdg: [4, 17],
     image: cover("asean-university-network", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "ASEAN University Network — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("asean-university-network", "ASEAN University Network"),
@@ -226,8 +219,7 @@ export const projects: Project[] = [
     title: "ITD",
     titleEn: "ITD",
     outcome: "Meeting to gather opinions and analyze trends on digital commerce for Thai SMEs and global trade adaptation.",
-    sdg: "SDG 8",
-    sdgLabel: "Decent Work",
+    sdg: [8, 9],
     image: cover("itd", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "ITD — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("itd", "ITD"),
@@ -241,8 +233,7 @@ export const projects: Project[] = [
     title: "ศรีตรังแอโกรอินดัสทรี",
     titleEn: "Sri Trang Agro-Industry",
     outcome: "อบรมสร้างคอนเทนต์ออนไลน์และวิดีโอเพื่อการเรียนรู้ในองค์กร ให้พนักงานบริษัท ศรีตรังแอโกรอินดัสทรี จำกัด (มหาชน)",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
+    sdg: [4, 8],
     image: cover("sri-trang-agro-industry", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "ศรีตรังแอโกรอินดัสทรี — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("sri-trang-agro-industry", "ศรีตรังแอโกรอินดัสทรี"),
@@ -256,8 +247,7 @@ export const projects: Project[] = [
     title: "เสริมพลังผู้นำเยาวชน",
     titleEn: "Empowering Youth Leaders",
     outcome: "อบรมผู้นำเยาวชนและพี่เลี้ยง 3 จังหวัดชายแดนใต้ ให้วางแผน ดำเนิน และประเมินกิจกรรมด้านสุขภาวะทางเพศ กาย และใจ",
-    sdg: "SDG 3",
-    sdgLabel: "Good Health",
+    sdg: [3, 16, 5],
     image: cover("empowering-youth-leaders", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "เสริมพลังผู้นำเยาวชน — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("empowering-youth-leaders", "เสริมพลังผู้นำเยาวชน"),
@@ -271,8 +261,7 @@ export const projects: Project[] = [
     title: "Care D Plus — การสื่อสารสาธารณะและสังคมในระบบสุขภาพ",
     titleEn: "Care D Plus Public & Social Communication Training",
     outcome: "อบรมบุคลากรสาธารณสุขทั่วประเทศกว่า 10,000 คน ด้านทักษะการสื่อสารด้วยความเข้าใจและเห็นอกเห็นใจ",
-    sdg: "SDG 3",
-    sdgLabel: "Good Health",
+    sdg: [3, 4],
     image: cover("care-d-plus", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "Care D Plus — การสื่อสารสาธารณะและสังคมในระบบสุขภาพ — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("care-d-plus", "Care D Plus — การสื่อสารสาธารณะและสังคมในระบบสุขภาพ"),
@@ -286,8 +275,7 @@ export const projects: Project[] = [
     title: "หลักสูตรออนไลน์ Media & Communication for Transnational Citizens",
     titleEn: "Online Course: Media & Communication for Transnational Citizens",
     outcome: "เปิดหลักสูตรออนไลน์ 12 เดือน สำหรับ digital nomads และ global talents ในไทย บนแพลตฟอร์ม The Sharpener School",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
+    sdg: [4, 10],
     image: cover("media-communication-transnational-citizens", "25218b_f6216a7ef06f4409af9b7767ede4ae4e"),
     alt: "หลักสูตรออนไลน์ Media & Communication for Transnational Citizens — ภาพจริงจากเว็บเดิม ComInnoCenter",
     gallery: expandGallery("media-communication-transnational-citizens", "หลักสูตรออนไลน์ Media & Communication for Transnational Citizens"),
@@ -301,8 +289,7 @@ export const projects: Project[] = [
     title: "หลักสูตรสื่อสารเชิงวัฒนธรรม จุฬาฯ",
     titleEn: "Cultural Communication Training & Field Study Program",
     outcome: "หลักสูตรอบรมและทัศนศึกษาด้านประวัติศาสตร์ศิลปะและการสื่อสารเชิงวัฒนธรรม รุ่นละ 10 คน โดยศาสตราจารย์เกียรติคุณ ดร.หม่อมราชวงศ์สุริยวุฒิ สุขสวัสดิ์",
-    sdg: "SDG 4",
-    sdgLabel: "Quality Education",
+    sdg: [4, 11],
     image: "https://cuculturecom-static.vercel.app/course-ayutthaya.jpg",
     alt: "หลักสูตรสื่อสารเชิงวัฒนธรรม จุฬาฯ — ภาพปกหลักสูตรจากเว็บ cuculturecom.com",
     gallery: [

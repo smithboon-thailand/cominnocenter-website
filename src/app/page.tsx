@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import SdgBadge from "@/components/ui/SdgBadge";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 import ParallaxHero from "@/components/effects/ParallaxHero";
@@ -386,9 +387,9 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
                 </div>
                 <div className="p-6">
-                  <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
-                    {item.sdg}
-                  </span>
+                  <div className="mb-3">
+                    <SdgBadge id={item.sdg[0]} />
+                  </div>
                   <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
                     {item.title}
                   </h3>
