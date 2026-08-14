@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { illustration } from "@/data/illustrations";
+
+const expertiseBanner = illustration("expertise-icons")!;
 
 const services = [
   {
@@ -56,16 +59,28 @@ export default function ExpertisePage() {
       <Header active="expertise" />
 
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-            ความเชี่ยวชาญ
-            <br />
-            <span className="text-blue-700">ของเรา</span>
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            เรามีความเชี่ยวชาญหลากหลายด้าน เพื่อเปลี่ยนนวัตกรรมการสื่อสาร
-            ให้เกิดผลกระทบจริงต่อคุณภาพชีวิตและความยั่งยืน
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-6 max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
+              ความเชี่ยวชาญ
+              <br />
+              <span className="text-blue-700">ของเรา</span>
+            </h1>
+            <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
+              เรามีความเชี่ยวชาญหลากหลายด้าน เพื่อเปลี่ยนนวัตกรรมการสื่อสาร
+              ให้เกิดผลกระทบจริงต่อคุณภาพชีวิตและความยั่งยืน
+            </p>
+          </div>
+          <div className="lg:col-span-6">
+            <div className="relative rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-sm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={expertiseBanner.src}
+                alt={expertiseBanner.altTh}
+                className="w-full aspect-[3/2] object-cover object-center"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
