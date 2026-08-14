@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "scholar.googleusercontent.com" },
       { protocol: "https", hostname: "yt3.googleusercontent.com" },
       { protocol: "https", hostname: "images.weserv.nl" },
+      { protocol: "https", hostname: "cuculturecom-static.vercel.app" },
+      { protocol: "https", hostname: "www.cuculturecom.com" },
+      { protocol: "https", hostname: "cuculturecom.com" },
     ],
   },
 };
