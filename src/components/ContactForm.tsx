@@ -2,8 +2,56 @@
 
 import { useState } from "react";
 
-export default function ContactForm() {
+type ContactFormProps = {
+  locale?: "th" | "en";
+};
+
+const COPY = {
+  th: {
+    successTitle: "ส่งข้อความเรียบร้อยแล้ว",
+    successBody: "ขอบคุณที่ติดต่อเรา เราจะตอบกลับโดยเร็วที่สุด",
+    successAgain: "ส่งข้อความอีกครั้ง",
+    name: "ชื่อ-นามสกุล",
+    organization: "องค์กร / หน่วยงาน",
+    email: "อีเมล",
+    phone: "เบอร์โทรศัพท์",
+    interest: "ประเภทความสนใจ",
+    interestPlaceholder: "เลือกประเภท",
+    partnership: "Partnership / โครงการร่วม",
+    training: "Training & Capacity Building",
+    research: "Research & Evaluation",
+    other: "อื่นๆ",
+    message: "ข้อความ",
+    messagePlaceholder: "บอกเราเกี่ยวกับโครงการหรือความต้องการของคุณ...",
+    error: "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรืออีเมลมาที่ comminno@chula.ac.th",
+    submitting: "กำลังส่ง...",
+    submit: "ส่งข้อความ",
+  },
+  en: {
+    successTitle: "Message sent",
+    successBody: "Thank you for contacting us. We will get back to you soon.",
+    successAgain: "Send another message",
+    name: "Full name",
+    organization: "Organization",
+    email: "Email",
+    phone: "Phone",
+    interest: "Area of interest",
+    interestPlaceholder: "Select a type",
+    partnership: "Partnership / joint project",
+    training: "Training & Capacity Building",
+    research: "Research & Evaluation",
+    other: "Other",
+    message: "Message",
+    messagePlaceholder: "Tell us about your project or needs...",
+    error: "Something went wrong. Please try again or email comminno@chula.ac.th",
+    submitting: "Sending...",
+    submit: "Send message",
+  },
+} as const;
+
+export default function ContactForm({ locale = "th" }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const t = COPY[locale];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -13,8 +61,6 @@ export default function ContactForm() {
     const data = new FormData(form);
 
     try {
-      // ใช้ Formspree — เปลี่ยน YOUR_FORM_ID เป็น ID จริงหลังจากสมัครที่ formspree.io
-      // หรือเปลี่ยน action เป็น endpoint ของตัวเอง
       const res = await fetch("https://formspree.io/f/mgawygve", {
         method: "POST",
         body: data,
@@ -35,16 +81,14 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-pink-200 bg-pink-50 p-8 text-center">
-        <h3 className="text-xl font-semibold text-blue-700">ส่งข้อความเรียบร้อยแล้ว</h3>
-        <p className="mt-2 text-neutral-600">
-          ขอบคุณที่ติดต่อเรา เราจะตอบกลับโดยเร็วที่สุด
-        </p>
+        <h3 className="text-xl font-semibold text-blue-700">{t.successTitle}</h3>
+        <p className="mt-2 text-neutral-600">{t.successBody}</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-6 text-sm text-pink-500 font-medium hover:text-pink-600"
         >
-          ส่งข้อความอีกครั้ง
+          {t.successAgain}
         </button>
       </div>
     );
@@ -55,7 +99,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-            ชื่อ-นามสกุล <span className="text-pink-500">*</span>
+            {t.name} <span className="text-pink-500">*</span>
           </label>
           <input
             type="text"
@@ -66,7 +110,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-            องค์กร / หน่วยงาน
+            {t.organization}
           </label>
           <input
             type="text"
@@ -79,7 +123,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-            อีเมล <span className="text-pink-500">*</span>
+            {t.email} <span className="text-pink-500">*</span>
           </label>
           <input
             type="email"
@@ -89,9 +133,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-            เบอร์โทรศัพท์
-          </label>
+          <label className="block text-sm font-medium text-neutral-700 mb-1.5">{t.phone}</label>
           <input
             type="tel"
             name="phone"
@@ -102,46 +144,42 @@ export default function ContactForm() {
 
       <div>
         <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-          ประเภทความสนใจ <span className="text-pink-500">*</span>
+          {t.interest} <span className="text-pink-500">*</span>
         </label>
         <select
           name="type"
           required
           className="w-full px-4 py-3 rounded-lg border border-neutral-300 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
         >
-          <option value="">เลือกประเภท</option>
-          <option value="partnership">Partnership / โครงการร่วม</option>
-          <option value="training">Training & Capacity Building</option>
-          <option value="research">Research & Evaluation</option>
-          <option value="other">อื่นๆ</option>
+          <option value="">{t.interestPlaceholder}</option>
+          <option value="partnership">{t.partnership}</option>
+          <option value="training">{t.training}</option>
+          <option value="research">{t.research}</option>
+          <option value="other">{t.other}</option>
         </select>
       </div>
 
       <div>
         <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-          ข้อความ <span className="text-pink-500">*</span>
+          {t.message} <span className="text-pink-500">*</span>
         </label>
         <textarea
           name="message"
           required
           rows={5}
           className="w-full px-4 py-3 rounded-lg border border-neutral-300 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-y"
-          placeholder="บอกเราเกี่ยวกับโครงการหรือความต้องการของคุณ..."
+          placeholder={t.messagePlaceholder}
         />
       </div>
 
-      {status === "error" && (
-        <p className="text-sm text-red-600">
-          เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรืออีเมลมาที่ comminno@chula.ac.th
-        </p>
-      )}
+      {status === "error" && <p className="text-sm text-red-600">{t.error}</p>}
 
       <button
         type="submit"
         disabled={status === "loading"}
         className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors disabled:opacity-60"
       >
-        {status === "loading" ? "กำลังส่ง..." : "ส่งข้อความ"}
+        {status === "loading" ? t.submitting : t.submit}
       </button>
     </form>
   );
