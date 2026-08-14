@@ -31,7 +31,7 @@ export default function NewsPage() {
 
       <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
+          <h1 className="text-h1-m md:text-h1 text-ink-900">
             ข่าวและกิจกรรม
           </h1>
           <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">

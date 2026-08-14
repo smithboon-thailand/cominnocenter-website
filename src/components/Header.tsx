@@ -64,12 +64,12 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
 
   const linkClass = (page: string) =>
     active === page
-      ? "text-pink-500 font-semibold"
+      ? "text-pink-500 font-medium"
       : "text-neutral-700 hover:text-pink-500 transition-colors";
 
   const mobileLinkClass = (page: string) =>
     active === page
-      ? "text-pink-500 font-semibold text-lg"
+      ? "text-pink-500 font-medium text-lg"
       : "text-neutral-800 text-lg hover:text-pink-500 transition-colors";
 
   return (

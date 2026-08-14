@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-neutral-50 flex flex-col items-center justify-center px-6 text-center">
       <p className="text-sm font-medium text-pink-500 mb-3">404</p>
-      <h1 className="text-3xl md:text-4xl font-bold text-neutral-900">
+      <h1 className="text-3xl md:text-4xl font-medium text-neutral-900">
         ไม่พบหน้านี้
       </h1>
       <p className="mt-4 text-neutral-600 max-w-md">

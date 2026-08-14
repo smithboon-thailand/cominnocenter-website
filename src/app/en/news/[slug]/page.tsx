@@ -76,7 +76,7 @@ export default async function NewsDetailPageEn({ params }: Props) {
         </nav>
         <div className="mt-6 max-w-3xl">
           <p className="text-sm font-medium text-neutral-500 mb-3">{enDate(post.date)}</p>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900">
+          <h1 className="text-h1-m md:text-h1 text-ink-900">
             {post.titleEn}
           </h1>
         </div>
@@ -119,7 +119,7 @@ export default async function NewsDetailPageEn({ params }: Props) {
 
       {gallery.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 pb-16">
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">Gallery</h2>
+          <h2 className="text-2xl font-medium text-blue-700 mb-2">Gallery</h2>
           <p className="text-sm text-neutral-500 mb-6">Click an image to view full size</p>
           <ProjectGallery images={gallery} />
         </section>
