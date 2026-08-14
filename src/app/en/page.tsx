@@ -10,6 +10,7 @@ import GlassCard from "@/components/effects/GlassCard";
 import VideoShowcase from "@/components/VideoShowcase";
 import HomeLeadership from "@/components/HomeLeadership";
 import { projects } from "@/data/projects";
+import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { homeHighlights } from "@/data/highlights";
 import { illustration } from "@/data/illustrations";
 
@@ -365,34 +366,37 @@ export default function EnglishHomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredImpact.map((item, i) => (
-            <Reveal key={item.slug} delay={i * 100}>
-              <Link
-                href={`/en/impact/${item.slug}`}
-                className="group block rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-              >
-                <div className="relative h-52 overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
-                </div>
-                <div className="p-6">
-                  <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
-                    {item.sdg}
-                  </span>
-                  <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
-                    {item.titleEn}
-                  </h3>
-                  <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{item.outcome}</p>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+          {featuredImpact.map((item, i) => {
+            const copy = getLocalizedProjectCopy(item);
+            return (
+              <Reveal key={item.slug} delay={i * 100}>
+                <Link
+                  href={`/en/impact/${item.slug}`}
+                  className="group block rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+                >
+                  <div className="relative h-52 overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                  </div>
+                  <div className="p-6">
+                    <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
+                      {item.sdg}
+                    </span>
+                    <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
+                      {item.titleEn}
+                    </h3>
+                    <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{copy.outcome}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -411,7 +415,7 @@ export default function EnglishHomePage() {
                 calls.
               </p>
               <div className="max-w-md mx-auto">
-                <NewsletterForm variant="light" />
+                <NewsletterForm variant="light" locale="en" />
               </div>
               <p className="mt-4 text-xs text-neutral-500">
                 We do not spam. You can unsubscribe anytime.

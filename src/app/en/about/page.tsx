@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/effects/Reveal";
 import GlassCard from "@/components/effects/GlassCard";
 import AnimatedCounter from "@/components/effects/AnimatedCounter";
+import TeamAndPartners from "@/components/about/TeamAndPartners";
 import { researchers } from "@/data/researchers";
 import { leadership, objectives, type SocialLink } from "@/data/leadership";
 
@@ -325,6 +326,8 @@ export default function EnglishAboutPage() {
           </div>
         </div>
       </section>
+
+      <TeamAndPartners locale="en" />
 
       <section className="relative overflow-hidden bg-blue-700 text-white">
         <div className="absolute inset-0 opacity-30">
