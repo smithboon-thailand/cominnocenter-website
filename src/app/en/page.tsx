@@ -8,6 +8,7 @@ import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
+import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { partners } from "@/data/partners";
 import { newsSorted, newsCover } from "@/data/news";
 import { SDG, SDG_IDS } from "@/data/sdg";
@@ -150,7 +151,7 @@ export default function EnglishHomePage() {
                 key={p.slug}
                 href={`/en/impact/${p.slug}`}
                 title={p.titleEn}
-                description={p.outcome}
+                description={getLocalizedProjectCopy(p).outcome}
                 image={p.image}
                 alt={`${p.titleEn} — project photo from the center's archive`}
                 sdgIds={p.sdg}

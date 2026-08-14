@@ -5,6 +5,7 @@ import SdgBadge from "@/components/ui/SdgBadge";
 import SdgFilterChips from "@/components/ui/SdgFilterChips";
 import Button from "@/components/ui/Button";
 import { projects, type Project } from "@/data/projects";
+import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { SDG, SDG_IDS, type SdgId } from "@/data/sdg";
 
 export const metadata = {
@@ -76,7 +77,7 @@ export default async function ImpactPageEn({ searchParams }: Props) {
                   key={p.slug}
                   href={`/en/impact/${p.slug}`}
                   title={p.titleEn}
-                  description={p.outcome}
+                  description={getLocalizedProjectCopy(p).outcome}
                   image={p.image}
                   alt={`${p.titleEn} — project photo from the center's archive`}
                   sdgIds={p.sdg}
@@ -114,7 +115,7 @@ export default async function ImpactPageEn({ searchParams }: Props) {
                     key={p.slug}
                     href={`/en/impact/${p.slug}`}
                     title={p.titleEn}
-                    description={p.outcome}
+                    description={getLocalizedProjectCopy(p).outcome}
                     image={p.image}
                     alt={`${p.titleEn} — project photo from the center's archive`}
                     sdgIds={p.sdg}
