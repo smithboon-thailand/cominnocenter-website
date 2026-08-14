@@ -15,6 +15,10 @@ const sarabun = Sarabun({
   display: "swap",
 });
 
+/** Favicon จากเว็บเดิม cominnocenter.com (Wix static) */
+const FAVICON_BASE =
+  "https://static.wixstatic.com/media/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cominnocenter.com"),
   title: {
@@ -34,6 +38,28 @@ export const metadata: Metadata = {
     "Sustainability",
   ],
   authors: [{ name: "ComInnoCenter, Chulalongkorn University" }],
+  icons: {
+    icon: [
+      {
+        url: `${FAVICON_BASE}/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
+        sizes: "32x32",
+        type: "image/jpeg",
+      },
+      {
+        url: `${FAVICON_BASE}/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
+        sizes: "192x192",
+        type: "image/jpeg",
+      },
+    ],
+    shortcut: `${FAVICON_BASE}/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
+    apple: [
+      {
+        url: `${FAVICON_BASE}/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
+        sizes: "180x180",
+        type: "image/jpeg",
+      },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "th_TH",
