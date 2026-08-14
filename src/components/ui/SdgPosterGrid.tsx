@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SDG, SDG_IDS, SDG_WHITE_TEXT_OK, sdgAria, type SdgId } from "@/data/sdg";
+import { SDG, SDG_IDS, sdgAria, type SdgId } from "@/data/sdg";
 import { projects } from "@/data/projects";
 
 type SdgPosterGridProps = {
@@ -28,8 +28,11 @@ const COPY = {
 
 /**
  * Grid 17 สีแบบโปสเตอร์ UN — ใช้เฉพาะหน้า /sdg (หน้าเดียวที่ได้รับยกเว้นกฎ ≤6 สี ตาม PART H)
- * พื้น pure ทุกช่อง · ตัวอักษรขาวเฉพาะ SDG 4/8/16/17 (B3) — ช่องอื่นใช้แถบขาวครึ่งล่างตัวอักษร deep
- * เป้าหมายที่ยังไม่มีโครงการ: พื้นจาง 35% + ลิงก์ไปหน้า Collaborate
+ * ทุกช่องโครงสร้างเดียวกัน: บล็อกสีบน + แถบขาวล่าง (เลข/ชื่อเป็น deep — AA เสมอ)
+ * ความสูงเท่ากันทั้งแถวโดย grid stretch — เนื้อหายาวสุดเป็นตัวกำหนด ไม่มีการตัดข้อความ
+ * หมายเหตุ: หน้านี้ไม่ใช้ตัวขาวบนพื้น pure โดยตั้งใจ (เอกภาพของ grid) —
+ * SDG_WHITE_TEXT_OK ยังใช้ที่อื่น เช่น filter chips
+ * ช่องที่ยังไม่มีโครงการ: บล็อกสีใช้ tint + ป้าย pill "เปิดรับความร่วมมือ" ลิงก์ไป Collaborate
  */
 export default function SdgPosterGrid({ locale = "th" }: SdgPosterGridProps) {
   const t = COPY[locale];
@@ -40,7 +43,6 @@ export default function SdgPosterGrid({ locale = "th" }: SdgPosterGridProps) {
         const goal = SDG[id];
         const count = projectCount(id);
         const has = count > 0;
-        const whiteOk = SDG_WHITE_TEXT_OK.includes(id);
         const status = has ? t.projects(count) : t.open;
 
         return (
@@ -48,58 +50,40 @@ export default function SdgPosterGrid({ locale = "th" }: SdgPosterGridProps) {
             key={id}
             href={has ? `${t.impactPath}?sdg=${id}` : t.collaboratePath}
             aria-label={`${sdgAria(id, locale)} — ${status}`}
-            className="group relative flex aspect-square flex-col overflow-hidden rounded-lg border border-ink-300
+            className="group flex flex-col overflow-hidden rounded-lg border border-ink-300 bg-white
               transition-transform duration-150 ease-brand hover:-translate-y-0.5
               focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]
               motion-reduce:hover:translate-y-0"
           >
-            {/* พื้นสี pure — ช่องที่ยังไม่มีโครงการจางลงให้ช่องที่มีงานเด่นกว่า */}
+            {/* บล็อกสีบน — ช่องว่างใช้ tint ให้จางชัดเจน ช่องมีงานใช้ pure เต็ม */}
             <span
               aria-hidden
-              className="absolute inset-0"
-              style={{ backgroundColor: goal.pure, opacity: has ? 1 : 0.35 }}
+              className="h-20 shrink-0 sm:h-24"
+              style={{ backgroundColor: has ? goal.pure : goal.tint }}
             />
-
-            {whiteOk ? (
-              <span className="relative flex h-full flex-col justify-between p-4 text-white">
-                <span className="text-4xl font-medium leading-none">{id}</span>
-                <span>
-                  <span className="block text-[15px] font-medium leading-[1.4]">
-                    {goal[locale]}
-                  </span>
-                  <span className="mt-1 block text-[13px] leading-[1.4] text-white/80">
-                    {status}
-                  </span>
+            <span className="flex flex-1 flex-col justify-between gap-3 p-3 sm:p-4">
+              <span>
+                <span
+                  className="block text-3xl font-medium leading-none"
+                  style={{ color: goal.deep }}
+                >
+                  {id}
+                </span>
+                <span
+                  className="mt-1.5 block text-[13px] font-medium leading-[1.4]"
+                  style={{ color: goal.deep }}
+                >
+                  {goal[locale]}
                 </span>
               </span>
-            ) : (
-              <span className="relative flex h-full flex-col">
-                <span aria-hidden className="flex-1" />
-                {/* แถบขาวครึ่งล่าง — ตัวอักษร deep ผ่าน AA บนขาวเสมอ (B3) */}
-                <span className="flex h-1/2 flex-col justify-between bg-white p-3 sm:p-4">
-                  <span className="flex items-baseline gap-2">
-                    <span className="text-3xl font-medium leading-none" style={{ color: goal.deep }}>
-                      {id}
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      className="block text-[13px] font-medium leading-[1.4]"
-                      style={{ color: goal.deep }}
-                    >
-                      {goal[locale]}
-                    </span>
-                    <span
-                      className={`mt-1 block text-[13px] leading-[1.4] ${
-                        has ? "text-ink-500" : "font-medium text-pink-700"
-                      }`}
-                    >
-                      {status}
-                    </span>
-                  </span>
+              {has ? (
+                <span className="block text-[13px] leading-[1.4] text-ink-500">{status}</span>
+              ) : (
+                <span className="inline-flex w-fit items-center rounded-full bg-pink-100 px-2.5 py-1 text-[13px] font-medium leading-[1.4] text-pink-700">
+                  {status}
                 </span>
-              </span>
-            )}
+              )}
+            </span>
           </Link>
         );
       })}
