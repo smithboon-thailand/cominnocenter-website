@@ -42,11 +42,13 @@ export default function DisplayHeading({
   as: Tag = "h1",
 }: DisplayHeadingProps) {
   return (
+    // แต่ละท่อนเป็นบรรทัดของตัวเอง ไม่แตกกลางวลี — ถ้าจอแคบจนท่อนต้องพับ
+    // text-wrap:balance จะแบ่งครึ่งอย่างสมดุล ไม่ทิ้งคำโดดท้ายบรรทัด
     <Tag className="text-display-m md:text-display max-w-[24ch]">
-      <span className={onDark ? "text-white" : "text-ink-900"}>
+      <span className={`block [text-wrap:balance] ${onDark ? "text-white" : "text-ink-900"}`}>
         {withAccent(primary, accentWord)}
-      </span>{" "}
-      <span className={onDark ? "text-ink-300" : "text-ink-500"}>
+      </span>
+      <span className={`block [text-wrap:balance] ${onDark ? "text-ink-300" : "text-ink-500"}`}>
         {withAccent(secondary, accentWord)}
       </span>
     </Tag>
