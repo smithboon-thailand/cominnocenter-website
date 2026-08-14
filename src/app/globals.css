@@ -2,17 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens ตาม BRAND.md PART I1 (Phase 1-A) */
 :root {
-  --background: #F8F5F2;
-  --foreground: #121212;
-  --cu-pink: #DE5C8E;
-  --faculty-blue: #002D73;
+  /* Ink */
+  --ink-0:#FBF9F7; --ink-100:#EFEBE6; --ink-300:#C3BCB5;
+  --ink-500:#7A716A; --ink-700:#4A423D; --ink-900:#1A1613;
+
+  /* Pink */
+  --pink-100:#FBDCEB; --pink-300:#F07EB6; --pink-500:#E0218A;
+  --pink-700:#8C1256; --pink-900:#4A0B2E;
+
+  /* SDG */
+  --sdg1-tint:#F5E5E7;  --sdg1-pure:#E5243B;  --sdg1-deep:#CD1329;
+  --sdg2-tint:#F4EFE6;  --sdg2-pure:#DDA63A;  --sdg2-deep:#8D6415;
+  --sdg3-tint:#EAF2E8;  --sdg3-pure:#4C9F38;  --sdg3-deep:#397B29;
+  --sdg4-tint:#F5E6E7;  --sdg4-pure:#C5192D;  --sdg4-deep:#C9152A;
+  --sdg5-tint:#F7E6E3;  --sdg5-pure:#FF3A21;  --sdg5-deep:#CE1700;
+  --sdg6-tint:#E6F2F5;  --sdg6-pure:#26BDE2;  --sdg6-deep:#0F758D;
+  --sdg7-tint:#F7F2E4;  --sdg7-pure:#FCC30B;  --sdg7-deep:#876700;
+  --sdg8-tint:#F4E6EA;  --sdg8-pure:#A21942;  --sdg8-deep:#A51641;
+  --sdg9-tint:#F7EAE4;  --sdg9-pure:#FD6925;  --sdg9-deep:#C13D00;
+  --sdg10-tint:#F5E5EC; --sdg10-pure:#DD1367; --sdg10-deep:#CA0C5B;
+  --sdg11-tint:#F7EEE4; --sdg11-pure:#FD9D24; --sdg11-deep:#A15A00;
+  --sdg12-tint:#F3EFE7; --sdg12-pure:#BF8B2E; --sdg12-deep:#8C651F;
+  --sdg13-tint:#EAF0EA; --sdg13-pure:#3F7E44; --sdg13-deep:#3A793F;
+  --sdg14-tint:#E4F0F6; --sdg14-pure:#0A97D9; --sdg14-deep:#0473A7;
+  --sdg15-tint:#EBF3E7; --sdg15-pure:#56C02B; --sdg15-deep:#357C19;
+  --sdg16-tint:#E3F0F7; --sdg16-pure:#00689D; --sdg16-deep:#00689D;
+  --sdg17-tint:#E7EEF3; --sdg17-pure:#19486A; --sdg17-deep:#17486C;
+
+  /* Semantic */
+  --success:#2E7D32; --error:#C62828; --warning:#B45309;
+
+  /* Purpose */
+  --bg-page:var(--ink-0); --bg-card:#FFFFFF; --bg-alt:var(--ink-100);
+  --text-heading:var(--ink-900); --text-body:var(--ink-700);
+  --text-muted:var(--ink-500); --border-line:var(--ink-300);
+  --accent:var(--pink-500);
+
+  /* Space */
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px;
+  --sp-6:48px; --sp-8:64px; --sp-12:96px; --sp-16:128px;
+  --section-y:var(--sp-16);
+
+  --radius-control:4px; --radius-card:8px;
+  --ease:cubic-bezier(0.2,0,0,1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sarabun), var(--font-inter), system-ui, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-kanit), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,9 +62,14 @@ html {
 }
 
 ::selection {
-  background-color: #DE5C8E;
+  background-color: var(--pink-500);
   color: white;
 }
+
+/* ———————————————————————————————————————————————
+   ยูทิลิตี/แอนิเมชันเดิม — ยังถูกใช้โดยหน้าปัจจุบัน
+   จะทบทวน/ตัดตอน Phase 3 ตาม BRAND.md PART D3
+   ——————————————————————————————————————————————— */
 
 /* Floating orbs */
 @keyframes float-slow {
@@ -90,6 +135,18 @@ html {
 
 .animate-spin-slow {
   animation: spin-slow 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-medium,
+  .animate-float-fast,
+  .animate-shimmer,
+  .animate-pulse-glow,
+  .animate-marquee,
+  .animate-spin-slow {
+    animation: none;
+  }
 }
 
 /* Premium grain overlay */

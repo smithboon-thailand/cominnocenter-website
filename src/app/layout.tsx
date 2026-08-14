@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Sarabun } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const sarabun = Sarabun({
-  weight: ["300", "400", "500", "600", "700"],
+/** ฟอนต์เดียวทั้งเว็บตาม BRAND.md PART C — น้ำหนัก 300/400/500 เท่านั้น */
+const kanit = Kanit({
+  weight: ["300", "400", "500"],
   subsets: ["thai", "latin"],
-  variable: "--font-sarabun",
+  variable: "--font-kanit",
   display: "swap",
 });
 
@@ -61,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={`${inter.variable} ${sarabun.variable}`}>
+    <html lang="th" className={kanit.variable}>
       <body className="antialiased bg-neutral-50 text-neutral-900 font-sans">
         {children}
       </body>
