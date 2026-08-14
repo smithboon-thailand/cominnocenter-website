@@ -6,8 +6,8 @@
  * เพราะอาจทำงานหลายที่ และไม่ต้องการให้เกิดปัญหาด้านสังกัด
  */
 
-const media = (id: string, ext: string = "jpg") =>
-  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_600,h_750,al_c,q_85,enc_auto/${id}~mv2.${ext}`;
+/** Self-hosted — ดาวน์โหลดจาก Wix มาไว้ที่ public/images/team/ (Phase 0) */
+const media = (id: string) => `/images/team/${id}.webp`;
 
 export type TeamMember = {
   name: string;
@@ -34,8 +34,7 @@ export const postdocs: TeamMember[] = [
     focus:
       "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
-    image:
-      "https://static.wixstatic.com/media/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_90,enc_auto/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg",
+    image: media("34cff6_29040465434b4a43bab2432065a820ab"),
     alt: "ดร.พยู ฮนิน ไหล่ (Rashida / Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก thesharpener.school",
     links: [
       {
@@ -58,10 +57,8 @@ export const postdocs: TeamMember[] = [
     focus:
       "Indigenous communication, disaster public opinion, SALIGAN framework, AI in higher education, ASEAN media & communication",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
-    // Proxy via images.weserv.nl เพราะ next/image ดึง scholar.googleusercontent.com โดยตรงไม่สำเร็จบน Vercel
-    image:
-      "https://images.weserv.nl/?url=https%3A%2F%2Fscholar.googleusercontent.com%2Fcitations%3Fview_op%3Dmedium_photo%26user%3Dgfq4xogAAAAJ%26citpid%3D2&w=600&h=750&fit=cover&output=jpg",
-    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar (ผ่าน proxy)",
+    image: "/images/team/robbie-buelo.webp",
+    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar",
     links: [
       {
         label: "Google Scholar",
@@ -100,8 +97,7 @@ export const affiliatedResearchers: TeamMember[] = [
     nameEn: "Dr. Atchara Boonchum",
     roleTh: "นักวิจัย",
     role: "Researcher",
-    // ไฟล์บนเว็บเดิมเป็น .png ไม่ใช่ .jpg
-    image: media("8e0d14_41e6a251793c40019370309bce59a0d3", "png"),
+    image: media("8e0d14_41e6a251793c40019370309bce59a0d3"),
     alt: "ดร.อัจฉรา บุญชุม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
@@ -129,7 +125,7 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Chanapa Itthiamornkulchai",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    image: media("8e0d14_31a4089134c7492b9152bb547c2e358c", "png"),
+    image: media("8e0d14_31a4089134c7492b9152bb547c2e358c"),
     alt: "ชนาภา อิทธิอมรกุลชัย ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
@@ -153,7 +149,7 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Hrut Sitthipuwabun",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    image: media("8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a", "png"),
+    image: media("8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a"),
     alt: "หฤทัย สิทธิภูวบุณย์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {

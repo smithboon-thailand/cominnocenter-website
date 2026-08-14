@@ -128,7 +128,9 @@ async function collectTasks() {
     {
       category: "researchers",
       id: "lunchakorn-wuttisittikulkij",
-      source: "https://ee.eng.chula.ac.th/wp-content/uploads/2025/09/LWK2.jpg",
+      // ee.eng.chula.ac.th ส่ง TLS chain ไม่ครบ ดึงตรงไม่ผ่าน — ใช้ images.weserv.nl ดึงแทน
+      source:
+        "https://images.weserv.nl/?url=ee.eng.chula.ac.th%2Fwp-content%2Fuploads%2F2025%2F09%2FLWK2.jpg",
       local: "researchers/lunchakorn-wuttisittikulkij.webp",
       convert: "webp",
     },
@@ -167,7 +169,14 @@ async function processTask(t, prevByLocal) {
     entry.originalBytes = buf.length;
     await mkdir(path.dirname(dest), { recursive: true });
     if (t.convert === "webp") {
-      await sharp(buf).webp({ quality: 82 }).toFile(dest);
+      // WebP จำกัดด้านละไม่เกิน 16383px — ภาพกราฟิกบางไฟล์จาก Wix ใหญ่กว่านั้น ต้องย่อลงก่อน
+      const WEBP_MAX = 16383;
+      let img = sharp(buf);
+      const meta = await img.metadata();
+      if ((meta.width || 0) > WEBP_MAX || (meta.height || 0) > WEBP_MAX) {
+        img = img.resize(WEBP_MAX, WEBP_MAX, { fit: "inside", withoutEnlargement: true });
+      }
+      await img.webp({ quality: 82 }).toFile(dest);
     } else {
       await writeFile(dest, buf);
     }

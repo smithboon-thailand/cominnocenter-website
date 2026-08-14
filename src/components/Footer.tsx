@@ -1,8 +1,7 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
 
-const LOGO_SRC =
-  "https://static.wixstatic.com/media/8e0d14_0564f38949dd4891a2359cb0daa61bb4~mv2.png/v1/fill/w_400,h_120,al_c,q_90,enc_auto/logo-communication-innovation.png";
+const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
 
 type FooterProps = {
   locale?: "th" | "en";

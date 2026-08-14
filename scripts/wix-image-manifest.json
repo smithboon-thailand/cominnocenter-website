@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-14T14:26:05.764Z",
+  "generatedAt": "2026-08-14T14:48:37.160Z",
   "summary": {
     "total": 246,
-    "ok": 0,
-    "failed": 246,
-    "totalBytes": 0
+    "ok": 246,
+    "failed": 0,
+    "totalBytes": 134123681
   },
   "images": [
     {
@@ -13,8 +13,9 @@
       "source": "https://static.wixstatic.com/media/25218b_89b42fbbe4814a6482683b96cc6f59e7~mv2.jpg",
       "local": "leadership/25218b_89b42fbbe4814a6482683b96cc6f59e7.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 11379540,
+      "bytes": 1722362,
+      "status": "ok"
     },
     {
       "category": "leadership",
@@ -22,8 +23,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_bb83dfe119da43c19b9ba2cc2480023f~mv2.jpg",
       "local": "leadership/8e0d14_bb83dfe119da43c19b9ba2cc2480023f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 34844,
+      "bytes": 10888,
+      "status": "ok"
     },
     {
       "category": "leadership",
@@ -31,8 +33,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_ecc50ab1da21439b9bc9043a1e5c9b6b~mv2.jpg",
       "local": "leadership/8e0d14_ecc50ab1da21439b9bc9043a1e5c9b6b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 53627,
+      "bytes": 19322,
+      "status": "ok"
     },
     {
       "category": "logo",
@@ -40,8 +43,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_0564f38949dd4891a2359cb0daa61bb4~mv2.png",
       "local": "logo/logo-communication-innovation.png",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 47701,
+      "bytes": 47701,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -49,8 +53,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_07d77e4c55974103baf5a37fc3ab436d~mv2.webp",
       "local": "partners/8e0d14_07d77e4c55974103baf5a37fc3ab436d.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 12414,
+      "bytes": 12414,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -58,8 +63,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_13aece51caa141aab69e8f3e1e84be6a~mv2.webp",
       "local": "partners/8e0d14_13aece51caa141aab69e8f3e1e84be6a.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4592,
+      "bytes": 4592,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -67,8 +73,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_4fcaae20760240f6bdc8429b68f0e4e1~mv2.webp",
       "local": "partners/8e0d14_4fcaae20760240f6bdc8429b68f0e4e1.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3160,
+      "bytes": 3160,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -76,8 +83,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_60d01a5d5bf8446db71ad2fa60f2ec3b~mv2.webp",
       "local": "partners/8e0d14_60d01a5d5bf8446db71ad2fa60f2ec3b.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 9088,
+      "bytes": 9088,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -85,8 +93,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_86fff6f9f948466aa185306d26c8c0b0~mv2.webp",
       "local": "partners/8e0d14_86fff6f9f948466aa185306d26c8c0b0.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7014,
+      "bytes": 7014,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -94,8 +103,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_8a893e0836d343e1bb1e73f6a367786b~mv2.webp",
       "local": "partners/8e0d14_8a893e0836d343e1bb1e73f6a367786b.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 9484,
+      "bytes": 9484,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -103,8 +113,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_a7b7aa5e2a84481485784de0a4205fb6~mv2.webp",
       "local": "partners/8e0d14_a7b7aa5e2a84481485784de0a4205fb6.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6566,
+      "bytes": 6566,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -112,8 +123,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_b61b05ffe5f64eb799480701c3f7ef0e~mv2.webp",
       "local": "partners/8e0d14_b61b05ffe5f64eb799480701c3f7ef0e.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3872,
+      "bytes": 3872,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -121,8 +133,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_bae22b448ce84dde8018a07bf96a8b3d~mv2.webp",
       "local": "partners/8e0d14_bae22b448ce84dde8018a07bf96a8b3d.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 13156,
+      "bytes": 13156,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -130,8 +143,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_d55c7b55c0dd48ad96a78b7f263cffb9~mv2.webp",
       "local": "partners/8e0d14_d55c7b55c0dd48ad96a78b7f263cffb9.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6212,
+      "bytes": 6212,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -139,8 +153,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_dde36c281c0f418ca4fb69d7b4b43d79~mv2.webp",
       "local": "partners/8e0d14_dde36c281c0f418ca4fb69d7b4b43d79.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 13312,
+      "bytes": 13312,
+      "status": "ok"
     },
     {
       "category": "partners",
@@ -148,8 +163,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_f16700f65c7f45998a6dde15df536199~mv2.webp",
       "local": "partners/8e0d14_f16700f65c7f45998a6dde15df536199.webp",
       "convert": null,
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7386,
+      "bytes": 7386,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -157,8 +173,9 @@
       "source": "https://static.wixstatic.com/media/25218b_17101ea44eff41b493e2d44c7cd899ac~mv2.png",
       "local": "projects/asean-university-network/25218b_17101ea44eff41b493e2d44c7cd899ac.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6370939,
+      "bytes": 458660,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -166,8 +183,9 @@
       "source": "https://static.wixstatic.com/media/25218b_2b0f2529e00142aaabbab10e2503df71~mv2.png",
       "local": "projects/asean-university-network/25218b_2b0f2529e00142aaabbab10e2503df71.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 567648,
+      "bytes": 39096,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -175,8 +193,9 @@
       "source": "https://static.wixstatic.com/media/25218b_450b380c7b7840bd9a854f703529fc36~mv2.png",
       "local": "projects/asean-university-network/25218b_450b380c7b7840bd9a854f703529fc36.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3641810,
+      "bytes": 221452,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -184,8 +203,9 @@
       "source": "https://static.wixstatic.com/media/25218b_55bb22ff06de4c618bf193fe02e1530f~mv2.png",
       "local": "projects/asean-university-network/25218b_55bb22ff06de4c618bf193fe02e1530f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2815369,
+      "bytes": 207636,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -193,8 +213,9 @@
       "source": "https://static.wixstatic.com/media/25218b_adda54cdee514c939403d3f2edc763f0~mv2.png",
       "local": "projects/asean-university-network/25218b_adda54cdee514c939403d3f2edc763f0.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5162223,
+      "bytes": 322540,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -202,8 +223,9 @@
       "source": "https://static.wixstatic.com/media/25218b_cd298013847f4b2b96a59b1264d21409~mv2.png",
       "local": "projects/asean-university-network/25218b_cd298013847f4b2b96a59b1264d21409.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1595678,
+      "bytes": 80674,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -211,8 +233,9 @@
       "source": "https://static.wixstatic.com/media/25218b_dd3bd4f5572940d399196b534fcc9ded~mv2.png",
       "local": "projects/asean-university-network/25218b_dd3bd4f5572940d399196b534fcc9ded.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5927249,
+      "bytes": 266298,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -220,8 +243,9 @@
       "source": "https://static.wixstatic.com/media/25218b_def2eddc65e847449c919623d5241555~mv2.png",
       "local": "projects/asean-university-network/25218b_def2eddc65e847449c919623d5241555.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3430705,
+      "bytes": 222686,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -229,8 +253,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e599f9e7f42d4355913f0990b91e7981~mv2.png",
       "local": "projects/asean-university-network/25218b_e599f9e7f42d4355913f0990b91e7981.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3595600,
+      "bytes": 237826,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -238,8 +263,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f58e1c7fff1b4ad5b20cd966ff8e42e9~mv2.png",
       "local": "projects/asean-university-network/25218b_f58e1c7fff1b4ad5b20cd966ff8e42e9.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6474999,
+      "bytes": 424396,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -247,8 +273,9 @@
       "source": "https://static.wixstatic.com/media/25218b_15f26985a12f4630aea67894555bde05~mv2.jpg",
       "local": "projects/care-d-plus/25218b_15f26985a12f4630aea67894555bde05.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 433222,
+      "bytes": 158310,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -256,8 +283,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3a161afe31f741c1889951c34826b109~mv2.jpg",
       "local": "projects/care-d-plus/25218b_3a161afe31f741c1889951c34826b109.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 427612,
+      "bytes": 125482,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -265,8 +293,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3deefda0f5914ed19764c7b9a77165c4~mv2.jpg",
       "local": "projects/care-d-plus/25218b_3deefda0f5914ed19764c7b9a77165c4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 849575,
+      "bytes": 423456,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -274,8 +303,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4a7a9b23585c4d02bcc3566be8aadec2~mv2.jpg",
       "local": "projects/care-d-plus/25218b_4a7a9b23585c4d02bcc3566be8aadec2.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 410455,
+      "bytes": 196834,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -283,8 +313,9 @@
       "source": "https://static.wixstatic.com/media/25218b_59825672664c4f089e8250f3846fde97~mv2.jpg",
       "local": "projects/care-d-plus/25218b_59825672664c4f089e8250f3846fde97.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 384852,
+      "bytes": 100452,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -292,8 +323,9 @@
       "source": "https://static.wixstatic.com/media/25218b_78275b5fdfd343f2a4f5d7472302005b~mv2.jpg",
       "local": "projects/care-d-plus/25218b_78275b5fdfd343f2a4f5d7472302005b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 342311,
+      "bytes": 88244,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -301,8 +333,9 @@
       "source": "https://static.wixstatic.com/media/25218b_bc1bca38292a412fa884ef9594ce5856~mv2.jpg",
       "local": "projects/care-d-plus/25218b_bc1bca38292a412fa884ef9594ce5856.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 684159,
+      "bytes": 288628,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -310,8 +343,9 @@
       "source": "https://static.wixstatic.com/media/25218b_be1e0d6f1491498a97ae09afc2d11e44~mv2.jpg",
       "local": "projects/care-d-plus/25218b_be1e0d6f1491498a97ae09afc2d11e44.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 444426,
+      "bytes": 137426,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -319,8 +353,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ce31058ea3674498810d31bf12729eac~mv2.jpg",
       "local": "projects/care-d-plus/25218b_ce31058ea3674498810d31bf12729eac.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 521456,
+      "bytes": 208218,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -328,8 +363,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d7f7962ae1b942c19909910e1c8e1199~mv2.jpg",
       "local": "projects/care-d-plus/25218b_d7f7962ae1b942c19909910e1c8e1199.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 564142,
+      "bytes": 276208,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -337,8 +373,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e66aa93c307041db8880c551557c0571~mv2.jpg",
       "local": "projects/care-d-plus/25218b_e66aa93c307041db8880c551557c0571.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 347344,
+      "bytes": 114052,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -346,8 +383,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f7cf6c636b1e466ea3848f53f62fc699~mv2.jpg",
       "local": "projects/care-d-plus/25218b_f7cf6c636b1e466ea3848f53f62fc699.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 565917,
+      "bytes": 268778,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -355,8 +393,9 @@
       "source": "https://static.wixstatic.com/media/25218b_faef8f20a3054774b7e143dd13330485~mv2.jpg",
       "local": "projects/care-d-plus/25218b_faef8f20a3054774b7e143dd13330485.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 368356,
+      "bytes": 136178,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -364,8 +403,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_482fbbde705b4f6db4db83c710ac9b69~mv2.jpg",
       "local": "projects/care-d-plus/8e0d14_482fbbde705b4f6db4db83c710ac9b69.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 8559382,
+      "bytes": 1492294,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -373,8 +413,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0cbe70a072264848be104927c800cdc2~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_0cbe70a072264848be104927c800cdc2.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 20316160,
+      "bytes": 1708164,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -382,8 +423,9 @@
       "source": "https://static.wixstatic.com/media/25218b_120a6402a6ea448eb6e8c38a27720156~mv2.png",
       "local": "projects/chula-zero-waste/25218b_120a6402a6ea448eb6e8c38a27720156.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2669275,
+      "bytes": 671634,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -391,8 +433,9 @@
       "source": "https://static.wixstatic.com/media/25218b_22bfdef3302f4991a2bd11ef81819cff~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_22bfdef3302f4991a2bd11ef81819cff.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5498593,
+      "bytes": 2360674,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -400,8 +443,9 @@
       "source": "https://static.wixstatic.com/media/25218b_24e727092d4647638a491fb61a630f05~mv2.png",
       "local": "projects/chula-zero-waste/25218b_24e727092d4647638a491fb61a630f05.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 284778,
+      "bytes": 63642,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -409,8 +453,9 @@
       "source": "https://static.wixstatic.com/media/25218b_28c9fb79a86041d6887fc9ecf41da28e~mv2.png",
       "local": "projects/chula-zero-waste/25218b_28c9fb79a86041d6887fc9ecf41da28e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1891935,
+      "bytes": 809604,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -418,8 +463,9 @@
       "source": "https://static.wixstatic.com/media/25218b_33fcbad6bbc943b395b5baaacd565e59~mv2.png",
       "local": "projects/chula-zero-waste/25218b_33fcbad6bbc943b395b5baaacd565e59.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1954151,
+      "bytes": 657798,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -427,8 +473,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3848646dca9c4fc792552222d59b75f1~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_3848646dca9c4fc792552222d59b75f1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 19333120,
+      "bytes": 1262036,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -436,8 +483,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3e2828b99fdd420c8f0c35f2aa3d90b1~mv2.png",
       "local": "projects/chula-zero-waste/25218b_3e2828b99fdd420c8f0c35f2aa3d90b1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3025225,
+      "bytes": 1098102,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -445,8 +493,9 @@
       "source": "https://static.wixstatic.com/media/25218b_403788624c814686a547de6b9864f206~mv2.png",
       "local": "projects/chula-zero-waste/25218b_403788624c814686a547de6b9864f206.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3252115,
+      "bytes": 669368,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -454,8 +503,9 @@
       "source": "https://static.wixstatic.com/media/25218b_435a1f9db0584d5b8edeb85c6eaff1b6~mv2.png",
       "local": "projects/chula-zero-waste/25218b_435a1f9db0584d5b8edeb85c6eaff1b6.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2969829,
+      "bytes": 643696,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -463,8 +513,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4449dc75285e439782314b410eeded34~mv2.png",
       "local": "projects/chula-zero-waste/25218b_4449dc75285e439782314b410eeded34.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4900220,
+      "bytes": 597720,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -472,8 +523,9 @@
       "source": "https://static.wixstatic.com/media/25218b_5f18e1ef60134f258211a098520cc1f0~mv2.png",
       "local": "projects/chula-zero-waste/25218b_5f18e1ef60134f258211a098520cc1f0.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3414343,
+      "bytes": 189954,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -481,8 +533,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7b09e2c8993f4268851844c1be7312b1~mv2.png",
       "local": "projects/chula-zero-waste/25218b_7b09e2c8993f4268851844c1be7312b1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 323175,
+      "bytes": 120936,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -490,8 +543,9 @@
       "source": "https://static.wixstatic.com/media/25218b_8af411897da3411fa74f6b2f49f9d238~mv2.png",
       "local": "projects/chula-zero-waste/25218b_8af411897da3411fa74f6b2f49f9d238.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 462171,
+      "bytes": 154154,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -499,8 +553,9 @@
       "source": "https://static.wixstatic.com/media/25218b_8c0b1e46a337402fba855fdceb3dfe59~mv2.png",
       "local": "projects/chula-zero-waste/25218b_8c0b1e46a337402fba855fdceb3dfe59.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 276633,
+      "bytes": 64066,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -508,8 +563,9 @@
       "source": "https://static.wixstatic.com/media/25218b_8d94b758d9dd4038b410ffb6bfa27643~mv2.png",
       "local": "projects/chula-zero-waste/25218b_8d94b758d9dd4038b410ffb6bfa27643.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 298894,
+      "bytes": 76576,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -517,8 +573,9 @@
       "source": "https://static.wixstatic.com/media/25218b_99f4b08cc5614fe28fcf24459fc3821e~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_99f4b08cc5614fe28fcf24459fc3821e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 21331968,
+      "bytes": 1484910,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -526,8 +583,9 @@
       "source": "https://static.wixstatic.com/media/25218b_9f80c44f8ceb4edbad9cf9781541e1ca~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_9f80c44f8ceb4edbad9cf9781541e1ca.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 8912896,
+      "bytes": 1420302,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -535,8 +593,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a1249f9bbb624a5f9ee3ec0bd643e024~mv2.png",
       "local": "projects/chula-zero-waste/25218b_a1249f9bbb624a5f9ee3ec0bd643e024.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5949260,
+      "bytes": 1028448,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -544,8 +603,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b34abe46ff40476b93affd7f29ec76ec~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_b34abe46ff40476b93affd7f29ec76ec.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 24379392,
+      "bytes": 1494676,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -553,8 +613,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c80bd0576b1e437cad527055772fcf24~mv2.png",
       "local": "projects/chula-zero-waste/25218b_c80bd0576b1e437cad527055772fcf24.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7367928,
+      "bytes": 795648,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -562,8 +623,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e61a0df2ac404c42b60e2f743ba1922f~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_e61a0df2ac404c42b60e2f743ba1922f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 24379392,
+      "bytes": 1645214,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -571,8 +633,9 @@
       "source": "https://static.wixstatic.com/media/25218b_eb46de9e4bc44c60b9f562d87b4ccd2e~mv2.png",
       "local": "projects/chula-zero-waste/25218b_eb46de9e4bc44c60b9f562d87b4ccd2e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1171655,
+      "bytes": 95562,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -580,8 +643,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f1ed5826dc08494c9e6461f1bb22dd9d~mv2.png",
       "local": "projects/chula-zero-waste/25218b_f1ed5826dc08494c9e6461f1bb22dd9d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2648111,
+      "bytes": 911784,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -589,8 +653,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f35784e4cd644ca5bd50948d3a61ccd6~mv2.png",
       "local": "projects/chula-zero-waste/25218b_f35784e4cd644ca5bd50948d3a61ccd6.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2099778,
+      "bytes": 755942,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -598,8 +663,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f6216a7ef06f4409af9b7767ede4ae4e~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_f6216a7ef06f4409af9b7767ede4ae4e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6259619,
+      "bytes": 2592106,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -607,8 +673,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f9cc2a2218e0428bb5d13c02be940a08~mv2.jpg",
       "local": "projects/chula-zero-waste/25218b_f9cc2a2218e0428bb5d13c02be940a08.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 17104896,
+      "bytes": 910380,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -616,8 +683,9 @@
       "source": "https://static.wixstatic.com/media/25218b_1018d0520643442296a8b9e3e22c0c08~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_1018d0520643442296a8b9e3e22c0c08.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6682007,
+      "bytes": 358726,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -625,8 +693,9 @@
       "source": "https://static.wixstatic.com/media/25218b_240415af15914d8f976d81c5d4a60d58~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_240415af15914d8f976d81c5d4a60d58.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5716924,
+      "bytes": 463082,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -634,8 +703,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3713436bffaf4c19abc05838c7bf3b7e~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_3713436bffaf4c19abc05838c7bf3b7e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4909187,
+      "bytes": 279140,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -643,8 +713,9 @@
       "source": "https://static.wixstatic.com/media/25218b_78ac767f9203428088dd6823d91bdbe9~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_78ac767f9203428088dd6823d91bdbe9.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7812886,
+      "bytes": 626810,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -652,8 +723,9 @@
       "source": "https://static.wixstatic.com/media/25218b_8039e0e68d7140999782151f8964af72~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_8039e0e68d7140999782151f8964af72.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6173510,
+      "bytes": 496354,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -661,8 +733,9 @@
       "source": "https://static.wixstatic.com/media/25218b_903804cec995407fb82924165d6bfa0c~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_903804cec995407fb82924165d6bfa0c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6526539,
+      "bytes": 441164,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -670,8 +743,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a2c19714897b409586b5479eee9d98ee~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_a2c19714897b409586b5479eee9d98ee.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4700775,
+      "bytes": 232716,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -679,8 +753,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a7c5ff3d72bc44b698e31e0ed76a2245~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_a7c5ff3d72bc44b698e31e0ed76a2245.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7062565,
+      "bytes": 674786,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -688,8 +763,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ac83aee49cd8420b892943f1906c4d98~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_ac83aee49cd8420b892943f1906c4d98.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6394000,
+      "bytes": 685976,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -697,8 +773,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e1a203d17f0848029ce212329f462ec1~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_e1a203d17f0848029ce212329f462ec1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6233249,
+      "bytes": 617580,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -706,8 +783,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e7bd23371b4f4603b7d65d73bec679e6~mv2.jpg",
       "local": "projects/creative-tourism-development-project-in-nan-province/25218b_e7bd23371b4f4603b7d65d73bec679e6.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5140610,
+      "bytes": 275928,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -715,8 +793,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0b42e635ae874b9492e17e555aa7e9b9~mv2.jpg",
       "local": "projects/department-of-disease-control/25218b_0b42e635ae874b9492e17e555aa7e9b9.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2030693,
+      "bytes": 717122,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -724,8 +803,9 @@
       "source": "https://static.wixstatic.com/media/25218b_22723552d50c48d880eea7fb21f6f750~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_22723552d50c48d880eea7fb21f6f750.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3410240,
+      "bytes": 1047006,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -733,8 +813,9 @@
       "source": "https://static.wixstatic.com/media/25218b_2e71814e757c45edbcafffdd3233fb4c~mv2.jpg",
       "local": "projects/department-of-disease-control/25218b_2e71814e757c45edbcafffdd3233fb4c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 306357,
+      "bytes": 109932,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -742,8 +823,9 @@
       "source": "https://static.wixstatic.com/media/25218b_943a6e13b0094abc843b48445f4a0513~mv2.jpg",
       "local": "projects/department-of-disease-control/25218b_943a6e13b0094abc843b48445f4a0513.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 375708,
+      "bytes": 177866,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -751,8 +833,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b3ed2a1647b5460e91d37cae6c456076~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_b3ed2a1647b5460e91d37cae6c456076.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3203952,
+      "bytes": 929048,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -760,8 +843,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c8fb12a7195c4149bf8c68344e9bc585~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_c8fb12a7195c4149bf8c68344e9bc585.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3304245,
+      "bytes": 1072038,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -769,8 +853,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d01bffa2457049c8aa40db4b34b4add8~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_d01bffa2457049c8aa40db4b34b4add8.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3324295,
+      "bytes": 1047600,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -778,8 +863,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d9182fe37d8d41fab5d78b692cf09df0~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_d9182fe37d8d41fab5d78b692cf09df0.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2250358,
+      "bytes": 546256,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -787,8 +873,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e744c29feb6a4ca5a77537136463c214~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_e744c29feb6a4ca5a77537136463c214.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4285109,
+      "bytes": 1751568,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -796,8 +883,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f8ba743e7c824636be2f04549613c4c4~mv2.jpeg",
       "local": "projects/department-of-disease-control/25218b_f8ba743e7c824636be2f04549613c4c4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4349417,
+      "bytes": 1680222,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -805,8 +893,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0be402a50b4343e2ba3e70a75dcc631c~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_0be402a50b4343e2ba3e70a75dcc631c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 488623,
+      "bytes": 219704,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -814,8 +903,9 @@
       "source": "https://static.wixstatic.com/media/25218b_1be44384062d48e293546365edde41f4~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_1be44384062d48e293546365edde41f4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 325917,
+      "bytes": 125304,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -823,8 +913,9 @@
       "source": "https://static.wixstatic.com/media/25218b_1f28504962214013b747d5ddbd78682d~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_1f28504962214013b747d5ddbd78682d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 473102,
+      "bytes": 204720,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -832,8 +923,9 @@
       "source": "https://static.wixstatic.com/media/25218b_274885862cfe4e728f5bd0150eda703e~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_274885862cfe4e728f5bd0150eda703e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 270973,
+      "bytes": 87772,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -841,8 +933,9 @@
       "source": "https://static.wixstatic.com/media/25218b_40a013d83c714afbb81c7f935ea9ca38~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_40a013d83c714afbb81c7f935ea9ca38.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 499533,
+      "bytes": 229790,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -850,8 +943,9 @@
       "source": "https://static.wixstatic.com/media/25218b_5491c5c536dd4b3b8a6b4baf379e9851~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_5491c5c536dd4b3b8a6b4baf379e9851.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 361462,
+      "bytes": 146422,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -859,8 +953,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7d553e2291eb4cb89df4f1d25584cfdf~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_7d553e2291eb4cb89df4f1d25584cfdf.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 355059,
+      "bytes": 138266,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -868,8 +963,9 @@
       "source": "https://static.wixstatic.com/media/25218b_884918d8095a440e8864067944573f15~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_884918d8095a440e8864067944573f15.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 292292,
+      "bytes": 100952,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -877,8 +973,9 @@
       "source": "https://static.wixstatic.com/media/25218b_95af7d14e92f498ca5b70554452f40bd~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_95af7d14e92f498ca5b70554452f40bd.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 261511,
+      "bytes": 77322,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -886,8 +983,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a8cd56b4818c4d909d1672cc53fc7394~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_a8cd56b4818c4d909d1672cc53fc7394.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 458013,
+      "bytes": 202544,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -895,8 +993,9 @@
       "source": "https://static.wixstatic.com/media/25218b_bccde072a0cd46178135a19786c13ee7~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_bccde072a0cd46178135a19786c13ee7.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 495262,
+      "bytes": 228122,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -904,8 +1003,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d345c95afc73467fbd3061cdf1d5f1c2~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_d345c95afc73467fbd3061cdf1d5f1c2.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 497561,
+      "bytes": 230258,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -913,8 +1013,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d9b715266f5c4c23b513bed0a9e73516~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_d9b715266f5c4c23b513bed0a9e73516.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 503412,
+      "bytes": 231512,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -922,8 +1023,9 @@
       "source": "https://static.wixstatic.com/media/25218b_eb33e7e593164d34aa9515ebcfdf9969~mv2.jpg",
       "local": "projects/empowering-youth-leaders/25218b_eb33e7e593164d34aa9515ebcfdf9969.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 345060,
+      "bytes": 129956,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -931,8 +1033,9 @@
       "source": "https://static.wixstatic.com/media/25218b_2c64ead7cabf46dfb3907182edddcf0d~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_2c64ead7cabf46dfb3907182edddcf0d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2520347,
+      "bytes": 869304,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -940,8 +1043,9 @@
       "source": "https://static.wixstatic.com/media/25218b_2e143c48236e45b6b40434553e60ecf5~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_2e143c48236e45b6b40434553e60ecf5.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2978859,
+      "bytes": 1150412,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -949,8 +1053,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3d5d6bb79fda44909e40c120ea311829~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_3d5d6bb79fda44909e40c120ea311829.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2992627,
+      "bytes": 1182156,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -958,8 +1063,9 @@
       "source": "https://static.wixstatic.com/media/25218b_84b7441a78bf4893836a363b7e93cc87~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_84b7441a78bf4893836a363b7e93cc87.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2600152,
+      "bytes": 1010922,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -967,8 +1073,9 @@
       "source": "https://static.wixstatic.com/media/25218b_9cf1d65fcd194206a1b55f24f9d202d4~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_9cf1d65fcd194206a1b55f24f9d202d4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2340670,
+      "bytes": 783068,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -976,8 +1083,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b71de9b3038d4c83a54bda064704e9d3~mv2.jpg",
       "local": "projects/international-labour-organization/25218b_b71de9b3038d4c83a54bda064704e9d3.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 199872,
+      "bytes": 57440,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -985,8 +1093,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b76f2452ba204395897b4d0eb19a93d8~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_b76f2452ba204395897b4d0eb19a93d8.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2602407,
+      "bytes": 960990,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -994,8 +1103,9 @@
       "source": "https://static.wixstatic.com/media/25218b_cc6154525298479889c8001db4e839e3~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_cc6154525298479889c8001db4e839e3.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2912572,
+      "bytes": 1121674,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1003,8 +1113,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e1010f01b7db4ea38208055ece8faf19~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_e1010f01b7db4ea38208055ece8faf19.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2259470,
+      "bytes": 737938,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1012,8 +1123,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e9193092e264469788094cd9d78192cb~mv2.jpeg",
       "local": "projects/international-labour-organization/25218b_e9193092e264469788094cd9d78192cb.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2369214,
+      "bytes": 808920,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1021,8 +1133,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0611abb41e614150b384ea9bf86e26b5~mv2.jpg",
       "local": "projects/itd/25218b_0611abb41e614150b384ea9bf86e26b5.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5834558,
+      "bytes": 380424,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1030,8 +1143,9 @@
       "source": "https://static.wixstatic.com/media/25218b_10f4fb16e552467b9c306568b7058945~mv2.jpg",
       "local": "projects/itd/25218b_10f4fb16e552467b9c306568b7058945.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5653354,
+      "bytes": 342824,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1039,8 +1153,9 @@
       "source": "https://static.wixstatic.com/media/25218b_12a4b76aefa24559b8d2bc4a5337694f~mv2.jpg",
       "local": "projects/itd/25218b_12a4b76aefa24559b8d2bc4a5337694f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7292938,
+      "bytes": 862090,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1048,8 +1163,9 @@
       "source": "https://static.wixstatic.com/media/25218b_16be22fc3f2f44f78627076a4a6c36c4~mv2.jpg",
       "local": "projects/itd/25218b_16be22fc3f2f44f78627076a4a6c36c4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3605983,
+      "bytes": 680754,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1057,8 +1173,9 @@
       "source": "https://static.wixstatic.com/media/25218b_304937fa59cb496c88ff9f3c05a464ea~mv2.jpg",
       "local": "projects/itd/25218b_304937fa59cb496c88ff9f3c05a464ea.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3418673,
+      "bytes": 385038,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1066,8 +1183,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3c06b99a157448ebae59eff35b73ec04~mv2.jpg",
       "local": "projects/itd/25218b_3c06b99a157448ebae59eff35b73ec04.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5701632,
+      "bytes": 885540,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1075,8 +1193,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3fcbd73e5cd9485b99ddf5f70684b86d~mv2.jpg",
       "local": "projects/itd/25218b_3fcbd73e5cd9485b99ddf5f70684b86d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 890796,
+      "bytes": 279004,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1084,8 +1203,9 @@
       "source": "https://static.wixstatic.com/media/25218b_48c92330a2984037b4fba02cb318319e~mv2.jpg",
       "local": "projects/itd/25218b_48c92330a2984037b4fba02cb318319e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3422918,
+      "bytes": 504148,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1093,8 +1213,9 @@
       "source": "https://static.wixstatic.com/media/25218b_5f7a81e74f724468b8d01296c4522396~mv2.jpg",
       "local": "projects/itd/25218b_5f7a81e74f724468b8d01296c4522396.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5224619,
+      "bytes": 319566,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1102,8 +1223,9 @@
       "source": "https://static.wixstatic.com/media/25218b_643ce6bd3f32403abeae71dbefd4e295~mv2.jpg",
       "local": "projects/itd/25218b_643ce6bd3f32403abeae71dbefd4e295.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3596388,
+      "bytes": 702146,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1111,8 +1233,9 @@
       "source": "https://static.wixstatic.com/media/25218b_70fbb0bd8da644088a9112839888f223~mv2.jpg",
       "local": "projects/itd/25218b_70fbb0bd8da644088a9112839888f223.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3003523,
+      "bytes": 480490,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1120,8 +1243,9 @@
       "source": "https://static.wixstatic.com/media/25218b_78cae06cfb8644a0a9b66209356380ae~mv2.jpg",
       "local": "projects/itd/25218b_78cae06cfb8644a0a9b66209356380ae.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3068849,
+      "bytes": 291210,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1129,8 +1253,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7e1df6639cfd45b6b0e0b27b940efde4~mv2.jpg",
       "local": "projects/itd/25218b_7e1df6639cfd45b6b0e0b27b940efde4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6197869,
+      "bytes": 548142,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1138,8 +1263,9 @@
       "source": "https://static.wixstatic.com/media/25218b_8f38c0af29f54952a3261e6ca0974f18~mv2.jpg",
       "local": "projects/itd/25218b_8f38c0af29f54952a3261e6ca0974f18.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5079040,
+      "bytes": 717996,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1147,8 +1273,9 @@
       "source": "https://static.wixstatic.com/media/25218b_9113ea6b8e1d47c4b1e3e57df30ab7d3~mv2.jpg",
       "local": "projects/itd/25218b_9113ea6b8e1d47c4b1e3e57df30ab7d3.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2991499,
+      "bytes": 780326,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1156,8 +1283,9 @@
       "source": "https://static.wixstatic.com/media/25218b_9cdb48edf1f143b196593b3abe909096~mv2.jpg",
       "local": "projects/itd/25218b_9cdb48edf1f143b196593b3abe909096.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5144576,
+      "bytes": 711436,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1165,8 +1293,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b426b9369f92453397073aa23c6047ba~mv2.jpg",
       "local": "projects/itd/25218b_b426b9369f92453397073aa23c6047ba.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6805051,
+      "bytes": 513920,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1174,8 +1303,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ba4a7a25c3304f0a8b105b6b5c11f89a~mv2.jpg",
       "local": "projects/itd/25218b_ba4a7a25c3304f0a8b105b6b5c11f89a.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3642797,
+      "bytes": 441148,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1183,8 +1313,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c4234a126be344949f4d4a2201559704~mv2.jpg",
       "local": "projects/itd/25218b_c4234a126be344949f4d4a2201559704.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6165967,
+      "bytes": 463496,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1192,8 +1323,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d0155938d9aa4df686e93ecd7fec88ba~mv2.jpg",
       "local": "projects/itd/25218b_d0155938d9aa4df686e93ecd7fec88ba.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6060485,
+      "bytes": 233958,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1201,8 +1333,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d9089764c1074fa1810c7c25ec2fc460~mv2.jpg",
       "local": "projects/itd/25218b_d9089764c1074fa1810c7c25ec2fc460.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4456448,
+      "bytes": 505082,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1210,8 +1343,9 @@
       "source": "https://static.wixstatic.com/media/25218b_eff39af9b40f4c5cb5a04a1cc4b4e0be~mv2.jpg",
       "local": "projects/itd/25218b_eff39af9b40f4c5cb5a04a1cc4b4e0be.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6023774,
+      "bytes": 328714,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1219,8 +1353,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f09c862a34174aaf844b198160ea4e75~mv2.jpg",
       "local": "projects/itd/25218b_f09c862a34174aaf844b198160ea4e75.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4816896,
+      "bytes": 622536,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1228,8 +1363,9 @@
       "source": "https://static.wixstatic.com/media/25218b_fe4d622c4f5141d2b9b73e65e8412b4d~mv2.jpg",
       "local": "projects/itd/25218b_fe4d622c4f5141d2b9b73e65e8412b4d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5842678,
+      "bytes": 429088,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1237,8 +1373,9 @@
       "source": "https://static.wixstatic.com/media/25218b_09d3aa3651324d6ea9ac6517691a0133~mv2.jpg",
       "local": "projects/media-communication-transnational-citizens/25218b_09d3aa3651324d6ea9ac6517691a0133.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4457958,
+      "bytes": 1777534,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1246,8 +1383,9 @@
       "source": "https://static.wixstatic.com/media/25218b_277172022ba449828f33f514fcd7a7ef~mv2.jpg",
       "local": "projects/media-communication-transnational-citizens/25218b_277172022ba449828f33f514fcd7a7ef.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2146554,
+      "bytes": 479308,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1255,8 +1393,9 @@
       "source": "https://static.wixstatic.com/media/25218b_bf6f238fcdcf4eb3ae3643789189d826~mv2.jpg",
       "local": "projects/media-communication-transnational-citizens/25218b_bf6f238fcdcf4eb3ae3643789189d826.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4197671,
+      "bytes": 1484878,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1264,8 +1403,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d6dda608e21a467ebfd557a1adc92eea~mv2.jpg",
       "local": "projects/media-communication-transnational-citizens/25218b_d6dda608e21a467ebfd557a1adc92eea.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 668463,
+      "bytes": 407788,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1273,8 +1413,9 @@
       "source": "https://static.wixstatic.com/media/25218b_fc87e081e7bd4bdfa37bcab62e5a441c~mv2.jpg",
       "local": "projects/media-communication-transnational-citizens/25218b_fc87e081e7bd4bdfa37bcab62e5a441c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2628645,
+      "bytes": 675068,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1282,8 +1423,9 @@
       "source": "https://static.wixstatic.com/media/25218b_006af7ecc1584b91b45b2e093d6a62c0~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_006af7ecc1584b91b45b2e093d6a62c0.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2264271,
+      "bytes": 683252,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1291,8 +1433,9 @@
       "source": "https://static.wixstatic.com/media/25218b_1548e0bfd6444b14b36008ee51b8cf90~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_1548e0bfd6444b14b36008ee51b8cf90.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2293122,
+      "bytes": 853846,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1300,8 +1443,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3f1de057cbfc49a5a40a10190c35025e~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_3f1de057cbfc49a5a40a10190c35025e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1961119,
+      "bytes": 710834,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1309,8 +1453,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3f8b6377d1db4ba48097e4443d54db1f~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_3f8b6377d1db4ba48097e4443d54db1f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2218721,
+      "bytes": 725190,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1318,8 +1463,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4f339a27fd824159a803dd21cbe74df3~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_4f339a27fd824159a803dd21cbe74df3.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2301830,
+      "bytes": 733986,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1327,8 +1473,9 @@
       "source": "https://static.wixstatic.com/media/25218b_5933148112124df08811ab52a5fee511~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_5933148112124df08811ab52a5fee511.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2386214,
+      "bytes": 801728,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1336,8 +1483,9 @@
       "source": "https://static.wixstatic.com/media/25218b_87f5726ed41947e88a8d0b0173600682~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_87f5726ed41947e88a8d0b0173600682.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2883777,
+      "bytes": 1073758,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1345,8 +1493,9 @@
       "source": "https://static.wixstatic.com/media/25218b_96a67968827a4e05b8d1514670943484~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_96a67968827a4e05b8d1514670943484.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2116709,
+      "bytes": 675120,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1354,8 +1503,9 @@
       "source": "https://static.wixstatic.com/media/25218b_aa25086a17a24b71aa7667db344ac2b1~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_aa25086a17a24b71aa7667db344ac2b1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2918706,
+      "bytes": 1007346,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1363,8 +1513,9 @@
       "source": "https://static.wixstatic.com/media/25218b_aa3f03ff02b14e64ad5659459da68a97~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_aa3f03ff02b14e64ad5659459da68a97.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2451109,
+      "bytes": 813926,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1372,8 +1523,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b5e1f7dfa207484396535e4e53fb26d1~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_b5e1f7dfa207484396535e4e53fb26d1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2528025,
+      "bytes": 1022340,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1381,8 +1533,9 @@
       "source": "https://static.wixstatic.com/media/25218b_bba09ee4351a422db157be090a9a17e0~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_bba09ee4351a422db157be090a9a17e0.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2635593,
+      "bytes": 893506,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1390,8 +1543,9 @@
       "source": "https://static.wixstatic.com/media/25218b_cf8dfc5201d145a79394c5a0c3623637~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_cf8dfc5201d145a79394c5a0c3623637.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2150542,
+      "bytes": 720912,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1399,8 +1553,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e7f820b18a354d7bb382512166bc2515~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_e7f820b18a354d7bb382512166bc2515.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2445066,
+      "bytes": 869984,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1408,8 +1563,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e96c47f0333a4756b8405c3bc02e1d65~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_e96c47f0333a4756b8405c3bc02e1d65.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1924682,
+      "bytes": 609388,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1417,8 +1573,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f9e4a316f4834e798d238636638e35e0~mv2.jpeg",
       "local": "projects/ministry-of-natural-resources-and-environment/25218b_f9e4a316f4834e798d238636638e35e0.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1898012,
+      "bytes": 793446,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1426,8 +1583,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0865e9909af54e22a0e8fcdb77283ca9~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_0865e9909af54e22a0e8fcdb77283ca9.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3122970,
+      "bytes": 888898,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1435,8 +1593,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3400ec2582f248d4abc705149ac7365c~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_3400ec2582f248d4abc705149ac7365c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3052607,
+      "bytes": 789432,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1444,8 +1603,9 @@
       "source": "https://static.wixstatic.com/media/25218b_59ba8e2bf9004805a296d7baf9ca6c8d~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_59ba8e2bf9004805a296d7baf9ca6c8d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3030007,
+      "bytes": 828218,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1453,8 +1613,9 @@
       "source": "https://static.wixstatic.com/media/25218b_5f86b9ad154e4fe0aa33997f9a634168~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_5f86b9ad154e4fe0aa33997f9a634168.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2714790,
+      "bytes": 659334,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1462,8 +1623,9 @@
       "source": "https://static.wixstatic.com/media/25218b_626bc8d1ba934157b6692686677632b6~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_626bc8d1ba934157b6692686677632b6.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2580479,
+      "bytes": 629642,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1471,8 +1633,9 @@
       "source": "https://static.wixstatic.com/media/25218b_94bd0365589c404eb4947e7a90956c1e~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_94bd0365589c404eb4947e7a90956c1e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2731209,
+      "bytes": 671014,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1480,8 +1643,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b5c1efc7841a40e4befa1984071ebcc9~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_b5c1efc7841a40e4befa1984071ebcc9.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2804940,
+      "bytes": 720956,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1489,8 +1653,9 @@
       "source": "https://static.wixstatic.com/media/25218b_bcb149c5e78a401a892b708b3e91ea70~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_bcb149c5e78a401a892b708b3e91ea70.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2826633,
+      "bytes": 667482,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1498,8 +1663,9 @@
       "source": "https://static.wixstatic.com/media/25218b_d4825f0f4ca246e7a835e9874e88dcc2~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_d4825f0f4ca246e7a835e9874e88dcc2.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2730678,
+      "bytes": 597766,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1507,8 +1673,9 @@
       "source": "https://static.wixstatic.com/media/25218b_df6f93e3260b4acdad9968885e62d549~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_df6f93e3260b4acdad9968885e62d549.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2978954,
+      "bytes": 788260,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1516,8 +1683,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e35a8ba3bb57483f88382e0eb846c4c1~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_e35a8ba3bb57483f88382e0eb846c4c1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2413865,
+      "bytes": 554208,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1525,8 +1693,9 @@
       "source": "https://static.wixstatic.com/media/25218b_efdd169a833d4008b9ab38b544dc5a1c~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_efdd169a833d4008b9ab38b544dc5a1c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2040316,
+      "bytes": 425498,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1534,8 +1703,9 @@
       "source": "https://static.wixstatic.com/media/25218b_fb720dc14a4c4b3a808b75cfa76ead4b~mv2.jpg",
       "local": "projects/nbtc-encyclopedia/25218b_fb720dc14a4c4b3a808b75cfa76ead4b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3252527,
+      "bytes": 1021446,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1543,8 +1713,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4caad4d894fc4108b321da6753a27a44~mv2.png",
       "local": "projects/nia-100-faces/25218b_4caad4d894fc4108b321da6753a27a44.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3004907,
+      "bytes": 162720,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1552,8 +1723,9 @@
       "source": "https://static.wixstatic.com/media/25218b_177d3224e58440d299b1e6d2998c6dda~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_177d3224e58440d299b1e6d2998c6dda.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 8563602,
+      "bytes": 514326,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1561,8 +1733,9 @@
       "source": "https://static.wixstatic.com/media/25218b_337ca3eb694b4ab2954c4490fb6992f9~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_337ca3eb694b4ab2954c4490fb6992f9.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 9421879,
+      "bytes": 948424,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1570,8 +1743,9 @@
       "source": "https://static.wixstatic.com/media/25218b_3a4bd7bfa89641989ee12c39f0049f5f~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_3a4bd7bfa89641989ee12c39f0049f5f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7647299,
+      "bytes": 365326,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1579,8 +1753,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4d4792ba30c843f9ab9875109f886039~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_4d4792ba30c843f9ab9875109f886039.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 14570491,
+      "bytes": 1637544,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1588,8 +1763,9 @@
       "source": "https://static.wixstatic.com/media/25218b_537f83ece3da4ce7b69a402fd82c4319~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_537f83ece3da4ce7b69a402fd82c4319.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 9653588,
+      "bytes": 859574,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1597,8 +1773,9 @@
       "source": "https://static.wixstatic.com/media/25218b_56011291dc14403aa91a673cec18af5e~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_56011291dc14403aa91a673cec18af5e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 9007891,
+      "bytes": 590274,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1606,8 +1783,9 @@
       "source": "https://static.wixstatic.com/media/25218b_6c5860cee386416f86cbb49b61887c79~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_6c5860cee386416f86cbb49b61887c79.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7879013,
+      "bytes": 601248,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1615,8 +1793,9 @@
       "source": "https://static.wixstatic.com/media/25218b_811b945eb6bf4861ab604df75eb14a33~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_811b945eb6bf4861ab604df75eb14a33.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 9089428,
+      "bytes": 530772,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1624,8 +1803,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b42ae7bc91aa4a6888f0137d1ba80ae1~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_b42ae7bc91aa4a6888f0137d1ba80ae1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 8909945,
+      "bytes": 654040,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1633,8 +1813,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c4b8f2145d884a6db8f044ea8cee0bda~mv2.jpg",
       "local": "projects/nia-media-innovation/25218b_c4b8f2145d884a6db8f044ea8cee0bda.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7230309,
+      "bytes": 368442,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1642,8 +1823,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0a71330e2fc44839908f3aba27fcd01e~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_0a71330e2fc44839908f3aba27fcd01e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 293632,
+      "bytes": 141276,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1651,8 +1833,9 @@
       "source": "https://static.wixstatic.com/media/25218b_235e059c63a546cc8692c4277c2ceddd~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_235e059c63a546cc8692c4277c2ceddd.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 297525,
+      "bytes": 139560,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1660,8 +1843,9 @@
       "source": "https://static.wixstatic.com/media/25218b_441cbe4703a74bd9bbd53b617d8fae19~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_441cbe4703a74bd9bbd53b617d8fae19.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 287128,
+      "bytes": 135396,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1669,8 +1853,9 @@
       "source": "https://static.wixstatic.com/media/25218b_6c4c5defb40447ff9bc9889c215a0ee8~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_6c4c5defb40447ff9bc9889c215a0ee8.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 196041,
+      "bytes": 86232,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1678,8 +1863,9 @@
       "source": "https://static.wixstatic.com/media/25218b_70abf2b826a749fab8c5755b58ac9333~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_70abf2b826a749fab8c5755b58ac9333.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 778717,
+      "bytes": 137792,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1687,8 +1873,9 @@
       "source": "https://static.wixstatic.com/media/25218b_89b18b69ae9e4735b749ae8ddd0daaa7~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_89b18b69ae9e4735b749ae8ddd0daaa7.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 175923,
+      "bytes": 76722,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1696,8 +1883,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a62ee7c98a964a17a7169b024e35d8e2~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_a62ee7c98a964a17a7169b024e35d8e2.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 310272,
+      "bytes": 159992,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1705,8 +1893,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c385f003f66e4948b1e8cdeb4222a414~mv2.jpg",
       "local": "projects/nia-satisfaction-survey-2020/25218b_c385f003f66e4948b1e8cdeb4222a414.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 262114,
+      "bytes": 118706,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1714,8 +1903,9 @@
       "source": "https://static.wixstatic.com/media/25218b_01d967796eb44371a93ea74cfe21cf33~mv2.jpg",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_01d967796eb44371a93ea74cfe21cf33.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1190620,
+      "bytes": 884136,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1723,8 +1913,9 @@
       "source": "https://static.wixstatic.com/media/25218b_0546265a29964393967ad1df973bc36b~mv2.jpg",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_0546265a29964393967ad1df973bc36b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 2009430,
+      "bytes": 1677320,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1732,8 +1923,9 @@
       "source": "https://static.wixstatic.com/media/25218b_48fa77ace2d946aab64f2d843d2219da~mv2.png",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_48fa77ace2d946aab64f2d843d2219da.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6691410,
+      "bytes": 151174,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1741,8 +1933,9 @@
       "source": "https://static.wixstatic.com/media/25218b_613576625d2a4ac5913ff80a4525da47~mv2.png",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_613576625d2a4ac5913ff80a4525da47.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4596292,
+      "bytes": 90710,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1750,8 +1943,9 @@
       "source": "https://static.wixstatic.com/media/25218b_6ad515a570e2443a8303e3205fb955fb~mv2.jpg",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_6ad515a570e2443a8303e3205fb955fb.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1496430,
+      "bytes": 1133258,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1759,8 +1953,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7218729312f94106a981e8c9b1e9011b~mv2.png",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_7218729312f94106a981e8c9b1e9011b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6023226,
+      "bytes": 163818,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1768,8 +1963,9 @@
       "source": "https://static.wixstatic.com/media/25218b_78deec69053c498db43c24eb7994705a~mv2.jpg",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_78deec69053c498db43c24eb7994705a.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 946048,
+      "bytes": 590308,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1777,8 +1973,9 @@
       "source": "https://static.wixstatic.com/media/25218b_9c53d041b29c4b7fa86c23320f53613b~mv2.png",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_9c53d041b29c4b7fa86c23320f53613b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4525869,
+      "bytes": 90144,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1786,8 +1983,9 @@
       "source": "https://static.wixstatic.com/media/25218b_9eea8dd65d4541f3b345a21f87c1d88e~mv2.png",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_9eea8dd65d4541f3b345a21f87c1d88e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5652693,
+      "bytes": 144034,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1795,8 +1993,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b558ec6ec425444498f4d1fb8618f9f1~mv2.png",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_b558ec6ec425444498f4d1fb8618f9f1.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3888800,
+      "bytes": 88586,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1804,8 +2003,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c79b7d1411ff4d83b5b4831ccfa218de~mv2.jpg",
       "local": "projects/pid-thong-lang-phra-foundation/25218b_c79b7d1411ff4d83b5b4831ccfa218de.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1403496,
+      "bytes": 1160210,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1813,8 +2013,9 @@
       "source": "https://static.wixstatic.com/media/25218b_11c90df3ab4148039db17c6507b6c964~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_11c90df3ab4148039db17c6507b6c964.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5144542,
+      "bytes": 103750,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1822,8 +2023,9 @@
       "source": "https://static.wixstatic.com/media/25218b_46bdbe5c9f0b4ffc8351b4080093ca77~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_46bdbe5c9f0b4ffc8351b4080093ca77.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6605387,
+      "bytes": 175458,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1831,8 +2033,9 @@
       "source": "https://static.wixstatic.com/media/25218b_618f9db9231140a98cc6b16601fb0c7d~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_618f9db9231140a98cc6b16601fb0c7d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5400929,
+      "bytes": 212330,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1840,8 +2043,9 @@
       "source": "https://static.wixstatic.com/media/25218b_797ab8240cc7431cb845be8ba639f363~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_797ab8240cc7431cb845be8ba639f363.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6380519,
+      "bytes": 264436,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1849,8 +2053,9 @@
       "source": "https://static.wixstatic.com/media/25218b_79b49c487463453b9eeb210d678efd44~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_79b49c487463453b9eeb210d678efd44.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 10199805,
+      "bytes": 563342,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1858,8 +2063,9 @@
       "source": "https://static.wixstatic.com/media/25218b_90d8c489cbbd4727bf4f7314796a40ee~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_90d8c489cbbd4727bf4f7314796a40ee.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 7097316,
+      "bytes": 251704,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1867,8 +2073,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c13324830d284269b4794d07b4c1e244~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_c13324830d284269b4794d07b4c1e244.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6276029,
+      "bytes": 183168,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1876,8 +2083,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ce55ddf318ae402391a3ba2b005a54b8~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_ce55ddf318ae402391a3ba2b005a54b8.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6836172,
+      "bytes": 212370,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1885,8 +2093,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e8f088f77e1e471db8d8c9fabf27e5fd~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_e8f088f77e1e471db8d8c9fabf27e5fd.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6632769,
+      "bytes": 317416,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1894,8 +2103,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f877751a0b1341c287d85b76fffc4cd4~mv2.png",
       "local": "projects/seeds-for-cu-sustainability/25218b_f877751a0b1341c287d85b76fffc4cd4.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 6597785,
+      "bytes": 167942,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1903,8 +2113,9 @@
       "source": "https://static.wixstatic.com/media/25218b_41c0daf410104934a91047219acc90dd~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_41c0daf410104934a91047219acc90dd.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4384510,
+      "bytes": 1111096,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1912,8 +2123,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4279d87c5dc848bf8ab5d2c55c7bb5ed~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_4279d87c5dc848bf8ab5d2c55c7bb5ed.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3993805,
+      "bytes": 813318,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1921,8 +2133,9 @@
       "source": "https://static.wixstatic.com/media/25218b_4e4869f056db4383a33b45e830d3318c~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_4e4869f056db4383a33b45e830d3318c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4435440,
+      "bytes": 1111542,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1930,8 +2143,9 @@
       "source": "https://static.wixstatic.com/media/25218b_5f92d00cef494e9997571e23c390f67f~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_5f92d00cef494e9997571e23c390f67f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 5153945,
+      "bytes": 918560,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1939,8 +2153,9 @@
       "source": "https://static.wixstatic.com/media/25218b_67848c6c08e04082853635f06689b794~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_67848c6c08e04082853635f06689b794.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3688434,
+      "bytes": 637544,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1948,8 +2163,9 @@
       "source": "https://static.wixstatic.com/media/25218b_79db7202867f402c9d3bc86e959de227~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_79db7202867f402c9d3bc86e959de227.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4068675,
+      "bytes": 858010,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1957,8 +2173,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7b56ae0f527e47779734a0b901921dac~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_7b56ae0f527e47779734a0b901921dac.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4396981,
+      "bytes": 1220424,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1966,8 +2183,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7c9f84d401044d148e90beb5280aac16~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_7c9f84d401044d148e90beb5280aac16.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3666959,
+      "bytes": 649354,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1975,8 +2193,9 @@
       "source": "https://static.wixstatic.com/media/25218b_7f6cfe8a708d4b9d937c142062ee37b8~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_7f6cfe8a708d4b9d937c142062ee37b8.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3874708,
+      "bytes": 769676,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1984,8 +2203,9 @@
       "source": "https://static.wixstatic.com/media/25218b_82b7cd5c409b4f34b487eab26cd86f21~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_82b7cd5c409b4f34b487eab26cd86f21.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4608618,
+      "bytes": 1093666,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -1993,8 +2213,9 @@
       "source": "https://static.wixstatic.com/media/25218b_8e95932861eb49daa3402ea4dea0ef83~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_8e95932861eb49daa3402ea4dea0ef83.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4402764,
+      "bytes": 1047258,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2002,8 +2223,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a151b3e32e0d4a8987190e3a6408b241~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_a151b3e32e0d4a8987190e3a6408b241.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4237546,
+      "bytes": 997020,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2011,8 +2233,9 @@
       "source": "https://static.wixstatic.com/media/25218b_a170ba2bd6c14298bb0e0d0a7b897adc~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_a170ba2bd6c14298bb0e0d0a7b897adc.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4028662,
+      "bytes": 687254,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2020,8 +2243,9 @@
       "source": "https://static.wixstatic.com/media/25218b_b6887ba9ef28412b88a049786cdafd0d~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_b6887ba9ef28412b88a049786cdafd0d.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4393161,
+      "bytes": 795392,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2029,8 +2253,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ba142d5c19b84195823f0af1f32fb22f~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_ba142d5c19b84195823f0af1f32fb22f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4018693,
+      "bytes": 778646,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2038,8 +2263,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ba3e45bcc0844495ad9583b45646f198~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_ba3e45bcc0844495ad9583b45646f198.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3805194,
+      "bytes": 657028,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2047,8 +2273,9 @@
       "source": "https://static.wixstatic.com/media/25218b_c26c2e24ad3a45d58c76763fcb92743f~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_c26c2e24ad3a45d58c76763fcb92743f.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4168026,
+      "bytes": 878748,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2056,8 +2283,9 @@
       "source": "https://static.wixstatic.com/media/25218b_db0d044a1d624dcb9f64e639c1d857bc~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_db0d044a1d624dcb9f64e639c1d857bc.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 4636113,
+      "bytes": 824090,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2065,8 +2293,9 @@
       "source": "https://static.wixstatic.com/media/25218b_e7826711a3a74b02b12c687db1c13466~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_e7826711a3a74b02b12c687db1c13466.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3794951,
+      "bytes": 661336,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2074,8 +2303,9 @@
       "source": "https://static.wixstatic.com/media/25218b_ee9dd1dd38db444c9bc031abc45ed369~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_ee9dd1dd38db444c9bc031abc45ed369.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3826578,
+      "bytes": 655546,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2083,8 +2313,9 @@
       "source": "https://static.wixstatic.com/media/25218b_f539379ce5184620a8780f912fa7a377~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/25218b_f539379ce5184620a8780f912fa7a377.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3716051,
+      "bytes": 734560,
+      "status": "ok"
     },
     {
       "category": "projects",
@@ -2092,17 +2323,19 @@
       "source": "https://static.wixstatic.com/media/8e0d14_e9259da379e349768ea98f3383ce79af~mv2.jpg",
       "local": "projects/sri-trang-agro-industry/8e0d14_e9259da379e349768ea98f3383ce79af.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 3568226,
+      "bytes": 712950,
+      "status": "ok"
     },
     {
       "category": "researchers",
       "id": "lunchakorn-wuttisittikulkij",
-      "source": "https://ee.eng.chula.ac.th/wp-content/uploads/2025/09/LWK2.jpg",
+      "source": "https://images.weserv.nl/?url=ee.eng.chula.ac.th%2Fwp-content%2Fuploads%2F2025%2F09%2FLWK2.jpg",
       "local": "researchers/lunchakorn-wuttisittikulkij.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 54179,
+      "bytes": 38886,
+      "status": "ok"
     },
     {
       "category": "researchers",
@@ -2110,8 +2343,9 @@
       "source": "https://yt3.googleusercontent.com/ytc/AIdro_m1qfmIOSFu6yvHXJxdWd5q4sDUFEnIMZiKoQTzGRorMkw=s800-c-k-c0x00ffffff-no-rj",
       "local": "researchers/watsayut-kongchan.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 57129,
+      "bytes": 18548,
+      "status": "ok"
     },
     {
       "category": "researchers",
@@ -2119,8 +2353,9 @@
       "source": "https://www.chula.ac.th/wp-content/uploads/2022/01/C695B217-A394-4444-A123-08A87085054C-1.jpg",
       "local": "researchers/wattana-viriyasitavat.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 58410,
+      "bytes": 29948,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2128,8 +2363,9 @@
       "source": "https://static.wixstatic.com/media/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg",
       "local": "team/34cff6_29040465434b4a43bab2432065a820ab.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1860363,
+      "bytes": 632208,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2137,8 +2373,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_17484343fc0b423e86bf30bc9954242b~mv2.jpg",
       "local": "team/8e0d14_17484343fc0b423e86bf30bc9954242b.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 292101,
+      "bytes": 120270,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2146,8 +2383,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_1c1c8fde9c5c4013892804a6d82da63e~mv2.jpg",
       "local": "team/8e0d14_1c1c8fde9c5c4013892804a6d82da63e.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 58470,
+      "bytes": 43820,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2155,8 +2393,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_1e13d671d6524c9e8a3e394adc2a3bcc~mv2.jpg",
       "local": "team/8e0d14_1e13d671d6524c9e8a3e394adc2a3bcc.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 241021,
+      "bytes": 79210,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2164,8 +2403,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a~mv2.png",
       "local": "team/8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 584631,
+      "bytes": 23240,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2173,8 +2413,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_31a4089134c7492b9152bb547c2e358c~mv2.png",
       "local": "team/8e0d14_31a4089134c7492b9152bb547c2e358c.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 1551729,
+      "bytes": 43970,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2182,8 +2423,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_41e6a251793c40019370309bce59a0d3~mv2.png",
       "local": "team/8e0d14_41e6a251793c40019370309bce59a0d3.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 376573,
+      "bytes": 15404,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2191,8 +2433,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_583440d112834e438b0d6b8215b45858~mv2.jpg",
       "local": "team/8e0d14_583440d112834e438b0d6b8215b45858.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 375474,
+      "bytes": 148114,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2200,8 +2443,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_7fd4bdf8ae7b48efac5cf79fc4fdd215~mv2.jpg",
       "local": "team/8e0d14_7fd4bdf8ae7b48efac5cf79fc4fdd215.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 17190,
+      "bytes": 5558,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2209,8 +2453,9 @@
       "source": "https://static.wixstatic.com/media/8e0d14_de18afe153e9498ba2f6886f70a2ef35~mv2.jpg",
       "local": "team/8e0d14_de18afe153e9498ba2f6886f70a2ef35.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 103694,
+      "bytes": 34464,
+      "status": "ok"
     },
     {
       "category": "team",
@@ -2218,8 +2463,9 @@
       "source": "https://images.weserv.nl/?url=https%3A%2F%2Fscholar.googleusercontent.com%2Fcitations%3Fview_op%3Dmedium_photo%26user%3Dgfq4xogAAAAJ%26citpid%3D2&w=600&h=750&fit=cover&output=jpg",
       "local": "team/robbie-buelo.webp",
       "convert": "webp",
-      "status": "failed",
-      "error": "HTTP 403"
+      "originalBytes": 30929,
+      "bytes": 16838,
+      "status": "ok"
     }
   ]
 }

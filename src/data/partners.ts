@@ -3,9 +3,8 @@
  * โลโก้ครบจาก https://www.cominnocenter.com/ — ใช้ไฟล์ต้นฉบับไม่ครอป
  */
 
-/** โลโก้ต้นฉบับจาก Wix (ไม่ใช้ fill เพื่อไม่ให้ถูกครอป) */
-const logo = (id: string, ext: string = "webp") =>
-  `https://static.wixstatic.com/media/${id}~mv2.${ext}`;
+/** โลโก้ต้นฉบับ — self-host จาก Wix ไว้ที่ public/images/partners/ คงฟอร์แมตเดิมไม่ครอป (Phase 0) */
+const logo = (id: string, ext: string = "webp") => `/images/partners/${id}.${ext}`;
 
 export type Partner = {
   name: string;

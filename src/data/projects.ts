@@ -21,23 +21,23 @@ export type Project = {
   sourceUrl: string;
 };
 
-/** Full-size image URL from Wix media id */
-function media(id: string, ext: string = "jpg"): string {
-  return `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_1920,h_1280,al_c,q_90,enc_auto/${id}~mv2.${ext}`;
+/** Self-hosted gallery image — ดาวน์โหลดจาก Wix มาไว้ที่ public/images/projects/ (Phase 0, ดู scripts/wix-image-manifest.json) */
+function media(slug: string, id: string): string {
+  return `/images/projects/${slug}/${id}.webp`;
 }
 
 function expandGallery(slug: string, title: string): ProjectImage[] {
   const refs = projectMedia[slug] || [];
   return refs.map((r) => ({
-    src: media(r.id, r.ext),
+    src: media(slug, r.id),
     alt: `${title} — ภาพจริงจากเว็บเดิม ComInnoCenter`,
   }));
 }
 
-function cover(slug: string, fallbackId: string, fallbackExt: string = "jpg"): string {
+function cover(slug: string, fallbackId: string, fallbackSlug: string = "chula-zero-waste"): string {
   const refs = projectMedia[slug];
-  if (refs && refs.length > 0) return media(refs[0].id, refs[0].ext);
-  return media(fallbackId, fallbackExt);
+  if (refs && refs.length > 0) return media(slug, refs[0].id);
+  return media(fallbackSlug, fallbackId);
 }
 
 export const projects: Project[] = [

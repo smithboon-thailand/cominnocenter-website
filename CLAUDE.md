@@ -17,7 +17,8 @@
 | ฟอนต์ปัจจุบัน | Inter + Sarabun ผ่าน `next/font/google` (จะเปลี่ยนเป็น **Kanit** ตาม BRAND.md ใน Phase 1) |
 | Utilities | clsx, tailwind-merge |
 | Deploy | Vercel — ทุก branch ที่ push ได้ Preview URL อัตโนมัติ |
-| รูปภาพ | ปัจจุบันโหลดจาก `static.wixstatic.com` (จะ self-host ใน Phase 0) — ดู `remotePatterns` ใน `next.config.ts` |
+| รูปภาพ | **self-host แล้ว** (Phase 0-B) ใน `public/images/` — 246 ไฟล์ ดู mapping ใน `scripts/wix-image-manifest.json` · เหลือ remote เฉพาะรูปหลักสูตรวัฒนธรรมจาก `cuculturecom-static.vercel.app` |
+| Favicon | `src/app/icon.png` + `apple-icon.png` — **ชั่วคราว** ทำจากโลโก้เดิม (จะแทนด้วยโลโก้ SVG จริงจาก Phase 2) |
 
 คำสั่งหลัก: `npm run dev` · `npm run build` · `npm run lint`
 
@@ -49,7 +50,7 @@ public/
 | ไฟล์ | เนื้อหา |
 |---|---|
 | `projects.ts` | โครงการทั้งหมด 18 โครงการ (17 โครงการมี gallery ใน `projectMedia.ts`) — field `sdg` ปัจจุบันเป็น string เช่น `"SDG 12"` (Phase 1-C จะ migrate เป็น `SdgId[]`) · `sourceUrl` 17 รายการชี้ไป `cominnocenter.com/post/...` (Wix) |
-| `projectMedia.ts` | mapping slug → Wix media id ของภาพ gallery |
+| `projectMedia.ts` | mapping slug → media id ของภาพ gallery (id ใช้เป็นชื่อไฟล์ local ใน `public/images/projects/<slug>/` แล้ว) |
 | `projectCopyEn.ts` | คำแปลอังกฤษของเนื้อหาโครงการ |
 | `leadership.ts` | ผู้บริหารศูนย์ |
 | `team.ts` / `researchers.ts` | ทีมงานและนักวิจัย |
@@ -58,7 +59,7 @@ public/
 | `videos.ts` | วิดีโอ showcase |
 | `illustrations.ts` | path ของ SVG ใน `public/illustrations/` |
 
-ภาพส่วนใหญ่สร้าง URL จาก Wix media id ผ่านฟังก์ชัน `media()` ใน `projects.ts` — จุดสำคัญของ Phase 0
+ภาพทั้งหมด self-host แล้ว (Phase 0-B) — ฟังก์ชัน `media()/logo()` ในแต่ละ data file ชี้ไป `public/images/` · สคริปต์ดาวน์โหลด: `scripts/download-wix-images.mjs` (ต้องรันด้วย `NODE_USE_ENV_PROXY=1` ในเซสชัน remote)
 
 ## กติกา i18n
 
@@ -80,7 +81,7 @@ public/
 
 ## สรุปแผนงาน (รายละเอียดเต็มใน cominno-workflow.md)
 
-- **Phase 0 — Asset Independence:** สำรวจทุกจุดที่อ้าง wixstatic/cominnocenter.com (0-A รายงานก่อน ห้ามแก้) → self-host ภาพลง `public/images/` → เก็บเนื้อหาข่าวเป็น `/news/[slug]` → 301 redirects → ตรวจ
+- **Phase 0 — Asset Independence:** ✅ 0-A สำรวจ · ✅ 0-B self-host ภาพ 246 ไฟล์ + favicon ชั่วคราว → **ถัดไป 0-C:** เก็บเนื้อหา 24 โพสต์ (`/post/...`) เป็น `/news/[slug]` → 301 redirects → ตรวจ
 - **Phase 1 — Design System:** tokens + Kanit + `src/data/sdg.ts` → components (SdgBadge, Button, SectionHeader, Stat, ProjectCard) + หน้า `/dev/components` → migrate `projects.ts` เป็น `sdg: SdgId[]` (เสนอ mapping ให้ตรวจก่อน)
 - **Phase 2 — Assets จาก Grok:** ทำขนานกับ Phase 3 ได้ ใช้ placeholder ไปก่อน
 - **Phase 3 — Implementation ทีละหน้า:** Impact list → Impact detail → `/sdg` → Home → About/Expertise/Collaborate → แปลภาษา → EN parity

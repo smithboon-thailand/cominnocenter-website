@@ -30,8 +30,8 @@ export type Leader = {
   metricsNote: string;
 };
 
-const media = (id: string, ext: string = "jpg") =>
-  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_800,h_1000,al_c,q_85,enc_auto/${id}~mv2.${ext}`;
+/** Self-hosted — ดาวน์โหลดจาก Wix มาไว้ที่ public/images/leadership/ (Phase 0) */
+const media = (id: string) => `/images/leadership/${id}.webp`;
 
 export const leadership: Leader[] = [
   {
