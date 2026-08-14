@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="AI-generated decorative illustration: parallax glass layers">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061530"/>
+      <stop offset="100%" stop-color="#0d2a5c"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#DE5C8E" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="trail" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DE5C8E" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#DE5C8E" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#DE5C8E" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg3)"/>
+  <circle cx="200" cy="150" r="80" fill="#DE5C8E" opacity="0.08"/>
+  <circle cx="900" cy="600" r="120" fill="#4a90d9" opacity="0.1"/>
+  <circle cx="1000" cy="200" r="40" fill="#ffffff" opacity="0.06"/>
+  <circle cx="300" cy="500" r="25" fill="#ffffff" opacity="0.05"/>
+  <g opacity="0.9">
+    <path d="M100,450 C300,400 500,520 700,380 C850,280 1000,420 1150,360" fill="none" stroke="url(#trail)" stroke-width="2.5"/>
+    <path d="M80,500 C280,460 480,560 680,430 C850,330 1000,470 1180,400" fill="none" stroke="url(#trail)" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <g transform="translate(650,280) rotate(-18)">
+    <rect x="-160" y="-110" width="320" height="220" rx="8" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(780,360) rotate(12)">
+    <rect x="-120" y="-90" width="260" height="180" rx="8" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.2"/>
+  </g>
+  <g transform="translate(520,340) rotate(-8)">
+    <rect x="-90" y="-70" width="200" height="150" rx="6" fill="url(#glass)" stroke="#DE5C8E" stroke-opacity="0.2" stroke-width="1"/>
+  </g>
+</svg>

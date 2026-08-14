@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="AI-generated decorative illustration: communication network">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#002D73"/>
+      <stop offset="55%" stop-color="#1a4a8a"/>
+      <stop offset="100%" stop-color="#f5f7fb"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DE5C8E" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#7eb8e8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#DE5C8E" stop-opacity="0.15"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="40%">
+      <stop offset="0%" stop-color="#DE5C8E" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#DE5C8E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <ellipse cx="280" cy="180" rx="180" ry="140" fill="url(#glow)"/>
+  <path d="M0,520 C200,480 350,580 520,540 C700,500 850,600 1200,560 L1200,800 L0,800 Z" fill="url(#wave)" opacity="0.5"/>
+  <path d="M0,600 C180,560 400,640 580,600 C780,560 960,640 1200,610 L1200,800 L0,800 Z" fill="#ffffff" opacity="0.08"/>
+  <g stroke="#ffffff" stroke-width="1.2" opacity="0.55" fill="none">
+    <line x1="120" y1="280" x2="220" y2="200"/><line x1="220" y1="200" x2="340" y2="240"/>
+    <line x1="340" y1="240" x2="280" y2="340"/><line x1="280" y1="340" x2="180" y2="360"/>
+    <line x1="180" y1="360" x2="120" y2="280"/><line x1="340" y1="240" x2="460" y2="180"/>
+    <line x1="460" y1="180" x2="520" y2="280"/><line x1="520" y1="280" x2="420" y2="320"/>
+    <line x1="420" y1="320" x2="340" y2="240"/><line x1="280" y1="340" x2="420" y2="320"/>
+    <line x1="520" y1="280" x2="620" y2="220"/><line x1="620" y1="220" x2="700" y2="300"/>
+  </g>
+  <g fill="#DE5C8E">
+    <circle cx="120" cy="280" r="5" opacity="0.9"/><circle cx="220" cy="200" r="6" opacity="0.95"/>
+    <circle cx="340" cy="240" r="5"/><circle cx="280" cy="340" r="4.5"/>
+    <circle cx="180" cy="360" r="4"/><circle cx="460" cy="180" r="5.5"/>
+    <circle cx="520" cy="280" r="5"/><circle cx="420" cy="320" r="4"/>
+    <circle cx="620" cy="220" r="4.5"/><circle cx="700" cy="300" r="4"/>
+  </g>
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="250" cy="260" r="2.5"/><circle cx="380" cy="200" r="2"/><circle cx="500" cy="340" r="2.5"/>
+    <circle cx="150" cy="320" r="1.8"/><circle cx="600" cy="260" r="2"/>
+  </g>
+</svg>
