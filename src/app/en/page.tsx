@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { projects } from "@/data/projects";
 
 const expertiseItems = [
@@ -26,30 +28,7 @@ const featured = projects.slice(0, 3);
 export default function EnglishHomePage() {
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-50 bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/en" className="text-xl font-semibold tracking-tight text-blue-700">
-            ComInnoCenter
-          </Link>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-700">
-            <Link href="/en/about" className="hover:text-pink-500 transition-colors">About</Link>
-            <Link href="/en/expertise" className="hover:text-pink-500 transition-colors">Expertise</Link>
-            <Link href="/en/impact" className="hover:text-pink-500 transition-colors">Impact</Link>
-            <Link href="/en/collaborate" className="hover:text-pink-500 transition-colors">Collaborate</Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-sm font-medium text-neutral-600 hover:text-blue-700">
-              TH
-            </Link>
-            <Link
-              href="/en/collaborate"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors"
-            >
-              Collaborate
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header active="home" locale="en" />
 
       <section className="max-w-7xl mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28">
         <div className="max-w-3xl">
@@ -62,8 +41,8 @@ export default function EnglishHomePage() {
             FOR A BETTER LIFE
           </p>
           <p className="mt-8 text-lg text-neutral-700 max-w-xl leading-relaxed">
-            Center of Excellence in Communication Innovation for the Development of Quality of Life and Sustainability,
-            Faculty of Communication Arts, Chulalongkorn University
+            Center of Excellence in Communication Innovation for the Development of Quality of Life
+            and Sustainability, Faculty of Communication Arts, Chulalongkorn University
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -146,7 +125,7 @@ export default function EnglishHomePage() {
           {featured.map((item) => (
             <Link
               key={item.slug}
-              href={`/impact/${item.slug}`}
+              href={`/en/impact/${item.slug}`}
               className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow"
             >
               <div className="relative h-52 overflow-hidden">
@@ -187,25 +166,7 @@ export default function EnglishHomePage() {
         </div>
       </section>
 
-      <footer className="bg-neutral-900 text-neutral-300">
-        <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="flex flex-col md:flex-row justify-between gap-6">
-            <div>
-              <div className="text-white font-semibold">ComInnoCenter</div>
-              <p className="mt-1 text-sm">Faculty of Communication Arts, Chulalongkorn University</p>
-            </div>
-            <div className="text-sm">
-              <a href="mailto:comminno@chula.ac.th" className="hover:text-pink-400">comminno@chula.ac.th</a>
-              <span className="mx-2">·</span>
-              <a href="tel:022182262" className="hover:text-pink-400">02-218-2262</a>
-            </div>
-          </div>
-          <div className="mt-8 pt-6 border-t border-neutral-800 text-xs text-neutral-500">
-            © {new Date().getFullYear()} Center of Excellence in Communication Innovation,
-            Faculty of Communication Arts, Chulalongkorn University
-          </div>
-        </div>
-      </footer>
+      <Footer locale="en" />
     </div>
   );
 }
