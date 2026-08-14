@@ -101,19 +101,26 @@ export default async function CaseStudyPage({ params }: Props) {
           <p className="text-neutral-700 font-medium">{project.outcome}</p>
         </div>
 
-        {project.sourceUrl && (
-          <p className="mt-6 text-sm text-neutral-500">
-            แหล่งที่มา:{" "}
-            <a
-              href={project.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-500 hover:text-pink-600"
-            >
-              ดูโพสต์ต้นฉบับ
-            </a>
-          </p>
-        )}
+        {project.sourceUrl &&
+          (project.sourceUrl.startsWith("/") ? (
+            <p className="mt-6 text-sm text-neutral-500">
+              <Link href={project.sourceUrl} className="text-pink-500 hover:text-pink-600">
+                อ่านข่าวของโครงการนี้ →
+              </Link>
+            </p>
+          ) : (
+            <p className="mt-6 text-sm text-neutral-500">
+              แหล่งที่มา:{" "}
+              <a
+                href={project.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-500 hover:text-pink-600"
+              >
+                ดูเว็บไซต์โครงการ
+              </a>
+            </p>
+          ))}
       </section>
 
       {gallery.length > 0 && (

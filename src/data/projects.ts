@@ -54,7 +54,7 @@ export const projects: Project[] = [
     challenge: "The Action Plan for Sustainable Management of Solid and Hazardous Waste at Chulalongkorn University (Chula Zero Waste) (2017-2021) aims to reduce waste within the university by at least 30% by 2021. The plan includes 6 programs and 18 projects.",
     approach: "Create a Campaign Prototype for Reducing Waste in the University Led by Students, Emphasizing Fun, Brightness, Simplicity, and Practicality. Collaboration of the Environmental Research Institute, the Office of Physical System Management, and various networks within Chulalongkorn University.",
     impact: "Prototype campaign that communicates waste reduction in a fun, simple and practical way for university communities.",
-    sourceUrl: "https://www.cominnocenter.com/post/chula-zero-waste",
+    sourceUrl: "/news/chula-zero-waste",
   },
   {
     slug: "nbtc-encyclopedia",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     challenge: "Important telecommunications topics are often complex and hard for younger audiences to understand.",
     approach: "Gathered feedback from younger and older generations, then created a modern encyclopedia with connections, clear language, engaging illustrations, and videos.",
     impact: "A widely readable encyclopedia for the younger generation with illustrations and video support.",
-    sourceUrl: "https://www.cominnocenter.com/post/nbtc-encyclopedia",
+    sourceUrl: "/news/nbtc-encyclopedia",
   },
   {
     slug: "nia-100-faces",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     challenge: "Need to present innovator stories across multiple channels to inspire creativity.",
     approach: "Collected 100 innovators over 3 years and presented them via website, Instagram, book, and AR images — https://www.nia100faces.com/",
     impact: "Multi-platform storytelling of Thailand's innovation inspirers.",
-    sourceUrl: "https://www.cominnocenter.com/post/nia-100-faces",
+    sourceUrl: "/news/nia-100-faces",
   },
   {
     slug: "nia-media-innovation",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     challenge: "Need to define and communicate the meaning of media innovation through research and an immersive event.",
     approach: "Compiled research, produced the event including lighting and sound, created a small projection mapping display, and invited experts for interviews.",
     impact: "Research report and an engaging media innovation event experience.",
-    sourceUrl: "https://www.cominnocenter.com/post/nia-media-innovation",
+    sourceUrl: "/news/nia-media-innovation",
   },
   {
     slug: "nia-satisfaction-survey-2020",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     challenge: "Support service development for NIA through rigorous customer satisfaction measurement.",
     approach: "Conducted a customer satisfaction survey using mixed methods.",
     impact: "Evidence base for improving NIA services.",
-    sourceUrl: "https://www.cominnocenter.com/post/nia-satisfaction-survey-2020",
+    sourceUrl: "/news/nia-satisfaction-survey-2020",
   },
   {
     slug: "pid-thong-lang-phra-foundation",
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     challenge: "Foundation staff need practical skills in online media, persuasion, and personality development.",
     approach: "Expert-led training covering simple online media production with PowerPoint, persuasion techniques, and personality development.",
     impact: "Stronger communication capacity for foundation trainees.",
-    sourceUrl: "https://www.cominnocenter.com/post/pid-thong-lang-phra-foundation",
+    sourceUrl: "/news/pid-thong-lang-phra-foundation",
   },
   {
     slug: "seeds-for-cu-sustainability",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     challenge: "Need high-quality presentation videos to communicate sustainability projects across locations.",
     approach: "Full production pipeline with weekly client feedback meetings, aerial footage, and stakeholder interviews.",
     impact: "Videos that showcase commitment to societal sustainability.",
-    sourceUrl: "https://www.cominnocenter.com/post/seeds-for-cu-sustainability",
+    sourceUrl: "/news/seeds-for-cu-sustainability",
   },
   {
     slug: "department-of-disease-control",
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     challenge: "Organization needs stronger targeted communication and modern media production skills.",
     approach: "Workshop on service process design, targeted communication principles, and modern media production techniques.",
     impact: "Improved internal communication and organizational image capabilities.",
-    sourceUrl: "https://www.cominnocenter.com/post/department-of-disease-control",
+    sourceUrl: "/news/department-of-disease-control",
   },
   {
     slug: "creative-tourism-development-project-in-nan-province",
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     challenge: "Local communities in Nan need stronger communication skills for creative tourism.",
     approach: "Open workshop at Namthong Nan Hotel with photography and video equipment, props, lighting, theory and practice sessions.",
     impact: "Participants gained practical knowledge to create more engaging images and stories.",
-    sourceUrl: "https://www.cominnocenter.com/post/creative-tourism-development-project-in-nan-province",
+    sourceUrl: "/news/creative-tourism-development-project-in-nan-province",
   },
   {
     slug: "ministry-of-natural-resources-and-environment",
@@ -189,7 +189,7 @@ export const projects: Project[] = [
     challenge: "Staff need higher efficiency in impactful writing and professional photography.",
     approach: "Training program covering writing techniques, photography, and equipment recommendations.",
     impact: "Elevated professionalism of environmental communication work.",
-    sourceUrl: "https://www.cominnocenter.com/post/ministry-of-natural-resources-and-environment",
+    sourceUrl: "/news/ministry-of-natural-resources-and-environment",
   },
   {
     slug: "international-labour-organization",
@@ -204,7 +204,7 @@ export const projects: Project[] = [
     challenge: "Need practical media skills for presenting individual and group projects in a UN sustainability context.",
     approach: "Workshop teaching text usage, photography, videography, and TikTok production techniques.",
     impact: "Participants equipped to produce higher-quality project communication.",
-    sourceUrl: "https://www.cominnocenter.com/post/international-labour-organization",
+    sourceUrl: "/news/international-labour-organization",
   },
   {
     slug: "asean-university-network",
@@ -219,7 +219,7 @@ export const projects: Project[] = [
     challenge: "Need a creative modern annual report aligned with AUN's identity for print and digital channels.",
     approach: "Designed graphics and layout, delivered print-ready files, and smaller digital files for web viewing.",
     impact: "High-quality print and digital annual reports for 2016–2019.",
-    sourceUrl: "https://www.cominnocenter.com/post/asean-university-network",
+    sourceUrl: "/news/asean-university-network",
   },
   {
     slug: "itd",
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     challenge: "Need structured dialogue on digital commerce opportunities for Thai SMEs and global trade adaptation.",
     approach: "Organized meetings to gather opinions and analyze trends on key economic topics.",
     impact: "Insights to support policy and SME adaptation discussions.",
-    sourceUrl: "https://www.cominnocenter.com/post/__itd",
+    sourceUrl: "/news/itd",
   },
   {
     slug: "sri-trang-agro-industry",
@@ -249,7 +249,7 @@ export const projects: Project[] = [
     challenge: "องค์กรต้องการพัฒนาศักยภาพพนักงานให้สร้างสื่อวิดีโอและบันทึกหน้าจอ เพื่อใช้ในการเรียนรู้ภายในองค์กรอย่างต่อเนื่อง",
     approach: "ศูนย์ฯ ร่วมกับสถาบันภาษาไทยสิรินธร จุฬาฯ จัดอบรม Online Content Creation ระหว่าง 20–21 ก.ค. 2565 ณ ศูนย์ประชุมบุรีศรีภู อ.หาดใหญ่",
     impact: "พนักงานสามารถผลิตสื่อวิดีโอและสื่อการเรียนรู้ด้วยตนเอง รองรับการเรียนรู้ภายในองค์กรอย่างยั่งยืน",
-    sourceUrl: "https://www.cominnocenter.com/post/sri-trang-agro-industry",
+    sourceUrl: "/news/sri-trang-agro-industry",
   },
   {
     slug: "empowering-youth-leaders",
@@ -264,7 +264,7 @@ export const projects: Project[] = [
     challenge: "เยาวชนและพี่เลี้ยงในพื้นที่ภาคใต้ต้องการทักษะการออกแบบกิจกรรมที่ส่งเสริมสุขภาวะทางเพศ กาย และใจอย่างมีส่วนร่วม",
     approach: "จัดเวิร์กช็อปโดย รศ.ดร.สมิทธิ์ ร่วมกับ Look South Peace ระหว่าง 10–13 พ.ย. 2566 ที่พัทลุง ถ่ายทอดประสบการณ์จาก Impulse Bangkok",
     impact: "ผู้เข้าร่วมสามารถวางแผนกิจกรรมอย่างสร้างสรรค์ และมีศักยภาพเป็นพี่เลี้ยง สร้างพื้นที่ปลอดภัยให้เยาวชนรุ่นใหม่",
-    sourceUrl: "https://www.cominnocenter.com/post/empowering-youth-leaders",
+    sourceUrl: "/news/empowering-youth-leaders",
   },
   {
     slug: "care-d-plus",
@@ -279,7 +279,7 @@ export const projects: Project[] = [
     challenge: "กว่า 90% ของความขัดแย้งและร้องเรียนในสถานพยาบาลเกิดจากการสื่อสารที่ล้มเหลวหรือการจัดการวิกฤตไม่เพียงพอ",
     approach: "จุฬาฯ ร่วมกับ สธ. พัฒนาหลักสูตร Care D+ (ทีมหัวใจ) 7 หน่วยหลัก อบรมผู้บริหาร เจ้าหน้าที่ และอาสาสมัครสื่อสารสุขภาพทั่วประเทศ (10 พ.ย. 2566 – 30 มิ.ย. 2567)",
     impact: "ยกระดับการสื่อสารด้วยความเมตตา เข้าใจ และเคารพซึ่งกันและกัน ระหว่างผู้ป่วย ญาติ และบุคลากรสาธารณสุข",
-    sourceUrl: "https://www.cominnocenter.com/post/the-training-program-for-driving-public-and-social-communication-care-d-plus",
+    sourceUrl: "/news/care-d-plus",
   },
   {
     slug: "media-communication-transnational-citizens",
@@ -294,7 +294,7 @@ export const projects: Project[] = [
     challenge: "กลุ่ม digital nomads และผู้มีความสามารถจากต่างประเทศในไทยต้องการทักษะการสื่อสารและความเข้าใจวัฒนธรรมเพื่อใช้ชีวิตและทำงานในไทย",
     approach: "ศูนย์ฯ โดย รศ.ดร.สมิทธิ์ พัฒนาหลักสูตร 12 เดือน ร่วมกับ The Sharpener School และ Chula Unisearch เริ่ม 1 ส.ค. 2567",
     impact: "ผู้เรียนได้รับหนังสือยืนยันและประกาศนียบัตรจากคณะนิเทศศาสตร์ พร้อมทักษะสื่อสารข้ามวัฒนธรรมที่ใช้ได้จริง",
-    sourceUrl: "https://www.cominnocenter.com/post/center-of-excellence-in-communication-innovation-launches-groundbreaking-online-course-for-digital-n",
+    sourceUrl: "/news/media-communication-transnational-citizens",
   },
   {
     slug: "cultural-communication-program",

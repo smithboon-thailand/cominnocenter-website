@@ -315,12 +315,15 @@ export default function HomePage() {
                 {h.href && (
                   <a
                     href={h.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(h.href.startsWith("/")
+                      ? {}
+                      : { target: "_blank", rel: "noopener noreferrer" })}
                     className="inline-flex items-center mt-4 text-sm font-medium text-pink-600 hover:text-pink-700"
                   >
-                    อ่านแหล่งต้นทาง
-                    <span className="ml-1.5 opacity-50 group-hover:translate-x-0.5 transition-transform">↗</span>
+                    {h.href.startsWith("/") ? "อ่านรายละเอียด" : "อ่านแหล่งต้นทาง"}
+                    <span className="ml-1.5 opacity-50 group-hover:translate-x-0.5 transition-transform">
+                      {h.href.startsWith("/") ? "→" : "↗"}
+                    </span>
                   </a>
                 )}
               </article>

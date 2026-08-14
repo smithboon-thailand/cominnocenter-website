@@ -31,6 +31,7 @@ src/
 │   ├── page.tsx            # Home (ไทย)
 │   ├── about/  expertise/  collaborate/
 │   ├── impact/             # รายการโครงการ + impact/[slug]/ รายละเอียด
+│   ├── news/               # ข่าวที่เก็บจากเว็บเดิม + news/[slug]/ (Phase 0-C)
 │   ├── en/                 # ภาษาอังกฤษ — โครงสร้างเดียวกันใต้ /en
 │   │   ├── page.tsx  about/  expertise/  collaborate/
 │   │   └── impact/  impact/[slug]/
@@ -49,7 +50,9 @@ public/
 
 | ไฟล์ | เนื้อหา |
 |---|---|
-| `projects.ts` | โครงการทั้งหมด 18 โครงการ (17 โครงการมี gallery ใน `projectMedia.ts`) — field `sdg` ปัจจุบันเป็น string เช่น `"SDG 12"` (Phase 1-C จะ migrate เป็น `SdgId[]`) · `sourceUrl` 17 รายการชี้ไป `cominnocenter.com/post/...` (Wix) |
+| `projects.ts` | โครงการทั้งหมด 18 โครงการ (17 โครงการมี gallery ใน `projectMedia.ts`) — field `sdg` ปัจจุบันเป็น string เช่น `"SDG 12"` (Phase 1-C จะ migrate เป็น `SdgId[]`) · `sourceUrl` 17 รายการชี้ `/news/<slug>` ภายในแล้ว (Phase 0-C) |
+| `news.ts` | ข่าว 24 โพสต์ที่เก็บจากเว็บเดิม (ไทย+อังกฤษ) — `sourceUrl` เก็บ URL Wix เดิมไว้ทำ 301 redirect ใน Phase 0-D |
+| `newsMedia.ts` | (generated) local path ของภาพในโพสต์ข่าว — สร้างจาก `scripts/wix-posts-manifest.json` |
 | `projectMedia.ts` | mapping slug → media id ของภาพ gallery (id ใช้เป็นชื่อไฟล์ local ใน `public/images/projects/<slug>/` แล้ว) |
 | `projectCopyEn.ts` | คำแปลอังกฤษของเนื้อหาโครงการ |
 | `leadership.ts` | ผู้บริหารศูนย์ |
@@ -81,7 +84,7 @@ public/
 
 ## สรุปแผนงาน (รายละเอียดเต็มใน cominno-workflow.md)
 
-- **Phase 0 — Asset Independence:** ✅ 0-A สำรวจ · ✅ 0-B self-host ภาพ 246 ไฟล์ + favicon ชั่วคราว → **ถัดไป 0-C:** เก็บเนื้อหา 24 โพสต์ (`/post/...`) เป็น `/news/[slug]` → 301 redirects → ตรวจ
+- **Phase 0 — Asset Independence:** ✅ 0-A สำรวจ · ✅ 0-B self-host ภาพ 246 ไฟล์ + favicon ชั่วคราว · ✅ 0-C เก็บ 24 โพสต์เป็น `/news/[slug]` + `/en/news/[slug]` + ภาพในโพสต์ 39 ไฟล์ใหม่ → **ถัดไป 0-D:** 301 redirects จาก path เดิม (`/post/...`) → ตรวจทั้ง Phase
 - **Phase 1 — Design System:** tokens + Kanit + `src/data/sdg.ts` → components (SdgBadge, Button, SectionHeader, Stat, ProjectCard) + หน้า `/dev/components` → migrate `projects.ts` เป็น `sdg: SdgId[]` (เสนอ mapping ให้ตรวจก่อน)
 - **Phase 2 — Assets จาก Grok:** ทำขนานกับ Phase 3 ได้ ใช้ placeholder ไปก่อน
 - **Phase 3 — Implementation ทีละหน้า:** Impact list → Impact detail → `/sdg` → Home → About/Expertise/Collaborate → แปลภาษา → EN parity

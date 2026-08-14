@@ -1,0 +1,1934 @@
+{
+  "generatedAt": "2026-08-14T15:03:39.115Z",
+  "summary": {
+    "posts": 24,
+    "ok": 24,
+    "partial": 0,
+    "failed": 0,
+    "imagesDownloaded": 39,
+    "imagesReused": 216,
+    "imagesFailed": 0
+  },
+  "posts": [
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/chula-zero-waste",
+      "slug": "chula-zero-waste",
+      "title": "Chula Zero Waste",
+      "date": "2024-07-05",
+      "imagesFound": 27,
+      "images": [
+        {
+          "id": "25218b_f9cc2a2218e0428bb5d13c02be940a08",
+          "local": "/images/projects/chula-zero-waste/25218b_f9cc2a2218e0428bb5d13c02be940a08.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f6216a7ef06f4409af9b7767ede4ae4e",
+          "local": "/images/projects/chula-zero-waste/25218b_f6216a7ef06f4409af9b7767ede4ae4e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_435a1f9db0584d5b8edeb85c6eaff1b6",
+          "local": "/images/projects/chula-zero-waste/25218b_435a1f9db0584d5b8edeb85c6eaff1b6.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_eb46de9e4bc44c60b9f562d87b4ccd2e",
+          "local": "/images/projects/chula-zero-waste/25218b_eb46de9e4bc44c60b9f562d87b4ccd2e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c80bd0576b1e437cad527055772fcf24",
+          "local": "/images/projects/chula-zero-waste/25218b_c80bd0576b1e437cad527055772fcf24.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7b09e2c8993f4268851844c1be7312b1",
+          "local": "/images/projects/chula-zero-waste/25218b_7b09e2c8993f4268851844c1be7312b1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_8af411897da3411fa74f6b2f49f9d238",
+          "local": "/images/projects/chula-zero-waste/25218b_8af411897da3411fa74f6b2f49f9d238.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_4449dc75285e439782314b410eeded34",
+          "local": "/images/projects/chula-zero-waste/25218b_4449dc75285e439782314b410eeded34.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e61a0df2ac404c42b60e2f743ba1922f",
+          "local": "/images/projects/chula-zero-waste/25218b_e61a0df2ac404c42b60e2f743ba1922f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_22bfdef3302f4991a2bd11ef81819cff",
+          "local": "/images/projects/chula-zero-waste/25218b_22bfdef3302f4991a2bd11ef81819cff.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b34abe46ff40476b93affd7f29ec76ec",
+          "local": "/images/projects/chula-zero-waste/25218b_b34abe46ff40476b93affd7f29ec76ec.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_99f4b08cc5614fe28fcf24459fc3821e",
+          "local": "/images/projects/chula-zero-waste/25218b_99f4b08cc5614fe28fcf24459fc3821e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3848646dca9c4fc792552222d59b75f1",
+          "local": "/images/projects/chula-zero-waste/25218b_3848646dca9c4fc792552222d59b75f1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_0cbe70a072264848be104927c800cdc2",
+          "local": "/images/projects/chula-zero-waste/25218b_0cbe70a072264848be104927c800cdc2.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_33fcbad6bbc943b395b5baaacd565e59",
+          "local": "/images/projects/chula-zero-waste/25218b_33fcbad6bbc943b395b5baaacd565e59.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_9f80c44f8ceb4edbad9cf9781541e1ca",
+          "local": "/images/projects/chula-zero-waste/25218b_9f80c44f8ceb4edbad9cf9781541e1ca.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_28c9fb79a86041d6887fc9ecf41da28e",
+          "local": "/images/projects/chula-zero-waste/25218b_28c9fb79a86041d6887fc9ecf41da28e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_403788624c814686a547de6b9864f206",
+          "local": "/images/projects/chula-zero-waste/25218b_403788624c814686a547de6b9864f206.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a1249f9bbb624a5f9ee3ec0bd643e024",
+          "local": "/images/projects/chula-zero-waste/25218b_a1249f9bbb624a5f9ee3ec0bd643e024.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f35784e4cd644ca5bd50948d3a61ccd6",
+          "local": "/images/projects/chula-zero-waste/25218b_f35784e4cd644ca5bd50948d3a61ccd6.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3e2828b99fdd420c8f0c35f2aa3d90b1",
+          "local": "/images/projects/chula-zero-waste/25218b_3e2828b99fdd420c8f0c35f2aa3d90b1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_120a6402a6ea448eb6e8c38a27720156",
+          "local": "/images/projects/chula-zero-waste/25218b_120a6402a6ea448eb6e8c38a27720156.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f1ed5826dc08494c9e6461f1bb22dd9d",
+          "local": "/images/projects/chula-zero-waste/25218b_f1ed5826dc08494c9e6461f1bb22dd9d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_5f18e1ef60134f258211a098520cc1f0",
+          "local": "/images/projects/chula-zero-waste/25218b_5f18e1ef60134f258211a098520cc1f0.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_8d94b758d9dd4038b410ffb6bfa27643",
+          "local": "/images/projects/chula-zero-waste/25218b_8d94b758d9dd4038b410ffb6bfa27643.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_8c0b1e46a337402fba855fdceb3dfe59",
+          "local": "/images/projects/chula-zero-waste/25218b_8c0b1e46a337402fba855fdceb3dfe59.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_24e727092d4647638a491fb61a630f05",
+          "local": "/images/projects/chula-zero-waste/25218b_24e727092d4647638a491fb61a630f05.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 27,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/nbtc-encyclopedia",
+      "slug": "nbtc-encyclopedia",
+      "title": "NBTC Encyclopedia",
+      "date": "2024-07-05",
+      "imagesFound": 13,
+      "images": [
+        {
+          "id": "25218b_3400ec2582f248d4abc705149ac7365c",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_3400ec2582f248d4abc705149ac7365c.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_626bc8d1ba934157b6692686677632b6",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_626bc8d1ba934157b6692686677632b6.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_59ba8e2bf9004805a296d7baf9ca6c8d",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_59ba8e2bf9004805a296d7baf9ca6c8d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_df6f93e3260b4acdad9968885e62d549",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_df6f93e3260b4acdad9968885e62d549.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_0865e9909af54e22a0e8fcdb77283ca9",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_0865e9909af54e22a0e8fcdb77283ca9.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_94bd0365589c404eb4947e7a90956c1e",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_94bd0365589c404eb4947e7a90956c1e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e35a8ba3bb57483f88382e0eb846c4c1",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_e35a8ba3bb57483f88382e0eb846c4c1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_5f86b9ad154e4fe0aa33997f9a634168",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_5f86b9ad154e4fe0aa33997f9a634168.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_fb720dc14a4c4b3a808b75cfa76ead4b",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_fb720dc14a4c4b3a808b75cfa76ead4b.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b5c1efc7841a40e4befa1984071ebcc9",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_b5c1efc7841a40e4befa1984071ebcc9.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_bcb149c5e78a401a892b708b3e91ea70",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_bcb149c5e78a401a892b708b3e91ea70.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_efdd169a833d4008b9ab38b544dc5a1c",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_efdd169a833d4008b9ab38b544dc5a1c.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d4825f0f4ca246e7a835e9874e88dcc2",
+          "local": "/images/projects/nbtc-encyclopedia/25218b_d4825f0f4ca246e7a835e9874e88dcc2.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 13,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/nia-100-faces",
+      "slug": "nia-100-faces",
+      "title": "NIA 100 FACES",
+      "date": "2024-06-29",
+      "imagesFound": 1,
+      "images": [
+        {
+          "id": "25218b_4caad4d894fc4108b321da6753a27a44",
+          "local": "/images/projects/nia-100-faces/25218b_4caad4d894fc4108b321da6753a27a44.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 1,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/nia-media-innovation",
+      "slug": "nia-media-innovation",
+      "title": "NIA Media Innovation",
+      "date": "2024-06-29",
+      "imagesFound": 10,
+      "images": [
+        {
+          "id": "25218b_537f83ece3da4ce7b69a402fd82c4319",
+          "local": "/images/projects/nia-media-innovation/25218b_537f83ece3da4ce7b69a402fd82c4319.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_4d4792ba30c843f9ab9875109f886039",
+          "local": "/images/projects/nia-media-innovation/25218b_4d4792ba30c843f9ab9875109f886039.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c4b8f2145d884a6db8f044ea8cee0bda",
+          "local": "/images/projects/nia-media-innovation/25218b_c4b8f2145d884a6db8f044ea8cee0bda.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_811b945eb6bf4861ab604df75eb14a33",
+          "local": "/images/projects/nia-media-innovation/25218b_811b945eb6bf4861ab604df75eb14a33.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3a4bd7bfa89641989ee12c39f0049f5f",
+          "local": "/images/projects/nia-media-innovation/25218b_3a4bd7bfa89641989ee12c39f0049f5f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_337ca3eb694b4ab2954c4490fb6992f9",
+          "local": "/images/projects/nia-media-innovation/25218b_337ca3eb694b4ab2954c4490fb6992f9.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_56011291dc14403aa91a673cec18af5e",
+          "local": "/images/projects/nia-media-innovation/25218b_56011291dc14403aa91a673cec18af5e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b42ae7bc91aa4a6888f0137d1ba80ae1",
+          "local": "/images/projects/nia-media-innovation/25218b_b42ae7bc91aa4a6888f0137d1ba80ae1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_6c5860cee386416f86cbb49b61887c79",
+          "local": "/images/projects/nia-media-innovation/25218b_6c5860cee386416f86cbb49b61887c79.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_177d3224e58440d299b1e6d2998c6dda",
+          "local": "/images/projects/nia-media-innovation/25218b_177d3224e58440d299b1e6d2998c6dda.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 10,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/nia-satisfaction-survey-2020",
+      "slug": "nia-satisfaction-survey-2020",
+      "title": "NIA Satisfaction Survey 2020",
+      "date": "2024-06-29",
+      "imagesFound": 8,
+      "images": [
+        {
+          "id": "25218b_70abf2b826a749fab8c5755b58ac9333",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_70abf2b826a749fab8c5755b58ac9333.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a62ee7c98a964a17a7169b024e35d8e2",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_a62ee7c98a964a17a7169b024e35d8e2.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_0a71330e2fc44839908f3aba27fcd01e",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_0a71330e2fc44839908f3aba27fcd01e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_235e059c63a546cc8692c4277c2ceddd",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_235e059c63a546cc8692c4277c2ceddd.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_441cbe4703a74bd9bbd53b617d8fae19",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_441cbe4703a74bd9bbd53b617d8fae19.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c385f003f66e4948b1e8cdeb4222a414",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_c385f003f66e4948b1e8cdeb4222a414.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_89b18b69ae9e4735b749ae8ddd0daaa7",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_89b18b69ae9e4735b749ae8ddd0daaa7.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_6c4c5defb40447ff9bc9889c215a0ee8",
+          "local": "/images/projects/nia-satisfaction-survey-2020/25218b_6c4c5defb40447ff9bc9889c215a0ee8.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 8,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/pid-thong-lang-phra-foundation",
+      "slug": "pid-thong-lang-phra-foundation",
+      "title": "Pid Thong Lang Phra Foundation",
+      "date": "2024-07-05",
+      "imagesFound": 11,
+      "images": [
+        {
+          "id": "25218b_0546265a29964393967ad1df973bc36b",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_0546265a29964393967ad1df973bc36b.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_6ad515a570e2443a8303e3205fb955fb",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_6ad515a570e2443a8303e3205fb955fb.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c79b7d1411ff4d83b5b4831ccfa218de",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_c79b7d1411ff4d83b5b4831ccfa218de.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_78deec69053c498db43c24eb7994705a",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_78deec69053c498db43c24eb7994705a.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_01d967796eb44371a93ea74cfe21cf33",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_01d967796eb44371a93ea74cfe21cf33.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_613576625d2a4ac5913ff80a4525da47",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_613576625d2a4ac5913ff80a4525da47.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_9eea8dd65d4541f3b345a21f87c1d88e",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_9eea8dd65d4541f3b345a21f87c1d88e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b558ec6ec425444498f4d1fb8618f9f1",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_b558ec6ec425444498f4d1fb8618f9f1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7218729312f94106a981e8c9b1e9011b",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_7218729312f94106a981e8c9b1e9011b.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_48fa77ace2d946aab64f2d843d2219da",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_48fa77ace2d946aab64f2d843d2219da.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_9c53d041b29c4b7fa86c23320f53613b",
+          "local": "/images/projects/pid-thong-lang-phra-foundation/25218b_9c53d041b29c4b7fa86c23320f53613b.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 11,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/seeds-for-cu-sustainability",
+      "slug": "seeds-for-cu-sustainability",
+      "title": "Seeds for CU Sustainability",
+      "date": "2024-06-29",
+      "imagesFound": 10,
+      "images": [
+        {
+          "id": "25218b_e8f088f77e1e471db8d8c9fabf27e5fd",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_e8f088f77e1e471db8d8c9fabf27e5fd.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_797ab8240cc7431cb845be8ba639f363",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_797ab8240cc7431cb845be8ba639f363.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_46bdbe5c9f0b4ffc8351b4080093ca77",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_46bdbe5c9f0b4ffc8351b4080093ca77.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_90d8c489cbbd4727bf4f7314796a40ee",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_90d8c489cbbd4727bf4f7314796a40ee.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_11c90df3ab4148039db17c6507b6c964",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_11c90df3ab4148039db17c6507b6c964.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c13324830d284269b4794d07b4c1e244",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_c13324830d284269b4794d07b4c1e244.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ce55ddf318ae402391a3ba2b005a54b8",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_ce55ddf318ae402391a3ba2b005a54b8.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_79b49c487463453b9eeb210d678efd44",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_79b49c487463453b9eeb210d678efd44.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f877751a0b1341c287d85b76fffc4cd4",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_f877751a0b1341c287d85b76fffc4cd4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_618f9db9231140a98cc6b16601fb0c7d",
+          "local": "/images/projects/seeds-for-cu-sustainability/25218b_618f9db9231140a98cc6b16601fb0c7d.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 10,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/department-of-disease-control",
+      "slug": "department-of-disease-control",
+      "title": "Department of Disease Control",
+      "date": "2024-06-29",
+      "imagesFound": 10,
+      "images": [
+        {
+          "id": "25218b_943a6e13b0094abc843b48445f4a0513",
+          "local": "/images/projects/department-of-disease-control/25218b_943a6e13b0094abc843b48445f4a0513.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_0b42e635ae874b9492e17e555aa7e9b9",
+          "local": "/images/projects/department-of-disease-control/25218b_0b42e635ae874b9492e17e555aa7e9b9.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d9182fe37d8d41fab5d78b692cf09df0",
+          "local": "/images/projects/department-of-disease-control/25218b_d9182fe37d8d41fab5d78b692cf09df0.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c8fb12a7195c4149bf8c68344e9bc585",
+          "local": "/images/projects/department-of-disease-control/25218b_c8fb12a7195c4149bf8c68344e9bc585.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d01bffa2457049c8aa40db4b34b4add8",
+          "local": "/images/projects/department-of-disease-control/25218b_d01bffa2457049c8aa40db4b34b4add8.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_22723552d50c48d880eea7fb21f6f750",
+          "local": "/images/projects/department-of-disease-control/25218b_22723552d50c48d880eea7fb21f6f750.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f8ba743e7c824636be2f04549613c4c4",
+          "local": "/images/projects/department-of-disease-control/25218b_f8ba743e7c824636be2f04549613c4c4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b3ed2a1647b5460e91d37cae6c456076",
+          "local": "/images/projects/department-of-disease-control/25218b_b3ed2a1647b5460e91d37cae6c456076.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e744c29feb6a4ca5a77537136463c214",
+          "local": "/images/projects/department-of-disease-control/25218b_e744c29feb6a4ca5a77537136463c214.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_2e71814e757c45edbcafffdd3233fb4c",
+          "local": "/images/projects/department-of-disease-control/25218b_2e71814e757c45edbcafffdd3233fb4c.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 10,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/creative-tourism-development-project-in-nan-province",
+      "slug": "creative-tourism-development-project-in-nan-province",
+      "title": "Creative Tourism Development Project in Nan Province",
+      "date": "2024-06-29",
+      "imagesFound": 11,
+      "images": [
+        {
+          "id": "25218b_e7bd23371b4f4603b7d65d73bec679e6",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_e7bd23371b4f4603b7d65d73bec679e6.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e1a203d17f0848029ce212329f462ec1",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_e1a203d17f0848029ce212329f462ec1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_240415af15914d8f976d81c5d4a60d58",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_240415af15914d8f976d81c5d4a60d58.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ac83aee49cd8420b892943f1906c4d98",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_ac83aee49cd8420b892943f1906c4d98.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_903804cec995407fb82924165d6bfa0c",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_903804cec995407fb82924165d6bfa0c.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_8039e0e68d7140999782151f8964af72",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_8039e0e68d7140999782151f8964af72.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_1018d0520643442296a8b9e3e22c0c08",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_1018d0520643442296a8b9e3e22c0c08.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a7c5ff3d72bc44b698e31e0ed76a2245",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_a7c5ff3d72bc44b698e31e0ed76a2245.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_78ac767f9203428088dd6823d91bdbe9",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_78ac767f9203428088dd6823d91bdbe9.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3713436bffaf4c19abc05838c7bf3b7e",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_3713436bffaf4c19abc05838c7bf3b7e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a2c19714897b409586b5479eee9d98ee",
+          "local": "/images/projects/creative-tourism-development-project-in-nan-province/25218b_a2c19714897b409586b5479eee9d98ee.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 11,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/ministry-of-natural-resources-and-environment",
+      "slug": "ministry-of-natural-resources-and-environment",
+      "title": "Ministry of Natural Resources and Environment",
+      "date": "2024-06-21",
+      "imagesFound": 16,
+      "images": [
+        {
+          "id": "25218b_96a67968827a4e05b8d1514670943484",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_96a67968827a4e05b8d1514670943484.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_cf8dfc5201d145a79394c5a0c3623637",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_cf8dfc5201d145a79394c5a0c3623637.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_bba09ee4351a422db157be090a9a17e0",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_bba09ee4351a422db157be090a9a17e0.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_1548e0bfd6444b14b36008ee51b8cf90",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_1548e0bfd6444b14b36008ee51b8cf90.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_006af7ecc1584b91b45b2e093d6a62c0",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_006af7ecc1584b91b45b2e093d6a62c0.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e96c47f0333a4756b8405c3bc02e1d65",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_e96c47f0333a4756b8405c3bc02e1d65.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_aa25086a17a24b71aa7667db344ac2b1",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_aa25086a17a24b71aa7667db344ac2b1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_5933148112124df08811ab52a5fee511",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_5933148112124df08811ab52a5fee511.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b5e1f7dfa207484396535e4e53fb26d1",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_b5e1f7dfa207484396535e4e53fb26d1.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3f1de057cbfc49a5a40a10190c35025e",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_3f1de057cbfc49a5a40a10190c35025e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_4f339a27fd824159a803dd21cbe74df3",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_4f339a27fd824159a803dd21cbe74df3.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3f8b6377d1db4ba48097e4443d54db1f",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_3f8b6377d1db4ba48097e4443d54db1f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f9e4a316f4834e798d238636638e35e0",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_f9e4a316f4834e798d238636638e35e0.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_87f5726ed41947e88a8d0b0173600682",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_87f5726ed41947e88a8d0b0173600682.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e7f820b18a354d7bb382512166bc2515",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_e7f820b18a354d7bb382512166bc2515.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_aa3f03ff02b14e64ad5659459da68a97",
+          "local": "/images/projects/ministry-of-natural-resources-and-environment/25218b_aa3f03ff02b14e64ad5659459da68a97.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 16,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/international-labour-organization",
+      "slug": "international-labour-organization",
+      "title": "International Labour Organization",
+      "date": "2024-06-21",
+      "imagesFound": 10,
+      "images": [
+        {
+          "id": "25218b_2c64ead7cabf46dfb3907182edddcf0d",
+          "local": "/images/projects/international-labour-organization/25218b_2c64ead7cabf46dfb3907182edddcf0d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b76f2452ba204395897b4d0eb19a93d8",
+          "local": "/images/projects/international-labour-organization/25218b_b76f2452ba204395897b4d0eb19a93d8.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e1010f01b7db4ea38208055ece8faf19",
+          "local": "/images/projects/international-labour-organization/25218b_e1010f01b7db4ea38208055ece8faf19.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b71de9b3038d4c83a54bda064704e9d3",
+          "local": "/images/projects/international-labour-organization/25218b_b71de9b3038d4c83a54bda064704e9d3.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3d5d6bb79fda44909e40c120ea311829",
+          "local": "/images/projects/international-labour-organization/25218b_3d5d6bb79fda44909e40c120ea311829.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_9cf1d65fcd194206a1b55f24f9d202d4",
+          "local": "/images/projects/international-labour-organization/25218b_9cf1d65fcd194206a1b55f24f9d202d4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_cc6154525298479889c8001db4e839e3",
+          "local": "/images/projects/international-labour-organization/25218b_cc6154525298479889c8001db4e839e3.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_2e143c48236e45b6b40434553e60ecf5",
+          "local": "/images/projects/international-labour-organization/25218b_2e143c48236e45b6b40434553e60ecf5.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_84b7441a78bf4893836a363b7e93cc87",
+          "local": "/images/projects/international-labour-organization/25218b_84b7441a78bf4893836a363b7e93cc87.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e9193092e264469788094cd9d78192cb",
+          "local": "/images/projects/international-labour-organization/25218b_e9193092e264469788094cd9d78192cb.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 10,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/asean-university-network",
+      "slug": "asean-university-network",
+      "title": "ASEAN University Network",
+      "date": "2024-06-21",
+      "imagesFound": 10,
+      "images": [
+        {
+          "id": "25218b_2b0f2529e00142aaabbab10e2503df71",
+          "local": "/images/projects/asean-university-network/25218b_2b0f2529e00142aaabbab10e2503df71.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_adda54cdee514c939403d3f2edc763f0",
+          "local": "/images/projects/asean-university-network/25218b_adda54cdee514c939403d3f2edc763f0.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_dd3bd4f5572940d399196b534fcc9ded",
+          "local": "/images/projects/asean-university-network/25218b_dd3bd4f5572940d399196b534fcc9ded.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_450b380c7b7840bd9a854f703529fc36",
+          "local": "/images/projects/asean-university-network/25218b_450b380c7b7840bd9a854f703529fc36.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_17101ea44eff41b493e2d44c7cd899ac",
+          "local": "/images/projects/asean-university-network/25218b_17101ea44eff41b493e2d44c7cd899ac.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_def2eddc65e847449c919623d5241555",
+          "local": "/images/projects/asean-university-network/25218b_def2eddc65e847449c919623d5241555.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f58e1c7fff1b4ad5b20cd966ff8e42e9",
+          "local": "/images/projects/asean-university-network/25218b_f58e1c7fff1b4ad5b20cd966ff8e42e9.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e599f9e7f42d4355913f0990b91e7981",
+          "local": "/images/projects/asean-university-network/25218b_e599f9e7f42d4355913f0990b91e7981.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_cd298013847f4b2b96a59b1264d21409",
+          "local": "/images/projects/asean-university-network/25218b_cd298013847f4b2b96a59b1264d21409.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_55bb22ff06de4c618bf193fe02e1530f",
+          "local": "/images/projects/asean-university-network/25218b_55bb22ff06de4c618bf193fe02e1530f.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 10,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/__itd",
+      "slug": "itd",
+      "title": "ITD",
+      "date": "2024-07-05",
+      "imagesFound": 24,
+      "images": [
+        {
+          "id": "25218b_3fcbd73e5cd9485b99ddf5f70684b86d",
+          "local": "/images/projects/itd/25218b_3fcbd73e5cd9485b99ddf5f70684b86d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_10f4fb16e552467b9c306568b7058945",
+          "local": "/images/projects/itd/25218b_10f4fb16e552467b9c306568b7058945.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b426b9369f92453397073aa23c6047ba",
+          "local": "/images/projects/itd/25218b_b426b9369f92453397073aa23c6047ba.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_78cae06cfb8644a0a9b66209356380ae",
+          "local": "/images/projects/itd/25218b_78cae06cfb8644a0a9b66209356380ae.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_304937fa59cb496c88ff9f3c05a464ea",
+          "local": "/images/projects/itd/25218b_304937fa59cb496c88ff9f3c05a464ea.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_16be22fc3f2f44f78627076a4a6c36c4",
+          "local": "/images/projects/itd/25218b_16be22fc3f2f44f78627076a4a6c36c4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_643ce6bd3f32403abeae71dbefd4e295",
+          "local": "/images/projects/itd/25218b_643ce6bd3f32403abeae71dbefd4e295.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_70fbb0bd8da644088a9112839888f223",
+          "local": "/images/projects/itd/25218b_70fbb0bd8da644088a9112839888f223.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_48c92330a2984037b4fba02cb318319e",
+          "local": "/images/projects/itd/25218b_48c92330a2984037b4fba02cb318319e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_9113ea6b8e1d47c4b1e3e57df30ab7d3",
+          "local": "/images/projects/itd/25218b_9113ea6b8e1d47c4b1e3e57df30ab7d3.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ba4a7a25c3304f0a8b105b6b5c11f89a",
+          "local": "/images/projects/itd/25218b_ba4a7a25c3304f0a8b105b6b5c11f89a.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c4234a126be344949f4d4a2201559704",
+          "local": "/images/projects/itd/25218b_c4234a126be344949f4d4a2201559704.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_12a4b76aefa24559b8d2bc4a5337694f",
+          "local": "/images/projects/itd/25218b_12a4b76aefa24559b8d2bc4a5337694f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_eff39af9b40f4c5cb5a04a1cc4b4e0be",
+          "local": "/images/projects/itd/25218b_eff39af9b40f4c5cb5a04a1cc4b4e0be.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_fe4d622c4f5141d2b9b73e65e8412b4d",
+          "local": "/images/projects/itd/25218b_fe4d622c4f5141d2b9b73e65e8412b4d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7e1df6639cfd45b6b0e0b27b940efde4",
+          "local": "/images/projects/itd/25218b_7e1df6639cfd45b6b0e0b27b940efde4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_0611abb41e614150b384ea9bf86e26b5",
+          "local": "/images/projects/itd/25218b_0611abb41e614150b384ea9bf86e26b5.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3c06b99a157448ebae59eff35b73ec04",
+          "local": "/images/projects/itd/25218b_3c06b99a157448ebae59eff35b73ec04.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_5f7a81e74f724468b8d01296c4522396",
+          "local": "/images/projects/itd/25218b_5f7a81e74f724468b8d01296c4522396.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d0155938d9aa4df686e93ecd7fec88ba",
+          "local": "/images/projects/itd/25218b_d0155938d9aa4df686e93ecd7fec88ba.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_9cdb48edf1f143b196593b3abe909096",
+          "local": "/images/projects/itd/25218b_9cdb48edf1f143b196593b3abe909096.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d9089764c1074fa1810c7c25ec2fc460",
+          "local": "/images/projects/itd/25218b_d9089764c1074fa1810c7c25ec2fc460.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_8f38c0af29f54952a3261e6ca0974f18",
+          "local": "/images/projects/itd/25218b_8f38c0af29f54952a3261e6ca0974f18.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f09c862a34174aaf844b198160ea4e75",
+          "local": "/images/projects/itd/25218b_f09c862a34174aaf844b198160ea4e75.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 24,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/sri-trang-agro-industry",
+      "slug": "sri-trang-agro-industry",
+      "title": "Sri Trang Agro-Industry",
+      "date": "2024-04-28",
+      "imagesFound": 22,
+      "images": [
+        {
+          "id": "8e0d14_e9259da379e349768ea98f3383ce79af",
+          "local": "/images/projects/sri-trang-agro-industry/8e0d14_e9259da379e349768ea98f3383ce79af.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7b56ae0f527e47779734a0b901921dac",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_7b56ae0f527e47779734a0b901921dac.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e7826711a3a74b02b12c687db1c13466",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_e7826711a3a74b02b12c687db1c13466.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7c9f84d401044d148e90beb5280aac16",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_7c9f84d401044d148e90beb5280aac16.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_79db7202867f402c9d3bc86e959de227",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_79db7202867f402c9d3bc86e959de227.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_82b7cd5c409b4f34b487eab26cd86f21",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_82b7cd5c409b4f34b487eab26cd86f21.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_4279d87c5dc848bf8ab5d2c55c7bb5ed",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_4279d87c5dc848bf8ab5d2c55c7bb5ed.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_8e95932861eb49daa3402ea4dea0ef83",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_8e95932861eb49daa3402ea4dea0ef83.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_41c0daf410104934a91047219acc90dd",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_41c0daf410104934a91047219acc90dd.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7f6cfe8a708d4b9d937c142062ee37b8",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_7f6cfe8a708d4b9d937c142062ee37b8.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_67848c6c08e04082853635f06689b794",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_67848c6c08e04082853635f06689b794.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a170ba2bd6c14298bb0e0d0a7b897adc",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_a170ba2bd6c14298bb0e0d0a7b897adc.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_b6887ba9ef28412b88a049786cdafd0d",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_b6887ba9ef28412b88a049786cdafd0d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ba3e45bcc0844495ad9583b45646f198",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_ba3e45bcc0844495ad9583b45646f198.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ba142d5c19b84195823f0af1f32fb22f",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_ba142d5c19b84195823f0af1f32fb22f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_c26c2e24ad3a45d58c76763fcb92743f",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_c26c2e24ad3a45d58c76763fcb92743f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ee9dd1dd38db444c9bc031abc45ed369",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_ee9dd1dd38db444c9bc031abc45ed369.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_4e4869f056db4383a33b45e830d3318c",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_4e4869f056db4383a33b45e830d3318c.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_db0d044a1d624dcb9f64e639c1d857bc",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_db0d044a1d624dcb9f64e639c1d857bc.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a151b3e32e0d4a8987190e3a6408b241",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_a151b3e32e0d4a8987190e3a6408b241.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_5f92d00cef494e9997571e23c390f67f",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_5f92d00cef494e9997571e23c390f67f.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f539379ce5184620a8780f912fa7a377",
+          "local": "/images/projects/sri-trang-agro-industry/25218b_f539379ce5184620a8780f912fa7a377.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 22,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/empowering-youth-leaders",
+      "slug": "empowering-youth-leaders",
+      "title": "Empowering Youth Leaders",
+      "date": "2024-04-28",
+      "imagesFound": 14,
+      "images": [
+        {
+          "id": "25218b_40a013d83c714afbb81c7f935ea9ca38",
+          "local": "/images/projects/empowering-youth-leaders/25218b_40a013d83c714afbb81c7f935ea9ca38.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_bccde072a0cd46178135a19786c13ee7",
+          "local": "/images/projects/empowering-youth-leaders/25218b_bccde072a0cd46178135a19786c13ee7.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d345c95afc73467fbd3061cdf1d5f1c2",
+          "local": "/images/projects/empowering-youth-leaders/25218b_d345c95afc73467fbd3061cdf1d5f1c2.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d9b715266f5c4c23b513bed0a9e73516",
+          "local": "/images/projects/empowering-youth-leaders/25218b_d9b715266f5c4c23b513bed0a9e73516.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_1f28504962214013b747d5ddbd78682d",
+          "local": "/images/projects/empowering-youth-leaders/25218b_1f28504962214013b747d5ddbd78682d.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_274885862cfe4e728f5bd0150eda703e",
+          "local": "/images/projects/empowering-youth-leaders/25218b_274885862cfe4e728f5bd0150eda703e.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_95af7d14e92f498ca5b70554452f40bd",
+          "local": "/images/projects/empowering-youth-leaders/25218b_95af7d14e92f498ca5b70554452f40bd.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_884918d8095a440e8864067944573f15",
+          "local": "/images/projects/empowering-youth-leaders/25218b_884918d8095a440e8864067944573f15.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_eb33e7e593164d34aa9515ebcfdf9969",
+          "local": "/images/projects/empowering-youth-leaders/25218b_eb33e7e593164d34aa9515ebcfdf9969.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_7d553e2291eb4cb89df4f1d25584cfdf",
+          "local": "/images/projects/empowering-youth-leaders/25218b_7d553e2291eb4cb89df4f1d25584cfdf.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_1be44384062d48e293546365edde41f4",
+          "local": "/images/projects/empowering-youth-leaders/25218b_1be44384062d48e293546365edde41f4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_5491c5c536dd4b3b8a6b4baf379e9851",
+          "local": "/images/projects/empowering-youth-leaders/25218b_5491c5c536dd4b3b8a6b4baf379e9851.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_0be402a50b4343e2ba3e70a75dcc631c",
+          "local": "/images/projects/empowering-youth-leaders/25218b_0be402a50b4343e2ba3e70a75dcc631c.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_a8cd56b4818c4d909d1672cc53fc7394",
+          "local": "/images/projects/empowering-youth-leaders/25218b_a8cd56b4818c4d909d1672cc53fc7394.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 14,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/the-training-program-for-driving-public-and-social-communication-care-d-plus",
+      "slug": "care-d-plus",
+      "title": "The training program for driving public and social communication, Care D Plus.",
+      "date": "2024-04-28",
+      "imagesFound": 14,
+      "images": [
+        {
+          "id": "8e0d14_482fbbde705b4f6db4db83c710ac9b69",
+          "local": "/images/projects/care-d-plus/8e0d14_482fbbde705b4f6db4db83c710ac9b69.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_e66aa93c307041db8880c551557c0571",
+          "local": "/images/projects/care-d-plus/25218b_e66aa93c307041db8880c551557c0571.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_f7cf6c636b1e466ea3848f53f62fc699",
+          "local": "/images/projects/care-d-plus/25218b_f7cf6c636b1e466ea3848f53f62fc699.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_4a7a9b23585c4d02bcc3566be8aadec2",
+          "local": "/images/projects/care-d-plus/25218b_4a7a9b23585c4d02bcc3566be8aadec2.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_15f26985a12f4630aea67894555bde05",
+          "local": "/images/projects/care-d-plus/25218b_15f26985a12f4630aea67894555bde05.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_59825672664c4f089e8250f3846fde97",
+          "local": "/images/projects/care-d-plus/25218b_59825672664c4f089e8250f3846fde97.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_be1e0d6f1491498a97ae09afc2d11e44",
+          "local": "/images/projects/care-d-plus/25218b_be1e0d6f1491498a97ae09afc2d11e44.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3deefda0f5914ed19764c7b9a77165c4",
+          "local": "/images/projects/care-d-plus/25218b_3deefda0f5914ed19764c7b9a77165c4.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_bc1bca38292a412fa884ef9594ce5856",
+          "local": "/images/projects/care-d-plus/25218b_bc1bca38292a412fa884ef9594ce5856.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_3a161afe31f741c1889951c34826b109",
+          "local": "/images/projects/care-d-plus/25218b_3a161afe31f741c1889951c34826b109.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_78275b5fdfd343f2a4f5d7472302005b",
+          "local": "/images/projects/care-d-plus/25218b_78275b5fdfd343f2a4f5d7472302005b.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_faef8f20a3054774b7e143dd13330485",
+          "local": "/images/projects/care-d-plus/25218b_faef8f20a3054774b7e143dd13330485.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d7f7962ae1b942c19909910e1c8e1199",
+          "local": "/images/projects/care-d-plus/25218b_d7f7962ae1b942c19909910e1c8e1199.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_ce31058ea3674498810d31bf12729eac",
+          "local": "/images/projects/care-d-plus/25218b_ce31058ea3674498810d31bf12729eac.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 14,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/center-of-excellence-in-communication-innovation-launches-groundbreaking-online-course-for-digital-n",
+      "slug": "media-communication-transnational-citizens",
+      "title": "Center of Excellence in Communication Innovation Launches Groundbreaking Online Course for Digital Nomads",
+      "date": "2024-06-19",
+      "imagesFound": 5,
+      "images": [
+        {
+          "id": "25218b_fc87e081e7bd4bdfa37bcab62e5a441c",
+          "local": "/images/projects/media-communication-transnational-citizens/25218b_fc87e081e7bd4bdfa37bcab62e5a441c.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_277172022ba449828f33f514fcd7a7ef",
+          "local": "/images/projects/media-communication-transnational-citizens/25218b_277172022ba449828f33f514fcd7a7ef.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_bf6f238fcdcf4eb3ae3643789189d826",
+          "local": "/images/projects/media-communication-transnational-citizens/25218b_bf6f238fcdcf4eb3ae3643789189d826.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_09d3aa3651324d6ea9ac6517691a0133",
+          "local": "/images/projects/media-communication-transnational-citizens/25218b_09d3aa3651324d6ea9ac6517691a0133.webp",
+          "from": "existing",
+          "status": "ok"
+        },
+        {
+          "id": "25218b_d6dda608e21a467ebfd557a1adc92eea",
+          "local": "/images/projects/media-communication-transnational-citizens/25218b_d6dda608e21a467ebfd557a1adc92eea.webp",
+          "from": "existing",
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 5,
+      "imagesDownloaded": 0,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/chula-communication-arts-strengthens-academic-collaboration-with-keio-university-and-bunkyo-universi",
+      "slug": "keio-bunkyo-collaboration",
+      "title": "Chula Communication Arts Strengthens Academic Collaboration with Keio University and Bunkyo University",
+      "date": "2026-03-15",
+      "imagesFound": 8,
+      "images": [
+        {
+          "id": "778c9b_e798a5b5d81b4fd9993b4fbb4916f796",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_e798a5b5d81b4fd9993b4fbb4916f796.webp",
+          "from": "news",
+          "originalBytes": 281265,
+          "bytes": 135554,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_22f7f79cfe954300a9ff9ddae107c270",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_22f7f79cfe954300a9ff9ddae107c270.webp",
+          "from": "news",
+          "originalBytes": 836544,
+          "bytes": 122206,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_40bb917045d546ccaa77c7e1a671e157",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_40bb917045d546ccaa77c7e1a671e157.webp",
+          "from": "news",
+          "originalBytes": 296424,
+          "bytes": 128946,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_cceaabedccdc43fcaab36925242efd35",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_cceaabedccdc43fcaab36925242efd35.webp",
+          "from": "news",
+          "originalBytes": 256855,
+          "bytes": 105014,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_6e5ae8cc5f9645e580f6d8465f1641fa",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_6e5ae8cc5f9645e580f6d8465f1641fa.webp",
+          "from": "news",
+          "originalBytes": 281663,
+          "bytes": 123478,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_e73d3642430d4d4daa3fc4785be657f6",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_e73d3642430d4d4daa3fc4785be657f6.webp",
+          "from": "news",
+          "originalBytes": 454561,
+          "bytes": 254462,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_f70cbea836ff4ccc937c09d13b77fe1b",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_f70cbea836ff4ccc937c09d13b77fe1b.webp",
+          "from": "news",
+          "originalBytes": 255865,
+          "bytes": 148404,
+          "status": "ok"
+        },
+        {
+          "id": "778c9b_60668e8df8cb468dbacc36a0c8c3a1a5",
+          "local": "/images/news/keio-bunkyo-collaboration/778c9b_60668e8df8cb468dbacc36a0c8c3a1a5.webp",
+          "from": "news",
+          "originalBytes": 350132,
+          "bytes": 160920,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 8,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/associate-professor-dr-smith-boonchutima-delivers-special-lecture-at-professional-treasury-officer",
+      "slug": "treasury-officer-lecture",
+      "title": "Associate Professor Dr. Smith Boonchutima Delivers Special Lecture at Professional Treasury Officer Program",
+      "date": "2025-08-05",
+      "imagesFound": 7,
+      "images": [
+        {
+          "id": "f73340_04623345668541f0a9c548619452d0b1",
+          "local": "/images/news/treasury-officer-lecture/f73340_04623345668541f0a9c548619452d0b1.webp",
+          "from": "news",
+          "originalBytes": 1377840,
+          "bytes": 179090,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_e25660e571e74ae8aadc97b155e0f9fe",
+          "local": "/images/news/treasury-officer-lecture/f73340_e25660e571e74ae8aadc97b155e0f9fe.webp",
+          "from": "news",
+          "originalBytes": 947201,
+          "bytes": 368144,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_faa62d55748a4eb4b4420d0651f252f1",
+          "local": "/images/news/treasury-officer-lecture/f73340_faa62d55748a4eb4b4420d0651f252f1.webp",
+          "from": "news",
+          "originalBytes": 941987,
+          "bytes": 395764,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_8713f831a3fa44d68f0d123561eb86da",
+          "local": "/images/news/treasury-officer-lecture/f73340_8713f831a3fa44d68f0d123561eb86da.webp",
+          "from": "news",
+          "originalBytes": 1041858,
+          "bytes": 445718,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_34c322a57d084e1f996f4b2b230f3773",
+          "local": "/images/news/treasury-officer-lecture/f73340_34c322a57d084e1f996f4b2b230f3773.webp",
+          "from": "news",
+          "originalBytes": 1337637,
+          "bytes": 750654,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_150b3aa671284757bbe2f400866f1807",
+          "local": "/images/news/treasury-officer-lecture/f73340_150b3aa671284757bbe2f400866f1807.webp",
+          "from": "news",
+          "originalBytes": 1065669,
+          "bytes": 461502,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_66b987f4555a4afb89684dd41e02ed1c",
+          "local": "/images/news/treasury-officer-lecture/f73340_66b987f4555a4afb89684dd41e02ed1c.webp",
+          "from": "news",
+          "originalBytes": 975814,
+          "bytes": 393192,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 7,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/associate-professor-dr-smith-boonchotima-delivers-leadership-training-at-krungthai-bank",
+      "slug": "krungthai-leadership-training",
+      "title": "Associate Professor Dr. Smith Boonchotima Delivers Leadership Training at Krungthai Bank",
+      "date": "2025-07-22",
+      "imagesFound": 8,
+      "images": [
+        {
+          "id": "f73340_cbb522c5e6f94f398565259386463ff9",
+          "local": "/images/news/krungthai-leadership-training/f73340_cbb522c5e6f94f398565259386463ff9.webp",
+          "from": "news",
+          "originalBytes": 1585314,
+          "bytes": 250928,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_a53401dd14ab46e1b8a2483361e0b79d",
+          "local": "/images/news/krungthai-leadership-training/f73340_a53401dd14ab46e1b8a2483361e0b79d.webp",
+          "from": "news",
+          "originalBytes": 1007264,
+          "bytes": 427788,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_7527a05ff8a24bd1b722827e74f3838f",
+          "local": "/images/news/krungthai-leadership-training/f73340_7527a05ff8a24bd1b722827e74f3838f.webp",
+          "from": "news",
+          "originalBytes": 1037373,
+          "bytes": 443482,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_e2d3f4562bec4306b2fed941f4e19a8c",
+          "local": "/images/news/krungthai-leadership-training/f73340_e2d3f4562bec4306b2fed941f4e19a8c.webp",
+          "from": "news",
+          "originalBytes": 1008073,
+          "bytes": 414840,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_f683d0698ee043a49d62d98e7a71b128",
+          "local": "/images/news/krungthai-leadership-training/f73340_f683d0698ee043a49d62d98e7a71b128.webp",
+          "from": "news",
+          "originalBytes": 1035477,
+          "bytes": 456430,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_daf762a85c3e4c0e9098616d0c828d48",
+          "local": "/images/news/krungthai-leadership-training/f73340_daf762a85c3e4c0e9098616d0c828d48.webp",
+          "from": "news",
+          "originalBytes": 974416,
+          "bytes": 389850,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_ae8d4e8db09a40b583475eac657f99be",
+          "local": "/images/news/krungthai-leadership-training/f73340_ae8d4e8db09a40b583475eac657f99be.webp",
+          "from": "news",
+          "originalBytes": 1068147,
+          "bytes": 479302,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_43b21d5570a74bfaa333981301ca9e2e",
+          "local": "/images/news/krungthai-leadership-training/f73340_43b21d5570a74bfaa333981301ca9e2e.webp",
+          "from": "news",
+          "originalBytes": 1262250,
+          "bytes": 640654,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 8,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/thai-health-promotion-foundation-organises-simple-drug-communication-as-daily-routine-training-by",
+      "slug": "thai-health-drug-communication",
+      "title": "Thai Health Promotion Foundation Organises \"Simple Drug Communication as Daily Routine\" Training by Asst. Prof. Dr. Teerada Chongkolrattanaporn",
+      "date": "2025-07-20",
+      "imagesFound": 6,
+      "images": [
+        {
+          "id": "f73340_acd977266d2c464fbfc4e1900592a026",
+          "local": "/images/news/thai-health-drug-communication/f73340_acd977266d2c464fbfc4e1900592a026.webp",
+          "from": "news",
+          "originalBytes": 263540,
+          "bytes": 98462,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_fdcd2b438b7443d7ab2ad13031d0ff71",
+          "local": "/images/news/thai-health-drug-communication/f73340_fdcd2b438b7443d7ab2ad13031d0ff71.webp",
+          "from": "news",
+          "originalBytes": 276366,
+          "bytes": 111046,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_7955723d6c944037b45afed0cda852f7",
+          "local": "/images/news/thai-health-drug-communication/f73340_7955723d6c944037b45afed0cda852f7.webp",
+          "from": "news",
+          "originalBytes": 265185,
+          "bytes": 100786,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_beb894b148c14e49a7b2d0ad9bba2caa",
+          "local": "/images/news/thai-health-drug-communication/f73340_beb894b148c14e49a7b2d0ad9bba2caa.webp",
+          "from": "news",
+          "originalBytes": 469260,
+          "bytes": 251226,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_16a6bf0a18ca48469abbfa495205db74",
+          "local": "/images/news/thai-health-drug-communication/f73340_16a6bf0a18ca48469abbfa495205db74.webp",
+          "from": "news",
+          "originalBytes": 344156,
+          "bytes": 155462,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_bb1761d349f74096b1418f7c51fab4fc",
+          "local": "/images/news/thai-health-drug-communication/f73340_bb1761d349f74096b1418f7c51fab4fc.webp",
+          "from": "news",
+          "originalBytes": 251618,
+          "bytes": 87890,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 6,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/comm-art-chula-ce-drives-national-drug-safety-awareness-at-fda-summit",
+      "slug": "fda-drug-safety-summit",
+      "title": "Comm Art Chula &CE  Drives National Drug Safety Awareness at FDA Summit",
+      "date": "2025-07-09",
+      "imagesFound": 5,
+      "images": [
+        {
+          "id": "f73340_f158bb2d266a4fadafa6e693eb1e9ea1",
+          "local": "/images/news/fda-drug-safety-summit/f73340_f158bb2d266a4fadafa6e693eb1e9ea1.webp",
+          "from": "news",
+          "originalBytes": 319302,
+          "bytes": 143108,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_7b7e3103c8374e06b05b1d7287824ae5",
+          "local": "/images/news/fda-drug-safety-summit/f73340_7b7e3103c8374e06b05b1d7287824ae5.webp",
+          "from": "news",
+          "originalBytes": 332940,
+          "bytes": 128586,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_0f9d967e426545b5b603f5bf6a19fe12",
+          "local": "/images/news/fda-drug-safety-summit/f73340_0f9d967e426545b5b603f5bf6a19fe12.webp",
+          "from": "news",
+          "originalBytes": 371344,
+          "bytes": 208838,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_3f99f0b0cb104d8cbca4e36307f9e0e2",
+          "local": "/images/news/fda-drug-safety-summit/f73340_3f99f0b0cb104d8cbca4e36307f9e0e2.webp",
+          "from": "news",
+          "originalBytes": 214509,
+          "bytes": 111768,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_47aaf0238c644866a94a72a72b142a19",
+          "local": "/images/news/fda-drug-safety-summit/f73340_47aaf0238c644866a94a72a72b142a19.webp",
+          "from": "news",
+          "originalBytes": 241706,
+          "bytes": 97102,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 5,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/dr-teerada-of-chulalongkorn-university-leads-workshop-preparing-thai-students-in-t%C3%BCrkiye-for-the-wo",
+      "slug": "turkiye-students-workshop",
+      "title": "Dr. Teerada of Chulalongkorn University Leads Workshop Preparing Thai Students in Türkiye for the Workforce",
+      "date": "2025-07-05",
+      "imagesFound": 3,
+      "images": [
+        {
+          "id": "f73340_6a89ff927422417da644d95ea1540b88",
+          "local": "/images/news/turkiye-students-workshop/f73340_6a89ff927422417da644d95ea1540b88.webp",
+          "from": "news",
+          "originalBytes": 1136495,
+          "bytes": 215722,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_5de7e04dde124529bd5352bafa2d36fc",
+          "local": "/images/news/turkiye-students-workshop/f73340_5de7e04dde124529bd5352bafa2d36fc.webp",
+          "from": "news",
+          "originalBytes": 271208,
+          "bytes": 304098,
+          "status": "ok"
+        },
+        {
+          "id": "f73340_e3c8af17c8ca44a398bbf147c2ff83e0",
+          "local": "/images/news/turkiye-students-workshop/f73340_e3c8af17c8ca44a398bbf147c2ff83e0.webp",
+          "from": "news",
+          "originalBytes": 257191,
+          "bytes": 279072,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 3,
+      "imagesFailed": 0,
+      "status": "ok"
+    },
+    {
+      "sourceUrl": "https://www.cominnocenter.com/post/center-of-excellence-head-invited-to-lead-executive-crisis-communication-training",
+      "slug": "executive-crisis-communication-training",
+      "title": "Center of Excellence Head Invited to Lead Executive Crisis Communication Training",
+      "date": "2024-06-22",
+      "imagesFound": 2,
+      "images": [
+        {
+          "id": "34cff6_d5627d66314d465996d2c91b67087727",
+          "local": "/images/news/executive-crisis-communication-training/34cff6_d5627d66314d465996d2c91b67087727.webp",
+          "from": "news",
+          "originalBytes": 289058,
+          "bytes": 170198,
+          "status": "ok"
+        },
+        {
+          "id": "34cff6_bbcfa04e66804382b86223f991350d42",
+          "local": "/images/news/executive-crisis-communication-training/34cff6_bbcfa04e66804382b86223f991350d42.webp",
+          "from": "news",
+          "originalBytes": 298072,
+          "bytes": 179598,
+          "status": "ok"
+        }
+      ],
+      "imagesReused": 0,
+      "imagesDownloaded": 2,
+      "imagesFailed": 0,
+      "status": "ok"
+    }
+  ]
+}

@@ -313,13 +313,14 @@ export default function EnglishHomePage() {
                 </p>
                 {h.href && (
                   <a
-                    href={h.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={h.href.startsWith("/") ? `/en${h.href}` : h.href}
+                    {...(h.href.startsWith("/")
+                      ? {}
+                      : { target: "_blank", rel: "noopener noreferrer" })}
                     className="inline-flex items-center mt-4 text-sm font-medium text-pink-600 hover:text-pink-700"
                   >
-                    Read source
-                    <span className="ml-1.5 opacity-50">↗</span>
+                    {h.href.startsWith("/") ? "Read more" : "Read source"}
+                    <span className="ml-1.5 opacity-50">{h.href.startsWith("/") ? "→" : "↗"}</span>
                   </a>
                 )}
               </article>

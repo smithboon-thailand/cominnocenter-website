@@ -106,19 +106,26 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
           <p className="text-neutral-700 font-medium">{copy.outcome}</p>
         </div>
 
-        {project.sourceUrl && (
-          <p className="mt-6 text-sm text-neutral-500">
-            Source:{" "}
-            <a
-              href={project.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-500 hover:text-pink-600"
-            >
-              View original post
-            </a>
-          </p>
-        )}
+        {project.sourceUrl &&
+          (project.sourceUrl.startsWith("/") ? (
+            <p className="mt-6 text-sm text-neutral-500">
+              <Link href={`/en${project.sourceUrl}`} className="text-pink-500 hover:text-pink-600">
+                Read the news post for this project →
+              </Link>
+            </p>
+          ) : (
+            <p className="mt-6 text-sm text-neutral-500">
+              Source:{" "}
+              <a
+                href={project.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-500 hover:text-pink-600"
+              >
+                View project website
+              </a>
+            </p>
+          ))}
       </section>
 
       {gallery.length > 0 && (

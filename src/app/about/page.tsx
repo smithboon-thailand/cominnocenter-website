@@ -233,12 +233,15 @@ export default function AboutPage() {
                                 {h.href && (
                                   <a
                                     href={h.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    {...(h.href.startsWith("/")
+                                      ? {}
+                                      : { target: "_blank", rel: "noopener noreferrer" })}
                                     className="inline-flex items-center mt-2 text-xs font-medium text-pink-600 hover:text-pink-700"
                                   >
-                                    ดูแหล่งต้นทาง
-                                    <span className="ml-1 opacity-60">↗</span>
+                                    {h.href.startsWith("/") ? "อ่านรายละเอียด" : "ดูแหล่งต้นทาง"}
+                                    <span className="ml-1 opacity-60">
+                                      {h.href.startsWith("/") ? "→" : "↗"}
+                                    </span>
                                   </a>
                                 )}
                               </div>
