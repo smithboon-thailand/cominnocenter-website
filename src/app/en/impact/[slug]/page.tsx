@@ -43,12 +43,23 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
       <Header active="impact" locale="en" />
 
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">
-        <Link
-          href="/en/impact"
-          className="text-sm text-pink-500 font-medium hover:text-pink-600"
-        >
-          ← Back to impact
-        </Link>
+        <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" aria-label="breadcrumb">
+          <Link
+            href="/en"
+            className="inline-flex items-center font-medium text-pink-500 hover:text-pink-600"
+          >
+            ← Back to home
+          </Link>
+          <span className="text-neutral-300" aria-hidden>
+            |
+          </span>
+          <Link
+            href="/en/impact"
+            className="inline-flex items-center font-medium text-neutral-600 hover:text-pink-500"
+          >
+            Back to impact
+          </Link>
+        </nav>
         <div className="mt-6 max-w-3xl">
           <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-4">
             {project.sdg} · {project.sdgLabel}

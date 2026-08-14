@@ -40,9 +40,23 @@ export default async function CaseStudyPage({ params }: Props) {
       <Header active="impact" />
 
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">
-        <Link href="/impact" className="text-sm text-pink-500 font-medium hover:text-pink-600">
-          ← กลับไปหน้าผลงาน
-        </Link>
+        <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" aria-label="breadcrumb">
+          <Link
+            href="/"
+            className="inline-flex items-center font-medium text-pink-500 hover:text-pink-600"
+          >
+            ← กลับหน้าหลัก
+          </Link>
+          <span className="text-neutral-300" aria-hidden>
+            |
+          </span>
+          <Link
+            href="/impact"
+            className="inline-flex items-center font-medium text-neutral-600 hover:text-pink-500"
+          >
+            กลับไปหน้าผลงาน
+          </Link>
+        </nav>
         <div className="mt-6 max-w-3xl">
           <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-4">
             {project.sdg} · {project.sdgLabel}
