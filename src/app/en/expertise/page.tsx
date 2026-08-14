@@ -33,7 +33,7 @@ export default function EnglishExpertisePage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <div key={service.key} className="rounded-lg border border-ink-300 bg-white p-6">
-              <h3 className="text-h3-m md:text-h3 text-ink-900">{service.title}</h3>
+              <h2 className="text-h3-m md:text-h3 text-ink-900">{service.title}</h2>
               <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
                 {service.sdg.map((id) => (
                   <span

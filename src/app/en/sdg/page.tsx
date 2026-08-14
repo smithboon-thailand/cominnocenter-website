@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SectionHeader from "@/components/ui/SectionHeader";
 import Stat from "@/components/ui/Stat";
 import SdgPosterGrid from "@/components/ui/SdgPosterGrid";
 import Button from "@/components/ui/Button";
@@ -25,12 +24,13 @@ export default function SdgPageEn() {
       <Header active="sdg" locale="en" />
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <SectionHeader
-          locale="en"
-          eyebrow="Sustainable Development Goals"
-          title="Every project answers a global goal"
-          description="We believe good communication changes quality of life. Every project is designed to serve at least one Sustainable Development Goal with measurable outcomes. Pick a goal below to see our work in that area."
-        />
+        <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
+          Sustainable Development Goals
+        </p>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">Every project answers a global goal</h1>
+        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          We believe good communication changes quality of life. Every project is designed to serve at least one Sustainable Development Goal with measurable outcomes. Pick a goal below to see our work in that area.
+        </p>
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <Stat value={projects.length} unit="projects" label="Delivered work" />
           <Stat value={`${coveredGoals}/17`} unit="goals" label="SDGs our work covers" />

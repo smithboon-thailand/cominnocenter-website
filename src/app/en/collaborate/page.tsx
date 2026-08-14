@@ -47,7 +47,7 @@ export default function EnglishCollaboratePage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {collaborationWays.map((item) => (
             <div key={item.title} className="rounded-lg border border-ink-300 bg-white p-6">
-              <h3 className="text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
+              <h2 className="text-h3-m md:text-h3 text-ink-900">{item.title}</h2>
               <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
             </div>
           ))}

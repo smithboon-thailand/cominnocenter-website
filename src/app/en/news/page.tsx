@@ -54,9 +54,9 @@ export default function NewsPageEn() {
               </div>
               <div className="p-6">
                 <p className="text-xs font-medium text-neutral-500 mb-2">{enDate(post.date)}</p>
-                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
+                <h2 className="text-h3-m md:text-h3 text-ink-900 group-hover:text-pink-700 transition-colors">
                   {post.titleEn}
-                </h3>
+                </h2>
                 <p className="mt-3 text-sm text-neutral-600 leading-relaxed line-clamp-3">
                   {post.bodyEn[0]}
                 </p>
