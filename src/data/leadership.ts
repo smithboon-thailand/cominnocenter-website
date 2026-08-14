@@ -212,6 +212,8 @@ export const objectives = [
     titleTh: "การเรียนการสอนและการอบรม",
     description:
       "พัฒนาองค์ความรู้และจัดอบรมด้านนวัตกรรมการสื่อสาร ให้กับบุคลากร องค์กร และผู้ที่สนใจนำไปใช้จริง",
+    descriptionEn:
+      "Develop knowledge and deliver communication-innovation training that people and organizations can put to use",
   },
   {
     number: "02",
@@ -219,6 +221,8 @@ export const objectives = [
     titleTh: "การขับเคลื่อนสังคม",
     description:
       "สร้างการรับรู้และขับเคลื่อนประเด็นสำคัญ เพื่อคุณภาพชีวิตและความยั่งยืน ผ่านการสื่อสารที่มีประสิทธิภาพ",
+    descriptionEn:
+      "Raise awareness and drive important issues for quality of life and sustainability through effective communication",
   },
   {
     number: "03",
@@ -226,5 +230,7 @@ export const objectives = [
     titleTh: "เครื่องมือและนวัตกรรม",
     description:
       "วิจัยและพัฒนาเครื่องมือ แนวทางปฏิบัติ และนวัตกรรมการสื่อสาร ที่เป็นประโยชน์ต่อสังคมและองค์กร",
+    descriptionEn:
+      "Research and develop tools, practices, and communication innovation that benefit society and organizations",
   },
 ];

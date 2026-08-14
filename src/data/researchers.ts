@@ -16,6 +16,8 @@ export type Researcher = {
   roleTh: string;
   role: string;
   faculty: string;
+  facultyEn: string;
+  focusEn?: string;
   focus: string;
   image?: string;
   alt: string;
@@ -31,6 +33,10 @@ export const researchers: Researcher[] = [
     role: "Center Researcher",
     faculty:
       "อาจารย์ ภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    facultyEn:
+      "Lecturer, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
+    focusEn:
+      "Social-issue communication, communication innovation, and community engagement — Associate Dean for Academic Service and Social Engagement",
     focus:
       "การสื่อสารประเด็นสังคม นวัตกรรมการสื่อสาร และการเชื่อมโยงสังคม — รองคณบดีคณะนิเทศศาสตร์ ด้านบริการวิชาการและเชื่อมโยงสังคม",
     image: "/images/researchers/watsayut-kongchan.webp",
@@ -61,6 +67,8 @@ export const researchers: Researcher[] = [
     role: "Center Researcher",
     faculty:
       "ศาสตราจารย์ ภาควิชาสถิติ (Business Information Technology) คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย",
+    facultyEn:
+      "Professor, Department of Statistics (Business Information Technology), Chulalongkorn Business School",
     focus:
       "Blockchain, Internet of Things, Business Process Management, Service Workflows, Cyber-Physical Systems",
     image: "/images/researchers/wattana-viriyasitavat.webp",
@@ -87,6 +95,8 @@ export const researchers: Researcher[] = [
     role: "Center Researcher",
     faculty:
       "ศาสตราจารย์ ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    facultyEn:
+      "Professor, Department of Electrical Engineering, Faculty of Engineering, Chulalongkorn University",
     focus:
       "Metaverse, Wireless Communications, 5G and beyond, AI for communications, VR for smart factory and healthcare (Chulaverse / MANGOs)",
     image: "/images/researchers/lunchakorn-wuttisittikulkij.webp",
