@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-type PageKey = "home" | "about" | "expertise" | "impact" | "collaborate";
+type PageKey = "home" | "about" | "expertise" | "impact" | "sdg" | "collaborate";
 
 type HeaderProps = {
   active?: PageKey;
@@ -19,6 +19,7 @@ const NAV = {
     about: "เกี่ยวกับเรา",
     expertise: "ความเชี่ยวชาญ",
     impact: "ผลงาน",
+    sdg: "SDG",
     collaborate: "ร่วมงานกับเรา",
     cta: "ร่วมงานกับเรา",
     homeAria: "ComInnoCenter หน้าแรก",
@@ -29,6 +30,7 @@ const NAV = {
     about: "About",
     expertise: "Expertise",
     impact: "Impact",
+    sdg: "SDG",
     collaborate: "Collaborate",
     cta: "Collaborate",
     homeAria: "ComInnoCenter home",
@@ -99,6 +101,9 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
           <Link href={pathFor(locale, "impact")} className={linkClass("impact")}>
             {t.impact}
           </Link>
+          <Link href={pathFor(locale, "sdg")} className={linkClass("sdg")}>
+            {t.sdg}
+          </Link>
           <Link href={pathFor(locale, "collaborate")} className={linkClass("collaborate")}>
             {t.collaborate}
           </Link>
@@ -162,6 +167,13 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
               onClick={() => setOpen(false)}
             >
               {t.impact}
+            </Link>
+            <Link
+              href={pathFor(locale, "sdg")}
+              className={mobileLinkClass("sdg")}
+              onClick={() => setOpen(false)}
+            >
+              {t.sdg}
             </Link>
             <Link
               href={pathFor(locale, "collaborate")}
