@@ -57,8 +57,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 ::selection {
@@ -106,6 +108,17 @@ html {
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* วงล้อ SDG (หน้า /sdg) — ซี่ค่อยๆ กางออกตอนโหลด */
+@keyframes sdg-pop {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* การ์ดเป้าหมายที่ถูกเลือกจากวงล้อ (anchor :target) — ไฮไลต์ด้วยวงแหวนโฟกัสแบรนด์ */
+.sdg-tile:target {
+  box-shadow: 0 0 0 3px var(--pink-100);
 }
 
 .animate-float-slow {
