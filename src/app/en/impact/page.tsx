@@ -1,86 +1,119 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { projects } from "@/data/projects";
+import ProjectCard from "@/components/ui/ProjectCard";
+import SdgBadge from "@/components/ui/SdgBadge";
+import SdgFilterChips from "@/components/ui/SdgFilterChips";
+import Button from "@/components/ui/Button";
+import ImpactExplorer, { type ImpactCardData } from "@/components/impact/ImpactExplorer";
+import { projects, type Project } from "@/data/projects";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
+import { SDG_IDS, type SdgId } from "@/data/sdg";
 
-export default function EnglishImpactPage() {
+export const metadata = {
+  alternates: {
+    canonical: "/en/impact",
+    languages: { th: "/impact", en: "/en/impact", "x-default": "/impact" },
+  },
+  title: "Our impact",
+  description:
+    "Projects that turn communication innovation into real quality-of-life and sustainability outcomes, grouped by Sustainable Development Goal",
+};
+
+export default function ImpactPageEn() {
+  // Card data for the client-side ?sdg=N filter — keeps the page static with metadata in <head>
+  const cards: ImpactCardData[] = projects.map((p) => ({
+    slug: p.slug,
+    title: p.titleEn,
+    description: getLocalizedProjectCopy(p).outcome,
+    image: p.image,
+    alt: `${p.titleEn} — project photo from the center's archive`,
+    sdg: p.sdg,
+  }));
+
+  const groups: { id: SdgId; items: Project[] }[] = [];
+  for (const id of SDG_IDS) {
+    const items = projects.filter((p) => p.sdg[0] === id);
+    if (items.length > 0) groups.push({ id, items });
+  }
+
+  const grouped = (
+    <section className="mx-auto max-w-7xl space-y-16 px-6 pb-24">
+      {groups.map((group) => (
+        <div key={group.id}>
+          <div className="mb-6 flex flex-wrap items-center gap-3 border-b border-ink-300 pb-4">
+            <SdgBadge id={group.id} locale="en" />
+            <p className="text-[15px] leading-[1.6] text-ink-500">
+              {group.items.length} {group.items.length === 1 ? "project" : "projects"}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((p) => (
+              <ProjectCard
+                key={p.slug}
+                href={`/en/impact/${p.slug}`}
+                title={p.titleEn}
+                description={getLocalizedProjectCopy(p).outcome}
+                image={p.image}
+                alt={`${p.titleEn} — project photo from the center's archive`}
+                sdgIds={p.sdg}
+                locale="en"
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+
   return (
     <div className="min-h-screen">
       <Header active="impact" locale="en" />
+      <main>
 
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-            Our impact
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            Selected projects that turn communication innovation into real outcomes for quality of
-            life and sustainability.
-          </p>
-        </div>
+      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28">
+        <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
+          Impact
+        </p>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">
+          Communication innovation with real outcomes
+        </h1>
+        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          Every project connects to the Sustainable Development Goals. Pick a goal to see our
+          work in that area.
+        </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => {
-            const copy = getLocalizedProjectCopy(project);
-            return (
-              <Link
-                key={project.slug}
-                href={`/en/impact/${project.slug}`}
-                className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="relative h-52 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
-                    {project.sdg} · {project.sdgLabel}
-                  </span>
-                  <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
-                    {project.titleEn}
-                  </h3>
-                  {project.title !== project.titleEn && (
-                    <p className="text-sm text-neutral-500 mt-1">{project.title}</p>
-                  )}
-                  <p className="mt-3 text-sm text-neutral-600 leading-relaxed line-clamp-3">
-                    {copy.outcome}
-                  </p>
-                  <p className="mt-4 text-sm font-medium text-pink-500 group-hover:text-pink-600">
-                    Read case study →
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+      <Suspense
+        fallback={
+          <>
+            <section className="mx-auto max-w-7xl px-6 pt-8 pb-8">
+              <SdgFilterChips basePath="/en/impact" locale="en" />
+            </section>
+            {grouped}
+          </>
+        }
+      >
+        <ImpactExplorer basePath="/en/impact" locale="en" projects={cards}>
+          {grouped}
+        </ImpactExplorer>
+      </Suspense>
 
-      <section className="bg-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Want to create impact like this together?
+      <section className="bg-ink-900">
+        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <h2 className="text-h2-m md:text-h2 text-white">
+            Want results like these for your goals?
           </h2>
-          <p className="mt-3 text-blue-100 max-w-xl mx-auto">
-            Tell us about your project or needs — we would love to hear from you.
+          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
+            Tell us about your organization and design measurable communication together.
           </p>
-          <Link
-            href="/en/collaborate"
-            className="inline-flex items-center mt-8 px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors"
-          >
-            Collaborate with us
-          </Link>
+          <div className="mt-8 flex justify-center">
+            <Button href="/en/collaborate">Collaborate with us</Button>
+          </div>
         </div>
       </section>
 
+      </main>
       <Footer locale="en" />
     </div>
   );

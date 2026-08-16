@@ -6,8 +6,8 @@
  * เพราะอาจทำงานหลายที่ และไม่ต้องการให้เกิดปัญหาด้านสังกัด
  */
 
-const media = (id: string, ext: string = "jpg") =>
-  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_600,h_750,al_c,q_85,enc_auto/${id}~mv2.${ext}`;
+/** Self-hosted — ดาวน์โหลดจาก Wix มาไว้ที่ public/images/team/ (Phase 0) */
+const media = (id: string) => `/images/team/${id}.webp`;
 
 export type TeamMember = {
   name: string;
@@ -15,8 +15,12 @@ export type TeamMember = {
   roleTh: string;
   role: string;
   affiliation?: string;
+  affiliationTh?: string;
+  affiliationEn?: string;
   focus?: string;
+  focusTh?: string;
   funding?: string;
+  fundingTh?: string;
   image?: string;
   alt: string;
   links?: { label: string; href: string }[];
@@ -33,9 +37,13 @@ export const postdocs: TeamMember[] = [
       "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     focus:
       "Health communication, ethical gamified interventions, migrant worker occupational health (WMSDs), public engagement",
+    focusTh:
+      "การสื่อสารสุขภาพ เกมิฟิเคชันเชิงจริยธรรมเพื่อการปรับพฤติกรรม สุขภาพอาชีวอนามัยของแรงงานข้ามชาติ (WMSDs) และการมีส่วนร่วมของสาธารณะ",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
-    image:
-      "https://static.wixstatic.com/media/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_90,enc_auto/34cff6_29040465434b4a43bab2432065a820ab~mv2.jpg",
+    fundingTh: "ทุน C2F High-Potential Postdoctoral Fellowship จุฬาลงกรณ์มหาวิทยาลัย",
+    affiliationEn:
+      "Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",
+    image: media("34cff6_29040465434b4a43bab2432065a820ab"),
     alt: "ดร.พยู ฮนิน ไหล่ (Rashida / Phyu Hnin Hlaing) นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก thesharpener.school",
     links: [
       {
@@ -57,11 +65,14 @@ export const postdocs: TeamMember[] = [
       "Faculty of Communication Arts, Chulalongkorn University · Program Chair, AB Communication, National University Dasmariñas (Philippines)",
     focus:
       "Indigenous communication, disaster public opinion, SALIGAN framework, AI in higher education, ASEAN media & communication",
+    focusTh:
+      "การสื่อสารของชนพื้นเมือง ความคิดเห็นสาธารณะต่อภัยพิบัติ กรอบแนวคิด SALIGAN, AI ในอุดมศึกษา และสื่อกับการสื่อสารอาเซียน",
     funding: "C2F High-Potential Postdoctoral Fellowship, Chulalongkorn University",
-    // Proxy via images.weserv.nl เพราะ next/image ดึง scholar.googleusercontent.com โดยตรงไม่สำเร็จบน Vercel
-    image:
-      "https://images.weserv.nl/?url=https%3A%2F%2Fscholar.googleusercontent.com%2Fcitations%3Fview_op%3Dmedium_photo%26user%3Dgfq4xogAAAAJ%26citpid%3D2&w=600&h=750&fit=cover&output=jpg",
-    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar (ผ่าน proxy)",
+    fundingTh: "ทุน C2F High-Potential Postdoctoral Fellowship จุฬาลงกรณ์มหาวิทยาลัย",
+    affiliationTh:
+      "คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย · หัวหน้าหลักสูตร AB Communication, National University Dasmariñas (ฟิลิปปินส์)",
+    image: "/images/team/robbie-buelo.webp",
+    alt: "ดร.Robbie Jan Vincent T. Buelo นักวิจัยหลังปริญญาเอกทุน C2F — ภาพจาก Google Scholar",
     links: [
       {
         label: "Google Scholar",
@@ -82,7 +93,12 @@ export const phdCandidates: TeamMember[] = [
       "Ph.D. Program in Environment, Development and Sustainability (EDS), Graduate School, Chulalongkorn University",
     focus:
       "Digital communication preferences and environmental behavior; youth waste management education in Bhutan",
+    focusTh:
+      "ความชอบด้านการสื่อสารดิจิทัลกับพฤติกรรมสิ่งแวดล้อม และการศึกษาเรื่องการจัดการขยะของเยาวชนในภูฏาน",
     funding: "PhD scholarship (C2F / related funding) · co-research with the Center",
+    fundingTh: "ทุนปริญญาเอก (C2F และทุนที่เกี่ยวข้อง) · วิจัยร่วมกับศูนย์ฯ",
+    affiliationTh:
+      "หลักสูตรปริญญาเอกสิ่งแวดล้อม การพัฒนา และความยั่งยืน (EDS) บัณฑิตวิทยาลัย จุฬาลงกรณ์มหาวิทยาลัย",
     alt: "Thinley Lhendup นักศึกษาปริญญาเอกหลักสูตร EDS จุฬาฯ ที่ร่วมงานกับศูนย์",
     links: [
       {
@@ -100,8 +116,7 @@ export const affiliatedResearchers: TeamMember[] = [
     nameEn: "Dr. Atchara Boonchum",
     roleTh: "นักวิจัย",
     role: "Researcher",
-    // ไฟล์บนเว็บเดิมเป็น .png ไม่ใช่ .jpg
-    image: media("8e0d14_41e6a251793c40019370309bce59a0d3", "png"),
+    image: media("8e0d14_41e6a251793c40019370309bce59a0d3"),
     alt: "ดร.อัจฉรา บุญชุม นักวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
@@ -129,7 +144,7 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Chanapa Itthiamornkulchai",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    image: media("8e0d14_31a4089134c7492b9152bb547c2e358c", "png"),
+    image: media("8e0d14_31a4089134c7492b9152bb547c2e358c"),
     alt: "ชนาภา อิทธิอมรกุลชัย ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
@@ -153,7 +168,7 @@ export const researchAssistants: TeamMember[] = [
     nameEn: "Hrut Sitthipuwabun",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
-    image: media("8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a", "png"),
+    image: media("8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a"),
     alt: "หฤทัย สิทธิภูวบุณย์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {

@@ -14,6 +14,8 @@ export type Publication = {
 };
 
 export type Leader = {
+  /** ใช้เป็น anchor id บนหน้า About (`/about#<slug>`) และลิงก์จากส่วนผู้นำบนหน้าแรก */
+  slug: string;
   name: string;
   nameEn: string;
   role: string;
@@ -23,6 +25,7 @@ export type Leader = {
   education: string[];
   work: string[];
   focus: string;
+  focusTh: string;
   email?: string;
   metrics: { label: string; value: number; suffix?: string }[];
   links: SocialLink[];
@@ -30,11 +33,12 @@ export type Leader = {
   metricsNote: string;
 };
 
-const media = (id: string, ext: string = "jpg") =>
-  `https://static.wixstatic.com/media/${id}~mv2.${ext}/v1/fill/w_800,h_1000,al_c,q_85,enc_auto/${id}~mv2.${ext}`;
+/** Self-hosted — ดาวน์โหลดจาก Wix มาไว้ที่ public/images/leadership/ (Phase 0) */
+const media = (id: string) => `/images/leadership/${id}.webp`;
 
 export const leadership: Leader[] = [
   {
+    slug: "smith-boonchutima",
     name: "รศ.ดร.สมิทธิ์ บุญชุติมา",
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
     role: "Head of Research Operations Unit",
@@ -54,6 +58,8 @@ export const leadership: Leader[] = [
     ],
     focus:
       "Health Communication, Risk Communication, Digital Media, Transnational Communication, Social Media Research, Public Relations",
+    focusTh:
+      "การสื่อสารสุขภาพ การสื่อสารความเสี่ยง สื่อดิจิทัล การสื่อสารข้ามชาติ การวิจัยโซเชียลมีเดีย และการประชาสัมพันธ์",
     email: "smith.b@chula.ac.th",
     metrics: [
       { label: "Citations (GS)", value: 263 },
@@ -98,6 +104,7 @@ export const leadership: Leader[] = [
     ],
   },
   {
+    slug: "teerada-chongkolrattanaporn",
     name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
     nameEn: "Asst. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
     role: "Deputy Head of Research Operations Unit",
@@ -116,6 +123,8 @@ export const leadership: Leader[] = [
     ],
     focus:
       "Crisis Communication, Environmental Communications, Persuasion and Negotiation, International Image and Reputation, Framing Theory and Public Relations Campaigns",
+    focusTh:
+      "การสื่อสารภาวะวิกฤต การสื่อสารสิ่งแวดล้อม การโน้มน้าวใจและการเจรจาต่อรอง ภาพลักษณ์และชื่อเสียงระหว่างประเทศ ทฤษฎีการวางกรอบและแคมเปญประชาสัมพันธ์",
     metrics: [
       { label: "Publications", value: 15, suffix: "+" },
       { label: "Thesis advised", value: 25, suffix: "+" },
@@ -147,6 +156,7 @@ export const leadership: Leader[] = [
     ],
   },
   {
+    slug: "pavel-slutskiy",
     name: "รศ.ดร. Pavel Slutskiy",
     nameEn: "Assoc. Prof. Dr. Pavel Slutskiy",
     role: "Deputy Head of Research Operations Unit",
@@ -164,6 +174,8 @@ export const leadership: Leader[] = [
     ],
     focus:
       "Political and legal philosophy of communication, communication theory, cross-cultural communication, strategic communication and public relations",
+    focusTh:
+      "ปรัชญาการเมืองและกฎหมายของการสื่อสาร ทฤษฎีการสื่อสาร การสื่อสารข้ามวัฒนธรรม การสื่อสารเชิงกลยุทธ์และการประชาสัมพันธ์",
     email: "pavel.a@chula.ac.th",
     metrics: [
       { label: "Citations (RG)", value: 150 },
@@ -212,6 +224,8 @@ export const objectives = [
     titleTh: "การเรียนการสอนและการอบรม",
     description:
       "พัฒนาองค์ความรู้และจัดอบรมด้านนวัตกรรมการสื่อสาร ให้กับบุคลากร องค์กร และผู้ที่สนใจนำไปใช้จริง",
+    descriptionEn:
+      "Develop knowledge and deliver communication-innovation training that people and organizations can put to use",
   },
   {
     number: "02",
@@ -219,6 +233,8 @@ export const objectives = [
     titleTh: "การขับเคลื่อนสังคม",
     description:
       "สร้างการรับรู้และขับเคลื่อนประเด็นสำคัญ เพื่อคุณภาพชีวิตและความยั่งยืน ผ่านการสื่อสารที่มีประสิทธิภาพ",
+    descriptionEn:
+      "Raise awareness and drive important issues for quality of life and sustainability through effective communication",
   },
   {
     number: "03",
@@ -226,5 +242,7 @@ export const objectives = [
     titleTh: "เครื่องมือและนวัตกรรม",
     description:
       "วิจัยและพัฒนาเครื่องมือ แนวทางปฏิบัติ และนวัตกรรมการสื่อสาร ที่เป็นประโยชน์ต่อสังคมและองค์กร",
+    descriptionEn:
+      "Research and develop tools, practices, and communication innovation that benefit society and organizations",
   },
 ];

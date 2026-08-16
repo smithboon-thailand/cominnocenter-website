@@ -1,14 +1,13 @@
 /**
  * อาจารย์นักวิจัยประจำศูนย์ (Researchers)
  *
- * แหล่งรูปภาพ:
+ * รูปภาพ self-host ไว้ที่ public/images/researchers/ (Phase 0) — แหล่งต้นฉบับ:
  * - ดร.วรรษยุต: ช่อง YouTube ทางการของท่าน (channel avatar)
  *   https://www.youtube.com/@WatsayutKongchan / UC6Bqg8a_jZFUr2__YxmaXjw
  * - ศ.ดร.วธนน์: ข่าวจุฬาฯ รางวัลนักวิจัยดีเด่นแห่งชาติ 2565
  *   https://www.chula.ac.th/news/58581/
- *   https://www.chula.ac.th/wp-content/uploads/2022/01/C695B217-A394-4444-A123-08A87085054C-1.jpg
  * - ศ.ดร.ลัญฉกร: ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์
- *   https://ee.eng.chula.ac.th/wp-content/uploads/2025/09/LWK2.jpg
+ *   https://ee.eng.chula.ac.th/lunchakorn-wuttisittikulkij/
  */
 
 export type Researcher = {
@@ -17,6 +16,8 @@ export type Researcher = {
   roleTh: string;
   role: string;
   faculty: string;
+  facultyEn: string;
+  focusEn?: string;
   focus: string;
   image?: string;
   alt: string;
@@ -32,10 +33,13 @@ export const researchers: Researcher[] = [
     role: "Center Researcher",
     faculty:
       "อาจารย์ ภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    facultyEn:
+      "Lecturer, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
+    focusEn:
+      "Social-issue communication, communication innovation, and community engagement — Associate Dean for Academic Service and Social Engagement",
     focus:
       "การสื่อสารประเด็นสังคม นวัตกรรมการสื่อสาร และการเชื่อมโยงสังคม — รองคณบดีคณะนิเทศศาสตร์ ด้านบริการวิชาการและเชื่อมโยงสังคม",
-    image:
-      "https://yt3.googleusercontent.com/ytc/AIdro_m1qfmIOSFu6yvHXJxdWd5q4sDUFEnIMZiKoQTzGRorMkw=s800-c-k-c0x00ffffff-no-rj",
+    image: "/images/researchers/watsayut-kongchan.webp",
     alt: "ดร.วรรษยุต คงจันทร์ นักวิจัยประจำศูนย์ — ภาพจากช่อง YouTube ทางการของท่าน (คณะนิเทศศาสตร์ จุฬาฯ)",
     links: [
       {
@@ -63,10 +67,11 @@ export const researchers: Researcher[] = [
     role: "Center Researcher",
     faculty:
       "ศาสตราจารย์ ภาควิชาสถิติ (Business Information Technology) คณะพาณิชยศาสตร์และการบัญชี จุฬาลงกรณ์มหาวิทยาลัย",
+    facultyEn:
+      "Professor, Department of Statistics (Business Information Technology), Chulalongkorn Business School",
     focus:
       "Blockchain, Internet of Things, Business Process Management, Service Workflows, Cyber-Physical Systems",
-    image:
-      "https://www.chula.ac.th/wp-content/uploads/2022/01/C695B217-A394-4444-A123-08A87085054C-1.jpg",
+    image: "/images/researchers/wattana-viriyasitavat.webp",
     alt: "ศ.ดร.วธนน์ วิริยสิทธาวัฒน์ นักวิจัยประจำศูนย์ — ภาพจากข่าวจุฬาฯ รางวัลนักวิจัยดีเด่นแห่งชาติ 2565",
     links: [
       {
@@ -90,9 +95,11 @@ export const researchers: Researcher[] = [
     role: "Center Researcher",
     faculty:
       "ศาสตราจารย์ ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    facultyEn:
+      "Professor, Department of Electrical Engineering, Faculty of Engineering, Chulalongkorn University",
     focus:
       "Metaverse, Wireless Communications, 5G and beyond, AI for communications, VR for smart factory and healthcare (Chulaverse / MANGOs)",
-    image: "https://ee.eng.chula.ac.th/wp-content/uploads/2025/09/LWK2.jpg",
+    image: "/images/researchers/lunchakorn-wuttisittikulkij.webp",
     alt: "ศ.ดร.ลัญฉกร วุฒิสิทธิกุลกิจ นักวิจัยประจำศูนย์ — ภาพจากภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์ จุฬาฯ",
     email: "wlunchak@chula.ac.th",
     links: [

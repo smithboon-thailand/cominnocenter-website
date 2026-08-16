@@ -1,128 +1,79 @@
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { illustration } from "@/data/illustrations";
+import Button from "@/components/ui/Button";
+import { services } from "@/data/services";
+import { SDG, sdgAria } from "@/data/sdg";
 
-const expertiseBanner = illustration("expertise-icons")!;
-
-const services = [
-  {
-    title: "Book & Printing",
-    titleTh: "หนังสือและการพิมพ์",
-    description: "ออกแบบและผลิตสื่อสิ่งพิมพ์ หนังสือ และเอกสารคุณภาพสูง สำหรับงานวิชาการและองค์กร",
+export const metadata = {
+  alternates: {
+    canonical: "/expertise",
+    languages: { th: "/expertise", en: "/en/expertise", "x-default": "/expertise" },
   },
-  {
-    title: "Motion Effect & AR",
-    titleTh: "โมชันและ Augmented Reality",
-    description: "สร้างประสบการณ์สื่อแบบโต้ตอบด้วย Motion Graphics และเทคโนโลยี AR",
-  },
-  {
-    title: "Video Production",
-    titleTh: "การผลิตวิดีโอ",
-    description: "ผลิตวิดีโอคุณภาพสูงสำหรับงานสื่อสาร แคมเปญ การเรียนรู้ และองค์กร",
-  },
-  {
-    title: "Training",
-    titleTh: "การอบรม",
-    description: "ออกแบบและจัดอบรมด้านนวัตกรรมการสื่อสาร ให้กับบุคลากรและองค์กรอย่างตรงจุด",
-  },
-  {
-    title: "Research & Evaluation",
-    titleTh: "วิจัยและประเมินผล",
-    description: "วิจัยเชิงลึกและประเมินผลโครงการสื่อสารอย่างเป็นระบบ เพื่อนำไปสู่การพัฒนาต่อเนื่อง",
-  },
-  {
-    title: "Communication Design",
-    titleTh: "การออกแบบการสื่อสาร",
-    description: "ออกแบบกลยุทธ์และสื่อสารให้สอดคล้องกับเป้าหมายขององค์กรและผู้มีส่วนได้ส่วนเสีย",
-  },
-  {
-    title: "Campaign Management",
-    titleTh: "การบริหารแคมเปญ",
-    description: "วางแผนและบริหารแคมเปญเพื่อสร้างการเปลี่ยนแปลงเชิงพฤติกรรมและทัศนคติ",
-  },
-  {
-    title: "Seminar",
-    titleTh: "สัมมนา",
-    description: "จัดสัมมนาและเวทีแลกเปลี่ยนความรู้ด้านนวัตกรรมการสื่อสารอย่างมีคุณภาพ",
-  },
-  {
-    title: "Marketing Event",
-    titleTh: "กิจกรรมทางการตลาด",
-    description: "ออกแบบและดำเนินกิจกรรมที่เชื่อมโยงแบรนด์กับผู้คนอย่างมีประสิทธิภาพและมีความหมาย",
-  },
-];
+  title: "ความเชี่ยวชาญ",
+  description:
+    "บริการทั้ง 9 ด้านของศูนย์ฯ ตั้งแต่งานวิจัย การอบรม สื่อสิ่งพิมพ์ วิดีโอ ไปจนถึงแคมเปญ — ทุกบริการเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน",
+};
 
 export default function ExpertisePage() {
   return (
     <div className="min-h-screen">
       <Header active="expertise" />
+      <main>
 
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-              ความเชี่ยวชาญ
-              <br />
-              <span className="text-blue-700">ของเรา</span>
-            </h1>
-            <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-              เรามีความเชี่ยวชาญหลากหลายด้าน เพื่อเปลี่ยนนวัตกรรมการสื่อสาร
-              ให้เกิดผลกระทบจริงต่อคุณภาพชีวิตและความยั่งยืน
-            </p>
-          </div>
-          <div className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-sm">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={expertiseBanner.src}
-                alt={expertiseBanner.altTh}
-                className="w-full aspect-[3/2] object-cover object-center"
-              />
-            </div>
-          </div>
-        </div>
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
+        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
+          ความเชี่ยวชาญ
+        </p>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">
+          เก้าบริการ ครบทั้งกระบวนการสื่อสาร
+        </h1>
+        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          จากงานวิจัยถึงการลงมือทำ เราเปลี่ยนนวัตกรรมการสื่อสารให้เกิดผลจริงต่อคุณภาพชีวิต
+          จุดสีใต้แต่ละบริการคือเป้าหมาย SDG ที่บริการนั้นเคยสร้างผลงานมาแล้ว
+        </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div
-              key={service.title}
-              className="group p-6 rounded-2xl border border-neutral-200 bg-white hover:border-pink-300 hover:shadow-md transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-5">
-                <div className="w-3 h-3 rounded-full bg-blue-700" />
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
-                {service.titleTh}
-              </h3>
-              <p className="text-sm text-neutral-500 mt-1">{service.title}</p>
-              <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
-                {service.description}
+            <div key={service.key} className="rounded-lg border border-ink-300 bg-white p-6">
+              <h2 className="text-h3-m md:text-h3 text-ink-900">{service.titleTh}</h2>
+              {/* จุดสี 8px map ไป SDG ที่เกี่ยว (PART H) — มีเลขกำกับเสมอ (B3) */}
+              <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                {service.sdg.map((id) => (
+                  <span
+                    key={id}
+                    aria-label={sdgAria(id)}
+                    className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-500"
+                  >
+                    <span
+                      aria-hidden
+                      className="h-2 w-2 rounded-full"
+                      style={{ backgroundColor: SDG[id].pure }}
+                    />
+                    {id}
+                  </span>
+                ))}
               </p>
+              <p className="mt-3 text-[15px] leading-[1.6] text-ink-700">{service.descTh}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            สนใจบริการด้านใดเป็นพิเศษ?
-          </h2>
-          <p className="mt-3 text-blue-100 max-w-xl mx-auto">
+      <section className="bg-ink-900">
+        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <h2 className="text-h2-m md:text-h2 text-white">สนใจบริการด้านใดเป็นพิเศษ</h2>
+          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
             บอกเราได้เลย เราพร้อมออกแบบแนวทางที่เหมาะสมกับองค์กรของคุณ
           </p>
-          <Link
-            href="/collaborate"
-            className="inline-flex items-center mt-8 px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors"
-          >
-            ติดต่อเรา
-          </Link>
+          <div className="mt-8 flex justify-center">
+            <Button href="/collaborate">ติดต่อเรา</Button>
+          </div>
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

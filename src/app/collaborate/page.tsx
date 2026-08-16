@@ -2,20 +2,29 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
+import SectionHeader from "@/components/ui/SectionHeader";
 
+export const metadata = {
+  alternates: {
+    canonical: "/collaborate",
+    languages: { th: "/collaborate", en: "/en/collaborate", "x-default": "/collaborate" },
+  },
+  title: "ร่วมงานกับเรา",
+  description:
+    "ชวนศูนย์ฯ ร่วมพัฒนาโครงการ วิจัย อบรม หรือแคมเปญการสื่อสารที่วัดผลได้ — เรายินดีร่วมงานกับภาครัฐ ภาคเอกชน และภาคประชาสังคม",
+};
+
+/** หน้านี้ไม่มีสี SDG — โฟกัสที่การกระทำ (ชมพู) ตาม BRAND.md PART H */
 const collaborationWays = [
   {
-    title: "Partnership",
     titleTh: "ความร่วมมือเชิงโครงการ",
     description: "ร่วมพัฒนาโครงการและสร้างผลกระทบระยะยาวร่วมกัน",
   },
   {
-    title: "Training & Capacity Building",
     titleTh: "การอบรมและพัฒนาศักยภาพ",
     description: "ออกแบบและจัดอบรมด้านนวัตกรรมการสื่อสารให้กับองค์กรของคุณ",
   },
   {
-    title: "Research & Evaluation",
     titleTh: "วิจัยและประเมินผล",
     description: "วิจัยและประเมินผลโครงการสื่อสารอย่างเป็นระบบและน่าเชื่อถือ",
   },
@@ -25,83 +34,69 @@ export default function CollaboratePage() {
   return (
     <div className="min-h-screen">
       <Header active="collaborate" />
+      <main>
 
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-            ร่วมสร้างผลกระทบ
-            <br />
-            <span className="text-blue-700">ไปด้วยกัน</span>
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            ไม่ว่าจะเป็นงานวิจัย การอบรม แคมเปญ หรือความร่วมมือในรูปแบบอื่นๆ
-            เรายินดีร่วมงานกับภาครัฐ ภาคเอกชน และภาคประชาสังคม
-            เพื่อสร้างนวัตกรรมการสื่อสารที่ส่งผลต่อคุณภาพชีวิตและความยั่งยืน
-          </p>
-        </div>
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
+        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
+          ร่วมงานกับเรา
+        </p>
+        <h1 className="text-h1-m md:text-h1 text-ink-900">ร่วมสร้างผลกระทบไปด้วยกัน</h1>
+        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          ไม่ว่าจะเป็นงานวิจัย การอบรม แคมเปญ หรือความร่วมมือรูปแบบอื่น
+          เรายินดีร่วมงานกับภาครัฐ ภาคเอกชน และภาคประชาสังคม
+          เพื่อสร้างนวัตกรรมการสื่อสารที่ส่งผลต่อคุณภาพชีวิตและความยั่งยืน
+        </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {collaborationWays.map((item) => (
-            <div
-              key={item.title}
-              className="p-6 rounded-2xl border border-neutral-200 bg-white hover:border-pink-300 hover:shadow-md transition-all"
-            >
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                <div className="w-3 h-3 rounded-full bg-blue-700" />
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-900">{item.titleTh}</h3>
-              <p className="text-sm text-neutral-500 mt-0.5">{item.title}</p>
-              <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{item.description}</p>
+            <div key={item.titleTh} className="rounded-lg border border-ink-300 bg-white p-6">
+              <h2 className="text-h3-m md:text-h3 text-ink-900">{item.titleTh}</h2>
+              <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-white border-y border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <section className="border-y border-ink-300 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
             <div className="lg:col-span-3">
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-2">
-                ส่งข้อความถึงเรา
-              </h2>
-              <p className="text-neutral-600 mb-8">
-                กรอกแบบฟอร์มด้านล่าง แล้วเราจะติดต่อกลับโดยเร็วที่สุด
-              </p>
-              <ContactForm />
+              <SectionHeader
+                title="ส่งข้อความถึงเรา"
+                description="กรอกแบบฟอร์มด้านล่าง แล้วเราจะติดต่อกลับโดยเร็วที่สุด"
+              />
+              <div className="mt-8">
+                <ContactForm />
+              </div>
             </div>
 
             <div className="lg:col-span-2">
-              <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-200 h-full">
-                <h3 className="text-xl font-semibold text-blue-700 mb-6">
-                  ช่องทางติดต่อโดยตรง
-                </h3>
-
-                <div className="space-y-6 text-sm">
+              <div className="h-full rounded-lg border border-ink-300 bg-ink-0 p-8">
+                <h3 className="text-h3-m md:text-h3 text-ink-900">ช่องทางติดต่อโดยตรง</h3>
+                <div className="mt-6 space-y-6 text-[15px] leading-[1.6]">
                   <div>
-                    <div className="text-neutral-500 mb-1">อีเมล</div>
+                    <p className="mb-1 text-ink-500">อีเมล</p>
                     <a
                       href="mailto:comminno@chula.ac.th"
-                      className="text-neutral-900 font-medium hover:text-pink-500"
+                      className="font-medium text-ink-900 hover:text-pink-500"
                     >
                       comminno@chula.ac.th
                     </a>
                   </div>
-
                   <div>
-                    <div className="text-neutral-500 mb-1">โทรศัพท์</div>
+                    <p className="mb-1 text-ink-500">โทรศัพท์</p>
                     <a
                       href="tel:022182262"
-                      className="text-neutral-900 font-medium hover:text-pink-500"
+                      className="font-medium text-ink-900 hover:text-pink-500"
                     >
                       02-218-2262
                     </a>
                   </div>
-
                   <div>
-                    <div className="text-neutral-500 mb-1">ที่อยู่</div>
-                    <p className="text-neutral-900 leading-relaxed">
+                    <p className="mb-1 text-ink-500">ที่อยู่</p>
+                    <p className="text-ink-900">
                       คณะนิเทศศาสตร์
                       <br />
                       จุฬาลงกรณ์มหาวิทยาลัย
@@ -109,15 +104,14 @@ export default function CollaboratePage() {
                       กรุงเทพมหานคร
                     </p>
                   </div>
-
                   <div>
-                    <div className="text-neutral-500 mb-2">โซเชียลมีเดีย</div>
+                    <p className="mb-2 text-ink-500">โซเชียลมีเดีย</p>
                     <div className="flex gap-4">
                       <a
                         href="https://www.instagram.com/comm.inno21/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-neutral-900 font-medium hover:text-pink-500"
+                        className="font-medium text-ink-900 hover:text-pink-500"
                       >
                         Instagram
                       </a>
@@ -125,7 +119,7 @@ export default function CollaboratePage() {
                         href="https://www.facebook.com/comm.inno21"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-neutral-900 font-medium hover:text-pink-500"
+                        className="font-medium text-ink-900 hover:text-pink-500"
                       >
                         Facebook
                       </a>
@@ -138,22 +132,21 @@ export default function CollaboratePage() {
         </div>
       </section>
 
-      <section className="bg-neutral-100">
-        <div className="max-w-7xl mx-auto px-6 py-14">
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-xl md:text-2xl font-semibold text-blue-700">
-              ยังไม่พร้อมติดต่อตอนนี้?
-            </h2>
-            <p className="mt-2 text-neutral-600 text-sm mb-6">
-              สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate ในอนาคต
+      <section className="bg-ink-100">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="mx-auto max-w-xl text-center">
+            <h2 className="text-h2-m md:text-h2 text-ink-900">ยังไม่พร้อมติดต่อตอนนี้</h2>
+            <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">
+              สมัครรับจดหมายข่าว เพื่อติดตามโอกาสความร่วมมือในอนาคต
             </p>
-            <div className="max-w-md mx-auto">
+            <div className="mx-auto mt-6 max-w-md">
               <NewsletterForm variant="light" />
             </div>
           </div>
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

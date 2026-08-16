@@ -2,461 +2,295 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NewsletterForm from "@/components/NewsletterForm";
-import ParallaxHero from "@/components/effects/ParallaxHero";
-import Reveal from "@/components/effects/Reveal";
-import AnimatedCounter from "@/components/effects/AnimatedCounter";
-import GlassCard from "@/components/effects/GlassCard";
-import VideoShowcase from "@/components/VideoShowcase";
-import HomeLeadership from "@/components/HomeLeadership";
+import DisplayHeading from "@/components/ui/DisplayHeading";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Stat from "@/components/ui/Stat";
+import Button from "@/components/ui/Button";
+import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
+import { leadership } from "@/data/leadership";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
-import { homeHighlights } from "@/data/highlights";
-import { illustration } from "@/data/illustrations";
+import { partners } from "@/data/partners";
+import { newsSorted, newsCover } from "@/data/news";
+import { SDG, SDG_IDS } from "@/data/sdg";
 
-const heroIllust = illustration("hero-network")!;
-const sdgIllust = illustration("sdg-ring")!;
-const parallaxIllust = illustration("parallax-overlay")!;
-
-const highlightTypeLabel: Record<string, string> = {
-  research: "Research",
-  award: "Award",
-  media: "Media",
-  event: "Event",
-  book: "Book",
-  leadership: "Leadership",
+export const metadata = {
+  alternates: {
+    canonical: "/en",
+    languages: { th: "/", en: "/en", "x-default": "/" },
+  },
 };
+
+const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(id))).length;
+
+/** Featured trio — combined badges stay within the 6-color viewport cap (PART H) */
+const FEATURED_SLUGS = ["chula-zero-waste", "care-d-plus", "nia-100-faces"] as const;
+const featured = FEATURED_SLUGS.map((slug) => projects.find((p) => p.slug === slug)!);
+
+const latestNews = newsSorted.slice(0, 3);
 
 const expertiseItems = [
   {
-    title: "Training & Capacity Building",
+    number: "01",
+    title: "Training & capacity building",
     description: "Design and deliver communication innovation training for organizations",
-    icon: "01",
   },
   {
-    title: "Research & Evaluation",
+    number: "02",
+    title: "Research & evaluation",
     description: "In-depth research and systematic evaluation of communication projects",
-    icon: "02",
   },
   {
-    title: "Campaigns & Communication",
+    number: "03",
+    title: "Campaigns & communication",
     description: "Strategy and campaign management for meaningful change",
-    icon: "03",
   },
   {
-    title: "Video & Multimedia",
+    number: "04",
+    title: "Video & multimedia",
     description: "High-quality video, AR, and creative media production",
-    icon: "04",
   },
 ];
 
-const featuredImpact = projects.slice(0, 3);
-
-const sdgLabels = [
-  "No Poverty",
-  "Zero Hunger",
-  "Good Health",
-  "Quality Education",
-  "Gender Equality",
-  "Clean Water",
-  "Clean Energy",
-  "Decent Work",
-  "Innovation",
-  "Reduced Inequalities",
-  "Sustainable Cities",
-  "Responsible Consumption",
-  "Climate Action",
-  "Life Below Water",
-  "Life on Land",
-  "Peace & Justice",
-  "Partnerships",
-];
+function enDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+  ];
+  return `${months[m - 1]} ${d}, ${y}`;
+}
 
 export default function EnglishHomePage() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen">
       <Header active="home" locale="en" />
+      <main>
 
-      <ParallaxHero>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-pink-200 bg-white/70 backdrop-blur text-xs font-medium text-pink-600 mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
-                Faculty of Communication Arts · Chulalongkorn University
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-900 leading-[1.05]">
-                COMMUNICATION
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-600 to-pink-500">
-                  INNOVATION
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-6 text-xl md:text-2xl text-neutral-600 font-light tracking-[0.18em]">
-                FOR A BETTER LIFE
-              </p>
-            </Reveal>
-            <Reveal delay={240}>
-              <p className="mt-8 text-lg text-neutral-700 max-w-xl leading-relaxed">
-                Center of Excellence in Communication Innovation for the Development of Quality of
-                Life and Sustainability, Faculty of Communication Arts, Chulalongkorn University
-              </p>
-            </Reveal>
-            <Reveal delay={320}>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link
-                  href="/en/collaborate"
-                  className="inline-flex items-center px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5"
-                >
-                  Collaborate with us
-                </Link>
-                <Link
-                  href="/en/impact"
-                  className="inline-flex items-center px-8 py-3.5 rounded-lg border border-blue-700/30 bg-white/60 backdrop-blur text-blue-700 font-medium hover:bg-white hover:border-blue-700 transition-all"
-                >
-                  View our impact
-                </Link>
-              </div>
-            </Reveal>
-          </div>
+      {/* Hero — two-tone display per BRAND v1.2 */}
+      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <p className="mb-4 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
+          Faculty of Communication Arts, Chulalongkorn University
+        </p>
+        <DisplayHeading
+          primary="Communication innovation"
+          secondary="for sustainable quality of life"
+        />
+        <p className="mt-6 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+          A center of excellence that turns communication research into practical tools that
+          change people&apos;s lives. Every project is measurable and aligned with the
+          Sustainable Development Goals.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-4">
+          <Button href="/en/collaborate">Collaborate with us</Button>
+          <Button variant="secondary" href="/en/impact">
+            View our work
+          </Button>
+        </div>
+      </section>
 
-          <div className="lg:col-span-5 relative hidden lg:block">
-            <Reveal direction="right" delay={200}>
-              <div className="relative aspect-[4/3] max-w-md ml-auto rounded-3xl overflow-hidden border border-neutral-200/80 shadow-xl shadow-blue-900/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={heroIllust.src}
-                  alt={heroIllust.altEn}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="rounded-2xl glass px-4 py-3 shadow-lg">
-                    <div className="text-[10px] tracking-widest text-neutral-500">
-                      CENTER OF EXCELLENCE
-                    </div>
-                    <div className="text-sm font-semibold text-blue-700">
-                      Communication · Innovation · SDG
-                    </div>
-                  </div>
-                </div>
+      {/* SDG marquee — 17 color dots, slow scroll, pauses on hover */}
+      <div className="border-y border-ink-300 bg-white">
+        <div className="overflow-hidden" aria-label="All 17 Sustainable Development Goals">
+          <div className="flex w-max animate-marquee whitespace-nowrap py-3 [animation-duration:48s] hover:[animation-play-state:paused]">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex" aria-hidden={copy === 1}>
+                {SDG_IDS.map((id) => (
+                  <span
+                    key={`${copy}-${id}`}
+                    className="mx-5 inline-flex items-center gap-2 text-[13px] font-medium text-ink-500"
+                  >
+                    <span
+                      aria-hidden
+                      className="h-2 w-2 rounded-full"
+                      style={{ backgroundColor: SDG[id].pure }}
+                    />
+                    {id} {SDG[id].en}
+                  </span>
+                ))}
               </div>
-            </Reveal>
+            ))}
           </div>
         </div>
-      </ParallaxHero>
-
-      <div className="border-y border-neutral-200 bg-white/80 backdrop-blur overflow-hidden">
-        <div className="flex whitespace-nowrap animate-marquee py-3 text-xs tracking-wide text-neutral-500">
-          {[...sdgLabels, ...sdgLabels].map((label, i) => (
-            <span key={`${label}-${i}`} className="mx-6 inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
-              {label}
-            </span>
-          ))}
+        <div className="mx-auto max-w-7xl px-6 pb-3 text-right">
+          <Link
+            href="/en/sdg"
+            className="text-[13px] font-medium text-pink-500 hover:text-pink-700"
+          >
+            See our work across all 17 goals →
+          </Link>
         </div>
       </div>
 
-      <section className="relative bg-white grain">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: 50, suffix: "+", label: "Projects" },
-              { value: 30, suffix: "+", label: "Partners" },
-              { value: 1000, suffix: "+", label: "Trainees" },
-              { value: 10, suffix: "+", label: "Years" },
-            ].map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 80}>
-                <div className="relative">
-                  <div className="text-4xl md:text-5xl font-bold text-blue-700">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <div className="mt-2 text-sm text-neutral-600">{stat.label}</div>
-                </div>
-              </Reveal>
+      {/* Real numbers from data, not marketing claims (Rigorous — PART A1) */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <Stat value={projects.length} unit="projects" label="Delivered work" />
+          <Stat value={partners.length} unit="organizations" label="Partners" />
+          <Stat value="10,000+" unit="people" label="Professionals trained" />
+          <Stat value={`${coveredGoals}/17`} unit="goals" label="SDGs covered" />
+        </div>
+      </section>
+
+      {/* Featured impact */}
+      <section className="border-y border-ink-300 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeader
+              locale="en"
+              eyebrow="Featured impact"
+              title="Research turned into real outcomes"
+              description="Selected projects where our communication created measurable change"
+            />
+            <Button variant="secondary" href="/en/impact">
+              View all projects
+            </Button>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featured.map((p) => (
+              <ProjectCard
+                key={p.slug}
+                href={`/en/impact/${p.slug}`}
+                title={p.titleEn}
+                description={getLocalizedProjectCopy(p).outcome}
+                image={p.image}
+                alt={`${p.titleEn} — project photo from the center's archive`}
+                sdgIds={p.sdg}
+                locale="en"
+              />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative max-w-7xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-          <Reveal>
-            <div>
-              <p className="text-sm font-medium text-pink-500 mb-3">About the center</p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700 leading-tight">
-                Communication innovation
-                <br />
-                for sustainable quality of life
-              </h2>
-              <p className="mt-6 text-lg text-neutral-700 leading-relaxed">
-                We are a research center dedicated to knowledge and communication innovation that
-                elevates quality of life and sustainability — through research, tools, education,
-                and partnerships across government, business, and civil society.
-              </p>
-              <Link
-                href="/en/about"
-                className="inline-flex items-center mt-8 text-pink-500 font-medium hover:text-pink-600 group"
-              >
-                Learn more about us
-                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal direction="right" delay={120}>
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-pink-200/40 via-blue-100/30 to-amber-100/40 blur-xl" />
-              <div className="relative rounded-3xl border border-neutral-200 bg-white overflow-hidden shadow-sm">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={sdgIllust.src}
-                  alt={sdgIllust.altEn}
-                  className="w-full aspect-[4/3] object-cover"
-                />
-                <div className="grid grid-cols-2 gap-3 p-5">
-                  {["Teaching", "Advocacy", "Tools", "Networks"].map((t, i) => (
-                    <div
-                      key={t}
-                      className="rounded-xl border border-neutral-100 bg-neutral-50 px-4 py-3 hover:border-pink-200 transition-colors"
-                    >
-                      <div className="text-[10px] text-neutral-400 mb-0.5">0{i + 1}</div>
-                      <div className="text-sm font-semibold text-blue-700">{t}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Reveal>
+      {/* Expertise — pure Ink, no SDG colors */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeader
+            locale="en"
+            eyebrow="Expertise"
+            title="Four things we do best"
+            description="From research to delivery, we cover the whole communication process"
+          />
+          <Button variant="ghost" href="/en/expertise">
+            See our services
+          </Button>
         </div>
-      </section>
-
-      <HomeLeadership locale="en" />
-
-      <section className="relative bg-gradient-to-b from-white to-neutral-50 border-y border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-            <Reveal>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">Our expertise</h2>
-                <p className="mt-3 text-neutral-600 max-w-xl">
-                  Capabilities designed to turn communication into measurable impact
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={100}>
-              <Link
-                href="/en/expertise"
-                className="text-pink-500 font-medium hover:text-pink-600 whitespace-nowrap"
-              >
-                View all →
-              </Link>
-            </Reveal>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {expertiseItems.map((item, i) => (
-              <Reveal key={item.title} delay={i * 90}>
-                <GlassCard className="h-full p-6">
-                  <div className="text-3xl font-bold text-pink-500/30 mb-4">{item.icon}</div>
-                  <h3 className="text-lg font-semibold text-neutral-900">{item.title}</h3>
-                  <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{item.description}</p>
-                </GlassCard>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative max-w-7xl mx-auto px-6 py-20">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <Reveal>
-            <div>
-              <p className="text-sm font-medium text-pink-500 mb-2">Highlights</p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">News & impact</h2>
-              <p className="mt-3 text-neutral-600 max-w-xl">
-                Selected media, awards, and leadership roles that shape the field
-              </p>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {expertiseItems.map((item) => (
+            <div key={item.number} className="rounded-lg border border-ink-300 bg-white p-6">
+              <p className="text-[15px] font-medium leading-[1.6] text-ink-500">{item.number}</p>
+              <h3 className="mt-3 text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
             </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <Link
-              href="/en/about"
-              className="text-pink-500 font-medium hover:text-pink-600 whitespace-nowrap"
-            >
-              Meet our leaders →
-            </Link>
-          </Reveal>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {homeHighlights.map((h, i) => (
-            <Reveal key={h.id} delay={i * 80}>
-              <article className="group h-full rounded-2xl border border-neutral-200 bg-white p-6 md:p-7 hover:border-pink-200 hover:shadow-lg transition-all duration-300">
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-pink-500/10 text-pink-600">
-                    {highlightTypeLabel[h.type] || h.type}
-                  </span>
-                  <span className="text-[11px] text-neutral-400">
-                    {h.date.slice(0, 4)}
-                    {h.source ? ` · ${h.source}` : ""}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-neutral-900 leading-snug group-hover:text-blue-700 transition-colors">
-                  {h.titleEn}
-                </h3>
-                <p className="mt-2 text-sm text-neutral-600 leading-relaxed line-clamp-3">
-                  {h.summaryEn}
-                </p>
-                {h.href && (
-                  <a
-                    href={h.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center mt-4 text-sm font-medium text-pink-600 hover:text-pink-700"
-                  >
-                    Read source
-                    <span className="ml-1.5 opacity-50">↗</span>
-                  </a>
-                )}
-              </article>
-            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="relative bg-neutral-50 border-y border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <Reveal>
-            <div className="mb-12">
-              <p className="text-sm font-medium text-pink-500 mb-2">Research Insights</p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">Research videos</h2>
-              <p className="mt-3 text-neutral-600 max-w-xl">
-                Featured clips from the center’s official Communication Innovation YouTube channel
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <VideoShowcase />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <Reveal>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">Featured impact</h2>
-              <p className="mt-3 text-neutral-600 max-w-xl">
-                Selected projects that advance quality of life and sustainability
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <Link
-              href="/en/impact"
-              className="text-pink-500 font-medium hover:text-pink-600 whitespace-nowrap"
-            >
-              View all projects →
-            </Link>
-          </Reveal>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredImpact.map((item, i) => {
-            const copy = getLocalizedProjectCopy(item);
-            return (
-              <Reveal key={item.slug} delay={i * 100}>
-                <Link
-                  href={`/en/impact/${item.slug}`}
-                  className="group block rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-                >
-                  <div className="relative h-52 overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
-                  </div>
-                  <div className="p-6">
-                    <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-3">
-                      {item.sdg}
-                    </span>
-                    <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
-                      {item.titleEn}
-                    </h3>
-                    <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{copy.outcome}</p>
-                  </div>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden border-y border-neutral-200">
-        <div className="absolute inset-0 bg-neutral-100" />
-        <div className="absolute -top-24 right-0 w-96 h-96 rounded-full bg-pink-300/20 blur-3xl" />
-        <div className="absolute -bottom-24 left-0 w-96 h-96 rounded-full bg-blue-400/15 blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-20">
-          <Reveal>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700">
-                Stay updated on collaboration opportunities
-              </h2>
-              <p className="mt-4 text-neutral-600 mb-8">
-                Subscribe to the center newsletter for project news, training, and partnership
-                calls.
-              </p>
-              <div className="max-w-md mx-auto">
-                <NewsletterForm variant="light" locale="en" />
-              </div>
-              <p className="mt-4 text-xs text-neutral-500">
-                We do not spam. You can unsubscribe anytime.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-blue-700 text-white">
-        <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={parallaxIllust.src}
-            alt={parallaxIllust.altEn}
-            className="w-full h-full object-cover opacity-40"
+      {/* Center leadership — cards link to full bios on the About page (no SDG colors, PART H) */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeader
+            locale="en"
+            eyebrow="Our team"
+            title="Center leadership"
+            description="Leaders with both academic track records and hands-on experience — click for full profiles"
           />
-          <div className="absolute inset-0 bg-blue-700/55" />
+          <Button variant="ghost" href="/en/about#leadership">
+            Meet the full team
+          </Button>
         </div>
-        <div className="absolute inset-0 opacity-30 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-pink-500 blur-3xl animate-float-slow" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-cyan-400 blur-3xl animate-float-medium" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-semibold">
-              Ready to create impact together?
-            </h2>
-            <p className="mt-4 text-blue-100 max-w-xl mx-auto">
-              Research, training, campaigns, or other partnerships — we welcome collaboration.
-            </p>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {leadership.map((person) => (
             <Link
-              href="/en/collaborate"
-              className="inline-flex items-center mt-8 px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-all shadow-lg shadow-pink-500/30 hover:-translate-y-0.5"
+              key={person.slug}
+              href={`/en/about#${person.slug}`}
+              className="group overflow-hidden rounded-lg border border-ink-300 bg-white transition-all duration-150 ease-brand hover:-translate-y-0.5 hover:border-ink-500 hover:shadow-sm focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
             >
-              Contact us
+              <div className="relative aspect-[4/5] overflow-hidden bg-ink-100">
+                <Image
+                  src={person.image}
+                  alt={`${person.nameEn} — ${person.role}, Faculty of Communication Arts, Chulalongkorn University`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
+                  {person.role}
+                </p>
+                <h3 className="mt-1 text-h3-m md:text-h3 text-ink-900">{person.nameEn}</h3>
+                <p className="mt-3 line-clamp-2 text-[15px] leading-[1.6] text-ink-700">
+                  {person.focus}
+                </p>
+                <p className="mt-4 text-[13px] font-medium text-pink-500 group-hover:text-pink-700">
+                  View profile →
+                </p>
+              </div>
             </Link>
-          </Reveal>
+          ))}
         </div>
       </section>
 
+      {/* Latest news — from the Phase 0-C archive */}
+      <section className="border-y border-ink-300 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeader locale="en" eyebrow="News & events" title="Latest from the center" />
+            <Button variant="ghost" href="/en/news">
+              Read all news
+            </Button>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {latestNews.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/en/news/${post.slug}`}
+                className="group overflow-hidden rounded-lg border border-ink-300 bg-white
+                  transition-transform duration-150 ease-brand hover:-translate-y-0.5
+                  focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]
+                  motion-reduce:hover:translate-y-0"
+              >
+                <span className="relative block aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={newsCover(post.slug)}
+                    alt={`${post.titleEn} — photo from the center's news archive`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </span>
+                <span className="block p-6">
+                  <span className="block text-[13px] leading-[1.4] text-ink-500">
+                    {enDate(post.date)}
+                  </span>
+                  <span className="mt-2 block text-h3-m md:text-h3 text-ink-900 line-clamp-2">
+                    {post.titleEn}
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-ink-900">
+        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <h2 className="text-h2-m md:text-h2 text-white">
+            Have a communication challenge that needs real results?
+          </h2>
+          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
+            Tell us about your organization and design measurable communication together.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Button href="/en/collaborate">Collaborate with us</Button>
+          </div>
+        </div>
+      </section>
+
+      </main>
       <Footer locale="en" />
     </div>
   );

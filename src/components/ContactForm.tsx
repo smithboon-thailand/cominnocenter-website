@@ -81,7 +81,7 @@ export default function ContactForm({ locale = "th" }: ContactFormProps) {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-pink-200 bg-pink-50 p-8 text-center">
-        <h3 className="text-xl font-semibold text-blue-700">{t.successTitle}</h3>
+        <h3 className="text-xl font-medium text-blue-700">{t.successTitle}</h3>
         <p className="mt-2 text-neutral-600">{t.successBody}</p>
         <button
           type="button"

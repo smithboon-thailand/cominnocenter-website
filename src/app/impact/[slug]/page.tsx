@@ -4,7 +4,11 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectGallery from "@/components/ProjectGallery";
+import SdgBadge from "@/components/ui/SdgBadge";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Button from "@/components/ui/Button";
 import { getProjectBySlug, projects } from "@/data/projects";
+import { SDG } from "@/data/sdg";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,15 +25,26 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: project.title,
     description: project.outcome,
+    alternates: {
+      canonical: `/impact/${slug}`,
+      languages: { th: `/impact/${slug}`, en: `/en/impact/${slug}`, "x-default": `/impact/${slug}` },
+    },
+    openGraph: { title: project.title, description: project.outcome, images: [project.image] },
   };
 }
 
+/**
+ * Impact detail — BRAND.md PART H: หนึ่งหน้า หนึ่งสี
+ * แถบ hero 6px สี pure ของ SDG หลัก + ส่วนผลลัพธ์พื้น tint · ที่เหลือเป็น Ink ล้วน
+ * (badge เป้าหมายรองแสดงได้เฉพาะตรง header)
+ */
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const related = projects.filter((p) => p.slug !== slug).slice(0, 3);
+  const primary = project.sdg[0];
+  const goal = SDG[primary];
   const gallery =
     project.gallery?.length > 0
       ? project.gallery
@@ -38,38 +53,45 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header active="impact" />
+      <main>
 
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">
-        <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" aria-label="breadcrumb">
+      {/* แถบ hero 6px สี pure ของ SDG หลัก เต็มความกว้าง */}
+      <div aria-hidden className="h-1.5 w-full" style={{ backgroundColor: goal.pure }} />
+
+      <section className="mx-auto max-w-7xl px-6 pb-10 pt-16 md:pt-24">
+        <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[15px]" aria-label="breadcrumb">
           <Link
             href="/"
-            className="inline-flex items-center font-medium text-pink-500 hover:text-pink-600"
+            className="inline-flex items-center font-medium text-pink-500 hover:text-pink-700"
           >
             ← กลับหน้าหลัก
           </Link>
-          <span className="text-neutral-300" aria-hidden>
+          <span className="text-ink-300" aria-hidden>
             |
           </span>
           <Link
             href="/impact"
-            className="inline-flex items-center font-medium text-neutral-600 hover:text-pink-500"
+            className="inline-flex items-center font-medium text-ink-700 hover:text-pink-500"
           >
             กลับไปหน้าผลงาน
           </Link>
         </nav>
         <div className="mt-6 max-w-3xl">
-          <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-pink-100 text-pink-700 mb-4">
-            {project.sdg} · {project.sdgLabel}
-          </span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900">
-            {project.title}
-          </h1>
-          <p className="mt-2 text-neutral-500">{project.titleEn}</p>
+          <div className="mb-4 flex flex-wrap gap-1.5">
+            <SdgBadge id={primary} />
+            {project.sdg.slice(1).map((id) => (
+              <SdgBadge key={id} id={id} variant="compact" />
+            ))}
+          </div>
+          <h1 className="text-h1-m md:text-h1 text-ink-900">{project.title}</h1>
+          {project.title !== project.titleEn && (
+            <p className="mt-2 text-[15px] leading-[1.6] text-ink-500">{project.titleEn}</p>
+          )}
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-8">
-        <div className="relative aspect-[21/9] md:aspect-[2.4/1] rounded-2xl overflow-hidden">
+      <section className="mx-auto max-w-7xl px-6 pb-12">
+        <div className="relative aspect-[21/9] overflow-hidden rounded-lg border border-ink-300 md:aspect-[2.4/1]">
           <Image
             src={project.image}
             alt={project.alt}
@@ -81,96 +103,70 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-6 pb-12">
-        <div className="space-y-12">
-          <div>
-            <h2 className="text-xl font-semibold text-blue-700 mb-3">Challenge</h2>
-            <p className="text-neutral-700 leading-relaxed text-lg">{project.challenge}</p>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold text-blue-700 mb-3">Approach</h2>
-            <p className="text-neutral-700 leading-relaxed text-lg">{project.approach}</p>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold text-blue-700 mb-3">Impact</h2>
-            <p className="text-neutral-700 leading-relaxed text-lg">{project.impact}</p>
-          </div>
-        </div>
+      <section className="mx-auto max-w-3xl space-y-12 px-6 pb-16">
+        <SectionHeader title="ความท้าทาย" description={project.challenge} />
+        <SectionHeader title="แนวทางของเรา" description={project.approach} />
+      </section>
 
-        <div className="mt-12 p-6 rounded-2xl bg-neutral-100 border border-neutral-200">
-          <p className="text-neutral-700 font-medium">{project.outcome}</p>
+      {/* ส่วนผลลัพธ์ — พื้น tint ของ SDG หลัก (จุดสีเดียวของหน้านอกจากแถบบน) */}
+      <section style={{ backgroundColor: goal.tint }}>
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <SectionHeader title="ผลลัพธ์" description={project.impact} />
+          <div className="mt-8 rounded-lg border border-ink-300 bg-white p-6">
+            <p className="text-[17px] font-medium leading-[1.7] text-ink-900">{project.outcome}</p>
+          </div>
+          {project.sourceUrl && (
+            <p className="mt-6 text-[15px] leading-[1.6]">
+              {project.sourceUrl.startsWith("/") ? (
+                <Link
+                  href={project.sourceUrl}
+                  className="font-medium text-pink-500 hover:text-pink-700"
+                >
+                  อ่านข่าวของโครงการนี้ →
+                </Link>
+              ) : (
+                <a
+                  href={project.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-pink-500 hover:text-pink-700"
+                >
+                  ดูเว็บไซต์โครงการ ↗
+                </a>
+              )}
+            </p>
+          )}
         </div>
-
-        {project.sourceUrl && (
-          <p className="mt-6 text-sm text-neutral-500">
-            แหล่งที่มา:{" "}
-            <a
-              href={project.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-500 hover:text-pink-600"
-            >
-              ดูโพสต์ต้นฉบับ
-            </a>
-          </p>
-        )}
       </section>
 
       {gallery.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 pb-16">
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">Gallery</h2>
-          <p className="text-sm text-neutral-500 mb-6">คลิกที่ภาพเพื่อดูขนาดใหญ่</p>
+        <section className="mx-auto max-w-7xl px-6 py-16">
+          <div className="mb-6">
+            <SectionHeader title="ภาพจากโครงการ" description="คลิกที่ภาพเพื่อดูขนาดใหญ่" />
+          </div>
           <ProjectGallery images={gallery} />
         </section>
       )}
 
-      {related.length > 0 && (
-        <section className="bg-white border-y border-neutral-200">
-          <div className="max-w-7xl mx-auto px-6 py-16">
-            <h2 className="text-2xl font-semibold text-blue-700 mb-8">โครงการที่เกี่ยวข้อง</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {related.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/impact/${item.slug}`}
-                  className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-md transition-shadow"
-                >
-                  <div className="relative h-40 overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="33vw"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-semibold text-neutral-900 group-hover:text-blue-700 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-neutral-600 line-clamp-2">{item.outcome}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <Button variant="secondary" href={`/impact?sdg=${primary}`}>
+          ดูผลงานทั้งหมดใน SDG {primary}
+        </Button>
+      </section>
 
-      <section className="bg-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            อยากสร้างผลกระทบแบบนี้ไปด้วยกัน?
-          </h2>
-          <Link
-            href="/collaborate"
-            className="inline-flex items-center mt-8 px-8 py-3.5 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors"
-          >
-            ร่วมงานกับเรา
-          </Link>
+      <section className="bg-ink-900">
+        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <h2 className="text-h2-m md:text-h2 text-white">อยากสร้างผลลัพธ์แบบนี้ไปด้วยกัน</h2>
+          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
+            เล่าโจทย์ขององค์กรให้เราฟัง แล้วออกแบบการสื่อสารที่วัดผลได้ไปด้วยกัน
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Button href="/collaborate">ร่วมงานกับเรา</Button>
+          </div>
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

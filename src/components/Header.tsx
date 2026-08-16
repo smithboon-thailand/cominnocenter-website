@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-type PageKey = "home" | "about" | "expertise" | "impact" | "collaborate";
+type PageKey = "home" | "about" | "expertise" | "impact" | "sdg" | "collaborate";
 
 type HeaderProps = {
   active?: PageKey;
@@ -12,14 +12,15 @@ type HeaderProps = {
   locale?: "th" | "en";
 };
 
-const LOGO_SRC =
-  "https://static.wixstatic.com/media/8e0d14_0564f38949dd4891a2359cb0daa61bb4~mv2.png/v1/fill/w_400,h_120,al_c,q_90,enc_auto/logo-communication-innovation.png";
+const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
 
 const NAV = {
   th: {
+    home: "หน้าแรก",
     about: "เกี่ยวกับเรา",
     expertise: "ความเชี่ยวชาญ",
     impact: "ผลงาน",
+    sdg: "SDG",
     collaborate: "ร่วมงานกับเรา",
     cta: "ร่วมงานกับเรา",
     homeAria: "ComInnoCenter หน้าแรก",
@@ -27,9 +28,11 @@ const NAV = {
     closeMenu: "ปิดเมนู",
   },
   en: {
+    home: "Home",
     about: "About",
     expertise: "Expertise",
     impact: "Impact",
+    sdg: "SDG",
     collaborate: "Collaborate",
     cta: "Collaborate",
     homeAria: "ComInnoCenter home",
@@ -63,12 +66,12 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
 
   const linkClass = (page: string) =>
     active === page
-      ? "text-pink-500 font-semibold"
+      ? "text-pink-500 font-medium"
       : "text-neutral-700 hover:text-pink-500 transition-colors";
 
   const mobileLinkClass = (page: string) =>
     active === page
-      ? "text-pink-500 font-semibold text-lg"
+      ? "text-pink-500 font-medium text-lg"
       : "text-neutral-800 text-lg hover:text-pink-500 transition-colors";
 
   return (
@@ -82,7 +85,7 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
         >
           <Image
             src={LOGO_SRC}
-            alt="Communication Innovation Center logo — from original ComInnoCenter site"
+            alt={locale === "th" ? "โลโก้ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร" : "Communication Innovation Center logo"}
             width={180}
             height={54}
             className="h-10 w-auto md:h-12 object-contain"
@@ -91,6 +94,9 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <Link href={pathFor(locale, "home")} className={linkClass("home")}>
+            {t.home}
+          </Link>
           <Link href={pathFor(locale, "about")} className={linkClass("about")}>
             {t.about}
           </Link>
@@ -99,6 +105,9 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
           </Link>
           <Link href={pathFor(locale, "impact")} className={linkClass("impact")}>
             {t.impact}
+          </Link>
+          <Link href={pathFor(locale, "sdg")} className={linkClass("sdg")}>
+            {t.sdg}
           </Link>
           <Link href={pathFor(locale, "collaborate")} className={linkClass("collaborate")}>
             {t.collaborate}
@@ -144,6 +153,13 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
         <div className="md:hidden border-t border-neutral-200 bg-neutral-50">
           <nav className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
             <Link
+              href={pathFor(locale, "home")}
+              className={mobileLinkClass("home")}
+              onClick={() => setOpen(false)}
+            >
+              {t.home}
+            </Link>
+            <Link
               href={pathFor(locale, "about")}
               className={mobileLinkClass("about")}
               onClick={() => setOpen(false)}
@@ -163,6 +179,13 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
               onClick={() => setOpen(false)}
             >
               {t.impact}
+            </Link>
+            <Link
+              href={pathFor(locale, "sdg")}
+              className={mobileLinkClass("sdg")}
+              onClick={() => setOpen(false)}
+            >
+              {t.sdg}
             </Link>
             <Link
               href={pathFor(locale, "collaborate")}

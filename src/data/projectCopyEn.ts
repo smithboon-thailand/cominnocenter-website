@@ -62,6 +62,136 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
     impact:
       "Participants gain accurate knowledge of art history and cultural communication from experts and can pass it on",
   },
+  "chula-zero-waste": {
+    outcome:
+      "Create a Campaign Prototype for Reducing Waste in the University Led by Students, Emphasizing Fun, Brightness, Simplicity, and Practicality.",
+    challenge:
+      "The Action Plan for Sustainable Management of Solid and Hazardous Waste at Chulalongkorn University (Chula Zero Waste) (2017-2021) aims to reduce waste within the university by at least 30% by 2021. The plan includes 6 programs and 18 projects.",
+    approach:
+      "Create a Campaign Prototype for Reducing Waste in the University Led by Students, Emphasizing Fun, Brightness, Simplicity, and Practicality. Collaboration of the Environmental Research Institute, the Office of Physical System Management, and various networks within Chulalongkorn University.",
+    impact:
+      "Prototype campaign that communicates waste reduction in a fun, simple and practical way for university communities.",
+  },
+  "nbtc-encyclopedia": {
+    outcome:
+      "This encyclopedia compiles important topics, creates connections, explains in language that the younger generation can easily understand, and uses engaging illustrations.",
+    challenge:
+      "Important telecommunications topics are often complex and hard for younger audiences to understand.",
+    approach:
+      "Gathered feedback from younger and older generations, then created a modern encyclopedia with connections, clear language, engaging illustrations, and videos.",
+    impact:
+      "A widely readable encyclopedia for the younger generation with illustrations and video support.",
+  },
+  "nia-100-faces": {
+    outcome:
+      "We gathered 100 innovators (3 Years) who inspire creativity, presenting them through a website, Instagram, a book, and AR images.",
+    challenge:
+      "Need to present innovator stories across multiple channels to inspire creativity.",
+    approach:
+      "Collected 100 innovators over 3 years and presented them via website, Instagram, book, and AR images — https://www.nia100faces.com/",
+    impact:
+      "Multi-platform storytelling of Thailand's innovation inspirers.",
+  },
+  "nia-media-innovation": {
+    outcome:
+      "Research on the meaning of media innovation and a small projection mapping display event for NIA.",
+    challenge:
+      "Need to define and communicate the meaning of media innovation through research and an immersive event.",
+    approach:
+      "Compiled research, produced the event including lighting and sound, created a small projection mapping display, and invited experts for interviews.",
+    impact:
+      "Research report and an engaging media innovation event experience.",
+  },
+  "nia-satisfaction-survey-2020": {
+    outcome:
+      "Customer satisfaction survey using mixed methods for the National Innovation Agency (Public Organization).",
+    challenge:
+      "Support service development for NIA through rigorous customer satisfaction measurement.",
+    approach:
+      "Conducted a customer satisfaction survey using mixed methods.",
+    impact:
+      "Evidence base for improving NIA services.",
+  },
+  "pid-thong-lang-phra-foundation": {
+    outcome:
+      "Training on online media production, persuasion techniques, and personality development for foundation trainees.",
+    challenge:
+      "Foundation staff need practical skills in online media, persuasion, and personality development.",
+    approach:
+      "Expert-led training covering simple online media production with PowerPoint, persuasion techniques, and personality development.",
+    impact:
+      "Stronger communication capacity for foundation trainees.",
+  },
+  "seeds-for-cu-sustainability": {
+    outcome:
+      "Project presentation videos in Bangkok and other provinces, from pre-production to post-production, with aerial footage and stakeholder interviews.",
+    challenge:
+      "Need high-quality presentation videos to communicate sustainability projects across locations.",
+    approach:
+      "Full production pipeline with weekly client feedback meetings, aerial footage, and stakeholder interviews.",
+    impact:
+      "Videos that showcase commitment to societal sustainability.",
+  },
+  "department-of-disease-control": {
+    outcome:
+      "Workshop on service process design focusing on targeted communication and modern media production techniques.",
+    challenge:
+      "Organization needs stronger targeted communication and modern media production skills.",
+    approach:
+      "Workshop on service process design, targeted communication principles, and modern media production techniques.",
+    impact:
+      "Improved internal communication and organizational image capabilities.",
+  },
+  "creative-tourism-development-project-in-nan-province": {
+    outcome:
+      "Workshop in Nan to enhance communication skills with photography and video practice for local residents.",
+    challenge:
+      "Local communities in Nan need stronger communication skills for creative tourism.",
+    approach:
+      "Open workshop at Namthong Nan Hotel with photography and video equipment, props, lighting, theory and practice sessions.",
+    impact:
+      "Participants gained practical knowledge to create more engaging images and stories.",
+  },
+  "ministry-of-natural-resources-and-environment": {
+    outcome:
+      "Personnel development training on impactful writing and photography for the Department of Environmental Quality Promotion.",
+    challenge:
+      "Staff need higher efficiency in impactful writing and professional photography.",
+    approach:
+      "Training program covering writing techniques, photography, and equipment recommendations.",
+    impact:
+      "Elevated professionalism of environmental communication work.",
+  },
+  "international-labour-organization": {
+    outcome:
+      "United Nations workshop on text, photography, videography, and TikTok for sustainable development communication.",
+    challenge:
+      "Need practical media skills for presenting individual and group projects in a UN sustainability context.",
+    approach:
+      "Workshop teaching text usage, photography, videography, and TikTok production techniques.",
+    impact:
+      "Participants equipped to produce higher-quality project communication.",
+  },
+  "asean-university-network": {
+    outcome:
+      "Annual Report design for ASEAN University Network (2016–2019) with print-ready and digital versions.",
+    challenge:
+      "Need a creative modern annual report aligned with AUN's identity for print and digital channels.",
+    approach:
+      "Designed graphics and layout, delivered print-ready files, and smaller digital files for web viewing.",
+    impact:
+      "High-quality print and digital annual reports for 2016–2019.",
+  },
+  "itd": {
+    outcome:
+      "Meeting to gather opinions and analyze trends on digital commerce for Thai SMEs and global trade adaptation.",
+    challenge:
+      "Need structured dialogue on digital commerce opportunities for Thai SMEs and global trade adaptation.",
+    approach:
+      "Organized meetings to gather opinions and analyze trends on key economic topics.",
+    impact:
+      "Insights to support policy and SME adaptation discussions.",
+  },
 };
 
 export function getProjectCopyEn(slug: string): ProjectCopyEn | undefined {

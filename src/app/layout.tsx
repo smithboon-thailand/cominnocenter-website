@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Sarabun } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const sarabun = Sarabun({
-  weight: ["300", "400", "500", "600", "700"],
+/** ฟอนต์เดียวทั้งเว็บตาม BRAND.md PART C (v1.2) — น้ำหนัก 400/500 เท่านั้น ห้าม 300 และ 600/700 */
+const kanit = Kanit({
+  weight: ["400", "500"],
   subsets: ["thai", "latin"],
-  variable: "--font-sarabun",
+  variable: "--font-kanit",
   display: "swap",
 });
-
-/** Favicon จากเว็บเดิม cominnocenter.com (Wix static) */
-const FAVICON_BASE =
-  "https://static.wixstatic.com/media/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cominnocenter.com"),
@@ -38,28 +30,7 @@ export const metadata: Metadata = {
     "Sustainability",
   ],
   authors: [{ name: "ComInnoCenter, Chulalongkorn University" }],
-  icons: {
-    icon: [
-      {
-        url: `${FAVICON_BASE}/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
-        sizes: "32x32",
-        type: "image/jpeg",
-      },
-      {
-        url: `${FAVICON_BASE}/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
-        sizes: "192x192",
-        type: "image/jpeg",
-      },
-    ],
-    shortcut: `${FAVICON_BASE}/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
-    apple: [
-      {
-        url: `${FAVICON_BASE}/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/25218b_e3df174702a4453cb2b832cd453013d6%7Emv2.jpg`,
-        sizes: "180x180",
-        type: "image/jpeg",
-      },
-    ],
-  },
+  // Favicon: Next.js ใช้ src/app/icon.png + apple-icon.png อัตโนมัติ (ชั่วคราวจากโลโก้ — รอโลโก้จริง Phase 2)
   openGraph: {
     type: "website",
     locale: "th_TH",
@@ -86,9 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={`${inter.variable} ${sarabun.variable}`}>
+    <html lang="th" className={kanit.variable}>
       <body className="antialiased bg-neutral-50 text-neutral-900 font-sans">
         {children}
+        <Analytics />
       </body>
     </html>
   );
