@@ -16,6 +16,7 @@ const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
 
 const NAV = {
   th: {
+    home: "หน้าแรก",
     about: "เกี่ยวกับเรา",
     expertise: "ความเชี่ยวชาญ",
     impact: "ผลงาน",
@@ -27,6 +28,7 @@ const NAV = {
     closeMenu: "ปิดเมนู",
   },
   en: {
+    home: "Home",
     about: "About",
     expertise: "Expertise",
     impact: "Impact",
@@ -92,6 +94,9 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <Link href={pathFor(locale, "home")} className={linkClass("home")}>
+            {t.home}
+          </Link>
           <Link href={pathFor(locale, "about")} className={linkClass("about")}>
             {t.about}
           </Link>
@@ -147,6 +152,13 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
       {open && (
         <div className="md:hidden border-t border-neutral-200 bg-neutral-50">
           <nav className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
+            <Link
+              href={pathFor(locale, "home")}
+              className={mobileLinkClass("home")}
+              onClick={() => setOpen(false)}
+            >
+              {t.home}
+            </Link>
             <Link
               href={pathFor(locale, "about")}
               className={mobileLinkClass("about")}

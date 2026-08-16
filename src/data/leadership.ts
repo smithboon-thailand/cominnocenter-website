@@ -14,6 +14,8 @@ export type Publication = {
 };
 
 export type Leader = {
+  /** ใช้เป็น anchor id บนหน้า About (`/about#<slug>`) และลิงก์จากส่วนผู้นำบนหน้าแรก */
+  slug: string;
   name: string;
   nameEn: string;
   role: string;
@@ -36,6 +38,7 @@ const media = (id: string) => `/images/leadership/${id}.webp`;
 
 export const leadership: Leader[] = [
   {
+    slug: "smith-boonchutima",
     name: "รศ.ดร.สมิทธิ์ บุญชุติมา",
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
     role: "Head of Research Operations Unit",
@@ -101,6 +104,7 @@ export const leadership: Leader[] = [
     ],
   },
   {
+    slug: "teerada-chongkolrattanaporn",
     name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
     nameEn: "Asst. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
     role: "Deputy Head of Research Operations Unit",
@@ -152,6 +156,7 @@ export const leadership: Leader[] = [
     ],
   },
   {
+    slug: "pavel-slutskiy",
     name: "รศ.ดร. Pavel Slutskiy",
     nameEn: "Assoc. Prof. Dr. Pavel Slutskiy",
     role: "Deputy Head of Research Operations Unit",
