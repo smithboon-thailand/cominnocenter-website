@@ -92,7 +92,7 @@ export const mediaMentions: MediaMention[] = [
     professors: ["pavel"],
     type: "Academic",
     source: "Manusya: Journal of Humanities",
-    url: "https://brill.com/view/journals/mnya/28/1/article-p1_1.xml",
+    url: "https://digital.car.chula.ac.th/manusya/vol28/iss1/9/",
     external: true,
     priority: "High",
     langOrig: "EN",
