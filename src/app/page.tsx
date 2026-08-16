@@ -8,6 +8,7 @@ import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
+import { leadership } from "@/data/leadership";
 import { partners } from "@/data/partners";
 import { newsSorted, newsCover } from "@/data/news";
 import { SDG, SDG_IDS } from "@/data/sdg";
@@ -179,6 +180,52 @@ export default function HomePage() {
               <h3 className="mt-3 text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ผู้นำของศูนย์ — คลิกไปประวัติเต็มบนหน้า About (ไม่มีสี SDG ตาม PART H) */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeader
+            eyebrow="ทีมของเรา"
+            title="ผู้นำของศูนย์"
+            description="ผู้บริหารที่มีทั้งผลงานวิชาการและประสบการณ์ลงมือทำจริง คลิกเพื่อดูประวัติฉบับเต็ม"
+          />
+          <Button variant="ghost" href="/about#leadership">
+            ดูทีมทั้งหมด
+          </Button>
+        </div>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {leadership.map((person) => (
+            <Link
+              key={person.slug}
+              href={`/about#${person.slug}`}
+              className="group overflow-hidden rounded-lg border border-ink-300 bg-white transition-all duration-150 ease-brand hover:-translate-y-0.5 hover:border-ink-500 hover:shadow-sm focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden bg-ink-100">
+                <Image
+                  src={person.image}
+                  alt={person.alt}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
+                  {person.roleTh.split(" / ")[0]}
+                </p>
+                <h3 className="mt-1 text-h3-m md:text-h3 text-ink-900">{person.name}</h3>
+                <p className="text-[13px] leading-[1.6] text-ink-500">{person.nameEn}</p>
+                <p className="mt-3 line-clamp-2 text-[15px] leading-[1.6] text-ink-700">
+                  {person.focusTh}
+                </p>
+                <p className="mt-4 text-[13px] font-medium text-pink-500 group-hover:text-pink-700">
+                  ดูประวัติ →
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

@@ -151,7 +151,7 @@ export default function AboutPage() {
 
         <div className="mt-14 space-y-24">
           {leadership.map((person, index) => (
-            <article key={person.nameEn}>
+            <article key={person.slug} id={person.slug} className="scroll-mt-24">
               <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-10">
                 <div className={`md:col-span-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
                   <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-ink-300 bg-ink-100">

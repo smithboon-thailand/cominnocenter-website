@@ -8,6 +8,7 @@ import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
+import { leadership } from "@/data/leadership";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { partners } from "@/data/partners";
 import { newsSorted, newsCover } from "@/data/news";
@@ -182,6 +183,52 @@ export default function EnglishHomePage() {
               <h3 className="mt-3 text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Center leadership — cards link to full bios on the About page (no SDG colors, PART H) */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeader
+            locale="en"
+            eyebrow="Our team"
+            title="Center leadership"
+            description="Leaders with both academic track records and hands-on experience — click for full profiles"
+          />
+          <Button variant="ghost" href="/en/about#leadership">
+            Meet the full team
+          </Button>
+        </div>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {leadership.map((person) => (
+            <Link
+              key={person.slug}
+              href={`/en/about#${person.slug}`}
+              className="group overflow-hidden rounded-lg border border-ink-300 bg-white transition-all duration-150 ease-brand hover:-translate-y-0.5 hover:border-ink-500 hover:shadow-sm focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden bg-ink-100">
+                <Image
+                  src={person.image}
+                  alt={`${person.nameEn} — ${person.role}, Faculty of Communication Arts, Chulalongkorn University`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
+                  {person.role}
+                </p>
+                <h3 className="mt-1 text-h3-m md:text-h3 text-ink-900">{person.nameEn}</h3>
+                <p className="mt-3 line-clamp-2 text-[15px] leading-[1.6] text-ink-700">
+                  {person.focus}
+                </p>
+                <p className="mt-4 text-[13px] font-medium text-pink-500 group-hover:text-pink-700">
+                  View profile →
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
