@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -46,6 +47,16 @@ export default function CollaboratePage() {
           เรายินดีร่วมงานกับภาครัฐ ภาคเอกชน และภาคประชาสังคม
           เพื่อสร้างนวัตกรรมการสื่อสารที่ส่งผลต่อคุณภาพชีวิตและความยั่งยืน
         </p>
+        <div className="relative mt-10 aspect-[21/9] overflow-hidden rounded-lg border border-ink-300">
+          <Image
+            src="/images/collaborate/banner.webp"
+            alt="ภาพประกอบความร่วมมือ ริบบิ้นสองสีถักเข้าด้วยกัน"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 1216px"
+            priority
+          />
+        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">

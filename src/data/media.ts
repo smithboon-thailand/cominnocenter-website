@@ -63,6 +63,7 @@ export const mediaMentions: MediaMention[] = [
   // ---------- Priority: High ----------
   {
     code: "C-02",
+    image: "/images/media/C-02.webp",
     nameTh: "แรงงานเมียนมาร่วมออกแบบงานวิจัยสุขภาพว่าด้วยอาการปวดจากการทำงาน",
     nameEn: "Myanmar migrant workers co-designed a health study for their workplace pain",
     summaryTh:
@@ -117,6 +118,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-07",
+    image: "/images/media/C-07.webp",
     nameTh: "ผศ.ดร.ธีรดา บรรยาย Workshop เตรียมความพร้อมนักศึกษาไทยในตุรกีสู่โลกการทำงาน",
     nameEn: "Dr. Teerada leads a workshop preparing Thai students in Türkiye for the world of work",
     summaryTh:
@@ -135,6 +137,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-03",
+    image: "/images/media/C-03.webp",
     nameTh: "วิเคราะห์ภาพลักษณ์ประเทศไทยบน YouTube หลังกัญชาถูกกฎหมาย (PLOS One)",
     nameEn: "From tradition to progressiveness: Analyzing Thailand's image on YouTube amid post-cannabis legalization",
     summaryTh:
@@ -172,6 +175,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-04",
+    image: "/images/media/C-04.webp",
     nameTh: "เปิดตัวหลักสูตร Media & Communication for Transnational Citizens",
     nameEn: "Launch of the Media & Communication for Transnational Citizens course",
     summaryTh:
@@ -190,6 +194,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-09",
+    image: "/images/media/C-09.webp",
     nameTh: "หนังสือ Philosophical Foundations of Communication Studies (2024)",
     nameEn: "Philosophical Foundations of Communication Studies (2024)",
     summaryTh:
@@ -208,6 +213,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-01",
+    image: "/images/media/C-01.webp",
     nameTh: "สสส. จัดอบรม “Simple Drug Communication as Daily Routine” โดย ผศ.ดร.ธีรดา",
     nameEn: "ThaiHealth's “Simple Drug Communication as Daily Routine” training, led by Dr. Teerada",
     summaryTh:
@@ -426,6 +432,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-12",
+    image: "/images/media/C-12.webp",
     nameTh: "ความร่วมมือและโครงการอบรมกับพันธมิตร (ThaiHealth, FDA, Keio ฯลฯ)",
     nameEn: "Training collaborations with partners (ThaiHealth, FDA, Keio, and more)",
     summaryTh:

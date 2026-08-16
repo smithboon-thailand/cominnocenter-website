@@ -30,21 +30,25 @@ const latestNews = newsSorted.slice(0, 3);
 
 const expertiseItems = [
   {
+    image: "/images/expertise/e1.webp",
     number: "01",
     title: "การอบรมและพัฒนาศักยภาพ",
     description: "ออกแบบและจัดอบรมด้านนวัตกรรมการสื่อสารให้กับองค์กร",
   },
   {
+    image: "/images/expertise/e2.webp",
     number: "02",
     title: "วิจัยและประเมินผล",
     description: "วิจัยเชิงลึกและประเมินผลโครงการสื่อสารอย่างเป็นระบบ",
   },
   {
+    image: "/images/expertise/e3.webp",
     number: "03",
     title: "แคมเปญและการสื่อสาร",
     description: "วางกลยุทธ์และบริหารแคมเปญเพื่อสร้างการเปลี่ยนแปลง",
   },
   {
+    image: "/images/expertise/e4.webp",
     number: "04",
     title: "วิดีโอและสื่อมัลติมีเดีย",
     description: "ผลิตสื่อวิดีโอ AR และสื่อสร้างสรรค์คุณภาพสูง",
@@ -175,10 +179,21 @@ export default function HomePage() {
         </div>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {expertiseItems.map((item) => (
-            <div key={item.number} className="rounded-lg border border-ink-300 bg-white p-6">
+            <div key={item.number} className="overflow-hidden rounded-lg border border-ink-300 bg-white">
+              <div className="relative aspect-square">
+                <Image
+                  src={item.image}
+                  alt={`ภาพประกอบ${item.title}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              <div className="p-6">
               <p className="text-[15px] font-medium leading-[1.6] text-ink-500">{item.number}</p>
               <h3 className="mt-3 text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -276,8 +291,16 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink-900">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+      <section className="relative overflow-hidden bg-ink-900">
+        <Image
+          src="/images/home/cta-bg.webp"
+          alt=""
+          aria-hidden
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
           <h2 className="text-h2-m md:text-h2 text-white">
             มีโจทย์การสื่อสารที่อยากเห็นผลจริงไหม
           </h2>
