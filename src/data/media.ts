@@ -82,6 +82,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-06",
+    image: "/images/media/C-06.webp",
     nameTh: "AI ความจริงยุค post-truth และพฤติกรรมการหาข้อมูลของนักศึกษาไทย",
     nameEn: "AI, post-truth realities, and Thai students' information-seeking behavior",
     summaryTh:
@@ -100,6 +101,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-08",
+    image: "/images/media/C-08.webp",
     nameTh: "พอดแคสต์สัมภาษณ์ รศ.ดร. Pavel — Communication and Libertarianism",
     nameEn: "Communication and Libertarianism — Interview with Pavel Slutskiy",
     summaryTh:
@@ -156,6 +158,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-05",
+    image: "/images/media/C-05.webp",
     nameTh: "หนังสือ Global Communication: Planning Global PR Campaigns (Springer 2025)",
     nameEn: "Global Communication: Planning Global PR Campaigns (Springer, 2025)",
     summaryTh:
@@ -234,6 +237,7 @@ export const mediaMentions: MediaMention[] = [
   // ---------- Priority: Medium ----------
   {
     code: "C-20",
+    image: "/images/media/C-20.webp",
     nameTh: "ผลการวิจัยแนวโน้มการประชาสัมพันธ์ของไทย 2026",
     nameEn: "Research findings on Thailand's public relations trends 2026",
     summaryTh:
@@ -252,6 +256,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-15",
+    image: "/images/media/C-15.webp",
     nameTh: "ทำไมแฟนเพลงผูกพันกับแอปสตรีมมิงมากกว่าตัวศิลปิน",
     nameEn: "Why fans get attached to music streaming apps, not just the artists",
     summaryTh:
@@ -270,6 +275,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-14",
+    image: "/images/media/C-14.webp",
     nameTh: "10 ปี Impulse Bangkok — สุขภาพทางเพศและชุมชน",
     nameEn: "Ten years of Impulse Bangkok — sexual health and community",
     summaryTh:
@@ -288,6 +294,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-19",
+    image: "/images/media/C-19.webp",
     nameTh: "เมื่อ Gen Z ไทยเปลี่ยนอนิเมะจาก stigma เป็นตัวตนกระแสหลัก",
     nameEn: "How Thai Gen Z turned anime from a stigma into a mainstream identity",
     summaryTh:
@@ -306,6 +313,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-13",
+    image: "/images/media/C-13.webp",
     nameTh: "การวัด stigma ของโรคในกลุ่ม MSM และแรงงานเมียนมาในประเทศไทย",
     nameEn: "Measuring disease stigma in Thailand (MSM and Myanmar migrant communities)",
     summaryTh:
@@ -324,6 +332,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-21",
+    image: "/images/media/C-21.webp",
     nameTh: "โฆษณาช่วยรับมือรีวิวเชิงลบออนไลน์ได้อย่างไร",
     nameEn: "How advertising can fight back against negative online reviews",
     summaryTh:
@@ -342,6 +351,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-16",
+    image: "/images/media/C-16.webp",
     nameTh: "การรับรู้ของผู้ใช้โซเชียลมีเดียต่อการลงทุนคริปโตเคอร์เรนซี (Reddit study)",
     nameEn: "Perception of social media users regarding cryptocurrency investment adoption (Reddit study)",
     summaryTh:
@@ -360,6 +370,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-18",
+    image: "/images/media/C-18.webp",
     nameTh: "โปรแกรมสุขภาพแบบเกมป้องกันการบาดเจ็บจากการทำงานของแรงงานเมียนมา",
     nameEn: "Gamified health intervention to prevent work injuries in Myanmar migrants",
     summaryTh:
@@ -378,6 +389,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-10",
+    image: "/images/media/C-10.webp",
     nameTh: "Cognitive Load Theory ในการศึกษาออนไลน์ (IEEE TENCON 2023)",
     nameEn: "Cognitive Load Theory in Online Education (IEEE TENCON 2023)",
     summaryTh:
@@ -396,6 +408,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-11",
+    image: "/images/media/C-11.webp",
     nameTh: "ช่อง YouTube ของศูนย์ Communication Innovation",
     nameEn: "The Communication Innovation center's YouTube channel",
     summaryTh:
@@ -414,6 +427,7 @@ export const mediaMentions: MediaMention[] = [
   },
   {
     code: "C-17",
+    image: "/images/media/C-17.webp",
     nameTh: "อ.ดร.วรรษยุต คงจันทร์ — ช่อง YouTube สอน SPSS และเครื่องมือวิจัย",
     nameEn: "Dr. Watsayut Kongchan's YouTube channel teaching SPSS and research tools",
     summaryTh:
@@ -452,6 +466,7 @@ export const mediaMentions: MediaMention[] = [
   // ---------- Priority: Low ----------
   {
     code: "C-22",
+    image: "/images/media/C-22.webp",
     nameTh: "ความน่าเชื่อถือของการสื่อสารอย่างเป็นทางการช่วงโควิดในประเทศไทย",
     nameEn: "Credibility of the official COVID communication in Thailand",
     summaryTh:
