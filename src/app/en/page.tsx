@@ -31,21 +31,25 @@ const latestNews = newsSorted.slice(0, 3);
 
 const expertiseItems = [
   {
+    image: "/images/expertise/e1.webp",
     number: "01",
     title: "Training & capacity building",
     description: "Design and deliver communication innovation training for organizations",
   },
   {
+    image: "/images/expertise/e2.webp",
     number: "02",
     title: "Research & evaluation",
     description: "In-depth research and systematic evaluation of communication projects",
   },
   {
+    image: "/images/expertise/e3.webp",
     number: "03",
     title: "Campaigns & communication",
     description: "Strategy and campaign management for meaningful change",
   },
   {
+    image: "/images/expertise/e4.webp",
     number: "04",
     title: "Video & multimedia",
     description: "High-quality video, AR, and creative media production",
@@ -67,8 +71,18 @@ export default function EnglishHomePage() {
       <Header active="home" locale="en" />
       <main>
 
-      {/* Hero — two-tone display per BRAND v1.2 */}
-      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      {/* Hero — two-tone display per BRAND v1.2 · subtle paper background from set D */}
+      <section className="relative overflow-hidden">
+        <Image
+          src="/images/home/hero-bg.webp"
+          alt=""
+          aria-hidden
+          fill
+          className="hidden object-cover object-right md:block"
+          sizes="100vw"
+          priority
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <p className="mb-4 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
           Faculty of Communication Arts, Chulalongkorn University
         </p>
@@ -86,6 +100,7 @@ export default function EnglishHomePage() {
           <Button variant="secondary" href="/en/impact">
             View our work
           </Button>
+        </div>
         </div>
       </section>
 
@@ -178,10 +193,21 @@ export default function EnglishHomePage() {
         </div>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {expertiseItems.map((item) => (
-            <div key={item.number} className="rounded-lg border border-ink-300 bg-white p-6">
+            <div key={item.number} className="overflow-hidden rounded-lg border border-ink-300 bg-white">
+              <div className="relative aspect-square">
+                <Image
+                  src={item.image}
+                  alt={`Illustration for ${item.title}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              <div className="p-6">
               <p className="text-[15px] font-medium leading-[1.6] text-ink-500">{item.number}</p>
               <h3 className="mt-3 text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -276,8 +302,16 @@ export default function EnglishHomePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink-900">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+      <section className="relative overflow-hidden bg-ink-900">
+        <Image
+          src="/images/home/cta-bg.webp"
+          alt=""
+          aria-hidden
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
           <h2 className="text-h2-m md:text-h2 text-white">
             Have a communication challenge that needs real results?
           </h2>

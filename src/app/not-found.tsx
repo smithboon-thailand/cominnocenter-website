@@ -1,8 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
     <main className="min-h-screen bg-neutral-50 flex flex-col items-center justify-center px-6 text-center">
+      <Image
+        src="/images/notfound/404.webp"
+        alt="ภาพประกอบ: จุดเล็กๆ หลงทางกำลังตามหากลุ่มก้อนสี"
+        width={260}
+        height={260}
+        className="mb-6 rounded-lg"
+      />
       <p className="text-sm font-medium text-pink-500 mb-3">404</p>
       <h1 className="text-3xl md:text-4xl font-medium text-neutral-900">
         ไม่พบหน้านี้

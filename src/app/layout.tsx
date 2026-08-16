@@ -38,12 +38,14 @@ export const metadata: Metadata = {
     title: "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
     description:
       "นวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    images: ["/images/og/og-default.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "ComInnoCenter | Communication Innovation",
     description:
       "Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",
+    images: ["/images/og/og-default.jpg"],
   },
   robots: {
     index: true,

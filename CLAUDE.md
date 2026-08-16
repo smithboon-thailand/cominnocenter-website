@@ -18,7 +18,7 @@
 | Utilities | clsx, tailwind-merge |
 | Deploy | Vercel — ทุก branch ที่ push ได้ Preview URL อัตโนมัติ |
 | รูปภาพ | **self-host แล้ว** (Phase 0-B) ใน `public/images/` — 246 ไฟล์ ดู mapping ใน `scripts/wix-image-manifest.json` · เหลือ remote เฉพาะรูปหลักสูตรวัฒนธรรมจาก `cuculturecom-static.vercel.app` |
-| Favicon | `src/app/icon.png` + `apple-icon.png` — **ชั่วคราว** ทำจากโลโก้เดิม (จะแทนด้วยโลโก้ SVG จริงจาก Phase 2) |
+| Favicon | `src/app/icon.png` + `apple-icon.png` — ทำจากโลโก้ปัจจุบัน **ใช้ถาวร** (ผู้ใช้ยืนยันคงโลโก้เดิม 16 ส.ค. 2569) |
 
 คำสั่งหลัก: `npm run dev` · `npm run build` · `npm run lint`
 
@@ -75,8 +75,7 @@ public/
 ## กฎการทำงาน (บังคับทุกครั้ง)
 
 1. **ทุกการตัดสินใจด้านดีไซน์ต้องปฏิบัติตาม `BRAND.md`** ถ้าโค้ดเดิมขัดแย้ง ให้ BRAND.md ชนะ (เช่น สีชมพูเดิม `#DE5C8E` ใน tailwind.config.ts ต้องแทนด้วย `pink-500 #E0218A`, ฟอนต์ Sarabun/Inter ต้องแทนด้วย Kanit)
-2. **ห้าม push เข้า `main`** — เว็บ production ใช้งานอยู่ งาน redesign ทั้งหมด commit เข้า `feature/redesign` เท่านั้น
-   (หมายเหตุ: เซสชัน Claude remote push ตรงไป `feature/redesign` ไม่ได้ ให้ commit บน branch `claude/*` ของเซสชัน แล้ว sync เข้า `feature/redesign` ผ่าน GitHub — ห้ามแตะ `main` เช่นเดิม)
+2. **ห้าม push ตรงเข้า `main`** — ตั้งแต่ 16 ส.ค. 2569 `main` คือเว็บ production จริง (โดเมน www.cominnocenter.com ชี้ Vercel แล้ว) ทุกการเปลี่ยนแปลงทำบน branch `claude/*` ของเซสชัน → เปิด PR → ให้ผู้ใช้ตรวจ Preview/อนุมัติก่อน merge เสมอ (branch `feature/redesign` จบภารกิจแล้ว — merged เข้า main ไปแล้ว ไม่ใช้ต่อ)
 3. **ทำงานทีละ Phase ตาม `cominno-workflow.md`** ห้ามข้าม Phase ห้ามแตะไฟล์นอกขอบเขต Phase ที่กำลังทำ
 4. **commit ย่อยบ่อยๆ** prefix ด้วยชื่อ phase เช่น `phase0: `, `phase1: `
 5. **ก่อนแก้ไฟล์ใด อ่านไฟล์เต็มก่อนเสมอ**
@@ -87,9 +86,10 @@ public/
 
 - **Phase 0 — Asset Independence: ✅ เสร็จสมบูรณ์** — 0-A สำรวจ · 0-B self-host ภาพ 246 ไฟล์ + favicon ชั่วคราว · 0-C เก็บ 24 โพสต์เป็น `/news/[slug]` + `/en/news/[slug]` (+39 ภาพ) · 0-D redirects 33 กฎใน `next.config.ts` (โพสต์เดิม 24 + /insights /contact /blog ฯลฯ + catch-all `/post/:slug*`) · 0-E ตรวจแล้ว runtime เหลือ dependency ภายนอกแค่ `cuculturecom-static.vercel.app` (รูป 7), YouTube (thumbnail+embed) และ `formspree.io` (backend ฟอร์มติดต่อ/newsletter — บริการเดิมของเว็บ)
 - **Phase 1 — Design System: ✅ เสร็จสมบูรณ์** — tokens + Kanit 400/500 (typography v1.2 locked) + `src/data/sdg.ts` + components 6 ตัว + migrate `projects.ts` เป็น `sdg: SdgId[]` (mapping อนุมัติแล้ว)
-- **Phase 2 — Assets จาก Grok:** ทำขนานกับ Phase 3 ได้ ใช้ placeholder ไปก่อน (โลโก้ SVG จริงยังไม่มา — favicon ชั่วคราวยังใช้อยู่)
+- **Phase 2 — Assets จาก Grok: ✅ ภาพนิ่งครบทุกชุด (16 ส.ค. 2569)** — โลโก้เดิมใช้ถาวร · สไตล์ "Premium paper-craft" (วัตถุเดียว/2 สีต่อภาพ/คู่สีตามหมวด) เจนโดย Grok agent ผ่าน branch `grok/visual-assets` → `assets-inbox/` → Claude คัด/แปลง WebP: B ภาพ OG (`public/images/og/og-default.jpg` ประกอบโลโก้แล้ว) · C thumbnail 22/22 (`public/images/media/C-XX.webp` — รหัสตรง field `code` ใน `media.ts`) · D hero (`public/images/home/hero-bg.webp`) · E expertise 4 ภาพ (`public/images/expertise/`) · F collaborate banner · G 404 · H พื้นหลัง CTA · **ค้างเฉพาะวิดีโอ D+H** (รอเครื่องมือ animate — ใช้ภาพนิ่ง fallback อยู่) · บทเรียน: การอัปโหลดไฟล์จำนวนมากผ่าน GitHub API ควรรวม commit ต่อชุด เพราะทุก commit กินโควตา deployment ของ Vercel แม้ตั้งข้าม build
 - **Phase 3 — Implementation: ✅ เสร็จสมบูรณ์** — Impact list (filter ?sdg=N) → Impact detail (หนึ่งหน้าหนึ่งสี) → `/sdg` → Home → About/Expertise/Collaborate → language sweep → EN parity ครบ
 - **Phase 4 — QA ทั้งเว็บ: ✅ เสร็จสมบูรณ์** — crawl 98 หน้า: ลิงก์ภายใน/alt/heading/h1/metadata/OG/hreflang ผ่านหมด · เพิ่ม `<main>` landmark ทุกหน้า · แก้การ์ด EN ที่โชว์ outcome ไทย · `/impact` เปลี่ยนเป็น static (filter ฝั่ง client ผ่าน `ImpactExplorer` — metadata อยู่ใน `<head>`) · Vercel Analytics ใน root layout · ลบ `/dev/components` · Lighthouse (home+impact, mobile+desktop) ทุกหมวด ≥ 93 · external links 26/34 ตอบ 200 ที่เหลือเป็น bot-block (FB/IG/LinkedIn/ResearchGate/Scopus) + TLS chain ไม่ครบของ `ee.eng.chula.ac.th` (เปิดในเบราว์เซอร์ได้ปกติ) · หมายเหตุ: contrast ของ pink-500/ink-500 บนพื้นอ่อนต่ำกว่า AA เล็กน้อย (4.06–4.41) — เป็นสีตาม BRAND.md ถ้าจะแก้ต้องหารือก่อน
-- **Phase 5 — Cutover:** merge → main, ย้ายโดเมนจาก Wix, รอ 2–4 สัปดาห์ก่อนปิด Wix
+- **Phase 5 — Cutover: ✅ เสร็จ 16 ส.ค. 2569** — merge PR #1 เข้า `main` + ย้ายโดเมน `www.cominnocenter.com`/apex มา Vercel แล้ว (SSL ผ่าน · apex 308→www · redirects เก่า 33/33 ผ่าน · crawl 98 หน้าบนโดเมนจริงผ่านหมด) · **MX อีเมล Google Workspace อยู่บน Wix DNS — ห้ามแตะ** · ค้าง: `en.cominnocenter.com` ยังชี้ Wix (404) รอผู้ใช้เพิ่มโดเมนใน Vercel เป็น redirect + แก้ CNAME · คงบัญชี Wix ถึง ~กลางเดือนกันยายน 2569 แล้วยกเลิกเฉพาะ website plan (**ห้ามยกเลิกส่วนโดเมน/DNS ก่อนย้าย DNS ออก**) 
+- **งานถัดไป — ฟีเจอร์ "สื่อถึงเรา":** section/หน้าข่าวที่คนของศูนย์ปรากฏบนสื่อภายนอก + thumbnail จาก Grok (ชุด C) — สรุปย่อเขียนเอง ลิงก์เครดิตต้นทาง ห้ามใบหน้าคนจริง/ตัวอักษรในภาพ · รอรายการลิงก์ข่าวจากผู้ใช้
 
 **จุดที่ต้องหยุดหารือในแชทหลัก:** หลัง 0-A · หลัง 1-B · หลัง 1-C · ก่อน Phase 2 · build/deploy พัง · ก่อน Phase 5
