@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Stat from "@/components/ui/Stat";
 import SdgPosterGrid from "@/components/ui/SdgPosterGrid";
+import SdgWheel from "@/components/sdg/SdgWheel";
 import Button from "@/components/ui/Button";
 import { projects } from "@/data/projects";
 import { partners } from "@/data/partners";
@@ -28,18 +29,23 @@ export default function SdgPage() {
       <Header active="sdg" />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-          เป้าหมายการพัฒนาที่ยั่งยืน
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">ทุกโครงการของเราตอบเป้าหมายโลก</h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          เราเชื่อว่าการสื่อสารที่ดีเปลี่ยนคุณภาพชีวิตได้จริง ทุกโครงการจึงถูกออกแบบให้ตอบเป้าหมายการพัฒนาที่ยั่งยืนอย่างน้อยหนึ่งข้อ และวัดผลลัพธ์ได้เสมอ เลือกเป้าหมายด้านล่างเพื่อดูผลงานในเรื่องนั้น
-        </p>
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <Stat value={projects.length} unit="โครงการ" label="ผลงานที่ส่งมอบแล้ว" />
-          <Stat value={`${coveredGoals}/17`} unit="เป้าหมาย" label="SDG ที่งานของเราครอบคลุม" />
-          <Stat value={partners.length} unit="องค์กร" label="พันธมิตรที่ร่วมงานกับเรา" />
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_minmax(0,440px)]">
+          <div>
+            <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
+              เป้าหมายการพัฒนาที่ยั่งยืน
+            </p>
+            <h1 className="text-h1-m md:text-h1 text-ink-900">ทุกโครงการของเราตอบเป้าหมายโลก</h1>
+            <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
+              เราเชื่อว่าการสื่อสารที่ดีเปลี่ยนคุณภาพชีวิตได้จริง ทุกโครงการจึงถูกออกแบบให้ตอบเป้าหมายการพัฒนาที่ยั่งยืนอย่างน้อยหนึ่งข้อ และวัดผลลัพธ์ได้เสมอ ชี้ที่ซี่วงล้อเพื่อดูภาพรวมของแต่ละเป้าหมาย หรือคลิกเพื่อกางรายชื่อโครงการในเป้าหมายนั้นด้านล่าง
+            </p>
+            <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
+              <Stat value={projects.length} unit="โครงการ" label="ผลงานที่ส่งมอบแล้ว" />
+              <Stat value={`${coveredGoals}/17`} unit="เป้าหมาย" label="SDG ที่งานของเราครอบคลุม" />
+              <Stat value={partners.length} unit="องค์กร" label="พันธมิตรที่ร่วมงานกับเรา" />
+            </div>
+          </div>
+          <SdgWheel />
         </div>
       </section>
 
