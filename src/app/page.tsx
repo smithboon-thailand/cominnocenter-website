@@ -71,8 +71,18 @@ export default function HomePage() {
       <Header active="home" />
       <main>
 
-      {/* Hero — two-tone display ตาม BRAND v1.2 · ระยะหายใจ ≥ sp-12 */}
-      <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      {/* Hero — two-tone display ตาม BRAND v1.2 · พื้นหลังกระดาษจางจากชุด D */}
+      <section className="relative overflow-hidden">
+        <Image
+          src="/images/home/hero-bg.webp"
+          alt=""
+          aria-hidden
+          fill
+          className="hidden object-cover object-right md:block"
+          sizes="100vw"
+          priority
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <p className="mb-4 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
           คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
         </p>
@@ -90,6 +100,7 @@ export default function HomePage() {
           <Button variant="secondary" href="/impact">
             ดูผลงานของเรา
           </Button>
+        </div>
         </div>
       </section>
 
