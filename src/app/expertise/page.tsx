@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
-import { services } from "@/data/services";
-import { SDG, sdgAria } from "@/data/sdg";
+import ExpertiseExplorer from "@/components/expertise/ExpertiseExplorer";
 
 export const metadata = {
   alternates: {
@@ -28,37 +27,14 @@ export default function ExpertisePage() {
           เก้าบริการ ครบทั้งกระบวนการสื่อสาร
         </h1>
         <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          จากงานวิจัยถึงการลงมือทำ เราเปลี่ยนนวัตกรรมการสื่อสารให้เกิดผลจริงต่อคุณภาพชีวิต
-          จุดสีใต้แต่ละบริการคือเป้าหมาย SDG ที่บริการนั้นเคยสร้างผลงานมาแล้ว
+          จากงานวิจัยถึงการลงมือทำ เราดูแลครบทั้ง 4 ช่วงของกระบวนการสื่อสาร — เข้าใจและออกแบบ
+          ผลิตสื่อ ขับเคลื่อน และส่งต่อความรู้ ทุกบริการมีผลงานจริงรองรับ
+          กดที่การ์ดเพื่อกางรายชื่อโครงการ หรือกดจุดสีเพื่อดูผลงานตามเป้าหมาย SDG
         </p>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div key={service.key} className="rounded-lg border border-ink-300 bg-white p-6">
-              <h2 className="text-h3-m md:text-h3 text-ink-900">{service.titleTh}</h2>
-              {/* จุดสี 8px map ไป SDG ที่เกี่ยว (PART H) — มีเลขกำกับเสมอ (B3) */}
-              <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-                {service.sdg.map((id) => (
-                  <span
-                    key={id}
-                    aria-label={sdgAria(id)}
-                    className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-500"
-                  >
-                    <span
-                      aria-hidden
-                      className="h-2 w-2 rounded-full"
-                      style={{ backgroundColor: SDG[id].pure }}
-                    />
-                    {id}
-                  </span>
-                ))}
-              </p>
-              <p className="mt-3 text-[15px] leading-[1.6] text-ink-700">{service.descTh}</p>
-            </div>
-          ))}
-        </div>
+        <ExpertiseExplorer />
       </section>
 
       <section className="bg-ink-900">
