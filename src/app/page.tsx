@@ -139,7 +139,7 @@ export default function HomePage() {
 
       {/* ตัวเลขจริงจากข้อมูล ไม่ใช่ตัวเลขการตลาด (Rigorous — PART A1) */}
       <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <Stat value={projects.length} unit="โครงการ" label="ผลงานที่ส่งมอบแล้ว" />
           <Stat value={partners.length} unit="องค์กร" label="พันธมิตรที่ร่วมงาน" />
           <Stat value="10,000+" unit="คน" label="บุคลากรที่ผ่านการอบรม" />
@@ -191,7 +191,7 @@ export default function HomePage() {
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {expertiseItems.map((item) => (
             <div key={item.number} className="overflow-hidden rounded-lg border border-ink-300 bg-white">
-              <div className="relative aspect-square">
+              <div className="relative aspect-[4/3] sm:aspect-[16/10]">
                 <Image
                   src={item.image}
                   alt={`ภาพประกอบ${item.title}`}
