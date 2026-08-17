@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/effects/Reveal";
 import ServiceIcon from "@/components/expertise/ServiceIcon";
@@ -40,6 +41,14 @@ const STAGE_COLORS: Record<string, [string, string]> = {
   produce: ["#E0218A", "#FFC018"],
   drive: ["#F0A818", "#30A8D8"],
   empower: ["#C0182F", "#FFC018"],
+};
+
+/** ภาพ paper-craft ประจำช่วง (ชุด S จาก Grok — crop แถบ 8:3 แล้ว) — ตกแต่งล้วน */
+const STAGE_IMAGES: Record<string, string> = {
+  understand: "/images/expertise/stage-1.webp",
+  produce: "/images/expertise/stage-2.webp",
+  drive: "/images/expertise/stage-3.webp",
+  empower: "/images/expertise/stage-4.webp",
 };
 
 /**
@@ -154,6 +163,19 @@ export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerPr
                 <p className="mt-1 text-[15px] leading-[1.6] text-ink-500">
                   {locale === "th" ? stage.taglineTh : stage.taglineEn}
                 </p>
+
+                {STAGE_IMAGES[stage.key] && (
+                  <div className="relative mt-6 aspect-[8/3] overflow-hidden rounded-lg border border-ink-300 sm:aspect-[4/1]">
+                    <Image
+                      src={STAGE_IMAGES[stage.key]}
+                      alt=""
+                      aria-hidden
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 1024px"
+                    />
+                  </div>
+                )}
 
                 <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {stageServices.map((service, i) => {
