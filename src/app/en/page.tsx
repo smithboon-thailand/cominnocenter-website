@@ -139,11 +139,12 @@ export default function EnglishHomePage() {
 
       {/* Real numbers from data, not marketing claims (Rigorous — PART A1) */}
       <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        {/* 2×2 on mobile · single row of 4 on tablet/desktop · staggered count-up */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
           <Stat value={projects.length} unit="projects" label="Delivered work" />
-          <Stat value={partners.length} unit="organizations" label="Partners" />
-          <Stat value="10,000+" unit="people" label="Professionals trained" />
-          <Stat value={`${coveredGoals}/17`} unit="goals" label="SDGs covered" />
+          <Stat value={partners.length} unit="organizations" label="Partners" delay={120} />
+          <Stat value="10,000+" label="Professionals trained" delay={240} />
+          <Stat value={`${coveredGoals}/17`} unit="goals" label="SDGs covered" delay={360} />
         </div>
       </section>
 
