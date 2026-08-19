@@ -139,11 +139,12 @@ export default function HomePage() {
 
       {/* ตัวเลขจริงจากข้อมูล ไม่ใช่ตัวเลขการตลาด (Rigorous — PART A1) */}
       <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        {/* 2×2 บนมือถือ · แถวเดียว 4 ช่องบน tablet/desktop · นับไต่ขึ้นไล่กันแบบโดมิโน */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
           <Stat value={projects.length} unit="โครงการ" label="ผลงานที่ส่งมอบแล้ว" />
-          <Stat value={partners.length} unit="องค์กร" label="พันธมิตรที่ร่วมงาน" />
-          <Stat value="10,000+" unit="คน" label="บุคลากรที่ผ่านการอบรม" />
-          <Stat value={`${coveredGoals}/17`} unit="เป้าหมาย" label="SDG ที่ครอบคลุม" />
+          <Stat value={partners.length} unit="องค์กร" label="พันธมิตรที่ร่วมงาน" delay={120} />
+          <Stat value="10,000+" unit="คน" label="บุคลากรที่ผ่านการอบรม" delay={240} />
+          <Stat value={`${coveredGoals}/17`} unit="เป้าหมาย" label="SDG ที่ครอบคลุม" delay={360} />
         </div>
       </section>
 

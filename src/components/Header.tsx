@@ -95,7 +95,8 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        {/* gap แคบลงที่ md — เมนู EN ยาวกว่าไทย เคยดันปุ่ม CTA ล้นจอที่ 768px */}
+        <nav className="hidden md:flex items-center gap-5 lg:gap-8 text-sm font-medium">
           <Link href={pathFor(locale, "home")} className={linkClass("home")}>
             {t.home}
           </Link>
@@ -128,9 +129,11 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
             {otherLabel}
           </Link>
 
+          {/* ช่วง md เมนูเต็มมีลิงก์ Collaborate อยู่แล้ว — ปุ่ม CTA กลับมาที่ lg เมื่อพื้นที่พอ
+              ช่วง sm-md ใช้ CTA ในเมนู hamburger */}
           <Link
             href={pathFor(locale, "collaborate")}
-            className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors"
+            className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors"
           >
             {t.cta}
           </Link>
