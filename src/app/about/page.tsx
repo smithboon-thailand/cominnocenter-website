@@ -9,6 +9,8 @@ import { leadership, objectives, type SocialLink } from "@/data/leadership";
 import { highlightsFor, type HighlightPerson } from "@/data/highlights";
 import { SDG, SDG_IDS } from "@/data/sdg";
 import TeamAndPartners from "@/components/about/TeamAndPartners";
+import JsonLd from "@/components/seo/JsonLd";
+import { personSchema } from "@/lib/schema";
 
 export const metadata = {
   alternates: {
@@ -60,6 +62,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <Header active="about" />
+      {/* โปรไฟล์นักวิจัย + ORCID/Scopus ให้ Google เชื่อมตัวตนได้ */}
+      <JsonLd data={leadership.map((l) => personSchema(l, "th"))} />
       <main>
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
