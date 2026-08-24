@@ -9,10 +9,10 @@
  * - รายการที่ไม่มี DOI ถูกค้นในดัชนีอิสระโดยบังคับให้นามสกุลผู้เขียนตรงด้วย
  *
  * ระดับการตรวจสอบ (field verified):
- *   "doi"   45 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
+ *   "doi"   44 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
  *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
- *   "index" 1 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
- *   "self"  22 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
+ *   "index" 10 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
+ *   "self"  16 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
  *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
  *           ไม่ได้แปลว่าไม่มีจริง แต่ยังตรวจสอบออนไลน์อัตโนมัติไม่ได้
  */
@@ -103,6 +103,17 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
+    "title": "Relationship Marketing Communication of Horror Storytelling Programs",
+    "venue": "Journal of Communication and Management NIDA (e-Journal)",
+    "year": 2026,
+    "type": "journal-article",
+    "verified": "index",
+    "indexUrl": "https://so12.tci-thaijo.org/index.php/jcmn/article/view/5690",
+    "authors": [
+      "teerada-chongkolrattanaporn"
+    ]
+  },
+  {
     "title": "ai, Post-Truth Realities, and Thai Students’ Information-Seeking Behavior",
     "venue": "Manusya: Journal of Humanities",
     "year": 2025,
@@ -159,6 +170,17 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1080/23311886.2025.2526800",
     "authors": [
       "smith-boonchutima"
+    ]
+  },
+  {
+    "title": "Reframing Thailand's Southern Border Conflict through a Self-transcendental Narrative Paradigm",
+    "venue": "Journal of Communication Arts",
+    "year": 2025,
+    "type": "journal-article",
+    "verified": "index",
+    "indexUrl": "https://so02.tci-thaijo.org/index.php/jcomm/article/view/275202",
+    "authors": [
+      "teerada-chongkolrattanaporn"
     ]
   },
   {
@@ -417,6 +439,17 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
+    "title": "Health Belief Model of the Retirees and Reducing Sodium Intake Campaign",
+    "venue": "Journal of Public Relations and Advertising",
+    "year": 2022,
+    "type": "journal-article",
+    "verified": "index",
+    "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/253798",
+    "authors": [
+      "teerada-chongkolrattanaporn"
+    ]
+  },
+  {
     "title": "Public Relations Internship during Covid-19 Pandemic: Lessons learnt from both mentors and mentees",
     "venue": "Asia Pacific Public Relation Research & Education Network (APPRREN) Online Research Symposium 2022",
     "year": 2022,
@@ -450,11 +483,12 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
-    "title": "Health Belief Model of the Retirees and Reducing Sodium Intake Campaign",
+    "title": "Factors Predicting Consumer’s Loyalty to One Stop Service On-Demand Application",
     "venue": "Journal of Public Relations and Advertising",
     "year": 2021,
     "type": "journal-article",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/247870",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -464,7 +498,8 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2021,
     "type": "journal-article",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/251243",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -504,16 +539,6 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
-    "title": "Factors Predicting Consumer’s Loyalty to One Stop Service On-Demand Application",
-    "venue": "Journal of Public Relations and Advertising",
-    "year": 2020,
-    "type": "journal-article",
-    "verified": "self",
-    "authors": [
-      "teerada-chongkolrattanaporn"
-    ]
-  },
-  {
     "title": "Right to Clean Air' but What Went Wrong?: A Case Study on Global Public Relations in Local Communities in Thailand",
     "venue": "Asia Pacific Public Relations Research and Education Network Research Symposium",
     "year": 2020,
@@ -528,9 +553,11 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2020,
     "type": "journal-article",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/230947",
     "authors": [
-      "teerada-chongkolrattanaporn"
+      "teerada-chongkolrattanaporn",
+      "smith-boonchutima"
     ]
   },
   {
@@ -550,7 +577,8 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2018,
     "type": "journal-article",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/148722",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -575,17 +603,6 @@ export const publications: PublicationEntry[] = [
     "doi": "10.22492/ijcs.3.1.05",
     "authors": [
       "pavel-slutskiy"
-    ]
-  },
-  {
-    "title": "The Role of Social Media In Political Advertising: An Exploratory Investigation of the Bangkok’s Election",
-    "venue": "Journal of Public Relations and Advertising",
-    "year": 2018,
-    "type": "journal-article",
-    "verified": "index",
-    "indexUrl": "https://www.semanticscholar.org/paper/e2ac6a4b9fbbdafe372e8dd4a09e02924f84f590",
-    "authors": [
-      "teerada-chongkolrattanaporn"
     ]
   },
   {
@@ -708,6 +725,17 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
+    "title": "The Role of Social Media In Political Advertising: An Exploratory Investigation of the Bangkok’s Election",
+    "venue": "Journal of Public Relations and Advertising",
+    "year": 2016,
+    "type": "journal-article",
+    "verified": "index",
+    "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
+    "authors": [
+      "teerada-chongkolrattanaporn"
+    ]
+  },
+  {
     "title": "Survey results of knowledge sharing preferences and practices in public health communication professionals in thailand's department of disease control: a descriptive study",
     "venue": "5",
     "year": 2015,
@@ -734,7 +762,8 @@ export const publications: PublicationEntry[] = [
     "venue": "American Society of Business and Behavioral Science",
     "year": 2014,
     "type": "conference-paper",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://www.semanticscholar.org/paper/9bfa6a523337f70923e706cbfb2802f85bb57b76",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -775,7 +804,8 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Graduate Conference 7",
     "year": 2011,
     "type": "conference-paper",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://www.semanticscholar.org/paper/47734ec0f9fe2e60f9dfa7c90e6f837f712c3c5f",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
