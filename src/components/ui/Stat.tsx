@@ -11,6 +11,8 @@ type StatProps = {
   label?: string;
   /** หน่วง ms ก่อนเริ่มนับ — ใช้ stagger ไล่ทีละช่องแบบโดมิโน */
   delay?: number;
+  /** ปิดการนับไต่ขึ้นสำหรับค่าที่นับแล้วไม่มีความหมาย เช่น ปี พ.ศ./ค.ศ. */
+  animate?: boolean;
 };
 
 /** แยกตัวเลขนำหน้าออกจากส่วนท้าย: "10,000+" → 10000+"+", "13/17" → 13+"/17" */
@@ -33,12 +35,12 @@ const DURATION = 1600;
  * - a11y: ตัวเลขที่นับอยู่เป็น aria-hidden + sr-only ค่าจริงถาวร · ไม่ใช้ aria-live ·
  *   prefers-reduced-motion แสดงค่าจริงทันที
  */
-export default function Stat({ value, unit, label, delay = 0 }: StatProps) {
+export default function Stat({ value, unit, label, delay = 0, animate = true }: StatProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [display, setDisplay] = useState(String(value));
 
   useEffect(() => {
-    const parsed = parseValue(value);
+    const parsed = animate ? parseValue(value) : null;
     const el = ref.current;
     if (!parsed || !el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -78,7 +80,7 @@ export default function Stat({ value, unit, label, delay = 0 }: StatProps) {
       cancelAnimationFrame(raf);
       clearTimeout(timer);
     };
-  }, [value, delay]);
+  }, [value, delay, animate]);
 
   return (
     // container-type ทำให้ cqw อิงความกว้างช่องจริงของ grid — 7vw ล้นเมื่อ 4 คอลัมน์บน tablet

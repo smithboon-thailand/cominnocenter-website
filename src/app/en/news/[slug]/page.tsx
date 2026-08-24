@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ProjectGallery from "@/components/ProjectGallery";
 import { newsPosts, getNewsBySlug, newsImages, newsCover } from "@/data/news";
 import { getProjectBySlug } from "@/data/projects";
+import JsonLd from "@/components/seo/JsonLd";
+import { newsArticleSchema } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -55,6 +57,7 @@ export default async function NewsDetailPageEn({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header locale="en" />
+      <JsonLd data={newsArticleSchema(post, "en", newsCover(post.slug))} />
       <main>
 
       <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24">

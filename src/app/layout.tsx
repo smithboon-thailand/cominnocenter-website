@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Kanit } from "next/font/google";
+import JsonLd from "@/components/seo/JsonLd";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 import "./globals.css";
 
 /** ฟอนต์เดียวทั้งเว็บตาม BRAND.md PART C (v1.2) — น้ำหนัก 400/500 เท่านั้น ห้าม 300 และ 600/700 */
@@ -61,6 +63,8 @@ export default function RootLayout({
   return (
     <html lang="th" className={kanit.variable}>
       <body className="antialiased bg-neutral-50 text-neutral-900 font-sans">
+        {/* ตัวตนขององค์กร — ใส่ครั้งเดียวที่ root ใช้ได้ทุกหน้าทั้ง TH/EN */}
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Analytics />
       </body>
