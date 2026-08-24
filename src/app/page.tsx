@@ -8,6 +8,8 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
+import VideoShowcase from "@/components/VideoShowcase";
+import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
 import { partners } from "@/data/partners";
@@ -205,8 +207,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* วิดีโอจากช่องของศูนย์ฯ — iframe ของ YouTube โหลดเมื่อกดเล่นเท่านั้น */}
+      <section className="border-y border-ink-300 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeader
+              eyebrow="วิดีโอความรู้"
+              title="งานวิจัยที่ดูจบได้ในไม่กี่นาที"
+              description="สรุปงานวิจัยและกิจกรรมของศูนย์ฯ จากช่อง YouTube ทางการ"
+            />
+            <Button variant="ghost" href={YOUTUBE_CHANNEL_URL} external>
+              ดูช่องทั้งหมด ↗
+            </Button>
+          </div>
+          <div className="mt-10">
+            <VideoShowcase />
+          </div>
+        </div>
+      </section>
+
       {/* ผู้นำของศูนย์ — คลิกไปประวัติเต็มบนหน้า About (ไม่มีสี SDG ตาม PART H) */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
+      <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             eyebrow="ทีมของเรา"
