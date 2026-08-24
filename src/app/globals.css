@@ -110,6 +110,25 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ภาพ hero ลอยช้าๆ แทนวิดีโอพื้นหลัง — ช้าและเบาพอที่จะไม่ดึงสายตาจากหัวเรื่อง
+   scale เริ่มที่ 1.05 ไม่ใช่ 1 เพราะการหมุนเอียงเปิดมุมภาพให้เห็นพื้นหลัง
+   ถ้าไม่ขยายเผื่อไว้ก่อน (กรอบ hero กว้าง ~2.6:1 ต้องการ ~1.04 ที่ 0.8°) */
+@keyframes hero-drift {
+  0%   { transform: scale(1.05) rotate(0deg)    translate3d(0, 0, 0); }
+  50%  { transform: scale(1.08) rotate(-0.8deg) translate3d(0, -0.8%, 0); }
+  100% { transform: scale(1.05) rotate(0deg)    translate3d(0, 0, 0); }
+}
+
+.animate-hero-drift {
+  animation: hero-drift 26s cubic-bezier(0.4, 0, 0.4, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-drift {
+    animation: none;
+  }
+}
+
 /* วงล้อ SDG (หน้า /sdg) — ซี่ค่อยๆ กางออกตอนโหลด */
 @keyframes sdg-pop {
   from { opacity: 0; transform: scale(0.85); }
