@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroArtwork from "@/components/effects/HeroArtwork";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -73,15 +74,8 @@ export default function HomePage() {
 
       {/* Hero — two-tone display ตาม BRAND v1.2 · พื้นหลังกระดาษจางจากชุด D */}
       <section className="relative overflow-hidden">
-        <Image
-          src="/images/home/hero-bg.webp"
-          alt=""
-          aria-hidden
-          fill
-          className="hidden object-cover object-right md:block"
-          sizes="100vw"
-          priority
-        />
+        {/* ภาพ hero ลอยช้าๆ + พารัลแลกซ์ (ปิดเมื่อ prefers-reduced-motion) */}
+        <HeroArtwork src="/images/home/hero-bg.webp" className="absolute inset-0 hidden md:block" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <p className="mb-4 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
           คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
