@@ -131,6 +131,23 @@ export function publicationListSchema(
   };
 }
 
+/**
+ * เส้นทางนำทางของหน้าย่อย — ช่วยให้ผลค้นหาแสดงลำดับชั้นแทน URL ดิบ
+ * ส่ง path ที่ขึ้นต้นด้วย / เท่านั้น (ต่อ SITE_URL ให้เอง)
+ */
+export function breadcrumbSchema(trail: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((step, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: step.name,
+      item: `${SITE_URL}${step.path}`,
+    })),
+  };
+}
+
 /** โพสต์ข่าวที่เก็บจากเว็บเดิม */
 export function newsArticleSchema(post: NewsPost, locale: "th" | "en", coverUrl: string) {
   const path = locale === "th" ? `/news/${post.slug}` : `/en/news/${post.slug}`;

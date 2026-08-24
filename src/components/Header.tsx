@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import SiteSearch from "@/components/search/SiteSearch";
 
 type PageKey =
   | "home"
@@ -134,6 +135,8 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
         </nav>
 
         <div className="flex items-center gap-3">
+          <SiteSearch locale={locale} />
+
           <Link
             href={otherHref}
             className="text-sm font-medium text-neutral-600 hover:text-blue-700 hidden sm:block"

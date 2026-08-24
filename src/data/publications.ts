@@ -11,8 +11,8 @@
  * ระดับการตรวจสอบ (field verified):
  *   "doi"   44 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
  *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
- *   "index" 10 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
- *   "self"  16 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
+ *   "index" 11 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
+ *   "self"  15 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
  *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
  *           ไม่ได้แปลว่าไม่มีจริง แต่ยังตรวจสอบออนไลน์อัตโนมัติไม่ได้
  */
@@ -363,7 +363,8 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Communication Arts",
     "year": 2023,
     "type": "journal-article",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://so02.tci-thaijo.org/index.php/jcomm/article/view/259563",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]

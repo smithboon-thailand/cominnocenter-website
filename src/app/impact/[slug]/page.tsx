@@ -9,6 +9,9 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import Button from "@/components/ui/Button";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { SDG } from "@/data/sdg";
+import ProjectFooterNav from "@/components/impact/ProjectFooterNav";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -53,6 +56,13 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header active="impact" />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "หน้าแรก", path: "/" },
+          { name: "ผลงาน", path: "/impact" },
+          { name: project.title, path: `/impact/${slug}` },
+        ])}
+      />
       <main>
 
       {/* แถบ hero 6px สี pure ของ SDG หลัก เต็มความกว้าง */}
@@ -153,6 +163,9 @@ export default async function CaseStudyPage({ params }: Props) {
           ดูผลงานทั้งหมดใน SDG {primary}
         </Button>
       </section>
+
+      {/* ทางไปต่อ — โครงการที่เกี่ยวข้อง ข่าว และก่อนหน้า/ถัดไป */}
+      <ProjectFooterNav slug={slug} />
 
       <section className="bg-ink-900">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center">
