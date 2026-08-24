@@ -10,6 +10,9 @@ import Button from "@/components/ui/Button";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { SDG } from "@/data/sdg";
+import ProjectFooterNav from "@/components/impact/ProjectFooterNav";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -56,6 +59,13 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
   return (
     <div className="min-h-screen">
       <Header active="impact" locale="en" />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/en" },
+          { name: "Impact", path: "/en/impact" },
+          { name: project.titleEn, path: `/en/impact/${slug}` },
+        ])}
+      />
       <main>
 
       <div aria-hidden className="h-1.5 w-full" style={{ backgroundColor: goal.pure }} />
@@ -158,6 +168,8 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
           View all SDG {primary} projects
         </Button>
       </section>
+
+      <ProjectFooterNav slug={slug} locale="en" />
 
       <section className="bg-ink-900">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center">
