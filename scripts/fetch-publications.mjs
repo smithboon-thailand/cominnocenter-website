@@ -86,6 +86,10 @@ const THAIJO_SOURCES = [
     url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
   },
   {
+    match: /inappropriate content of sexual harassment/i,
+    url: "https://so02.tci-thaijo.org/index.php/jcomm/article/view/259563",
+  },
+  {
     // ยังไม่มีใน ORCID — ใช้ชื่ออังกฤษทางการจาก DC.Title.Alternative ของวารสาร
     title: "Reframing Thailand's Southern Border Conflict through a Self-transcendental Narrative Paradigm",
     venue: "Journal of Communication Arts",
