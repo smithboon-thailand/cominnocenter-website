@@ -13,6 +13,12 @@ export type Video = {
   summaryEn: string;
   date: string; // YYYY-MM-DD
   featured?: boolean;
+  /**
+   * YouTube สร้าง maxresdefault.jpg (1280×720) ให้เฉพาะคลิปที่อัปโหลดต้นฉบับความละเอียดพอ
+   * คลิปที่ไม่มีจะได้ 404 — เก็บผลตรวจไว้ที่นี่เพื่อไม่ให้ภาพแตกวูบตอนสลับคลิป
+   * (ตรวจกับ i.ytimg.com เมื่อ 24 ส.ค. 2569 — 4 ใน 6 คลิปมี)
+   */
+  hdThumb: boolean;
 };
 
 export const YOUTUBE_CHANNEL_URL =
@@ -29,6 +35,7 @@ export const videos: Video[] = [
       "Research on Cognitive Load Theory in online education and its application to strategic planning and evaluation for integrated communications.",
     date: "2024-09-16",
     featured: true,
+    hdThumb: true,
   },
   {
     id: "sOwxVUlEVwo",
@@ -40,6 +47,7 @@ export const videos: Video[] = [
       "Comparative study on how VTubers and streamers influence purchase intention among otaku and non-otaku audiences.",
     date: "2024-07-08",
     featured: true,
+    hdThumb: true,
   },
   {
     id: "JpbLglDgsKE",
@@ -51,6 +59,7 @@ export const videos: Video[] = [
       "Analysis of how Chinese media portray Thailand as a tourist destination following cannabis legalisation.",
     date: "2024-07-08",
     featured: true,
+    hdThumb: true,
   },
   {
     id: "0w39QS8Gu1o",
@@ -62,6 +71,7 @@ export const videos: Video[] = [
       "Study on online video game influencers’ credibility and its effect on audience purchase intention.",
     date: "2024-07-08",
     featured: false,
+    hdThumb: false,
   },
   {
     id: "Z6OcYhqu_DU",
@@ -71,6 +81,7 @@ export const videos: Video[] = [
     summaryEn: "Event connecting communication arts with the business sector.",
     date: "2024-07-08",
     featured: false,
+    hdThumb: false,
   },
   {
     id: "wrPOAdQdgTU",
@@ -82,13 +93,30 @@ export const videos: Video[] = [
       "Key findings on cryptocurrency adoption among Reddit users, focusing on perceived value and risk.",
     date: "2021-08-27",
     featured: false,
+    hdThumb: true,
   },
 ];
 
-export const featuredVideos = videos.filter((v) => v.featured);
+/** เรียงใหม่ก่อนเก่า — คลิปที่ตั้งเป็น featured ขึ้นก่อนเมื่อวันที่เท่ากัน */
+export const videosSorted = [...videos].sort(
+  (a, b) => b.date.localeCompare(a.date) || Number(!!b.featured) - Number(!!a.featured)
+);
 
-export function youtubeThumb(id: string, quality: "hqdefault" | "maxresdefault" = "hqdefault") {
+/**
+ * mqdefault (320×180) เป็นสัดส่วน 16:9 จริงและมีให้ทุกคลิปเสมอ ใช้กับรายการย่อ
+ * ส่วน maxresdefault (1280×720) ใช้กับจอใหญ่ได้เฉพาะคลิปที่ field hdThumb เป็น true
+ * (hqdefault เป็น 4:3 มีแถบดำบน-ล่าง จึงไม่ใช้แล้ว)
+ */
+export function youtubeThumb(
+  id: string,
+  quality: "mqdefault" | "hqdefault" | "maxresdefault" = "mqdefault"
+) {
   return `https://i.ytimg.com/vi/${id}/${quality}.jpg`;
+}
+
+/** ภาพที่คมที่สุดที่คลิปนั้นมีจริง */
+export function bestThumb(video: Video) {
+  return youtubeThumb(video.id, video.hdThumb ? "maxresdefault" : "mqdefault");
 }
 
 export function youtubeWatchUrl(id: string) {

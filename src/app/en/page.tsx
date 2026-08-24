@@ -8,6 +8,8 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
+import VideoShowcase from "@/components/VideoShowcase";
+import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
@@ -208,8 +210,28 @@ export default function EnglishHomePage() {
         </div>
       </section>
 
+      {/* Videos from the center's channel — the YouTube iframe loads only on play */}
+      <section className="border-y border-ink-300 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeader
+              locale="en"
+              eyebrow="Research on video"
+              title="Our research, in a few minutes"
+              description="Short talks on the center's studies and events, from our official YouTube channel"
+            />
+            <Button variant="ghost" href={YOUTUBE_CHANNEL_URL} external>
+              Visit the channel ↗
+            </Button>
+          </div>
+          <div className="mt-10">
+            <VideoShowcase locale="en" />
+          </div>
+        </div>
+      </section>
+
       {/* Center leadership — cards link to full bios on the About page (no SDG colors, PART H) */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
+      <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             locale="en"

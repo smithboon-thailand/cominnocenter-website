@@ -18,6 +18,8 @@ type ButtonProps = {
   variant?: Variant;
   /** ถ้าระบุ href จะ render เป็นลิงก์ (Next Link) หน้าตาเดียวกับปุ่ม */
   href?: string;
+  /** ลิงก์ออกนอกเว็บ — render เป็น <a> เปิดแท็บใหม่ ไม่ผ่าน Next Link */
+  external?: boolean;
   children: ReactNode;
 } & Omit<ComponentPropsWithoutRef<"button">, "className">;
 
@@ -25,8 +27,21 @@ type ButtonProps = {
  * Button ตาม BRAND.md G1 — สูง 44px · padding x 24px · radius 4px · focus ring 3px pink-100
  * ปุ่มไม่เป็นสี SDG เด็ดขาด (A2)
  */
-export default function Button({ variant = "primary", href, children, ...rest }: ButtonProps) {
+export default function Button({
+  variant = "primary",
+  href,
+  external,
+  children,
+  ...rest
+}: ButtonProps) {
   const cls = `${base} ${variants[variant]}`;
+  if (href && external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+        {children}
+      </a>
+    );
+  }
   if (href) {
     return (
       <Link href={href} className={cls}>
