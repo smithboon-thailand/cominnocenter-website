@@ -1,26 +1,43 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-08-23)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-08-24)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
- * แหล่งข้อมูล — ดึงจาก API สาธารณะทั้งหมด:
- * - ORCID public API: รศ.ดร.สมิทธิ์ (0000-0001-7412-4506), ผศ.ดร.ธีรดา (0000-0003-2785-8595)
- * - Crossref API: รศ.ดร.Pavel Slutskiy (กรองด้วยชื่อต้น "Pavel" — Crossref มี Slutskiy ท่านอื่นปนมา)
- * - citations = จำนวนการอ้างอิงใน Crossref ซึ่งต่ำกว่า Google Scholar/Scopus โดยธรรมชาติ
- *   (ตัวเลข GS/Scopus รายบุคคลยังแสดงในโปรไฟล์หน้า /about ตามเดิม)
+ * ทุกรายการผ่านการตรวจว่า "มีจริง" และ "เป็นของผู้เขียนคนนั้นจริง":
+ * - รายการที่มี DOI ถูกดึง metadata จาก Crossref มาเทียบนามสกุลผู้เขียน
+ *   DOI ที่ชี้ไปงานของคนอื่นถูกตัดออกแล้ว (รอบล่าสุดตัดออก 0 รายการ)
+ * - รายการที่ไม่มี DOI ถูกค้นในดัชนีอิสระโดยบังคับให้นามสกุลผู้เขียนตรงด้วย
  *
- * บทในหนังสือที่ผู้เขียนเป็นเจ้าของเล่มเอง ถูกยุบรวมเป็นรายการเดียวกับเล่ม (field chapters)
+ * ระดับการตรวจสอบ (field verified):
+ *   "doi"   45 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
+ *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
+ *   "index" 1 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
+ *   "self"  22 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
+ *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
+ *           ไม่ได้แปลว่าไม่มีจริง แต่ยังตรวจสอบออนไลน์อัตโนมัติไม่ได้
  */
 
 export type PublicationType = "book" | "journal-article" | "book-chapter" | "conference-paper";
+
+/**
+ * ระดับหลักฐานของแต่ละรายการ — ใช้ทั้งแสดงบนหน้าเว็บและคัดกรองก่อนส่งเข้า JSON-LD
+ *   doi   ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
+ *   link  DOI เปิดได้ ชื่อเรื่องตรง แต่ทะเบียนไม่ได้ลงรายชื่อผู้เขียน (วารสารไทยส่วนใหญ่)
+ *   index พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน (ไม่มี DOI)
+ *   self  มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
+ */
+export type VerificationLevel = "doi" | "link" | "index" | "self";
 
 export type PublicationEntry = {
   title: string;
   venue: string;
   year: number;
   type: PublicationType;
-  /** ไม่มีในบางรายการที่ตีพิมพ์ในวารสารไทย/เวทีประชุมที่ไม่จด DOI */
+  verified: VerificationLevel;
+  /** มีเมื่อ verified เป็น "doi" หรือ "link" */
   doi?: string;
+  /** ลิงก์ดัชนีอิสระ มีเมื่อ verified === "index" */
+  indexUrl?: string;
   /** จำนวนการอ้างอิงจาก Crossref — แสดงเฉพาะที่มากกว่า 0 */
   citations?: number;
   /** slug ของผู้เขียนใน leadership.ts */
@@ -35,6 +52,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Research Involvement and Engagement",
     "year": 2026,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1186/s40900-026-00891-8",
     "authors": [
       "smith-boonchutima"
@@ -45,6 +63,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Wellcome Open Research",
     "year": 2026,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.12688/wellcomeopenres.26014.1",
     "authors": [
       "smith-boonchutima"
@@ -52,9 +71,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Enhancing fans and artists’ affective engagement and behavioral intentions in digital music streaming platforms through relational bonds: a case study of JOOX Rooms",
-    "venue": "Cogent Arts & Humanities",
+    "venue": "Cogent Arts &amp; Humanities",
     "year": 2026,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1080/23311983.2026.2675861",
     "authors": [
       "smith-boonchutima"
@@ -62,9 +82,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "From stigma to mainstream: a multi-stakeholder thematic analysis of anime consumption and community-driven communication in Thai Generation Z",
-    "venue": "Cogent Arts & Humanities",
+    "venue": "Cogent Arts &amp; Humanities",
     "year": 2026,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1080/23311983.2026.2647143",
     "authors": [
       "smith-boonchutima"
@@ -75,6 +96,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The Journal of Communication and Media Studies",
     "year": 2026,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.18848/2470-9247/cgp/a140",
     "authors": [
       "pavel-slutskiy"
@@ -85,6 +107,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Manusya: Journal of Humanities",
     "year": 2025,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1163/26659077-20252811",
     "citations": 1,
     "authors": [
@@ -96,6 +119,7 @@ export const publications: PublicationEntry[] = [
     "venue": "PLOS ONE",
     "year": 2025,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1371/journal.pone.0317506",
     "citations": 1,
     "authors": [
@@ -104,9 +128,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour",
-    "venue": "Fashion, Style & Popular Culture",
+    "venue": "Fashion, Style &amp; Popular Culture",
     "year": 2025,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1386/fspc_00152_1",
     "citations": 1,
     "authors": [
@@ -118,6 +143,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Springer Nature Singapore",
     "year": 2025,
     "type": "book",
+    "verified": "doi",
     "doi": "10.1007/978-981-96-7583-8",
     "authors": [
       "pavel-slutskiy"
@@ -129,6 +155,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Cogent Social Sciences",
     "year": 2025,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1080/23311886.2025.2526800",
     "authors": [
       "smith-boonchutima"
@@ -139,6 +166,7 @@ export const publications: PublicationEntry[] = [
     "venue": "American Behavioral Scientist",
     "year": 2025,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1177/00027642251405617",
     "authors": [
       "pavel-slutskiy"
@@ -146,9 +174,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Perception of social media users regarding cryptocurrency investment adoption: a case of social media platform – Reddit",
-    "venue": "Cogent Business & Management",
+    "venue": "Cogent Business &amp; Management",
     "year": 2024,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1080/23311975.2024.2402513",
     "citations": 7,
     "authors": [
@@ -160,6 +189,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Wellcome Open Research",
     "year": 2024,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.12688/wellcomeopenres.21428.1",
     "citations": 2,
     "authors": [
@@ -168,9 +198,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z",
-    "venue": "Fashion, Style & Popular Culture",
+    "venue": "Fashion, Style &amp; Popular Culture",
     "year": 2024,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1386/fspc_00091_1",
     "citations": 2,
     "authors": [
@@ -182,6 +213,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Media Education (Mediaobrazovanie)",
     "year": 2024,
     "type": "journal-article",
+    "verified": "link",
     "doi": "10.13187/me.2024.2.239",
     "citations": 1,
     "authors": [
@@ -193,6 +225,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal for the Theory of Social Behaviour",
     "year": 2024,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1111/jtsb.12433",
     "citations": 1,
     "authors": [
@@ -204,6 +237,8 @@ export const publications: PublicationEntry[] = [
     "venue": "Multi-Stakeholder Contribution in Asian Environmental Communication",
     "year": 2024,
     "type": "book-chapter",
+    "verified": "doi",
+    "doi": "10.4324/9781032670508-11",
     "authors": [
       "smith-boonchutima"
     ]
@@ -213,6 +248,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Springer Nature Singapore",
     "year": 2024,
     "type": "book",
+    "verified": "doi",
     "doi": "10.1007/978-981-97-1013-3",
     "authors": [
       "pavel-slutskiy"
@@ -224,6 +260,7 @@ export const publications: PublicationEntry[] = [
     "venue": "WACANA: Jurnal Ilmiah Ilmu Komunikasi",
     "year": 2024,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.32509/wacana.v23i1.3388",
     "authors": [
       "pavel-slutskiy"
@@ -234,6 +271,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Libertarian Studies",
     "year": 2024,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.35297/001c.123605",
     "authors": [
       "pavel-slutskiy"
@@ -244,6 +282,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Heliyon",
     "year": 2023,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1016/j.heliyon.2023.e15478",
     "citations": 13,
     "authors": [
@@ -255,6 +294,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Basic and Applied Social Psychology",
     "year": 2023,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1080/01973533.2023.2208246",
     "citations": 8,
     "authors": [
@@ -266,6 +306,7 @@ export const publications: PublicationEntry[] = [
     "venue": "TENCON 2023 - 2023 IEEE Region 10 Conference (TENCON)",
     "year": 2023,
     "type": "conference-paper",
+    "verified": "doi",
     "doi": "10.1109/tencon58879.2023.10322455",
     "citations": 4,
     "authors": [
@@ -274,9 +315,12 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Perspectives on Online Learning and Technostress Experienced by Science and Non-science First-year University Students during COVID-19",
-    "venue": "PASAA Journal",
+    "venue": "PASAA",
     "year": 2023,
     "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.58837/chula.pasaa.65.1.8",
+    "citations": 1,
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -286,6 +330,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Communication and Media in Asia Pacific",
     "year": 2023,
     "type": "journal-article",
+    "verified": "link",
     "doi": "10.14456/cmap.2023.5",
     "authors": [
       "teerada-chongkolrattanaporn"
@@ -296,6 +341,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Communication Arts",
     "year": 2023,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -305,6 +351,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Drustvena istrazivanja",
     "year": 2022,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.5559/di.31.4.06",
     "citations": 4,
     "authors": [
@@ -316,6 +363,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Thinking Skills and Creativity",
     "year": 2022,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1016/j.tsc.2022.101017",
     "citations": 2,
     "authors": [
@@ -327,6 +375,7 @@ export const publications: PublicationEntry[] = [
     "venue": "American Behavioral Scientist",
     "year": 2022,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1177/00027642221118297",
     "citations": 1,
     "authors": [
@@ -338,6 +387,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Cogent Education",
     "year": 2022,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1080/2331186x.2022.2102481",
     "citations": 1,
     "authors": [
@@ -349,6 +399,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Health and Development",
     "year": 2022,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.55131/jphd/2022/200118",
     "authors": [
       "smith-boonchutima"
@@ -359,6 +410,7 @@ export const publications: PublicationEntry[] = [
     "venue": "HIV &amp; AIDS Review",
     "year": 2022,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.5114/hivar.2022.115679",
     "authors": [
       "smith-boonchutima"
@@ -369,6 +421,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Asia Pacific Public Relation Research & Education Network (APPRREN) Online Research Symposium 2022",
     "year": 2022,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -378,6 +431,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Springer Singapore",
     "year": 2021,
     "type": "book",
+    "verified": "doi",
     "doi": "10.1007/978-981-33-6664-0",
     "citations": 12,
     "authors": [
@@ -390,6 +444,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Health and Development",
     "year": 2021,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "smith-boonchutima"
     ]
@@ -399,6 +454,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2021,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -408,6 +464,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2021,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -417,6 +474,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Online Symposium on Impact of Covid-19 on Media Usage",
     "year": 2021,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -426,6 +484,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Tripodos",
     "year": 2020,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.51698/tripodos.2020.48p53-68",
     "citations": 7,
     "authors": [
@@ -437,6 +496,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Tripodos",
     "year": 2020,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.51698/tripodos.2020.48p53-67",
     "citations": 2,
     "authors": [
@@ -448,6 +508,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2020,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -457,6 +518,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Asia Pacific Public Relations Research and Education Network Research Symposium",
     "year": 2020,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -466,15 +528,17 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2020,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
   },
   {
     "title": "Developing an HIV/AIDS risk communication intervention model among Myanmar migrant workers in a factory in Samut Sakhon, Thailand",
-    "venue": "HIV and AIDS Review",
+    "venue": "HIV &amp; AIDS Review",
     "year": 2019,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.5114/hivar.2019.88535",
     "citations": 2,
     "authors": [
@@ -486,6 +550,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2018,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -495,6 +560,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Tripodos",
     "year": 2018,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.51698/tripodos.2018.42.21-38",
     "authors": [
       "pavel-slutskiy"
@@ -505,9 +571,21 @@ export const publications: PublicationEntry[] = [
     "venue": "IAFOR Journal of Cultural Studies",
     "year": 2018,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.22492/ijcs.3.1.05",
     "authors": [
       "pavel-slutskiy"
+    ]
+  },
+  {
+    "title": "The Role of Social Media In Political Advertising: An Exploratory Investigation of the Bangkok’s Election",
+    "venue": "Journal of Public Relations and Advertising",
+    "year": 2018,
+    "type": "journal-article",
+    "verified": "index",
+    "indexUrl": "https://www.semanticscholar.org/paper/e2ac6a4b9fbbdafe372e8dd4a09e02924f84f590",
+    "authors": [
+      "teerada-chongkolrattanaporn"
     ]
   },
   {
@@ -515,6 +593,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Communication and Media in Asia Pacific",
     "year": 2018,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -524,6 +603,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Psychology Research and Behavior Management",
     "year": 2017,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.2147/prbm.s121480",
     "citations": 25,
     "authors": [
@@ -535,6 +615,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Infection and Public Health",
     "year": 2017,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1016/j.jiph.2017.01.016",
     "citations": 23,
     "authors": [
@@ -543,9 +624,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Educating Burmese migrants working in Thailand with HIV/AIDS public health knowledge – a perspective of public health officers",
-    "venue": "HIV and AIDS Review",
+    "venue": "HIV &amp; AIDS Review",
     "year": 2017,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.5114/hivar.2017.72029",
     "citations": 3,
     "authors": [
@@ -557,6 +639,7 @@ export const publications: PublicationEntry[] = [
     "venue": "International Research Symposium, \"Future of Public Relations in the Asia Pacific: Sustainability, Social Responsibility and Social Media\"",
     "year": 2017,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -566,6 +649,7 @@ export const publications: PublicationEntry[] = [
     "venue": "International Journal of Social Sciences",
     "year": 2017,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.20472/ss2017.6.2.005",
     "authors": [
       "pavel-slutskiy"
@@ -576,6 +660,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Tenth International Conference on Climate Change: Impacts and Responses Research Network",
     "year": 2017,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -585,6 +670,7 @@ export const publications: PublicationEntry[] = [
     "venue": "MANUSYA",
     "year": 2016,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1163/26659077-01902005",
     "authors": [
       "pavel-slutskiy"
@@ -592,9 +678,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Gays dating applications: information disclosure and sexual behavior",
-    "venue": "Journal of Health Research",
+    "venue": "4",
     "year": 2016,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.14456/jhr.2016.32",
     "authors": [
       "smith-boonchutima"
@@ -605,6 +692,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Religion, Media and Marketing in a Complex Society",
     "year": 2016,
     "type": "book-chapter",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -614,24 +702,17 @@ export const publications: PublicationEntry[] = [
     "venue": "20th Annual International Conference of American Society of Business and Behavioral Science",
     "year": 2016,
     "type": "conference-paper",
-    "authors": [
-      "teerada-chongkolrattanaporn"
-    ]
-  },
-  {
-    "title": "The Role of Social Media In Political Advertising: An Exploratory Investigation of the Bangkok’s Election",
-    "venue": "Journal of Public Relations and Advertising",
-    "year": 2016,
-    "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
   },
   {
     "title": "Survey results of knowledge sharing preferences and practices in public health communication professionals in thailand's department of disease control: a descriptive study",
-    "venue": "Journal of Health Research",
+    "venue": "5",
     "year": 2015,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.14456/jhr.2015.30",
     "authors": [
       "smith-boonchutima"
@@ -639,9 +720,10 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Key qualitative and quantitative indicators: towards an integrated evaluation framework for government websites in Thailand",
-    "venue": "IJBSR",
+    "venue": "International Journal of Business and Systems Research",
     "year": 2014,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.1504/ijbsr.2014.060300",
     "authors": [
       "smith-boonchutima"
@@ -652,6 +734,7 @@ export const publications: PublicationEntry[] = [
     "venue": "American Society of Business and Behavioral Science",
     "year": 2014,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -661,6 +744,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Graduate Conference 8",
     "year": 2013,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -670,6 +754,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Journal of Climate Change: Impacts and Responses",
     "year": 2012,
     "type": "journal-article",
+    "verified": "doi",
     "doi": "10.18848/1835-7156/cgp/v03i04/37139",
     "authors": [
       "teerada-chongkolrattanaporn"
@@ -680,6 +765,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Conference of Climate Change: Impacts & Responses",
     "year": 2012,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -689,6 +775,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Graduate Conference 7",
     "year": 2011,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -698,6 +785,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Graduate Conference 6,",
     "year": 2010,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -707,6 +795,7 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Language and Culture",
     "year": 2009,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -716,6 +805,7 @@ export const publications: PublicationEntry[] = [
     "venue": "The International Conference on Communication & Sustainable Development in the Next Decade",
     "year": 2009,
     "type": "conference-paper",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
@@ -725,16 +815,22 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Relations and Advertising",
     "year": 2009,
     "type": "journal-article",
+    "verified": "self",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
   }
 ];
 
+/** รายการที่มีลิงก์ให้ผู้อ่านกดตรวจสอบเองได้ */
+export const verifiablePublications = publications.filter((p) => p.verified !== "self");
+
 export const publicationYears = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a);
 
 export const publicationStats = {
   total: publications.length,
+  verifiable: verifiablePublications.length,
+  selfReported: publications.filter((p) => p.verified === "self").length,
   books: publications.filter((p) => p.type === "book").length,
   articles: publications.filter((p) => p.type === "journal-article").length,
   chapters:

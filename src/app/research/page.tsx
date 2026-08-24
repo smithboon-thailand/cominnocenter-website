@@ -38,12 +38,17 @@ export default function ResearchPage() {
         <h1 className="text-h1-m md:text-h1 text-ink-900">ผลงานตีพิมพ์ของศูนย์ฯ</h1>
         <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
           งานบริการทุกชิ้นของเราตั้งอยู่บนฐานงานวิจัย หน้านี้รวมผลงานตีพิมพ์ของคณาจารย์ประจำศูนย์ฯ
-          ทั้งหนังสือ บทความวารสารนานาชาติ และบทความประชุมวิชาการ กดที่ชื่อเรื่องเพื่อเปิดผลงานต้นทางผ่าน DOI
+          ทั้งหนังสือ บทความวารสารนานาชาติ และบทความประชุมวิชาการ กดที่ชื่อเรื่องเพื่อเปิดผลงานต้นทาง
         </p>
         <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
           <Stat value={publicationStats.total} unit="รายการ" label="ผลงานตีพิมพ์" />
-          <Stat value={publicationStats.books} unit="เล่ม" label="หนังสือวิชาการ (Springer)" delay={120} />
-          <Stat value={publicationStats.venues} unit="แห่ง" label="วารสารและเวทีวิชาการ" delay={240} />
+          <Stat
+            value={publicationStats.verifiable}
+            unit="รายการ"
+            label="เปิดต้นฉบับออนไลน์ได้"
+            delay={120}
+          />
+          <Stat value={publicationStats.books} unit="เล่ม" label="หนังสือวิชาการ (Springer)" delay={240} />
           <Stat value={publicationStats.since} label="ตีพิมพ์ต่อเนื่องตั้งแต่ปี" animate={false} />
         </div>
       </section>

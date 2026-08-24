@@ -90,18 +90,25 @@ const SCHEMA_TYPE_BY_PUBLICATION: Record<PublicationEntry["type"], string> = {
   "conference-paper": "ScholarlyArticle",
 };
 
-/** รายการผลงานตีพิมพ์บนหน้า /research */
+/**
+ * รายการผลงานตีพิมพ์บนหน้า /research
+ *
+ * ส่งเฉพาะรายการที่มีหลักฐานภายนอกยืนยัน (verified !== "self") — ไม่ประกาศต่อ Google
+ * ในสิ่งที่พิสูจน์ไม่ได้ รายการที่ผู้เขียนแจ้งเองยังแสดงบนหน้าเว็บตามปกติ
+ * พร้อมกำกับที่มาให้ผู้อ่านเห็น
+ */
 export function publicationListSchema(
   items: PublicationEntry[],
   authorName: (slug: string) => string,
   locale: "th" | "en" = "th"
 ) {
+  const evidenced = items.filter((p) => p.verified !== "self");
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: locale === "th" ? "ผลงานตีพิมพ์ของศูนย์ฯ" : "Publications from the center",
-    numberOfItems: items.length,
-    itemListElement: items.map((p, i) => ({
+    numberOfItems: evidenced.length,
+    itemListElement: evidenced.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
@@ -109,7 +116,11 @@ export function publicationListSchema(
         name: p.title,
         datePublished: String(p.year),
         ...(p.venue ? { isPartOf: { "@type": "Periodical", name: p.venue } } : {}),
-        ...(p.doi ? { identifier: `https://doi.org/${p.doi}`, url: `https://doi.org/${p.doi}` } : {}),
+        ...(p.doi
+          ? { identifier: `https://doi.org/${p.doi}`, url: `https://doi.org/${p.doi}` }
+          : p.indexUrl
+            ? { url: p.indexUrl }
+            : {}),
         author: p.authors.map((slug) => ({
           "@type": "Person",
           name: authorName(slug),

@@ -26,8 +26,11 @@ const COPY = {
     empty: "ไม่พบผลงานตามเงื่อนไขที่เลือก",
     citations: (n: number) => `อ้างอิง ${n} ครั้ง`,
     chapters: (n: number) => `${n} บท`,
-    doi: "เปิดผลงาน (DOI)",
-    reset: "ล้างตัวกรอง",
+    doi: "เปิดผลงานต้นทาง (DOI)",
+    index: "เปิดระเบียนในดัชนีวิชาการ",
+    selfNote: "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน",
+    provenance:
+      "รายการที่มีลิงก์ผ่านการตรวจสอบกับทะเบียน DOI หรือดัชนีวิชาการอิสระแล้วว่าเป็นผลงานของผู้เขียนจริง ส่วนรายการที่ไม่มีลิงก์เป็นข้อมูลที่ผู้เขียนแจ้งไว้ในโปรไฟล์ ORCID ของตนเอง ส่วนใหญ่ตีพิมพ์ในวารสารไทยและเวทีประชุมที่ยังไม่จด DOI",
   },
   en: {
     filterAuthor: "Filter by author",
@@ -37,8 +40,11 @@ const COPY = {
     empty: "No publications match the selected filters",
     citations: (n: number) => `${n} ${n === 1 ? "citation" : "citations"}`,
     chapters: (n: number) => `${n} ${n === 1 ? "chapter" : "chapters"}`,
-    doi: "Open publication (DOI)",
-    reset: "Clear filters",
+    doi: "Open the publication (DOI)",
+    index: "Open the record in an academic index",
+    selfNote: "From the author's ORCID profile",
+    provenance:
+      "Linked entries have been checked against the DOI registry or an independent academic index to confirm the authorship. Entries without a link come from the author's own ORCID profile — mostly Thai journals and conference venues that do not register DOIs.",
   },
 } as const;
 
@@ -56,6 +62,15 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
     const person = leadership.find((l) => l.slug === slug);
     if (!person) return slug;
     return locale === "th" ? person.name : person.nameEn;
+  };
+  /** ลิงก์โปรไฟล์ ORCID ของผู้เขียน — ใช้เป็นที่มาของรายการที่ยังไม่มีดัชนีอิสระ */
+  const orcidHref = (slugs: string[]) => {
+    for (const slug of slugs) {
+      const person = leadership.find((l) => l.slug === slug);
+      const orcid = person?.links.find((l) => l.label === "ORCID");
+      if (orcid) return orcid.href;
+    }
+    return null;
   };
   /** ชื่อสั้นสำหรับ chip — ตัดคำนำหน้าตำแหน่งวิชาการออก */
   const shortName = (slug: string) => {
@@ -138,7 +153,10 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
         </div>
       </div>
 
-      <p aria-live="polite" className="mt-6 text-[13px] leading-[1.4] text-ink-500">
+      {/* บอกที่มาของหลักฐานตรงๆ — ผู้อ่านงานวิชาการต้องรู้ว่าอะไรตรวจสอบได้แค่ไหน */}
+      <p className="mt-6 max-w-prose text-[13px] leading-[1.6] text-ink-500">{t.provenance}</p>
+
+      <p aria-live="polite" className="mt-4 text-[13px] leading-[1.4] text-ink-500">
         {t.showing(filtered.length)}
       </p>
 
@@ -168,27 +186,57 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                       ) : null}
                     </div>
 
-                    <h3 className="mt-1.5 text-[17px] font-medium leading-[1.6] text-ink-900">
-                      {p.doi ? (
-                        <a
-                          href={`https://doi.org/${p.doi}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={t.doi}
-                          className="transition-colors duration-150 ease-brand hover:text-pink-700
-                            focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
-                        >
-                          {p.title}
-                        </a>
-                      ) : (
-                        p.title
-                      )}
-                    </h3>
+                    {(() => {
+                      const href = p.doi ? `https://doi.org/${p.doi}` : p.indexUrl;
+                      return (
+                        <h3 className="mt-1.5 text-[17px] font-medium leading-[1.6] text-ink-900">
+                          {href ? (
+                            <a
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title={p.doi ? t.doi : t.index}
+                              className="transition-colors duration-150 ease-brand hover:text-pink-700
+                                focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+                            >
+                              {p.title}
+                            </a>
+                          ) : (
+                            p.title
+                          )}
+                        </h3>
+                      );
+                    })()}
 
                     <p className="mt-1 text-[15px] leading-[1.6] text-ink-500">
                       {p.venue}
                       {p.venue && " · "}
                       {p.authors.map(authorName).join(", ")}
+                      {/* ที่มาของหลักฐาน — ผู้อ่านต้องแยกออกว่ารายการไหนตรวจสอบออนไลน์ได้
+                          รายการที่ยังไม่มีดัชนีอิสระ ให้ลิงก์ไประเบียน ORCID ต้นทางแทน */}
+                      {p.verified === "self" &&
+                        (() => {
+                          const href = orcidHref(p.authors);
+                          return (
+                            <>
+                              {" · "}
+                              {href ? (
+                                <a
+                                  href={href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-ink-500 underline decoration-ink-300 underline-offset-2
+                                    transition-colors duration-150 ease-brand hover:text-pink-700
+                                    focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+                                >
+                                  {t.selfNote}
+                                </a>
+                              ) : (
+                                <span className="text-ink-300">{t.selfNote}</span>
+                              )}
+                            </>
+                          );
+                        })()}
                     </p>
                   </li>
                 ))}

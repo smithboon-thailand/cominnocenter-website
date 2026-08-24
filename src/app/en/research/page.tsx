@@ -38,12 +38,17 @@ export default function ResearchPageEn() {
         <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
           Every service we deliver rests on a research base. This page collects the published work
           of the center&apos;s faculty — books, international journal articles, and conference
-          papers. Select a title to open the original publication through its DOI.
+          papers. Select a title to open the original publication.
         </p>
         <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
           <Stat value={publicationStats.total} unit="publications" label="Published works" />
-          <Stat value={publicationStats.books} unit="books" label="Academic books (Springer)" delay={120} />
-          <Stat value={publicationStats.venues} unit="venues" label="Journals and conferences" delay={240} />
+          <Stat
+            value={publicationStats.verifiable}
+            unit="publications"
+            label="Openable online"
+            delay={120}
+          />
+          <Stat value={publicationStats.books} unit="books" label="Academic books (Springer)" delay={240} />
           <Stat value={publicationStats.since} label="Publishing continuously since" animate={false} />
         </div>
       </section>
