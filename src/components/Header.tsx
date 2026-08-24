@@ -101,13 +101,14 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
             alt={locale === "th" ? "โลโก้ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร" : "Communication Innovation Center logo"}
             width={180}
             height={54}
-            className="h-10 w-auto md:h-12 object-contain"
+            className="h-10 w-auto lg:h-12 object-contain"
             priority
           />
         </Link>
 
-        {/* gap แคบลงที่ md — เมนู EN ยาวกว่าไทย เคยดันปุ่ม CTA ล้นจอที่ 768px */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-8 text-sm font-medium">
+        {/* ที่ md เมนูมี 8 รายการและชื่ออังกฤษยาวกว่าไทย — บีบทั้ง gap และโลโก้
+            ให้พอดี 768px (เมนูอังกฤษเคยล้น 6px ตั้งแต่เพิ่มรายการ "Research") */}
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-sm font-medium">
           <Link href={pathFor(locale, "home")} className={linkClass("home")}>
             {t.home}
           </Link>
