@@ -47,6 +47,61 @@ const AUTHORS = {
   "pavel-slutskiy": { crossref: { family: "slutskiy", givenPattern: /pavel/i }, surname: "slutskiy" },
 };
 
+/**
+ * วารสารไทยบน ThaiJO/TCI ไม่จด DOI และไม่อยู่ใน Crossref/Semantic Scholar
+ * แต่หน้าบทความของ OJS ปล่อย meta tag มาตรฐาน (citation_author, citation_date)
+ * ซึ่งเป็น "ระเบียนทางการของวารสาร" — ใช้ยืนยันผู้เขียนได้จริง
+ *
+ * ตารางนี้เก็บเฉพาะ URL ส่วนที่เหลือดึงสดจากหน้าเว็บทุกครั้งที่รัน และ
+ * ถ้า meta ไม่มีชื่อผู้เขียนที่อ้าง สคริปต์จะไม่ใส่ลิงก์ให้ (กันลิงก์ผิดคน)
+ *
+ *   match   = รายการที่มีอยู่แล้วจาก ORCID — เติมลิงก์และแก้ปีให้ตรงระเบียนทางการ
+ *   (ไม่มี match) = ผลงานที่ยังไม่ได้ลงใน ORCID — เพิ่มเป็นรายการใหม่
+ */
+const THAIJO_SOURCES = [
+  {
+    match: /health belief model of the retirees/i,
+    url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/253798",
+  },
+  {
+    match: /crisis communication of digital television channels/i,
+    url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/251243",
+  },
+  {
+    match: /factors predicting consumer.{0,3}s loyalty/i,
+    url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/247870",
+  },
+  {
+    match: /requirement and concern towards health form/i,
+    url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/230947",
+    // ระเบียนวารสารระบุ Smith Boonchutima ร่วมด้วย แต่ ORCID ของ อ.ธีรดา ลงชื่อเดียว
+    addAuthors: ["smith-boonchutima"],
+  },
+  {
+    match: /#nodam in #maewong/i,
+    url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/148722",
+  },
+  {
+    match: /role of social media in political advertising/i,
+    url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
+  },
+  {
+    // ยังไม่มีใน ORCID — ใช้ชื่ออังกฤษทางการจาก DC.Title.Alternative ของวารสาร
+    title: "Reframing Thailand's Southern Border Conflict through a Self-transcendental Narrative Paradigm",
+    venue: "Journal of Communication Arts",
+    type: "journal-article",
+    authors: ["teerada-chongkolrattanaporn"],
+    url: "https://so02.tci-thaijo.org/index.php/jcomm/article/view/275202",
+  },
+  {
+    title: "Relationship Marketing Communication of Horror Storytelling Programs",
+    venue: "Journal of Communication and Management NIDA",
+    type: "journal-article",
+    authors: ["teerada-chongkolrattanaporn"],
+    url: "https://so12.tci-thaijo.org/index.php/jcmn/article/view/5690",
+  },
+];
+
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 /** สัดส่วนคำสำคัญของ a ที่ปรากฏใน b */
 function titleOverlap(a, b) {
@@ -304,6 +359,72 @@ const TYPE_MAP = {
 };
 const normalizeType = (t) => TYPE_MAP[String(t || "").toLowerCase()] || "journal-article";
 
+/**
+ * ดึงระเบียนทางการจากหน้าบทความ OJS (ThaiJO) แล้วยืนยันชื่อผู้เขียน
+ * คืน null ถ้าเปิดไม่ได้ หรือ meta ไม่มีชื่อผู้เขียนที่อ้าง = ไม่ใส่ลิงก์นั้น
+ */
+async function verifyThaijo(url, surnames) {
+  let html;
+  try {
+    const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; cominnocenter-website)" } });
+    if (!res.ok) return null;
+    html = await res.text();
+  } catch {
+    return null;
+  }
+  const metaValues = (name) =>
+    [...html.matchAll(new RegExp(`<meta[^>]+name="${name}"[^>]+content="([^"]*)"`, "gi"))].map((m) => m[1]);
+  const authors = [...metaValues("citation_author"), ...metaValues("DC.Creator.PersonalName")];
+  if (!surnames.some((s) => authors.some((a) => norm(a).includes(s)))) return null;
+  const date = metaValues("citation_date")[0] || metaValues("citation_publication_date")[0] || "";
+  return {
+    authors,
+    year: Number((date.match(/\d{4}/) || [])[0]) || 0,
+    venue: metaValues("citation_journal_title")[0] || "",
+  };
+}
+
+/** เติมลิงก์ ThaiJO ให้รายการเดิม และเพิ่มผลงานที่ยังไม่ได้ลงใน ORCID */
+async function applyThaijoSources(rows) {
+  for (const source of THAIJO_SOURCES) {
+    const targetAuthors = source.match
+      ? rows.find((r) => source.match.test(r.title))?.people
+      : source.authors;
+    if (!targetAuthors) {
+      console.warn(`  ThaiJO: ไม่พบรายการที่ตรงกับ ${source.match} — ข้าม`);
+      continue;
+    }
+    const surnames = targetAuthors.map((slug) => AUTHORS[slug].surname);
+    const official = await verifyThaijo(source.url, surnames);
+    await sleep(500);
+    if (!official) {
+      console.warn(`  ThaiJO: ระเบียนไม่ยืนยันผู้เขียน ไม่ใส่ลิงก์ — ${source.url}`);
+      continue;
+    }
+
+    if (source.match) {
+      const row = rows.find((r) => source.match.test(r.title));
+      row.verified = "index";
+      row.indexUrl = source.url;
+      if (official.year) row.year = official.year; // ใช้ปีจากระเบียนทางการ
+      if (official.venue) row.venue = official.venue;
+      if (source.addAuthors) row.people = [...new Set([...row.people, ...source.addAuthors])];
+      console.log(`  ThaiJO ✓ ${row.year} ${row.title.slice(0, 55)}`);
+    } else {
+      rows.push({
+        title: source.title,
+        venue: official.venue || source.venue,
+        year: official.year || source.year || 0,
+        type: source.type,
+        verified: "index",
+        indexUrl: source.url,
+        people: source.authors,
+      });
+      console.log(`  ThaiJO + ${official.year} ${source.title.slice(0, 55)} (ยังไม่มีใน ORCID)`);
+    }
+  }
+}
+
 const clean = (s) =>
   s.replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
 const fixCaps = (t) => (t === t.toUpperCase() && t.length > 15 ? t.charAt(0) + t.slice(1).toLowerCase() : t);
@@ -396,6 +517,10 @@ for (const row of merged) {
   }
   await sleep(350);
 }
+
+// เติมลิงก์ระเบียนทางการของวารสารไทย (ตรวจผู้เขียนสดทุกครั้ง)
+console.log("\nchecking ThaiJO records...");
+await applyThaijoSources(checked);
 
 // ยุบบทในหนังสือของตัวเองเข้ากับเล่ม + รวมยอดอ้างอิงของบทเข้าที่เล่ม
 const books = checked.filter((r) => r.type === "book");
