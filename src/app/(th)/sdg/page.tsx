@@ -21,6 +21,9 @@ export const metadata = {
   openGraph: {
     title: "เป้าหมายการพัฒนาที่ยั่งยืน (SDG) | ComInnoCenter",
     description: `นวัตกรรมการสื่อสารของเราครอบคลุม ${coveredGoals} จาก 17 เป้าหมาย SDG`,
+    // openGraph ของหน้าลูกทับของ layout ทั้งก้อน ไม่ได้ merge ทีละ field
+    // ถ้าไม่ใส่ images ตรงนี้ หน้านี้จะไม่มีภาพตอนแชร์เลย
+    images: ["/images/og/og-default.jpg"],
   },
 };
 
