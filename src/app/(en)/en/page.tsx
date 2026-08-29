@@ -9,6 +9,7 @@ import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import VideoShowcase from "@/components/VideoShowcase";
+import ContextCTA from "@/components/ui/ContextCTA";
 import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
@@ -226,6 +227,15 @@ export default function EnglishHomePage() {
           </div>
           <div className="mt-10">
             <VideoShowcase locale="en" />
+          </div>
+          {/* People who finish a research talk often want it for their own team */}
+          <div className="mt-12">
+            <ContextCTA
+              heading="Want this knowledge inside your team?"
+              sub="We design communication-innovation training around your organisation's own brief."
+              href="/en/expertise#stage-empower"
+              cta="See our training"
+            />
           </div>
         </div>
       </section>

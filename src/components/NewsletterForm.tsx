@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 
 type NewsletterFormProps = {
   variant?: "light" | "dark" | "compact";
@@ -10,6 +10,7 @@ type NewsletterFormProps = {
 const COPY = {
   th: {
     success: "สมัครรับข่าวสารเรียบร้อยแล้ว ขอบคุณครับ",
+    label: "อีเมลสำหรับรับจดหมายข่าว",
     placeholder: "อีเมลของคุณ",
     loading: "กำลังสมัคร...",
     submitDark: "สมัคร",
@@ -18,6 +19,7 @@ const COPY = {
   },
   en: {
     success: "Subscribed successfully. Thank you!",
+    label: "Email address for the newsletter",
     placeholder: "Your email",
     loading: "Subscribing...",
     submitDark: "Subscribe",
@@ -32,6 +34,7 @@ export default function NewsletterForm({
 }: NewsletterFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const t = COPY[locale];
+  const inputId = useId();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,28 +63,38 @@ export default function NewsletterForm({
 
   if (status === "success") {
     return (
-      <p className={variant === "dark" ? "text-sm text-pink-300" : "text-sm text-pink-600"}>
+      <p
+        role="status"
+        className={`text-[15px] leading-[1.6] ${
+          variant === "dark" ? "text-pink-300" : "text-pink-700"
+        }`}
+      >
         {t.success}
       </p>
     );
   }
 
-  const inputClass =
-    variant === "dark"
-      ? "px-3 py-2 rounded-md bg-neutral-800 border border-neutral-700 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-pink-500"
-      : "flex-1 px-4 py-3 rounded-lg border border-neutral-300 bg-white text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent";
+  const isDark = variant === "dark";
 
-  const buttonClass =
-    variant === "dark"
-      ? "px-4 py-2 rounded-md bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors disabled:opacity-60"
-      : "px-6 py-3 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors whitespace-nowrap disabled:opacity-60";
+  const inputClass = isDark
+    ? "rounded border border-ink-700 bg-ink-900 px-3 py-2 text-[15px] leading-[1.6] text-white placeholder:text-ink-500 focus:border-ink-500 focus:outline-none focus:shadow-[0_0_0_3px_var(--pink-100)]"
+    : "flex-1 rounded border border-ink-300 bg-white px-4 py-3 text-[15px] leading-[1.6] text-ink-900 placeholder:text-ink-500 focus:border-ink-500 focus:outline-none focus:shadow-[0_0_0_3px_var(--pink-100)]";
+
+  const buttonClass = isDark
+    ? "rounded bg-pink-700 px-4 py-2 text-[15px] font-medium text-white transition-colors duration-150 ease-brand hover:bg-pink-900 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40"
+    : "whitespace-nowrap rounded bg-pink-700 px-6 py-3 text-[15px] font-medium text-white transition-colors duration-150 ease-brand hover:bg-pink-900 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40";
 
   return (
     <form
       onSubmit={handleSubmit}
-      className={variant === "dark" ? "flex flex-col gap-2" : "flex flex-col sm:flex-row gap-3"}
+      className={isDark ? "flex flex-col gap-2" : "flex flex-col gap-3 sm:flex-row"}
     >
+      {/* ป้ายซ่อนไว้ — placeholder หายทันทีที่พิมพ์ ช่องจึงต้องมีชื่อถาวรของตัวเอง */}
+      <label htmlFor={inputId} className="sr-only">
+        {t.label}
+      </label>
       <input
+        id={inputId}
         type="email"
         name="email"
         required
@@ -89,10 +102,12 @@ export default function NewsletterForm({
         className={inputClass}
       />
       <button type="submit" disabled={status === "loading"} className={buttonClass}>
-        {status === "loading" ? t.loading : variant === "dark" ? t.submitDark : t.submitLight}
+        {status === "loading" ? t.loading : isDark ? t.submitDark : t.submitLight}
       </button>
       {status === "error" && (
-        <p className="text-xs text-red-500 col-span-full">{t.error}</p>
+        <p role="alert" className="col-span-full text-[13px] leading-[1.6] text-error">
+          {t.error}
+        </p>
       )}
     </form>
   );

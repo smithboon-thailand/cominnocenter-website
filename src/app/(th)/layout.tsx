@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Kanit } from "next/font/google";
 import JsonLd from "@/components/seo/JsonLd";
+import { kanit } from "@/lib/fonts";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import "./globals.css";
-
-/** ฟอนต์เดียวทั้งเว็บตาม BRAND.md PART C (v1.2) — น้ำหนัก 400/500 เท่านั้น ห้าม 300 และ 600/700 */
-const kanit = Kanit({
-  weight: ["400", "500"],
-  subsets: ["thai", "latin"],
-  variable: "--font-kanit",
-  display: "swap",
-});
+import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cominnocenter.com"),
@@ -19,8 +11,10 @@ export const metadata: Metadata = {
     default: "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร | ComInnoCenter",
     template: "%s | ComInnoCenter",
   },
+  // คำอธิบายฝั่งไทยต้องเป็นไทย — นี่คือข้อความที่ขึ้นใต้ชื่อเว็บในผลค้นหา
+  // (เดิม layout มีตัวเดียว หน้าไทยจึงได้คำอธิบายภาษาอังกฤษไปด้วย)
   description:
-    "Center of Excellence in Communication Innovation for the Development of Quality of Life and Sustainability, Faculty of Communication Arts, Chulalongkorn University",
+    "ศูนย์เชี่ยวชาญเฉพาะทางที่แปลงองค์ความรู้ด้านการสื่อสารให้เป็นเครื่องมือที่เปลี่ยนคุณภาพชีวิตของผู้คนได้จริง ทุกโครงการวัดผลได้และเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
   keywords: [
     "นวัตกรรมการสื่อสาร",
     "Communication Innovation",
@@ -32,7 +26,7 @@ export const metadata: Metadata = {
     "Sustainability",
   ],
   authors: [{ name: "ComInnoCenter, Chulalongkorn University" }],
-  // Favicon: Next.js ใช้ src/app/icon.png + apple-icon.png อัตโนมัติ (ชั่วคราวจากโลโก้ — รอโลโก้จริง Phase 2)
+  // Favicon: Next.js ใช้ src/app/icon.png + apple-icon.png อัตโนมัติ
   openGraph: {
     type: "website",
     locale: "th_TH",
@@ -55,7 +49,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+/**
+ * root layout ฝั่งไทย — คู่กับ src/app/(en)/layout.tsx
+ *
+ * เว็บมี root layout สองตัวเพราะ <html lang> ต้องบอกภาษาของหน้านั้นจริงๆ
+ * (WCAG 3.1.1) และ layout เดียวเปลี่ยนค่าตาม path ไม่ได้ — layout เป็น
+ * server component ที่อ่าน pathname ไม่ได้ ถ้าจะอ่านต้องพึ่ง headers()
+ * ซึ่งจะดึงทั้งเว็บออกจาก static ไปเป็น dynamic ทั้งหมด
+ *
+ * route group ในวงเล็บไม่มีผลกับ URL — /about ยังเป็น /about เหมือนเดิม
+ */
+export default function ThaiRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -63,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="th" className={kanit.variable}>
       <body className="antialiased bg-neutral-50 text-neutral-900 font-sans">
-        {/* ตัวตนขององค์กร — ใส่ครั้งเดียวที่ root ใช้ได้ทุกหน้าทั้ง TH/EN */}
+        {/* ตัวตนขององค์กร — ชุดเดียวกันทั้ง TH/EN */}
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
         <Analytics />

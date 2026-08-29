@@ -1,9 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { kanit } from "@/lib/fonts";
 
+/**
+ * หน้า 404 ต้องเลี้ยงตัวเองได้ ไม่พึ่ง <html> ของ root layout
+ *
+ * Next render not-found ในเปลือก <html id="__next_error__"> ของตัวเอง
+ * ไม่ใช่เปลือกของ layout เรา คลาสฟอนต์ที่ปกติอยู่บน <html> จึงหายไป
+ * (เห็นได้จาก /impact/<slug ที่ไม่มีอยู่> บนเว็บจริงตั้งแต่ก่อนแก้)
+ * จึงใส่ตัวแปรฟอนต์กับพื้นหลังไว้ที่ตัวเอง หน้านี้จะได้หน้าตาถูกเสมอ
+ */
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-neutral-50 flex flex-col items-center justify-center px-6 text-center">
+    <main
+      lang="th"
+      className={`${kanit.variable} font-sans min-h-screen bg-neutral-50 text-neutral-900 flex flex-col items-center justify-center px-6 text-center`}
+    >
       <Image
         src="/images/notfound/404.webp"
         alt="ภาพประกอบ: จุดเล็กๆ หลงทางกำลังตามหากลุ่มก้อนสี"
@@ -21,7 +33,7 @@ export default function NotFound() {
       <div className="mt-8 flex flex-wrap gap-4 justify-center">
         <Link
           href="/"
-          className="inline-flex items-center px-6 py-3 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors"
+          className="inline-flex items-center px-6 py-3 rounded-lg bg-pink-700 text-white font-medium hover:bg-pink-900 transition-colors"
         >
           กลับหน้าแรก
         </Link>

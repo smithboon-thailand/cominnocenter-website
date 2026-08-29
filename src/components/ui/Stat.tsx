@@ -13,6 +13,12 @@ type StatProps = {
   delay?: number;
   /** ปิดการนับไต่ขึ้นสำหรับค่าที่นับแล้วไม่มีความหมาย เช่น ปี พ.ศ./ค.ศ. */
   animate?: boolean;
+  /**
+   * ขนาดตัวเลข
+   *   default — สเกลเดิมตาม spec ผู้ใช้ สำหรับช่องกริดแคบ (หน้าแรก, /sdg, หน้าโครงการ)
+   *   compact — สำหรับการ์ดกว้างอย่าง persona ที่ 19cqw คำนวณได้ถึง 52px แล้วล้นการ์ด
+   */
+  size?: "default" | "compact";
 };
 
 /** แยกตัวเลขนำหน้าออกจากส่วนท้าย: "10,000+" → 10000+"+", "13/17" → 13+"/17" */
@@ -35,7 +41,14 @@ const DURATION = 1600;
  * - a11y: ตัวเลขที่นับอยู่เป็น aria-hidden + sr-only ค่าจริงถาวร · ไม่ใช้ aria-live ·
  *   prefers-reduced-motion แสดงค่าจริงทันที
  */
-export default function Stat({ value, unit, label, delay = 0, animate = true }: StatProps) {
+export default function Stat({
+  value,
+  unit,
+  label,
+  delay = 0,
+  animate = true,
+  size = "default",
+}: StatProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [display, setDisplay] = useState(String(value));
 
@@ -87,7 +100,11 @@ export default function Stat({ value, unit, label, delay = 0, animate = true }: 
     <div ref={ref} className="min-w-0 [container-type:inline-size]">
       <p
         aria-hidden
-        className="whitespace-nowrap text-[clamp(1.75rem,19cqw,3.25rem)] font-medium leading-[1.1] text-ink-900 [font-variant-numeric:tabular-nums]"
+        className={`whitespace-nowrap font-medium leading-[1.1] text-ink-900 [font-variant-numeric:tabular-nums] ${
+          size === "compact"
+            ? "text-[clamp(1.5rem,12cqw,2rem)]"
+            : "text-[clamp(1.75rem,19cqw,3.25rem)]"
+        }`}
       >
         {display}
         {unit && <span className="ml-2 text-[0.55em] font-normal text-ink-500">{unit}</span>}

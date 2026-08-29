@@ -9,6 +9,7 @@ import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import VideoShowcase from "@/components/VideoShowcase";
+import ContextCTA from "@/components/ui/ContextCTA";
 import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
@@ -222,6 +223,15 @@ export default function HomePage() {
           </div>
           <div className="mt-10">
             <VideoShowcase />
+          </div>
+          {/* คนที่ดูงานวิจัยจบมักอยากให้ทีมตัวเองได้ความรู้แบบนี้ — พาไปหน้าอบรมต่อ */}
+          <div className="mt-12">
+            <ContextCTA
+              heading="อยากให้ทีมของคุณได้ความรู้แบบนี้"
+              sub="เราออกแบบหลักสูตรอบรมด้านนวัตกรรมการสื่อสารให้ตรงกับโจทย์ขององค์กร"
+              href="/expertise#stage-empower"
+              cta="ดูบริการอบรม"
+            />
           </div>
         </div>
       </section>

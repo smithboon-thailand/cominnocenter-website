@@ -28,20 +28,24 @@
 
 ```
 src/
-├── app/                    # App Router — ภาษาไทยที่ root
-│   ├── layout.tsx          # root layout (lang="th", ฟอนต์, metadata, JSON-LD องค์กร)
-│   ├── page.tsx            # Home (ไทย)
-│   ├── about/  expertise/  collaborate/
-│   ├── impact/             # รายการโครงการ + impact/[slug]/ รายละเอียด
-│   ├── news/               # ข่าวที่เก็บจากเว็บเดิม + news/[slug]/ (Phase 0-C)
-│   ├── media/              # "สื่อถึงเรา" — ศูนย์ฯ ปรากฏบนสื่อภายนอก
-│   ├── research/           # ผลงานวิชาการ (จาก publications.ts)
-│   ├── sdg/                # 17 เป้าหมาย + วงล้อ SDG
-│   ├── en/                 # ภาษาอังกฤษ — โครงสร้างขนานกันครบทุกหน้า
-│   │   ├── page.tsx  about/  expertise/  collaborate/  media/  research/  sdg/
-│   │   └── impact/  impact/[slug]/  news/  news/[slug]/
+├── app/                    # App Router — root layout สองตัว ดูหมายเหตุใต้ผัง
+│   ├── (th)/               # ภาษาไทย — วงเล็บเป็น route group ไม่มีผลกับ URL
+│   │   ├── layout.tsx      # root layout ไทย (lang="th", og:locale th_TH, ฟอนต์, JSON-LD)
+│   │   ├── page.tsx        # Home (ไทย)
+│   │   ├── about/  expertise/  collaborate/
+│   │   ├── impact/         # รายการโครงการ + impact/[slug]/ รายละเอียด
+│   │   ├── news/           # ข่าวที่เก็บจากเว็บเดิม + news/[slug]/ (Phase 0-C)
+│   │   ├── media/          # "สื่อถึงเรา" — ศูนย์ฯ ปรากฏบนสื่อภายนอก
+│   │   ├── research/       # ผลงานวิชาการ (จาก publications.ts)
+│   │   ├── sdg/            # 17 เป้าหมาย + วงล้อ SDG
+│   │   ├── not-found.tsx   # หน้า 404 ไทย · [...notFound]/ ดึง URL แปลกๆ มาที่นี่
+│   ├── (en)/               # ภาษาอังกฤษ — โครงสร้างขนานกันครบทุกหน้า
+│   │   ├── layout.tsx      # root layout อังกฤษ (lang="en", og:locale en_US)
+│   │   └── en/             # page.tsx about/ expertise/ collaborate/ media/ research/ sdg/
+│   │                       #   impact/ impact/[slug]/ news/ news/[slug]/
+│   │                       #   not-found.tsx + [...notFound]/
 │   ├── globals.css         # design tokens ตาม BRAND.md I1 + keyframes
-│   ├── sitemap.ts  not-found.tsx
+│   ├── sitemap.ts          # สร้างจาก data file แตกสองภาษาอัตโนมัติ + hreflang
 ├── components/
 │   ├── Header  Footer  ContactForm  NewsletterForm  ProjectGallery  VideoShowcase  HomeLeadership
 │   ├── ui/                 # Button, DisplayHeading, ProjectCard, SdgBadge, SdgFilterChips,
@@ -59,6 +63,13 @@ public/
 ├── illustrations/          # SVG ประกอบ (hero-network, sdg-ring, ฯลฯ)
 └── robots.txt
 ```
+
+**ทำไม root layout ถึงมีสองตัว (29 ส.ค. 2569)** — `<html lang>` ต้องบอกภาษาของหน้านั้นจริงๆ (WCAG 3.1.1) แต่ layout เป็น server component ที่อ่าน pathname ไม่ได้ ถ้าจะอ่านต้องพึ่ง `headers()` ซึ่งจะดึงทั้งเว็บออกจาก static ไปเป็น dynamic ทั้ง 102 หน้า วิธีที่ Next รองรับคือ root layout หลายตัวผ่าน route group จึงแยกเป็น `(th)` กับ `(en)` — **วงเล็บไม่มีผลกับ URL** `/about` ยังเป็น `/about` เหมือนเดิม
+
+ผลที่ตามมาที่ต้องจำ:
+- **เพิ่มหน้าใหม่ต้องวางใต้ group ให้ถูก** ไทยไป `(th)/` อังกฤษไป `(en)/en/` ไม่งั้นจะได้ `lang` ผิดภาษา
+- `metadata` ของหน้าลูก**ทับ**ของ layout ทีละ field ระดับบนสุด ไม่ merge เข้าไปข้างใน — เขียน `openGraph` ของตัวเองเมื่อไหร่ ต้องใส่ `images` ด้วยทุกครั้ง ไม่งั้นหน้านั้นจะไม่มีภาพตอนแชร์
+- Next render `not-found` ในเปลือก `<html id="__next_error__">` ของตัวเอง ไม่ใช่เปลือกของ layout เรา ฟอนต์/พื้นหลังจึงอยู่ใน `not-found.tsx` เอง อย่าย้ายกลับไปพึ่ง layout
 
 ## Data files (`src/data/`)
 

@@ -12,6 +12,11 @@ type ProjectCardProps = {
   /** เป้าหมายแรกคือสีหลักของการ์ด (แถบบน + border hover) */
   sdgIds: readonly SdgId[];
   locale?: "th" | "en";
+  /**
+   * โหลดภาพทันทีแทนการรอ lazy — ใช้กับการ์ดแรกๆ ที่อยู่เหนือ fold เท่านั้น
+   * บน /impact การ์ดแรกคือ LCP ของหน้า ปล่อยให้ lazy แล้ว LCP ยืดเป็น ~3 วินาที
+   */
+  priority?: boolean;
 };
 
 /**
@@ -28,6 +33,7 @@ export default function ProjectCard({
   alt,
   sdgIds,
   locale = "th",
+  priority = false,
 }: ProjectCardProps) {
   const primary = sdgIds[0];
   const pure = primary ? SDG[primary].pure : "var(--ink-300)";
@@ -50,6 +56,7 @@ export default function ProjectCard({
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 33vw"
+          priority={priority}
         />
       </span>
       <span className="block space-y-2 p-6">
