@@ -60,7 +60,7 @@ export default function ImpactExplorer({
           </div>
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((p) => (
+              {filtered.map((p, i) => (
                 <ProjectCard
                   key={p.slug}
                   href={`${basePath}/${p.slug}`}
@@ -70,6 +70,8 @@ export default function ImpactExplorer({
                   alt={p.alt}
                   sdgIds={p.sdg}
                   locale={locale}
+                  // สามใบแรกคือแถวบนสุดบนเดสก์ท็อป — ใบแรกมักเป็น LCP ของหน้า
+                  priority={i < 3}
                 />
               ))}
             </div>
