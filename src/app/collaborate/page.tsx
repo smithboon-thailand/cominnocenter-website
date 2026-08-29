@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
+import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata = {
@@ -141,6 +142,11 @@ export default function CollaboratePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* หลังจากส่งข้อความ — ลดความลังเลก่อนกดส่ง ด้วยการบอกล่วงหน้าว่าจะเจออะไรต่อ */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <ProcessSteps />
       </section>
 
       <section className="bg-ink-100">

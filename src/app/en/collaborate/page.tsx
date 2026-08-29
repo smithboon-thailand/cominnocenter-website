@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
+import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata = {
@@ -142,6 +143,11 @@ export default function EnglishCollaboratePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* What happens next — tells people what follows before they hesitate over the send button */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <ProcessSteps locale="en" />
       </section>
 
       <section className="bg-ink-100">
