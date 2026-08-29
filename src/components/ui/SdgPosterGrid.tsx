@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ContextCTA from "@/components/ui/ContextCTA";
 import { SDG, SDG_IDS, sdgAria, type SdgId } from "@/data/sdg";
 import { projects } from "@/data/projects";
 
@@ -21,6 +22,8 @@ const COPY = {
     viewAll: "ดูในหน้าผลงาน",
     impactPath: "/impact",
     collaboratePath: "/collaborate",
+    ctaHeading: "องค์กรของคุณทำงานกับเป้าหมายนี้อยู่หรือไม่",
+    ctaLabel: "ชวนเราร่วมงาน",
   },
   en: {
     projects: (n: number) => `${n} ${n === 1 ? "project" : "projects"}`,
@@ -28,6 +31,8 @@ const COPY = {
     viewAll: "See on the impact page",
     impactPath: "/en/impact",
     collaboratePath: "/en/collaborate",
+    ctaHeading: "Is your organisation working on this goal?",
+    ctaLabel: "Work with us",
   },
 } as const;
 
@@ -105,7 +110,7 @@ export default function SdgPosterGrid({ locale = "th" }: SdgPosterGridProps) {
             <Link
               key={id}
               id={`sdg-${id}`}
-              href={t.collaboratePath}
+              href={`${t.collaboratePath}?ref=sdg-${id}`}
               aria-label={`${sdgAria(id, locale)} — ${status}`}
               className="sdg-tile group flex scroll-mt-28 flex-col overflow-hidden rounded-lg border border-ink-300 bg-white
                 transition-transform duration-150 ease-brand hover:-translate-y-0.5
@@ -189,6 +194,14 @@ export default function SdgPosterGrid({ locale = "th" }: SdgPosterGridProps) {
               >
                 {t.viewAll} →
               </Link>
+              {/* ชวนคุยเฉพาะเป้าหมายนี้ — เห็นตอนกางเท่านั้น จึงไม่รก grid 17 ช่อง */}
+              <ContextCTA
+                compact
+                accent={goal.deep}
+                heading={t.ctaHeading}
+                href={`${t.collaboratePath}?ref=sdg-${id}`}
+                cta={t.ctaLabel}
+              />
             </div>
           </div>
         );

@@ -16,7 +16,8 @@ export const metadata = {
     languages: { th: "/sdg", en: "/en/sdg", "x-default": "/sdg" },
   },
   title: "Sustainable Development Goals",
-  description: `Our work connects to ${coveredGoals} of the 17 Sustainable Development Goals — explore projects by goal, or start a new goal with us`,
+  // Written for what ESG/CSR teams actually search: SDG communication and sustainability reporting
+  description: `SDG communication strategy and evaluation research your sustainability report can cite — our work already covers ${coveredGoals} of the 17 Sustainable Development Goals`,
   openGraph: {
     title: "Sustainable Development Goals | ComInnoCenter",
     description: `Our communication innovation covers ${coveredGoals} of the 17 SDGs`,

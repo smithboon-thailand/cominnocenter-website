@@ -12,6 +12,7 @@ import { getProjectBySlug, projects } from "@/data/projects";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { servicesForProject } from "@/data/services";
 import { SDG } from "@/data/sdg";
+import ContextCTA from "@/components/ui/ContextCTA";
 import ProjectFooterNav from "@/components/impact/ProjectFooterNav";
 import ProjectTestimonial from "@/components/impact/ProjectTestimonial";
 import JsonLd from "@/components/seo/JsonLd";
@@ -210,18 +211,15 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
 
       <ProjectFooterNav slug={slug} locale="en" />
 
-      <section className="bg-ink-900">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
-          <h2 className="text-h2-m md:text-h2 text-white">
-            Want to create impact like this together?
-          </h2>
-          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
-            Tell us about your organization and design measurable communication together.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <Button href="/en/collaborate">Collaborate with us</Button>
-          </div>
-        </div>
+      {/* Context CTA — ref records which case study the enquiry came from (Phase 6.3) */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <ContextCTA
+          heading="Facing a similar challenge?"
+          sub="Tell us about your organization and design measurable communication together."
+          href={`/en/collaborate?ref=impact-${slug}`}
+          cta="Collaborate with us"
+          accent={goal.deep}
+        />
       </section>
 
       </main>

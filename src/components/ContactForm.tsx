@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import Button from "@/components/ui/Button";
 import { processSteps } from "@/data/process";
 
@@ -67,6 +67,18 @@ export default function ContactForm({ locale = "th" }: ContactFormProps) {
   const id = useId();
   const f = (name: string) => `${id}-${name}`;
 
+  /**
+   * ที่มาของผู้ติดต่อ — CTA ตามหน้าต่างๆ ส่ง ?ref=... มา (Phase 6.3)
+   * อ่านหลัง mount เท่านั้น: หน้านี้เป็น static ทั้งหน้า ถ้าอ่านตอน render
+   * ค่าจะถูก freeze ไปกับ HTML ที่ build ไว้ ไม่ใช่ของผู้ใช้คนนั้น
+   */
+  const [ref, setRef] = useState("");
+  useEffect(() => {
+    const value = new URLSearchParams(window.location.search).get("ref") ?? "";
+    // กันค่าขยะ/ยาวเกินจากลิงก์ที่ถูกแก้มือ — ส่งเข้า Formspree เท่าที่เป็นรูปแบบของเราเอง
+    if (/^[a-z0-9-]{1,64}$/.test(value)) setRef(value);
+  }, []);
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
@@ -116,6 +128,8 @@ export default function ContactForm({ locale = "th" }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input type="hidden" name="ref" value={ref} readOnly />
+
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={f("name")} className={labelClass}>

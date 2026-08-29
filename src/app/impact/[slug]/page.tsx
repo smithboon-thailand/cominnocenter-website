@@ -11,6 +11,7 @@ import Stat from "@/components/ui/Stat";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { servicesForProject } from "@/data/services";
 import { SDG } from "@/data/sdg";
+import ContextCTA from "@/components/ui/ContextCTA";
 import ProjectFooterNav from "@/components/impact/ProjectFooterNav";
 import ProjectTestimonial from "@/components/impact/ProjectTestimonial";
 import JsonLd from "@/components/seo/JsonLd";
@@ -212,16 +213,15 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* ทางไปต่อ — โครงการที่เกี่ยวข้อง ข่าว และก่อนหน้า/ถัดไป */}
       <ProjectFooterNav slug={slug} />
 
-      <section className="bg-ink-900">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center">
-          <h2 className="text-h2-m md:text-h2 text-white">อยากสร้างผลลัพธ์แบบนี้ไปด้วยกัน</h2>
-          <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
-            เล่าโจทย์ขององค์กรให้เราฟัง แล้วออกแบบการสื่อสารที่วัดผลได้ไปด้วยกัน
-          </p>
-          <div className="mt-8 flex justify-center">
-            <Button href="/collaborate">ร่วมงานกับเรา</Button>
-          </div>
-        </div>
+      {/* ชวนคุยตามบริบทของโครงการที่เพิ่งอ่านจบ · ref บอกว่ามาจากหน้าไหน (Phase 6.3) */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <ContextCTA
+          heading="มีโจทย์คล้ายกันไหม"
+          sub="เล่าโจทย์ขององค์กรให้เราฟัง แล้วออกแบบการสื่อสารที่วัดผลได้ไปด้วยกัน"
+          href={`/collaborate?ref=impact-${slug}`}
+          cta="ร่วมงานกับเรา"
+          accent={goal.deep}
+        />
       </section>
 
       </main>
