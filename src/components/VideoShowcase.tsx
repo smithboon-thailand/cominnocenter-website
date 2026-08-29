@@ -15,21 +15,19 @@ type Locale = "th" | "en";
 const COPY = {
   th: {
     playAria: (title: string) => `เล่นวิดีโอ ${title}`,
-    selectAria: (title: string) => `เลือกวิดีโอ ${title}`,
+    selectPrefix: "เลือกวิดีโอ ",
     nowPlaying: "กำลังดู",
     watchOnYouTube: "เปิดบน YouTube",
     listLabel: "วิดีโอทั้งหมดจากช่องของศูนย์",
     frameTitle: (title: string) => `วิดีโอ: ${title}`,
-    thumbAlt: (title: string) => `ภาพหน้าปกวิดีโอ ${title}`,
   },
   en: {
     playAria: (title: string) => `Play video: ${title}`,
-    selectAria: (title: string) => `Select video: ${title}`,
+    selectPrefix: "Select video: ",
     nowPlaying: "Now playing",
     watchOnYouTube: "Watch on YouTube",
     listLabel: "All videos from the centre’s channel",
     frameTitle: (title: string) => `Video: ${title}`,
-    thumbAlt: (title: string) => `Cover image for the video ${title}`,
   },
 } as const;
 
@@ -148,7 +146,6 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
                 type="button"
                 onClick={() => select(video.id)}
                 aria-current={isActive ? "true" : undefined}
-                aria-label={t.selectAria(title(video, locale))}
                 className={`group grid w-full grid-cols-[104px_1fr] items-start gap-4 rounded-lg border p-2 text-left transition-colors duration-150 ease-brand focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] ${
                   isActive
                     ? "border-ink-300 bg-ink-0"
@@ -156,10 +153,13 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
                 }`}
               >
                 <span className="relative block aspect-video overflow-hidden rounded-[4px] bg-ink-100">
+                  {/* ตกแต่งล้วน — ชื่อคลิปอยู่ข้างๆ ในปุ่มเดียวกันแล้ว ถ้าใส่ alt
+                      ชื่อปุ่มที่ screen reader อ่านจะซ้ำสองรอบ */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={youtubeThumb(video.id)}
-                    alt={t.thumbAlt(title(video, locale))}
+                    alt=""
+                    aria-hidden
                     loading="lazy"
                     className={`h-full w-full object-cover transition-opacity duration-150 ease-brand ${
                       isActive ? "opacity-100" : "opacity-70 group-hover:opacity-100"
@@ -167,6 +167,9 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
                   />
                 </span>
                 <span className="min-w-0 py-0.5">
+                  {/* ชื่อที่ screen reader ได้ยินต้องมีข้อความที่ตาเห็นอยู่ครบ (WCAG 2.5.3)
+                      จึงไม่ใช้ aria-label ทับ แต่เติมคำนำหน้าแบบซ่อนไว้แทน */}
+                  <span className="sr-only">{t.selectPrefix}</span>
                   <span className="flex items-baseline gap-2">
                     {isActive ? (
                       <span className="text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
