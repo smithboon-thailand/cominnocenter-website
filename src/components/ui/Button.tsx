@@ -8,8 +8,15 @@ const base =
   "transition-colors duration-150 ease-brand focus-visible:outline-none " +
   "focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40 disabled:pointer-events-none";
 
+/**
+ * พื้นปุ่มหลักเป็น pink-700 ไม่ใช่ pink-500 เพราะ contrast (29 ส.ค. 2569)
+ * ตัวขาวบน pink-500 ได้ 4.42 ซึ่งต่ำกว่าเกณฑ์ AA (4.5) สำหรับข้อความขนาดปกติ
+ * และไม่มีสีตัวอักษรใดช่วยได้ — ตัวเข้มบน pink-500 ยิ่งแย่กว่า (4.07)
+ * pink-700 จึงเป็น stop เดียวใน BRAND ที่ผ่าน: ตัวขาวได้ 8.99
+ * (pink-500 ยังเป็นสีเน้น/ลิงก์เหมือนเดิม ชมพูสดไม่ได้หายไปจากเว็บ)
+ */
 const variants: Record<Variant, string> = {
-  primary: "bg-pink-500 text-white hover:bg-pink-700",
+  primary: "bg-pink-700 text-white hover:bg-pink-900",
   secondary: "border border-ink-300 text-ink-900 hover:bg-ink-100",
   ghost: "text-pink-700 hover:underline",
 };

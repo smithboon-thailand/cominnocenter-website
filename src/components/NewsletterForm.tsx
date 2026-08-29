@@ -81,8 +81,8 @@ export default function NewsletterForm({
     : "flex-1 rounded border border-ink-300 bg-white px-4 py-3 text-[15px] leading-[1.6] text-ink-900 placeholder:text-ink-500 focus:border-ink-500 focus:outline-none focus:shadow-[0_0_0_3px_var(--pink-100)]";
 
   const buttonClass = isDark
-    ? "rounded bg-pink-500 px-4 py-2 text-[15px] font-medium text-white transition-colors duration-150 ease-brand hover:bg-pink-700 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40"
-    : "whitespace-nowrap rounded bg-pink-500 px-6 py-3 text-[15px] font-medium text-white transition-colors duration-150 ease-brand hover:bg-pink-700 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40";
+    ? "rounded bg-pink-700 px-4 py-2 text-[15px] font-medium text-white transition-colors duration-150 ease-brand hover:bg-pink-900 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40"
+    : "whitespace-nowrap rounded bg-pink-700 px-6 py-3 text-[15px] font-medium text-white transition-colors duration-150 ease-brand hover:bg-pink-900 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)] disabled:opacity-40";
 
   return (
     <form

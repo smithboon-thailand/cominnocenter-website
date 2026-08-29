@@ -108,6 +108,9 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
                 aria-hidden
                 className="absolute inset-0 flex items-center justify-center"
               >
+                {/* ปุ่มเล่นยังเป็น pink-500 ต่างจากปุ่มข้อความที่เปลี่ยนไป pink-700 —
+                    ตรงนี้เป็นสัญลักษณ์ ไม่ใช่ข้อความ เกณฑ์คือ 3:1 (WCAG 1.4.11)
+                    ตัวขาวบน pink-500 ได้ 4.42 จึงผ่านอยู่แล้ว และชมพูสดอ่านง่ายกว่าบนภาพ */}
                 <span className="flex h-16 w-16 items-center justify-center rounded-full bg-pink-500 text-white shadow-sm transition-transform duration-150 ease-brand group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
                   <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7" fill="currentColor">
                     <path d="M8 5v14l11-7z" />

@@ -21,7 +21,7 @@ export default function NotFound() {
       <div className="mt-8 flex flex-wrap gap-4 justify-center">
         <Link
           href="/"
-          className="inline-flex items-center px-6 py-3 rounded-lg bg-pink-500 text-white font-medium hover:bg-pink-600 transition-colors"
+          className="inline-flex items-center px-6 py-3 rounded-lg bg-pink-700 text-white font-medium hover:bg-pink-900 transition-colors"
         >
           กลับหน้าแรก
         </Link>

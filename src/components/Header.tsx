@@ -150,7 +150,7 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
               ช่วง sm-md ใช้ CTA ในเมนู hamburger */}
           <Link
             href={pathFor(locale, "collaborate")}
-            className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-500 text-white text-sm font-medium hover:bg-pink-600 transition-colors"
+            className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-700 text-white text-sm font-medium hover:bg-pink-900 transition-colors"
           >
             {t.cta}
           </Link>
@@ -244,7 +244,7 @@ export default function Header({ active, locale = "th" }: HeaderProps) {
               <Link
                 href={pathFor(locale, "collaborate")}
                 onClick={() => setOpen(false)}
-                className="inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-500 text-white text-sm font-medium"
+                className="inline-flex items-center px-5 py-2.5 rounded-lg bg-pink-700 text-white text-sm font-medium"
               >
                 {t.cta}
               </Link>
