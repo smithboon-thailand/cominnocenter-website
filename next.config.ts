@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // เปิดใช้ src/app/global-not-found.tsx — หน้า 404 ที่ render ที่เซิร์ฟเวอร์
+  // สำหรับ URL ที่ไม่ตรงกับ route ไหนเลย (จำเป็นเพราะ root layout มีสองตัว
+  // ดูเหตุผลเต็มในไฟล์นั้น) ยังเป็น experimental ใน Next 15.5
+  // ถ้าวันหนึ่งแฟล็กนี้หายไป Next จะกลับไปใช้หน้า 404 มาตรฐานของตัวเอง
+  // ไม่พัง แค่เสียหน้า 404 ที่ออกแบบไว้ — เช็คหลังอัปเกรด Next ทุกครั้ง
+  experimental: {
+    globalNotFound: true,
+  },
   images: {
     // Phase 0: ภาพทั้งหมด self-host ใน public/images/ แล้ว — เหลือเฉพาะรูปหลักสูตรวัฒนธรรมจากเว็บ cuculturecom
     remotePatterns: [

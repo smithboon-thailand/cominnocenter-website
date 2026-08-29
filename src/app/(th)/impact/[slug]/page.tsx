@@ -21,6 +21,18 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+/**
+ * slug ที่ไม่มีอยู่จริงให้ตอบ 404 ตั้งแต่ชั้น routing ไม่ต้องเข้ามาถึงตัวหน้า
+ *
+ * ไม่ได้ทำเพื่อความเร็ว แต่เพื่อให้หน้า 404 ถูก render ที่เซิร์ฟเวอร์จริง —
+ * ถ้าปล่อยให้เข้ามาแล้วเรียก notFound() ในหน้า Next จะส่ง <body> เปล่ามา
+ * แล้วให้เบราว์เซอร์ประกอบเนื้อหาเอง คนที่ปิด JS จะเห็นหน้าว่าง
+ * (อาการนี้มีมาตั้งแต่ก่อน route group แล้ว)
+ *
+ * รายการ slug ทั้งหมดมาจาก generateStaticParams ด้านล่างอยู่แล้ว
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
