@@ -168,3 +168,18 @@ export const serviceStages: ServiceStage[] = [
 export function getServiceByKey(key: string) {
   return services.find((s) => s.key === key);
 }
+
+/**
+ * บริการที่โครงการนี้เคยใช้ พร้อมช่วงกระบวนการของบริการนั้น
+ * ใช้ลิงก์จากหน้ารายละเอียดโครงการกลับไปยังช่วงที่ตรงกันบนหน้า Expertise
+ * (อ่านจาก projectSlugs ที่มีอยู่แล้ว ไม่ได้ผูกความสัมพันธ์ขึ้นใหม่)
+ */
+export function servicesForProject(slug: string) {
+  return services
+    .filter((s) => s.projectSlugs.includes(slug))
+    .map((service) => ({
+      service,
+      stage: serviceStages.find((st) => st.serviceKeys.includes(service.key)),
+    }))
+    .filter((x): x is { service: Service; stage: ServiceStage } => Boolean(x.stage));
+}

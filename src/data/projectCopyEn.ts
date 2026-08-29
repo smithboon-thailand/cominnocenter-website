@@ -2,13 +2,16 @@
  * English body copy for projects whose outcome/challenge/approach/impact
  * are stored in Thai in projects.ts. EN pages prefer these values.
  */
-import type { Project } from "./projects";
+import type { Project, ProjectResult, ProjectTestimonial } from "./projects";
 
 export type ProjectCopyEn = {
   outcome: string;
   challenge: string;
   approach: string;
   impact: string;
+  /** ตัวเลขผลลัพธ์ฉบับอังกฤษ — ต้องตรงกับ results ใน projects.ts ตัวต่อตัว */
+  results?: ProjectResult[];
+  testimonial?: ProjectTestimonial;
 };
 
 export const projectCopyEn: Record<string, ProjectCopyEn> = {
@@ -31,6 +34,9 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       "Workshop led by Assoc. Prof. Dr. Smith with Look South Peace, 10–13 November 2023 in Phatthalung, sharing experience from Impulse Bangkok",
     impact:
       "Participants can plan creative activities and serve as mentors, creating safe spaces for younger youth",
+    results: [
+      { value: "3", unit: "provinces", label: "Southern border provinces covered" },
+    ],
   },
   "care-d-plus": {
     outcome:
@@ -41,6 +47,9 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       "Chulalongkorn University with the Ministry of Public Health developed the Care D+ (Team of the Heart) curriculum across 7 core units, training executives, staff, and health communication volunteers nationwide (10 November 2023 – 30 June 2024)",
     impact:
       "Elevated compassionate, understanding, and respectful communication among patients, families, and health professionals",
+    results: [
+      { value: "10,000+", unit: "people", label: "Public health personnel trained" },
+    ],
   },
   "media-communication-transnational-citizens": {
     outcome:
@@ -51,6 +60,9 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       "The Center, led by Assoc. Prof. Dr. Smith, developed a 12-month curriculum with The Sharpener School and Chula Unisearch, starting 1 August 2024",
     impact:
       "Learners receive confirmation letters and certificates from the Faculty of Communication Arts, plus practical intercultural communication skills",
+    results: [
+      { value: "12", unit: "months", label: "Length of the online course" },
+    ],
   },
   "cultural-communication-program": {
     outcome:
@@ -61,6 +73,9 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       "The Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University, runs cohorts of 10 with Professor Emeritus M.R. Suriyawut Sukhasvasti, plus a new registration system and website",
     impact:
       "Participants gain accurate knowledge of art history and cultural communication from experts and can pass it on",
+    results: [
+      { value: "10", unit: "per cohort", label: "Learners in each cohort" },
+    ],
   },
   "chula-zero-waste": {
     outcome:
@@ -91,6 +106,10 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       "Collected 100 innovators over 3 years and presented them via website, Instagram, book, and AR images — https://www.nia100faces.com/",
     impact:
       "Multi-platform storytelling of Thailand's innovation inspirers.",
+    results: [
+      { value: "100", unit: "innovators", label: "Innovators profiled and published" },
+      { value: "3", unit: "years", label: "Duration of the project" },
+    ],
   },
   "nia-media-innovation": {
     outcome:
@@ -206,5 +225,9 @@ export function getLocalizedProjectCopy(project: Project): ProjectCopyEn {
     challenge: en?.challenge ?? project.challenge,
     approach: en?.approach ?? project.approach,
     impact: en?.impact ?? project.impact,
+    // ตัวเลข/คำอ้างอิงไม่มี fallback เป็นภาษาไทย — ถ้ายังไม่ได้แปล ให้ซ่อนไปเลย
+    // ดีกว่าปล่อยข้อความไทยโผล่กลางหน้าอังกฤษ (กฎภาษาใน CLAUDE.md)
+    results: en?.results,
+    testimonial: en?.testimonial,
   };
 }
