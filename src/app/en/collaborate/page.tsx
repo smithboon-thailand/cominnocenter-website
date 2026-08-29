@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
+import PersonaBlocks from "@/components/collaborate/PersonaBlocks";
 import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -69,6 +70,11 @@ export default function EnglishCollaboratePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Collaboration for your organisation — sits above the form (Phase 6.4) */}
+      <section className="mx-auto max-w-7xl px-6 pb-20">
+        <PersonaBlocks locale="en" />
       </section>
 
       <section className="border-y border-ink-300 bg-white">
