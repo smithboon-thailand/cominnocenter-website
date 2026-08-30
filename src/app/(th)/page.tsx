@@ -77,8 +77,12 @@ export default function HomePage() {
 
       {/* Hero — two-tone display ตาม BRAND v1.2 · พื้นหลังกระดาษจางจากชุด D */}
       <section className="relative overflow-hidden">
-        {/* ภาพ hero ลอยช้าๆ + พารัลแลกซ์ (ปิดเมื่อ prefers-reduced-motion) */}
-        <HeroArtwork src="/images/home/hero-bg.webp" className="absolute inset-0 hidden md:block" />
+        {/* ภาพ hero ลอยช้าๆ + พารัลแลกซ์ + คลิปวนทับบนจอใหญ่ (ปิดเมื่อ prefers-reduced-motion) */}
+        <HeroArtwork
+          src="/images/home/hero-bg.webp"
+          video={{ webm: "/videos/hero-loop.webm", mp4: "/videos/hero-loop.mp4" }}
+          className="absolute inset-0 hidden md:block"
+        />
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <p className="mb-4 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
           คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
