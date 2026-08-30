@@ -64,6 +64,21 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       { value: "12", unit: "months", label: "Length of the online course" },
     ],
   },
+  // ห้ามใช้ "Thai language course/learn Thai" — ดูคำอธิบายที่ตัวโครงการใน projects.ts
+  "talk-thai-today": {
+    outcome:
+      "A 6-month online program teaching communication in daily life in Thailand for transnational citizens, with learners from over 30 nationalities worldwide",
+    challenge:
+      "Many transnational citizens living in Thailand still cannot communicate in daily life, and existing programs often start with reading and writing — a high barrier that makes many give up before they can actually communicate",
+    approach:
+      "The Center developed and operates the entire program itself — curriculum, teaching, and the enrollment and progress platform at talkthaitoday.com. Live Zoom classes run four times a week for six months, using romanized pronunciation so learners practice communicating from day one; enrollment opens every week with self-study materials unlocked instantly",
+    impact:
+      "Learners from over 30 nationalities worldwide practice communication for daily life in Thailand until they can genuinely use it, and receive a certificate from the Faculty of Communication Arts, Chulalongkorn University",
+    results: [
+      { value: "6", unit: "months", label: "Length of the online program" },
+      { value: "30+", unit: "nationalities", label: "Learners from around the world" },
+    ],
+  },
   "cultural-communication-program": {
     outcome:
       "Training and field-study program in art history and cultural communication, 10 participants per cohort, led by Professor Emeritus M.R. Suriyawut Sukhasvasti",

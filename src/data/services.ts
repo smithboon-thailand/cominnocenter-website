@@ -78,6 +78,7 @@ export const services: Service[] = [
       "ministry-of-natural-resources-and-environment",
       "international-labour-organization",
       "media-communication-transnational-citizens",
+      "talk-thai-today",
       "cultural-communication-program",
     ],
   },
