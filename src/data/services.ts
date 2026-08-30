@@ -90,7 +90,12 @@ export const services: Service[] = [
     descEn:
       "Conduct in-depth research and systematic evaluation of communication projects for continuous improvement.",
     sdg: [9, 16],
-    projectSlugs: ["nia-satisfaction-survey-2020", "nia-media-innovation", "itd"],
+    projectSlugs: [
+      "nia-satisfaction-survey-2020",
+      "nia-media-innovation",
+      "itd",
+      "public-relationshift",
+    ],
   },
   {
     key: "communication-design",

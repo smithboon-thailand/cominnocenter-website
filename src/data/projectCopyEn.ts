@@ -79,6 +79,20 @@ export const projectCopyEn: Record<string, ProjectCopyEn> = {
       { value: "30+", unit: "nationalities", label: "Learners from around the world" },
     ],
   },
+  "public-relationshift": {
+    outcome:
+      "Thailand's first study of digital-first PR practice, conducted with Moonshot Digital — a survey of 222 practitioners leading to 15 recommendations for the industry",
+    challenge:
+      "The Thai PR industry has moved quickly to digital tools, but lacked baseline data reflecting practitioners' real experience and had little uptake of international frameworks such as AMEC and PESO — so strategy and measurement kept circling old habits",
+    approach:
+      "The Center, with Assoc. Prof. Dr. Smith as principal investigator, designed the study with Moonshot Digital around eight objectives: a survey of 222 PR professionals across government, the private sector, civil society, and agencies, alongside in-depth interviews with industry leaders, journalists, creators, and academics",
+    impact:
+      "The study found that 97.5% of Thai PR practitioners already use AI, yet 77.4% still measure results with traditional advertising value equivalencies (AVEs). It proposes the AKISS model and 15 recommendations for five groups across the industry, published as a digital report by Moonshot Digital",
+    results: [
+      { value: "222", unit: "people", label: "PR professionals surveyed" },
+      { value: "15", unit: "items", label: "Recommendations for five industry groups" },
+    ],
+  },
   "cultural-communication-program": {
     outcome:
       "Training and field-study program in art history and cultural communication, 10 participants per cohort, led by Professor Emeritus M.R. Suriyawut Sukhasvasti",
