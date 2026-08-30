@@ -325,6 +325,83 @@ export const projects: Project[] = [
     sourceUrl: "/news/media-communication-transnational-citizens",
   },
   {
+    /**
+     * ข้อควรระวังเรื่องถ้อยคำ (30 ส.ค. 2569 — ยืนยันโดยเจ้าของ):
+     * โครงการนี้คือ "การสื่อสารในชีวิตประจำวันในประเทศไทย" ห้ามเรียกว่า
+     * "สอนภาษาไทย" หรือ "Thai language course" เด็ดขาด ทั้งไทยและอังกฤษ
+     * เพราะการสอนภาษาเป็นขอบเขตของคณะอักษรศาสตร์ — ชื่อทางการของหลักสูตร
+     * บนเว็บ talkthaitoday.com เองก็ใช้ "Communication in Daily Life in
+     * Thailand for Transnational Citizens" อยู่แล้ว
+     *
+     * ตัวเลข "30+ สัญชาติ" ตรวจจากระบบรับสมัครจริงของเว็บ (API สาธารณะ
+     * enrollment.getLearnerCountries) เมื่อ 30 ส.ค. 2569 ได้ 34 สัญชาติ
+     */
+    slug: "talk-thai-today",
+    title: "Talk Thai Today — การสื่อสารในชีวิตประจำวันในประเทศไทย",
+    titleEn: "Talk Thai Today — Communication in Daily Life in Thailand",
+    outcome:
+      "หลักสูตรออนไลน์ 6 เดือน สอนการสื่อสารในชีวิตประจำวันในประเทศไทยสำหรับพลเมืองข้ามชาติ มีผู้เรียนจากกว่า 30 สัญชาติทั่วโลก",
+    sdg: [4, 10],
+    image: "/images/projects/talk-thai-today/cover.webp",
+    alt: "ภาพปก Talk Thai Today — หลักสูตรการสื่อสารในชีวิตประจำวันในประเทศไทย 6 เดือน สำหรับพลเมืองข้ามชาติ โดยคณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    gallery: [
+      {
+        src: "/images/projects/talk-thai-today/cover.webp",
+        alt: "ภาพปก Talk Thai Today จากเว็บ talkthaitoday.com — หลักสูตรการสื่อสาร 6 เดือนสำหรับพลเมืองข้ามชาติในประเทศไทย",
+      },
+    ],
+    challenge:
+      "พลเมืองข้ามชาติที่ใช้ชีวิตในประเทศไทยจำนวนมากยังสื่อสารในชีวิตประจำวันไม่ได้ และหลักสูตรที่มีอยู่มักเริ่มจากการอ่านเขียนซึ่งเป็นกำแพงสูงสำหรับผู้เริ่มต้น ทำให้หลายคนเลิกเรียนก่อนจะได้ใช้สื่อสารจริง",
+    approach:
+      "ศูนย์ฯ พัฒนาและดำเนินการหลักสูตรเองทั้งหมด ตั้งแต่หลักสูตร การสอน ไปจนถึงแพลตฟอร์มรับสมัครและติดตามผลที่ talkthaitoday.com — เรียนสดผ่าน Zoom สัปดาห์ละ 4 ครั้งต่อเนื่อง 6 เดือน ใช้ระบบถอดเสียงอักษรโรมันจึงเริ่มฝึกสื่อสารได้ตั้งแต่วันแรก สมัครได้ทุกสัปดาห์และเปิดบทเรียนศึกษาด้วยตนเองได้ทันที",
+    impact:
+      "ผู้เรียนจากกว่า 30 สัญชาติทั่วโลกได้ฝึกการสื่อสารในชีวิตประจำวันในประเทศไทยจนใช้ได้จริง และได้รับประกาศนียบัตรจากคณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+    results: [
+      { value: "6", unit: "เดือน", label: "ระยะเวลาหลักสูตรออนไลน์" },
+      { value: "30+", unit: "สัญชาติ", label: "ผู้เรียนจากทั่วโลก" },
+    ],
+    sourceUrl: "https://talkthaitoday.com/",
+  },
+  {
+    /**
+     * งานวิจัยร่วมกับ Moonshot Digital (30 ส.ค. 2569) — ข้อเท็จจริงทุกข้อ
+     * อ้างอิงจากข่าว 3 แหล่ง (The Story Thailand ระบุชื่อศูนย์ฯ ตรงตัว,
+     * beartai, ThaiPR) และผู้ใช้ตรวจถ้อยคำแล้ว · ภาพเป็นภาพแจกข่าว
+     * ทางการของโครงการ ทั้งสองท่านในภาพอนุญาตแล้ว
+     * รายงานฉบับเต็มเผยแพร่ผ่าน Moonshot Digital ไม่ใช่วารสารวิชาการ
+     * จึงอยู่ที่ /impact ไม่เข้า publications.ts (กติกาข้อ 8)
+     */
+    slug: "public-relationshift",
+    title: "Public RelationSHIFT — วิจัยภูมิทัศน์ PR ไทยในยุคดิจิทัล",
+    titleEn: "Public RelationSHIFT — Mapping Thai PR in the Digital Age",
+    outcome:
+      "งานวิจัยชิ้นแรกในไทยที่สำรวจแนวปฏิบัติ Digital-first PR ร่วมกับ Moonshot Digital — สำรวจนักวิชาชีพ 222 คน สู่ข้อเสนอแนะ 15 ข้อต่ออุตสาหกรรม",
+    sdg: [9, 4],
+    image: "/images/projects/public-relationshift/cover.webp",
+    alt: "รศ.ดร.สมิทธิ์ บุญชุติมา หัวหน้าโครงการวิจัย และคุณจักรพงษ์ คงมาลัย ซีอีโอ Moonshot Digital — ภาพประชาสัมพันธ์โครงการวิจัย Public RelationSHIFT",
+    gallery: [
+      {
+        src: "/images/projects/public-relationshift/cover.webp",
+        alt: "รศ.ดร.สมิทธิ์ บุญชุติมา และคุณจักรพงษ์ คงมาลัย ที่บริษัท Moonshot Digital — ภาพแจกข่าวการเปิดผลวิจัย Public RelationSHIFT",
+      },
+      {
+        src: "/images/projects/public-relationshift/key-visual.webp",
+        alt: "ภาพประชาสัมพันธ์เปิดรับแบบสำรวจโครงการวิจัย Public RelationSHIFT: Exploring PR in the Digital Age 2026",
+      },
+    ],
+    challenge:
+      "อุตสาหกรรม PR ไทยเปลี่ยนเครื่องมือสู่ดิจิทัลอย่างรวดเร็ว แต่ยังขาดข้อมูลฐานที่สะท้อนเสียงของคนทำงานจริง และขาดแนวปฏิบัติตามกรอบสากลอย่าง AMEC และ PESO การวางกลยุทธ์และการวัดผลจึงยังวนอยู่กับวิธีคิดแบบเดิม",
+    approach:
+      "ศูนย์ฯ โดย รศ.ดร.สมิทธิ์ (หัวหน้าโครงการวิจัย) ร่วมกับ Moonshot Digital ออกแบบการวิจัยครอบคลุม 8 วัตถุประสงค์ เก็บแบบสำรวจนักวิชาชีพ PR 222 คนจากภาครัฐ เอกชน ประชาสังคม และเอเจนซี พร้อมสัมภาษณ์เชิงลึกผู้นำวงการ สื่อมวลชน ครีเอเตอร์ และนักวิชาการ",
+    impact:
+      "พบว่า 97.5% ของนัก PR ไทยใช้ AI แล้ว แต่ 77.4% ยังวัดผลด้วยมูลค่าสื่อแบบเดิม (AVEs) งานวิจัยจึงเสนอโมเดล AKISS และข้อเสนอแนะ 15 ข้อต่อ 5 กลุ่มในอุตสาหกรรม เผยแพร่เป็นรายงานดิจิทัลผ่าน Moonshot Digital",
+    results: [
+      { value: "222", unit: "คน", label: "นักวิชาชีพ PR ที่ร่วมการสำรวจ" },
+      { value: "15", unit: "ข้อ", label: "ข้อเสนอแนะต่อ 5 กลุ่มในอุตสาหกรรม" },
+    ],
+    sourceUrl: "https://www.thestorythailand.com/moonshot-cu-pr-survey/",
+  },
+  {
     slug: "cultural-communication-program",
     title: "หลักสูตรสื่อสารเชิงวัฒนธรรม จุฬาฯ",
     titleEn: "Cultural Communication Training & Field Study Program",

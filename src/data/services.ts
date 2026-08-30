@@ -78,6 +78,7 @@ export const services: Service[] = [
       "ministry-of-natural-resources-and-environment",
       "international-labour-organization",
       "media-communication-transnational-citizens",
+      "talk-thai-today",
       "cultural-communication-program",
     ],
   },
@@ -89,7 +90,12 @@ export const services: Service[] = [
     descEn:
       "Conduct in-depth research and systematic evaluation of communication projects for continuous improvement.",
     sdg: [9, 16],
-    projectSlugs: ["nia-satisfaction-survey-2020", "nia-media-innovation", "itd"],
+    projectSlugs: [
+      "nia-satisfaction-survey-2020",
+      "nia-media-innovation",
+      "itd",
+      "public-relationshift",
+    ],
   },
   {
     key: "communication-design",
