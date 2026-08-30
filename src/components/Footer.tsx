@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
+import { orgChannels } from "@/data/social";
 
 const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
 
@@ -58,23 +59,20 @@ export default function Footer({ locale = "th" }: FooterProps) {
                 02-218-2262
               </a>
             </p>
-            <div className="mt-4 flex gap-4">
-              <a
-                href="https://www.instagram.com/comm.inno21/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-400 transition-colors"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://www.facebook.com/comm.inno21"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-400 transition-colors"
-              >
-                Facebook
-              </a>
+            {/* อ่านจาก data/social.ts ชุดเดียวกับที่ส่งเข้า sameAs ใน JSON-LD
+                เพื่อไม่ให้สองที่หลุดตรงกันอีก (ดูเหตุผลเต็มในไฟล์นั้น) */}
+            <div className="mt-4 flex flex-wrap gap-4">
+              {orgChannels.map((c) => (
+                <a
+                  key={c.href}
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-400 transition-colors"
+                >
+                  {c.label}
+                </a>
+              ))}
             </div>
           </div>
 

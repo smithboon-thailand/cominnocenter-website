@@ -1,4 +1,66 @@
+# robots.txt — www.cominnocenter.com
+#
+# นโยบายปัจจุบัน: เปิดให้ทุกบอตเก็บข้อมูลได้ทั้งเว็บ ทั้งบอตค้นหาและบอต AI
+# เว็บนี้เป็นเว็บสาธารณะของหน่วยงานวิชาการ ไม่มีส่วนที่ต้องปิด
+#
+# ⚠️ ข้อควรระวังสำคัญเวลาจะแก้ไฟล์นี้
+# robots.txt **ไม่มีการสืบทอดกฎ** บอตจะอ่านเฉพาะกลุ่มที่ตรงกับชื่อตัวเองมาก
+# ที่สุดกลุ่มเดียว แล้วเมินกลุ่ม * ทั้งหมด ดังนั้นถ้าวันหนึ่งเพิ่ม Disallow
+# ให้ * **ต้องไปเพิ่มในทุกกลุ่มด้านล่างด้วย** ไม่งั้นบอต AI จะยังเข้าส่วนที่
+# ตั้งใจปิดได้อยู่
+
 User-agent: *
 Allow: /
 
+# — บอต AI ที่ "ค้นเว็บสดตอนผู้ใช้ถาม" แล้วอ้างอิงกลับมาที่เว็บเรา —
+# กลุ่มนี้คือช่องทางที่ผลงานศูนย์ฯ จะไปโผล่ในคำตอบของ ChatGPT / Claude /
+# Perplexity พร้อมลิงก์กลับ ปิดกลุ่มนี้เมื่อไหร่ = หายไปจากคำตอบเหล่านั้น
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# — บอตที่เก็บข้อมูลไปใช้ "ฝึกโมเดล" ด้วย —
+# เปิดไว้ตามการตัดสินใจของศูนย์ฯ ว่าต้องการให้ผลงานเป็นที่รู้จักในวงกว้าง
+# ถ้าวันหนึ่งเปลี่ยนใจ ให้แก้ Allow เป็น Disallow เฉพาะกลุ่มในส่วนนี้
+# โดยไม่ต้องแตะกลุ่มด้านบน — ยังคงถูกอ้างอิงในคำตอบได้เหมือนเดิม
+#
+# หมายเหตุ: Google-Extended คุมเฉพาะการนำไปใช้กับ Gemini เท่านั้น
+# **ไม่มีผลต่ออันดับหรือการเก็บดัชนีของ Google Search** คนละเรื่องกัน
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.cominnocenter.com/sitemap.xml
+
+# แผนผังเว็บฉบับย่อสำหรับโมเดลภาษา (ข้อเสนอ ยังไม่ใช่มาตรฐานที่ผู้ให้บริการ
+# AI ประกาศรองรับ): https://www.cominnocenter.com/llms.txt
