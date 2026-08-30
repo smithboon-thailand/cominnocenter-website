@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Script from "next/script";
+import { GA_ID, analyticsEnabled } from "@/lib/analytics";
 
 /**
  * แถบขอความยินยอมคุกกี้ + ตัวโหลด Google Analytics 4
@@ -20,8 +21,9 @@ import Script from "next/script";
  * Vercel Analytics ที่ติดอยู่แล้วใน layout **ไม่อยู่ใต้แถบนี้** เพราะไม่ใช้
  * คุกกี้และไม่เก็บข้อมูลระบุตัวบุคคล — แต่ควรกล่าวถึงในหน้านโยบายความเป็นส่วนตัว
  *
- * ถ้ายังไม่ตั้ง NEXT_PUBLIC_GA_ID คอมโพเนนต์นี้จะไม่ render อะไรเลย
- * ไม่มีแถบมากวนใจทั้งที่ยังไม่ได้เก็บอะไร
+ * ถ้ายังไม่ตั้ง NEXT_PUBLIC_GA_ID (หรืออยู่บน preview ของ Vercel) คอมโพเนนต์นี้
+ * จะไม่ render อะไรเลย ไม่มีแถบมากวนใจทั้งที่ยังไม่ได้เก็บอะไร — เงื่อนไขอยู่ที่
+ * src/lib/analytics.ts ใช้ร่วมกับปุ่มตั้งค่าท้ายเว็บ
  */
 
 const STORAGE_KEY = "cominno-analytics-consent";
@@ -70,13 +72,7 @@ function clearGaCookies() {
   }
 }
 
-export default function AnalyticsConsent({
-  gaId,
-  locale,
-}: {
-  gaId?: string;
-  locale: "th" | "en";
-}) {
+export default function AnalyticsConsent({ locale }: { locale: "th" | "en" }) {
   /**
    * undefined = ยังไม่ได้อ่านค่าจากเบราว์เซอร์
    *
@@ -112,7 +108,7 @@ export default function AnalyticsConsent({
     setChoice(next);
   }, []);
 
-  if (!gaId || choice === undefined) return null;
+  if (!analyticsEnabled || choice === undefined) return null;
 
   return (
     <>
@@ -120,13 +116,13 @@ export default function AnalyticsConsent({
         <>
           <Script
             id="ga-src"
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
             strategy="afterInteractive"
           />
           {/* GA4 ไม่เก็บ IP เต็มอยู่แล้วโดยค่าเริ่มต้น จึงไม่ต้องส่ง anonymize_ip
               (พารามิเตอร์นั้นเป็นของ Universal Analytics ที่เลิกใช้แล้ว) */}
           <Script id="ga-init" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
           </Script>
         </>
       ) : null}

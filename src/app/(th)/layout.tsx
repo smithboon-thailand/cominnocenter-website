@@ -75,7 +75,7 @@ export default function ThaiRootLayout({
         <Analytics />
         {/* GA4 โหลดเฉพาะเมื่อผู้ใช้กดยอมรับ และเฉพาะเมื่อตั้ง NEXT_PUBLIC_GA_ID แล้ว
             ต้องใส่ทั้งสอง root layout — เว็บนี้มีสองตัว ใส่ที่เดียวจะได้แค่ภาษาเดียว */}
-        <AnalyticsConsent gaId={process.env.NEXT_PUBLIC_GA_ID} locale="th" />
+        <AnalyticsConsent locale="th" />
       </body>
     </html>
   );

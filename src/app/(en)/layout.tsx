@@ -64,7 +64,7 @@ export default function EnglishRootLayout({
         {children}
         {/* คู่กับ (th)/layout.tsx — ดูคำอธิบายที่นั่น */}
         <Analytics />
-        <AnalyticsConsent gaId={process.env.NEXT_PUBLIC_GA_ID} locale="en" />
+        <AnalyticsConsent locale="en" />
       </body>
     </html>
   );
