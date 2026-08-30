@@ -12,8 +12,8 @@ export default function NotFound() {
       <Image
         src="/images/notfound/404.webp"
         alt="Illustration: a small dot lost, looking for its cluster of colour"
-        width={260}
-        height={260}
+        width={250}
+        height={372}
         className="mb-6 rounded-lg"
       />
       <p className="text-sm font-medium text-pink-500 mb-3">404</p>
