@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import AnalyticsConsent from "@/components/analytics/AnalyticsConsent";
 import JsonLd from "@/components/seo/JsonLd";
 import { kanit } from "@/lib/fonts";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -70,7 +71,11 @@ export default function ThaiRootLayout({
         {/* ตัวตนขององค์กร — ชุดเดียวกันทั้ง TH/EN */}
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
+        {/* Vercel Analytics — ไม่ใช้คุกกี้ ไม่เก็บข้อมูลระบุตัวบุคคล จึงอยู่นอกแถบความยินยอม */}
         <Analytics />
+        {/* GA4 โหลดเฉพาะเมื่อผู้ใช้กดยอมรับ และเฉพาะเมื่อตั้ง NEXT_PUBLIC_GA_ID แล้ว
+            ต้องใส่ทั้งสอง root layout — เว็บนี้มีสองตัว ใส่ที่เดียวจะได้แค่ภาษาเดียว */}
+        <AnalyticsConsent gaId={process.env.NEXT_PUBLIC_GA_ID} locale="th" />
       </body>
     </html>
   );

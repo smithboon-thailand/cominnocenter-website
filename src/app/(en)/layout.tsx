@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import AnalyticsConsent from "@/components/analytics/AnalyticsConsent";
 import JsonLd from "@/components/seo/JsonLd";
 import { kanit } from "@/lib/fonts";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -61,7 +62,9 @@ export default function EnglishRootLayout({
       <body className="antialiased bg-neutral-50 text-neutral-900 font-sans">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
+        {/* คู่กับ (th)/layout.tsx — ดูคำอธิบายที่นั่น */}
         <Analytics />
+        <AnalyticsConsent gaId={process.env.NEXT_PUBLIC_GA_ID} locale="en" />
       </body>
     </html>
   );
