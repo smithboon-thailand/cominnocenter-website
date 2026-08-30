@@ -3,6 +3,13 @@ import Link from "next/link";
 import { kanit } from "@/lib/fonts";
 
 /**
+ * หน้า 404 สำรอง — ตัวหลักคือ src/app/global-not-found.tsx
+ *
+ * ไฟล์นี้จะถูกใช้ก็ต่อเมื่อมีโค้ดเรียก notFound() แล้วเข้าถึงจริง ซึ่งตอนนี้
+ * ไม่เกิดขึ้นเพราะหน้า [slug] ใช้ dynamicParams = false ดักตั้งแต่ชั้น routing
+ * เก็บไว้เป็นตาข่ายรองรับ ถ้าวันหนึ่งเงื่อนไขนั้นเปลี่ยน จะได้ไม่ตกไปที่หน้า
+ * 404 มาตรฐานของ Next ที่ไม่มีแบรนด์เลย
+ *
  * หน้า 404 ต้องเลี้ยงตัวเองได้ ไม่พึ่ง <html> ของ root layout
  *
  * Next render not-found ในเปลือก <html id="__next_error__"> ของตัวเอง

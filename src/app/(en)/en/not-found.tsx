@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { kanit } from "@/lib/fonts";
 
-/** คู่ภาษาอังกฤษของ (th)/not-found.tsx — เลี้ยงตัวเองได้เหมือนกัน ดูเหตุผลที่นั่น */
+/** คู่ภาษาอังกฤษของ (th)/not-found.tsx — สำรองเหมือนกัน ดูเหตุผลเต็มที่นั่น */
 export default function NotFound() {
   return (
     <main

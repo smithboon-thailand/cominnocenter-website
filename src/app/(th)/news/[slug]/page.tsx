@@ -13,6 +13,8 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return newsPosts.map((p) => ({ slug: p.slug }));
 }
