@@ -14,11 +14,24 @@
  * 4. ข้อจำกัดของงาน (กลุ่มตัวอย่างเล็ก เก็บข้อมูลนานแล้ว ฯลฯ) เขียนไว้ใน `caveat`
  *    เพื่อไม่ให้ผู้อ่านทั่วไปเอาไปอ้างเกินกว่าที่งานรองรับ
  *
- * **เรื่องลิขสิทธิ์ของไฟล์ PDF** — ไฟล์ใน public/papers/ มีเฉพาะบทความที่สัญญาอนุญาต
- * เป็น Creative Commons เท่านั้น ซึ่งอนุญาตให้เผยแพร่ซ้ำได้โดยต้องให้เครดิตและระบุ
- * สัญญาอนุญาต (หน้าเว็บแสดงให้ครบทั้งสองอย่าง) **บทความที่ "เปิดอ่านฟรี" เฉยๆ
- * ห้ามเอามาเก็บ** เพราะสำนักพิมพ์ให้สิทธิ์แค่อ่าน ไม่ได้ให้สิทธิ์เผยแพร่ซ้ำ
- * รายการแบบนั้นให้มีบทสรุปได้ แต่ `pdf` ต้องเป็น undefined แล้วลิงก์ไป DOI แทน
+ * **เว็บไม่ได้เก็บไฟล์ PDF ไว้เสิร์ฟเอง** (ตัดสินใจ 31 ส.ค. 2569)
+ *
+ * ปุ่มดาวน์โหลดชี้ไปคลังของสำนักพิมพ์ต้นทางโดยตรง เปิดในแท็บใหม่ ไม่ใช่ไฟล์ในเว็บเรา
+ *
+ * เหตุผลหลัก**ไม่ใช่เรื่องลิขสิทธิ์** — ทั้ง 6 ชิ้นเป็น Creative Commons ซึ่งเจ้าของ
+ * ลิขสิทธิ์อนุญาตให้เผยแพร่ซ้ำไว้ชัดเจนแล้ว การเก็บสำเนาจึงไม่ผิดอะไรตั้งแต่ต้น
+ *
+ * เหตุผลจริงคือ**ความถูกต้องของฉบับ**: ถ้าวารสารออกใบแก้ไข (erratum) หรือถอน
+ * บทความ (retraction) สำเนาที่เราเก็บจะกลายเป็นฉบับเก่าที่ผิดโดยเราไม่รู้ตัว แล้ว
+ * เรายังยื่นให้ผู้อ่านต่อไปเรื่อยๆ สำหรับเว็บของหน่วยวิจัย การส่งบทความฉบับที่ถูก
+ * แทนที่ไปแล้วให้ผู้อ่านเป็นปัญหาหนักกว่าจดหมายเรื่องลิขสิทธิ์เสียอีก · ลิงก์ไป
+ * ต้นทางได้ฉบับปัจจุบันเสมอ และช่วยลดขนาดที่ deploy ทุกครั้งด้วย
+ *
+ * ไฟล์ต้นฉบับยังเก็บไว้ใน `research-sources/papers/` (นอก public/ จึงไม่ถูกเสิร์ฟ)
+ * เพื่อให้ AI ที่ทำงานในคลังนี้อ่านตอนทำคอนเทนต์ได้ — **เก็บได้เฉพาะบทความที่
+ * สัญญาอนุญาตเป็น Creative Commons เท่านั้น** เพราะคลัง GitHub นี้เป็นสาธารณะ
+ * การใส่ไฟล์ที่สำนักพิมพ์ถือลิขสิทธิ์ลงไปคือการเผยแพร่ซ้ำโดยไม่ได้รับอนุญาตเต็มๆ
+ * ถ้าจะให้ AI อ่านบทความที่ปิด ต้องเก็บในที่ส่วนตัว ไม่ใช่ในคลังนี้
  *
  * บทสรุปเป็นงานเขียนของศูนย์ฯ เอง ไม่ใช่ส่วนหนึ่งของบทความต้นฉบับ จึงไม่ติดเงื่อนไข
  * NoDerivatives (nd) ของบทความที่ใช้สัญญาอนุญาตนั้น — แต่หน้าเว็บต้องแยกให้ผู้อ่าน
@@ -63,11 +76,14 @@ export type PaperSummary = {
   slug: string;
   /** กุญแจเชื่อมกลับไป publications.ts — ใช้ DOI เพราะเป็นค่าที่ไม่เปลี่ยน */
   doi: string;
-  /** ชื่อไฟล์ใน public/papers/ — มีเฉพาะรายการที่สัญญาอนุญาตให้เผยแพร่ซ้ำ */
-  pdf?: string;
   license: CcLicense;
-  /** ที่มาของไฟล์ ให้ผู้อ่านตามกลับไปต้นทางได้เอง */
-  pdfSource?: string;
+  /**
+   * ปลายทางของปุ่ม "เปิด PDF ที่ต้นทาง" — URL ของสำนักพิมพ์เอง ไม่ใช่ไฟล์ในเว็บเรา
+   * ไม่มีค่าก็ได้ ถ้าไม่มีจะเหลือแค่ลิงก์ DOI ซึ่งพาไปหน้าบทความที่มีปุ่มดาวน์โหลดอยู่แล้ว
+   */
+  pdfUrl?: string;
+  /** ชื่อไฟล์สำเนาใน research-sources/papers/ — ไว้ให้ AI อ่าน ไม่ได้เสิร์ฟบนเว็บ */
+  localCopy?: string;
   th: PaperCopy;
   en: PaperCopy;
 };
@@ -76,9 +92,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "engage-a3-model",
     doi: "10.5114/hivar.2022.115679",
-    pdf: "engage-a3-model.pdf",
     license: "cc-by-nc-sa",
-    pdfSource: "https://www.termedia.pl/Journal/-106/pdf-46896-10",
+    pdfUrl: "https://www.termedia.pl/Journal/-106/pdf-46896-10",
+    localCopy: "engage-a3-model.pdf",
     th: {
       headline: "สื่อสารเรื่องเอดส์กับแรงงานข้ามชาติ ต้องเริ่มที่ความไว้วางใจ ไม่ใช่ที่ข้อมูล",
       question:
@@ -117,9 +133,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "hiv-risk-communication-samut-sakhon",
     doi: "10.5114/hivar.2019.88535",
-    pdf: "hiv-risk-communication-samut-sakhon.pdf",
     license: "cc-by-nc-sa",
-    pdfSource: "https://www.termedia.pl/Journal/-106/pdf-37921-10",
+    pdfUrl: "https://www.termedia.pl/Journal/-106/pdf-37921-10",
+    localCopy: "hiv-risk-communication-samut-sakhon.pdf",
     th: {
       headline: "แคมเปญที่แรงงานร่วมออกแบบเอง เพิ่มความรู้และความมั่นใจได้ แต่ไม่ได้ทำให้รู้สึกว่าตัวเองเสี่ยง",
       question:
@@ -159,9 +175,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "hiv-knowledge-public-health-officers",
     doi: "10.5114/hivar.2017.72029",
-    pdf: "hiv-knowledge-public-health-officers.pdf",
     license: "cc-by-nc-sa",
-    pdfSource: "https://www.termedia.pl/Journal/-106/pdf-31219-10",
+    pdfUrl: "https://www.termedia.pl/Journal/-106/pdf-31219-10",
+    localCopy: "hiv-knowledge-public-health-officers.pdf",
     th: {
       headline: "ช่องว่างไม่ได้อยู่ที่สื่อไม่ดีพอ แต่อยู่ที่ไม่มีใครถูกมอบหมายให้ทำ",
       question:
@@ -200,9 +216,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "vr360-neck-shoulder-pain",
     doi: "10.55131/jphd/2022/200118",
-    pdf: "vr360-neck-shoulder-pain.pdf",
     license: "cc-by-nc-nd",
-    pdfSource: "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/254520",
+    pdfUrl: "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/254520",
+    localCopy: "vr360-neck-shoulder-pain.pdf",
     th: {
       headline: "วิดีโอ 360 องศาสอนยืดคอบ่า ผู้หญิงวัยทำงานรับได้ และรู้สึกจดจ่อกว่าวิดีโอธรรมดา",
       question:
@@ -242,9 +258,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "cryptocurrency-adoption-reddit",
     doi: "10.1080/23311975.2024.2402513",
-    pdf: "cryptocurrency-adoption-reddit.pdf",
     license: "cc-by",
-    pdfSource: "https://www.econstor.eu/handle/10419/326569",
+    pdfUrl: "https://www.econstor.eu/handle/10419/326569",
+    localCopy: "cryptocurrency-adoption-reddit.pdf",
     th: {
       headline: "คุณค่าที่มองเห็นดันให้ลงทุนคริปโต ความเสี่ยงที่มองเห็นดึงกลับ และภูมิหลังของคนกำกับน้ำหนักทั้งสองแรง",
       question:
@@ -282,9 +298,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "bitcoin-ownership-property-rights",
     doi: "10.35297/001c.123605",
-    pdf: "bitcoin-ownership-property-rights.pdf",
     license: "cc-by",
-    pdfSource: "https://jls.mises.org/article/123605",
+    pdfUrl: "https://jls.mises.org/article/123605.pdf",
+    localCopy: "bitcoin-ownership-property-rights.pdf",
     th: {
       headline: "บิตคอยน์จับต้องไม่ได้ แต่ก็ยัง “เป็นเจ้าของ” ได้ — ข้อโต้แย้งทางทฤษฎีกฎหมาย",
       question:

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody from "@/components/research/PaperSummaryBody";
-import { breadcrumbSchema, scholarlyArticleSchema, SITE_URL } from "@/lib/schema";
+import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import { paperSummaries, paperSummaryBySlug, CC_LICENSES } from "@/data/paperSummaries";
 import { publications } from "@/data/publications";
 import { leadership } from "@/data/leadership";
@@ -53,7 +53,9 @@ export default async function PaperSummaryPageEn({ params }: Props) {
   if (!summary || !paper) notFound();
 
   const license = CC_LICENSES[summary.license];
-  const pdfUrl = summary.pdf ? `${SITE_URL}/papers/${summary.pdf}` : undefined;
+  // Points at the publisher's own repository, not a copy we serve, so readers
+  // always get the current version even after an erratum
+  const pdfUrl = summary.pdfUrl;
 
   return (
     <div className="min-h-screen">
@@ -111,12 +113,16 @@ export default async function PaperSummaryPageEn({ params }: Props) {
               >
                 Open the original article (DOI)
               </a>
-              {summary.pdf ? (
+              {summary.pdfUrl ? (
                 <a
-                  href={`/papers/${summary.pdf}`}
+                  href={summary.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-medium text-pink-500 hover:text-pink-700 hover:underline"
                 >
-                  Download the PDF
+                  Open the PDF at the journal
+                  {/* Tell screen-reader users the link opens a new tab, per WCAG practice */}
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               ) : null}
             </div>
@@ -137,21 +143,9 @@ export default async function PaperSummaryPageEn({ params }: Props) {
                 {license.label}
               </a>{" "}
               licence; copyright remains with the authors and the publishing journal.
-              {summary.pdfSource ? (
-                <>
-                  {" "}
-                  The centre keeps a copy here for readers&rsquo; convenience, downloaded from the{" "}
-                  <a
-                    href={summary.pdfSource}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pink-500 hover:text-pink-700 hover:underline"
-                  >
-                    journal&rsquo;s own source
-                  </a>
-                  .
-                </>
-              ) : null}
+{" "}
+              The centre does not host a copy of the file; every link goes to the journal&rsquo;s own
+              repository, so readers always get the current version even if an erratum is issued later.
             </p>
             <p className="mt-2">
               The summary on this page is written by the centre and is not text from the original

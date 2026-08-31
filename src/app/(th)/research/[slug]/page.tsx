@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody from "@/components/research/PaperSummaryBody";
-import { breadcrumbSchema, scholarlyArticleSchema, SITE_URL } from "@/lib/schema";
+import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import { paperSummaries, paperSummaryBySlug, CC_LICENSES } from "@/data/paperSummaries";
 import { publications } from "@/data/publications";
 import { leadership } from "@/data/leadership";
@@ -53,7 +53,8 @@ export default async function PaperSummaryPage({ params }: Props) {
   if (!summary || !paper) notFound();
 
   const license = CC_LICENSES[summary.license];
-  const pdfUrl = summary.pdf ? `${SITE_URL}/papers/${summary.pdf}` : undefined;
+  // ชี้ไปคลังของสำนักพิมพ์ ไม่ใช่ไฟล์ในเว็บเรา — ผู้อ่านจึงได้ฉบับปัจจุบันเสมอ
+  const pdfUrl = summary.pdfUrl;
 
   return (
     <div className="min-h-screen">
@@ -111,12 +112,16 @@ export default async function PaperSummaryPage({ params }: Props) {
               >
                 เปิดบทความต้นฉบับ (DOI)
               </a>
-              {summary.pdf ? (
+              {summary.pdfUrl ? (
                 <a
-                  href={`/papers/${summary.pdf}`}
+                  href={summary.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-medium text-pink-500 hover:text-pink-700 hover:underline"
                 >
-                  ดาวน์โหลด PDF
+                  เปิด PDF ที่คลังของวารสาร
+                  {/* บอกผู้ใช้เครื่องอ่านหน้าจอว่าลิงก์นี้เปิดแท็บใหม่ ตามแนวปฏิบัติ WCAG */}
+                  <span className="sr-only"> (เปิดในแท็บใหม่)</span>
                 </a>
               ) : null}
             </div>
@@ -137,20 +142,9 @@ export default async function PaperSummaryPage({ params }: Props) {
                 {license.label}
               </a>{" "}
               ลิขสิทธิ์เป็นของผู้เขียนและวารสารต้นทาง
-              {summary.pdfSource ? (
-                <>
-                  {" "}
-                  ศูนย์ฯ เก็บสำเนาไว้เพื่อความสะดวกของผู้อ่าน โดยดาวน์โหลดมาจาก{" "}
-                  <a
-                    href={summary.pdfSource}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pink-500 hover:text-pink-700 hover:underline"
-                  >
-                    ต้นทางของวารสาร
-                  </a>
-                </>
-              ) : null}
+{" "}
+              ศูนย์ฯ ไม่ได้เก็บสำเนาไฟล์ไว้บนเว็บนี้ ลิงก์ทั้งหมดพาไปยังคลังของวารสารโดยตรง
+              ผู้อ่านจึงได้ฉบับปัจจุบันเสมอแม้วารสารจะออกใบแก้ไขภายหลัง
             </p>
             <p className="mt-2">
               ส่วน &ldquo;บทสรุป&rdquo; บนหน้านี้เป็นงานเขียนของศูนย์ฯ เอง
