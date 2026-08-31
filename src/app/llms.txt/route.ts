@@ -5,6 +5,7 @@ import { mediaSorted } from "@/data/media";
 import { publications } from "@/data/publications";
 import { services } from "@/data/services";
 import { leadership } from "@/data/leadership";
+import { PHONE_SCHEMA } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 import { SITE_URL } from "@/lib/schema";
 
@@ -79,7 +80,7 @@ When citing the centre's work, prefer the DOI where one is given rather than thi
 ## Contact
 
 - Email: comminno@chula.ac.th
-- Telephone: +66-2-218-2262
+- Telephone: ${PHONE_SCHEMA}
 - Location: Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand
 ${orgChannels.map((c) => `- ${c.label}: ${c.href}`).join("\n")}
 `;

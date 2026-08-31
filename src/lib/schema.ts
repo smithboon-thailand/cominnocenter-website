@@ -8,6 +8,7 @@
 import type { Leader } from "@/data/leadership";
 import type { PublicationEntry } from "@/data/publications";
 import type { NewsPost } from "@/data/news";
+import { PHONE_SCHEMA } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 
 export const SITE_URL = "https://www.cominnocenter.com";
@@ -29,7 +30,7 @@ export function organizationSchema() {
     logo: `${SITE_URL}/images/logo/logo-communication-innovation.png`,
     image: `${SITE_URL}/images/og/og-default.jpg`,
     email: "comminno@chula.ac.th",
-    telephone: "+66-2-218-2262",
+    telephone: PHONE_SCHEMA,
     parentOrganization: {
       "@type": "CollegeOrUniversity",
       name: "Chulalongkorn University",

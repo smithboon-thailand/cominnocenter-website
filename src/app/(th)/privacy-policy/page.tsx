@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieSettingsButton from "@/components/analytics/CookieSettingsButton";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 import {
   PRIVACY_LAST_UPDATED,
   privacyRows,
@@ -178,10 +179,10 @@ export default function PrivacyPolicyPage() {
             </a>{" "}
             ·{" "}
             <a
-              href="tel:022182262"
+              href={PHONE_HREF}
               className="text-pink-500 hover:text-pink-700 hover:underline"
             >
-              02-218-2262
+              {PHONE_DISPLAY}
             </a>
           </p>
         </section>

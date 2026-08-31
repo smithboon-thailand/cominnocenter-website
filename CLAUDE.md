@@ -90,6 +90,7 @@ public/
 | `highlights.ts` | ข่าว/ไฮไลต์กิจกรรม |
 | `videos.ts` | วิดีโอ showcase |
 | `illustrations.ts` | path ของ SVG ใน `public/illustrations/` |
+| `contact.ts` / `social.ts` | **แหล่งความจริงเดียวของข้อมูลติดต่อ** — เบอร์โทร (4 รูปแบบจัดจากเลขชุดเดียว) และลิงก์โซเชียล · ทั้ง Footer, /collaborate, /privacy-policy, JSON-LD และ /llms.txt อ่านจากที่นี่ **ห้ามพิมพ์ค่าซ้ำในหน้าใดหน้าหนึ่ง** — เคยหลุดตรงกันมาแล้วทั้งสองเรื่อง |
 
 ภาพทั้งหมด self-host แล้ว (Phase 0-B) — ฟังก์ชัน `media()/logo()` ในแต่ละ data file ชี้ไป `public/images/` · สคริปต์ดาวน์โหลด: `scripts/download-wix-images.mjs` (ต้องรันด้วย `NODE_USE_ENV_PROXY=1` ในเซสชัน remote)
 

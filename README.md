@@ -35,7 +35,7 @@ Chula Zero Waste · NBTC Encyclopedia · NIA 100 FACES · NIA Media Innovation �
 
 ## Contact
 - [comminno@chula.ac.th](mailto:comminno@chula.ac.th)
-- 02-218-2262
+- 02-218-2163
 - [Instagram](https://www.instagram.com/comm.inno21/) · [Facebook](https://www.facebook.com/comm.inno21)
 
 ## Getting Started
