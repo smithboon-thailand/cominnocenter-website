@@ -6,8 +6,28 @@
  * (ทุกหน้าเป็น static — เปลี่ยนค่าแล้ว **ต้อง redeploy** ถึงจะมีผล)
  */
 
-/** Measurement ID จาก GA4 หน้าตา G-XXXXXXXXXX — ไม่ตั้ง = ไม่มี GA และไม่มีแถบความยินยอม */
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+/**
+ * Measurement ID ของ GA4 — stream ชื่อ "Cominno"
+ *
+ * ใส่ในโค้ดตรงๆ ได้เพราะไม่ใช่ความลับ: รหัสนี้ปรากฏใน HTML ของทุกเว็บที่ใช้ GA
+ * อยู่แล้ว และตัวมันเองไม่ให้สิทธิ์เข้าถึงรายงานในบัญชี GA ของศูนย์ฯ
+ *
+ * ใส่ในโค้ดแทนการตั้ง env var ที่ Vercel เพื่อลดขั้นตอนที่พลาดได้ (ต้องจำว่า
+ * ติ๊กเฉพาะ Production และต้อง redeploy) — env var ยังใช้ทับได้ถ้าต้องเปลี่ยน
+ *
+ * ผลข้างเคียงที่ต้องกันเพิ่ม: พอค่าอยู่ในโค้ด มันจะติดไปทุกที่ที่โค้ดรัน
+ * รวมถึงเครื่องของคนพัฒนา จึงมีตัวกัน IS_DEV ด้านล่างคู่กับตัวกัน preview
+ */
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-B15Y4D0DLJ";
+
+/**
+ * ปิด GA ตอนรัน `npm run dev`
+ *
+ * จำเป็นเพราะรหัส GA อยู่ในโค้ดแล้ว ไม่ได้มาจาก env var ที่ตั้งเฉพาะ production
+ * ถ้าไม่กันไว้ ทุกครั้งที่มีคนเปิดเว็บในเครื่องแล้วกดยอมรับ จะถูกนับเป็นผู้เข้าชม
+ * เว็บจริง — ปัญหาเดียวกับ preview แต่คนละต้นตอ
+ */
+const IS_DEV = process.env.NODE_ENV !== "production";
 
 /**
  * ปิด GA บน preview deployment ของ Vercel
@@ -27,8 +47,8 @@ export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
  */
 const IS_VERCEL_PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
-/** โหลดสคริปต์ gtag จริงหรือไม่ — ต้องมีรหัส และต้องไม่ใช่ preview */
-export const analyticsEnabled = Boolean(GA_ID) && !IS_VERCEL_PREVIEW;
+/** โหลดสคริปต์ gtag จริงหรือไม่ — ต้องมีรหัส ไม่ใช่ preview และไม่ใช่เครื่องพัฒนา */
+export const analyticsEnabled = Boolean(GA_ID) && !IS_VERCEL_PREVIEW && !IS_DEV;
 
 /**
  * แสดงแถบขอความยินยอมหรือไม่ — แยกจาก analyticsEnabled โดยตั้งใจ

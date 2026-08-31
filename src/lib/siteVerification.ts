@@ -24,8 +24,21 @@ import type { Metadata } from "next";
  * **หลังยืนยันผ่านแล้ว ห้ามลบแท็กออก** ทั้งสองเจ้าจะตรวจซ้ำเป็นระยะ
  * ถ้าแท็กหายไปจะถือว่าเสียสิทธิ์และต้องยืนยันใหม่
  */
+/**
+ * รหัสยืนยันของ Google — ใส่ไว้ในโค้ดตรงๆ ได้ (31 ส.ค. 2569)
+ *
+ * ไม่ใช่ความลับโดยการออกแบบ: หน้าที่ของมันคือถูกประกาศใน `<head>` ให้ Google
+ * มาอ่าน ใครเปิด view-source ก็เห็น และรหัสนี้ **ไม่ได้ให้สิทธิ์เข้าถึงบัญชี
+ * Search Console ของศูนย์ฯ** — ถ้าใครเอาไปแปะบนเว็บของตัวเอง ก็ได้แค่ยืนยัน
+ * ความเป็นเจ้าของ*เว็บของเขาเอง* ซึ่งไม่มีประโยชน์อะไรกับเขา
+ *
+ * ใส่ในโค้ดเพราะไม่ต้องให้ผู้ใช้ไปตั้งค่าที่ Vercel เอง ลดขั้นตอนที่พลาดได้
+ * env var ยังใช้ทับได้อยู่ ถ้าวันหนึ่งต้องเปลี่ยนโดยไม่แก้โค้ด
+ */
+const GOOGLE_DEFAULT = "sZ7I8aYdurvhHPf6xqeFOITI9nGehhR8jlKPg_wImYs";
+
 export function siteVerification(): Metadata["verification"] | undefined {
-  const google = process.env.GOOGLE_SITE_VERIFICATION;
+  const google = process.env.GOOGLE_SITE_VERIFICATION || GOOGLE_DEFAULT;
   const bing = process.env.BING_SITE_VERIFICATION;
   if (!google && !bing) return undefined;
 
