@@ -17,6 +17,8 @@ const COPY = {
     newsletter: "รับข่าวสาร",
     newsletterHint: "สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate",
     cookies: "การตั้งค่าคุกกี้",
+    privacy: "นโยบายความเป็นส่วนตัว",
+    privacyHref: "/privacy-policy",
   },
   en: {
     blurb:
@@ -25,6 +27,8 @@ const COPY = {
     newsletter: "Newsletter",
     newsletterHint: "Subscribe for collaboration opportunities and updates",
     cookies: "Cookie settings",
+    privacy: "Privacy Policy",
+    privacyHref: "/en/privacy-policy",
   },
 } as const;
 
@@ -91,7 +95,15 @@ export default function Footer({ locale = "th" }: FooterProps) {
             © {new Date().getFullYear()} Center of Excellence in Communication Innovation,
             Faculty of Communication Arts, Chulalongkorn University
           </span>
-          <CookieSettingsButton label={t.cookies} />
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a
+              href={t.privacyHref}
+              className="underline-offset-2 transition-colors hover:text-pink-400 hover:underline"
+            >
+              {t.privacy}
+            </a>
+            <CookieSettingsButton label={t.cookies} />
+          </div>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import AnalyticsConsent from "@/components/analytics/AnalyticsConsent";
 import JsonLd from "@/components/seo/JsonLd";
+import { siteVerification } from "@/lib/siteVerification";
 import { kanit } from "@/lib/fonts";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import "../globals.css";
@@ -48,6 +49,8 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // ยืนยันความเป็นเจ้าของกับ Search Console / Bing โดยไม่ต้องแตะ DNS ของ Wix
+  verification: siteVerification(),
 };
 
 /**
