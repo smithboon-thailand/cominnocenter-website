@@ -83,7 +83,8 @@ public/
 | `projectCopyEn.ts` | คำแปลอังกฤษของเนื้อหาโครงการ |
 | `services.ts` | บริการ 9 ด้าน + 4 ช่วงกระบวนการ (`ServiceStage`) ที่หน้า Expertise ใช้จัดเรียง · `projectSlugs` ผูกบริการกับโครงการจริง |
 | `media.ts` | "สื่อถึงเรา" 22 รายการที่ศูนย์ฯ ปรากฏบนสื่อภายนอก — field `code` ตรงกับชื่อไฟล์ thumbnail `public/images/media/C-XX.webp` |
-| `publications.ts` | **(generated — ห้ามแก้ด้วยมือ)** ผลงานวิชาการ 72 รายการ · field `verified` 4 ระดับ `doi`/`link`/`index`/`self` (44/2/11/15) · สร้างด้วย `scripts/fetch-publications.mjs` |
+| `publications.ts` | **(generated — ห้ามแก้ด้วยมือ)** ผลงานวิชาการ 75 รายการ · field `verified` 4 ระดับ `doi`/`link`/`index`/`self` (47/2/11/15) · สร้างด้วย `scripts/fetch-publications.mjs` · **ถ้าสคริปต์แจ้งว่ามีผลงานหาย ให้ตรวจก่อนเสมอ** แล้วค่อยสั่ง `--allow-removals` |
+| `paperSummaries.ts` | บทสรุปย่อยง่ายไทย+อังกฤษของผลงานที่ทำหน้า `/research/[slug]` · ผูกกับ `publications.ts` ด้วย DOI · `pdf` ใส่ได้เฉพาะรายการที่สัญญาอนุญาตเป็น Creative Commons (ไฟล์อยู่ `public/papers/`) — **อ่านฟรีได้ ≠ เผยแพร่ซ้ำได้** |
 | `leadership.ts` | ผู้บริหารศูนย์ |
 | `team.ts` / `researchers.ts` | ทีมงานและนักวิจัย |
 | `partners.ts` | หน่วยงานพันธมิตร |

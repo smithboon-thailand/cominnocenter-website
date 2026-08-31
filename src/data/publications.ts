@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-08-24)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-08-31)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -7,9 +7,11 @@
  * - รายการที่มี DOI ถูกดึง metadata จาก Crossref มาเทียบนามสกุลผู้เขียน
  *   DOI ที่ชี้ไปงานของคนอื่นถูกตัดออกแล้ว (รอบล่าสุดตัดออก 0 รายการ)
  * - รายการที่ไม่มี DOI ถูกค้นในดัชนีอิสระโดยบังคับให้นามสกุลผู้เขียนตรงด้วย
+ * - งานชิ้นเดียวที่สำนักพิมพ์จด DOI ซ้ำสองเลขถูกยุบเป็นรายการเดียว
+ *   (รอบล่าสุดยุบ 1 รายการ) เก็บเลขที่มียอดอ้างอิงสูงกว่า
  *
  * ระดับการตรวจสอบ (field verified):
- *   "doi"   44 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
+ *   "doi"   47 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
  *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
  *   "index" 11 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
  *   "self"  15 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
@@ -71,7 +73,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Enhancing fans and artists’ affective engagement and behavioral intentions in digital music streaming platforms through relational bonds: a case study of JOOX Rooms",
-    "venue": "Cogent Arts &amp; Humanities",
+    "venue": "Cogent Arts & Humanities",
     "year": 2026,
     "type": "journal-article",
     "verified": "doi",
@@ -82,7 +84,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "From stigma to mainstream: a multi-stakeholder thematic analysis of anime consumption and community-driven communication in Thai Generation Z",
-    "venue": "Cogent Arts &amp; Humanities",
+    "venue": "Cogent Arts & Humanities",
     "year": 2026,
     "type": "journal-article",
     "verified": "doi",
@@ -139,7 +141,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour",
-    "venue": "Fashion, Style &amp; Popular Culture",
+    "venue": "Fashion, Style & Popular Culture",
     "year": 2025,
     "type": "journal-article",
     "verified": "doi",
@@ -196,7 +198,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Perception of social media users regarding cryptocurrency investment adoption: a case of social media platform – Reddit",
-    "venue": "Cogent Business &amp; Management",
+    "venue": "Cogent Business & Management",
     "year": 2024,
     "type": "journal-article",
     "verified": "doi",
@@ -220,7 +222,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z",
-    "venue": "Fashion, Style &amp; Popular Culture",
+    "venue": "Fashion, Style & Popular Culture",
     "year": 2024,
     "type": "journal-article",
     "verified": "doi",
@@ -308,7 +310,8 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1016/j.heliyon.2023.e15478",
     "citations": 13,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "pavel-slutskiy"
     ]
   },
   {
@@ -394,6 +397,18 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
+    "title": "Analysing Russian Reaction to 2021 U.S. Capitol Riots",
+    "venue": "American Behavioral Scientist",
+    "year": 2022,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1177/00027642221078767",
+    "citations": 1,
+    "authors": [
+      "pavel-slutskiy"
+    ]
+  },
+  {
     "title": "Credibility of the Official COVID Communication in Thailand: When People Stop Believing the Government",
     "venue": "American Behavioral Scientist",
     "year": 2022,
@@ -402,7 +417,8 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1177/00027642221118297",
     "citations": 1,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "pavel-slutskiy"
     ]
   },
   {
@@ -430,7 +446,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "ENGAGE-A3 model: communication risk to involve Myanmar workers in AIDS prevention",
-    "venue": "HIV &amp; AIDS Review",
+    "venue": "HIV & AIDS Review",
     "year": 2022,
     "type": "journal-article",
     "verified": "doi",
@@ -467,7 +483,7 @@ export const publications: PublicationEntry[] = [
     "type": "book",
     "verified": "doi",
     "doi": "10.1007/978-981-33-6664-0",
-    "citations": 12,
+    "citations": 13,
     "authors": [
       "pavel-slutskiy"
     ],
@@ -528,13 +544,13 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
-    "title": "Freedom of Expression, Social Media Censorship, and Property Rights",
-    "venue": "Tripodos",
+    "title": "Trump, Mueller Investigation, and Alleged Russian Election Meddling: Russian Media Coverage in 2017-2019",
+    "venue": "American Behavioral Scientist",
     "year": 2020,
     "type": "journal-article",
     "verified": "doi",
-    "doi": "10.51698/tripodos.2020.48p53-67",
-    "citations": 2,
+    "doi": "10.1177/0002764220978455",
+    "citations": 4,
     "authors": [
       "pavel-slutskiy"
     ]
@@ -563,7 +579,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Developing an HIV/AIDS risk communication intervention model among Myanmar migrant workers in a factory in Samut Sakhon, Thailand",
-    "venue": "HIV &amp; AIDS Review",
+    "venue": "HIV & AIDS Review",
     "year": 2019,
     "type": "journal-article",
     "verified": "doi",
@@ -571,6 +587,30 @@ export const publications: PublicationEntry[] = [
     "citations": 2,
     "authors": [
       "smith-boonchutima"
+    ]
+  },
+  {
+    "title": "The Evolution of Trump’s Image in Russian Media",
+    "venue": "American Behavioral Scientist",
+    "year": 2018,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1177/0002764218793691",
+    "citations": 4,
+    "authors": [
+      "pavel-slutskiy"
+    ]
+  },
+  {
+    "title": "s Video-art Becoming a Form of Popular Art? The case of Apple TV’s Aerial Screen Savers",
+    "venue": "IAFOR Journal of Cultural Studies",
+    "year": 2018,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.22492/ijcs.3.1.05",
+    "citations": 1,
+    "authors": [
+      "pavel-slutskiy"
     ]
   },
   {
@@ -591,17 +631,6 @@ export const publications: PublicationEntry[] = [
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.51698/tripodos.2018.42.21-38",
-    "authors": [
-      "pavel-slutskiy"
-    ]
-  },
-  {
-    "title": "s Video-art Becoming a Form of Popular Art? The case of Apple TV’s Aerial Screen Savers",
-    "venue": "IAFOR Journal of Cultural Studies",
-    "year": 2018,
-    "type": "journal-article",
-    "verified": "doi",
-    "doi": "10.22492/ijcs.3.1.05",
     "authors": [
       "pavel-slutskiy"
     ]
@@ -642,7 +671,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Educating Burmese migrants working in Thailand with HIV/AIDS public health knowledge – a perspective of public health officers",
-    "venue": "HIV &amp; AIDS Review",
+    "venue": "HIV & AIDS Review",
     "year": 2017,
     "type": "journal-article",
     "verified": "doi",
@@ -650,6 +679,18 @@ export const publications: PublicationEntry[] = [
     "citations": 3,
     "authors": [
       "smith-boonchutima"
+    ]
+  },
+  {
+    "title": "PR Evaluation: Efficiency Coefficient",
+    "venue": "Vestnik of Saint Petersburg University. Language and Literature",
+    "year": 2017,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.21638/11701/spbu09.2017.210",
+    "citations": 2,
+    "authors": [
+      "pavel-slutskiy"
     ]
   },
   {
