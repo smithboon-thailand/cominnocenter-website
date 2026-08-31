@@ -736,15 +736,6 @@ const entries = unique
   }))
   .sort((a, b) => b.year - a.year || (b.citations || 0) - (a.citations || 0) || a.title.localeCompare(b.title));
 
-const stats = {
-  rejected: rejected.length,
-  duplicates: duplicateDois.length,
-  doi: entries.filter((e) => e.verified === "doi").length,
-  link: entries.filter((e) => e.verified === "link").length,
-  index: entries.filter((e) => e.verified === "index").length,
-  self: entries.filter((e) => e.verified === "self").length,
-};
-
 /**
  * ด่านสุดท้าย: ห้ามผลงานหายไปเงียบๆ
  *
@@ -767,6 +758,44 @@ try {
     const old = JSON.parse(existing.slice(start, existing.indexOf("\n];", start) + 2));
     const idOf = (p) => (p.doi ? `doi:${p.doi}` : `title:${norm(p.title)}`);
     const nowIds = new Set(entries.map(idOf));
+
+    /**
+     * ห้าม "ลดระดับ" การตรวจสอบเพราะรอบนี้ค้นไม่เจอ
+     *
+     * `findInIndexes()` ถือว่าค้นไม่สำเร็จ = ไม่พบ แล้วให้ระดับ self ซึ่งผิด:
+     * การที่รอบนี้ติดต่อดัชนีไม่ได้ (Semantic Scholar ไม่มี API key จึงโดน 429 บ่อย)
+     * **ไม่ใช่หลักฐานว่าผลงานตรวจสอบไม่ได้** มันคือการไม่มีหลักฐานใหม่ ส่วนหลักฐาน
+     * เดิมที่เคยพิสูจน์และบันทึกไว้ในไฟล์ยังใช้ได้อยู่
+     *
+     * เจอของจริง: "Green campaigns in Thailand" (2011) ถูกลดจาก index เป็น self
+     * ในรอบที่โดนจำกัดอัตรา ซึ่งจะทำให้หน้าเว็บเปลี่ยนจากลิงก์ดัชนีอิสระไปเป็น
+     * ข้อความ "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน" ทั้งที่ผลงานนั้นตรวจสอบได้จริง
+     *
+     * จึงคงระดับเดิมพร้อมลิงก์เดิมไว้ และประกาศออกมาให้เห็นทุกครั้งที่ทำ
+     * (การลดระดับที่เป็นความจริง เช่นวารสารถอนบทความ จะถูกกลบไปด้วย — ยอมแลก
+     * เพราะกรณีนั้นพบยากมาก ส่วนการโดนจำกัดอัตราเกิดแทบทุกครั้งที่รัน)
+     */
+    const RANK = { self: 0, link: 1, index: 2, doi: 3 };
+    const oldById = new Map(old.map((p) => [idOf(p), p]));
+    const carried = [];
+    for (const e of entries) {
+      const prev = oldById.get(idOf(e));
+      if (!prev || RANK[e.verified] >= RANK[prev.verified]) continue;
+      carried.push({ title: e.title, from: e.verified, to: prev.verified });
+      e.verified = prev.verified;
+      if (prev.doi) e.doi = prev.doi;
+      if (prev.indexUrl) e.indexUrl = prev.indexUrl;
+    }
+    if (carried.length) {
+      console.warn(
+        `\nคงระดับการตรวจสอบเดิมไว้ ${carried.length} รายการ` +
+          ` (รอบนี้ค้นดัชนีไม่เจอ ซึ่งมักเกิดจากถูกจำกัดอัตรา ไม่ใช่หลักฐานว่าตรวจสอบไม่ได้):`,
+      );
+      for (const c of carried) {
+        console.warn(`  ${c.from} → คงไว้ที่ ${c.to}  ${c.title.slice(0, 60)}`);
+      }
+    }
+
     const gone = old.filter((p) => !nowIds.has(idOf(p)));
     if (gone.length) {
       console.error(`\nหยุดการทำงาน: มีผลงาน ${gone.length} รายการที่เคยอยู่บนเว็บแล้วรอบนี้ไม่มี`);
@@ -788,6 +817,16 @@ try {
   // ไม่มีไฟล์เดิม (รันครั้งแรก) ถือว่าไม่มีอะไรให้เทียบ
   if (err.code !== "ENOENT") throw err;
 }
+
+// นับสถิติ **หลัง** ด่านคงระดับการตรวจสอบ ไม่งั้นตัวเลขในหัวไฟล์จะไม่ตรงกับข้อมูลจริง
+const stats = {
+  rejected: rejected.length,
+  duplicates: duplicateDois.length,
+  doi: entries.filter((e) => e.verified === "doi").length,
+  link: entries.filter((e) => e.verified === "link").length,
+  index: entries.filter((e) => e.verified === "index").length,
+  self: entries.filter((e) => e.verified === "self").length,
+};
 
 writeFileSync(new URL("../src/data/publications.ts", import.meta.url), render(entries, stats));
 console.log(
