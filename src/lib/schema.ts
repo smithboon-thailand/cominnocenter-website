@@ -8,6 +8,7 @@
 import type { Leader } from "@/data/leadership";
 import type { PublicationEntry } from "@/data/publications";
 import type { NewsPost } from "@/data/news";
+import { orgChannels } from "@/data/social";
 
 export const SITE_URL = "https://www.cominnocenter.com";
 
@@ -46,10 +47,16 @@ export function organizationSchema() {
       addressLocality: "Bangkok",
       addressCountry: "TH",
     },
-    sameAs: [
-      "https://www.instagram.com/cominnocenter/",
-      "https://www.facebook.com/cominnocenter",
-    ],
+    /**
+     * ช่องทางของศูนย์ฯ เอง อ่านจาก data/social.ts ที่ Footer ใช้ชุดเดียวกัน
+     * (เดิมพิมพ์ซ้ำไว้ที่นี่แล้วหลุดตรงกัน — Facebook ที่เคยส่งให้ Google
+     * เป็นเพจที่ไม่มีอยู่จริง ดูรายละเอียดในไฟล์นั้น)
+     *
+     * ไม่ใส่หน้าคณะ/มหาวิทยาลัยตรงนี้ เพราะ sameAs หมายถึง "องค์กรเดียวกัน
+     * ที่อยู่บนแพลตฟอร์มอื่น" ไม่ใช่องค์กรที่เกี่ยวข้อง — ความสัมพันธ์นั้น
+     * ประกาศไว้แล้วอย่างถูกต้องผ่าน parentOrganization ด้านบน
+     */
+    sameAs: orgChannels.map((c) => c.href),
   };
 }
 

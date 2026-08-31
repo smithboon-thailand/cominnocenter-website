@@ -1,5 +1,7 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
+import CookieSettingsButton from "./analytics/CookieSettingsButton";
+import { orgChannels } from "@/data/social";
 
 const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
 
@@ -14,6 +16,7 @@ const COPY = {
     contact: "ติดต่อเรา",
     newsletter: "รับข่าวสาร",
     newsletterHint: "สมัครรับจดหมายข่าวเพื่อติดตามโอกาส Collaborate",
+    cookies: "การตั้งค่าคุกกี้",
   },
   en: {
     blurb:
@@ -21,6 +24,7 @@ const COPY = {
     contact: "Contact",
     newsletter: "Newsletter",
     newsletterHint: "Subscribe for collaboration opportunities and updates",
+    cookies: "Cookie settings",
   },
 } as const;
 
@@ -58,23 +62,20 @@ export default function Footer({ locale = "th" }: FooterProps) {
                 02-218-2262
               </a>
             </p>
-            <div className="mt-4 flex gap-4">
-              <a
-                href="https://www.instagram.com/comm.inno21/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-400 transition-colors"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://www.facebook.com/comm.inno21"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-400 transition-colors"
-              >
-                Facebook
-              </a>
+            {/* อ่านจาก data/social.ts ชุดเดียวกับที่ส่งเข้า sameAs ใน JSON-LD
+                เพื่อไม่ให้สองที่หลุดตรงกันอีก (ดูเหตุผลเต็มในไฟล์นั้น) */}
+            <div className="mt-4 flex flex-wrap gap-4">
+              {orgChannels.map((c) => (
+                <a
+                  key={c.href}
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-400 transition-colors"
+                >
+                  {c.label}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -85,9 +86,12 @@ export default function Footer({ locale = "th" }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-neutral-800 text-xs text-neutral-500">
-          © {new Date().getFullYear()} Center of Excellence in Communication Innovation,
-          Faculty of Communication Arts, Chulalongkorn University
+        <div className="mt-10 pt-6 border-t border-neutral-800 flex flex-col gap-2 text-xs text-neutral-500 md:flex-row md:items-center md:justify-between">
+          <span>
+            © {new Date().getFullYear()} Center of Excellence in Communication Innovation,
+            Faculty of Communication Arts, Chulalongkorn University
+          </span>
+          <CookieSettingsButton label={t.cookies} />
         </div>
       </div>
     </footer>
