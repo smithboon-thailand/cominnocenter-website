@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { analyticsEnabled } from "@/lib/analytics";
+import { consentBannerEnabled } from "@/lib/analytics";
 import { OPEN_CONSENT_EVENT } from "./AnalyticsConsent";
 
 /**
@@ -11,7 +11,7 @@ import { OPEN_CONSENT_EVENT } from "./AnalyticsConsent";
  * ("use client" ที่ Footer จะลาก NewsletterForm และทุกอย่างใต้มันไปเป็น client ด้วย)
  *
  * ซ่อนตัวเองเมื่อไม่มี GA ให้ตั้งค่า (ไม่ได้ตั้ง NEXT_PUBLIC_GA_ID หรืออยู่บน
- * preview ของ Vercel) — ใช้เงื่อนไขเดียวกับ AnalyticsConsent จาก lib/analytics
+ * preview ของ Vercel) — ใช้เงื่อนไขเดียวกับแถบใน AnalyticsConsent จาก lib/analytics
  * เพื่อไม่ให้เกิดกรณีมีลิงก์แต่กดแล้วไม่มีแถบขึ้น
  */
 export default function CookieSettingsButton({ label }: { label: string }) {
@@ -19,7 +19,7 @@ export default function CookieSettingsButton({ label }: { label: string }) {
 
   // อ่านหลัง mount เพื่อให้ตรงกับ AnalyticsConsent ที่ก็ตัดสินใจฝั่งเบราว์เซอร์
   useEffect(() => {
-    setEnabled(analyticsEnabled);
+    setEnabled(consentBannerEnabled);
   }, []);
 
   if (!enabled) return null;

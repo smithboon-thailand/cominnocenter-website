@@ -27,4 +27,20 @@ export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
  */
 const IS_VERCEL_PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
+/** โหลดสคริปต์ gtag จริงหรือไม่ — ต้องมีรหัส และต้องไม่ใช่ preview */
 export const analyticsEnabled = Boolean(GA_ID) && !IS_VERCEL_PREVIEW;
+
+/**
+ * แสดงแถบขอความยินยอมหรือไม่ — แยกจาก analyticsEnabled โดยตั้งใจ
+ *
+ * ปัญหาที่แก้ (31 ส.ค. 2569): ตอนแรกผูกสองเรื่องนี้เป็นเงื่อนไขเดียวกัน ผลคือ
+ * บน preview ไม่มีแถบขึ้นเลย **ผู้ใช้จึงตรวจฟีเจอร์นี้ก่อน merge ไม่ได้**
+ * ซึ่งขัดกับกติกาข้อ 2 ของโปรเจ็คที่ทุกอย่างต้องผ่านการตรวจ Preview ก่อน
+ *
+ * แยกออกจากกันแล้วได้ทั้งสองอย่าง: บน preview แถบขึ้นให้ตรวจหน้าตาและการกดได้
+ * ครบ แต่ gtag ไม่โหลด สถิติจึงไม่เพี้ยน · ไม่ต้องตั้ง env var บน preview เลย
+ *
+ * ข้อแลกเปลี่ยนที่ยอมรับ: บน preview การกด "ยอมรับ" จะไม่มีอะไรเกิดขึ้นจริง
+ * เป็นแค่การแสดงผล — รับได้เพราะ preview มีแต่ทีมงานเข้า ไม่ใช่ผู้ใช้จริง
+ */
+export const consentBannerEnabled = analyticsEnabled || IS_VERCEL_PREVIEW;

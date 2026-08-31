@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Script from "next/script";
-import { GA_ID, analyticsEnabled } from "@/lib/analytics";
+import { GA_ID, analyticsEnabled, consentBannerEnabled } from "@/lib/analytics";
 
 /**
  * แถบขอความยินยอมคุกกี้ + ตัวโหลด Google Analytics 4
@@ -108,11 +108,13 @@ export default function AnalyticsConsent({ locale }: { locale: "th" | "en" }) {
     setChoice(next);
   }, []);
 
-  if (!analyticsEnabled || choice === undefined) return null;
+  if (!consentBannerEnabled || choice === undefined) return null;
 
   return (
     <>
-      {choice === "granted" ? (
+      {/* gtag ใช้ analyticsEnabled ไม่ใช่ consentBannerEnabled — บน preview
+          แถบขึ้นให้ตรวจได้ แต่ต้องไม่มีอะไรยิงไปหา Google จริง */}
+      {choice === "granted" && analyticsEnabled ? (
         <>
           <Script
             id="ga-src"
