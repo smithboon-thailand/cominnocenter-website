@@ -19,6 +19,14 @@ type HeaderProps = {
   active?: PageKey;
   /** Default: Thai (th). Pass "en" on English routes. */
   locale?: "th" | "en";
+  /**
+   * ปลายทางของปุ่มสลับภาษา เมื่อหน้านั้นไม่ได้อยู่ในเมนูหลัก
+   *
+   * ปกติ Header คำนวณจาก `active` ซึ่งเป็นคีย์ของหน้าในเมนู แต่หน้าอย่าง
+   * นโยบายความเป็นส่วนตัวไม่มีคีย์ (และไม่ควรมี เพราะไม่ควรอยู่ในเมนูหลัก)
+   * ถ้าไม่ส่งค่านี้ ปุ่มจะพากลับไปหน้าแรกของอีกภาษาแทนที่จะเป็นหน้าเดียวกัน
+   */
+  switchHref?: string;
 };
 
 const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
@@ -71,11 +79,11 @@ function switchLocaleHref(locale: "th" | "en", active?: PageKey): string {
   return page === "home" ? "/" : `/${page}`;
 }
 
-export default function Header({ active, locale = "th" }: HeaderProps) {
+export default function Header({ active, locale = "th", switchHref }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const t = NAV[locale];
   const otherLabel = locale === "th" ? "EN" : "TH";
-  const otherHref = switchLocaleHref(locale, active);
+  const otherHref = switchHref ?? switchLocaleHref(locale, active);
 
   const linkClass = (page: string) =>
     active === page

@@ -39,6 +39,9 @@ const nextConfig: NextConfig = {
    * Phase 0-D — 301 redirects จาก path ของเว็บ Wix เดิม (มีผลจริงตอน Phase 5 ที่โดเมนย้ายมา)
    * ตรวจจาก sitemap เว็บเดิม: 24 โพสต์ + หน้า /insights, /contact, /about/teerada-ne, /privacy-policy, /blank
    * mapping โพสต์ generate จาก scripts/wix-posts-manifest.json
+   * หมายเหตุ: /privacy-policy เคยอยู่ในลิสต์นี้ (ส่งไปหน้าแรกเพราะยังไม่มีหน้าจริง)
+   * ลบออกแล้วเมื่อ 31 ส.ค. 2569 เพราะมีหน้านโยบายจริงที่ path เดิมแล้ว
+   * redirect ทำงานก่อน routing ถ้าปล่อยกฎไว้ หน้าใหม่จะไม่มีวันถูกเรียกถึง
    */
   async redirects() {
     return [
@@ -75,7 +78,6 @@ const nextConfig: NextConfig = {
       { source: "/blog-feed.xml", destination: "/news", permanent: true },
       { source: "/about/teerada-ne", destination: "/about", permanent: true },
       { source: "/contact", destination: "/collaborate", permanent: true },
-      { source: "/privacy-policy", destination: "/", permanent: true },
       { source: "/blank", destination: "/", permanent: true },
       // — catch-all: โพสต์เก่าอื่นใดที่ไม่รู้จัก → หน้ารวมข่าว —
       { source: "/post/:slug*", destination: "/news", permanent: true },

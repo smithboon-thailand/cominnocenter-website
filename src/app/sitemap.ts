@@ -23,6 +23,7 @@ const staticEntries: Entry[] = [
   { path: "/research", changeFrequency: "monthly", priority: 0.8 },
   { path: "/sdg", changeFrequency: "monthly", priority: 0.8 },
   { path: "/media", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
 ];
 
 /**
