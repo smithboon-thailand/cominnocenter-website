@@ -47,12 +47,19 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * ที่เซิร์ฟเวอร์บอกมาก่อน ถ้าไม่บอกก็ถอยเป็นเท่าตัว ส่วนรหัสอื่น (404, 500) โยนทันที
  * เพราะรอไปก็ไม่หาย
  */
+/**
+ * ข้อผิดพลาดที่แปลว่า "ติดต่อทะเบียนไม่ได้" ไม่ใช่ "ทะเบียนตอบว่าไม่มี"
+ * ต้องแยกให้ออก เพราะสองอย่างนี้นำไปสู่การตัดสินใจคนละทางโดยสิ้นเชิง (ดู resolveDoi)
+ */
+class RegistryUnavailable extends Error {}
+
 const getJson = async (url, tries = 5) => {
   for (let attempt = 1; ; attempt++) {
     const res = await fetch(url, { headers: UA });
     if (res.ok) return res.json();
     const retryable = res.status === 429 || res.status === 503;
-    if (!retryable || attempt >= tries) throw new Error(`HTTP ${res.status}`);
+    if (!retryable) throw new Error(`HTTP ${res.status}`);
+    if (attempt >= tries) throw new RegistryUnavailable(`HTTP ${res.status} หลังลอง ${tries} ครั้ง`);
     const after = Number(res.headers.get("retry-after"));
     const waitMs = Number.isFinite(after) && after > 0 ? after * 1000 : 2000 * 2 ** (attempt - 1);
     console.warn(`  HTTP ${res.status} — รอ ${Math.round(waitMs / 1000)} วิแล้วลองใหม่ (${attempt}/${tries - 1})`);
@@ -223,6 +230,19 @@ function dedupe(all) {
 }
 
 /** ดึง metadata ของ DOI — ลอง Crossref ก่อน แล้วค่อย doi.org content negotiation (รองรับ DOI ไทย/DataCite) */
+/**
+ * ดึง metadata ของ DOI
+ *
+ * **คืน null = ทะเบียนบอกว่าไม่มี DOI นี้ · โยน RegistryUnavailable = เราติดต่อไม่ได้**
+ *
+ * ความต่างนี้สำคัญมาก (แก้ 31 ส.ค. 2569): เดิม catch กลืนทุกข้อผิดพลาดแล้วคืน null
+ * ซึ่งผู้เรียกตีความว่า "DOI เปิดไม่ได้" แล้ว**ลดระดับรายการเป็น self เงียบๆ**
+ * ผลคือถ้ารันสคริปต์ในวันที่ Crossref จำกัดอัตรา (429) ผลงานที่ยืนยันแล้วหลายสิบชิ้น
+ * จะถูกเขียนทับให้กลายเป็น "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน" ทั้งที่ตรวจสอบได้จริง
+ * DOI หายจาก JSON-LD ไปด้วย และไม่มีอะไรเตือนเลย — เจอกับตัวจริงตอนรันรอบนี้
+ *
+ * ตอนนี้ผู้เรียกจะรู้ว่าเป็นคนละกรณี และหยุดทั้งการรันแทนที่จะเขียนข้อมูลที่ด้อยลง
+ */
 async function resolveDoi(doi) {
   try {
     const meta = (await getJson(`https://api.crossref.org/works/${doi}`)).message;
@@ -234,7 +254,9 @@ async function resolveDoi(doi) {
       type: meta.type || "",
       citations: meta["is-referenced-by-count"],
     };
-  } catch {
+  } catch (err) {
+    // ติดต่อ Crossref ไม่ได้ ≠ Crossref บอกว่าไม่มี — อย่ากลืน
+    if (err instanceof RegistryUnavailable) throw err;
     /* ไม่มีใน Crossref — ลองต่อด้านล่าง */
   }
   try {
@@ -242,6 +264,9 @@ async function resolveDoi(doi) {
       headers: { ...UA, Accept: "application/vnd.citationstyles.csl+json" },
       redirect: "follow",
     });
+    if (res.status === 429 || res.status === 503) {
+      throw new RegistryUnavailable(`doi.org ตอบ HTTP ${res.status}`);
+    }
     if (!res.ok) return null;
     const d = await res.json();
     return {
@@ -252,7 +277,10 @@ async function resolveDoi(doi) {
       type: d.type || "",
       citations: undefined,
     };
-  } catch {
+  } catch (err) {
+    if (err instanceof RegistryUnavailable) throw err;
+    // เครือข่ายล้มก็คือติดต่อไม่ได้เหมือนกัน ไม่ใช่หลักฐานว่า DOI ไม่มีจริง
+    if (err instanceof TypeError) throw new RegistryUnavailable(`doi.org: ${err.message}`);
     return null;
   }
 }
@@ -555,8 +583,19 @@ console.log(`fetched ${merged.length} unique records`);
 
 const rejected = [];
 const checked = [];
+/** รายการที่ตรวจไม่ได้เพราะติดต่อทะเบียนไม่ได้ — ไม่ใช่เพราะข้อมูลมีปัญหา */
+const unreachable = [];
 for (const row of merged) {
-  const result = row.doi ? await verifyDoi(row) : await findInIndexes(row);
+  let result;
+  try {
+    result = row.doi ? await verifyDoi(row) : await findInIndexes(row);
+  } catch (err) {
+    if (!(err instanceof RegistryUnavailable)) throw err;
+    unreachable.push({ row, reason: err.message });
+    console.warn(`  ติดต่อทะเบียนไม่ได้: ${row.doi || row.title.slice(0, 50)} — ${err.message}`);
+    await sleep(350);
+    continue;
+  }
   if (result === null) {
     rejected.push(row);
     console.warn(`  REJECTED (DOI belongs to someone else): ${row.doi} — ${row.title.slice(0, 60)}`);
@@ -564,6 +603,27 @@ for (const row of merged) {
     checked.push(result);
   }
   await sleep(350);
+}
+
+/**
+ * หยุดทั้งการรันถ้าตรวจไม่ครบ — ไม่เขียนไฟล์
+ *
+ * เหตุผล: ไฟล์ที่สคริปต์นี้เขียนคือ**แหล่งความจริงเดียว**ของผลงานวิชาการบนเว็บ
+ * ถ้าเขียนทับตอนที่ยืนยันไม่ครบ ผลงานที่ตรวจสอบได้จริงจะถูกลดระดับหรือหายไป
+ * โดยไม่มีใครสังเกต ซึ่งขัดกับกติกาข้อ 8 ของโปรเจ็คโดยตรง
+ *
+ * ข้อมูลเดิมที่ถูกต้องอยู่แล้วดีกว่าข้อมูลใหม่ที่ด้อยลง — ให้รอแล้วรันใหม่
+ */
+if (unreachable.length) {
+  console.error(
+    `\nหยุดการทำงาน: ตรวจสอบไม่ได้ ${unreachable.length} รายการ เพราะติดต่อทะเบียนไม่ได้` +
+      `\n(ปกติเกิดจากถูกจำกัดอัตราเรียก — เว้นสัก 30–60 นาทีแล้วรันใหม่)` +
+      `\n**ไม่ได้เขียนทับ src/data/publications.ts** ข้อมูลเดิมยังอยู่ครบ`,
+  );
+  for (const u of unreachable.slice(0, 10)) {
+    console.error(`  ${u.row.doi || "(ไม่มี DOI)"} — ${u.row.title.slice(0, 60)}`);
+  }
+  process.exit(1);
 }
 
 // เติมลิงก์ระเบียนทางการของวารสารไทย (ตรวจผู้เขียนสดทุกครั้ง)
