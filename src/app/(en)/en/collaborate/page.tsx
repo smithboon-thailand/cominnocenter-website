@@ -6,6 +6,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 import PersonaBlocks from "@/components/collaborate/PersonaBlocks";
 import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 
 export const metadata = {
   alternates: {
@@ -107,10 +108,10 @@ export default function EnglishCollaboratePage() {
                   <div>
                     <p className="mb-1 text-ink-500">Phone</p>
                     <a
-                      href="tel:022182262"
+                      href={PHONE_HREF}
                       className="font-medium text-ink-900 hover:text-pink-500"
                     >
-                      02-218-2262
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                   <div>

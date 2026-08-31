@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
 import CookieSettingsButton from "./analytics/CookieSettingsButton";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 
 const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
@@ -62,8 +63,8 @@ export default function Footer({ locale = "th" }: FooterProps) {
               </a>
             </p>
             <p className="mt-1">
-              <a href="tel:022182262" className="hover:text-pink-400 transition-colors">
-                02-218-2262
+              <a href={PHONE_HREF} className="hover:text-pink-400 transition-colors">
+                {PHONE_DISPLAY}
               </a>
             </p>
             {/* อ่านจาก data/social.ts ชุดเดียวกับที่ส่งเข้า sameAs ใน JSON-LD
