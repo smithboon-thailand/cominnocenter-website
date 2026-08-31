@@ -27,7 +27,7 @@
  * - Crossref API — ผู้เขียนที่ยังไม่มี ORCID และใช้ตรวจสอบ/เติมข้อมูลทุกรายการ
  * - Semantic Scholar API — ดัชนีสำรองสำหรับรายการที่ไม่มี DOI
  */
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const UA = {
   "User-Agent": "cominnocenter-website/1.0 (mailto:comminno@chula.ac.th)",
@@ -181,32 +181,61 @@ async function fromOrcid() {
   return out;
 }
 
+/**
+ * ค้นผลงานจาก Crossref ตามนามสกุลผู้เขียน — **อ่านให้ครบทุกหน้า**
+ *
+ * ทำไมต้องวนหน้า (แก้ 31 ส.ค. 2569): เดิมขอมา `rows=80` หน้าเดียวจบ แต่คำค้น
+ * `query.author=slutskiy` มีผลลัพธ์ 133 รายการ ส่วนที่เกิน 80 จึงไม่เคยถูกอ่านเลย
+ * และเพราะ Crossref เรียงตาม*ความเกี่ยวข้อง* ซึ่งขยับได้เรื่อยๆ ผลงานชิ้นเดียวกัน
+ * จึง**หลุดเข้าหลุดออกจากเว็บได้เองโดยไม่มีใครแตะโค้ด**
+ *
+ * เจอของจริง: "In Defense of Advertising Value Equivalency" (2026) เคยอยู่บนเว็บ
+ * แล้วหายไปเฉยๆ ในการรันรอบถัดมา เพราะตกไปอยู่นอก 80 อันดับแรก
+ *
+ * ใช้ cursor ของ Crossref (deep paging) วนจนกว่าจะไม่มีรายการเหลือ — ไม่ใช่เพิ่ม
+ * rows ให้ใหญ่ขึ้นเฉยๆ เพราะนั่นแค่เลื่อนเพดานออกไป ไม่ได้แก้ต้นเหตุ
+ */
 async function fromCrossref() {
   const out = [];
   for (const [slug, cfg] of Object.entries(AUTHORS)) {
     if (!cfg.crossref) continue;
     const { family, givenPattern } = cfg.crossref;
-    const res = await getJson(
-      `https://api.crossref.org/works?query.author=${family}&rows=80` +
-        `&select=title,container-title,publisher,issued,type,DOI,author,is-referenced-by-count`
-    );
-    for (const item of res.message.items || []) {
-      // Crossref มีผู้เขียนนามสกุลเดียวกันหลายคน — บังคับตรวจชื่อต้น
-      const mine = (item.author || []).some(
-        (a) => (a.family || "").toLowerCase() === family && givenPattern.test(a.given || "")
+    let cursor = "*";
+    let seen = 0;
+    let mineCount = 0;
+    for (;;) {
+      const res = await getJson(
+        `https://api.crossref.org/works?query.author=${family}&rows=200` +
+          `&cursor=${encodeURIComponent(cursor)}` +
+          `&select=title,container-title,publisher,issued,type,DOI,author,is-referenced-by-count`
       );
-      if (!mine) continue;
-      out.push({
-        person: slug,
-        title: (item.title || [""])[0].trim(),
-        venue: (item["container-title"] || [""])[0] || item.publisher || "",
-        year: item.issued?.["date-parts"]?.[0]?.[0] || 0,
-        type: item.type,
-        doi: (item.DOI || "").toLowerCase(),
-        citations: item["is-referenced-by-count"],
-        orcidSource: "",
-      });
+      const items = res.message.items || [];
+      if (!items.length) break;
+      seen += items.length;
+      for (const item of items) {
+        // Crossref มีผู้เขียนนามสกุลเดียวกันหลายคน — บังคับตรวจชื่อต้น
+        const mine = (item.author || []).some(
+          (a) => (a.family || "").toLowerCase() === family && givenPattern.test(a.given || "")
+        );
+        if (!mine) continue;
+        mineCount++;
+        out.push({
+          person: slug,
+          title: (item.title || [""])[0].trim(),
+          venue: (item["container-title"] || [""])[0] || item.publisher || "",
+          year: item.issued?.["date-parts"]?.[0]?.[0] || 0,
+          type: item.type,
+          doi: (item.DOI || "").toLowerCase(),
+          citations: item["is-referenced-by-count"],
+          orcidSource: "",
+        });
+      }
+      const next = res.message["next-cursor"];
+      if (!next || next === cursor) break;
+      cursor = next;
+      await sleep(300);
     }
+    console.log(`  Crossref ${family}: อ่าน ${seen} รายการ เป็นของผู้เขียนคนนี้ ${mineCount}`);
     await sleep(300);
   }
   return out;
@@ -715,6 +744,50 @@ const stats = {
   index: entries.filter((e) => e.verified === "index").length,
   self: entries.filter((e) => e.verified === "self").length,
 };
+
+/**
+ * ด่านสุดท้าย: ห้ามผลงานหายไปเงียบๆ
+ *
+ * เทียบรายการใหม่กับไฟล์เดิมก่อนเขียนทับ ถ้ามีอะไรหายให้หยุดและบอกว่าหายอะไร
+ * ต้องสั่ง --allow-removals ถึงจะเขียนทับได้
+ *
+ * ทำไมจำเป็น (31 ส.ค. 2569): วันเดียวเจอสามทางที่ผลงานหายหรือด้อยลงได้เงียบๆ —
+ * ถูกจำกัดอัตราแล้วลดระดับเป็น self · Crossref อ่านไม่ครบหน้า · DOI ซ้ำถูกยุบ
+ * สองอย่างแรกคือบั๊ก อย่างที่สามคือความตั้งใจ ด่านนี้แยกไม่ออกว่าอันไหนเป็นอันไหน
+ * จึงให้ "หยุดแล้วให้คนดู" เป็นค่าเริ่มต้น — คนตัดสินได้ในไม่กี่วินาที ส่วนผลงาน
+ * ที่หายไปโดยไม่มีใครเห็นอาจอยู่แบบนั้นได้เป็นเดือน
+ */
+const allowRemovals = process.argv.includes("--allow-removals");
+try {
+  const existing = readFileSync(new URL("../src/data/publications.ts", import.meta.url), "utf8");
+  const marker = "export const publications: PublicationEntry[] = ";
+  const from = existing.indexOf(marker);
+  if (from !== -1) {
+    const start = from + marker.length;
+    const old = JSON.parse(existing.slice(start, existing.indexOf("\n];", start) + 2));
+    const idOf = (p) => (p.doi ? `doi:${p.doi}` : `title:${norm(p.title)}`);
+    const nowIds = new Set(entries.map(idOf));
+    const gone = old.filter((p) => !nowIds.has(idOf(p)));
+    if (gone.length) {
+      console.error(`\nหยุดการทำงาน: มีผลงาน ${gone.length} รายการที่เคยอยู่บนเว็บแล้วรอบนี้ไม่มี`);
+      for (const p of gone) {
+        console.error(`  [${p.verified}] ${p.year} ${p.title.slice(0, 65)}\n      ${p.doi || "(ไม่มี DOI)"}`);
+      }
+      if (!allowRemovals) {
+        console.error(
+          `\n**ไม่ได้เขียนทับ src/data/publications.ts** ข้อมูลเดิมยังอยู่ครบ` +
+            `\nตรวจก่อนว่าเป็นการยุบรายการซ้ำที่ตั้งใจ หรือเป็นข้อมูลหายจริง` +
+            `\nถ้าถูกต้องแล้วให้รันซ้ำด้วย: node scripts/fetch-publications.mjs --allow-removals`,
+        );
+        process.exit(1);
+      }
+      console.warn("  (สั่ง --allow-removals มาแล้ว จึงเขียนทับต่อ)");
+    }
+  }
+} catch (err) {
+  // ไม่มีไฟล์เดิม (รันครั้งแรก) ถือว่าไม่มีอะไรให้เทียบ
+  if (err.code !== "ENOENT") throw err;
+}
 
 writeFileSync(new URL("../src/data/publications.ts", import.meta.url), render(entries, stats));
 console.log(
