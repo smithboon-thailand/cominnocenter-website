@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { newsPosts } from "@/data/news";
+import { paperSummaries } from "@/data/paperSummaries";
 
 const baseUrl = "https://www.cominnocenter.com";
 
@@ -71,6 +72,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "yearly",
         priority: 0.6,
         lastModified: new Date(p.date),
+      }),
+    ),
+    // หน้าบทสรุปงานวิจัย — ให้ priority สูงกว่าข่าวเพราะเป็นเนื้อหาต้นฉบับที่เราเขียนเอง
+    // และเป็นสิ่งที่คนค้นหางานวิชาการของศูนย์ฯ ควรเจอ
+    ...paperSummaries.map(
+      (s): Entry => ({
+        path: `/research/${s.slug}`,
+        changeFrequency: "yearly",
+        priority: 0.7,
       }),
     ),
   ];

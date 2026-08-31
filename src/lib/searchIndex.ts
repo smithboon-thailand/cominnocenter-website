@@ -12,6 +12,7 @@ import { newsPosts } from "@/data/news";
 import { mediaSorted } from "@/data/media";
 import { services } from "@/data/services";
 import { publications } from "@/data/publications";
+import { summaryByDoi } from "@/data/paperSummaries";
 import { SDG, SDG_IDS } from "@/data/sdg";
 
 export type SearchKind = "project" | "news" | "media" | "service" | "publication" | "sdg" | "page";
@@ -126,13 +127,25 @@ export function buildSearchIndex(locale: "th" | "en"): SearchDoc[] {
   }
 
   for (const pub of publications) {
+    /**
+     * งานที่มีหน้าบทสรุปของเราเอง ให้ผลค้นหาพาไปหน้านั้นแทนที่จะเด้งออกไป DOI
+     * — ผู้ใช้ที่ค้นในเว็บเรามักอยากรู้ว่า "งานนี้พูดว่าอะไร" ไม่ใช่อยากได้ไฟล์วารสาร
+     * และหน้าบทสรุปก็มีลิงก์ DOI ให้อยู่แล้วสำหรับคนที่ต้องการต้นฉบับ
+     */
+    const summary = pub.doi ? summaryByDoi.get(pub.doi) : undefined;
+    const headline = summary ? summary[locale].headline : "";
     docs.push({
       kind: "publication",
       title: pub.title,
       meta: `${pub.venue}${pub.venue ? " · " : ""}${pub.year}`,
-      href: pub.doi ? `https://doi.org/${pub.doi}` : pub.indexUrl || `${base}/research`,
-      external: Boolean(pub.doi || pub.indexUrl),
-      keywords: `${pub.venue} ${pub.year}`,
+      href: summary
+        ? `${base}/research/${summary.slug}`
+        : pub.doi
+          ? `https://doi.org/${pub.doi}`
+          : pub.indexUrl || `${base}/research`,
+      external: !summary && Boolean(pub.doi || pub.indexUrl),
+      // ใส่พาดหัวภาษาง่ายเป็นคำค้นด้วย ผู้ใช้ที่ค้นด้วยคำชาวบ้านจึงเจองานวิชาการได้
+      keywords: `${pub.venue} ${pub.year} ${headline}`.trim(),
     });
   }
 

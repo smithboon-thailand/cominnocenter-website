@@ -33,12 +33,32 @@ const UA = {
   "User-Agent": "cominnocenter-website/1.0 (mailto:comminno@chula.ac.th)",
   Accept: "application/json",
 };
-const getJson = async (url) => {
-  const res = await fetch(url, { headers: UA });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * เรียก API แบบทนการถูกจำกัดอัตรา
+ *
+ * ทำไมต้องมี (31 ส.ค. 2569): เดิมเจอ 429 แล้วโยน error ทันที ทั้งสคริปต์ล้มตั้งแต่
+ * ผู้เขียนคนแรก ทำให้**รันสคริปต์ใหม่ไม่ได้เลย**ในวันที่เคยยิง ORCID/Crossref ไปมาก
+ * ซึ่งร้ายกว่าที่คิด เพราะกติกาข้อ 8 ห้ามแก้ publications.ts ด้วยมือ — พอสคริปต์
+ * รันไม่ได้ ข้อมูลผลงานวิชาการก็แก้ไม่ได้เลยทั้งชุด
+ *
+ * 429 กับ 503 คือ "ช้าลงหน่อย" ไม่ใช่ "ผิดพลาด" จึงรอแล้วลองใหม่ เคารพ Retry-After
+ * ที่เซิร์ฟเวอร์บอกมาก่อน ถ้าไม่บอกก็ถอยเป็นเท่าตัว ส่วนรหัสอื่น (404, 500) โยนทันที
+ * เพราะรอไปก็ไม่หาย
+ */
+const getJson = async (url, tries = 5) => {
+  for (let attempt = 1; ; attempt++) {
+    const res = await fetch(url, { headers: UA });
+    if (res.ok) return res.json();
+    const retryable = res.status === 429 || res.status === 503;
+    if (!retryable || attempt >= tries) throw new Error(`HTTP ${res.status}`);
+    const after = Number(res.headers.get("retry-after"));
+    const waitMs = Number.isFinite(after) && after > 0 ? after * 1000 : 2000 * 2 ** (attempt - 1);
+    console.warn(`  HTTP ${res.status} — รอ ${Math.round(waitMs / 1000)} วิแล้วลองใหม่ (${attempt}/${tries - 1})`);
+    await sleep(waitMs);
+  }
+};
 
 /** ผู้เขียนของศูนย์ฯ — surname ใช้ตรวจว่า DOI/ดัชนีที่เจอเป็นของคนนี้จริง */
 const AUTHORS = {
@@ -429,8 +449,30 @@ async function applyThaijoSources(rows) {
   }
 }
 
+/**
+ * ถอดรหัส HTML entity ที่ติดมากับ metadata ของ Crossref
+ *
+ * ทำไมต้องมี (31 ส.ค. 2569): Crossref ส่งชื่อวารสารมาเป็น "HIV &amp; AIDS Review"
+ * และ "Cogent Business &amp; Management" พอ React เอาไป render มันไม่ตีความ entity
+ * ซ้ำ (ซึ่งถูกต้องแล้ว — เป็นเกราะกัน XSS) ผลคือผู้อ่าน**เห็นตัวอักษร `&amp;`
+ * โผล่บนหน้าเว็บจริงๆ** และ entity ยังหลุดเข้าไปใน JSON-LD ที่ส่งให้ Google ด้วย
+ *
+ * แก้ที่ต้นทางคือตรงนี้ ไม่ใช่ที่หน้าเว็บ — เพราะข้อมูลชุดนี้ถูกใช้ทั้งใน UI,
+ * JSON-LD, /llms.txt และดัชนีค้นหา ถ้าไปแก้ทีละที่จะพลาดสักที่แน่นอน
+ */
+const decodeEntities = (s) =>
+  s
+    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(Number(d)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    // &amp; ต้องแทนหลังสุด ไม่งั้น "&amp;lt;" จะกลายเป็น "<" แทนที่จะเป็น "&lt;"
+    .replace(/&amp;/g, "&");
+
 const clean = (s) =>
-  s.replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
+  decodeEntities(s).replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
 const fixCaps = (t) => (t === t.toUpperCase() && t.length > 15 ? t.charAt(0) + t.slice(1).toLowerCase() : t);
 
 function render(entries, stats) {
@@ -443,6 +485,8 @@ function render(entries, stats) {
  * - รายการที่มี DOI ถูกดึง metadata จาก Crossref มาเทียบนามสกุลผู้เขียน
  *   DOI ที่ชี้ไปงานของคนอื่นถูกตัดออกแล้ว (รอบล่าสุดตัดออก ${stats.rejected} รายการ)
  * - รายการที่ไม่มี DOI ถูกค้นในดัชนีอิสระโดยบังคับให้นามสกุลผู้เขียนตรงด้วย
+ * - งานชิ้นเดียวที่สำนักพิมพ์จด DOI ซ้ำสองเลขถูกยุบเป็นรายการเดียว
+ *   (รอบล่าสุดยุบ ${stats.duplicates} รายการ) เก็บเลขที่มียอดอ้างอิงสูงกว่า
  *
  * ระดับการตรวจสอบ (field verified):
  *   "doi"   ${stats.doi} รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
@@ -540,7 +584,54 @@ const kept = checked.filter(
   (r) => !(r.type === "book-chapter" && r.doi && bookDois.some((d) => r.doi.startsWith(d + "_")))
 );
 
-const entries = kept
+/**
+ * ยุบงานชิ้นเดียวกันที่ถูกจด DOI ไว้มากกว่าหนึ่งเลข
+ *
+ * ทำไมต้องมี (31 ส.ค. 2569): dedupe() ด้านบนใช้ DOI เป็นกุญแจ ถ้าสำนักพิมพ์
+ * จดเลขให้บทความเดียวซ้ำสองครั้ง จะรอดมาเป็นสองรายการทั้งที่เป็นงานชิ้นเดียว
+ * เจอจริงกับ Tripodos 2020 ที่จดไว้ทั้ง ...48p53-68 และ ...48p53-67 — ทั้งคู่
+ * resolve ใน Crossref ได้ ชื่อผู้เขียนตรง และชี้ไปหน้าบทความเดียวกัน (view/890)
+ * จึงผ่านการตรวจทุกด่านมาได้ทั้งคู่ แล้วไปโป่งยอดรวมผลงานของศูนย์ฯ เกินจริง
+ *
+ * เลือกเลขที่จะเก็บจาก**ยอดอ้างอิง** เพราะสะท้อนว่าโลกวิชาการใช้เลขไหนจริง
+ * (Tripodos: 53-68 ถูกอ้าง 7 ครั้ง · 53-67 ถูกอ้าง 2 ครั้ง)
+ *
+ * **ไม่รวมยอดอ้างอิงของสองเลขเข้าด้วยกัน** เก็บเฉพาะของเลขที่ชนะ — ตัวเลขที่
+ * ต่ำกว่าความจริงเล็กน้อยยอมรับได้ แต่ตัวเลขที่สูงเกินจริงบนเว็บงานวิชาการ
+ * ยอมรับไม่ได้ (ยังไม่มีทางพิสูจน์ว่าไม่มีใครอ้างซ้ำทั้งสองเลข)
+ *
+ * ใส่ type ในกุญแจด้วย กันไม่ให้หนังสือกับบทในหนังสือที่ชื่อเดียวกันถูกยุบรวม
+ */
+function mergeSameWork(rows) {
+  const map = new Map();
+  const dropped = [];
+  for (const r of rows) {
+    const key = `${norm(r.title)}::${r.year}::${normalizeType(r.type)}`;
+    const prev = map.get(key);
+    if (!prev) {
+      map.set(key, r);
+      continue;
+    }
+    const rBetter =
+      (r.citations || 0) > (prev.citations || 0) ||
+      // เสมอกัน → ตัดสินด้วย DOI เพื่อให้ผลลัพธ์เหมือนเดิมทุกครั้งที่รัน
+      ((r.citations || 0) === (prev.citations || 0) && (r.doi || "") < (prev.doi || ""));
+    const win = rBetter ? r : prev;
+    const lose = rBetter ? prev : r;
+    win.people = [...new Set([...win.people, ...lose.people])];
+    win.venue = win.venue || lose.venue;
+    dropped.push(lose);
+    map.set(key, win);
+  }
+  return { rows: [...map.values()], dropped };
+}
+
+const { rows: unique, dropped: duplicateDois } = mergeSameWork(kept);
+for (const d of duplicateDois) {
+  console.warn(`  DUPLICATE DOI ยุบทิ้ง: ${d.doi} — ${d.title.slice(0, 60)}`);
+}
+
+const entries = unique
   .filter((r) => r.year > 0)
   .map((r) => ({
     title: fixCaps(clean(r.title)),
@@ -558,6 +649,7 @@ const entries = kept
 
 const stats = {
   rejected: rejected.length,
+  duplicates: duplicateDois.length,
   doi: entries.filter((e) => e.verified === "doi").length,
   link: entries.filter((e) => e.verified === "link").length,
   index: entries.filter((e) => e.verified === "index").length,
