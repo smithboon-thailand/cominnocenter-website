@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { publications, type PublicationType } from "@/data/publications";
-import { summaryByDoi } from "@/data/paperSummaries";
+import { summaryForPublication } from "@/data/paperSummaries";
 import CitationTool from "./CitationTool";
 import { leadership } from "@/data/leadership";
 
@@ -253,8 +253,8 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                     {/* งานที่มีหน้าบทสรุปภาษาง่ายของเราเอง — ลิงก์เข้าเว็บ ไม่ใช่ออกไป DOI
                         ให้ผู้อ่านที่ไม่เปิดไฟล์วารสารยังได้เนื้อหาของงานชิ้นนั้น */}
                     {(() => {
-                      const summary = p.doi ? summaryByDoi.get(p.doi) : undefined;
-                      const key = p.doi || `${p.title}-${p.year}`;
+                      const summary = summaryForPublication(p);
+                      const key = p.doi || p.indexUrl || `${p.title}-${p.year}`;
                       const base = locale === "th" ? "/research" : "/en/research";
                       const open = citeFor === key;
                       return (

@@ -7,8 +7,12 @@ import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
-import { paperSummaries, paperSummaryBySlug, CC_LICENSES } from "@/data/paperSummaries";
-import { publications } from "@/data/publications";
+import {
+  paperSummaries,
+  paperSummaryBySlug,
+  publicationForSummary,
+  CC_LICENSES,
+} from "@/data/paperSummaries";
 import { leadership } from "@/data/leadership";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -20,13 +24,11 @@ export function generateStaticParams() {
 }
 
 const authorName = (slug: string) => leadership.find((l) => l.slug === slug)?.name ?? slug;
-const paperFor = (doi: string) => publications.find((p) => p.doi === doi);
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const summary = paperSummaryBySlug(slug);
-  const paper = summary && paperFor(summary.doi);
-  if (!summary || !paper) return { title: "ไม่พบบทสรุป" };
+  if (!summary) return { title: "ไม่พบบทสรุป" };
   return {
     title: summary.th.headline,
     description: summary.th.question.slice(0, 160),
@@ -50,10 +52,13 @@ export async function generateMetadata({ params }: Props) {
 export default async function PaperSummaryPage({ params }: Props) {
   const { slug } = await params;
   const summary = paperSummaryBySlug(slug);
-  const paper = summary && paperFor(summary.doi);
-  if (!summary || !paper) notFound();
+  if (!summary) notFound();
+  const paper = publicationForSummary(summary);
 
-  const license = CC_LICENSES[summary.license];
+  // ไม่มี license แปลว่าวารสารสงวนลิขสิทธิ์ ไม่ใช่ว่ายังไม่ได้ตรวจ — จึงต้องไม่อ้าง CC
+  const license = summary.license ? CC_LICENSES[summary.license] : null;
+  // วารสารไทยหลายเล่มไม่จด DOI ให้ลิงก์ไปหน้าบทความของวารสารแทน
+  const sourceHref = summary.doi ? `https://doi.org/${summary.doi}` : summary.indexUrl;
   // ชี้ไปคลังของสำนักพิมพ์ ไม่ใช่ไฟล์ในเว็บเรา — ผู้อ่านจึงได้ฉบับปัจจุบันเสมอ
   const pdfUrl = summary.pdfUrl;
 
@@ -67,10 +72,12 @@ export default async function PaperSummaryPage({ params }: Props) {
             venue: paper.venue,
             year: paper.year,
             doi: summary.doi,
+            indexUrl: summary.indexUrl,
+            inLanguage: summary.articleLanguage,
             authors: paper.authors,
             authorName,
             path: `/research/${slug}`,
-            licenseHref: license.href,
+            licenseHref: license?.href,
             pdfUrl,
           }),
           breadcrumbSchema([
@@ -106,12 +113,13 @@ export default async function PaperSummaryPage({ params }: Props) {
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[15px]">
               <a
-                href={`https://doi.org/${summary.doi}`}
+                href={sourceHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-pink-500 hover:text-pink-700 hover:underline"
               >
-                เปิดบทความต้นฉบับ (DOI)
+                {summary.doi ? "เปิดบทความต้นฉบับ (DOI)" : "เปิดบทความต้นฉบับที่วารสาร"}
+                <span className="sr-only"> (เปิดในแท็บใหม่)</span>
               </a>
               {summary.pdfUrl ? (
                 <a
@@ -135,20 +143,26 @@ export default async function PaperSummaryPage({ params }: Props) {
             <CitationTool publication={paper} citation={paper.citation} locale="th" />
           ) : null}
 
-          {/* CC บังคับให้ระบุสัญญาอนุญาตและให้เครดิต ไม่ใช่แค่บอกว่า "เปิดฟรี" */}
+          {/* CC บังคับให้ระบุสัญญาอนุญาตและให้เครดิต ไม่ใช่แค่บอกว่า "เปิดฟรี"
+              ส่วนบทความที่วารสารสงวนลิขสิทธิ์ ต้องไม่เขียนให้เข้าใจผิดว่าเป็น CC */}
           <div className="mt-12 border-t border-ink-100 pt-6 text-[13px] leading-[1.6] text-ink-500">
             <p>
-              บทความต้นฉบับเผยแพร่ภายใต้สัญญาอนุญาต{" "}
-              <a
-                href={license.href}
-                target="_blank"
-                rel="license noopener noreferrer"
-                className="text-pink-500 hover:text-pink-700 hover:underline"
-              >
-                {license.label}
-              </a>{" "}
-              ลิขสิทธิ์เป็นของผู้เขียนและวารสารต้นทาง
-{" "}
+              {license ? (
+                <>
+                  บทความต้นฉบับเผยแพร่ภายใต้สัญญาอนุญาต{" "}
+                  <a
+                    href={license.href}
+                    target="_blank"
+                    rel="license noopener noreferrer"
+                    className="text-pink-500 hover:text-pink-700 hover:underline"
+                  >
+                    {license.label}
+                  </a>{" "}
+                  ลิขสิทธิ์เป็นของผู้เขียนและวารสารต้นทาง{" "}
+                </>
+              ) : (
+                <>ลิขสิทธิ์ของบทความต้นฉบับเป็นของผู้เขียนและวารสารต้นทาง </>
+              )}
               ศูนย์ฯ ไม่ได้เก็บสำเนาไฟล์ไว้บนเว็บนี้ ลิงก์ทั้งหมดพาไปยังคลังของวารสารโดยตรง
               ผู้อ่านจึงได้ฉบับปัจจุบันเสมอแม้วารสารจะออกใบแก้ไขภายหลัง
             </p>
