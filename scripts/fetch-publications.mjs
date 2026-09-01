@@ -272,16 +272,76 @@ function dedupe(all) {
  *
  * ตอนนี้ผู้เรียกจะรู้ว่าเป็นคนละกรณี และหยุดทั้งการรันแทนที่จะเขียนข้อมูลที่ด้อยลง
  */
+/**
+ * เก็บ metadata ที่ "การอ้างอิง" ต้องใช้ — ผู้เขียนครบทุกคน ปีที่ ฉบับที่ เลขหน้า
+ *
+ * ทำไมต้องเก็บเพิ่ม (1 ก.ย. 2569): field `authors` ของเราเก็บแต่ **คนของศูนย์ฯ**
+ * เพราะออกแบบไว้ใช้กรองผลงานตามผู้เขียนในหน้า /research ไม่ได้ตั้งใจให้ครบทุกคน
+ * ตัวอย่างจริง: บทความ Cogent 2024 มีผู้เขียนสามคน (Rodpangtiam, Boonchutima,
+ * Mazahir) แต่เราเก็บไว้คนเดียว ถ้าเอาข้อมูลชุดนั้นไปสร้างการอ้างอิง **ผู้ร่วมวิจัย
+ * จะหายไปจากเครดิตทุกครั้งที่มีคนคัดลอกไปใช้** ซึ่งเป็นความผิดพลาดทางวิชาการที่
+ * ร้ายแรงกว่าข้อมูลไม่ครบธรรมดา — คนที่เอาไปแปะในวิทยานิพนธ์จะอ้างผิดโดยไม่รู้ตัว
+ *
+ * จึงเก็บรายชื่อผู้เขียนตามที่ทะเบียนบันทึกไว้แยกอีกชุด พร้อมข้อมูลที่ APA/MLA
+ * บังคับต้องมี (ปีที่ ฉบับที่ เลขหน้า สำนักพิมพ์) — ทั้งหมดมาจาก Crossref ที่เรา
+ * เรียกอยู่แล้ว เดิมโยนทิ้งไปเปล่าๆ
+ */
+/**
+ * ตรวจว่าค่าที่ทะเบียนส่งมา "เข้าเค้า" ก่อนเชื่อ
+ *
+ * ทำไมต้องมี (1 ก.ย. 2569): ทะเบียนบางแห่งลงข้อมูลสลับช่อง เจอของจริงกับ
+ * 10.14456/jhr.2016.32 และ 10.14456/jhr.2015.30 ที่ doi.org ส่งมาว่า
+ *   container-title = "4"                       ← ที่จริงคือเลขฉบับ
+ *   page            = "Journal of Health Research" ← ที่จริงคือชื่อวารสาร
+ *
+ * เรารับมาทั้งดุ้น ผลคือหน้า /research แสดงชื่อวารสารเป็น "4" กับ "5" อยู่บน
+ * production จริง และค่านั้นถูกส่งเข้า JSON-LD ให้ Google ด้วย
+ *
+ * **ไม่สลับค่าคืนให้เอง** แม้จะเดาได้ว่าอันไหนควรอยู่ช่องไหน เพราะการเดาแทน
+ * ทะเบียนคือสิ่งที่กติกาข้อ 8 ห้าม — ทิ้งค่าที่ไม่เข้าเค้าไป แล้วให้ระบบถอยไปใช้
+ * ค่าจาก ORCID ที่ผู้เขียนกรอกเอง (ซึ่งกรณีนี้ถูกต้อง: "Journal of Health Research")
+ */
+const looksLikeJournal = (v) => Boolean(v) && !/^\d+$/.test(v.trim());
+/** เลขหน้าจริงมีหน้าตาแบบ "144-154" · "151" · "e0317506" — ไม่ใช่วลีที่มีเว้นวรรค */
+const looksLikePages = (v) => Boolean(v) && /^[A-Za-z]?\d/.test(v.trim()) && !/\s/.test(v.trim());
+
+function citationFrom(meta) {
+  const authors = (meta.author || [])
+    .map((a) => ({
+      family: clean(a.family || ""),
+      given: clean(a.given || ""),
+      literal: clean(a.literal || a.name || ""),
+    }))
+    .filter((a) => a.family || a.literal);
+  if (!authors.length) return undefined;
+  const parts = meta.issued?.["date-parts"]?.[0] || [];
+  const container = clean((meta["container-title"] || [""])[0] || "");
+  const pages = clean(meta.page || "");
+  return {
+    authors,
+    containerTitle: looksLikeJournal(container) ? container : "",
+    volume: clean(meta.volume || ""),
+    issue: clean(meta.issue || ""),
+    page: looksLikePages(pages) ? pages : "",
+    publisher: clean(meta.publisher || ""),
+    year: parts[0] || 0,
+    month: parts[1] || 0,
+    day: parts[2] || 0,
+  };
+}
+
 async function resolveDoi(doi) {
   try {
     const meta = (await getJson(`https://api.crossref.org/works/${doi}`)).message;
     return {
       title: (meta.title || [""])[0] || "",
       authors: meta.author || [],
-      venue: (meta["container-title"] || [""])[0] || meta.publisher || "",
+      venue: looksLikeJournal((meta["container-title"] || [""])[0]) ? meta["container-title"][0] : "",
+      publisher: meta.publisher || "",
       year: meta.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: meta.type || "",
       citations: meta["is-referenced-by-count"],
+      citation: citationFrom(meta),
     };
   } catch (err) {
     // ติดต่อ Crossref ไม่ได้ ≠ Crossref บอกว่าไม่มี — อย่ากลืน
@@ -301,10 +361,16 @@ async function resolveDoi(doi) {
     return {
       title: typeof d.title === "string" ? d.title : (d.title || [""])[0] || "",
       authors: d.author || [],
-      venue: d["container-title"] || d.publisher || "",
+      venue: looksLikeJournal(d["container-title"]) ? d["container-title"] : "",
+      publisher: d.publisher || "",
       year: d.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: d.type || "",
       citations: undefined,
+      // CSL ใช้ชื่อ field ชุดเดียวกับ Crossref จึงส่งเข้า citationFrom ได้ตรงๆ
+      citation: citationFrom({
+        ...d,
+        "container-title": [typeof d["container-title"] === "string" ? d["container-title"] : ""],
+      }),
     };
   } catch (err) {
     if (err instanceof RegistryUnavailable) throw err;
@@ -347,11 +413,28 @@ async function verifyDoi(row) {
 
   return {
     ...row,
+    /**
+     * ใช้ชื่อเรื่องจากทะเบียนเมื่อยืนยันว่าเป็นงานชิ้นเดียวกันแล้ว
+     *
+     * ทำไม (1 ก.ย. 2569): ORCID เก็บชื่อเรื่องของวารสารไทยหลายรายการมาเป็น
+     * ตัวพิมพ์ใหญ่ทั้งบรรทัด ตัว fixCaps() จึงแปลงเป็นตัวเล็กทั้งหมดยกเว้นตัวแรก
+     * ซึ่ง**ทำลายคำวิสามานยนาม** — ผู้ใช้ทักมาว่า 10.14456/jhr.2015.30 ขึ้นบนเว็บ
+     * ว่า "...in thailand's department..." ทั้งที่ทะเบียนบันทึกไว้ถูกต้องว่า
+     * "...in Thailand's Department of Disease Control: a Descriptive Study"
+     *
+     * ทะเบียนคือบันทึกทางการของฉบับตีพิมพ์ จึงน่าเชื่อกว่าค่าที่ผู้เขียนพิมพ์ลง
+     * ORCID เอง · ใช้ต่อเมื่อชื่อเรื่องทับกันพอ (sameTitle) แล้วเท่านั้น ไม่งั้น
+     * เสี่ยงหยิบชื่องานคนอื่นมาแทน
+     */
+    title:
+      meta.title && titleOverlap(row.title, meta.title) >= 0.8 ? meta.title : row.title,
     verified: matched ? "doi" : "link",
-    venue: meta.venue || row.venue,
+    // ทะเบียนที่ค่าเข้าเค้า → ค่าที่ผู้เขียนกรอกใน ORCID → ชื่อสำนักพิมพ์ (ทางเลือกสุดท้าย)
+    venue: meta.venue || row.venue || meta.publisher || "",
     year: meta.year || row.year,
     type: meta.type || row.type,
     citations: meta.citations ?? row.citations,
+    citation: meta.citation,
   };
 }
 
@@ -529,7 +612,15 @@ const decodeEntities = (s) =>
     .replace(/&amp;/g, "&");
 
 const clean = (s) =>
-  decodeEntities(s).replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
+  decodeEntities(s)
+    .replace(/\s+/g, " ")
+    .replace(/\[version \d.*$/i, "")
+    .replace(/[“”]/g, '"')
+    // เว้นวรรคหลังทวิภาคที่ติดกับตัวอักษร — ทะเบียนบางระเบียนพิมพ์ติดกันมา เช่น
+    // "...Cruelty-free Products:Their Value..." ซึ่งผิดแบบแผนการพิมพ์และอ่านสะดุด
+    // จำกัดเฉพาะกรณีที่ตามด้วยตัวอักษร จึงไม่ไปแตะ "https://" หรือ "DOI:10.x"
+    .replace(/:(?=[A-Za-z])/g, ": ")
+    .trim();
 const fixCaps = (t) => (t === t.toUpperCase() && t.length > 15 ? t.charAt(0) + t.slice(1).toLowerCase() : t);
 
 function render(entries, stats) {
@@ -577,10 +668,31 @@ export type PublicationEntry = {
   indexUrl?: string;
   /** จำนวนการอ้างอิงจาก Crossref — แสดงเฉพาะที่มากกว่า 0 */
   citations?: number;
-  /** slug ของผู้เขียนใน leadership.ts */
+  /**
+   * slug ของผู้เขียน **เฉพาะคนของศูนย์ฯ** ใน leadership.ts — ใช้กรองในหน้า /research
+   * **ไม่ใช่รายชื่อผู้เขียนครบทุกคน** ห้ามเอาไปสร้างการอ้างอิง ให้ใช้ citation.authors
+   */
   authors: string[];
   /** จำนวนบทในเล่ม (เฉพาะ type: book) */
   chapters?: number;
+  /**
+   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเฉพาะรายการที่ยืนยันผ่าน DOI
+   * ฟิลด์ authors ในนี้คือ**ผู้เขียนครบทุกคน** รวมผู้ร่วมวิจัยที่ไม่ได้อยู่ในศูนย์ฯ
+   */
+  citation?: CitationMeta;
+};
+
+/** ข้อมูลที่ APA / MLA / BibTeX / RIS ต้องใช้ ดึงจากทะเบียน ไม่ได้กรอกเอง */
+export type CitationMeta = {
+  authors: { family: string; given: string; literal: string }[];
+  containerTitle: string;
+  volume: string;
+  issue: string;
+  page: string;
+  publisher: string;
+  year: number;
+  month: number;
+  day: number;
 };
 
 export const publications: PublicationEntry[] = ${JSON.stringify(entries, null, 2)};
@@ -733,6 +845,7 @@ const entries = unique
     citations: r.citations || undefined,
     authors: r.people,
     chapters: r.chapters || undefined,
+    citation: r.citation,
   }))
   .sort((a, b) => b.year - a.year || (b.citations || 0) - (a.citations || 0) || a.title.localeCompare(b.title));
 

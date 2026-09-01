@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-08-31)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-01)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -13,8 +13,8 @@
  * ระดับการตรวจสอบ (field verified):
  *   "doi"   47 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
  *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
- *   "index" 11 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
- *   "self"  15 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
+ *   "index" 12 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
+ *   "self"  14 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
  *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
  *           ไม่ได้แปลว่าไม่มีจริง แต่ยังตรวจสอบออนไลน์อัตโนมัติไม่ได้
  */
@@ -42,10 +42,31 @@ export type PublicationEntry = {
   indexUrl?: string;
   /** จำนวนการอ้างอิงจาก Crossref — แสดงเฉพาะที่มากกว่า 0 */
   citations?: number;
-  /** slug ของผู้เขียนใน leadership.ts */
+  /**
+   * slug ของผู้เขียน **เฉพาะคนของศูนย์ฯ** ใน leadership.ts — ใช้กรองในหน้า /research
+   * **ไม่ใช่รายชื่อผู้เขียนครบทุกคน** ห้ามเอาไปสร้างการอ้างอิง ให้ใช้ citation.authors
+   */
   authors: string[];
   /** จำนวนบทในเล่ม (เฉพาะ type: book) */
   chapters?: number;
+  /**
+   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเฉพาะรายการที่ยืนยันผ่าน DOI
+   * ฟิลด์ authors ในนี้คือ**ผู้เขียนครบทุกคน** รวมผู้ร่วมวิจัยที่ไม่ได้อยู่ในศูนย์ฯ
+   */
+  citation?: CitationMeta;
+};
+
+/** ข้อมูลที่ APA / MLA / BibTeX / RIS ต้องใช้ ดึงจากทะเบียน ไม่ได้กรอกเอง */
+export type CitationMeta = {
+  authors: { family: string; given: string; literal: string }[];
+  containerTitle: string;
+  volume: string;
+  issue: string;
+  page: string;
+  publisher: string;
+  year: number;
+  month: number;
+  day: number;
 };
 
 export const publications: PublicationEntry[] = [
@@ -58,7 +79,39 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1186/s40900-026-00891-8",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Cheah",
+          "given": "Phaik Yeong",
+          "literal": ""
+        },
+        {
+          "family": "Myint",
+          "given": "Soe Thandar",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Research Involvement and Engagement",
+      "volume": "12",
+      "issue": "1",
+      "page": "",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2026,
+      "month": 4,
+      "day": 28
+    }
   },
   {
     "title": "Cross-Cultural Adaptation and Validation of the (Re)-emerging and ePidemic Infectious Diseases Stigma Scales in Thailand: A Study Protocol",
@@ -69,7 +122,69 @@ export const publications: PublicationEntry[] = [
     "doi": "10.12688/wellcomeopenres.26014.1",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Cheah",
+          "given": "Phaik Yeong",
+          "literal": ""
+        },
+        {
+          "family": "Poomchaichote",
+          "given": "Tassawan",
+          "literal": ""
+        },
+        {
+          "family": "Kulpijit",
+          "given": "Natinee",
+          "literal": ""
+        },
+        {
+          "family": "Myint",
+          "given": "Soe Thandar",
+          "literal": ""
+        },
+        {
+          "family": "Mukaka",
+          "given": "Mavuto",
+          "literal": ""
+        },
+        {
+          "family": "Paterson",
+          "given": "Amy",
+          "literal": ""
+        },
+        {
+          "family": "Pannengpetch",
+          "given": "Sakda",
+          "literal": ""
+        },
+        {
+          "family": "Viriyasitavat",
+          "given": "Wattana",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Wellcome Open Research",
+      "volume": "11",
+      "issue": "",
+      "page": "151",
+      "publisher": "F1000 Research Ltd",
+      "year": 2026,
+      "month": 2,
+      "day": 25
+    }
   },
   {
     "title": "Enhancing fans and artists’ affective engagement and behavioral intentions in digital music streaming platforms through relational bonds: a case study of JOOX Rooms",
@@ -80,7 +195,34 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1080/23311983.2026.2675861",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Chanapun",
+          "given": "Nattawee",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Cogent Arts & Humanities",
+      "volume": "13",
+      "issue": "1",
+      "page": "",
+      "publisher": "Informa UK Limited",
+      "year": 2026,
+      "month": 5,
+      "day": 21
+    }
   },
   {
     "title": "From stigma to mainstream: a multi-stakeholder thematic analysis of anime consumption and community-driven communication in Thai Generation Z",
@@ -91,7 +233,34 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1080/23311983.2026.2647143",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Krongbooncho",
+          "given": "Chayanon",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Cogent Arts & Humanities",
+      "volume": "13",
+      "issue": "1",
+      "page": "",
+      "publisher": "Informa UK Limited",
+      "year": 2026,
+      "month": 3,
+      "day": 24
+    }
   },
   {
     "title": "In Defense of Advertising Value Equivalency",
@@ -102,7 +271,29 @@ export const publications: PublicationEntry[] = [
     "doi": "10.18848/2470-9247/cgp/a140",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Ordeix Rigo",
+          "given": "Enric",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "The Journal of Communication and Media Studies",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "publisher": "Common Ground Research Networks",
+      "year": 2026,
+      "month": 3,
+      "day": 9
+    }
   },
   {
     "title": "Relationship Marketing Communication of Horror Storytelling Programs",
@@ -125,7 +316,24 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Manusya: Journal of Humanities",
+      "volume": "28",
+      "issue": "1",
+      "page": "1-19",
+      "publisher": "Walter de Gruyter GmbH",
+      "year": 2025,
+      "month": 11,
+      "day": 18
+    }
   },
   {
     "title": "From tradition to progressiveness: Analyzing Thailand’s image on youtube amid post-cannabis legalization",
@@ -137,7 +345,34 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Yaseen",
+          "given": "Safeena",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "PLOS ONE",
+      "volume": "20",
+      "issue": "2",
+      "page": "e0317506",
+      "publisher": "Public Library of Science (PLoS)",
+      "year": 2025,
+      "month": 2,
+      "day": 7
+    }
   },
   {
     "title": "The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour",
@@ -149,7 +384,29 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Sahakitpijarn",
+          "given": "Kanokrat",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Fashion, Style & Popular Culture",
+      "volume": "12",
+      "issue": "4",
+      "page": "461-480",
+      "publisher": "Intellect",
+      "year": 2025,
+      "month": 10,
+      "day": 1
+    }
   },
   {
     "title": "Global Communication",
@@ -161,7 +418,24 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "pavel-slutskiy"
     ],
-    "chapters": 11
+    "chapters": 11,
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "publisher": "Springer Nature Singapore",
+      "year": 2025,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Impact of negative word of mouth on consumers’ attitude. Moderating role of advertising under cognitive involvement conditions",
@@ -172,7 +446,34 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1080/23311886.2025.2526800",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Yaseen",
+          "given": "Safeena",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Cogent Social Sciences",
+      "volume": "11",
+      "issue": "1",
+      "page": "",
+      "publisher": "Informa UK Limited",
+      "year": 2025,
+      "month": 7,
+      "day": 3
+    }
   },
   {
     "title": "Reframing Thailand's Southern Border Conflict through a Self-transcendental Narrative Paradigm",
@@ -194,7 +495,29 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1177/00027642251405617",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Gavra",
+          "given": "Dmitrii",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "American Behavioral Scientist",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "publisher": "SAGE Publications",
+      "year": 2025,
+      "month": 12,
+      "day": 26
+    }
   },
   {
     "title": "Perception of social media users regarding cryptocurrency investment adoption: a case of social media platform – Reddit",
@@ -206,7 +529,34 @@ export const publications: PublicationEntry[] = [
     "citations": 7,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Rodpangtiam",
+          "given": "Athit",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Cogent Business & Management",
+      "volume": "11",
+      "issue": "1",
+      "page": "",
+      "publisher": "Informa UK Limited",
+      "year": 2024,
+      "month": 9,
+      "day": 14
+    }
   },
   {
     "title": "Ethical gamified health communication intervention to prevent Work-related Musculoskeletal Disorders (WMSDs) in Myanmar migrants at Thailand's seafood factory: A study protocol",
@@ -218,7 +568,34 @@ export const publications: PublicationEntry[] = [
     "citations": 2,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Cheah",
+          "given": "Phaik Yeong",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Wellcome Open Research",
+      "volume": "9",
+      "issue": "",
+      "page": "347",
+      "publisher": "F1000 Research Ltd",
+      "year": 2024,
+      "month": 6,
+      "day": 28
+    }
   },
   {
     "title": "Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z",
@@ -230,7 +607,39 @@ export const publications: PublicationEntry[] = [
     "citations": 2,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Lertjaruphatthra",
+          "given": "Ruja",
+          "literal": ""
+        },
+        {
+          "family": "Ukoskit",
+          "given": "Sarita",
+          "literal": ""
+        },
+        {
+          "family": "Yompuck",
+          "given": "Tanat",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Fashion, Style & Popular Culture",
+      "volume": "11",
+      "issue": "3",
+      "page": "517-526",
+      "publisher": "Intellect",
+      "year": 2024,
+      "month": 10,
+      "day": 1
+    }
   },
   {
     "title": "Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand",
@@ -254,7 +663,24 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal for the Theory of Social Behaviour",
+      "volume": "54",
+      "issue": "4",
+      "page": "591-606",
+      "publisher": "Wiley",
+      "year": 2024,
+      "month": 10,
+      "day": 9
+    }
   },
   {
     "title": "Challenging Gender Roles in the Environmental Issues",
@@ -277,7 +703,24 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "pavel-slutskiy"
     ],
-    "chapters": 16
+    "chapters": 16,
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "publisher": "Springer Nature Singapore",
+      "year": 2024,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Probability And Bayesian Inference In Human Communication",
@@ -288,7 +731,24 @@ export const publications: PublicationEntry[] = [
     "doi": "10.32509/wacana.v23i1.3388",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "WACANA: Jurnal Ilmiah Ilmu Komunikasi",
+      "volume": "",
+      "issue": "",
+      "page": "44-53",
+      "publisher": "Universitas Prof. Dr. Moestopo Beragama",
+      "year": 2024,
+      "month": 6,
+      "day": 25
+    }
   },
   {
     "title": "Yes, You Should Own Bitcoin",
@@ -299,7 +759,24 @@ export const publications: PublicationEntry[] = [
     "doi": "10.35297/001c.123605",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Libertarian Studies",
+      "volume": "28",
+      "issue": "1",
+      "page": "",
+      "publisher": "Mises Institute",
+      "year": 2024,
+      "month": 9,
+      "day": 20
+    }
   },
   {
     "title": "The Chinese media narrative of Thailand as a tourist destination after the legalisation of cannabis",
@@ -312,7 +789,34 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "smith-boonchutima",
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Deng",
+          "given": "Shuang",
+          "literal": ""
+        },
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Heliyon",
+      "volume": "9",
+      "issue": "4",
+      "page": "e15478",
+      "publisher": "Elsevier BV",
+      "year": 2023,
+      "month": 4,
+      "day": 0
+    }
   },
   {
     "title": "The Impact of VTubers and Streamers on the Purchase Intention of Otaku and Non-Otaku Respondents: A Comparative Study",
@@ -324,7 +828,29 @@ export const publications: PublicationEntry[] = [
     "citations": 8,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Surakanon",
+          "given": "Apinya",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Basic and Applied Social Psychology",
+      "volume": "45",
+      "issue": "2-3",
+      "page": "63-79",
+      "publisher": "Informa UK Limited",
+      "year": 2023,
+      "month": 5,
+      "day": 4
+    }
   },
   {
     "title": "Cognitive Load Theory in Online Education: Leveraging Interactive Media, Testing, Interaction and to Enhance Engagement and Active Learning",
@@ -336,7 +862,34 @@ export const publications: PublicationEntry[] = [
     "citations": 4,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        },
+        {
+          "family": "Kongchan",
+          "given": "Watsayut",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "TENCON 2023 - 2023 IEEE Region 10 Conference (TENCON)",
+      "volume": "",
+      "issue": "",
+      "page": "2-9",
+      "publisher": "IEEE",
+      "year": 2023,
+      "month": 10,
+      "day": 31
+    }
   },
   {
     "title": "Perspectives on Online Learning and Technostress Experienced by Science and Non-science First-year University Students during COVID-19",
@@ -359,7 +912,24 @@ export const publications: PublicationEntry[] = [
     "doi": "10.14456/cmap.2023.5",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "",
+          "given": "",
+          "literal": "Emmika Lounporn"
+        }
+      ],
+      "containerTitle": "Communication and Media in Asia Pacific",
+      "volume": "6",
+      "issue": "",
+      "page": "52-62",
+      "publisher": "Chulalongkorn University",
+      "year": 2023,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "The Inappropriate Content of Sexual Harassment in Thai Entertainment Programs",
@@ -382,7 +952,29 @@ export const publications: PublicationEntry[] = [
     "citations": 4,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Sankosik",
+          "given": "Ainwat",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Drustvena istrazivanja",
+      "volume": "31",
+      "issue": "4",
+      "page": "683-701",
+      "publisher": "Institute of Social Sciences Ivo Pilar",
+      "year": 2022,
+      "month": 12,
+      "day": 23
+    }
   },
   {
     "title": "Application of interactive sensory arts exhibition in promoting the protection of endangered species: The Elephant tales",
@@ -394,7 +986,39 @@ export const publications: PublicationEntry[] = [
     "citations": 2,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Ratanavadi",
+          "given": "Sitamon",
+          "literal": ""
+        },
+        {
+          "family": "Chaowjirakit",
+          "given": "Russarin",
+          "literal": ""
+        },
+        {
+          "family": "Prayotamornkul",
+          "given": "Karnpitcha",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Thinking Skills and Creativity",
+      "volume": "44",
+      "issue": "",
+      "page": "101017",
+      "publisher": "Elsevier BV",
+      "year": 2022,
+      "month": 6,
+      "day": 0
+    }
   },
   {
     "title": "Analysing Russian Reaction to 2021 U.S. Capitol Riots",
@@ -406,7 +1030,29 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Gavra",
+          "given": "Dmitrii",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "American Behavioral Scientist",
+      "volume": "70",
+      "issue": "2",
+      "page": "162-177",
+      "publisher": "SAGE Publications",
+      "year": 2022,
+      "month": 3,
+      "day": 29
+    }
   },
   {
     "title": "Credibility of the Official COVID Communication in Thailand: When People Stop Believing the Government",
@@ -419,7 +1065,29 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "smith-boonchutima",
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "American Behavioral Scientist",
+      "volume": "",
+      "issue": "",
+      "page": "000276422211182",
+      "publisher": "SAGE Publications",
+      "year": 2022,
+      "month": 8,
+      "day": 29
+    }
   },
   {
     "title": "Relationship between Chinese viewers’ attitude toward fansub videos and attitude against sponsorship",
@@ -431,7 +1099,29 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Lou",
+          "given": "Ruiqi",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Cogent Education",
+      "volume": "9",
+      "issue": "1",
+      "page": "",
+      "publisher": "Informa UK Limited",
+      "year": 2022,
+      "month": 7,
+      "day": 21
+    }
   },
   {
     "title": "Attitudes and opinions about 360 virtual videos to relieve muscle pain and fibrosis in the neck and shoulder",
@@ -442,7 +1132,84 @@ export const publications: PublicationEntry[] = [
     "doi": "10.55131/jphd/2022/200118",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "",
+          "given": "",
+          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Kreeprasertkul",
+          "given": "Kanokpar",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
+        },
+        {
+          "family": "Sarika",
+          "given": "Krittiya",
+          "literal": ""
+        },
+        {
+          "family": "Tancharoen",
+          "given": "Titaya",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
+        },
+        {
+          "family": "Yamkachorn",
+          "given": "Natnaree",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
+        },
+        {
+          "family": "Jumpee",
+          "given": "Praphapit",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
+        },
+        {
+          "family": "Prasansutthiporn",
+          "given": "Monthip",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
+        }
+      ],
+      "containerTitle": "Journal of Public Health and Development",
+      "volume": "20",
+      "issue": "1",
+      "page": "",
+      "publisher": "ASEAN Institute for Health Development",
+      "year": 2022,
+      "month": 1,
+      "day": 31
+    }
   },
   {
     "title": "ENGAGE-A3 model: communication risk to involve Myanmar workers in AIDS prevention",
@@ -453,7 +1220,34 @@ export const publications: PublicationEntry[] = [
     "doi": "10.5114/hivar.2022.115679",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Sukonthasab",
+          "given": "Suchitra",
+          "literal": ""
+        },
+        {
+          "family": "Sthapitanonda",
+          "given": "Parichart",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "HIV & AIDS Review",
+      "volume": "21",
+      "issue": "2",
+      "page": "144-154",
+      "publisher": "Termedia Sp. z.o.o.",
+      "year": 2022,
+      "month": 4,
+      "day": 18
+    }
   },
   {
     "title": "Health Belief Model of the Retirees and Reducing Sodium Intake Campaign",
@@ -487,7 +1281,24 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "pavel-slutskiy"
     ],
-    "chapters": 24
+    "chapters": 24,
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "publisher": "Springer Singapore",
+      "year": 2021,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Effectiveness of slow-paced safety instruction videos in conveying flight safety information to young first-time flyers",
@@ -541,7 +1352,24 @@ export const publications: PublicationEntry[] = [
     "citations": 7,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Tripodos",
+      "volume": "",
+      "issue": "48",
+      "page": "53-68",
+      "publisher": "Blanquerna - Universitat Ramon Llull",
+      "year": 2020,
+      "month": 12,
+      "day": 2
+    }
   },
   {
     "title": "Trump, Mueller Investigation, and Alleged Russian Election Meddling: Russian Media Coverage in 2017-2019",
@@ -553,7 +1381,29 @@ export const publications: PublicationEntry[] = [
     "citations": 4,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Gavra",
+          "given": "Dmitrii",
+          "literal": ""
+        },
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "American Behavioral Scientist",
+      "volume": "65",
+      "issue": "3",
+      "page": "482-511",
+      "publisher": "SAGE Publications",
+      "year": 2020,
+      "month": 12,
+      "day": 8
+    }
   },
   {
     "title": "Right to Clean Air' but What Went Wrong?: A Case Study on Global Public Relations in Local Communities in Thailand",
@@ -587,7 +1437,34 @@ export const publications: PublicationEntry[] = [
     "citations": 2,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Sukonthasab",
+          "given": "Suchitra",
+          "literal": ""
+        },
+        {
+          "family": "Satapitanonta",
+          "given": "Parichart",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "HIV & AIDS Review",
+      "volume": "18",
+      "issue": "4",
+      "page": "285-295",
+      "publisher": "Termedia Sp. z.o.o.",
+      "year": 2019,
+      "month": 10,
+      "day": 29
+    }
   },
   {
     "title": "The Evolution of Trump’s Image in Russian Media",
@@ -599,7 +1476,34 @@ export const publications: PublicationEntry[] = [
     "citations": 4,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Bykova",
+          "given": "Elena",
+          "literal": ""
+        },
+        {
+          "family": "Gavra",
+          "given": "Dmitrii",
+          "literal": ""
+        },
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "American Behavioral Scientist",
+      "volume": "",
+      "issue": "",
+      "page": "000276421879369",
+      "publisher": "SAGE Publications",
+      "year": 2018,
+      "month": 8,
+      "day": 10
+    }
   },
   {
     "title": "s Video-art Becoming a Form of Popular Art? The case of Apple TV’s Aerial Screen Savers",
@@ -611,7 +1515,24 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "IAFOR Journal of Cultural Studies",
+      "volume": "3",
+      "issue": "1",
+      "page": "",
+      "publisher": "The International Academic Forum (IAFOR)",
+      "year": 2018,
+      "month": 4,
+      "day": 2
+    }
   },
   {
     "title": "#nodam in #maewong: Framing Analysis on the Roles of Social Media and Strategic Public Relations in Environmental Movement in Thailand",
@@ -633,7 +1554,29 @@ export const publications: PublicationEntry[] = [
     "doi": "10.51698/tripodos.2018.42.21-38",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Ordeix",
+          "given": "Enric",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Tripodos",
+      "volume": "",
+      "issue": "42",
+      "page": "21-38",
+      "publisher": "Blanquerna - Universitat Ramon Llull",
+      "year": 2018,
+      "month": 6,
+      "day": 1
+    }
   },
   {
     "title": "Visual Merchandising in Sportswear Retail",
@@ -655,7 +1598,29 @@ export const publications: PublicationEntry[] = [
     "citations": 25,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Kongchan",
+          "given": "Watsayut",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Psychology Research and Behavior Management",
+      "volume": "Volume 10",
+      "issue": "",
+      "page": "31-38",
+      "publisher": "Informa UK Limited",
+      "year": 2017,
+      "month": 1,
+      "day": 0
+    }
   },
   {
     "title": "Longitudinal study of Thai people media exposure, knowledge, and behavior on dengue fever prevention and control",
@@ -667,7 +1632,39 @@ export const publications: PublicationEntry[] = [
     "citations": 23,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Kachentawa",
+          "given": "Kirati",
+          "literal": ""
+        },
+        {
+          "family": "Limpavithayakul",
+          "given": "Manasanun",
+          "literal": ""
+        },
+        {
+          "family": "Prachansri",
+          "given": "Anan",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Infection and Public Health",
+      "volume": "10",
+      "issue": "6",
+      "page": "836-841",
+      "publisher": "Elsevier BV",
+      "year": 2017,
+      "month": 11,
+      "day": 0
+    }
   },
   {
     "title": "Educating Burmese migrants working in Thailand with HIV/AIDS public health knowledge – a perspective of public health officers",
@@ -679,7 +1676,34 @@ export const publications: PublicationEntry[] = [
     "citations": 3,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Sukonthasab",
+          "given": "Suchitra",
+          "literal": ""
+        },
+        {
+          "family": "Sthapitanonda",
+          "given": "Parichart",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "HIV & AIDS Review",
+      "volume": "16",
+      "issue": "4",
+      "page": "226-235",
+      "publisher": "Termedia Sp. z.o.o.",
+      "year": 2017,
+      "month": 12,
+      "day": 15
+    }
   },
   {
     "title": "PR Evaluation: Efficiency Coefficient",
@@ -691,7 +1715,49 @@ export const publications: PublicationEntry[] = [
     "citations": 2,
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "",
+          "given": "",
+          "literal": "St. Petersburg State University"
+        },
+        {
+          "family": "Bykova",
+          "given": "Elena V.",
+          "literal": ""
+        },
+        {
+          "family": "Gavra",
+          "given": "Dmitrii P.",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "St. Petersburg State University"
+        },
+        {
+          "family": "Slutskiy",
+          "given": "Pavel A.",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Chulalongkorn University"
+        }
+      ],
+      "containerTitle": "Vestnik of Saint Petersburg University. Language and Literature",
+      "volume": "14",
+      "issue": "2",
+      "page": "275-284",
+      "publisher": "Saint Petersburg State University",
+      "year": 2017,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Bangkok 250: Role of PR in Urban Design and Development",
@@ -712,7 +1778,29 @@ export const publications: PublicationEntry[] = [
     "doi": "10.20472/ss2017.6.2.005",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Hamilton",
+          "given": "Mark",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "International Journal of Social Sciences",
+      "volume": "VI",
+      "issue": "2",
+      "page": "",
+      "publisher": "European Research Center (EURREC)",
+      "year": 2017,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Right to Clean Air\" but What Went Wrong? A Case Study on Opportunities and Obstacles to Communicating Climate Change on Social Media in Thailand",
@@ -733,18 +1821,67 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1163/26659077-01902005",
     "authors": [
       "pavel-slutskiy"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutskiy",
+          "given": "Pavel",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "MANUSYA",
+      "volume": "19",
+      "issue": "2",
+      "page": "90-108",
+      "publisher": "Walter de Gruyter GmbH",
+      "year": 2016,
+      "month": 0,
+      "day": 0
+    }
   },
   {
-    "title": "Gays dating applications: information disclosure and sexual behavior",
-    "venue": "4",
+    "title": "Gays Dating Applications: Information Disclosure and Sexual Behavior",
+    "venue": "Journal of Health Research",
     "year": 2016,
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.14456/jhr.2016.32",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "",
+          "given": "",
+          "literal": "Smith Boonchutima"
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Sopon Sriwattana"
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Rungroj Rungvimolsin"
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Nattanop Palahan"
+        }
+      ],
+      "containerTitle": "",
+      "volume": "30",
+      "issue": "",
+      "page": "",
+      "publisher": "Chulalongkorn University Press",
+      "year": 2016,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Muslim Consumers in Thailand and Marketing Public Relations: Decision Making Factors in Purchasing Food, Products and Tourist Service",
@@ -778,15 +1915,47 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
-    "title": "Survey results of knowledge sharing preferences and practices in public health communication professionals in thailand's department of disease control: a descriptive study",
-    "venue": "5",
+    "title": "Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study",
+    "venue": "Journal of Health Research",
     "year": 2015,
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.14456/jhr.2015.30",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "",
+          "given": "",
+          "literal": "Achara Bunchum"
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Ornjaree Na Taguatung"
+        },
+        {
+          "family": "Sukonthasab",
+          "given": "Suchitra",
+          "literal": ""
+        },
+        {
+          "family": "",
+          "given": "",
+          "literal": "Smith Boonchutima"
+        }
+      ],
+      "containerTitle": "",
+      "volume": "29",
+      "issue": "",
+      "page": "",
+      "publisher": "Chulalongkorn University Press",
+      "year": 2015,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Key qualitative and quantitative indicators: towards an integrated evaluation framework for government websites in Thailand",
@@ -797,7 +1966,24 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1504/ijbsr.2014.060300",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "International Journal of Business and Systems Research",
+      "volume": "8",
+      "issue": "2",
+      "page": "111",
+      "publisher": "Inderscience Publishers",
+      "year": 2014,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Thai Citizens' Utilization of Social Media Communications Devices during the Bangkok Governor Campaign in 2013",
@@ -829,14 +2015,32 @@ export const publications: PublicationEntry[] = [
     "doi": "10.18848/1835-7156/cgp/v03i04/37139",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "The International Journal of Climate Change: Impacts and Responses",
+      "volume": "3",
+      "issue": "4",
+      "page": "53-70",
+      "publisher": "Common Ground Research Networks",
+      "year": 2012,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Global warming in Bangkok: Framing analysis and campaign effectiveness",
     "venue": "The International Conference of Climate Change: Impacts & Responses",
     "year": 2012,
     "type": "conference-paper",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://www.semanticscholar.org/paper/426eac9eaf89906eb87806330d66faf97945b336",
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
