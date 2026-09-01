@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
-import PaperSummaryBody from "@/components/research/PaperSummaryBody";
+import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import {
@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: Props) {
   const summary = paperSummaryBySlug(slug);
   if (!summary) return { title: "ไม่พบบทสรุป" };
   return {
-    title: summary.th.headline,
-    description: summary.th.question.slice(0, 160),
+    title: plainText(summary.th.headline),
+    description: plainText(summary.th.question).slice(0, 160),
     alternates: {
       canonical: `/research/${slug}`,
       languages: {
@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: summary.th.headline,
-      description: summary.th.question.slice(0, 200),
+      title: plainText(summary.th.headline),
+      description: plainText(summary.th.question).slice(0, 200),
       // openGraph ของหน้าลูกทับของ layout ทั้งก้อน ต้องใส่ images เองทุกครั้ง
       images: ["/images/og/og-default.jpg"],
     },
@@ -83,7 +83,7 @@ export default async function PaperSummaryPage({ params }: Props) {
           breadcrumbSchema([
             { name: "หน้าแรก", path: "/" },
             { name: "งานวิจัย", path: "/research" },
-            { name: summary.th.headline, path: `/research/${slug}` },
+            { name: plainText(summary.th.headline), path: `/research/${slug}` },
           ]),
         ]}
       />
@@ -102,7 +102,7 @@ export default async function PaperSummaryPage({ params }: Props) {
           <p className="mt-8 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
             บทสรุปงานวิจัย
           </p>
-          <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{summary.th.headline}</h1>
+          <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.th.headline)}</h1>
 
           {/* แยกให้เห็นชัดว่าอะไรคือ "งานต้นฉบับ" อะไรคือ "คำสรุปของเรา" */}
           <div className="mt-8 rounded-lg border border-ink-300 bg-ink-0 p-6">

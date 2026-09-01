@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
-import PaperSummaryBody from "@/components/research/PaperSummaryBody";
+import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import {
@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: Props) {
   const summary = paperSummaryBySlug(slug);
   if (!summary) return { title: "Summary not found" };
   return {
-    title: summary.en.headline,
-    description: summary.en.question.slice(0, 160),
+    title: plainText(summary.en.headline),
+    description: plainText(summary.en.question).slice(0, 160),
     alternates: {
       canonical: `/en/research/${slug}`,
       languages: {
@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: summary.en.headline,
-      description: summary.en.question.slice(0, 200),
+      title: plainText(summary.en.headline),
+      description: plainText(summary.en.question).slice(0, 200),
       // A child page's openGraph replaces the layout's wholesale — images must be repeated
       images: ["/images/og/og-default.jpg"],
     },
@@ -85,7 +85,7 @@ export default async function PaperSummaryPageEn({ params }: Props) {
           breadcrumbSchema([
             { name: "Home", path: "/en" },
             { name: "Research", path: "/en/research" },
-            { name: summary.en.headline, path: `/en/research/${slug}` },
+            { name: plainText(summary.en.headline), path: `/en/research/${slug}` },
           ]),
         ]}
       />
@@ -104,7 +104,7 @@ export default async function PaperSummaryPageEn({ params }: Props) {
           <p className="mt-8 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
             Research summary
           </p>
-          <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{summary.en.headline}</h1>
+          <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.en.headline)}</h1>
 
           {/* Keep the source article visibly separate from our summary of it */}
           <div className="mt-8 rounded-lg border border-ink-300 bg-ink-0 p-6">
