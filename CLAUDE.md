@@ -100,6 +100,7 @@ public/
 | ไฟล์ | หน้าที่ |
 |---|---|
 | `schema.ts` | JSON-LD ทั้งเว็บ — `organizationSchema`, `websiteSchema`, `personSchema`, `publicationListSchema`, `breadcrumbSchema`, `newsArticleSchema` · **`publicationListSchema` กรอง `verified === "self"` ออก** ไม่ยืนยันสิ่งที่พิสูจน์ไม่ได้ต่อ Google |
+| `citation.ts` | สร้างรายการอ้างอิง APA 7 · MLA 9 · BibTeX · RIS ตอน build · **ใช้ `citation.authors` เท่านั้น ห้ามใช้ `authors`** ซึ่งเก็บแต่คนของศูนย์ฯ ถ้าใช้ผิดผู้ร่วมวิจัยจะหายจากเครดิต · BibTeX หนีอักขระ LaTeX แล้ว (`&` ในชื่อวารสารทำให้คอมไพล์ไม่ผ่าน) |
 | `related.ts` | `relatedProjects(slug)` ให้คะแนนจากข้อมูลจริง (+3 บริการร่วม · +2 SDG หลักเดียวกัน · +1 ต่อ SDG รองที่ซ้ำ) เสมอกันตัดสินด้วย slug เพื่อให้ build เสถียร · `projectNeighbours(slug)` ทำ prev/next แบบวน |
 | `searchIndex.ts` | ดัชนีค้นหาสร้างตอน build จาก data files (โครงการ ข่าว สื่อ บริการ ผลงานวิชาการ SDG 17 ข้อ และหน้าหลัก) — ไม่มี backend ไม่มีไลบรารีค้นหา |
 

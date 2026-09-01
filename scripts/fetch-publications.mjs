@@ -272,6 +272,43 @@ function dedupe(all) {
  *
  * ตอนนี้ผู้เรียกจะรู้ว่าเป็นคนละกรณี และหยุดทั้งการรันแทนที่จะเขียนข้อมูลที่ด้อยลง
  */
+/**
+ * เก็บ metadata ที่ "การอ้างอิง" ต้องใช้ — ผู้เขียนครบทุกคน ปีที่ ฉบับที่ เลขหน้า
+ *
+ * ทำไมต้องเก็บเพิ่ม (1 ก.ย. 2569): field `authors` ของเราเก็บแต่ **คนของศูนย์ฯ**
+ * เพราะออกแบบไว้ใช้กรองผลงานตามผู้เขียนในหน้า /research ไม่ได้ตั้งใจให้ครบทุกคน
+ * ตัวอย่างจริง: บทความ Cogent 2024 มีผู้เขียนสามคน (Rodpangtiam, Boonchutima,
+ * Mazahir) แต่เราเก็บไว้คนเดียว ถ้าเอาข้อมูลชุดนั้นไปสร้างการอ้างอิง **ผู้ร่วมวิจัย
+ * จะหายไปจากเครดิตทุกครั้งที่มีคนคัดลอกไปใช้** ซึ่งเป็นความผิดพลาดทางวิชาการที่
+ * ร้ายแรงกว่าข้อมูลไม่ครบธรรมดา — คนที่เอาไปแปะในวิทยานิพนธ์จะอ้างผิดโดยไม่รู้ตัว
+ *
+ * จึงเก็บรายชื่อผู้เขียนตามที่ทะเบียนบันทึกไว้แยกอีกชุด พร้อมข้อมูลที่ APA/MLA
+ * บังคับต้องมี (ปีที่ ฉบับที่ เลขหน้า สำนักพิมพ์) — ทั้งหมดมาจาก Crossref ที่เรา
+ * เรียกอยู่แล้ว เดิมโยนทิ้งไปเปล่าๆ
+ */
+function citationFrom(meta) {
+  const authors = (meta.author || [])
+    .map((a) => ({
+      family: clean(a.family || ""),
+      given: clean(a.given || ""),
+      literal: clean(a.literal || a.name || ""),
+    }))
+    .filter((a) => a.family || a.literal);
+  if (!authors.length) return undefined;
+  const parts = meta.issued?.["date-parts"]?.[0] || [];
+  return {
+    authors,
+    containerTitle: clean((meta["container-title"] || [""])[0] || ""),
+    volume: clean(meta.volume || ""),
+    issue: clean(meta.issue || ""),
+    page: clean(meta.page || ""),
+    publisher: clean(meta.publisher || ""),
+    year: parts[0] || 0,
+    month: parts[1] || 0,
+    day: parts[2] || 0,
+  };
+}
+
 async function resolveDoi(doi) {
   try {
     const meta = (await getJson(`https://api.crossref.org/works/${doi}`)).message;
@@ -282,6 +319,7 @@ async function resolveDoi(doi) {
       year: meta.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: meta.type || "",
       citations: meta["is-referenced-by-count"],
+      citation: citationFrom(meta),
     };
   } catch (err) {
     // ติดต่อ Crossref ไม่ได้ ≠ Crossref บอกว่าไม่มี — อย่ากลืน
@@ -305,6 +343,11 @@ async function resolveDoi(doi) {
       year: d.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: d.type || "",
       citations: undefined,
+      // CSL ใช้ชื่อ field ชุดเดียวกับ Crossref จึงส่งเข้า citationFrom ได้ตรงๆ
+      citation: citationFrom({
+        ...d,
+        "container-title": [typeof d["container-title"] === "string" ? d["container-title"] : ""],
+      }),
     };
   } catch (err) {
     if (err instanceof RegistryUnavailable) throw err;
@@ -352,6 +395,7 @@ async function verifyDoi(row) {
     year: meta.year || row.year,
     type: meta.type || row.type,
     citations: meta.citations ?? row.citations,
+    citation: meta.citation,
   };
 }
 
@@ -577,10 +621,31 @@ export type PublicationEntry = {
   indexUrl?: string;
   /** จำนวนการอ้างอิงจาก Crossref — แสดงเฉพาะที่มากกว่า 0 */
   citations?: number;
-  /** slug ของผู้เขียนใน leadership.ts */
+  /**
+   * slug ของผู้เขียน **เฉพาะคนของศูนย์ฯ** ใน leadership.ts — ใช้กรองในหน้า /research
+   * **ไม่ใช่รายชื่อผู้เขียนครบทุกคน** ห้ามเอาไปสร้างการอ้างอิง ให้ใช้ citation.authors
+   */
   authors: string[];
   /** จำนวนบทในเล่ม (เฉพาะ type: book) */
   chapters?: number;
+  /**
+   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเฉพาะรายการที่ยืนยันผ่าน DOI
+   * ฟิลด์ authors ในนี้คือ**ผู้เขียนครบทุกคน** รวมผู้ร่วมวิจัยที่ไม่ได้อยู่ในศูนย์ฯ
+   */
+  citation?: CitationMeta;
+};
+
+/** ข้อมูลที่ APA / MLA / BibTeX / RIS ต้องใช้ ดึงจากทะเบียน ไม่ได้กรอกเอง */
+export type CitationMeta = {
+  authors: { family: string; given: string; literal: string }[];
+  containerTitle: string;
+  volume: string;
+  issue: string;
+  page: string;
+  publisher: string;
+  year: number;
+  month: number;
+  day: number;
 };
 
 export const publications: PublicationEntry[] = ${JSON.stringify(entries, null, 2)};
@@ -733,6 +798,7 @@ const entries = unique
     citations: r.citations || undefined,
     authors: r.people,
     chapters: r.chapters || undefined,
+    citation: r.citation,
   }))
   .sort((a, b) => b.year - a.year || (b.citations || 0) - (a.citations || 0) || a.title.localeCompare(b.title));
 

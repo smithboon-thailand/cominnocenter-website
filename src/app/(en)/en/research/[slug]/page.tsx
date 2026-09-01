@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody from "@/components/research/PaperSummaryBody";
+import CitationTool from "@/components/research/CitationTool";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import { paperSummaries, paperSummaryBySlug, CC_LICENSES } from "@/data/paperSummaries";
 import { publications } from "@/data/publications";
@@ -129,6 +130,11 @@ export default async function PaperSummaryPageEn({ params }: Props) {
           </div>
 
           <PaperSummaryBody copy={summary.en} locale="en" />
+
+          {/* มีเฉพาะงานที่ยืนยันผ่าน DOI — ไม่มีข้อมูลทะเบียนก็ไม่สร้างการอ้างอิงให้เดา */}
+          {paper.citation ? (
+            <CitationTool publication={paper} citation={paper.citation} locale="en" />
+          ) : null}
 
           {/* CC requires naming the licence and giving credit — not just "free to read" */}
           <div className="mt-12 border-t border-ink-100 pt-6 text-[13px] leading-[1.6] text-ink-500">
