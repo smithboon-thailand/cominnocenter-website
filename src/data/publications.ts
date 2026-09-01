@@ -1841,7 +1841,7 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
-    "title": "Gays dating applications: information disclosure and sexual behavior",
+    "title": "Gays Dating Applications: Information Disclosure and Sexual Behavior",
     "venue": "Journal of Health Research",
     "year": 2016,
     "type": "journal-article",
@@ -1915,7 +1915,7 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
-    "title": "Survey results of knowledge sharing preferences and practices in public health communication professionals in thailand's department of disease control: a descriptive study",
+    "title": "Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study",
     "venue": "Journal of Health Research",
     "year": 2015,
     "type": "journal-article",
