@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { publications, type PublicationType } from "@/data/publications";
 import { summaryByDoi } from "@/data/paperSummaries";
+import CitationTool from "./CitationTool";
 import { leadership } from "@/data/leadership";
 
 type ResearchExplorerProps = {
@@ -32,6 +33,8 @@ const COPY = {
     index: "เปิดระเบียนในดัชนีวิชาการ",
     selfNote: "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน",
     summary: "อ่านบทสรุปภาษาง่าย",
+    cite: "อ้างอิงงานนี้",
+    citeHide: "ปิดการอ้างอิง",
     provenance:
       "รายการที่มีลิงก์ผ่านการตรวจสอบกับทะเบียน DOI หรือดัชนีวิชาการอิสระแล้วว่าเป็นผลงานของผู้เขียนจริง ส่วนรายการที่ไม่มีลิงก์เป็นข้อมูลที่ผู้เขียนแจ้งไว้ในโปรไฟล์ ORCID ของตนเอง ส่วนใหญ่ตีพิมพ์ในวารสารไทยและเวทีประชุมที่ยังไม่จด DOI",
   },
@@ -47,6 +50,8 @@ const COPY = {
     index: "Open the record in an academic index",
     selfNote: "From the author's ORCID profile",
     summary: "Read the plain-language summary",
+    cite: "Cite this",
+    citeHide: "Hide citation",
     provenance:
       "Linked entries have been checked against the DOI registry or an independent academic index to confirm the authorship. Entries without a link come from the author's own ORCID profile — mostly Thai journals and conference venues that do not register DOIs.",
   },
@@ -61,6 +66,8 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
   const t = COPY[locale];
   const [author, setAuthor] = useState<string | null>(null);
   const [type, setType] = useState<PublicationType | null>(null);
+  /** เปิดแผงอ้างอิงได้ทีละรายการ — mount เฉพาะอันที่กด ไม่ใช่ทั้ง 46 รายการ */
+  const [citeFor, setCiteFor] = useState<string | null>(null);
 
   const authorName = (slug: string) => {
     const person = leadership.find((l) => l.slug === slug);
@@ -247,20 +254,42 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                         ให้ผู้อ่านที่ไม่เปิดไฟล์วารสารยังได้เนื้อหาของงานชิ้นนั้น */}
                     {(() => {
                       const summary = p.doi ? summaryByDoi.get(p.doi) : undefined;
-                      if (!summary) return null;
+                      const key = p.doi || `${p.title}-${p.year}`;
                       const base = locale === "th" ? "/research" : "/en/research";
+                      const open = citeFor === key;
                       return (
-                        <p className="mt-2">
-                          <Link
-                            href={`${base}/${summary.slug}`}
-                            className="inline-flex items-center gap-1.5 text-[15px] font-medium leading-[1.6]
-                              text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700
-                              focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
-                          >
-                            {t.summary}
-                            <span aria-hidden="true">→</span>
-                          </Link>
-                        </p>
+                        <>
+                          <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2">
+                            {summary ? (
+                              <Link
+                                href={`${base}/${summary.slug}`}
+                                className="inline-flex items-center gap-1.5 text-[15px] font-medium leading-[1.6]
+                                  text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700
+                                  focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+                              >
+                                {t.summary}
+                                <span aria-hidden="true">→</span>
+                              </Link>
+                            ) : null}
+                            {/* มีเฉพาะรายการที่ทะเบียนให้ข้อมูลบรรณานุกรมครบ ไม่เดาให้ */}
+                            {p.citation ? (
+                              <button
+                                type="button"
+                                onClick={() => setCiteFor(open ? null : key)}
+                                aria-expanded={open}
+                                className="inline-flex items-center gap-1.5 text-[15px] font-medium leading-[1.6]
+                                  text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700
+                                  focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+                              >
+                                {open ? t.citeHide : t.cite}
+                                <span aria-hidden="true">{open ? "\u2212" : "+"}</span>
+                              </button>
+                            ) : null}
+                          </div>
+                          {open && p.citation ? (
+                            <CitationTool publication={p} citation={p.citation} locale={locale} compact />
+                          ) : null}
+                        </>
                       );
                     })()}
                   </li>

@@ -286,6 +286,25 @@ function dedupe(all) {
  * บังคับต้องมี (ปีที่ ฉบับที่ เลขหน้า สำนักพิมพ์) — ทั้งหมดมาจาก Crossref ที่เรา
  * เรียกอยู่แล้ว เดิมโยนทิ้งไปเปล่าๆ
  */
+/**
+ * ตรวจว่าค่าที่ทะเบียนส่งมา "เข้าเค้า" ก่อนเชื่อ
+ *
+ * ทำไมต้องมี (1 ก.ย. 2569): ทะเบียนบางแห่งลงข้อมูลสลับช่อง เจอของจริงกับ
+ * 10.14456/jhr.2016.32 และ 10.14456/jhr.2015.30 ที่ doi.org ส่งมาว่า
+ *   container-title = "4"                       ← ที่จริงคือเลขฉบับ
+ *   page            = "Journal of Health Research" ← ที่จริงคือชื่อวารสาร
+ *
+ * เรารับมาทั้งดุ้น ผลคือหน้า /research แสดงชื่อวารสารเป็น "4" กับ "5" อยู่บน
+ * production จริง และค่านั้นถูกส่งเข้า JSON-LD ให้ Google ด้วย
+ *
+ * **ไม่สลับค่าคืนให้เอง** แม้จะเดาได้ว่าอันไหนควรอยู่ช่องไหน เพราะการเดาแทน
+ * ทะเบียนคือสิ่งที่กติกาข้อ 8 ห้าม — ทิ้งค่าที่ไม่เข้าเค้าไป แล้วให้ระบบถอยไปใช้
+ * ค่าจาก ORCID ที่ผู้เขียนกรอกเอง (ซึ่งกรณีนี้ถูกต้อง: "Journal of Health Research")
+ */
+const looksLikeJournal = (v) => Boolean(v) && !/^\d+$/.test(v.trim());
+/** เลขหน้าจริงมีหน้าตาแบบ "144-154" · "151" · "e0317506" — ไม่ใช่วลีที่มีเว้นวรรค */
+const looksLikePages = (v) => Boolean(v) && /^[A-Za-z]?\d/.test(v.trim()) && !/\s/.test(v.trim());
+
 function citationFrom(meta) {
   const authors = (meta.author || [])
     .map((a) => ({
@@ -296,12 +315,14 @@ function citationFrom(meta) {
     .filter((a) => a.family || a.literal);
   if (!authors.length) return undefined;
   const parts = meta.issued?.["date-parts"]?.[0] || [];
+  const container = clean((meta["container-title"] || [""])[0] || "");
+  const pages = clean(meta.page || "");
   return {
     authors,
-    containerTitle: clean((meta["container-title"] || [""])[0] || ""),
+    containerTitle: looksLikeJournal(container) ? container : "",
     volume: clean(meta.volume || ""),
     issue: clean(meta.issue || ""),
-    page: clean(meta.page || ""),
+    page: looksLikePages(pages) ? pages : "",
     publisher: clean(meta.publisher || ""),
     year: parts[0] || 0,
     month: parts[1] || 0,
@@ -315,7 +336,8 @@ async function resolveDoi(doi) {
     return {
       title: (meta.title || [""])[0] || "",
       authors: meta.author || [],
-      venue: (meta["container-title"] || [""])[0] || meta.publisher || "",
+      venue: looksLikeJournal((meta["container-title"] || [""])[0]) ? meta["container-title"][0] : "",
+      publisher: meta.publisher || "",
       year: meta.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: meta.type || "",
       citations: meta["is-referenced-by-count"],
@@ -339,7 +361,8 @@ async function resolveDoi(doi) {
     return {
       title: typeof d.title === "string" ? d.title : (d.title || [""])[0] || "",
       authors: d.author || [],
-      venue: d["container-title"] || d.publisher || "",
+      venue: looksLikeJournal(d["container-title"]) ? d["container-title"] : "",
+      publisher: d.publisher || "",
       year: d.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: d.type || "",
       citations: undefined,
@@ -391,7 +414,8 @@ async function verifyDoi(row) {
   return {
     ...row,
     verified: matched ? "doi" : "link",
-    venue: meta.venue || row.venue,
+    // ทะเบียนที่ค่าเข้าเค้า → ค่าที่ผู้เขียนกรอกใน ORCID → ชื่อสำนักพิมพ์ (ทางเลือกสุดท้าย)
+    venue: meta.venue || row.venue || meta.publisher || "",
     year: meta.year || row.year,
     type: meta.type || row.type,
     citations: meta.citations ?? row.citations,

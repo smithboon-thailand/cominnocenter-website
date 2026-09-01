@@ -1842,7 +1842,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Gays dating applications: information disclosure and sexual behavior",
-    "venue": "4",
+    "venue": "Journal of Health Research",
     "year": 2016,
     "type": "journal-article",
     "verified": "doi",
@@ -1873,10 +1873,10 @@ export const publications: PublicationEntry[] = [
           "literal": "Nattanop Palahan"
         }
       ],
-      "containerTitle": "4",
+      "containerTitle": "",
       "volume": "30",
       "issue": "",
-      "page": "Journal of Health Research",
+      "page": "",
       "publisher": "Chulalongkorn University Press",
       "year": 2016,
       "month": 0,
@@ -1916,7 +1916,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Survey results of knowledge sharing preferences and practices in public health communication professionals in thailand's department of disease control: a descriptive study",
-    "venue": "5",
+    "venue": "Journal of Health Research",
     "year": 2015,
     "type": "journal-article",
     "verified": "doi",
@@ -1947,10 +1947,10 @@ export const publications: PublicationEntry[] = [
           "literal": "Smith Boonchutima"
         }
       ],
-      "containerTitle": "5",
+      "containerTitle": "",
       "volume": "29",
       "issue": "",
-      "page": "Journal of Health Research",
+      "page": "",
       "publisher": "Chulalongkorn University Press",
       "year": 2015,
       "month": 0,

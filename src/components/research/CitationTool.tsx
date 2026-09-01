@@ -25,6 +25,11 @@ type Props = {
   publication: PublicationEntry;
   citation: CitationMeta;
   locale?: "th" | "en";
+  /**
+   * ใช้ในรายการหน้า /research ที่แผงเปิดใต้แถวที่กด — ตัดหัวข้อกับคำอธิบายออก
+   * เพราะบริบทอยู่ที่แถวด้านบนแล้ว ถ้าใส่ซ้ำจะกลายเป็นเสียงรบกวนในรายการยาว
+   */
+  compact?: boolean;
 };
 
 const COPY = {
@@ -52,7 +57,12 @@ const COPY = {
   },
 } as const;
 
-export default function CitationTool({ publication, citation, locale = "th" }: Props) {
+export default function CitationTool({
+  publication,
+  citation,
+  locale = "th",
+  compact = false,
+}: Props) {
   const t = COPY[locale];
   const [style, setStyle] = useState<CitationStyle>("apa");
   const [copied, setCopied] = useState(false);
@@ -107,11 +117,22 @@ export default function CitationTool({ publication, citation, locale = "th" }: P
      }`;
 
   return (
-    <section className="mt-12 rounded-lg border border-ink-300 bg-ink-0 p-6">
-      <h2 className="text-h3-m md:text-h3 text-ink-900">{t.heading}</h2>
-      <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{t.intro}</p>
+    <section
+      className={`rounded-lg border border-ink-300 bg-ink-0 ${compact ? "mt-3 p-4" : "mt-12 p-6"}`}
+      aria-label={compact ? t.heading : undefined}
+    >
+      {compact ? null : (
+        <>
+          <h2 className="text-h3-m md:text-h3 text-ink-900">{t.heading}</h2>
+          <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{t.intro}</p>
+        </>
+      )}
 
-      <div className="mt-5 flex flex-wrap items-center gap-2" role="group" aria-label={t.pick}>
+      <div
+        className={`flex flex-wrap items-center gap-2 ${compact ? "" : "mt-5"}`}
+        role="group"
+        aria-label={t.pick}
+      >
         {CITATION_STYLES.map((s) => (
           <button
             key={s.id}

@@ -29,7 +29,15 @@ export const CITATION_STYLES: { id: CitationStyle; label: string; kind: "text" |
   { id: "ris", label: "RIS", kind: "file" },
 ];
 
-/** นามสกุลของผู้เขียน เผื่อกรณีทะเบียนเก็บเป็นชื่อเดียวไม่แยกส่วน */
+/**
+ * นามสกุลของผู้เขียน — ถ้าทะเบียนเก็บเป็นชื่อเดียว (`literal`) ให้ใช้ทั้งชื่อตามนั้น
+ *
+ * **ไม่แยกชื่อ-นามสกุลให้เอง** แม้ผลลัพธ์จะดูไม่เข้ารูป APA เท่าคนอื่นในรายการเดียวกัน
+ * เพราะมาตรฐาน CSL ใช้ `literal` สื่อว่า "ชื่อนี้ห้ามแยกส่วน" และการเดาว่าคำไหนคือ
+ * นามสกุลทำให้เรียกชื่อคนผิดได้จริง เช่น "Ornjaree Na Taguatung" ถ้าตัดคำท้ายจะเหลือ
+ * นามสกุล "Taguatung" ทั้งที่จริงคือ "Na Taguatung" — การอ้างอิงที่ดูสวยแต่เรียกชื่อ
+ * เจ้าของผลงานผิด แย่กว่าการอ้างอิงที่รูปแบบไม่สม่ำเสมอ
+ */
 const family = (a: CitationMeta["authors"][number]) => a.family || a.literal;
 
 /** อักษรย่อชื่อต้น: "Smith" → "S." · "Mary Jane" → "M. J." */
@@ -70,10 +78,20 @@ const endPeriod = (s: string) => (s.trim().endsWith(".") ? s.trim() : `${s.trim(
 const join = (parts: (string | false | undefined)[], sep = " ") =>
   parts.filter(Boolean).join(sep);
 
+/**
+ * ชื่อวารสารที่จะใช้ในการอ้างอิง
+ *
+ * ปกติใช้ค่าจากทะเบียน แต่ทะเบียนบางแห่งลงข้อมูลผิดช่องจนสคริปต์ตัดทิ้งไป
+ * (เช่น 10.14456/jhr.2016.32 ที่ container-title มาเป็นเลขฉบับ) กรณีนั้นถอยไปใช้
+ * `p.venue` ซึ่งเป็นชื่อวารสารที่ผ่านการตรวจแล้วและเป็นค่าเดียวกับที่แสดงบนหน้าเว็บ
+ * — ไม่ใช่การเดา แต่เป็นการใช้ค่าที่เรายืนยันแล้วจากอีกแหล่ง (โปรไฟล์ ORCID ของผู้เขียน)
+ */
+const container = (p: PublicationEntry, c: CitationMeta) => c.containerTitle || p.venue || "";
+
 export function apa(p: PublicationEntry, c: CitationMeta): string {
   const vol = c.volume ? (c.issue ? `${c.volume}(${c.issue})` : c.volume) : "";
   const tail = join(
-    [c.containerTitle && endPeriod(c.containerTitle).slice(0, -1), vol, c.page].filter(Boolean),
+    [container(p, c) && endPeriod(container(p, c)).slice(0, -1), vol, c.page].filter(Boolean),
     ", ",
   );
   return join([
@@ -95,7 +113,7 @@ export function mla(p: PublicationEntry, c: CitationMeta): string {
   return join([
     endPeriod(mlaAuthors(c.authors)),
     `"${endPeriod(p.title)}"`,
-    c.containerTitle ? `${c.containerTitle},` : c.publisher ? `${c.publisher},` : "",
+    container(p, c) ? `${container(p, c)},` : c.publisher ? `${c.publisher},` : "",
     bits.length ? `${bits.join(", ")}.` : "",
     p.doi ? `https://doi.org/${p.doi}.` : p.indexUrl ? `${p.indexUrl}.` : "",
   ]).trim();
@@ -140,7 +158,7 @@ export function bibtex(p: PublicationEntry, c: CitationMeta): string {
   const fields: [string, string][] = [
     ["author", authors],
     ["title", p.title],
-    [p.type === "journal-article" ? "journal" : "booktitle", c.containerTitle],
+    [p.type === "journal-article" ? "journal" : "booktitle", container(p, c)],
     ["publisher", c.publisher],
     ["year", String(c.year || p.year)],
     ["volume", c.volume],
@@ -174,7 +192,8 @@ export function ris(p: PublicationEntry, c: CitationMeta): string {
     lines.push(`AU  - ${a.given ? `${family(a)}, ${a.given}` : family(a)}`);
   }
   lines.push(`TI  - ${p.title}`);
-  if (c.containerTitle) lines.push(`${p.type === "journal-article" ? "JO" : "T2"}  - ${c.containerTitle}`);
+  const jo = container(p, c);
+  if (jo) lines.push(`${p.type === "journal-article" ? "JO" : "T2"}  - ${jo}`);
   if (c.publisher) lines.push(`PB  - ${c.publisher}`);
   lines.push(`PY  - ${c.year || p.year}`);
   if (c.month) {
