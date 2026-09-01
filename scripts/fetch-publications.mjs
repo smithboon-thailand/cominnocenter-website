@@ -27,18 +27,45 @@
  * - Crossref API — ผู้เขียนที่ยังไม่มี ORCID และใช้ตรวจสอบ/เติมข้อมูลทุกรายการ
  * - Semantic Scholar API — ดัชนีสำรองสำหรับรายการที่ไม่มี DOI
  */
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const UA = {
   "User-Agent": "cominnocenter-website/1.0 (mailto:comminno@chula.ac.th)",
   Accept: "application/json",
 };
-const getJson = async (url) => {
-  const res = await fetch(url, { headers: UA });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * เรียก API แบบทนการถูกจำกัดอัตรา
+ *
+ * ทำไมต้องมี (31 ส.ค. 2569): เดิมเจอ 429 แล้วโยน error ทันที ทั้งสคริปต์ล้มตั้งแต่
+ * ผู้เขียนคนแรก ทำให้**รันสคริปต์ใหม่ไม่ได้เลย**ในวันที่เคยยิง ORCID/Crossref ไปมาก
+ * ซึ่งร้ายกว่าที่คิด เพราะกติกาข้อ 8 ห้ามแก้ publications.ts ด้วยมือ — พอสคริปต์
+ * รันไม่ได้ ข้อมูลผลงานวิชาการก็แก้ไม่ได้เลยทั้งชุด
+ *
+ * 429 กับ 503 คือ "ช้าลงหน่อย" ไม่ใช่ "ผิดพลาด" จึงรอแล้วลองใหม่ เคารพ Retry-After
+ * ที่เซิร์ฟเวอร์บอกมาก่อน ถ้าไม่บอกก็ถอยเป็นเท่าตัว ส่วนรหัสอื่น (404, 500) โยนทันที
+ * เพราะรอไปก็ไม่หาย
+ */
+/**
+ * ข้อผิดพลาดที่แปลว่า "ติดต่อทะเบียนไม่ได้" ไม่ใช่ "ทะเบียนตอบว่าไม่มี"
+ * ต้องแยกให้ออก เพราะสองอย่างนี้นำไปสู่การตัดสินใจคนละทางโดยสิ้นเชิง (ดู resolveDoi)
+ */
+class RegistryUnavailable extends Error {}
+
+const getJson = async (url, tries = 5) => {
+  for (let attempt = 1; ; attempt++) {
+    const res = await fetch(url, { headers: UA });
+    if (res.ok) return res.json();
+    const retryable = res.status === 429 || res.status === 503;
+    if (!retryable) throw new Error(`HTTP ${res.status}`);
+    if (attempt >= tries) throw new RegistryUnavailable(`HTTP ${res.status} หลังลอง ${tries} ครั้ง`);
+    const after = Number(res.headers.get("retry-after"));
+    const waitMs = Number.isFinite(after) && after > 0 ? after * 1000 : 2000 * 2 ** (attempt - 1);
+    console.warn(`  HTTP ${res.status} — รอ ${Math.round(waitMs / 1000)} วิแล้วลองใหม่ (${attempt}/${tries - 1})`);
+    await sleep(waitMs);
+  }
+};
 
 /** ผู้เขียนของศูนย์ฯ — surname ใช้ตรวจว่า DOI/ดัชนีที่เจอเป็นของคนนี้จริง */
 const AUTHORS = {
@@ -154,32 +181,61 @@ async function fromOrcid() {
   return out;
 }
 
+/**
+ * ค้นผลงานจาก Crossref ตามนามสกุลผู้เขียน — **อ่านให้ครบทุกหน้า**
+ *
+ * ทำไมต้องวนหน้า (แก้ 31 ส.ค. 2569): เดิมขอมา `rows=80` หน้าเดียวจบ แต่คำค้น
+ * `query.author=slutskiy` มีผลลัพธ์ 133 รายการ ส่วนที่เกิน 80 จึงไม่เคยถูกอ่านเลย
+ * และเพราะ Crossref เรียงตาม*ความเกี่ยวข้อง* ซึ่งขยับได้เรื่อยๆ ผลงานชิ้นเดียวกัน
+ * จึง**หลุดเข้าหลุดออกจากเว็บได้เองโดยไม่มีใครแตะโค้ด**
+ *
+ * เจอของจริง: "In Defense of Advertising Value Equivalency" (2026) เคยอยู่บนเว็บ
+ * แล้วหายไปเฉยๆ ในการรันรอบถัดมา เพราะตกไปอยู่นอก 80 อันดับแรก
+ *
+ * ใช้ cursor ของ Crossref (deep paging) วนจนกว่าจะไม่มีรายการเหลือ — ไม่ใช่เพิ่ม
+ * rows ให้ใหญ่ขึ้นเฉยๆ เพราะนั่นแค่เลื่อนเพดานออกไป ไม่ได้แก้ต้นเหตุ
+ */
 async function fromCrossref() {
   const out = [];
   for (const [slug, cfg] of Object.entries(AUTHORS)) {
     if (!cfg.crossref) continue;
     const { family, givenPattern } = cfg.crossref;
-    const res = await getJson(
-      `https://api.crossref.org/works?query.author=${family}&rows=80` +
-        `&select=title,container-title,publisher,issued,type,DOI,author,is-referenced-by-count`
-    );
-    for (const item of res.message.items || []) {
-      // Crossref มีผู้เขียนนามสกุลเดียวกันหลายคน — บังคับตรวจชื่อต้น
-      const mine = (item.author || []).some(
-        (a) => (a.family || "").toLowerCase() === family && givenPattern.test(a.given || "")
+    let cursor = "*";
+    let seen = 0;
+    let mineCount = 0;
+    for (;;) {
+      const res = await getJson(
+        `https://api.crossref.org/works?query.author=${family}&rows=200` +
+          `&cursor=${encodeURIComponent(cursor)}` +
+          `&select=title,container-title,publisher,issued,type,DOI,author,is-referenced-by-count`
       );
-      if (!mine) continue;
-      out.push({
-        person: slug,
-        title: (item.title || [""])[0].trim(),
-        venue: (item["container-title"] || [""])[0] || item.publisher || "",
-        year: item.issued?.["date-parts"]?.[0]?.[0] || 0,
-        type: item.type,
-        doi: (item.DOI || "").toLowerCase(),
-        citations: item["is-referenced-by-count"],
-        orcidSource: "",
-      });
+      const items = res.message.items || [];
+      if (!items.length) break;
+      seen += items.length;
+      for (const item of items) {
+        // Crossref มีผู้เขียนนามสกุลเดียวกันหลายคน — บังคับตรวจชื่อต้น
+        const mine = (item.author || []).some(
+          (a) => (a.family || "").toLowerCase() === family && givenPattern.test(a.given || "")
+        );
+        if (!mine) continue;
+        mineCount++;
+        out.push({
+          person: slug,
+          title: (item.title || [""])[0].trim(),
+          venue: (item["container-title"] || [""])[0] || item.publisher || "",
+          year: item.issued?.["date-parts"]?.[0]?.[0] || 0,
+          type: item.type,
+          doi: (item.DOI || "").toLowerCase(),
+          citations: item["is-referenced-by-count"],
+          orcidSource: "",
+        });
+      }
+      const next = res.message["next-cursor"];
+      if (!next || next === cursor) break;
+      cursor = next;
+      await sleep(300);
     }
+    console.log(`  Crossref ${family}: อ่าน ${seen} รายการ เป็นของผู้เขียนคนนี้ ${mineCount}`);
     await sleep(300);
   }
   return out;
@@ -203,6 +259,19 @@ function dedupe(all) {
 }
 
 /** ดึง metadata ของ DOI — ลอง Crossref ก่อน แล้วค่อย doi.org content negotiation (รองรับ DOI ไทย/DataCite) */
+/**
+ * ดึง metadata ของ DOI
+ *
+ * **คืน null = ทะเบียนบอกว่าไม่มี DOI นี้ · โยน RegistryUnavailable = เราติดต่อไม่ได้**
+ *
+ * ความต่างนี้สำคัญมาก (แก้ 31 ส.ค. 2569): เดิม catch กลืนทุกข้อผิดพลาดแล้วคืน null
+ * ซึ่งผู้เรียกตีความว่า "DOI เปิดไม่ได้" แล้ว**ลดระดับรายการเป็น self เงียบๆ**
+ * ผลคือถ้ารันสคริปต์ในวันที่ Crossref จำกัดอัตรา (429) ผลงานที่ยืนยันแล้วหลายสิบชิ้น
+ * จะถูกเขียนทับให้กลายเป็น "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน" ทั้งที่ตรวจสอบได้จริง
+ * DOI หายจาก JSON-LD ไปด้วย และไม่มีอะไรเตือนเลย — เจอกับตัวจริงตอนรันรอบนี้
+ *
+ * ตอนนี้ผู้เรียกจะรู้ว่าเป็นคนละกรณี และหยุดทั้งการรันแทนที่จะเขียนข้อมูลที่ด้อยลง
+ */
 async function resolveDoi(doi) {
   try {
     const meta = (await getJson(`https://api.crossref.org/works/${doi}`)).message;
@@ -214,7 +283,9 @@ async function resolveDoi(doi) {
       type: meta.type || "",
       citations: meta["is-referenced-by-count"],
     };
-  } catch {
+  } catch (err) {
+    // ติดต่อ Crossref ไม่ได้ ≠ Crossref บอกว่าไม่มี — อย่ากลืน
+    if (err instanceof RegistryUnavailable) throw err;
     /* ไม่มีใน Crossref — ลองต่อด้านล่าง */
   }
   try {
@@ -222,6 +293,9 @@ async function resolveDoi(doi) {
       headers: { ...UA, Accept: "application/vnd.citationstyles.csl+json" },
       redirect: "follow",
     });
+    if (res.status === 429 || res.status === 503) {
+      throw new RegistryUnavailable(`doi.org ตอบ HTTP ${res.status}`);
+    }
     if (!res.ok) return null;
     const d = await res.json();
     return {
@@ -232,7 +306,10 @@ async function resolveDoi(doi) {
       type: d.type || "",
       citations: undefined,
     };
-  } catch {
+  } catch (err) {
+    if (err instanceof RegistryUnavailable) throw err;
+    // เครือข่ายล้มก็คือติดต่อไม่ได้เหมือนกัน ไม่ใช่หลักฐานว่า DOI ไม่มีจริง
+    if (err instanceof TypeError) throw new RegistryUnavailable(`doi.org: ${err.message}`);
     return null;
   }
 }
@@ -429,8 +506,30 @@ async function applyThaijoSources(rows) {
   }
 }
 
+/**
+ * ถอดรหัส HTML entity ที่ติดมากับ metadata ของ Crossref
+ *
+ * ทำไมต้องมี (31 ส.ค. 2569): Crossref ส่งชื่อวารสารมาเป็น "HIV &amp; AIDS Review"
+ * และ "Cogent Business &amp; Management" พอ React เอาไป render มันไม่ตีความ entity
+ * ซ้ำ (ซึ่งถูกต้องแล้ว — เป็นเกราะกัน XSS) ผลคือผู้อ่าน**เห็นตัวอักษร `&amp;`
+ * โผล่บนหน้าเว็บจริงๆ** และ entity ยังหลุดเข้าไปใน JSON-LD ที่ส่งให้ Google ด้วย
+ *
+ * แก้ที่ต้นทางคือตรงนี้ ไม่ใช่ที่หน้าเว็บ — เพราะข้อมูลชุดนี้ถูกใช้ทั้งใน UI,
+ * JSON-LD, /llms.txt และดัชนีค้นหา ถ้าไปแก้ทีละที่จะพลาดสักที่แน่นอน
+ */
+const decodeEntities = (s) =>
+  s
+    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(Number(d)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    // &amp; ต้องแทนหลังสุด ไม่งั้น "&amp;lt;" จะกลายเป็น "<" แทนที่จะเป็น "&lt;"
+    .replace(/&amp;/g, "&");
+
 const clean = (s) =>
-  s.replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
+  decodeEntities(s).replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
 const fixCaps = (t) => (t === t.toUpperCase() && t.length > 15 ? t.charAt(0) + t.slice(1).toLowerCase() : t);
 
 function render(entries, stats) {
@@ -443,6 +542,8 @@ function render(entries, stats) {
  * - รายการที่มี DOI ถูกดึง metadata จาก Crossref มาเทียบนามสกุลผู้เขียน
  *   DOI ที่ชี้ไปงานของคนอื่นถูกตัดออกแล้ว (รอบล่าสุดตัดออก ${stats.rejected} รายการ)
  * - รายการที่ไม่มี DOI ถูกค้นในดัชนีอิสระโดยบังคับให้นามสกุลผู้เขียนตรงด้วย
+ * - งานชิ้นเดียวที่สำนักพิมพ์จด DOI ซ้ำสองเลขถูกยุบเป็นรายการเดียว
+ *   (รอบล่าสุดยุบ ${stats.duplicates} รายการ) เก็บเลขที่มียอดอ้างอิงสูงกว่า
  *
  * ระดับการตรวจสอบ (field verified):
  *   "doi"   ${stats.doi} รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
@@ -511,8 +612,19 @@ console.log(`fetched ${merged.length} unique records`);
 
 const rejected = [];
 const checked = [];
+/** รายการที่ตรวจไม่ได้เพราะติดต่อทะเบียนไม่ได้ — ไม่ใช่เพราะข้อมูลมีปัญหา */
+const unreachable = [];
 for (const row of merged) {
-  const result = row.doi ? await verifyDoi(row) : await findInIndexes(row);
+  let result;
+  try {
+    result = row.doi ? await verifyDoi(row) : await findInIndexes(row);
+  } catch (err) {
+    if (!(err instanceof RegistryUnavailable)) throw err;
+    unreachable.push({ row, reason: err.message });
+    console.warn(`  ติดต่อทะเบียนไม่ได้: ${row.doi || row.title.slice(0, 50)} — ${err.message}`);
+    await sleep(350);
+    continue;
+  }
   if (result === null) {
     rejected.push(row);
     console.warn(`  REJECTED (DOI belongs to someone else): ${row.doi} — ${row.title.slice(0, 60)}`);
@@ -520,6 +632,27 @@ for (const row of merged) {
     checked.push(result);
   }
   await sleep(350);
+}
+
+/**
+ * หยุดทั้งการรันถ้าตรวจไม่ครบ — ไม่เขียนไฟล์
+ *
+ * เหตุผล: ไฟล์ที่สคริปต์นี้เขียนคือ**แหล่งความจริงเดียว**ของผลงานวิชาการบนเว็บ
+ * ถ้าเขียนทับตอนที่ยืนยันไม่ครบ ผลงานที่ตรวจสอบได้จริงจะถูกลดระดับหรือหายไป
+ * โดยไม่มีใครสังเกต ซึ่งขัดกับกติกาข้อ 8 ของโปรเจ็คโดยตรง
+ *
+ * ข้อมูลเดิมที่ถูกต้องอยู่แล้วดีกว่าข้อมูลใหม่ที่ด้อยลง — ให้รอแล้วรันใหม่
+ */
+if (unreachable.length) {
+  console.error(
+    `\nหยุดการทำงาน: ตรวจสอบไม่ได้ ${unreachable.length} รายการ เพราะติดต่อทะเบียนไม่ได้` +
+      `\n(ปกติเกิดจากถูกจำกัดอัตราเรียก — เว้นสัก 30–60 นาทีแล้วรันใหม่)` +
+      `\n**ไม่ได้เขียนทับ src/data/publications.ts** ข้อมูลเดิมยังอยู่ครบ`,
+  );
+  for (const u of unreachable.slice(0, 10)) {
+    console.error(`  ${u.row.doi || "(ไม่มี DOI)"} — ${u.row.title.slice(0, 60)}`);
+  }
+  process.exit(1);
 }
 
 // เติมลิงก์ระเบียนทางการของวารสารไทย (ตรวจผู้เขียนสดทุกครั้ง)
@@ -540,7 +673,54 @@ const kept = checked.filter(
   (r) => !(r.type === "book-chapter" && r.doi && bookDois.some((d) => r.doi.startsWith(d + "_")))
 );
 
-const entries = kept
+/**
+ * ยุบงานชิ้นเดียวกันที่ถูกจด DOI ไว้มากกว่าหนึ่งเลข
+ *
+ * ทำไมต้องมี (31 ส.ค. 2569): dedupe() ด้านบนใช้ DOI เป็นกุญแจ ถ้าสำนักพิมพ์
+ * จดเลขให้บทความเดียวซ้ำสองครั้ง จะรอดมาเป็นสองรายการทั้งที่เป็นงานชิ้นเดียว
+ * เจอจริงกับ Tripodos 2020 ที่จดไว้ทั้ง ...48p53-68 และ ...48p53-67 — ทั้งคู่
+ * resolve ใน Crossref ได้ ชื่อผู้เขียนตรง และชี้ไปหน้าบทความเดียวกัน (view/890)
+ * จึงผ่านการตรวจทุกด่านมาได้ทั้งคู่ แล้วไปโป่งยอดรวมผลงานของศูนย์ฯ เกินจริง
+ *
+ * เลือกเลขที่จะเก็บจาก**ยอดอ้างอิง** เพราะสะท้อนว่าโลกวิชาการใช้เลขไหนจริง
+ * (Tripodos: 53-68 ถูกอ้าง 7 ครั้ง · 53-67 ถูกอ้าง 2 ครั้ง)
+ *
+ * **ไม่รวมยอดอ้างอิงของสองเลขเข้าด้วยกัน** เก็บเฉพาะของเลขที่ชนะ — ตัวเลขที่
+ * ต่ำกว่าความจริงเล็กน้อยยอมรับได้ แต่ตัวเลขที่สูงเกินจริงบนเว็บงานวิชาการ
+ * ยอมรับไม่ได้ (ยังไม่มีทางพิสูจน์ว่าไม่มีใครอ้างซ้ำทั้งสองเลข)
+ *
+ * ใส่ type ในกุญแจด้วย กันไม่ให้หนังสือกับบทในหนังสือที่ชื่อเดียวกันถูกยุบรวม
+ */
+function mergeSameWork(rows) {
+  const map = new Map();
+  const dropped = [];
+  for (const r of rows) {
+    const key = `${norm(r.title)}::${r.year}::${normalizeType(r.type)}`;
+    const prev = map.get(key);
+    if (!prev) {
+      map.set(key, r);
+      continue;
+    }
+    const rBetter =
+      (r.citations || 0) > (prev.citations || 0) ||
+      // เสมอกัน → ตัดสินด้วย DOI เพื่อให้ผลลัพธ์เหมือนเดิมทุกครั้งที่รัน
+      ((r.citations || 0) === (prev.citations || 0) && (r.doi || "") < (prev.doi || ""));
+    const win = rBetter ? r : prev;
+    const lose = rBetter ? prev : r;
+    win.people = [...new Set([...win.people, ...lose.people])];
+    win.venue = win.venue || lose.venue;
+    dropped.push(lose);
+    map.set(key, win);
+  }
+  return { rows: [...map.values()], dropped };
+}
+
+const { rows: unique, dropped: duplicateDois } = mergeSameWork(kept);
+for (const d of duplicateDois) {
+  console.warn(`  DUPLICATE DOI ยุบทิ้ง: ${d.doi} — ${d.title.slice(0, 60)}`);
+}
+
+const entries = unique
   .filter((r) => r.year > 0)
   .map((r) => ({
     title: fixCaps(clean(r.title)),
@@ -556,8 +736,92 @@ const entries = kept
   }))
   .sort((a, b) => b.year - a.year || (b.citations || 0) - (a.citations || 0) || a.title.localeCompare(b.title));
 
+/**
+ * ด่านสุดท้าย: ห้ามผลงานหายไปเงียบๆ
+ *
+ * เทียบรายการใหม่กับไฟล์เดิมก่อนเขียนทับ ถ้ามีอะไรหายให้หยุดและบอกว่าหายอะไร
+ * ต้องสั่ง --allow-removals ถึงจะเขียนทับได้
+ *
+ * ทำไมจำเป็น (31 ส.ค. 2569): วันเดียวเจอสามทางที่ผลงานหายหรือด้อยลงได้เงียบๆ —
+ * ถูกจำกัดอัตราแล้วลดระดับเป็น self · Crossref อ่านไม่ครบหน้า · DOI ซ้ำถูกยุบ
+ * สองอย่างแรกคือบั๊ก อย่างที่สามคือความตั้งใจ ด่านนี้แยกไม่ออกว่าอันไหนเป็นอันไหน
+ * จึงให้ "หยุดแล้วให้คนดู" เป็นค่าเริ่มต้น — คนตัดสินได้ในไม่กี่วินาที ส่วนผลงาน
+ * ที่หายไปโดยไม่มีใครเห็นอาจอยู่แบบนั้นได้เป็นเดือน
+ */
+const allowRemovals = process.argv.includes("--allow-removals");
+try {
+  const existing = readFileSync(new URL("../src/data/publications.ts", import.meta.url), "utf8");
+  const marker = "export const publications: PublicationEntry[] = ";
+  const from = existing.indexOf(marker);
+  if (from !== -1) {
+    const start = from + marker.length;
+    const old = JSON.parse(existing.slice(start, existing.indexOf("\n];", start) + 2));
+    const idOf = (p) => (p.doi ? `doi:${p.doi}` : `title:${norm(p.title)}`);
+    const nowIds = new Set(entries.map(idOf));
+
+    /**
+     * ห้าม "ลดระดับ" การตรวจสอบเพราะรอบนี้ค้นไม่เจอ
+     *
+     * `findInIndexes()` ถือว่าค้นไม่สำเร็จ = ไม่พบ แล้วให้ระดับ self ซึ่งผิด:
+     * การที่รอบนี้ติดต่อดัชนีไม่ได้ (Semantic Scholar ไม่มี API key จึงโดน 429 บ่อย)
+     * **ไม่ใช่หลักฐานว่าผลงานตรวจสอบไม่ได้** มันคือการไม่มีหลักฐานใหม่ ส่วนหลักฐาน
+     * เดิมที่เคยพิสูจน์และบันทึกไว้ในไฟล์ยังใช้ได้อยู่
+     *
+     * เจอของจริง: "Green campaigns in Thailand" (2011) ถูกลดจาก index เป็น self
+     * ในรอบที่โดนจำกัดอัตรา ซึ่งจะทำให้หน้าเว็บเปลี่ยนจากลิงก์ดัชนีอิสระไปเป็น
+     * ข้อความ "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน" ทั้งที่ผลงานนั้นตรวจสอบได้จริง
+     *
+     * จึงคงระดับเดิมพร้อมลิงก์เดิมไว้ และประกาศออกมาให้เห็นทุกครั้งที่ทำ
+     * (การลดระดับที่เป็นความจริง เช่นวารสารถอนบทความ จะถูกกลบไปด้วย — ยอมแลก
+     * เพราะกรณีนั้นพบยากมาก ส่วนการโดนจำกัดอัตราเกิดแทบทุกครั้งที่รัน)
+     */
+    const RANK = { self: 0, link: 1, index: 2, doi: 3 };
+    const oldById = new Map(old.map((p) => [idOf(p), p]));
+    const carried = [];
+    for (const e of entries) {
+      const prev = oldById.get(idOf(e));
+      if (!prev || RANK[e.verified] >= RANK[prev.verified]) continue;
+      carried.push({ title: e.title, from: e.verified, to: prev.verified });
+      e.verified = prev.verified;
+      if (prev.doi) e.doi = prev.doi;
+      if (prev.indexUrl) e.indexUrl = prev.indexUrl;
+    }
+    if (carried.length) {
+      console.warn(
+        `\nคงระดับการตรวจสอบเดิมไว้ ${carried.length} รายการ` +
+          ` (รอบนี้ค้นดัชนีไม่เจอ ซึ่งมักเกิดจากถูกจำกัดอัตรา ไม่ใช่หลักฐานว่าตรวจสอบไม่ได้):`,
+      );
+      for (const c of carried) {
+        console.warn(`  ${c.from} → คงไว้ที่ ${c.to}  ${c.title.slice(0, 60)}`);
+      }
+    }
+
+    const gone = old.filter((p) => !nowIds.has(idOf(p)));
+    if (gone.length) {
+      console.error(`\nหยุดการทำงาน: มีผลงาน ${gone.length} รายการที่เคยอยู่บนเว็บแล้วรอบนี้ไม่มี`);
+      for (const p of gone) {
+        console.error(`  [${p.verified}] ${p.year} ${p.title.slice(0, 65)}\n      ${p.doi || "(ไม่มี DOI)"}`);
+      }
+      if (!allowRemovals) {
+        console.error(
+          `\n**ไม่ได้เขียนทับ src/data/publications.ts** ข้อมูลเดิมยังอยู่ครบ` +
+            `\nตรวจก่อนว่าเป็นการยุบรายการซ้ำที่ตั้งใจ หรือเป็นข้อมูลหายจริง` +
+            `\nถ้าถูกต้องแล้วให้รันซ้ำด้วย: node scripts/fetch-publications.mjs --allow-removals`,
+        );
+        process.exit(1);
+      }
+      console.warn("  (สั่ง --allow-removals มาแล้ว จึงเขียนทับต่อ)");
+    }
+  }
+} catch (err) {
+  // ไม่มีไฟล์เดิม (รันครั้งแรก) ถือว่าไม่มีอะไรให้เทียบ
+  if (err.code !== "ENOENT") throw err;
+}
+
+// นับสถิติ **หลัง** ด่านคงระดับการตรวจสอบ ไม่งั้นตัวเลขในหัวไฟล์จะไม่ตรงกับข้อมูลจริง
 const stats = {
   rejected: rejected.length,
+  duplicates: duplicateDois.length,
   doi: entries.filter((e) => e.verified === "doi").length,
   link: entries.filter((e) => e.verified === "link").length,
   index: entries.filter((e) => e.verified === "index").length,

@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { publications, type PublicationType } from "@/data/publications";
+import { summaryByDoi } from "@/data/paperSummaries";
 import { leadership } from "@/data/leadership";
 
 type ResearchExplorerProps = {
@@ -29,6 +31,7 @@ const COPY = {
     doi: "เปิดผลงานต้นทาง (DOI)",
     index: "เปิดระเบียนในดัชนีวิชาการ",
     selfNote: "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน",
+    summary: "อ่านบทสรุปภาษาง่าย",
     provenance:
       "รายการที่มีลิงก์ผ่านการตรวจสอบกับทะเบียน DOI หรือดัชนีวิชาการอิสระแล้วว่าเป็นผลงานของผู้เขียนจริง ส่วนรายการที่ไม่มีลิงก์เป็นข้อมูลที่ผู้เขียนแจ้งไว้ในโปรไฟล์ ORCID ของตนเอง ส่วนใหญ่ตีพิมพ์ในวารสารไทยและเวทีประชุมที่ยังไม่จด DOI",
   },
@@ -43,6 +46,7 @@ const COPY = {
     doi: "Open the publication (DOI)",
     index: "Open the record in an academic index",
     selfNote: "From the author's ORCID profile",
+    summary: "Read the plain-language summary",
     provenance:
       "Linked entries have been checked against the DOI registry or an independent academic index to confirm the authorship. Entries without a link come from the author's own ORCID profile — mostly Thai journals and conference venues that do not register DOIs.",
   },
@@ -238,6 +242,27 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                           );
                         })()}
                     </p>
+
+                    {/* งานที่มีหน้าบทสรุปภาษาง่ายของเราเอง — ลิงก์เข้าเว็บ ไม่ใช่ออกไป DOI
+                        ให้ผู้อ่านที่ไม่เปิดไฟล์วารสารยังได้เนื้อหาของงานชิ้นนั้น */}
+                    {(() => {
+                      const summary = p.doi ? summaryByDoi.get(p.doi) : undefined;
+                      if (!summary) return null;
+                      const base = locale === "th" ? "/research" : "/en/research";
+                      return (
+                        <p className="mt-2">
+                          <Link
+                            href={`${base}/${summary.slug}`}
+                            className="inline-flex items-center gap-1.5 text-[15px] font-medium leading-[1.6]
+                              text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700
+                              focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+                          >
+                            {t.summary}
+                            <span aria-hidden="true">→</span>
+                          </Link>
+                        </p>
+                      );
+                    })()}
                   </li>
                 ))}
               </ul>

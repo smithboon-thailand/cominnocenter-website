@@ -140,6 +140,60 @@ export function publicationListSchema(
 }
 
 /**
+ * บทความวิชาการหนึ่งชิ้นบนหน้าบทสรุป /research/[slug]
+ *
+ * ต่างจาก `publicationListSchema` ตรงที่นั่นบอก Google ว่า "ศูนย์ฯ มีผลงานอะไรบ้าง"
+ * ส่วนอันนี้บอกว่า "หน้านี้พูดถึงงานชิ้นนี้ชิ้นเดียว" ซึ่งจำเป็นเมื่อมีหน้าเฉพาะของมัน
+ *
+ * **`url` ชี้ไป DOI ไม่ใช่หน้าเรา** โดยตั้งใจ — ที่อยู่ทางการของบทความคือ DOI
+ * เราเป็นแค่ผู้สรุป การประกาศว่าหน้าเราคือตัวบทความจะเป็นการอ้างสิทธิ์ที่ไม่จริง
+ * ความสัมพันธ์ที่ถูกต้องประกาศผ่าน `mainEntityOfPage` แทน
+ *
+ * ใส่ `license` และ `encoding` เฉพาะเมื่อเราเก็บไฟล์ไว้จริง เพื่อให้เครื่องอ่านรู้ว่า
+ * สำเนาที่เราให้ดาวน์โหลดอยู่ภายใต้สัญญาอนุญาตใด
+ */
+export function scholarlyArticleSchema(args: {
+  title: string;
+  venue: string;
+  year: number;
+  doi: string;
+  authors: string[];
+  authorName: (slug: string) => string;
+  path: string;
+  licenseHref: string;
+  pdfUrl?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    name: args.title,
+    headline: args.title,
+    datePublished: String(args.year),
+    inLanguage: "en",
+    ...(args.venue ? { isPartOf: { "@type": "Periodical", name: args.venue } } : {}),
+    identifier: `https://doi.org/${args.doi}`,
+    url: `https://doi.org/${args.doi}`,
+    sameAs: `https://doi.org/${args.doi}`,
+    mainEntityOfPage: `${SITE_URL}${args.path}`,
+    license: args.licenseHref,
+    author: args.authors.map((slug) => ({
+      "@type": "Person",
+      name: args.authorName(slug),
+      "@id": `${SITE_URL}/about#${slug}`,
+    })),
+    ...(args.pdfUrl
+      ? {
+          encoding: {
+            "@type": "MediaObject",
+            contentUrl: args.pdfUrl,
+            encodingFormat: "application/pdf",
+          },
+        }
+      : {}),
+  };
+}
+
+/**
  * เส้นทางนำทางของหน้าย่อย — ช่วยให้ผลค้นหาแสดงลำดับชั้นแทน URL ดิบ
  * ส่ง path ที่ขึ้นต้นด้วย / เท่านั้น (ต่อ SITE_URL ให้เอง)
  */
