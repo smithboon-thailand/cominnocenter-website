@@ -612,7 +612,15 @@ const decodeEntities = (s) =>
     .replace(/&amp;/g, "&");
 
 const clean = (s) =>
-  decodeEntities(s).replace(/\s+/g, " ").replace(/\[version \d.*$/i, "").replace(/[“”]/g, '"').trim();
+  decodeEntities(s)
+    .replace(/\s+/g, " ")
+    .replace(/\[version \d.*$/i, "")
+    .replace(/[“”]/g, '"')
+    // เว้นวรรคหลังทวิภาคที่ติดกับตัวอักษร — ทะเบียนบางระเบียนพิมพ์ติดกันมา เช่น
+    // "...Cruelty-free Products:Their Value..." ซึ่งผิดแบบแผนการพิมพ์และอ่านสะดุด
+    // จำกัดเฉพาะกรณีที่ตามด้วยตัวอักษร จึงไม่ไปแตะ "https://" หรือ "DOI:10.x"
+    .replace(/:(?=[A-Za-z])/g, ": ")
+    .trim();
 const fixCaps = (t) => (t === t.toUpperCase() && t.length > 15 ? t.charAt(0) + t.slice(1).toLowerCase() : t);
 
 function render(entries, stats) {
