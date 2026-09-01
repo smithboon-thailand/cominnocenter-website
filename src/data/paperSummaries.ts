@@ -18,16 +18,13 @@
  *
  * ปุ่มดาวน์โหลดชี้ไปคลังของสำนักพิมพ์ต้นทางโดยตรง เปิดในแท็บใหม่ ไม่ใช่ไฟล์ในเว็บเรา
  *
- * เหตุผลหลัก**ไม่ใช่เรื่องลิขสิทธิ์** — ทั้ง 6 ชิ้นเป็น Creative Commons ซึ่งเจ้าของ
- * ลิขสิทธิ์อนุญาตให้เผยแพร่ซ้ำไว้ชัดเจนแล้ว การเก็บสำเนาจึงไม่ผิดอะไรตั้งแต่ต้น
- *
- * เหตุผลจริงคือ**ความถูกต้องของฉบับ**: ถ้าวารสารออกใบแก้ไข (erratum) หรือถอน
+ * เหตุผลคือ**ความถูกต้องของฉบับ**: ถ้าวารสารออกใบแก้ไข (erratum) หรือถอน
  * บทความ (retraction) สำเนาที่เราเก็บจะกลายเป็นฉบับเก่าที่ผิดโดยเราไม่รู้ตัว แล้ว
  * เรายังยื่นให้ผู้อ่านต่อไปเรื่อยๆ สำหรับเว็บของหน่วยวิจัย การส่งบทความฉบับที่ถูก
  * แทนที่ไปแล้วให้ผู้อ่านเป็นปัญหาหนักกว่าจดหมายเรื่องลิขสิทธิ์เสียอีก · ลิงก์ไป
  * ต้นทางได้ฉบับปัจจุบันเสมอ และช่วยลดขนาดที่ deploy ทุกครั้งด้วย
  *
- * ไฟล์ต้นฉบับยังเก็บไว้ใน `research-sources/papers/` (นอก public/ จึงไม่ถูกเสิร์ฟ)
+ * ไฟล์ต้นฉบับบางส่วนเก็บไว้ใน `research-sources/papers/` (นอก public/ จึงไม่ถูกเสิร์ฟ)
  * เพื่อให้ AI ที่ทำงานในคลังนี้อ่านตอนทำคอนเทนต์ได้ — **เก็บได้เฉพาะบทความที่
  * สัญญาอนุญาตเป็น Creative Commons เท่านั้น** เพราะคลัง GitHub นี้เป็นสาธารณะ
  * การใส่ไฟล์ที่สำนักพิมพ์ถือลิขสิทธิ์ลงไปคือการเผยแพร่ซ้ำโดยไม่ได้รับอนุญาตเต็มๆ
@@ -36,7 +33,20 @@
  * บทสรุปเป็นงานเขียนของศูนย์ฯ เอง ไม่ใช่ส่วนหนึ่งของบทความต้นฉบับ จึงไม่ติดเงื่อนไข
  * NoDerivatives (nd) ของบทความที่ใช้สัญญาอนุญาตนั้น — แต่หน้าเว็บต้องแยกให้ผู้อ่าน
  * เห็นชัดว่าอะไรคือคำของผู้เขียนงาน อะไรคือคำสรุปของเรา
+ *
+ * **บทความไทยส่วนใหญ่ไม่มีทั้ง DOI และสัญญาอนุญาต CC** (ตรวจ 1 ก.ย. 2569)
+ *
+ * ชุดที่เพิ่มจาก ThaiJO ทำให้เจอสองข้อจำกัดที่ชุดแรกไม่มี และทั้งคู่ห้ามกลบ:
+ * 1. `jprad`, `jcomm`, `jcmn` **ไม่ออก DOI ให้บทความเลย** (ไม่มี meta `citation_doi`
+ *    ในหน้าบทความสักหน้า) รายการเหล่านี้จึงผูกกับ `publications.ts` ด้วย `indexUrl`
+ *    และ JSON-LD ต้องใช้ URL หน้าบทความแทน DOI จะแต่ง DOI ขึ้นเองไม่ได้
+ * 2. `jprad` กับ `jcmn` ประกาศลิขสิทธิ์แบบสงวนสิทธิ์ ไม่ใช่ CC (`DC.Rights` ว่างเปล่า
+ *    และไม่มีลิงก์ creativecommons.org ทั้งในหน้าบทความและหน้านโยบายของวารสาร)
+ *    `license` จึงเป็น optional — **ไม่มีค่าแปลว่าไม่มีสัญญาอนุญาต ไม่ใช่ยังไม่ได้กรอก**
+ *    หน้าเว็บต้องไม่แสดงข้อความ CC ให้รายการที่ไม่มีค่า และห้ามเก็บ `localCopy`
  */
+
+import { publications, type PublicationEntry } from "@/data/publications";
 
 /** สัญญาอนุญาต Creative Commons ที่เจอในผลงานของศูนย์ฯ */
 export type CcLicense = "cc-by" | "cc-by-sa" | "cc-by-nc" | "cc-by-nc-sa" | "cc-by-nc-nd";
@@ -71,18 +81,36 @@ type PaperCopy = {
   caveat: string;
 };
 
-export type PaperSummary = {
+/**
+ * กุญแจเชื่อมกลับไป `publications.ts` — ต้องมีอย่างใดอย่างหนึ่งเสมอ
+ *
+ * ใช้ DOI เมื่อมี เพราะเป็นค่าที่ไม่เปลี่ยน ส่วนวารสารที่ไม่ออก DOI (ThaiJO หลายเล่ม)
+ * ใช้ URL หน้าบทความซึ่งเป็นค่าเดียวกับ field `indexUrl` ใน publications.ts
+ * เขียนเป็น union เพื่อให้ TypeScript ปฏิเสธรายการที่ไม่ใส่กุญแจตั้งแต่ตอนคอมไพล์
+ */
+type PaperRef =
+  | { doi: string; indexUrl?: undefined }
+  | { doi?: undefined; indexUrl: string };
+
+export type PaperSummary = PaperRef & {
   /** ใช้เป็น URL: /research/<slug> และ /en/research/<slug> */
   slug: string;
-  /** กุญแจเชื่อมกลับไป publications.ts — ใช้ DOI เพราะเป็นค่าที่ไม่เปลี่ยน */
-  doi: string;
-  license: CcLicense;
+  /** ภาษาที่**ตัวบทความ**เขียน ไม่ใช่ภาษาของหน้าเว็บ — ส่งเข้า inLanguage ของ JSON-LD */
+  articleLanguage: "th" | "en";
+  /**
+   * สัญญาอนุญาตของบทความต้นฉบับ — **ไม่มีค่าแปลว่าวารสารสงวนลิขสิทธิ์ไว้**
+   * ไม่ได้แปลว่ายังไม่ได้ตรวจ ห้ามเดาใส่ และห้ามแสดงข้อความ CC ให้รายการที่ไม่มีค่า
+   */
+  license?: CcLicense;
   /**
    * ปลายทางของปุ่ม "เปิด PDF ที่ต้นทาง" — URL ของสำนักพิมพ์เอง ไม่ใช่ไฟล์ในเว็บเรา
-   * ไม่มีค่าก็ได้ ถ้าไม่มีจะเหลือแค่ลิงก์ DOI ซึ่งพาไปหน้าบทความที่มีปุ่มดาวน์โหลดอยู่แล้ว
+   * ไม่มีค่าก็ได้ ถ้าไม่มีจะเหลือแค่ลิงก์ไปหน้าบทความซึ่งมีปุ่มดาวน์โหลดอยู่แล้ว
    */
   pdfUrl?: string;
-  /** ชื่อไฟล์สำเนาใน research-sources/papers/ — ไว้ให้ AI อ่าน ไม่ได้เสิร์ฟบนเว็บ */
+  /**
+   * ชื่อไฟล์สำเนาใน research-sources/papers/ — ไว้ให้ AI อ่าน ไม่ได้เสิร์ฟบนเว็บ
+   * **ใส่ได้เฉพาะรายการที่มี `license` เป็น CC** ดู research-sources/README.md
+   */
   localCopy?: string;
   th: PaperCopy;
   en: PaperCopy;
@@ -92,11 +120,12 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "engage-a3-model",
     doi: "10.5114/hivar.2022.115679",
+    articleLanguage: "en",
     license: "cc-by-nc-sa",
     pdfUrl: "https://www.termedia.pl/Journal/-106/pdf-46896-10",
     localCopy: "engage-a3-model.pdf",
     th: {
-      headline: "สื่อสารเรื่องเอดส์กับแรงงานข้ามชาติ ต้องเริ่มที่ความไว้วางใจ ไม่ใช่ที่ข้อมูล",
+      headline: "งานสื่อสารเรื่องเอดส์กับแรงงานข้ามชาติ เริ่มที่ความไว้วางใจ ไม่ใช่เริ่มที่ตัวสื่อ",
       question:
         "การให้ข้อมูลสุขภาพกับแรงงานข้ามชาติชาวเมียนมาในไทยติดปัญหาซ้ำๆ ทั้งกำแพงภาษา ข้อมูลที่ให้ไม่ตรงกับที่เขาอยากรู้ ใช้ช่องทางและจังหวะเวลาที่ไม่เหมาะ และผลที่ได้ไม่ยั่งยืน งานนี้ถามว่าแล้วควรออกแบบการสื่อสารความเสี่ยงอย่างไรจึงจะแก้ปัญหาเหล่านั้นได้พร้อมกัน",
       method:
@@ -133,11 +162,12 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "hiv-risk-communication-samut-sakhon",
     doi: "10.5114/hivar.2019.88535",
+    articleLanguage: "en",
     license: "cc-by-nc-sa",
     pdfUrl: "https://www.termedia.pl/Journal/-106/pdf-37921-10",
     localCopy: "hiv-risk-communication-samut-sakhon.pdf",
     th: {
-      headline: "แคมเปญที่แรงงานร่วมออกแบบเอง เพิ่มความรู้และความมั่นใจได้ แต่ไม่ได้ทำให้รู้สึกว่าตัวเองเสี่ยง",
+      headline: "ให้แรงงานออกแบบแคมเปญเอง ความรู้และความมั่นใจเพิ่มขึ้น แต่ยังไม่รู้สึกว่าตัวเองเสี่ยง",
       question:
         "ถ้าให้แรงงานข้ามชาติเป็นผู้ร่วมออกแบบแคมเปญสื่อสารความเสี่ยงเอชไอวีเอง แทนที่จะเป็นผู้รับสารอย่างเดียว จะเปลี่ยนความรู้ ความมั่นใจ การรับรู้ความเสี่ยง และพฤติกรรมป้องกันได้จริงหรือไม่",
       method:
@@ -175,11 +205,12 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "hiv-knowledge-public-health-officers",
     doi: "10.5114/hivar.2017.72029",
+    articleLanguage: "en",
     license: "cc-by-nc-sa",
     pdfUrl: "https://www.termedia.pl/Journal/-106/pdf-31219-10",
     localCopy: "hiv-knowledge-public-health-officers.pdf",
     th: {
-      headline: "ช่องว่างไม่ได้อยู่ที่สื่อไม่ดีพอ แต่อยู่ที่ไม่มีใครถูกมอบหมายให้ทำ",
+      headline: "ปัญหาไม่ได้อยู่ที่สื่อไม่ดีพอ แต่อยู่ที่ไม่มีใครมีหน้าที่ต้องทำ",
       question:
         "ความรู้เรื่องเอชไอวีเดินทางจากระบบสาธารณสุขไทยไปถึงแรงงานข้ามชาติชาวเมียนมาได้แค่ไหน งานนี้ไปถามจากฝั่งเจ้าหน้าที่ผู้ปฏิบัติ ไม่ใช่ฝั่งผู้รับสาร",
       method:
@@ -216,11 +247,12 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "vr360-neck-shoulder-pain",
     doi: "10.55131/jphd/2022/200118",
+    articleLanguage: "en",
     license: "cc-by-nc-nd",
     pdfUrl: "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/254520",
     localCopy: "vr360-neck-shoulder-pain.pdf",
     th: {
-      headline: "วิดีโอ 360 องศาสอนยืดคอบ่า ผู้หญิงวัยทำงานรับได้ และรู้สึกจดจ่อกว่าวิดีโอธรรมดา",
+      headline: "สอนยืดคอบ่าด้วยวิดีโอ 360 องศา ผู้หญิงวัยทำงานบอกว่าดูแล้วจดจ่อกว่าวิดีโอธรรมดา",
       question:
         "กลุ่มอาการปวดกล้ามเนื้อและพังผืด (myofascial pain syndrome) รักษาด้วยการออกกำลังกายได้ และตอนนี้กล้องถ่ายวิดีโอ 360 องศาราคาถูกลงมากพร้อมกับที่ยูทูบเปิดให้อัปโหลดฟรี คำถามคือสื่อ VR360 ที่สอนท่ายืดคลายปวดคอและบ่าจะเป็นที่ยอมรับของผู้หญิงวัยทำงานหรือไม่",
       method:
@@ -258,11 +290,12 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "cryptocurrency-adoption-reddit",
     doi: "10.1080/23311975.2024.2402513",
+    articleLanguage: "en",
     license: "cc-by",
     pdfUrl: "https://www.econstor.eu/handle/10419/326569",
     localCopy: "cryptocurrency-adoption-reddit.pdf",
     th: {
-      headline: "คุณค่าที่มองเห็นดันให้ลงทุนคริปโต ความเสี่ยงที่มองเห็นดึงกลับ และภูมิหลังของคนกำกับน้ำหนักทั้งสองแรง",
+      headline: "เห็นคุณค่าก็อยากลงทุนคริปโต เห็นความเสี่ยงก็ถอย และแต่ละคนชั่งน้ำหนักสองอย่างนี้ไม่เท่ากัน",
       question:
         "นักลงทุนรายย่อยเป็นแรงขับสำคัญที่ทำให้คริปโตเคอร์เรนซีแพร่หลาย แต่ยังไม่ค่อยมีงานที่ตรวจสอบว่า “คุณค่าที่รับรู้” กับ “ความเสี่ยงที่รับรู้” ทำงานอย่างไรในการตัดสินใจของคนกลุ่มนี้ งานนี้เข้าไปตอบช่องว่างนั้น",
       method:
@@ -298,11 +331,12 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "bitcoin-ownership-property-rights",
     doi: "10.35297/001c.123605",
+    articleLanguage: "en",
     license: "cc-by",
     pdfUrl: "https://jls.mises.org/article/123605.pdf",
     localCopy: "bitcoin-ownership-property-rights.pdf",
     th: {
-      headline: "บิตคอยน์จับต้องไม่ได้ แต่ก็ยัง “เป็นเจ้าของ” ได้ — ข้อโต้แย้งทางทฤษฎีกฎหมาย",
+      headline: "จับต้องไม่ได้ก็เป็นเจ้าของได้ ข้อถกเถียงทางกฎหมายว่าด้วยบิตคอยน์",
       question:
         "นักคิดสายเสรีนิยมบางกลุ่มเห็นว่าบิตคอยน์เป็นเจ้าของไม่ได้ เพราะเป็นสินทรัพย์ดิจิทัลที่ไม่มีตัวตนทางกายภาพ จึงไม่เข้าเกณฑ์ของกรรมสิทธิ์แบบดั้งเดิม บทความนี้ตั้งใจโต้แย้งข้อสรุปนั้นโดยตรง",
       method:
@@ -334,10 +368,429 @@ export const paperSummaries: PaperSummary[] = [
         "A theoretical argument rather than a statement of enforceable law. The author notes in the article that the title is not financial advice.",
     },
   },
+  {
+    slug: "bangkok-election-social-media",
+    indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
+    articleLanguage: "en",
+    pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/132679/99578",
+    th: {
+      headline: "เลือกตั้งผู้ว่าฯ กทม. 2556 ยอดไลก์เยอะไม่ได้แปลว่าได้คะแนน",
+      question:
+        "การเลือกตั้งผู้ว่าราชการกรุงเทพมหานครปี 2556 เป็นครั้งแรกที่ผู้สมัครหลักทุกคนเปิดใช้โซเชียลมีเดียพร้อมกัน และผู้สมัครที่มียอดไลก์เฟซบุ๊กสูงที่สุดกลับได้คะแนนเป็นอันดับสาม งานนี้จึงถามว่าจริงๆ แล้วคนกรุงเทพฯ ใช้สื่ออะไรในการตัดสินใจลงคะแนน",
+      method:
+        "รวบรวมสถิติการใช้สื่อสังคมออนไลน์ของผู้สมัครสี่คนหลัก (เฟซบุ๊ก ยูทูบ ทวิตเตอร์ อินสตาแกรม กูเกิลพลัส และเว็บไซต์) ประกอบกับการสัมภาษณ์ฝ่ายที่ดูแลแคมเปญ แล้วสำรวจด้วยแบบสอบถามกับผู้มีสิทธิเลือกตั้งในกรุงเทพฯ ที่เคยไปใช้สิทธิเลือกผู้ว่าฯ ครั้งก่อน จำนวน 400 คน กระจายใน 12 กลุ่มเขต เขตละร้อยละ 7–9 ของกลุ่มตัวอย่าง คำถามแบ่งเป็นข้อมูลประชากร การใช้สื่อ และการตัดสินใจลงคะแนน",
+      findings: [
+        "สื่อที่ผู้ตอบเลือกเป็นอันดับแรกในการรับข้อมูลการเลือกตั้งคือโทรทัศน์ (ร้อยละ 47.3) และสื่อที่มีอิทธิพลต่อการตัดสินใจมากที่สุดก็คือโทรทัศน์ (ร้อยละ 37.8) รองลงมาคือสื่อกลางแจ้ง (ร้อยละ 16.5)",
+        "**มีเพียงร้อยละ 10 ที่ระบุว่าสื่อใหม่ — เว็บไซต์และสื่อสังคมออนไลน์ — มีผลต่อการตัดสินใจลงคะแนนของตน**",
+        "คะแนนความสำคัญของสื่อดั้งเดิมต่อการเลือกตั้งอยู่ที่ 3.58 จาก 5 ขณะที่สื่อใหม่อยู่ที่ 2.84",
+        "ข้อความที่ผู้ตอบเห็นด้วยมากที่สุด (ค่าเฉลี่ย 3.85) คือผู้สมัครควรพบปะกับผู้มีสิทธิเลือกตั้งด้วยตัวเอง",
+        "ผู้สมัครที่มียอดไลก์เฟซบุ๊กสูงสุด (238,138) ได้คะแนนเป็นอันดับสาม ส่วนผู้ชนะการเลือกตั้งเป็นผู้ที่มียอด “กำลังพูดถึงสิ่งนี้” สูงสุด (146,294)",
+        "กลุ่มอายุ 56 ปีขึ้นไปเห็นด้วยน้อยกว่ากลุ่มอายุน้อยกว่าว่าสื่อใหม่น่าสนใจหรือทันใจ และผู้สมัครเองส่วนใหญ่ให้สัมภาษณ์ว่าโซเชียลมีเดียเร็วและถูก แต่ใช้ทำนายคะแนนไม่ได้",
+      ],
+      soWhat:
+        "ข้อค้นพบที่ยังใช้ได้คือตัวเลขบนโซเชียลมีเดียไม่ใช่ตัวแทนของคะแนนเสียง ผู้กดไลก์อาจไม่ใช่คนกรุงเทพฯ ที่มีสิทธิลงคะแนน หรืออายุยังไม่ถึงเกณฑ์ ผู้วิจัยเสนอว่าแคมเปญควรใช้สื่อใหม่อย่างสร้างสรรค์เพื่อเข้าถึงคนรุ่นใหม่ แต่ยังต้องใช้วิธีโน้มน้าวแบบเดิมควบคู่กันไปจึงจะได้คะแนน",
+      caveat:
+        "สำรวจผู้มีสิทธิเลือกตั้งในกรุงเทพฯ 400 คน กับการเลือกตั้งครั้งเดียวเมื่อปี 2556 ซึ่งเป็นช่วงที่โซเชียลมีเดียยังไม่แพร่หลายเท่าปัจจุบัน ผลจึงสะท้อนภูมิทัศน์สื่อของเวลานั้น ไม่ใช่ของวันนี้ และผู้วิจัยระบุเองว่าเป็นการศึกษาเพียงจังหวัดเดียวจาก 77 จังหวัด",
+    },
+    en: {
+      headline: "The 2013 Bangkok governor race: likes did not translate into votes",
+      question:
+        "The 2013 Bangkok governor election was the first in which every major candidate ran social media accounts — and the candidate with the most Facebook likes finished third. So what did Bangkok voters actually use to decide?",
+      method:
+        "The study compiled the four major candidates' social media statistics (Facebook, YouTube, Twitter, Instagram, Google+ and their own websites) alongside interviews with campaign staff, then surveyed 400 registered Bangkok voters who had voted in the previous governor election, drawn across twelve groups of districts at 7–9% of the sample each. The questionnaire covered demographic profile, media utilisation, and voting decision.",
+      findings: [
+        "Television was the medium respondents most often turned to first for election information (47.3%), and also the medium that most influenced their decision (37.8%), followed by outdoor media (16.5%).",
+        "**Only 10% said new media — websites and social media — influenced how they voted.**",
+        "Traditional media rated 3.58 out of 5 in importance to the election; new media rated 2.84.",
+        "The statement respondents agreed with most strongly (mean 3.85) was that candidates should have personal contact with voters.",
+        "The candidate with the most Facebook likes (238,138) came third, while the winner was the one with the highest “talking about this” count (146,294).",
+        "Voters aged 56 and over agreed less than younger groups that new media was interesting or instant — and most candidates themselves said in interviews that social media was fast and cheap but could not predict votes.",
+      ],
+      soWhat:
+        "The finding that still holds is that social media metrics are not a proxy for votes: anyone anywhere can click like, and they may not be Bangkok residents or old enough to vote. The authors argue campaigns should use new media creatively to reach younger generations while keeping traditional persuasion alongside it, because that is what wins votes.",
+      caveat:
+        "A survey of 400 Bangkok voters about a single election in 2013, before social media reached today's penetration — so it describes that moment's media landscape, not the present one. The authors note it covers one province out of 77.",
+    },
+  },
+  {
+    slug: "nodam-maewong-framing",
+    indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/148722",
+    articleLanguage: "en",
+    pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/148722/109366",
+    th: {
+      headline: "ค้านเขื่อนแม่วงก์สำเร็จ ทั้งที่ผู้รณรงค์ สื่อ และคนทั่วไป เล่าเรื่องกันคนละแบบ",
+      question:
+        "ปี 2556 นายศศิน เฉลิมลาภ เลขาธิการมูลนิธิสืบนาคะเสถียร เดินเท้า 388 กิโลเมตรจากพื้นที่ที่จะสร้างเขื่อนแม่วงก์มายังกรุงเทพฯ ระหว่างวันที่ 11–22 กันยายน แล้วเรียกให้คนกว่าสองหมื่นมาสมทบกลางเมือง งานนี้ถามว่าโซเชียลมีเดียทำหน้าที่อะไรในแคมเปญนั้น และกรอบการเล่าเรื่อง (frame) ของผู้รณรงค์ สื่อมวลชน และสาธารณชน ตรงกันหรือไม่",
+      method:
+        "วิเคราะห์กรอบการเล่าเรื่อง (framing analysis) จากข้อความบนทวิตเตอร์ของมูลนิธิสืบนาคะเสถียร (seubfd) และของนายศศิน (sasin_seub) พร้อมแฮชแท็ก #แม่วงก์ ทั้งภาษาไทยและอังกฤษ แบ่งเป็นสามช่วงคือก่อน ระหว่าง และหลังการเดิน แล้วเทียบกรอบของผู้รณรงค์กับกรอบที่ปรากฏในข่าวและในข้อความของสาธารณชน ประกอบกับการทบทวนกลยุทธ์และยุทธวิธีประชาสัมพันธ์ที่แคมเปญใช้",
+      findings: [
+        "พบกรอบสามแบบที่**ไม่ตรงกัน** — สาธารณชนใช้กรอบ “ประเด็น” คือพูดถึงตัวเขื่อนด้วยข้อมูลวิทยาศาสตร์และการอนุรักษ์ป่า ผู้รณรงค์ใช้กรอบ “ตัวบุคคล” คือเล่าเรื่องการเดินและเรื่องราวของนายศศินด้วยถ้อยคำเชิงอารมณ์ ส่วนข่าวใช้กรอบ “การเมือง” คือโยงไปที่นักการเมืองและนโยบายการพัฒนาประเทศ",
+        "ผู้รณรงค์ใช้การโน้มน้าวเชิงอารมณ์อย่างความเห็นใจและความอบอุ่น แต่ข้อความที่สาธารณชนรีทวีต กดถูกใจ และแบ่งปันจริง กลับเป็นข้อความที่มีข้อเท็จจริงและหลักฐานว่าทำไมจึงควรยกเลิกเขื่อน",
+        "ข้อความที่ถูกรีทวีตสูงสุดของมูลนิธิฯ ได้ 751 ครั้ง ส่วนของนายศศินได้ 659 ครั้ง ซึ่งเป็นข้อความหลังช่อง 9 ระงับการออกอากาศสารคดี แล้วทีมงานนำไปลงยูทูบแทน",
+        "รายชื่อผู้ร่วมลงชื่อคัดค้านบน Change.org ขึ้นถึง 100,000 รายชื่อ สูงที่สุดในบรรดาคำร้องของไทยขณะนั้น ซึ่งส่วนใหญ่ไปถึงแค่หลักหมื่น",
+        "แม้กรอบทั้งสามจะไม่ตรงกัน แคมเปญก็ถือว่าได้ผล เพราะรัฐมนตรีว่าการกระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อมมอบหมายให้เลขานุการรับข้อเรียกร้อง และระบุว่าจะตรวจสอบรายงาน EHIA อย่างรอบคอบและไม่เร่งรัดการก่อสร้าง",
+      ],
+      soWhat:
+        "บทเรียนที่นำไปใช้ได้คือความไม่ตรงกันของกรอบไม่ได้แปลว่าแคมเปญล้มเหลว และการที่สาธารณชนเลือกส่งต่อข้อเท็จจริงมากกว่าความรู้สึก บอกว่าแคมเปญสิ่งแวดล้อมควรเตรียมทั้งสองอย่างไว้คู่กัน อีกจุดคือเมื่อสารคดีถูกระงับจากโทรทัศน์ การย้ายไปยูทูบกลับได้ผู้ชมมากกว่าเดิม สื่อสังคมออนไลน์จึงเป็นทางเลี่ยงการปิดกั้นได้จริง",
+      caveat:
+        "เป็นกรณีศึกษาเดียวจากข้อมูลปี 2556 วิเคราะห์จากทวิตเตอร์เป็นหลัก และตัดสิน “ความสำเร็จ” จากผลเชิงนโยบายที่ตามมา ไม่ได้วัดการเปลี่ยนทัศนคติของผู้รับสารโดยตรง",
+    },
+    en: {
+      headline: "The Mae Wong dam campaign worked — even though the three sides never framed it the same way",
+      question:
+        "In 2013 Sasin Chalermlarp, secretary of the Seub Nakhasathien Foundation, walked 388 kilometres from the proposed Mae Wong dam site to Bangkok between 11 and 22 September, calling on more than twenty thousand people to join him in the city centre. What did social media actually do in that campaign, and did the campaigners, the news media, and the public frame the issue the same way?",
+      method:
+        "A framing analysis of Twitter messages from the Seub Nakhasathien Foundation (seubfd) and from Sasin himself (sasin_seub), together with the #maewong hashtag in both Thai and English, split into three periods — before, during, and after the walk. Campaigner frames were then compared against the frames appearing in news coverage and in the public's own messages, alongside a review of the campaign's public relations strategy and tactics.",
+      findings: [
+        "Three frames emerged and they **did not match**: the public used an issue-based frame, discussing the dam through scientific terms and forest conservation; the campaigners used a personal frame, telling the story of the walk and of Sasin in emotional language; the news used a political frame, tying the issue to politicians and national development policy.",
+        "The campaigners relied on motivational appeals such as sympathy and warmth, yet the messages the public actually retweeted, liked and shared were the ones carrying facts and evidence for why the dam should be cancelled.",
+        "The Foundation's most-retweeted message reached 751 retweets; Sasin's reached 659 — that one posted after Channel 9 pulled the documentary and the team put it on YouTube instead.",
+        "The anti-dam petition on Change.org reached 100,000 signatures, the highest of any Thai petition at the time, when most reached only ten thousand.",
+        "Despite the mismatch, the campaign counts as effective: the Minister of Natural Resources and Environment sent his secretary to receive the petition and stated the ministry would examine the EHIA report carefully and would not rush construction.",
+      ],
+      soWhat:
+        "The usable lesson is that inconsistent framing does not mean a failed campaign — and that because the public chose to pass on facts rather than feelings, environmental campaigns should prepare both. The other lesson: when the documentary was banned from broadcast, moving it to YouTube reached more viewers than the airtime would have. Social media genuinely can route around a block.",
+      caveat:
+        "A single case study drawn from 2013 data, analysed mainly through Twitter, that judges success by the policy outcome that followed rather than by directly measuring any change in audience attitudes.",
+    },
+  },
+  {
+    slug: "health-content-working-women",
+    indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/230947",
+    articleLanguage: "th",
+    pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/230947/166266",
+    th: {
+      headline: "สื่อสุขภาพชุดเดียวใช้ไม่ได้กับทุกที่ทำงาน คนเอกชน ราชการ และโรงงาน อยากได้คนละแบบ",
+      question:
+        "สตรีวัยทำงานเป็นกลุ่มที่ค้นและส่งต่อข้อมูลสุขภาพให้คนรอบตัวมากที่สุด แต่ “อาหารและการดูแลสุขภาพ” ก็เป็นหมวดที่มีข่าวปลอมบนสื่อสังคมออนไลน์มากเป็นอันดับหนึ่งด้วย งานนี้ถามว่าสตรีวัยทำงานอยากได้เนื้อหาสุขภาพในรูปแบบไหน กังวลเรื่องอะไร และผู้ที่ทำงานในหน่วยงานต่างประเภทกันต้องการต่างกันหรือไม่",
+      method:
+        "วิจัยเชิงปริมาณด้วยแบบสอบถามปลายปิด เก็บจากสตรีวัยทำงานอายุ 15 ปีขึ้นไปในหน่วยงานเครือข่ายของ สสส. 13 แห่งในกรุงเทพฯ และปริมณฑล แบ่งเป็นราชการ/รัฐวิสาหกิจ บริษัทเอกชน และโรงงาน/สถานประกอบการ ตั้งโควตาหน่วยงานละ 100 คน (สองโรงงานใหญ่ 50 คน) รวมเป้าหมาย 1,200 คน ได้แบบสอบถามกลับ 1,074 ชุด ค่าความเที่ยงของทุกตัวแปรเกิน 0.70 วิเคราะห์ด้วยสถิติเชิงพรรณนาและ One-way ANOVA",
+      findings: [
+        "สตรีในหน่วยงานเอกชนต้องการวิดีโออะนิเมชัน (ค่าเฉลี่ย 4.20) อินโฟกราฟิก (4.17) และภาพถ่าย (4.16) มากกว่าอีกสองกลุ่มอย่างมีนัยสำคัญ ขณะที่สตรีในหน่วยงานรัฐ/รัฐวิสาหกิจ (3.02) และโรงงาน (3.01) ต้องการ**ข้อความล้วน**มากกว่าเอกชน (2.47)",
+        "เทคนิคที่แต่ละกลุ่มให้คะแนนสูงสุดต่างกัน — เอกชนเลือกการเปรียบเทียบก่อนและหลัง (4.21) รัฐเลือกการให้ข้อมูลทางการแพทย์ประกอบ (3.99) ส่วนโรงงานเลือกการให้คำแนะนำ (3.68)",
+        "ทั้งสามกลุ่มให้เนื้อหาประเภท “ให้ความรู้” เป็นอันดับหนึ่งเหมือนกัน (รัฐ 4.18 · เอกชน 4.34 · โรงงาน 3.83)",
+        "ความกังวลอันดับหนึ่งไม่ตรงกัน — เอกชนกังวลว่าข้อมูลไม่ถูกต้องมากที่สุด (4.30) ส่วนรัฐและโรงงานกังวลว่าอาจนำไปสู่การละเมิดสิทธิผู้อื่นมากที่สุด (4.20 และ 3.81)",
+        "**สามเรื่องที่ทั้งสามกลุ่มไม่ต่างกันอย่างมีนัยสำคัญ** คือเทคนิคการแสดงอารมณ์ความรู้สึก (F = 2.872) ความกังวลว่าข้อมูลมีปริมาณมากเกินไป (F = 2.501) และความกังวลเรื่องการใช้คำศัพท์เฉพาะทาง (F = 1.666)",
+      ],
+      soWhat:
+        "สำหรับหน่วยงานที่ทำสื่อสุขภาพในที่ทำงาน ผลนี้แปลว่าเนื้อหาชุดเดียวกันควรถูกห่อใหม่ตามประเภทองค์กร ไม่ใช่กระจายแบบเดียวกันทั้งหมด ข้อเสนอของผู้วิจัยคือเพิ่มการเล่าเรื่องด้วยภาพ ทั้งวิดีโออะนิเมชัน อินโฟกราฟิก และภาพถ่าย และบทความที่นำมาแชร์ต้องมาจากแหล่งที่น่าเชื่อถือ",
+      caveat:
+        "กลุ่มตัวอย่างมาจากหน่วยงานเครือข่าย สสส. ในกรุงเทพฯ และปริมณฑล ด้วยการสุ่มแบบเจาะจง กำหนดโควตา และสุ่มแบบสะดวก จึงไม่ใช่ตัวแทนสตรีวัยทำงานทั้งประเทศ อีกทั้งกลุ่มเอกชนมีเพียง 134 คน เทียบกับกลุ่มรัฐ 527 คนและโรงงาน 413 คน เก็บข้อมูลช่วงปี 2562–2563",
+    },
+    en: {
+      headline: "One set of health content will not serve every workplace — private, government and factory staff want different things",
+      question:
+        "Working-age women are the group that most actively seeks out health information and passes it on to the people around them — yet food and health care is also the single largest category of fake news circulating on Thai social media. What form of health content do these women want, what worries them about it, and do women in different kinds of workplace want different things?",
+      method:
+        "A quantitative survey using a closed-ended questionnaire with working-age women aged 15 and over at thirteen organisations in the ThaiHealth network across Bangkok and its vicinity, grouped into government and state enterprises, private companies, and factories. A quota of 100 per organisation (50 at two large factories) targeted 1,200 respondents; 1,074 questionnaires were returned. Reliability exceeded 0.70 on every variable. Analysis used descriptive statistics and one-way ANOVA.",
+      findings: [
+        "Women in private companies wanted animated video (mean 4.20), infographics (4.17) and photographs (4.16) significantly more than the other two groups, while women in government and state enterprises (3.02) and in factories (3.01) wanted **plain text** more than private-sector women did (2.47).",
+        "Each group's top-rated technique differed: private-sector women chose before-and-after comparison (4.21), government women chose supporting medical information (3.99), and factory women chose practical advice (3.68).",
+        "All three groups ranked “providing knowledge” first as a content type (government 4.18 · private 4.34 · factory 3.83).",
+        "Their leading worry differed too: private-sector women worried most that information was incorrect (4.30), while government and factory women worried most that it might violate someone else's rights (4.20 and 3.81).",
+        "**Three things showed no significant difference across the groups**: the technique of expressing emotion (F = 2.872), concern about too much information (F = 2.501), and concern about technical jargon (F = 1.666).",
+      ],
+      soWhat:
+        "For anyone producing workplace health media, this says the same content should be repackaged by organisation type rather than distributed identically everywhere. The authors recommend more visual storytelling — animated video, infographics and photographs — and that any article shared must come from a credible source.",
+      caveat:
+        "The sample came from ThaiHealth network organisations in Bangkok and its vicinity through purposive, quota and accidental sampling, so it does not represent working-age women nationally. The private-sector group numbered only 134 against 527 in government and 413 in factories, and data was collected in 2019–2020.",
+    },
+  },
+  {
+    slug: "on-demand-app-loyalty",
+    indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/247870",
+    articleLanguage: "th",
+    pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/247870/169198",
+    th: {
+      headline: "คนใช้แอปเรียกบริการติดใจเพราะบริการดี ไม่ใช่เพราะเห็นโฆษณาบ่อย",
+      question:
+        "แอปให้บริการจุดเดียวเบ็ดเสร็จแบบตอบสนองความต้องการอย่างไลน์แมนและแกร็บแข่งกันด้วยโฆษณาและส่วนลด งานนี้ถามว่าอะไรกันแน่ที่พยากรณ์ความภักดีของผู้ใช้ได้ — การเปิดรับข้อมูลข่าวสาร ส่วนประสมทางการตลาด หรือคุณภาพการให้บริการ",
+      method:
+        "วิจัยเชิงปริมาณด้วยแบบสอบถามออนไลน์ เก็บข้อมูลเดือนตุลาคม 2563 สุ่มตัวอย่างแบบไม่อาศัยความน่าจะเป็น จากผู้ที่อาศัยในกรุงเทพมหานคร อายุ 18 ปีขึ้นไป และเคยใช้บริการผ่านแอปประเภทนี้อย่างน้อย 3 ครั้งในช่วง 3 เดือนที่ผ่านมา จำนวน 400 คน วิเคราะห์ด้วยสหสัมพันธ์เพียร์สันและการถดถอยพหุคูณผ่านโปรแกรม SPSS",
+      findings: [
+        "ความภักดีโดยรวมอยู่ที่ 4.26 จาก 5 ซึ่งถือว่าสูงมาก โดยด้านพฤติกรรมสูงกว่าด้านทัศนคติ (4.35 เทียบกับ 4.06) ข้อที่ได้คะแนนสูงสุดคือจะกลับมาใช้บริการซ้ำ (4.43)",
+        "คุณภาพการให้บริการพยากรณ์ความภักดีได้สูงสุด (Beta = 0.491) รองลงมาคือส่วนประสมทางการตลาด (Beta = 0.127)",
+        "**การเปิดรับข้อมูลข่าวสารพยากรณ์ความภักดีไม่ได้** (Beta = 0.043, Sig = 0.32) ทั้งที่มีความสัมพันธ์เชิงบวกกับความภักดีอยู่ก็ตาม",
+        "ตัวแปรทั้งสามรวมกันอธิบายความภักดีได้ราวร้อยละ 36 (R² = 0.364, F = 75.68) ส่วนที่เหลือเป็นปัจจัยที่งานนี้ไม่ได้วัด",
+        "เหตุผลที่เลือกใช้บริการมากที่สุดคือความสะดวกสบาย (ร้อยละ 35.4) รองลงมาคือมีส่วนลด (ร้อยละ 20.8) และแอปใช้งานง่าย (ร้อยละ 20.6) โดยบริการที่ใช้มากที่สุดคือจัดส่งอาหาร (ร้อยละ 41.7) และเรียกรถ (ร้อยละ 33.3)",
+      ],
+      soWhat:
+        "สำหรับคนทำการตลาดแพลตฟอร์ม ผลนี้บอกว่างบที่ทุ่มไปกับการทำให้คนเห็นแบรนด์บ่อยๆ ไม่ได้ซื้อความภักดีกลับมา สิ่งที่ซื้อได้คือประสบการณ์การใช้บริการจริง — ความน่าเชื่อถือและไว้วางใจ กับจำนวนพนักงานที่เพียงพอต่อการให้บริการ",
+      caveat:
+        "สำรวจผู้ใช้ในกรุงเทพฯ 400 คนด้วยการสุ่มแบบไม่อาศัยความน่าจะเป็น เก็บข้อมูลเดือนตุลาคม 2563 ซึ่งเป็นช่วงที่พฤติกรรมสั่งอาหารออนไลน์ผิดไปจากปกติเพราะสถานการณ์โควิด-19 และงานนี้นิยามขอบเขตไว้ที่สองแอปคือไลน์แมนและแกร็บ",
+    },
+    en: {
+      headline: "On-demand app users stay loyal because of the service, not because they saw the advertising",
+      question:
+        "One-stop on-demand service apps such as LINE MAN and Grab compete through advertising and discounts. Which of these actually predicts user loyalty — exposure to information about the app, the marketing mix, or service quality?",
+      method:
+        "A quantitative online survey run in October 2020 using non-probability sampling, with 400 Bangkok residents aged 18 and over who had used this kind of app at least three times in the previous three months. Data was analysed in SPSS using Pearson's correlation and multiple regression.",
+      findings: [
+        "Overall loyalty scored 4.26 out of 5, a very high level, with behavioural loyalty above attitudinal loyalty (4.35 against 4.06). The highest single item was intending to use the service again (4.43).",
+        "Service quality was the strongest predictor of loyalty (Beta = 0.491), followed by the marketing mix (Beta = 0.127).",
+        "**Exposure to information and advertising did not predict loyalty at all** (Beta = 0.043, Sig = 0.32), even though it did correlate positively with it.",
+        "The three factors together explained about 36% of loyalty (R² = 0.364, F = 75.68); the rest lies in factors this study did not measure.",
+        "The most common reason for using the service was convenience (35.4%), then discounts (20.8%) and ease of use (20.6%). Food delivery was the most-used service (41.7%), followed by ride-hailing (33.3%).",
+      ],
+      soWhat:
+        "For platform marketers, the finding says that money spent on being seen more often does not buy loyalty back. What does is the experience of the service itself — its credibility and trustworthiness, and having enough staff to serve.",
+      caveat:
+        "A non-probability sample of 400 users in Bangkok, collected in October 2020 when online food ordering behaviour was distorted by the COVID-19 situation, and scoped to two apps: LINE MAN and Grab.",
+    },
+  },
+  {
+    slug: "tv-crisis-communication-korat",
+    indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/251243",
+    articleLanguage: "th",
+    pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/251243/171220",
+    th: {
+      headline: "สามช่องทีวีถูกสั่งปรับจากการรายงานข่าวโคราช แต่ไม่มีช่องไหนคิดว่าตัวเองกำลังเผชิญวิกฤต",
+      question:
+        "หลัง กสทช. สั่งปรับทางปกครองสถานีโทรทัศน์ดิจิทัลจากการรายงานข่าวคนร้ายจับตัวประกันที่จังหวัดนครราชสีมา สถานีเหล่านั้นสื่อสารกับสังคมอย่างไร และบริหารจัดการภาวะวิกฤตด้วยกลไกอะไร",
+      method:
+        "วิจัยเชิงคุณภาพสองส่วน — เก็บข้อมูลจากเอกสารในช่องทางออนไลน์ทั้งหมด (เว็บไซต์ เฟซบุ๊กแฟนเพจ อินสตาแกรม ทวิตเตอร์) ของสามสถานีคือช่องวัน 31 ไทยรัฐทีวี ช่อง 32 และอมรินทร์ ทีวี เอชดี ช่อง 34 ระหว่างวันที่ 8 กุมภาพันธ์ถึง 8 เมษายน 2563 รวมสองเดือน ประกอบกับการสัมภาษณ์เชิงลึกผู้มีอำนาจตัดสินใจของสถานีละหนึ่งท่าน และผู้เชี่ยวชาญด้านการสื่อสารในภาวะวิกฤตอีก 4 ท่าน (นักวิชาชีพ 2 นักวิชาการ 2) รวมผู้ให้สัมภาษณ์ 7 ท่าน",
+      findings: [
+        "จากสามสถานี **มีเพียงสถานีเดียวที่สื่อสารเรื่องนี้ผ่านช่องทางออนไลน์** คือช่องวัน 31 ใช้เฟซบุ๊กแฟนเพจที่มีผู้ติดตาม 3,191,392 คน โพสต์เมื่อวันที่ 11 กุมภาพันธ์ 2563 ราวสองวันหลังเหตุการณ์จบ ด้วยกลยุทธ์ขออภัย ส่วนอีกสองสถานียังใช้ช่องทางออนไลน์ประชาสัมพันธ์รายการและเสนอข่าวเสมือนในภาวะปกติ",
+        "โพสต์นั้นมีผู้กดแสดงความรู้สึก 14,947 คน แสดงความคิดเห็นกว่า 3,200 ครั้ง และแชร์กว่า 1,200 ครั้ง ความคิดเห็นส่วนใหญ่เป็นปฏิกิริยาเชิงลบที่วิพากษ์วิจารณ์การรายงานข่าว และ**สถานีไม่ได้ตอบกลับความคิดเห็นใดเลย**",
+        "การสัมภาษณ์เผยว่ามีอีกหนึ่งสถานีที่สื่อสารผ่านหน้าจอของตัวเอง โดยผู้ประกาศกล่าวขออภัยที่ทำให้เกิดความไม่สบายใจ แต่ไม่ใช่การขอโทษอย่างเต็มรูปแบบ และไม่ได้นำคลิปไปเผยแพร่ในช่องทางอื่น",
+        "ทั้งสามสถานี**ไม่ได้มองว่าการถูกสั่งปรับทางปกครองเป็นภาวะวิกฤตของสถานี** และไม่มีแผนงาน คู่มือ คณะกรรมการ หรือการซักซ้อมรับมือไว้ล่วงหน้า งานบริหารภาวะวิกฤตดำเนินการโดยกองบรรณาธิการหรือฝ่ายข่าว ไม่ใช่ฝ่ายสื่อสารองค์กร",
+        "เมื่อรับรู้กระแสวิพากษ์วิจารณ์ สถานีปรับลดโทนการรายงานข่าวและหยุดการไลฟ์สดด้วยโทรศัพท์มือถือทันทีตั้งแต่วันเกิดเหตุ",
+        "ผู้เชี่ยวชาญชี้สาเหตุใหญ่สามข้อ — ผู้สื่อข่าวไม่มีทักษะรับมือเหตุการณ์ที่ไม่เคยเกิดขึ้นในไทยมาก่อน · การแข่งขันเรตติ้งของทีวีดิจิทัลผลักให้ไลฟ์สดจากที่เกิดเหตุ · และไทยยังไม่มีคู่มือรายงานข่าวเหตุกราดยิง คู่มือที่มีอยู่ถอดบทเรียนจากกรณีถ้ำหลวงซึ่งเป็นวิกฤตคนละลักษณะ",
+        "ผู้เชี่ยวชาญเห็นว่างานนี้ควรอยู่กับฝ่ายสื่อสารองค์กร ไม่ใช่ฝ่ายข่าว เพราะฝ่ายข่าวเป็นคู่กรณีเองจึงอาจมีอคติหรืออยากปกป้องตนเอง และเสนอให้ตั้ง War Room พร้อมกำหนดเกณฑ์ประเมินสถานการณ์ไว้ล่วงหน้า รวมถึงการขอโทษอย่างเต็มรูปแบบต่อกลุ่มตัวประกัน ญาติ ผู้ชม และสังคม",
+      ],
+      soWhat:
+        "ข้อค้นพบที่ใช้ได้กับทุกองค์กร ไม่เฉพาะสถานีโทรทัศน์ คือช่องว่างระหว่าง “ผู้กำกับดูแลมองว่าเป็นวิกฤต” กับ “องค์กรมองว่าเป็นวิกฤต” ถ้าองค์กรไม่นับว่าเป็นวิกฤตก็จะไม่มีใครถูกมอบหมาย ไม่มีแผน และการตอบสนองจะกลายเป็นการอธิบายขั้นตอนการทำงานของตัวเองแทนการขอโทษ ซึ่งงานนี้แสดงให้เห็นว่าไม่ได้ลดกระแสวิพากษ์วิจารณ์ลงเลย",
+      caveat:
+        "ศึกษาเหตุการณ์เดียว สามสถานี และผู้ให้สัมภาษณ์ 7 ท่าน หลักฐานฝั่งออนไลน์ดูได้เฉพาะสิ่งที่ยังเผยแพร่อยู่ในช่วงสองเดือนที่เก็บข้อมูล",
+    },
+    en: {
+      headline: "Three TV channels were fined over their hostage-crisis coverage — and none of them saw it as a crisis for themselves",
+      question:
+        "After Thailand's broadcasting regulator imposed administrative penalties on digital television channels for their coverage of the gunman taking hostages in Nakhon Ratchasima, how did those channels communicate with the public, and what machinery did they use to manage the crisis?",
+      method:
+        "Qualitative research in two parts. Documentary research covered every online channel — website, Facebook page, Instagram and Twitter — of the three penalised stations (One 31, Thairath TV 32, and Amarin TV HD 34) from 8 February to 8 April 2020, a two-month window. Alongside this, in-depth interviews were conducted with one decision-maker at each station plus four specialists in crisis communication and media management (two practitioners, two academics), seven interviewees in total.",
+      findings: [
+        "Of the three stations, **only one communicated about the situation online**: One 31, through a Facebook page with 3,191,392 followers, posting on 11 February 2020 — roughly two days after the incident ended — using an apology strategy. The other two carried on promoting programmes and posting news as if nothing had happened.",
+        "That post drew 14,947 reactions, over 3,200 comments and over 1,200 shares. Most comments were negative and critical of the coverage, and **the station replied to none of them**.",
+        "The interviews revealed a second station had responded on air, where a presenter expressed regret for the discomfort caused — not a full apology — and the clip was not published anywhere else.",
+        "All three stations **did not regard the administrative penalty as a crisis for the station**, and had no plan, manual, committee, or rehearsal prepared. Crisis handling was run by the newsroom rather than by corporate communications.",
+        "Once they registered the public criticism, the stations toned down their reporting and stopped mobile-phone live streaming immediately, on the day of the incident itself.",
+        "The specialists identified three causes: reporters had no skills for an event unprecedented in Thailand; ratings competition among digital channels pushed them into live reporting from the scene; and Thailand had no manual for covering a mass shooting — the existing crisis manual was drawn from the Tham Luang cave rescue, a very different kind of crisis.",
+        "The specialists argued the work belongs with corporate communications rather than the newsroom, because the newsroom is itself a party to the dispute and may be biased or defensive. They recommended standing up a war room with pre-agreed thresholds for assessing a situation, and a full apology to the hostages, their families, viewers and society.",
+      ],
+      soWhat:
+        "The finding that generalises beyond broadcasters is the gap between what the regulator treats as a crisis and what the organisation treats as one. If the organisation does not count it as a crisis, nobody is assigned to it, no plan exists, and the response becomes an explanation of one's own working procedures rather than an apology — which, this study shows, did nothing to reduce the criticism.",
+      caveat:
+        "One event, three stations, and seven interviewees. The online evidence covers only what was still published during the two-month collection window.",
+    },
+  },
+  {
+    slug: "retirees-sodium-campaign",
+    indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/253798",
+    articleLanguage: "th",
+    pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/253798/174298",
+    th: {
+      headline: "คนวัยเกษียณเห็นแคมเปญลดเค็มบนเฟซบุ๊กมากที่สุด ส่วนความเชื่อเรื่องสุขภาพต่างกันตามระดับการศึกษา",
+      question:
+        "การรณรงค์ลดบริโภคเค็มจะได้ผลกับคนวัยเกษียณต้องออกแบบสารอย่างไร งานนี้ตรวจความสัมพันธ์ระหว่างการเปิดรับสื่อ ทัศนคติต่อสารโน้มน้าวใจ และแบบแผนความเชื่อด้านสุขภาพ (Health Belief Model) พร้อมดูว่าลักษณะทางประชากรแบบใดที่ทำให้ต่างกัน",
+      method:
+        "วิจัยเชิงปริมาณด้วยแบบสอบถามออนไลน์บน Google Form โดยฝากลิงก์ไว้ตามช่องทางสื่อสังคมออนไลน์และอาศัยการบอกต่อ กลุ่มตัวอย่างคือบุคคลวัยเกษียณอายุ 51–70 ปีที่อาศัยในกรุงเทพมหานคร จำนวน 400 คน แบ่งสัดส่วนตามช่วงอายุจากประชากรจริง 1,255,572 คน ณ เดือนธันวาคม 2562 วิเคราะห์ด้วยสถิติเชิงพรรณนาและสถิติเชิงอนุมานที่ระดับนัยสำคัญ 0.05",
+      findings: [
+        "การเปิดรับสื่อรณรงค์โดยรวมอยู่ในระดับปานกลาง โดยเปิดรับจากเฟซบุ๊กมากที่สุด รองลงมาคือเว็บไซต์และยูทูบ ส่วนที่เปิดรับน้อยที่สุดคือวิทยุ รองลงมาคือสื่อกิจกรรมและโปสเตอร์",
+        "ทัศนคติต่อสารโน้มน้าวใจอยู่ในระดับสูงมากทุกข้อ ข้อที่ได้คะแนนสูงคืออยากให้ข้อความบอกความรุนแรงของโรค และอยากให้ข้อความนำไปปรับใช้ในชีวิตประจำวันได้ ซึ่งตรงกับหลักสารที่มีทั้งการคุกคามสูงและประสิทธิภาพสูง",
+        "ในลักษณะทางประชากรแปดด้านที่ทดสอบ **มีเพียงสองด้านที่ทำให้แบบแผนความเชื่อด้านสุขภาพต่างกันอย่างมีนัยสำคัญ** คือระดับการศึกษาและแหล่งรายได้หลัก ส่วนเพศ อายุ สถานภาพสมรส สถานะการทำงาน รายได้เฉลี่ยต่อเดือน และลักษณะการอยู่อาศัย **ไม่ทำให้ต่างกัน**",
+        "สารโน้มน้าวใจสัมพันธ์เชิงบวกกับแบบแผนความเชื่อด้านสุขภาพในระดับปานกลางสี่ด้าน คือการรับรู้โอกาสเสี่ยง ความรุนแรงของโรค ประโยชน์ของการป้องกัน และความสามารถของตนเอง แต่ด้านการรับรู้อุปสรรคสัมพันธ์กันในระดับต่ำ",
+        "การเปิดรับสื่อสัมพันธ์กับทั้งทัศนคติและแบบแผนความเชื่อด้านสุขภาพอย่างมีนัยสำคัญ แต่**ค่าความสัมพันธ์อยู่ในระดับต่ำถึงต่ำมากทุกด้าน** — เห็นสื่อบ่อยขึ้นจึงไม่ได้แปลว่าความเชื่อด้านสุขภาพจะขยับตามมากนัก",
+        "ประเด็นที่ผู้ตอบรับรู้สูงสุดคือ การกินเค็มเป็นประจำมีโอกาสเสี่ยงสูงที่จะเป็นโรคไต และถ้าเป็นโรคไตจะกระทบชีวิตอย่างรุนแรง",
+      ],
+      soWhat:
+        "ข้อเสนอของผู้วิจัยตามผลคือให้หน่วยงานเน้นส่งสารโน้มน้าวใจไปยังกลุ่มที่มีการศึกษาระดับมัธยมหรือต่ำกว่า เพราะเป็นกลุ่มที่แบบแผนความเชื่อด้านสุขภาพต่ำกว่า และเมื่อวัยเกษียณในกรุงเทพฯ เปิดรับจากเฟซบุ๊กมากที่สุด แคมเปญที่ยังทุ่มงบไปกับวิทยุและโปสเตอร์อาจไปไม่ถึงคนกลุ่มนี้",
+      caveat:
+        "เก็บข้อมูลด้วยแบบสอบถามออนไลน์และการบอกต่อ จึงเข้าถึงเฉพาะวัยเกษียณที่ใช้อินเทอร์เน็ตอยู่แล้ว ซึ่งอธิบายได้ส่วนหนึ่งว่าทำไมเฟซบุ๊กจึงมาเป็นอันดับหนึ่ง เป็นการศึกษาเฉพาะกรุงเทพมหานคร และวัดความเชื่อกับทัศนคติเท่านั้น ไม่ได้วัดว่าบริโภคโซเดียมลดลงจริงหรือไม่",
+    },
+    en: {
+      headline: "Retirees meet salt-reduction campaigns on Facebook — and education is what separates their health beliefs",
+      question:
+        "How should a campaign to reduce salt intake be designed to reach retired people? This study examined the relationships between media exposure, attitude towards persuasive messages, and the Health Belief Model, and which demographic characteristics made a difference.",
+      method:
+        "A quantitative survey using a Google Form questionnaire distributed through social media channels and by word of mouth, with 400 retirees aged 51 to 70 living in Bangkok, proportioned by age band against the real population of 1,255,572 as of December 2019. Analysis used descriptive and inferential statistics at the 0.05 significance level.",
+      findings: [
+        "Overall campaign media exposure was moderate, highest on Facebook, then websites and YouTube. The least-encountered channel was radio, followed by events and posters.",
+        "Attitudes towards persuasive messages were very high on every item. The highest-rated wishes were for messages that state how severe the disease is, and messages that can be applied in daily life — matching the principle of pairing high threat with high efficacy.",
+        "Of eight demographic characteristics tested, **only two produced a significant difference in health beliefs**: education level and main source of income. Gender, age, marital status, employment status, monthly income and living arrangement **made no difference**.",
+        "Persuasive messages correlated positively and moderately with four dimensions of the Health Belief Model — perceived susceptibility, perceived severity, perceived benefits, and self-efficacy — but only weakly with perceived barriers.",
+        "Media exposure correlated significantly with both attitude and health beliefs, but **every one of those correlations was low to very low** — seeing the campaign more often did not move health beliefs much.",
+        "The item respondents recognised most strongly was that eating salty food regularly carries a high risk of kidney disease, and that kidney disease would seriously affect their lives.",
+      ],
+      soWhat:
+        "The authors' recommendation follows the result: direct persuasive messaging at people educated to secondary level or below, since that is the group with weaker health beliefs. And since Bangkok retirees encounter these campaigns most on Facebook, a campaign still spending on radio and posters may simply not reach them.",
+      caveat:
+        "Data was gathered through an online questionnaire and word of mouth, so it reached only retirees already using the internet — which partly explains why Facebook came first. It covers Bangkok alone and measures beliefs and attitudes, not whether sodium intake actually fell.",
+    },
+  },
+  {
+    slug: "sexual-harassment-entertainment-tv",
+    indexUrl: "https://so02.tci-thaijo.org/index.php/jcomm/article/view/259563",
+    articleLanguage: "th",
+    license: "cc-by-nc-nd",
+    pdfUrl: "https://so02.tci-thaijo.org/index.php/jcomm/article/download/259563/178807",
+    localCopy: "sexual-harassment-entertainment-tv.pdf",
+    th: {
+      headline: "รายการบันเทิงไทยกลบการคุกคามทางเพศด้วยเสียงหัวเราะ แล้วคนดูก็เลิกสนับสนุน",
+      question:
+        "เนื้อหาไม่เหมาะสมด้านการคุกคามทางเพศในรายการเพื่อความบันเทิงไทยปรากฏในรูปแบบใดบ้าง และเมื่อผู้ชมรับรู้แล้ว มีทัศนคติและพฤติกรรมต่อองค์กรธุรกิจสื่อบันเทิงที่ผลิตรายการนั้นอย่างไร",
+      method:
+        "วิจัยแบบผสม — ส่วนเชิงคุณภาพวิเคราะห์เนื้อหา 8 เทปรายการที่ตกเป็นประเด็นวิพากษ์วิจารณ์ในข่าวระหว่าง พ.ศ. 2559–2563 ด้วยตารางบันทึกข้อมูล 9 ส่วน ตรวจสอบเครื่องมือโดยผู้เชี่ยวชาญด้านนิเทศศาสตร์ 2 ท่าน · ส่วนเชิงปริมาณสำรวจผู้ชมรายการเพื่อความบันเทิงเป็นประจำอย่างน้อย 3 วันต่อสัปดาห์ อายุ 18 ปีขึ้นไป ในกรุงเทพมหานคร จำนวน 425 คน ด้วยแบบสอบถามออนไลน์เดือนเมษายน 2564 (ค่าความเชื่อมั่นรวม 0.809) วิเคราะห์ด้วย One-way ANOVA เปรียบเทียบรายคู่ด้วย LSD และสหสัมพันธ์เพียร์สัน",
+      findings: [
+        "รูปแบบที่พบมากที่สุดคือการคุกคามด้วยวัจนภาษา 45 ครั้ง รองลงมาคืออวัจนภาษา 9 ครั้ง รูปแบบผสม 8 ครั้ง และทางร่างกายน้อยที่สุด 7 ครั้ง",
+        "คู่กรณีที่พบมากที่สุดคือชายคุกคามหญิง 6 คู่ รองลงมาคือหญิงคุกคามชาย 5 คู่ ส่วนคู่ที่เกี่ยวกับบุคคลที่มีความหลากหลายทางเพศพบฝ่ายละ 2 คู่ โดยสาเหตุที่พบร่วมกันแทบทุกคู่คือความเคยชินกับพฤติกรรมนั้น และการสร้างความบันเทิงตามบทบาทในรายการ",
+        "องค์กรผู้ผลิตสื่อสารเนื้อหานี้**ควบคู่กับการทำให้เป็นเรื่องตลกขบขัน เพื่อลดทอนความรุนแรงลงให้ออกอากาศได้**",
+        "ผู้ชมที่มีเพศต่างกันรับรู้เนื้อหานี้ต่างกันอย่างมีนัยสำคัญ โดยผู้ชมที่มีความหลากหลายทางเพศรับรู้ในระดับสูงกว่าผู้ชมชายและหญิง",
+        "**อายุ ระดับการศึกษา และรายได้เฉลี่ย ไม่ทำให้การรับรู้เนื้อหานี้ต่างกันอย่างมีนัยสำคัญ**",
+        "ทัศนคติของผู้ชมต่อองค์กรอยู่ในระดับเชิงลบ และสัมพันธ์ไปในทิศทางเดียวกันกับพฤติกรรมที่ไม่สนับสนุนองค์กร (r = 0.683 ระดับปานกลาง)",
+      ],
+      soWhat:
+        "งานนี้แปลปัญหาจริยธรรมให้เป็นภาษาที่ฝ่ายบริหารอ่านแล้วเข้าใจ — ผู้ชมปฏิบัติกับรายการเหมือนสินค้าขององค์กร เมื่อสินค้าขาดความรับผิดชอบต่อสังคม ผู้บริโภคก็เลิกสนับสนุน ซึ่งกระทบความนิยมและผลกำไรในระยะยาว ข้อเสนอของผู้วิจัยคือให้องค์กรควบคุมกระบวนการผลิตให้ได้มาตรฐานจริยธรรมสื่อตั้งแต่ต้น แทนการรอแก้เมื่อตกเป็นข่าวไปแล้ว",
+      caveat:
+        "ส่วนวิเคราะห์เนื้อหาเลือกเฉพาะ 8 เทปที่**ตกเป็นข่าววิพากษ์วิจารณ์อยู่แล้ว** จึงใช้บอกความชุกของเนื้อหาแบบนี้ในรายการบันเทิงไทยโดยรวมไม่ได้ ส่วนแบบสำรวจเก็บจากผู้ชมในกรุงเทพฯ 425 คน ซึ่งเป็นหญิงร้อยละ 72.24 และอายุ 24–34 ปีร้อยละ 52.24 อีกทั้งวัดพฤติกรรมจากการรายงานของผู้ตอบเอง",
+    },
+    en: {
+      headline: "Thai entertainment shows wrap sexual harassment in laughter — and viewers answer by withdrawing support",
+      question:
+        "In what forms does inappropriate sexual harassment content appear in Thai entertainment programmes, and once viewers notice it, what attitude and behaviour do they take towards the media business that produced it?",
+      method:
+        "Mixed methods. The qualitative half content-analysed eight programme episodes that had drawn public criticism in the news between 2016 and 2020, using a nine-part coding sheet validated by two communication arts specialists. The quantitative half surveyed 425 Bangkok viewers aged 18 and over who watch entertainment programmes at least three days a week, through an online questionnaire in April 2021 (overall reliability 0.809), analysed with one-way ANOVA, LSD pairwise comparison, and Pearson's correlation.",
+      findings: [
+        "Verbal harassment was by far the most common form, at 45 instances, followed by non-verbal at 9, combined forms at 8, and physical harassment least often at 7.",
+        "The most common pairing was men harassing women (6 pairs), then women harassing men (5 pairs), with two pairs each in either direction involving people of diverse gender identity. Almost every pairing shared the same underlying reasons: the behaviour had become habitual, and it was done to entertain within the programme's format.",
+        "The producing organisations delivered this content **alongside comedy, to soften its severity enough to be broadcast**.",
+        "Viewers of different genders perceived the content significantly differently, with viewers of diverse gender identity perceiving it at a higher level than either men or women.",
+        "**Age, education level and average income made no significant difference to how the content was perceived.**",
+        "Viewers' attitude towards the organisation was negative, and moved in the same direction as their unsupportive behaviour towards it (r = 0.683, a moderate correlation).",
+      ],
+      soWhat:
+        "The study translates an ethics problem into language management reads: viewers treat a programme as the organisation's product, and when the product lacks social responsibility they stop supporting the company — which hits popularity and profit over the long run. The authors' recommendation is to hold production to media ethics standards from the outset rather than fixing things once the story breaks.",
+      caveat:
+        "The content analysis deliberately selected eight episodes that **had already become news stories**, so it cannot tell us how common this content is across Thai entertainment generally. The survey covers 425 Bangkok viewers, 72.24% of them women and 52.24% aged 24 to 34, and measures behaviour by self-report.",
+    },
+  },
+  {
+    slug: "southern-border-narrative",
+    indexUrl: "https://so02.tci-thaijo.org/index.php/jcomm/article/view/275202",
+    articleLanguage: "th",
+    license: "cc-by-nc-nd",
+    pdfUrl: "https://so02.tci-thaijo.org/index.php/jcomm/article/download/275202/184754",
+    localCopy: "southern-border-narrative.pdf",
+    th: {
+      headline: "ฟังเรื่องเล่าจากทุกฝ่ายในชายแดนใต้ แล้วจะเห็นว่าปัญหามีห้าด้าน ไม่ใช่ด้านเดียว",
+      question:
+        "ความขัดแย้งและความรุนแรงในจังหวัดชายแดนใต้มักถูกอธิบายจากมุมของฝ่ายใดฝ่ายหนึ่ง งานนี้ถามว่าถ้าใช้กระบวนทัศน์การเล่าเรื่องที่ข้ามพ้นตัวตน (self-transcendental narrative paradigm) คือให้แต่ละฝ่ายเล่าจากมุมของตน แล้วย้ายไปมองจากมุมของฝ่ายอื่น ปัญหาจะปรากฏออกมาเป็นอย่างไร",
+      method:
+        "วิจัยเชิงคุณภาพภาคสนามในจังหวัดปัตตานี ทำงานร่วมกับผู้ประสานงานที่คุ้นเคยกับพื้นที่ เก็บข้อมูลด้วยการสนทนากลุ่มกับผู้ให้ข้อมูล 34 คน (ประชาชนที่นับถือศาสนาอิสลาม 8 คน · ประชาชนที่นับถือศาสนาพุทธ 8 คน · ครู 6 คน · ผู้เพิ่งสำเร็จการศึกษา 12 คน) และการสัมภาษณ์เชิงลึกรายบุคคลกับกลุ่มที่อ่อนไหวต่อการแสดงความเห็นในวงกลุ่มอีก 17 คน (ผู้นำศาสนาอิสลาม 3 · พระภิกษุ 3 · เจ้าหน้าที่ฝ่ายปกครองท้องถิ่น 3 · เจ้าหน้าที่รักษาความสงบ 3 · กลุ่มเชื้อชาติศาสนาอื่นและคนนอกพื้นที่ 5) ใช้กิจกรรมสะท้อนความคิดอย่างการวาดภาพและการอุปมาอุปไมยประกอบ แล้ววิเคราะห์เรื่องเล่า 33 เหตุการณ์ งานนี้ได้รับทุนจากสำนักงานการวิจัยแห่งชาติ",
+      findings: [
+        "ปัญหาปรากฏเป็นห้ามิติ ไม่ใช่มิติเดียว — (1) การรักษาอำนาจปกครองของรัฐ (2) ความสัมพันธ์เชิงอำนาจระหว่างพลเรือนกับทหาร และประชาชนกับฝ่ายปกครอง (3) ปัญหาสังคม การศึกษา ยาเสพติด ความเชื่อ วิถีชีวิตและการทำมาหากิน (4) ผลประโยชน์ของบุคคล กลุ่มคน และองค์กรที่ได้จากการมีความรุนแรงในพื้นที่ (5) การรับรู้ที่มาจากสื่อ",
+        "มิติที่ห้าคือช่องว่างระหว่างภาพในข่าวกับชีวิตจริง — คนในพื้นที่มองว่าตนเองยังใช้ชีวิตได้ตามปกติ ไม่ได้อันตรายอย่างที่ปรากฏในสื่อ แต่ภาพในสื่อสร้างความกลัวจนคนนอกไม่กล้าเดินทางเข้าไป",
+        "ผู้ให้ข้อมูลในพื้นที่ร้องขอเองว่าสื่อควรนำเสนอภาพการใช้ชีวิตตามปกติ รวมถึงสถานที่ วัฒนธรรม และธรรมชาติที่สวยงาม เพราะจะช่วยการท่องเที่ยวและเศรษฐกิจ ซึ่งเป็นส่วนหนึ่งของปัญหาที่ถูกบดบังด้วยข่าวความรุนแรง",
+        "การมุ่งรายงานเฉพาะ “ความรุนแรงที่มองเห็นได้” โดยไม่เสนอทางออก มีส่วนสร้างภาพเหมารวมต่อศาสนาอิสลาม ชาวมุสลิม และตัวพื้นที่ จนนำไปสู่ความหวาดกลัว ความระแวง และการเลือกปฏิบัติ",
+      ],
+      soWhat:
+        "ข้อเสนอของผู้วิจัยคือเปลี่ยนโจทย์จาก “แก้ปัญหาความขัดแย้งและความรุนแรง” เป็น “การสร้างความสงบสุขของเราในพื้นที่” โดยเริ่มจากการสื่อสารมุมของทุกคนให้ผู้เกี่ยวข้องทั้งในและนอกพื้นที่ได้รับรู้จริงๆ แล้วออกแบบกระบวนการที่มากกว่าการเจรจาต่อรองและทำข้อตกลง สำหรับคนทำสื่อ ข้อเสนอที่ตรงที่สุดคือการรายงานชีวิตปกติของพื้นที่ ในฐานะบทบาทที่เพิ่มเติมจากงานสร้างสันติภาพที่ผ่านมา",
+      caveat:
+        "เป็นงานเชิงคุณภาพในจังหวัดปัตตานีจากผู้ให้ข้อมูล 51 คน มุ่งอธิบายความเข้าใจของผู้คนที่มีต่อปัญหา ไม่ใช่การวัดขนาดหรือความถี่ของเหตุการณ์ และไม่ได้ประเมินผลของนโยบายใด",
+    },
+    en: {
+      headline: "Listen to every side's story in the southern border provinces and the problem appears in five dimensions, not one",
+      question:
+        "Conflict and violence in Thailand's southern border provinces are usually explained from one side's point of view. What does the problem look like under a self-transcendental narrative paradigm — where each group tells its own story and is then asked to step across and see the same events from another group's position?",
+      method:
+        "Qualitative field research in Pattani province, conducted with local coordinators familiar with the area. Focus groups gathered 34 participants (8 Muslim residents and traders, 8 Buddhist residents and traders, 6 teachers, 12 recent school leavers), and individual in-depth interviews reached a further 17 people whose views were sensitive to express in a group setting (3 Islamic religious leaders, 3 Buddhist monks, 3 local administrative officers, 3 security officers, and 5 people of other ethnicities and religions plus outsiders). Projective techniques such as drawing and metaphor accompanied the sessions. Thirty-three narrated events were then analysed. The work was funded by the National Research Council of Thailand.",
+      findings: [
+        "The problem appears in five dimensions rather than one: (1) the state maintaining its governing authority; (2) power relations between civilians and the military, and between the public and the administration; (3) social problems — education, narcotics, belief, ways of life and making a living; (4) the interests of individuals, groups and organisations that benefit from violence continuing in the area; and (5) perception formed by the media.",
+        "That fifth dimension is the gap between the picture in the news and daily life: residents see themselves as living normally, not in the danger the media portrays, while the media picture generates enough fear that outsiders will not travel there.",
+        "Residents themselves asked that the media show ordinary life in the area, along with its places, culture and natural beauty, because that would help tourism and the local economy — part of the problem that coverage of violence obscures.",
+        "Reporting only “visible violence” without offering any way out contributes to stereotypes of Islam, of Muslims, and of the area itself, leading to fear, suspicion and discrimination.",
+      ],
+      soWhat:
+        "The authors propose changing the question from “solving the conflict and violence” to “building our own peace in this place” — starting by communicating everyone's perspective so that those working on the problem, inside and outside the area, genuinely understand it, and then designing a process that goes beyond negotiation and agreements. For media practitioners the most direct recommendation is to report ordinary life in the area as an addition to existing peace-building work.",
+      caveat:
+        "Qualitative work in Pattani province with 51 informants, aimed at explaining how people understand the problem rather than measuring the scale or frequency of events. It does not evaluate any policy.",
+    },
+  },
+  {
+    slug: "horror-storytelling-engagement",
+    indexUrl: "https://so12.tci-thaijo.org/index.php/jcmn/article/view/5690",
+    articleLanguage: "th",
+    pdfUrl: "https://so12.tci-thaijo.org/index.php/jcmn/article/download/5690/5224",
+    th: {
+      headline: "แฟนรายการผีเชื่อใจรายการมาก แต่แทบไม่ควักเงินสนับสนุน",
+      question:
+        "รายการเล่าเรื่องราวสยองขวัญมีฐานแฟนเหนียวแน่น งานนี้ถามว่าความคิดเห็นของผู้ติดตามต่อการสื่อสารการตลาดเชิงความสัมพันธ์ของรายการ สัมพันธ์กับพฤติกรรมการมีส่วนร่วมของเขาแค่ไหน และลักษณะทางประชากรทำให้ต่างกันอย่างไร",
+      method:
+        "วิจัยเชิงสำรวจด้วยแบบสอบถามออนไลน์จากผู้ที่ติดตามหรือเคยติดตามรายการเล่าเรื่องสยองขวัญ อายุ 18 ปีขึ้นไป จำนวน 400 คน (ค่าสัมประสิทธิ์แอลฟา 0.72–0.86) รายการที่กลุ่มตัวอย่างติดตามสูงสุดคือ The Ghost Radio และอังคารคลุมโปง เท่ากันที่ร้อยละ 87.25 วัดสามมิติคือความเชื่อใจ ความผูกพัน และการสื่อสาร เทียบกับพฤติกรรมการมีส่วนร่วมทั้งแบบทั่วไปและแบบที่มีค่าใช้จ่าย วิเคราะห์ด้วยสถิติเชิงพรรณนา สหสัมพันธ์เพียร์สัน และ One-way ANOVA",
+      findings: [
+        "ความคิดเห็นต่อการสื่อสารการตลาดเชิงความสัมพันธ์โดยรวมอยู่ระดับปานกลาง (3.36) โดยด้านความเชื่อใจสูงสุด (3.56) และข้อที่สูงสุดคือ “เชื่อว่ารายการให้ข้อมูลที่เป็นความจริงและน่าเชื่อถือ” (3.81)",
+        "แต่พฤติกรรมการมีส่วนร่วมโดยรวมอยู่ระดับต่ำ (2.45) — กิจกรรมต้นทุนต่ำอย่างการคอมเมนต์ใต้คลิปหรือในไลฟ์ (3.28) และการแบ่งปันคลิป (3.25) ทำกันมาก ส่วนการโดเนทเงินสนับสนุน (1.75) และการไปทริปท่องเที่ยว (1.41) ต่ำที่สุด",
+        "ความสัมพันธ์ระหว่างความคิดเห็นกับพฤติกรรมเป็นบวกและมีนัยสำคัญ แต่**อยู่ในระดับต่ำมาก** (r = 0.167, p < .05) ทัศนคติที่ดีจึงแทบไม่ได้ทำนายการมีส่วนร่วมจริง",
+        "ด้านความคิดเห็น กลุ่มอายุ 46–59 ปี (3.61) และ 60 ปีขึ้นไป (3.72) เป็นบวกสูงกว่ากลุ่มอายุ 18–35 ปี ส่วน**เพศ ระดับการศึกษา อาชีพ และรายได้ ไม่ทำให้ความคิดเห็นต่างกัน**",
+        "ด้านพฤติกรรม กลุ่มข้าราชการ/รัฐวิสาหกิจ และกลุ่มรายได้ 10,001–30,000 บาท มีส่วนร่วมสูงกว่ากลุ่มอื่น ส่วน**เพศ อายุ และระดับการศึกษาไม่ทำให้พฤติกรรมต่างกัน**",
+      ],
+      soWhat:
+        "งานนี้ชี้ช่องว่างระหว่างทัศนคติกับพฤติกรรม (attitude-behaviour gap) ที่คนทำคอนเทนต์เจอบ่อย — ผู้ติดตามเชื่อใจรายการและพร้อมบอกต่อ แต่ยังไม่แปลงเป็นการสนับสนุนที่มีค่าใช้จ่าย ทางออกที่ผลวิจัยชี้คือออกแบบขั้นบันไดจากกิจกรรมต้นทุนต่ำที่คนทำอยู่แล้ว ไปสู่การสนับสนุนที่จับต้องได้ แทนการกระโดดไปขอโดเนทตั้งแต่แรก",
+      caveat:
+        "ผู้วิจัยระบุข้อจำกัดไว้เองสองข้อ — พฤติกรรมบางด้านวัดจากคำตอบในแบบสอบถามเท่านั้น จึงอาจคลาดเคลื่อนจากพฤติกรรมจริง และกลุ่มตัวอย่าง 400 คนยังถือว่าเล็กเมื่อเทียบกับผู้ที่เคยติดตามรายการประเภทนี้ทั้งหมด สรุปผลจึงยังไม่ครอบคลุมประชากรทั้งหมด",
+    },
+    en: {
+      headline: "Horror-podcast fans trust the show deeply — and that trust almost never turns into money",
+      question:
+        "Horror storytelling programmes hold unusually devoted audiences. How closely does what followers think of a programme's relationship marketing communication relate to how they actually engage with it, and do demographics change the answer?",
+      method:
+        "A survey of 400 people aged 18 and over who follow or have followed horror storytelling programmes, conducted by online questionnaire (Cronbach's Alpha 0.72–0.86). The most-followed programmes among respondents were The Ghost Radio and Angkhan Khlum Pong, tied at 87.25%. The instrument measured three dimensions — trust, commitment and communication — against both ordinary engagement behaviour and engagement that costs money, analysed with descriptive statistics, Pearson's correlation, and one-way ANOVA.",
+      findings: [
+        "Overall opinion of the programmes' relationship marketing communication was moderate (3.36), with trust rated highest (3.56) and the single highest item being “I believe the programme gives truthful and credible information” (3.81).",
+        "Engagement behaviour overall, however, was low (2.45). Low-cost actions were common — commenting under clips or during live streams (3.28) and sharing clips (3.25) — while donating money (1.75) and joining a trip (1.41) were lowest of all.",
+        "Opinion and behaviour correlated positively and significantly, but **the correlation was very low** (r = 0.167, p < .05), so a favourable attitude barely predicts real engagement.",
+        "On opinion, the 46–59 (3.61) and 60-and-over (3.72) groups were more positive than the 18–35 group, while **gender, education, occupation and income made no difference**.",
+        "On behaviour, civil servants and state enterprise employees, and those earning 10,001–30,000 baht, engaged more than other groups, while **gender, age and education made no difference**.",
+      ],
+      soWhat:
+        "The study puts a number on the attitude-behaviour gap content creators keep running into: followers trust the programme and will recommend it, but that has not converted into paid support. What the results point to is designing a ladder from the low-cost actions people already take up towards tangible support, rather than jumping straight to asking for donations.",
+      caveat:
+        "The authors state two limits themselves: some behaviours were measured only through questionnaire answers and may diverge from what people actually do, and 400 respondents remains a small sample against everyone who has followed programmes of this kind, so the conclusions do not yet cover the whole population.",
+    },
+  },
 ];
 
-/** ค้นบทสรุปจาก DOI ของผลงาน — ใช้ตอน render รายการใน /research */
-export const summaryByDoi = new Map(paperSummaries.map((s) => [s.doi, s]));
+const byDoi = new Map(
+  paperSummaries.flatMap((s) => (s.doi ? [[s.doi, s] as const] : [])),
+);
+const byIndexUrl = new Map(
+  paperSummaries.flatMap((s) => (s.indexUrl ? [[s.indexUrl, s] as const] : [])),
+);
+
+/**
+ * ค้นบทสรุปจากรายการผลงาน — ใช้ตอน render รายการใน /research และดัชนีค้นหา
+ * ผูกด้วย DOI ก่อน ถ้าผลงานไม่มี DOI จึงใช้ URL หน้าบทความของวารสาร
+ */
+export const summaryForPublication = (pub: { doi?: string; indexUrl?: string }) =>
+  (pub.doi ? byDoi.get(pub.doi) : undefined) ??
+  (pub.indexUrl ? byIndexUrl.get(pub.indexUrl) : undefined);
+
+/**
+ * หาผลงานต้นทางของบทสรุป — **โยน error ถ้าเชื่อมไม่ติด**
+ *
+ * `publications.ts` ถูกเขียนทับทั้งไฟล์ทุกครั้งที่รัน `fetch-publications.mjs`
+ * ถ้าค่าที่ใช้เป็นกุญแจหายไป หน้าบทสรุปจะกลายเป็นหน้ากำพร้าที่ยังอยู่ใน sitemap
+ * แต่ขึ้น 404 ให้ build พังตรงนี้ดีกว่า จะได้รู้ตอนแก้ ไม่ใช่ไปรู้จากผู้อ่าน
+ */
+export function publicationForSummary(s: PaperSummary): PublicationEntry {
+  const found = publications.find((p) => (s.doi ? p.doi === s.doi : p.indexUrl === s.indexUrl));
+  if (!found)
+    throw new Error(
+      `paperSummaries: บทสรุป "${s.slug}" หาผลงานต้นทางไม่เจอ (${s.doi ?? s.indexUrl}) — ` +
+        "ตรวจว่า publications.ts ยังมีรายการนี้อยู่หลังรัน scripts/fetch-publications.mjs",
+    );
+  return found;
+}
 
 export const paperSummaryBySlug = (slug: string) =>
   paperSummaries.find((s) => s.slug === slug);

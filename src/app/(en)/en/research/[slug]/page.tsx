@@ -7,8 +7,12 @@ import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
-import { paperSummaries, paperSummaryBySlug, CC_LICENSES } from "@/data/paperSummaries";
-import { publications } from "@/data/publications";
+import {
+  paperSummaries,
+  paperSummaryBySlug,
+  publicationForSummary,
+  CC_LICENSES,
+} from "@/data/paperSummaries";
 import { leadership } from "@/data/leadership";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -20,13 +24,11 @@ export function generateStaticParams() {
 }
 
 const authorName = (slug: string) => leadership.find((l) => l.slug === slug)?.nameEn ?? slug;
-const paperFor = (doi: string) => publications.find((p) => p.doi === doi);
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const summary = paperSummaryBySlug(slug);
-  const paper = summary && paperFor(summary.doi);
-  if (!summary || !paper) return { title: "Summary not found" };
+  if (!summary) return { title: "Summary not found" };
   return {
     title: summary.en.headline,
     description: summary.en.question.slice(0, 160),
@@ -50,10 +52,14 @@ export async function generateMetadata({ params }: Props) {
 export default async function PaperSummaryPageEn({ params }: Props) {
   const { slug } = await params;
   const summary = paperSummaryBySlug(slug);
-  const paper = summary && paperFor(summary.doi);
-  if (!summary || !paper) notFound();
+  if (!summary) notFound();
+  const paper = publicationForSummary(summary);
 
-  const license = CC_LICENSES[summary.license];
+  // No licence means the journal reserves copyright, not that it is unchecked —
+  // so the page must not claim a Creative Commons licence it does not have
+  const license = summary.license ? CC_LICENSES[summary.license] : null;
+  // Many Thai journals register no DOI; link to the journal's article page instead
+  const sourceHref = summary.doi ? `https://doi.org/${summary.doi}` : summary.indexUrl;
   // Points at the publisher's own repository, not a copy we serve, so readers
   // always get the current version even after an erratum
   const pdfUrl = summary.pdfUrl;
@@ -68,10 +74,12 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             venue: paper.venue,
             year: paper.year,
             doi: summary.doi,
+            indexUrl: summary.indexUrl,
+            inLanguage: summary.articleLanguage,
             authors: paper.authors,
             authorName,
             path: `/en/research/${slug}`,
-            licenseHref: license.href,
+            licenseHref: license?.href,
             pdfUrl,
           }),
           breadcrumbSchema([
@@ -107,12 +115,15 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[15px]">
               <a
-                href={`https://doi.org/${summary.doi}`}
+                href={sourceHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-pink-500 hover:text-pink-700 hover:underline"
               >
-                Open the original article (DOI)
+                {summary.doi
+                  ? "Open the original article (DOI)"
+                  : "Open the original article at the journal"}
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
               {summary.pdfUrl ? (
                 <a
@@ -136,20 +147,26 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             <CitationTool publication={paper} citation={paper.citation} locale="en" />
           ) : null}
 
-          {/* CC requires naming the licence and giving credit — not just "free to read" */}
+          {/* CC requires naming the licence and giving credit — not just "free to read".
+              Where the journal reserves copyright, say so rather than implying CC. */}
           <div className="mt-12 border-t border-ink-100 pt-6 text-[13px] leading-[1.6] text-ink-500">
             <p>
-              The original article is published under the{" "}
-              <a
-                href={license.href}
-                target="_blank"
-                rel="license noopener noreferrer"
-                className="text-pink-500 hover:text-pink-700 hover:underline"
-              >
-                {license.label}
-              </a>{" "}
-              licence; copyright remains with the authors and the publishing journal.
-{" "}
+              {license ? (
+                <>
+                  The original article is published under the{" "}
+                  <a
+                    href={license.href}
+                    target="_blank"
+                    rel="license noopener noreferrer"
+                    className="text-pink-500 hover:text-pink-700 hover:underline"
+                  >
+                    {license.label}
+                  </a>{" "}
+                  licence; copyright remains with the authors and the publishing journal.{" "}
+                </>
+              ) : (
+                <>Copyright in the original article rests with the authors and the publishing journal. </>
+              )}
               The centre does not host a copy of the file; every link goes to the journal&rsquo;s own
               repository, so readers always get the current version even if an erratum is issued later.
             </p>

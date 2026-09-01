@@ -12,7 +12,7 @@ import { newsPosts } from "@/data/news";
 import { mediaSorted } from "@/data/media";
 import { services } from "@/data/services";
 import { publications } from "@/data/publications";
-import { summaryByDoi } from "@/data/paperSummaries";
+import { summaryForPublication } from "@/data/paperSummaries";
 import { SDG, SDG_IDS } from "@/data/sdg";
 
 export type SearchKind = "project" | "news" | "media" | "service" | "publication" | "sdg" | "page";
@@ -132,7 +132,7 @@ export function buildSearchIndex(locale: "th" | "en"): SearchDoc[] {
      * — ผู้ใช้ที่ค้นในเว็บเรามักอยากรู้ว่า "งานนี้พูดว่าอะไร" ไม่ใช่อยากได้ไฟล์วารสาร
      * และหน้าบทสรุปก็มีลิงก์ DOI ให้อยู่แล้วสำหรับคนที่ต้องการต้นฉบับ
      */
-    const summary = pub.doi ? summaryByDoi.get(pub.doi) : undefined;
+    const summary = summaryForPublication(pub);
     const headline = summary ? summary[locale].headline : "";
     docs.push({
       kind: "publication",

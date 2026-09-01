@@ -156,26 +156,32 @@ export function scholarlyArticleSchema(args: {
   title: string;
   venue: string;
   year: number;
-  doi: string;
+  /** มีเฉพาะงานที่สำนักพิมพ์จด DOI ไว้ วารสารไทยหลายเล่มไม่จด */
+  doi?: string;
+  /** URL หน้าบทความที่วารสาร — ใช้เป็นที่อยู่ถาวรแทน DOI เมื่อไม่มี DOI */
+  indexUrl?: string;
+  /** ภาษาที่ตัวบทความเขียน ไม่ใช่ภาษาของหน้าเว็บที่สรุป */
+  inLanguage: "th" | "en";
   authors: string[];
   authorName: (slug: string) => string;
   path: string;
-  licenseHref: string;
+  /** ใส่เฉพาะบทความที่มีสัญญาอนุญาต CC จริง — ไม่มีก็ไม่ต้องอ้างว่ามี */
+  licenseHref?: string;
   pdfUrl?: string;
 }) {
+  // ที่อยู่ถาวรของ "ตัวงาน" — ไม่ใช่หน้าสรุปของเรา ซึ่งไปอยู่ใน mainEntityOfPage
+  const canonical = args.doi ? `https://doi.org/${args.doi}` : args.indexUrl;
   return {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     name: args.title,
     headline: args.title,
     datePublished: String(args.year),
-    inLanguage: "en",
+    inLanguage: args.inLanguage,
     ...(args.venue ? { isPartOf: { "@type": "Periodical", name: args.venue } } : {}),
-    identifier: `https://doi.org/${args.doi}`,
-    url: `https://doi.org/${args.doi}`,
-    sameAs: `https://doi.org/${args.doi}`,
+    ...(canonical ? { identifier: canonical, url: canonical, sameAs: canonical } : {}),
     mainEntityOfPage: `${SITE_URL}${args.path}`,
-    license: args.licenseHref,
+    ...(args.licenseHref ? { license: args.licenseHref } : {}),
     author: args.authors.map((slug) => ({
       "@type": "Person",
       name: args.authorName(slug),
