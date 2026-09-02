@@ -816,6 +816,149 @@ export const paperSummaries: PaperSummary[] = [
         "The authors state two limits themselves: some behaviours were measured only through questionnaire answers and may diverge from what people actually do, and 400 respondents remains a small sample against everyone who has followed programmes of this kind, so the conclusions do not yet cover the whole population.",
     },
   },
+  {
+    slug: "migrant-worker-exercise-codesign",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กล่องใบเล็กที่มีรูปทรงพอดีวางอยู่ข้างใน ขณะที่รูปทรงใหญ่กว่าวางค้างอยู่ข้างนอก",
+    illustrationAltEn:
+      "Paper-craft illustration of a small box holding the one shape that fits, with a larger shape left outside it",
+    doi: "10.1186/s40900-026-00891-8",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "migrant-worker-exercise-codesign.pdf",
+    th: {
+      headline: "ถามคนทำงานก่อนออกแบบ จึงได้ท่าบริหารที่ทำได้จริงในห้องพักและนอกเวลางาน",
+      question:
+        "แรงงานข้ามชาติชาวเมียนมาในโรงงานอาหารทะเลของไทยเจ็บป่วยจากงานซ้ำๆ อย่างการแกะกุ้งและยืนนาน แต่โครงการสุขภาพทั่วไปเข้าไม่ถึงคนกลุ่มนี้เพราะกำแพงภาษาและวัฒนธรรม งานนี้ถามว่าถ้าให้คนทำงานร่วมออกแบบตั้งแต่ต้น โปรแกรมที่ได้จะต่างจากที่ผู้เชี่ยวชาญออกแบบเองอย่างไร",
+      method:
+        "งานออกแบบร่วมแบบผสมวิธี จัดวงสนทนากับแรงงานชาวเมียนมา 29 คน แบ่งสามกลุ่มตามอายุงาน (น้อยกว่า 2 ปี 10 คน · 2–5 ปี 11 คน · มากกว่า 5 ปี 8 คน) ทั้งหมดมาจากโรงงานเดียว คุยด้วยภาษาเมียนมาและจัดเวลาให้เข้ากับกะทำงาน 12 ชั่วโมง ประกอบกับการคุยกับฝ่ายบุคคลและหัวหน้าสายการผลิต 5 คน แล้วส่งให้นักกายภาพบำบัดต่างประเทศ 4 คนตรวจความตรงเชิงเนื้อหา · ขอความยินยอมเป็นรายบุคคลโดยไม่มีฝ่ายบริหารอยู่ด้วย ให้เวลาตัดสินใจ 48 ชั่วโมง และไม่ให้หัวหน้างานเป็นผู้ชี้ตัวผู้เข้าร่วม",
+      findings: [
+        "**แรงงานทั้ง 29 คนมีอาการที่มือทุกคน** ทั้งชา เสียว และปวด · 25 คน (86%) มีอาการมือแข็งตอนเช้าจนกระทบชีวิตนอกงานด้วย · ปวดคอ 79% ปวดหลังส่วนล่าง 72% ปวดข้อเท้า 45%",
+        "**23 คนจาก 29 (79%) ซื้อยาแก้ปวดกินเองอย่างน้อยสัปดาห์ละครั้ง** และบางคนกลับไปทำงานแบบเดิมทันทีหลังผ่าตัด สะท้อนว่าคนกลุ่มนี้พยายามดูแลตัวเองอยู่แล้ว แต่ด้วยวิธีที่เสี่ยง",
+        "**26 คนจาก 29 (89.7%) ใช้เฟซบุ๊กทุกวัน** และเลือกช่องทางนี้เพราะเปิดดูเรื่องสุขภาพได้โดยหัวหน้าไม่เห็น · ขอเป็นวิดีโอสาธิตมากกว่าเอกสาร และ**ปฏิเสธการอบรมแบบบังคับในวันหยุดวันเดียวของสัปดาห์**",
+        "อุปสรรคเข้าถึงบริการสุขภาพที่แรงงานเล่าเอง — บุคลากรไม่พูดภาษาพม่า ล่ามในโรงพยาบาลรัฐพูดจาไม่ให้เกียรติ ประกันของโรงงานคุ้มครองเฉพาะอุบัติเหตุเฉียบพลันไม่ครอบคลุมอาการเรื้อรัง และถูกเลือกปฏิบัติ",
+        "ข้อกำหนดที่แรงงานตั้งเองกลายเป็นโจทย์ออกแบบ — ท่าบริหารต้องทำได้ในพื้นที่แคบระดับห้องพัก ไม่ใช้อุปกรณ์ ทำนอกเวลางาน และไม่ทำให้รายได้ลดลง เพราะทุกคนมีภาระส่งเงินกลับบ้าน",
+        "ผลลัพธ์คือชุดท่าบริหาร 12 ท่า 4 สัปดาห์ ที่**ผ่านการตรวจความตรงเชิงเนื้อหาจากผู้เชี่ยวชาญในระดับสูง** (I-CVI 0.95–1.00 · S-CVI/Ave 0.94) แสดงว่าการฟังคนทำงานไม่ได้ทำให้คุณภาพทางคลินิกลดลง",
+      ],
+      soWhat:
+        "บทเรียนที่ใช้ได้กับงานสื่อสารสุขภาพทุกแบบคือ ข้อจำกัดที่คนหน้างานบอกไม่ใช่ข้อจำกัดที่ต้องยอมแลกกับคุณภาพ แต่เป็นเงื่อนไขที่ทำให้โปรแกรมถูกใช้จริง · การเลือกช่องทางที่คนกลุ่มเป้าหมายใช้อยู่แล้วและปกปิดตัวตนได้ สำคัญกว่าการเลือกช่องทางที่องค์กรถนัด",
+      caveat:
+        "**งานนี้เป็นการออกแบบร่วม ไม่ใช่การทดสอบว่าท่าบริหารได้ผลจริง** สิ่งที่พิสูจน์แล้วคือกระบวนการออกแบบให้ผลลัพธ์ที่ทั้งใช้ได้จริงและผ่านมาตรฐานคลินิก ส่วนผลต่อสุขภาพจะรู้ในระยะถัดไปที่ยังไม่ได้ทำ · เก็บข้อมูลจากโรงงานเดียว 29 คน ด้วยการเลือกตัวอย่างตามสะดวก จึงไม่ใช่ภาพแทนแรงงานข้ามชาติทั้งอุตสาหกรรม",
+    },
+    en: {
+      headline: "Ask the workers first, and you get exercises that fit a dormitory room and the hours they actually have",
+      question:
+        "Myanmar migrant workers in Thailand's seafood plants are injured by repetitive tasks such as shrimp peeling and long hours standing, yet ordinary health programmes never reach them because of language and cultural barriers. This study asked what changes when the workers help design the programme from the start.",
+      method:
+        "A mixed-methods co-design study. Engagement sessions were held with 29 Myanmar workers in three groups by length of service (under 2 years, 10; 2–5 years, 11; over 5 years, 8), all from a single factory, conducted in Myanmar language and scheduled around 12-hour shifts. Five workplace stakeholders (HR managers and line supervisors) were consulted, and four international physical therapists assessed content validity. Consent was taken privately without management present, with 48 hours to decide, and supervisors did not refer participants.",
+      findings: [
+        "**Every one of the 29 workers reported hand symptoms** — numbness, tingling and pain. Twenty-five (86%) had morning hand stiffness that affected life outside work as well. Neck pain 79%, lower back pain 72%, ankle pain 45%.",
+        "**23 of the 29 (79%) bought over-the-counter painkillers at least weekly**, and some returned to identical work straight after surgery — this group was already trying to manage its own health, but by risky means.",
+        "**26 of 29 (89.7%) used Facebook daily** and chose it because they could read about health without supervisors seeing. They asked for video demonstrations rather than written material, and **rejected compulsory workshops on their single day off**.",
+        "Barriers to care named by the workers themselves: providers who do not speak Burmese, interpreters in government hospitals who treated them disrespectfully, workplace insurance covering only acute injury rather than chronic conditions, and discrimination.",
+        "The constraints the workers set became the design brief — exercises had to work in a dormitory-sized space, need no equipment, run outside working hours, and never reduce earnings, since all of them send money home.",
+        "The result was a 12-exercise, four-week programme that **scored highly on expert content validity** (I-CVI 0.95–1.00; S-CVI/Ave 0.94), showing that listening to workers did not cost clinical quality.",
+      ],
+      soWhat:
+        "The transferable lesson for any health communication work is that the constraints named by the people at the sharp end are not a trade-off against quality — they are the conditions under which a programme gets used at all. Choosing a channel the audience already uses, and can use privately, matters more than choosing the channel the organisation is comfortable with.",
+      caveat:
+        "**This is a co-design study, not a test of whether the exercises work.** What it demonstrates is that the design process produced something both usable and clinically valid; the health effects belong to a later phase that has not been run. Evidence comes from one factory and 29 people recruited by purposive convenience sampling, so it does not represent migrant workers across the industry.",
+    },
+  },
+  {
+    slug: "thailand-image-cannabis-youtube",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กองแผ่นกลมสีเดียวสูงท่วม กับกองสีที่สองที่เตี้ยมากอยู่ข้างๆ",
+    illustrationAltEn:
+      "Paper-craft illustration of one tall stack of discs in a single colour beside a second stack that is barely off the ground",
+    doi: "10.1371/journal.pone.0317506",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "thailand-image-cannabis-youtube.pdf",
+    th: {
+      headline: "โลกมองไทยหลังปลดล็อกกัญชาในแง่บวกท่วมท้น แต่แทบไม่มีคลิปไหนเตือนนักท่องเที่ยวเรื่องกฎหมายบ้านตัวเอง",
+      question:
+        "หลังไทยปลดล็อกกัญชาเมื่อ 9 มิถุนายน 2565 ภาพของประเทศบนยูทูบซึ่งเป็นแหล่งข้อมูลหลักของนักท่องเที่ยวทั่วโลกถูกเล่าออกมาอย่างไร ใครเป็นคนเล่า และเล่าครบหรือไม่",
+      method:
+        "วิเคราะห์เนื้อหาคลิปยูทูบ 57 คลิป ที่เผยแพร่ระหว่าง 9 มีนาคม ถึง 9 กันยายน 2565 คือสามเดือนก่อนและสามเดือนหลังวันปลดล็อก แบ่งเป็นคลิปข่าว 30 คลิป (52.6%) และวล็อก 27 คลิป (47.4%) วิเคราะห์ด้วยกรอบการประกอบสร้างข่าวและภาพลักษณ์ประเทศ",
+      findings: [
+        "**คลิปร้อยละ 81 เผยแพร่หลังวันประกาศปลดล็อก** และกระจุกตัวในเดือนมิถุนายนที่มีถึง 21 คลิป (36.8%) ก่อนจะลดเหลือ 2 คลิป (3.5%) ในเดือนกันยายน",
+        "**โทนโดยรวมเป็นบวก 43 คลิป (75.4%)** ลบเพียง 4 คลิป (7.0%) ก้ำกึ่ง 9 คลิป (15.8%) และเป็นกลาง 1 คลิป (1.8%)",
+        "มิติที่ถูกพูดถึงมากที่สุดคือมิติอารมณ์ 89.5% รองมาคือมิติสังคม 82.5% และกายภาพ 77.2% ส่วนมิติการเมืองถูกพูดถึงน้อยที่สุดที่ 50.9%",
+        "**คนที่ถูกอ้างเป็นเสียงแรกคือคนไทยทั่วไป 42.1% และเจ้าหน้าที่รัฐไทย 26.3%** รวมกันเกือบเจ็ดในสิบ แปลว่าเรื่องเล่าที่โลกได้ยินมาจากฝั่งไทยเป็นหลัก",
+        "**คลิปจำนวนมากมีเสียงเดียว** — 28.1% ไม่มีผู้ถูกอ้างคนที่สองเลย และ 64.9% ไม่มีคนที่สาม",
+        "**มีคลิปจำนวนน้อยมากที่เตือนนักท่องเที่ยวเรื่องความยุ่งยากทางกฎหมายเมื่อกลับประเทศตัวเอง** ทั้งที่เป็นข้อมูลที่ผู้ชมกลุ่มนี้ต้องใช้มากที่สุด",
+      ],
+      soWhat:
+        "สำหรับงานสื่อสารภาพลักษณ์ประเทศ ผลนี้ชี้ว่าการเปลี่ยนนโยบายครั้งใหญ่สร้างความสนใจได้จริงและได้โทนบวก แต่ความสนใจนั้นมีอายุสั้นและกระจุกอยู่ที่ช่วงประกาศ · ที่สำคัญกว่าคือเรื่องเล่าที่บวกแต่ไม่ครบอาจทำให้ผู้ชมตัดสินใจโดยขาดข้อมูลที่จำเป็น ซึ่งย้อนกลับมากระทบชื่อเสียงของประเทศได้ในภายหลัง",
+      caveat:
+        "วิเคราะห์คลิปเพียง 57 คลิปจากแพลตฟอร์มเดียวในช่วงหกเดือน จึงเป็นภาพช่วงเวลาหนึ่งไม่ใช่ภาพรวมของสื่อทั้งหมด · ผู้เขียนเองเสนอให้งานต่อไปขยายทั้งขนาดตัวอย่างและแหล่งข้อมูล · ข้อมูลเก็บปี 2565 ก่อนที่ทิศทางนโยบายกัญชาของไทยจะเปลี่ยนอีกครั้ง",
+    },
+    en: {
+      headline: "The world's picture of Thailand after cannabis legalisation was overwhelmingly positive — and almost never mentioned the law back home",
+      question:
+        "After Thailand legalised cannabis on 9 June 2022, how was the country portrayed on YouTube — a primary information source for travellers worldwide — who was doing the telling, and was the account complete?",
+      method:
+        "A content analysis of 57 YouTube clips published between 9 March and 9 September 2022, the three months either side of legalisation: 30 news segments (52.6%) and 27 vlogs (47.4%), analysed through media framing and nation-image frameworks.",
+      findings: [
+        "**81% of the clips appeared after the legalisation announcement**, concentrated in June with 21 clips (36.8%), falling to just 2 clips (3.5%) by September.",
+        "**Overall tone was positive in 43 clips (75.4%)**, negative in only 4 (7.0%), ambivalent in 9 (15.8%) and neutral in 1 (1.8%).",
+        "The most covered dimension was emotional at 89.5%, then social at 82.5% and physical at 77.2%. The political dimension was covered least, at 50.9%.",
+        "**The first-quoted voice was an ordinary Thai citizen in 42.1% of clips and a Thai government official in 26.3%** — together nearly seven in ten, meaning the story the world heard came mainly from the Thai side.",
+        "**Many clips carried a single voice** — 28.1% quoted no second actor at all, and 64.9% quoted no third.",
+        "**Very few clips warned travellers about the legal complications of returning to their own countries**, the very information that audience most needed.",
+      ],
+      soWhat:
+        "For nation-image work, this shows a major policy change can generate real attention in a favourable tone — but that the attention is short-lived and clusters around the announcement. More importantly, an account that is positive but incomplete can leave audiences deciding without information they need, which can rebound on the country's reputation later.",
+      caveat:
+        "Only 57 clips from a single platform over six months, so this is a snapshot rather than a picture of all media coverage. The authors themselves call for larger samples and more sources in future work. The data was collected in 2022, before the direction of Thai cannabis policy shifted again.",
+    },
+  },
+  {
+    slug: "health-officers-knowledge-sharing",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ประตูบานใหม่ที่ปิดอยู่ ข้างๆ มีบานเก่าที่เปิดค้างและมีร่องรอยการใช้งาน",
+    illustrationAltEn:
+      "Paper-craft illustration of a new door standing shut beside an older, well-worn one that is propped open",
+    doi: "10.14456/jhr.2015.30",
+    articleLanguage: "en",
+    th: {
+      headline: "อุปสรรคใหญ่ที่สุดคือไม่คุ้นเครื่องมือใหม่ เจ้าหน้าที่จึงเลือกเครื่องมือที่ใช้อยู่ทุกวันกับการเจอหน้ากัน",
+      question:
+        "ราชการไทยกำหนดให้ทุกหน่วยงานต้องจัดการความรู้ภายในองค์กร งานนี้ถามว่าเจ้าหน้าที่ที่ต้องทำจริงติดขัดตรงไหน และถ้าให้เลือกเอง เขาอยากแลกเปลี่ยนความรู้กันด้วยวิธีไหนและบนช่องทางใด",
+      method:
+        "สำรวจด้วยแบบสอบถามส่งทางไปรษณีย์ถึงเจ้าหน้าที่กรมควบคุมโรคที่รับผิดชอบงานสื่อสารสุขภาพทั่วประเทศ 111 คน (ชาย 41 หญิง 70) ตอบกลับครบ 100% เพราะผู้บริหารระดับสูงกำหนดให้ต้องตอบ · ใช้หัวข้อการสื่อสารป้องกันโรคเบาหวานเป็นกรณีตั้งต้น · แบบสอบถาม 18 ข้อผ่านการตรวจความตรงเชิงเนื้อหาจากผู้เชี่ยวชาญ 5 ท่าน · ตอบได้มากกว่าหนึ่งข้อต่อคำถาม",
+      findings: [
+        "**อุปสรรคอันดับหนึ่งคือไม่คุ้นเคยกับเทคโนโลยีใหม่ 54.1% (60 คน)** รองลงมาคือมักแบ่งปันเรื่องที่ไม่เกี่ยวข้อง 43.2% (48 คน) และความไม่สะดวกในการประสานงาน 40.5% (45 คน)",
+        "**ไม่อยากเปิดเผยข้อมูล 36.9% (41 คน) และไม่มีแรงจูงใจ 32.4% (36 คน)** ขณะที่ 25.2% (28 คน) ระบุว่าปัญหาคือการถูกบังคับให้เข้าร่วม",
+        "**ช่องทางที่เลือกมากที่สุดคือเฟซบุ๊ก 53.2% (59 คน)** ทิ้งห่างเว็บบอร์ดและอีเมลที่ได้เท่ากันที่ 19.8% แชท 18.9% ประชุมทางไกล 18.9% ส่วนทวิตเตอร์ได้เพียง 6.3%",
+        "**กิจกรรมที่อยากได้กลับเป็นแบบพบหน้า** — ประชุมและศึกษาดูงาน 30.6% (34 คน) บรรยายและอบรมเชิงปฏิบัติการ 29.7% (33 คน) และมีพี่เลี้ยงคอยแนะ 27.0% (30 คน)",
+        "**องค์ประกอบกลุ่มที่ต้องการชัดเจนที่สุดคือกลุ่มคละประสบการณ์และมีพี่เลี้ยง 55.9% (62 คน)** เทียบกับกลุ่มที่มีแต่คนช่ำชองซึ่งได้เพียง 16.2% และกลุ่มมือใหม่ล้วน 6.3%",
+      ],
+      soWhat:
+        "คำตอบของคนหน้างานสวนทางกับสมมติฐานที่มักตั้งกันว่าการจัดการความรู้ต้องเริ่มที่แพลตฟอร์มใหม่ · เมื่ออุปสรรคอันดับหนึ่งคือความไม่คุ้นเคย การเพิ่มเครื่องมือใหม่ยิ่งทำให้ปัญหาหนักขึ้น สิ่งที่เจ้าหน้าที่เลือกคือช่องทางที่ใช้อยู่แล้วในชีวิตประจำวัน บวกกับคนที่คอยแนะ — เทคโนโลยีเป็นเรื่องรอง ความสัมพันธ์เป็นเรื่องหลัก",
+      caveat:
+        "**อัตราตอบกลับ 100% มาจากการที่ผู้บริหารกำหนดให้ตอบ ไม่ใช่ความสมัครใจ** ซึ่งอาจทำให้คำตอบโน้มไปทางที่คิดว่าองค์กรอยากได้ยิน และสอดคล้องกับที่ผู้ตอบ 25.2% ระบุเองว่าการถูกบังคับเข้าร่วมเป็นปัญหา · เป็นการสำรวจความชอบที่แจ้งเอง ไม่ใช่การสังเกตพฤติกรรมจริง · **เก็บข้อมูลปี 2557–2558** ตัวเลือกในแบบสอบถามยังมีไฮไฟฟ์ บทบาทของเฟซบุ๊กในที่ทำงานไทยจึงต่างจากปัจจุบันมาก · เก็บจากกรมเดียวและใช้หัวข้อเบาหวานเป็นกรณีตั้งต้น",
+    },
+    en: {
+      headline: "The biggest obstacle was unfamiliar technology — so the staff chose the tool they already used daily, and each other",
+      question:
+        "Thai government offices are required to run internal knowledge management. This study asked where the officers who actually have to do it get stuck, and — given the choice — how and where they would rather share what they know.",
+      method:
+        "A postal survey of 111 officers responsible for health communication at the Department of Disease Control nationwide (41 men, 70 women), with a 100% response rate because senior management required regional managers to respond. Diabetes prevention communication was the reference topic. The 18-item questionnaire passed content-validity review by five specialists. Respondents could select more than one answer per question.",
+      findings: [
+        "**The leading obstacle was unfamiliarity with new technology at 54.1% (60 people)**, followed by a tendency to share irrelevant material at 43.2% (48) and inconvenient collaboration at 40.5% (45).",
+        "**Unwillingness to disclose information reached 36.9% (41) and lack of motivation 32.4% (36)**, while 25.2% (28) named compulsory participation itself as a problem.",
+        "**Facebook was the most chosen platform at 53.2% (59 people)**, far ahead of web boards and email at 19.8% each, chat at 18.9%, videoconference at 18.9%, and Twitter at just 6.3%.",
+        "**The activities they wanted were face to face** — meetings and study trips at 30.6% (34), lectures and workshops at 29.7% (33), and mentoring at 27.0% (30).",
+        "**The clearest preference of all was for mixed-experience groups with a mentor, at 55.9% (62 people)**, against 16.2% for groups of experienced communicators only and 6.3% for beginners only.",
+      ],
+      soWhat:
+        "The staff's own answers cut against the common assumption that knowledge management starts with a new platform. When the top obstacle is unfamiliarity, adding another tool makes the problem worse. What they chose was the channel already in their daily lives plus people to guide them — technology second, relationships first.",
+      caveat:
+        "**The 100% response rate came from a management requirement, not from willingness**, which may pull answers toward what respondents thought the organisation wanted to hear — consistent with the 25.2% who named forced participation as a problem. These are self-reported preferences, not observed behaviour. **The data is from 2014–2015**: the option list still included Hi5, and Facebook's role in Thai workplaces has changed considerably since. Evidence comes from a single department using one reference topic.",
+    },
+  },
 ];
 
 const byDoi = new Map(
