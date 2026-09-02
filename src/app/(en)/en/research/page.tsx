@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import ResearchExplorer from "@/components/research/ResearchExplorer";
 import JsonLd from "@/components/seo/JsonLd";
 import { publicationListSchema } from "@/lib/schema";
@@ -54,6 +55,7 @@ export default function ResearchPageEn() {
           <Stat value={publicationStats.books} unit="books" label="Academic books (Springer)" delay={240} />
           <Stat value={publicationStats.since} label="Publishing continuously since" animate={false} />
         </div>
+        <PageBanner page="research" locale="en" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

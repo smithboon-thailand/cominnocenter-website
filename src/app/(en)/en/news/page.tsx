@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/ui/PageBanner";
 import { newsSorted, newsCover } from "@/data/news";
 
 export const metadata = {
@@ -38,6 +39,7 @@ export default function NewsPageEn() {
             News, events, and stories from the center&apos;s work
           </p>
         </div>
+        <PageBanner page="news" locale="en" />
       </section>
 
       <section className="max-w-7xl mx-auto px-6 pb-20">

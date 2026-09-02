@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import NewsletterForm from "@/components/NewsletterForm";
 import PersonaBlocks from "@/components/collaborate/PersonaBlocks";
 import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
+import PageBanner from "@/components/ui/PageBanner";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 
 export const metadata = {
@@ -50,16 +50,7 @@ export default function EnglishCollaboratePage() {
           partnerships with government, business, and civil society to build communication
           innovation for quality of life and sustainability.
         </p>
-        <div className="relative mt-10 aspect-[21/9] overflow-hidden rounded-lg border border-ink-300">
-          <Image
-            src="/images/collaborate/banner.webp"
-            alt="Partnership illustration — two paper ribbons woven together"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1280px) 100vw, 1216px"
-            priority
-          />
-        </div>
+        <PageBanner page="collaborate" locale="en" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">

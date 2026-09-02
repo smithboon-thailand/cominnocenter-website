@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
+import PageBanner from "@/components/ui/PageBanner";
 import { researchers } from "@/data/researchers";
 import { leadership, objectives, type SocialLink } from "@/data/leadership";
 import { highlightsFor, type HighlightPerson } from "@/data/highlights";
@@ -76,6 +77,7 @@ export default function EnglishAboutPage() {
           For the development of quality of life and sustainability — Faculty of Communication
           Arts, Chulalongkorn University
         </p>
+        <PageBanner page="about" locale="en" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">

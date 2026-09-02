@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import ExpertiseExplorer from "@/components/expertise/ExpertiseExplorer";
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default function ExpertisePage() {
           ผลิตสื่อ ขับเคลื่อน และส่งต่อความรู้ ทุกบริการมีผลงานจริงรองรับ
           กดที่การ์ดเพื่อกางรายชื่อโครงการ หรือกดจุดสีเพื่อดูผลงานตามเป้าหมาย SDG
         </p>
+        <PageBanner page="expertise" locale="th" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

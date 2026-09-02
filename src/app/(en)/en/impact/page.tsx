@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import SdgBadge from "@/components/ui/SdgBadge";
 import SdgFilterChips from "@/components/ui/SdgFilterChips";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import ImpactExplorer, { type ImpactCardData } from "@/components/impact/ImpactExplorer";
 import { projects, type Project } from "@/data/projects";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
@@ -82,6 +83,7 @@ export default function ImpactPageEn() {
           Every project connects to the Sustainable Development Goals. Pick a goal to see our
           work in that area.
         </p>
+        <PageBanner page="impact" locale="en" />
       </section>
 
       <Suspense

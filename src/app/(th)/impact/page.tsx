@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import SdgBadge from "@/components/ui/SdgBadge";
 import SdgFilterChips from "@/components/ui/SdgFilterChips";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import ImpactExplorer, { type ImpactCardData } from "@/components/impact/ImpactExplorer";
 import { projects, type Project } from "@/data/projects";
 import { SDG_IDS, type SdgId } from "@/data/sdg";
@@ -81,6 +82,7 @@ export default function ImpactPage() {
           ทุกโครงการของเราเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน
           เลือกเป้าหมายเพื่อดูผลงานในเรื่องนั้น
         </p>
+        <PageBanner page="impact" locale="th" />
       </section>
 
       <Suspense
