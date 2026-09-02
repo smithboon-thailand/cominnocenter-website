@@ -13,6 +13,17 @@
  *    แต่ด้านที่ได้ผลคือการบิดเบือน และเป็นสิ่งที่เว็บของหน่วยวิจัยต้องไม่ทำ
  * 4. ข้อจำกัดของงาน (กลุ่มตัวอย่างเล็ก เก็บข้อมูลนานแล้ว ฯลฯ) เขียนไว้ใน `caveat`
  *    เพื่อไม่ให้ผู้อ่านทั่วไปเอาไปอ้างเกินกว่าที่งานรองรับ
+ * 5. **ห้ามระบุชื่อองค์กรหรือบุคคลที่ถูกวิจารณ์ในข้อค้นพบ** — บทความต้นฉบับระบุได้
+ *    เพราะเป็นงานวิชาการที่ผ่านการตรวจ แต่บทสรุปบนเว็บนี้เป็นงานเขียนของศูนย์ฯ เอง
+ *    ผู้อ่านย่อมอ่านว่าเป็นคำตัดสินของศูนย์ฯ ไม่ใช่การรายงานผลวิจัย และชื่อเหล่านั้น
+ *    ไม่ได้เพิ่มคุณค่าให้บทเรียนที่นำไปใช้ได้เลย (พบเมื่อ 2 ก.ย. 2569 — ผู้ใช้เป็นคนทัก
+ *    ในกรณีสถานีโทรทัศน์ที่ถูกสั่งปรับจากการรายงานข่าวโคราช)
+ *    **ต้องตัดตัวเลขที่ชี้ตัวได้ออกด้วย** เช่นยอดผู้ติดตามเพจที่ค้นกลับได้ทันที
+ *    การตัดแต่ชื่อแล้วทิ้งลายนิ้วมือไว้ไม่ได้ปิดอะไรเลย · เมื่อตัดแล้วให้เขียนบอกใน
+ *    `caveat` ว่าเราตั้งใจไม่ระบุ ไม่ใช่ตัดเงียบๆ ซึ่งจะดูเหมือนลดทอนงานวิจัย
+ *    · **ข้อนี้ไม่ห้ามเอ่ยชื่อที่เป็นเพียงขอบเขตของงานและไม่มีข้อวิจารณ์พ่วง**
+ *    เช่นระบุว่างานสำรวจผู้ใช้แอปสองเจ้า และไม่ห้ามเอ่ยชื่อหน่วยงานรัฐที่ใช้อำนาจ
+ *    ตามกฎหมาย ซึ่งเป็นข้อเท็จจริงสาธารณะ
  *
  * **เว็บไม่ได้เก็บไฟล์ PDF ไว้เสิร์ฟเอง** (ตัดสินใจ 31 ส.ค. 2569)
  *
@@ -587,9 +598,9 @@ export const paperSummaries: PaperSummary[] = [
       question:
         "หลัง กสทช. สั่งปรับทางปกครองสถานีโทรทัศน์ดิจิทัลจากการรายงานข่าวคนร้ายจับตัวประกันที่จังหวัดนครราชสีมา สถานีเหล่านั้นสื่อสารกับสังคมอย่างไร และบริหารจัดการภาวะวิกฤตด้วยกลไกอะไร",
       method:
-        "วิจัยเชิงคุณภาพสองส่วน — เก็บข้อมูลจากเอกสารในช่องทางออนไลน์ทั้งหมด (เว็บไซต์ เฟซบุ๊กแฟนเพจ อินสตาแกรม ทวิตเตอร์) ของสามสถานีคือช่องวัน 31 ไทยรัฐทีวี ช่อง 32 และอมรินทร์ ทีวี เอชดี ช่อง 34 ระหว่างวันที่ 8 กุมภาพันธ์ถึง 8 เมษายน 2563 รวมสองเดือน ประกอบกับการสัมภาษณ์เชิงลึกผู้มีอำนาจตัดสินใจของสถานีละหนึ่งท่าน และผู้เชี่ยวชาญด้านการสื่อสารในภาวะวิกฤตอีก 4 ท่าน (นักวิชาชีพ 2 นักวิชาการ 2) รวมผู้ให้สัมภาษณ์ 7 ท่าน",
+        "วิจัยเชิงคุณภาพสองส่วน — เก็บข้อมูลจากเอกสารในช่องทางออนไลน์ทั้งหมด (เว็บไซต์ เฟซบุ๊กแฟนเพจ อินสตาแกรม ทวิตเตอร์) ของสถานีโทรทัศน์ดิจิทัลทั้งสามช่องที่ถูกสั่งปรับ ระหว่างวันที่ 8 กุมภาพันธ์ถึง 8 เมษายน 2563 รวมสองเดือน ประกอบกับการสัมภาษณ์เชิงลึกผู้มีอำนาจตัดสินใจของสถานีละหนึ่งท่าน และผู้เชี่ยวชาญด้านการสื่อสารในภาวะวิกฤตอีก 4 ท่าน (นักวิชาชีพ 2 นักวิชาการ 2) รวมผู้ให้สัมภาษณ์ 7 ท่าน",
       findings: [
-        "จากสามสถานี **มีเพียงสถานีเดียวที่สื่อสารเรื่องนี้ผ่านช่องทางออนไลน์** คือช่องวัน 31 ใช้เฟซบุ๊กแฟนเพจที่มีผู้ติดตาม 3,191,392 คน โพสต์เมื่อวันที่ 11 กุมภาพันธ์ 2563 ราวสองวันหลังเหตุการณ์จบ ด้วยกลยุทธ์ขออภัย ส่วนอีกสองสถานียังใช้ช่องทางออนไลน์ประชาสัมพันธ์รายการและเสนอข่าวเสมือนในภาวะปกติ",
+        "จากสามสถานี **มีเพียงสถานีเดียวที่สื่อสารเรื่องนี้ผ่านช่องทางออนไลน์** โดยโพสต์บนเฟซบุ๊กแฟนเพจของสถานีเมื่อวันที่ 11 กุมภาพันธ์ 2563 ราวสองวันหลังเหตุการณ์จบ ด้วยกลยุทธ์ขออภัย ส่วนอีกสองสถานียังใช้ช่องทางออนไลน์ประชาสัมพันธ์รายการและเสนอข่าวเสมือนในภาวะปกติ",
         "โพสต์นั้นมีผู้กดแสดงความรู้สึก 14,947 คน แสดงความคิดเห็นกว่า 3,200 ครั้ง และแชร์กว่า 1,200 ครั้ง ความคิดเห็นส่วนใหญ่เป็นปฏิกิริยาเชิงลบที่วิพากษ์วิจารณ์การรายงานข่าว และ**สถานีไม่ได้ตอบกลับความคิดเห็นใดเลย**",
         "การสัมภาษณ์เผยว่ามีอีกหนึ่งสถานีที่สื่อสารผ่านหน้าจอของตัวเอง โดยผู้ประกาศกล่าวขออภัยที่ทำให้เกิดความไม่สบายใจ แต่ไม่ใช่การขอโทษอย่างเต็มรูปแบบ และไม่ได้นำคลิปไปเผยแพร่ในช่องทางอื่น",
         "ทั้งสามสถานี**ไม่ได้มองว่าการถูกสั่งปรับทางปกครองเป็นภาวะวิกฤตของสถานี** และไม่มีแผนงาน คู่มือ คณะกรรมการ หรือการซักซ้อมรับมือไว้ล่วงหน้า งานบริหารภาวะวิกฤตดำเนินการโดยกองบรรณาธิการหรือฝ่ายข่าว ไม่ใช่ฝ่ายสื่อสารองค์กร",
@@ -600,16 +611,16 @@ export const paperSummaries: PaperSummary[] = [
       soWhat:
         "ข้อค้นพบที่ใช้ได้กับทุกองค์กร ไม่เฉพาะสถานีโทรทัศน์ คือช่องว่างระหว่าง “ผู้กำกับดูแลมองว่าเป็นวิกฤต” กับ “องค์กรมองว่าเป็นวิกฤต” ถ้าองค์กรไม่นับว่าเป็นวิกฤตก็จะไม่มีใครถูกมอบหมาย ไม่มีแผน และการตอบสนองจะกลายเป็นการอธิบายขั้นตอนการทำงานของตัวเองแทนการขอโทษ ซึ่งงานนี้แสดงให้เห็นว่าไม่ได้ลดกระแสวิพากษ์วิจารณ์ลงเลย",
       caveat:
-        "ศึกษาเหตุการณ์เดียว สามสถานี และผู้ให้สัมภาษณ์ 7 ท่าน หลักฐานฝั่งออนไลน์ดูได้เฉพาะสิ่งที่ยังเผยแพร่อยู่ในช่วงสองเดือนที่เก็บข้อมูล",
+        "ศึกษาเหตุการณ์เดียว สามสถานี และผู้ให้สัมภาษณ์ 7 ท่าน หลักฐานฝั่งออนไลน์ดูได้เฉพาะสิ่งที่ยังเผยแพร่อยู่ในช่วงสองเดือนที่เก็บข้อมูล · บทสรุปนี้ไม่ระบุชื่อสถานี เพราะบทเรียนที่นำไปใช้ได้ไม่ได้ขึ้นอยู่กับว่าเป็นสถานีใด ผู้ที่ต้องการรายละเอียดรายสถานีอ่านได้จากบทความต้นฉบับ",
     },
     en: {
       headline: "Three TV channels were fined over their hostage-crisis coverage — and none of them saw it as a crisis for themselves",
       question:
         "After Thailand's broadcasting regulator imposed administrative penalties on digital television channels for their coverage of the gunman taking hostages in Nakhon Ratchasima, how did those channels communicate with the public, and what machinery did they use to manage the crisis?",
       method:
-        "Qualitative research in two parts. Documentary research covered every online channel — website, Facebook page, Instagram and Twitter — of the three penalised stations (One 31, Thairath TV 32, and Amarin TV HD 34) from 8 February to 8 April 2020, a two-month window. Alongside this, in-depth interviews were conducted with one decision-maker at each station plus four specialists in crisis communication and media management (two practitioners, two academics), seven interviewees in total.",
+        "Qualitative research in two parts. Documentary research covered every online channel — website, Facebook page, Instagram and Twitter — of the three penalised digital stations from 8 February to 8 April 2020, a two-month window. Alongside this, in-depth interviews were conducted with one decision-maker at each station plus four specialists in crisis communication and media management (two practitioners, two academics), seven interviewees in total.",
       findings: [
-        "Of the three stations, **only one communicated about the situation online**: One 31, through a Facebook page with 3,191,392 followers, posting on 11 February 2020 — roughly two days after the incident ended — using an apology strategy. The other two carried on promoting programmes and posting news as if nothing had happened.",
+        "Of the three stations, **only one communicated about the situation online**, posting on its Facebook page on 11 February 2020 — roughly two days after the incident ended — using an apology strategy. The other two carried on promoting programmes and posting news as if nothing had happened.",
         "That post drew 14,947 reactions, over 3,200 comments and over 1,200 shares. Most comments were negative and critical of the coverage, and **the station replied to none of them**.",
         "The interviews revealed a second station had responded on air, where a presenter expressed regret for the discomfort caused — not a full apology — and the clip was not published anywhere else.",
         "All three stations **did not regard the administrative penalty as a crisis for the station**, and had no plan, manual, committee, or rehearsal prepared. Crisis handling was run by the newsroom rather than by corporate communications.",
@@ -620,7 +631,7 @@ export const paperSummaries: PaperSummary[] = [
       soWhat:
         "The finding that generalises beyond broadcasters is the gap between what the regulator treats as a crisis and what the organisation treats as one. If the organisation does not count it as a crisis, nobody is assigned to it, no plan exists, and the response becomes an explanation of one's own working procedures rather than an apology — which, this study shows, did nothing to reduce the criticism.",
       caveat:
-        "One event, three stations, and seven interviewees. The online evidence covers only what was still published during the two-month collection window.",
+        "One event, three stations, and seven interviewees. The online evidence covers only what was still published during the two-month collection window. This summary does not name the stations: the transferable lesson does not depend on which station it was, and readers who want the station-by-station detail will find it in the original article.",
     },
   },
   {
