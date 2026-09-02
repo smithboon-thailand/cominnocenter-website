@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
+import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import {
   paperSummaries,
@@ -44,7 +45,8 @@ export async function generateMetadata({ params }: Props) {
       title: plainText(summary.en.headline),
       description: plainText(summary.en.question).slice(0, 200),
       // A child page's openGraph replaces the layout's wholesale — images must be repeated
-      images: ["/images/og/og-default.jpg"],
+      // Use this paper's own artwork: og-default would give all 15 pages the same share card
+      images: [`/images/research/summaries/${slug}.webp`],
     },
   };
 }
@@ -105,6 +107,19 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             Research summary
           </p>
           <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.en.headline)}</h1>
+
+          {/* The artwork is a metaphor for the *shape of the finding*, never a depiction of
+              the subject matter — see the illustrationAltTh note in paperSummaries.ts */}
+          <ResponsiveArtwork
+            base={`/images/research/summaries/${slug}`}
+            alt={summary.illustrationAltEn}
+            // The content column is max-w-3xl (768) minus px-6 on both sides = 720px
+            sizes="(min-width: 768px) 720px, 100vw"
+            aspect="aspect-[16/9]"
+            height={900}
+            className="mt-8"
+            priority
+          />
 
           {/* Keep the source article visibly separate from our summary of it */}
           <div className="mt-8 rounded-lg border border-ink-300 bg-ink-0 p-6">

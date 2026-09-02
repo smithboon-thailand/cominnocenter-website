@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
+import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import {
   paperSummaries,
@@ -44,7 +45,8 @@ export async function generateMetadata({ params }: Props) {
       title: plainText(summary.th.headline),
       description: plainText(summary.th.question).slice(0, 200),
       // openGraph ของหน้าลูกทับของ layout ทั้งก้อน ต้องใส่ images เองทุกครั้ง
-      images: ["/images/og/og-default.jpg"],
+      // ใช้ภาพประจำเรื่อง ไม่ใช่ og-default เพราะทั้ง 15 หน้าจะขึ้นการ์ดเหมือนกันหมด
+      images: [`/images/research/summaries/${slug}.webp`],
     },
   };
 }
@@ -103,6 +105,19 @@ export default async function PaperSummaryPage({ params }: Props) {
             บทสรุปงานวิจัย
           </p>
           <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.th.headline)}</h1>
+
+          {/* ภาพเป็นอุปมาของ "รูปร่างข้อค้นพบ" ไม่ใช่ภาพประกอบตามเนื้อเรื่อง
+              เหตุผลอยู่ในหัวข้อ illustrationAltTh ของ paperSummaries.ts */}
+          <ResponsiveArtwork
+            base={`/images/research/summaries/${slug}`}
+            alt={summary.illustrationAltTh}
+            // กรอบเนื้อหาคือ max-w-3xl (768) ลบ px-6 สองข้าง = 720px
+            sizes="(min-width: 768px) 720px, 100vw"
+            aspect="aspect-[16/9]"
+            height={900}
+            className="mt-8"
+            priority
+          />
 
           {/* แยกให้เห็นชัดว่าอะไรคือ "งานต้นฉบับ" อะไรคือ "คำสรุปของเรา" */}
           <div className="mt-8 rounded-lg border border-ink-300 bg-ink-0 p-6">

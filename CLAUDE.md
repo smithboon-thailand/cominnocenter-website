@@ -22,7 +22,7 @@
 | SEO/analytics | JSON-LD ทุกหน้าผ่าน `src/lib/schema.ts` · `sitemap.ts` · hreflang TH/EN · Vercel Analytics ใน root layout |
 | Favicon | `src/app/icon.png` + `apple-icon.png` — ทำจากโลโก้ปัจจุบัน **ใช้ถาวร** (ผู้ใช้ยืนยันคงโลโก้เดิม 16 ส.ค. 2569) |
 
-คำสั่งหลัก: `npm run dev` · **`npm run verify`** (lint + build + ตรวจข้อความที่ผู้อ่านเห็น — ใช้ตัวนี้ก่อน push) · `npm run build` · `npm run lint` (ESLint 9 flat config ที่ `eslint.config.mjs` — ต่อยอด `next/core-web-vitals` + `next/typescript`) · `npm run check:text` (ตรวจอย่างเดียว ต้อง build ไว้ก่อน)
+คำสั่งหลัก: `npm run dev` · **`npm run verify`** (lint + build + ตรวจข้อความที่ผู้อ่านเห็น + ตรวจไฟล์ภาพครบทุกขนาด — ใช้ตัวนี้ก่อน push) · `npm run build` · `npm run lint` (ESLint 9 flat config ที่ `eslint.config.mjs` — ต่อยอด `next/core-web-vitals` + `next/typescript`) · `npm run check:text` · `npm run check:images` (สองตัวหลังตรวจอย่างเดียว ต้อง build ไว้ก่อน)
 
 ## โครงสร้างโฟลเดอร์
 
@@ -48,8 +48,8 @@ src/
 │   ├── sitemap.ts          # สร้างจาก data file แตกสองภาษาอัตโนมัติ + hreflang
 ├── components/
 │   ├── Header  Footer  ContactForm  NewsletterForm  ProjectGallery  VideoShowcase  HomeLeadership
-│   ├── ui/                 # Button, DisplayHeading, PageBanner, ProjectCard, SdgBadge,
-│   │                       #   SdgFilterChips, SdgPosterGrid, SectionHeader, Stat
+│   ├── ui/                 # Button, DisplayHeading, PageBanner, ProjectCard, ResponsiveArtwork,
+│   │                       #   SdgBadge, SdgFilterChips, SdgPosterGrid, SectionHeader, Stat
 │   ├── effects/            # HeroArtwork, Reveal, ParallaxHero, GlassCard, AnimatedCounter,
 │   │                       #   InnovationNetwork
 │   ├── impact/             # ImpactExplorer (filter), ProjectFooterNav (related/prev-next)
@@ -84,7 +84,7 @@ public/
 | `services.ts` | บริการ 9 ด้าน + 4 ช่วงกระบวนการ (`ServiceStage`) ที่หน้า Expertise ใช้จัดเรียง · `projectSlugs` ผูกบริการกับโครงการจริง |
 | `media.ts` | "สื่อถึงเรา" 22 รายการที่ศูนย์ฯ ปรากฏบนสื่อภายนอก — field `code` ตรงกับชื่อไฟล์ thumbnail `public/images/media/C-XX.webp` |
 | `publications.ts` | **(generated — ห้ามแก้ด้วยมือ)** ผลงานวิชาการ 75 รายการ · field `verified` 4 ระดับ `doi`/`link`/`index`/`self` (47/2/11/15) · สร้างด้วย `scripts/fetch-publications.mjs` · **ถ้าสคริปต์แจ้งว่ามีผลงานหาย ให้ตรวจก่อนเสมอ** แล้วค่อยสั่ง `--allow-removals` |
-| `paperSummaries.ts` | บทสรุปย่อยง่ายไทย+อังกฤษของผลงานที่ทำหน้า `/research/[slug]` — **15 ชิ้นจาก 75** · ผูกกับ `publications.ts` ด้วย `doi` **หรือ `indexUrl`** เพราะวารสารไทยใน ThaiJO (`jprad`, `jcomm`, `jcmn`) **ไม่ออก DOI ให้บทความเลย** เขียนเป็น union type บังคับให้มีอย่างใดอย่างหนึ่ง และ `publicationForSummary()` จะโยน error ถ้าเชื่อมไม่ติด (ให้ build พังดีกว่าปล่อยหน้ากำพร้าที่อยู่ใน sitemap แต่ขึ้น 404) · **`license` ไม่มีค่า = วารสารสงวนลิขสิทธิ์ ไม่ใช่ยังไม่ได้ตรวจ** ห้ามเดาใส่ และหน้าเว็บต้องไม่แสดงข้อความ CC ให้รายการที่ไม่มีค่า · `pdfUrl` ชี้ไปคลังของวารสารต้นทาง (เปิดแท็บใหม่) **เว็บไม่เก็บไฟล์ PDF เอง** · `localCopy` คือสำเนาใน `research-sources/papers/` ไว้ให้ AI อ่าน ไม่ได้เสิร์ฟ — **ใส่ได้เฉพาะ Creative Commons เพราะคลัง GitHub นี้เป็นสาธารณะ** ดู `research-sources/README.md` · **เน้นข้อความด้วย `**...**` ได้** `PaperSummaryBody` แปลงให้เป็นน้ำหนัก 500 (ห้ามใช้ `<strong>` เปล่าๆ เพราะค่าเริ่มต้นเบราว์เซอร์คือ 700 ผิด BRAND.md) |
+| `paperSummaries.ts` | บทสรุปย่อยง่ายไทย+อังกฤษของผลงานที่ทำหน้า `/research/[slug]` — **15 ชิ้นจาก 75** · ผูกกับ `publications.ts` ด้วย `doi` **หรือ `indexUrl`** เพราะวารสารไทยใน ThaiJO (`jprad`, `jcomm`, `jcmn`) **ไม่ออก DOI ให้บทความเลย** เขียนเป็น union type บังคับให้มีอย่างใดอย่างหนึ่ง และ `publicationForSummary()` จะโยน error ถ้าเชื่อมไม่ติด (ให้ build พังดีกว่าปล่อยหน้ากำพร้าที่อยู่ใน sitemap แต่ขึ้น 404) · **`license` ไม่มีค่า = วารสารสงวนลิขสิทธิ์ ไม่ใช่ยังไม่ได้ตรวจ** ห้ามเดาใส่ และหน้าเว็บต้องไม่แสดงข้อความ CC ให้รายการที่ไม่มีค่า · `pdfUrl` ชี้ไปคลังของวารสารต้นทาง (เปิดแท็บใหม่) **เว็บไม่เก็บไฟล์ PDF เอง** · `localCopy` คือสำเนาใน `research-sources/papers/` ไว้ให้ AI อ่าน ไม่ได้เสิร์ฟ — **ใส่ได้เฉพาะ Creative Commons เพราะคลัง GitHub นี้เป็นสาธารณะ** ดู `research-sources/README.md` · **เน้นข้อความด้วย `**...**` ได้** `PaperSummaryBody` แปลงให้เป็นน้ำหนัก 500 (ห้ามใช้ `<strong>` เปล่าๆ เพราะค่าเริ่มต้นเบราว์เซอร์คือ 700 ผิด BRAND.md) · **ห้ามระบุชื่อองค์กรหรือบุคคลที่ถูกวิจารณ์ในข้อค้นพบ** (กติกาข้อ 5 ในหัวไฟล์) บทความต้นฉบับระบุได้เพราะเป็นงานวิชาการ แต่บทสรุปบนเว็บเป็นงานเขียนของศูนย์ฯ เอง ผู้อ่านย่อมอ่านว่าเป็นคำตัดสินของศูนย์ฯ · ต้องตัดตัวเลขที่ชี้ตัวได้ออกด้วย · ทุกรายการต้องมี `illustrationAltTh/En` และภาพสามขนาดใน `public/images/research/summaries/` |
 | `leadership.ts` | ผู้บริหารศูนย์ |
 | `team.ts` / `researchers.ts` | ทีมงานและนักวิจัย |
 | `partners.ts` | หน่วยงานพันธมิตร |
@@ -113,6 +113,7 @@ public/
 | `download-wix-images.mjs` · `download-wix-posts.mjs` | สคริปต์ย้ายภาพ/โพสต์จาก Wix (Phase 0 — เก็บไว้อ้างอิง) |
 | `indexnow.mjs` | แจ้ง Bing ว่ามีหน้าใหม่/หน้าที่แก้ไข (`npm run indexnow -- <url>`) — ดูหัวข้อ IndexNow ท้ายไฟล์ |
 | `check-rendered-text.mjs` | อ่านข้อความที่ผู้อ่านเห็นจริงในหน้าที่ build ออกมา แล้วมองหามาร์กอัปดิบที่ไม่ควรหลุด (`npm run check:text` หรือรวมใน `npm run verify`) — ดูกฎการทำงานข้อ 6 |
+| `check-image-files.mjs` | อ่าน `srcset` จาก HTML ที่ build ออกมา แล้วตรวจว่าไฟล์ภาพทุกไฟล์มีอยู่จริงใน `public/` (`npm run check:images`) — **ภาพหนึ่งใบต้องมีสามขนาด ถ้าไฟล์ย่อหาย ภาพจะพังเฉพาะเครื่องที่ความหนาแน่นพิกเซลตรงกับไฟล์นั้น เดสก์ท็อปยังเห็นปกติ คนตรวจจึงไม่มีทางเจอ** |
 
 ## กติกา i18n
 
@@ -129,9 +130,10 @@ public/
 4. **commit ย่อยบ่อยๆ** ขึ้นต้นด้วยขอบเขตงาน เช่น `research: `, `fix: `, `feat: `
 5. **ก่อนแก้ไฟล์ใด อ่านไฟล์เต็มก่อนเสมอ**
 6. **หลังแก้เสร็จ รัน `npm run verify` ให้ผ่านก่อน push ทุกครั้ง** (ไม่ใช่แค่ `build`)
-   `verify` = lint + build + `scripts/check-rendered-text.mjs` ซึ่งอ่าน**ข้อความที่ผู้อ่านเห็นจริง**
-   ในหน้าที่ build ออกมา แล้วมองหามาร์กอัปดิบที่ไม่ควรหลุด (`**` แบบมาร์กดาวน์ · ลิงก์
-   `[x](y)` · entity ซ้อนสองชั้น · แท็ก HTML ที่กลายเป็นข้อความ)
+   `verify` = lint + build + `check:text` + `check:images` ซึ่งอ่าน**ผลลัพธ์ที่ผู้อ่านได้จริง**
+   จากหน้าที่ build ออกมา — `check:text` มองหามาร์กอัปดิบที่ไม่ควรหลุด (`**` แบบมาร์กดาวน์ ·
+   ลิงก์ `[x](y)` · entity ซ้อนสองชั้น · แท็ก HTML ที่กลายเป็นข้อความ) ส่วน `check:images`
+   ตรวจว่าไฟล์ภาพใน `srcset` มีครบทุกขนาด
    **มีเพราะบั๊กชนิดนี้หลุดขึ้นโปรดักชันมาแล้วสองครั้ง และทั้งสองครั้งผู้ใช้เป็นคนพบ**
    (`&amp;` ในชื่อวารสาร 30 ส.ค. · `**` ในบทสรุป 22 หน้า 1 ก.ย.) รากปัญหาเดียวกันคือ
    เราตรวจ*โครงสร้าง* (JSON-LD, metadata, ลิงก์) ละเอียด แต่ไม่เคยอ่าน*ตัวข้อความ*ที่ออกมา
@@ -165,6 +167,7 @@ public/
 | ปุ่มอ้างอิง 4 รูปแบบ | #24 | `CitationTool` (APA 7 · MLA 9 · BibTeX · RIS) สร้างตอน build จาก `citation.ts` · แก้ metadata ที่ทะเบียนสลับ field มา |
 | บทสรุปเพิ่มจาก ThaiJO 9 ชิ้น | #25 | รวมเป็น 15 ชิ้น · รองรับงานที่**ไม่มี DOI** ด้วยกุญแจ `indexUrl` · `license` เป็น optional เพราะวารสารไทยส่วนใหญ่ไม่ใช่ CC |
 | แก้ `**` หลุดขึ้นหน้าเว็บ | #26 | `withEmphasis()` แปลงมาร์กดาวน์เป็นการเน้นจริง 22 หน้า · `plainText()` กัน title/OG/breadcrumb |
+| ภาพประกอบบทสรุปงานวิจัย | #30 | ภาพ paper-craft 15 ใบ หัวหน้า `/research/[slug]` TH+EN · **หลักการ: วาดรูปร่างของข้อค้นพบ ไม่ใช่วาดเนื้อเรื่อง** เพราะชุดนี้มีงานที่แตะเหตุการณ์จริงที่มีผู้เสียชีวิต การคุกคามทางเพศ ความขัดแย้งที่ยังดำเนินอยู่ และโรคที่ถูกตีตรา · เปลี่ยนภาพแชร์จาก `og-default.jpg` เป็นภาพประจำเรื่อง (เดิม 15 หน้าขึ้นการ์ดเหมือนกันหมด) · ยก srcset ออกมาเป็น `ResponsiveArtwork` ใช้ร่วมกับ `PageBanner` · เพิ่ม `check:images` · **ตัดชื่อสถานีโทรทัศน์ในบทสรุปข่าวโคราชตามที่ผู้ใช้ทัก** |
 | แบนเนอร์โหลดตามขนาดจอ | #29 | วัดแล้วพบว่าแบนเนอร์เป็น LCP element ของ 12 หน้า แต่มือถือ (ช่องภาพ 340px) โหลดไฟล์ 1600px เต็ม เพราะ `unoptimized: true` ทำให้ `next/image` ไม่สร้าง srcset · เปลี่ยน `PageBanner` เป็น `<img>` + srcset สามขนาด (800/1200/1600) · มือถือ DPR2 ลด 73% DPR3 ลด 51% วัดจาก network ด้วย Playwright |
 | ภาพประกอบหัวหน้าหลัก (ชุด A) | #28 | แบนเนอร์ paper-craft 6 ใบใหม่ (about · expertise · impact · research · news · media) เจนด้วย ElevenLabs โดยป้อน `collaborate/banner.webp` เป็นภาพอ้างอิงสไตล์ทุกใบ · รวม markup ไว้ที่ `PageBanner` + `pageBanners.ts` แล้วย้าย `/collaborate` มาใช้ตัวเดียวกัน · แก้ BRAND.md E3 ที่ยังเขียนว่า "line illustration สีเดียว" ให้ตรงกับ paper-craft ที่ใช้จริง |
 

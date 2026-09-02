@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import { publications, type PublicationType } from "@/data/publications";
 import { summaryForPublication } from "@/data/paperSummaries";
 import CitationTool from "./CitationTool";
+import Reveal from "@/components/effects/Reveal";
+import { stagger } from "@/components/effects/stagger";
 import { leadership } from "@/data/leadership";
 
 type ResearchExplorerProps = {
@@ -175,8 +177,10 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
         <p className="mt-10 text-[17px] leading-[1.7] text-ink-700">{t.empty}</p>
       ) : (
         <div className="mt-6 flex flex-col gap-10">
-          {byYear.map(([year, items]) => (
-            <section key={year}>
+          {/* ปรากฏทีละกลุ่มปี ไม่ใช่ทีละแถว — 72 แถวจะกินตัวสังเกตการณ์เกินจำเป็น
+              และจังหวะ "ปีละระลอก" อ่านง่ายกว่าแถวละระลอกในรายการยาวขนาดนี้ */}
+          {byYear.map(([year, items], gi) => (
+            <Reveal key={year} as="section" delay={stagger(gi)}>
               <h2 className="text-h3-m md:text-h3 text-ink-900">{year}</h2>
               <ul className="mt-3 flex flex-col divide-y divide-ink-100 border-t border-ink-100">
                 {items.map((p) => (
@@ -295,7 +299,7 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                   </li>
                 ))}
               </ul>
-            </section>
+            </Reveal>
           ))}
         </div>
       )}

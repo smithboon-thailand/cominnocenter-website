@@ -35,12 +35,11 @@ export type PageBannerKey =
   | "collaborate";
 
 type Banner = {
-  /** ไฟล์เต็ม 1600×686 ใน public/images/<key>/banner.webp */
-  src: string;
-  /** คู่ย่อ 800×343 สำหรับมือถือ DPR2 — ต้องมีคู่กับ src เสมอ */
-  srcSmall: string;
-  /** คู่ย่อ 1200×515 สำหรับมือถือ DPR3 — ต้องมีคู่กับ src เสมอ */
-  srcMedium: string;
+  /**
+   * path ที่ยังไม่มีนามสกุล เช่น "/images/about/banner"
+   * `ResponsiveArtwork` จะประกอบเป็น `.webp` / `-1200.webp` / `-800.webp` เอง
+   */
+  base: string;
   /** อธิบาย "ภาพนี้เป็นรูปอะไร" ไม่ใช่ทวนชื่อหน้าซ้ำกับ h1 ที่อยู่เหนือมัน */
   altTh: string;
   altEn: string;
@@ -48,51 +47,37 @@ type Banner = {
 
 export const pageBanners: Record<PageBannerKey, Banner> = {
   about: {
-    src: "/images/about/banner.webp",
-    srcSmall: "/images/about/banner-800.webp",
-    srcMedium: "/images/about/banner-1200.webp",
+    base: "/images/about/banner",
     altTh: "ภาพประกอบกระดาษ ริบบิ้นหลายเส้นถักรวมกันเป็นปมเดียว",
     altEn: "Paper-craft illustration of several ribbons braided into a single knot",
   },
   expertise: {
-    src: "/images/expertise/banner.webp",
-    srcSmall: "/images/expertise/banner-800.webp",
-    srcMedium: "/images/expertise/banner-1200.webp",
+    base: "/images/expertise/banner",
     altTh: "ภาพประกอบกระดาษ ฟันเฟืองสามตัวขบกันเป็นชุดเดียว",
     altEn: "Paper-craft illustration of three gears meshing as one mechanism",
   },
   impact: {
-    src: "/images/impact/banner.webp",
-    srcSmall: "/images/impact/banner-800.webp",
-    srcMedium: "/images/impact/banner-1200.webp",
+    base: "/images/impact/banner",
     altTh: "ภาพประกอบกระดาษ คลื่นวงกลมแผ่ออกจากจุดกึ่งกลางจุดเดียว",
     altEn: "Paper-craft illustration of concentric ripples spreading from a single point",
   },
   research: {
-    src: "/images/research/banner.webp",
-    srcSmall: "/images/research/banner-800.webp",
-    srcMedium: "/images/research/banner-1200.webp",
+    base: "/images/research/banner",
     altTh: "ภาพประกอบกระดาษ แผ่นกระดาษซ้อนกันหลายชั้นเปิดมุมให้เห็นชั้นข้างใต้",
     altEn: "Paper-craft illustration of layered sheets with a corner lifted to reveal what lies beneath",
   },
   news: {
-    src: "/images/news/banner.webp",
-    srcSmall: "/images/news/banner-800.webp",
-    srcMedium: "/images/news/banner-1200.webp",
+    base: "/images/news/banner",
     altTh: "ภาพประกอบกระดาษ ธงเล็กหลายผืนห้อยเรียงบนเส้นโค้ง",
     altEn: "Paper-craft illustration of small flags strung along a curved line",
   },
   media: {
-    src: "/images/media/banner.webp",
-    srcSmall: "/images/media/banner-800.webp",
-    srcMedium: "/images/media/banner-1200.webp",
+    base: "/images/media/banner",
     altTh: "ภาพประกอบกระดาษ กรอบคำพูดสามใบซ้อนเหลื่อมกัน",
     altEn: "Paper-craft illustration of three overlapping speech bubbles",
   },
   collaborate: {
-    src: "/images/collaborate/banner.webp",
-    srcSmall: "/images/collaborate/banner-800.webp",
-    srcMedium: "/images/collaborate/banner-1200.webp",
+    base: "/images/collaborate/banner",
     altTh: "ภาพประกอบกระดาษ ริบบิ้นสองสีถักเข้าด้วยกัน",
     altEn: "Paper-craft illustration of two coloured ribbons woven together",
   },
