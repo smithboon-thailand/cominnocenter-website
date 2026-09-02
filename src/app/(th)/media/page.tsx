@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import MediaExplorer from "@/components/media/MediaExplorer";
 import { mediaSorted } from "@/data/media";
 
@@ -31,6 +32,7 @@ export default function MediaPage() {
           รวมข่าว งานวิจัย หนังสือ พอดแคสต์ และสื่อภายนอกที่อาจารย์ของศูนย์และผลงานของเราไปปรากฏ
           — ทั้งหมด {mediaSorted.length} รายการ เลือกดูตามอาจารย์หรือประเภทได้
         </p>
+        <PageBanner page="media" locale="th" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

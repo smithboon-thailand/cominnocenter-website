@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import MediaExplorer from "@/components/media/MediaExplorer";
 import { mediaSorted } from "@/data/media";
 
@@ -31,6 +32,7 @@ export default function MediaPageEn() {
           News, research, books, podcasts, and external media featuring our professors and the
           center&rsquo;s work — {mediaSorted.length} items in total. Filter by professor or type.
         </p>
+        <PageBanner page="media" locale="en" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

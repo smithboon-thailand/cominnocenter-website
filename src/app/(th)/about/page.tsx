@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
+import PageBanner from "@/components/ui/PageBanner";
 import { researchers } from "@/data/researchers";
 import { leadership, objectives, type SocialLink } from "@/data/leadership";
 import { highlightsFor, type HighlightPerson } from "@/data/highlights";
@@ -76,6 +77,7 @@ export default function AboutPage() {
         <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
           เพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
         </p>
+        <PageBanner page="about" locale="th" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">

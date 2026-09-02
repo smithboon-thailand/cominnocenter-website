@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
+import PageBanner from "@/components/ui/PageBanner";
 import ExpertiseExplorer from "@/components/expertise/ExpertiseExplorer";
 
 export const metadata = {
@@ -32,6 +33,7 @@ export default function EnglishExpertisePage() {
           delivered work: open a card to see its projects, or click a colored dot to browse
           work by SDG.
         </p>
+        <PageBanner page="expertise" locale="en" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

@@ -48,8 +48,8 @@ src/
 │   ├── sitemap.ts          # สร้างจาก data file แตกสองภาษาอัตโนมัติ + hreflang
 ├── components/
 │   ├── Header  Footer  ContactForm  NewsletterForm  ProjectGallery  VideoShowcase  HomeLeadership
-│   ├── ui/                 # Button, DisplayHeading, ProjectCard, SdgBadge, SdgFilterChips,
-│   │                       #   SdgPosterGrid, SectionHeader, Stat
+│   ├── ui/                 # Button, DisplayHeading, PageBanner, ProjectCard, SdgBadge,
+│   │                       #   SdgFilterChips, SdgPosterGrid, SectionHeader, Stat
 │   ├── effects/            # HeroArtwork, Reveal, ParallaxHero, GlassCard, AnimatedCounter,
 │   │                       #   InnovationNetwork
 │   ├── impact/             # ImpactExplorer (filter), ProjectFooterNav (related/prev-next)
@@ -91,6 +91,7 @@ public/
 | `highlights.ts` | ข่าว/ไฮไลต์กิจกรรม |
 | `videos.ts` | วิดีโอ showcase |
 | `illustrations.ts` | path ของ SVG ใน `public/illustrations/` |
+| `pageBanners.ts` | **แหล่งความจริงเดียวของภาพประกอบหัวหน้าหลัก 7 หน้า** (about · expertise · impact · research · news · media · collaborate) — path + alt ไทย/อังกฤษ · หน้าไทยกับหน้าอังกฤษเป็นคนละไฟล์ ถ้าให้แต่ละไฟล์เขียน path เองจะเพี้ยนออกจากกัน จึงบังคับให้อ่านจากที่นี่ผ่าน `<PageBanner page="…" locale="…" />` |
 | `contact.ts` / `social.ts` | **แหล่งความจริงเดียวของข้อมูลติดต่อ** — เบอร์โทร (4 รูปแบบจัดจากเลขชุดเดียว) และลิงก์โซเชียล · ทั้ง Footer, /collaborate, /privacy-policy, JSON-LD และ /llms.txt อ่านจากที่นี่ **ห้ามพิมพ์ค่าซ้ำในหน้าใดหน้าหนึ่ง** — เคยหลุดตรงกันมาแล้วทั้งสองเรื่อง |
 
 ภาพทั้งหมด self-host แล้ว (Phase 0-B) — ฟังก์ชัน `media()/logo()` ในแต่ละ data file ชี้ไป `public/images/` · สคริปต์ดาวน์โหลด: `scripts/download-wix-images.mjs` (ต้องรันด้วย `NODE_USE_ENV_PROXY=1` ในเซสชัน remote)
@@ -164,6 +165,7 @@ public/
 | ปุ่มอ้างอิง 4 รูปแบบ | #24 | `CitationTool` (APA 7 · MLA 9 · BibTeX · RIS) สร้างตอน build จาก `citation.ts` · แก้ metadata ที่ทะเบียนสลับ field มา |
 | บทสรุปเพิ่มจาก ThaiJO 9 ชิ้น | #25 | รวมเป็น 15 ชิ้น · รองรับงานที่**ไม่มี DOI** ด้วยกุญแจ `indexUrl` · `license` เป็น optional เพราะวารสารไทยส่วนใหญ่ไม่ใช่ CC |
 | แก้ `**` หลุดขึ้นหน้าเว็บ | #26 | `withEmphasis()` แปลงมาร์กดาวน์เป็นการเน้นจริง 22 หน้า · `plainText()` กัน title/OG/breadcrumb |
+| ภาพประกอบหัวหน้าหลัก (ชุด A) | #28 | แบนเนอร์ paper-craft 6 ใบใหม่ (about · expertise · impact · research · news · media) เจนด้วย ElevenLabs โดยป้อน `collaborate/banner.webp` เป็นภาพอ้างอิงสไตล์ทุกใบ · รวม markup ไว้ที่ `PageBanner` + `pageBanners.ts` แล้วย้าย `/collaborate` มาใช้ตัวเดียวกัน · แก้ BRAND.md E3 ที่ยังเขียนว่า "line illustration สีเดียว" ให้ตรงกับ paper-craft ที่ใช้จริง |
 
 **ค้างฝั่งผู้ใช้ (ไม่ใช่งานโค้ด):** เพิกถอน PAT ของ Grok · ลบ branch `grok/visual-assets` · เพิ่ม `en.cominnocenter.com` ใน Vercel เป็น redirect 308 → www แล้วแก้ CNAME · ยกเลิก **เฉพาะ website plan** ของ Wix ราวกลางเดือนกันยายน 2569 (ห้ามแตะโดเมน/DNS — MX ของ Google Workspace อยู่ที่นั่น) · ชวน ผศ.ดร.ธีรดา ผูก ORCID เข้ากับ Crossref/Scopus เพื่อให้ผลงานเลื่อนขึ้นเป็นระดับ `doi` อัตโนมัติในรอบรันถัดไป
 
