@@ -1299,6 +1299,145 @@ export const paperSummaries: PaperSummary[] = [
         "**This is a plan, not a result.** The article states plainly that findings are not yet available because it is a protocol; everything under “what the study will do” is intended, not achieved. **The design is a single-group before-and-after measurement with no comparison group**, so any change observed cannot be separated from anything else happening over the same period. It takes place in one factory, and symptoms are self-reported rather than clinically assessed. The published version was awaiting peer review.",
     },
   },
+  {
+    slug: "vtuber-streamer-purchase-intention",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ตราชั่งสองอันวางเคียงกันและเอียงเท่ากัน แต่ก้อนน้ำหนักที่กดแต่ละอันเป็นคนละรูปทรง",
+    illustrationAltEn:
+      "Paper-craft illustration of two balances tipped to the same angle, each by a differently shaped weight",
+    doi: "10.1080/01973533.2023.2208246",
+    articleLanguage: "en",
+    license: "cc-by-nc",
+    localCopy: "vtuber-streamer-purchase-intention.pdf",
+    th: {
+      headline: "ความน่าเชื่อถือคนละแบบได้ผลกับคนละกลุ่ม — ความเชี่ยวชาญขายของให้แฟนตัวจริง หน้าตาขายให้คนทั่วไป",
+      question:
+        "ผู้มีอิทธิพลสายเกมสองแบบ — วีทูปเบอร์ที่เป็นตัวละครเสมือน กับสตรีมเมอร์ที่เป็นคนจริง — ส่งผลต่อความตั้งใจซื้อของผู้ชมต่างกันอย่างไร และปัจจัยความน่าเชื่อถือด้านใดสำคัญกับผู้ชมกลุ่มใด",
+      method:
+        "แบบสอบถามออนไลน์กับผู้เล่นเกมหญิงชาวไทย 686 คนที่ติดตามผู้มีอิทธิพลสายเกมหญิงอย่างน้อยหนึ่งคน อายุเฉลี่ย 24.79 ปี ในจำนวนนี้ระบุตนเองว่าเป็นโอตาคุ 105 คน และไม่ใช่โอตาคุ 581 คน · วัดการรับรู้สามด้านตามกรอบความน่าเชื่อถือของแหล่งสาร คือความเชี่ยวชาญ ความน่าดึงดูด และความน่าไว้วางใจ โดยใช้ผู้มีอิทธิพลจริงสองคนเป็นสิ่งเร้า คนหนึ่งเป็นวีทูปเบอร์ อีกคนเป็นสตรีมเมอร์ · วิเคราะห์ด้วยการเปรียบเทียบค่าเฉลี่ยและการถดถอย",
+      findings: [
+        "**เมื่อรวมทั้งสองแบบ ปัจจัยทั้งสามทำนายความตั้งใจซื้อได้อย่างมีนัยสำคัญ** — ความเชี่ยวชาญ (β = .330) ความน่าไว้วางใจ (β = .237) และความน่าดึงดูด (β = .188)",
+        "**แต่พอแยกดูทีละแบบ ภาพกลับต่างกันชัดเจน** สำหรับวีทูปเบอร์ ตัวทำนายคือความเชี่ยวชาญ (β = .423) และความน่าไว้วางใจ (β = .258) ส่วน**ความน่าดึงดูดไม่มีนัยสำคัญ** (β = .108) โมเดลอธิบายความแปรปรวนได้ 57.2%",
+        "**สำหรับสตรีมเมอร์กลับกลายเป็นตรงข้าม** ตัวทำนายคือความน่าไว้วางใจ (β = .438) และความน่าดึงดูด (β = .230) ส่วน**ความเชี่ยวชาญไม่มีนัยสำคัญ** (β = .039) โมเดลอธิบายความแปรปรวนได้ 46.7%",
+        "**กลุ่มโอตาคุให้คะแนนความเชี่ยวชาญสูงกว่าอย่างมีนัยสำคัญ** (Cohen's d = 0.518 ขนาดผลปานกลาง) และมีความตั้งใจซื้อสูงกว่า (d = 0.615 ปานกลางถึงมาก)",
+        "**ลำดับความสำคัญของปัจจัยต่างกันตามกลุ่มผู้ชม** — กลุ่มโอตาคุให้น้ำหนักความเชี่ยวชาญมากที่สุด (β = .333) ตามด้วยความน่าไว้วางใจ (.256) และความน่าดึงดูด (.178) ส่วนกลุ่มที่ไม่ใช่โอตาคุ ความน่าดึงดูดมีอิทธิพลมากที่สุด และ**ความน่าไว้วางใจไม่มีนัยสำคัญ**",
+      ],
+      soWhat:
+        "ข้อค้นพบนี้ใช้เลือกคนและเลือกสารได้ตรงขึ้น — **ถ้ากลุ่มเป้าหมายเป็นแฟนตัวจริงของหมวดนั้น สิ่งที่ต้องพิสูจน์คือความรู้จริงในเรื่องนั้น ไม่ใช่ภาพลักษณ์** เนื้อหาจึงควรให้เห็นฝีมือและความเข้าใจสินค้า · แต่ถ้าเป็นผู้ชมทั่วไป ความรู้สึกชอบและความคุ้นเคยทำงานมากกว่า · และเพราะวีทูปเบอร์เป็นตัวละครเสมือน ผลที่ว่าความน่าดึงดูดไม่มีนัยสำคัญกับกลุ่มนี้ ชี้ว่าผู้ชมประเมินตัวละครด้วยสิ่งที่ตัวละครทำได้ ไม่ใช่ด้วยรูปลักษณ์ที่ออกแบบมา",
+      caveat:
+        "**เก็บจากผู้เล่นเกมหญิงในไทยเท่านั้น** ผู้เขียนระบุเองว่าจำกัดการนำไปใช้กับบริบทวัฒนธรรมอื่น · เป็นข้อมูลที่ผู้ตอบรายงานเอง ไม่ใช่พฤติกรรมการซื้อจริง · **กลุ่มโอตาคุมีเพียง 105 คนเทียบกับอีกกลุ่ม 581 คน** ขนาดกลุ่มที่ต่างกันมากทำให้การเปรียบเทียบมีข้อจำกัด · ใช้ผู้มีอิทธิพลเพียงสองคนเป็นสิ่งเร้า และไม่ได้แยกดูว่าเนื้อหาแบบใดให้ผลต่างกัน · เป็นความตั้งใจซื้อ ไม่ใช่ยอดขาย",
+    },
+    en: {
+      headline: "Different kinds of credibility work on different audiences — expertise sells to the committed fan, appeal sells to everyone else",
+      question:
+        "Two kinds of gaming influencer — a VTuber, who is a virtual character, and a live streamer, who is a real person — affect viewers' purchase intentions differently. Which dimensions of credibility matter, and to whom?",
+      method:
+        "An online survey of 686 Thai female gamers who follow at least one female gaming influencer, mean age 24.79. Of these, 105 identified as Otaku and 581 did not. The survey measured three source-credibility dimensions — expertise, attractiveness and trustworthiness — using two real influencers as stimuli, one a VTuber and one a streamer, and analysed the data with mean comparisons and regression.",
+      findings: [
+        "**With both influencer types combined, all three dimensions significantly predicted purchase intention** — expertise (β = .330), trustworthiness (β = .237) and attractiveness (β = .188).",
+        "**Split by type, the picture changes sharply.** For the VTuber, the predictors were expertise (β = .423) and trustworthiness (β = .258), while **attractiveness was not significant** (β = .108). The model explained 57.2% of the variance.",
+        "**For the streamer it reversed.** The predictors were trustworthiness (β = .438) and attractiveness (β = .230), while **expertise was not significant** (β = .039). The model explained 46.7% of the variance.",
+        "**Otaku respondents rated expertise significantly higher** (Cohen's d = 0.518, a medium effect) and reported higher purchase intention (d = 0.615, medium to large).",
+        "**The ranking of factors differed by audience.** For Otaku, expertise mattered most (β = .333), then trustworthiness (.256) and attractiveness (.178). For non-Otaku, attractiveness had the strongest influence and **trustworthiness was not a significant predictor**.",
+      ],
+      soWhat:
+        "This is directly usable when choosing a partner and writing a brief. **If the audience is committed to the category, what has to be demonstrated is genuine knowledge of it, not image** — so the content should show skill and real understanding of the product. For a general audience, familiarity and liking do more work. And because a VTuber is a designed character, the finding that attractiveness did not predict anything for that type suggests viewers judge the character by what it can do rather than by how it was drawn.",
+      caveat:
+        "**The sample is Thai female gamers only**, and the authors note this limits transfer to other cultural contexts. The measures are self-reported intentions, not observed purchases. **The Otaku group numbered only 105 against 581 in the other group**, so the comparison rests on very unequal cells. Only two influencers served as stimuli, and the study did not separate content types. Purchase intention is not sales.",
+    },
+  },
+  {
+    slug: "fansub-viewers-sponsorship",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แผ่นสีหนึ่งวางแตะขอบอีกแผ่นหนึ่ง แล้วสีค่อยๆ ซึมข้ามไปติดที่ขอบของแผ่นข้างเคียง",
+    illustrationAltEn:
+      "Paper-craft illustration of one coloured sheet touching another, its colour bleeding across the join into the neighbouring edge",
+    doi: "10.1080/2331186x.2022.2102481",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "fansub-viewers-sponsorship.pdf",
+    th: {
+      headline: "ผู้ชมที่ชอบคอร์สที่แฟนคลับแปลให้ฟรี ก็รู้สึกดีกับผู้สนับสนุนไปด้วย และไม่ได้มองว่าเป็นการยัดเยียดโฆษณา",
+      question:
+        "คอร์สเรียนออนไลน์ที่กลุ่มแฟนคลับแปลซับให้ฟรีมีผู้สนับสนุนเป็นแบรนด์ งานนี้ถามว่าผู้ชมชาวจีนรู้สึกอย่างไรกับตัวคอร์ส กับการมีผู้สนับสนุน และกับตัวผู้สนับสนุนเอง — และความรู้สึกทั้งสามอย่างเกี่ยวข้องกันไหม",
+      method:
+        "แบบสอบถามออนไลน์แบบตัดขวาง เผยแพร่บนหน้าเว็บบอร์ดของกลุ่มแฟนซับกลุ่มหนึ่ง ได้ผู้ตอบ 216 คน (หญิง 132 คน · ครึ่งหนึ่งอายุ 18–25 ปี · จบปริญญาตรี 150 คน) วัดด้วยมาตรวัดลิเคิร์ต 5 ระดับ ค่าความเชื่อมั่นของแต่ละชุด .83 ถึง .90 · วิเคราะห์ด้วย one-sample t-test เทียบกับจุดกึ่งกลางของมาตรวัด และค่าสหสัมพันธ์เพียร์สัน",
+      findings: [
+        "**ทัศนคติทั้งสามด้านเป็นบวกอย่างมีนัยสำคัญเมื่อเทียบกับจุดกึ่งกลาง** — ต่อตัวคอร์ส t(215) = 25.25 · ต่อผู้สนับสนุน t(215) = 13.92 · ต่อการมีผู้สนับสนุนโดยรวม t(215) = 22.17 ทั้งหมด p < .001",
+        "**ผู้ชมให้คะแนนตัวคอร์สสูงที่สุด** ว่ามีคุณค่า 4.35 ดี 4.28 และเป็นประโยชน์ 4.25 จาก 5",
+        "**ผู้ชมไม่ได้มองว่าคอร์สถูกทำให้เป็นการค้าเกินไป** (3.75) และเห็นว่าการที่แบรนด์มาสนับสนุนมีเหตุผลรองรับ (3.90) เข้ากันกับเนื้อหา (3.84) และมาด้วยความจริงใจ (4.01)",
+        "**ความรู้สึกดีต่อผู้สนับสนุนมีจริงแต่ต่ำกว่าความรู้สึกต่อตัวคอร์ส** — ภาพลักษณ์ดีขึ้น 3.78 ชอบมากกว่าเดิม 3.69 เฉลี่ยทั้งชุด 3.76",
+        "**ความสัมพันธ์ระหว่างสามด้านเป็นบวกทั้งหมดแต่อยู่ในระดับปานกลาง ไม่ใช่สูง** — ทัศนคติต่อคอร์สกับต่อผู้สนับสนุน r = .36 · ต่อคอร์สกับต่อการสนับสนุนโดยรวม r = .51 · ต่อผู้สนับสนุนกับต่อการสนับสนุนโดยรวม r = .59",
+      ],
+      soWhat:
+        "งานนี้เป็นหลักฐานให้กับการสนับสนุนเนื้อหาที่ชุมชนทำกันเอง — **ความรู้สึกดีส่งต่อจากเนื้อหาไปยังผู้สนับสนุนได้จริง แต่ส่งได้ไม่เต็ม** (r ระดับกลาง) แบรนด์จึงไม่ควรคาดหวังว่าความชอบที่ผู้ชมมีต่อเนื้อหาจะกลายเป็นความชอบต่อแบรนด์แบบหนึ่งต่อหนึ่ง · จุดที่ผู้ชมให้คะแนนสูงคือ “ความเข้ากัน” และ “ความจริงใจ” ซึ่งเป็นสิ่งที่เลือกได้ตั้งแต่ตอนเลือกว่าจะไปสนับสนุนอะไร ไม่ใช่สิ่งที่แก้ทีหลังด้วยการซื้อสื่อเพิ่ม",
+      caveat:
+        "**เป็นความสัมพันธ์ ไม่ใช่เหตุและผล** ผู้เขียนระบุไว้เป็นข้อแรก · **ผู้ตอบมาจากกลุ่มแฟนซับกลุ่มเดียว และเป็นคนที่ยังติดตามอยู่** คนที่เคยดูแล้วไม่ชอบย่อมเลิกติดตามไปแล้วและไม่ได้อยู่ในกลุ่มตัวอย่าง ผู้เขียนเรียกค่าที่ได้ว่าเป็น “การประมาณอย่างมีข้อมูล” มากกว่าค่าที่แทนความเห็นสาธารณะ · ค่าความคลาดเคลื่อนของการสุ่มอยู่ที่ 7% · ไม่ได้วัดว่าความรู้สึกดีนำไปสู่การซื้อจริงหรือไม่ ซึ่งผู้เขียนเสนอเป็นงานต่อไป",
+    },
+    en: {
+      headline: "Viewers who value the courses fan groups subtitle for free feel warmly toward the sponsors too — and do not read it as commercial intrusion",
+      question:
+        "Online courses subtitled for free by fan groups carry brand sponsorship. How do Chinese viewers feel about the courses themselves, about the sponsorship, and about the sponsors — and are those three feelings connected?",
+      method:
+        "A cross-sectional online survey posted on the forum of one fansub group, yielding 216 respondents (132 women; half aged 18 to 25; 150 holding a bachelor's degree). All measures used five-point Likert scales with reliabilities between .83 and .90, analysed with one-sample t-tests against the scale midpoint and Pearson correlations.",
+      findings: [
+        "**All three attitudes were significantly positive against the scale midpoint** — toward the courses t(215) = 25.25, toward the sponsors t(215) = 13.92, and toward sponsorship overall t(215) = 22.17, all p < .001.",
+        "**The courses themselves scored highest**: valuable 4.35, good 4.28 and beneficial 4.25 out of 5.",
+        "**Viewers did not see the courses as over-commercialised** (3.75) and agreed that sponsorship made sense (3.90), fitted the content (3.84) and was sincerely meant (4.01).",
+        "**Goodwill toward the sponsors was real but lower than toward the content** — improved image 3.78, liking them more than before 3.69, section mean 3.76.",
+        "**All the relationships were positive but moderate, not strong** — courses to sponsors r = .36, courses to sponsorship overall r = .51, sponsors to sponsorship overall r = .59.",
+      ],
+      soWhat:
+        "This is evidence for sponsoring content a community makes for itself: **goodwill does transfer from the content to the sponsor, but it does not transfer in full** — the correlations are moderate. A brand should not expect affection for the content to become affection for the brand one for one. What viewers rated highest was fit and sincerity, and both are settled at the point of choosing what to sponsor, not repaired afterwards by buying more media.",
+      caveat:
+        "**These are correlations, not causes** — the authors say so first. **Respondents came from a single fansub group and were people still following it**; anyone who watched and disliked it would have unsubscribed and is absent from the sample, which is why the authors call their figure an “educated guess” rather than an estimate of public attitudes. Sampling error was 7%. The study does not test whether goodwill leads to purchase, which the authors propose as the next step.",
+    },
+  },
+  {
+    slug: "first-year-online-learning-technostress",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กองแผ่นบางๆ ซ้อนกันสูงจนย่นและทรุดลงข้างหนึ่ง ข้างๆ มีแผ่นหนาเพียงแผ่นเดียวที่ตั้งตรงอยู่ได้มั่นคง",
+    illustrationAltEn:
+      "Paper-craft illustration of a tall stack of thin sheets buckling under its own height, beside one thick board standing upright and steady",
+    doi: "10.58837/chula.pasaa.65.1.8",
+    articleLanguage: "en",
+    th: {
+      headline: "ความเครียดของนิสิตปีหนึ่งไม่ได้มาจากเทคโนโลยียาก แต่มาจากปริมาณที่ต้องรับมือพร้อมกัน",
+      question:
+        "นิสิตปีหนึ่งที่ต้องย้ายจากห้องเรียนมาเรียนออนไลน์กลางคัน มองการเรียนสองแบบ — เรียนสดพร้อมกันกับเรียนจากสิ่งที่บันทึกไว้ — อย่างไร และเครียดกับเทคโนโลยีในด้านใดบ้าง · นิสิตสายวิทย์กับสายที่ไม่ใช่วิทย์ต่างกันหรือไม่",
+      method:
+        "แบบสอบถามออนไลน์ภาษาไทย 45 ข้อ กับนิสิตปีหนึ่งของมหาวิทยาลัยแห่งหนึ่ง 803 คน จากประชากรรุ่นนั้น 6,778 คน ในปีการศึกษา 2563 · วัดสองส่วนด้วยมาตรวัดลิเคิร์ต 5 ระดับ คือมุมมองต่อการเรียนสองแบบ 20 ข้อ และความเครียดจากเทคโนโลยีสี่ด้าน 20 ข้อ — ด้านปริมาณงานล้น ด้านความซับซ้อน ด้านความไม่มั่นคงของระบบ และด้านความไม่แน่นอนของเทคโนโลยีที่เปลี่ยนบ่อย · ตรวจความตรงเชิงเนื้อหาโดยผู้เชี่ยวชาญ 3 ท่านและทดลองใช้ก่อน · เปรียบเทียบสองกลุ่มด้วย t-test",
+      findings: [
+        "**ความเครียดด้านปริมาณงานล้นสูงกว่าอีกสามด้านชัดเจนในทั้งสองกลุ่ม** — สายวิทย์ 3.52 และสายที่ไม่ใช่วิทย์ 3.64 จาก 5",
+        "**อีกสามด้านอยู่ระดับกลางค่อนไปทางต่ำทั้งหมด** — ความซับซ้อน 2.83 กับ 2.88 · ความไม่มั่นคงของระบบ 2.95 กับ 2.96 · ความไม่แน่นอน 2.73 กับ 2.95",
+        "**ความต่างระหว่างสองกลุ่มมีนัยสำคัญเพียงด้านเดียว คือความไม่แน่นอนของเทคโนโลยี** (t = −3.62, p < .01) ส่วน**ด้านความซับซ้อน (p = .42) และด้านความไม่มั่นคง (p = .91) ไม่พบความต่าง** และด้านปริมาณงานล้นอยู่ที่เส้นพอดี (p = .05)",
+        "**เรื่องมุมมองต่อการเรียน นิสิตสายที่ไม่ใช่วิทย์เป็นบวกกว่าทั้งสองแบบ แต่ต่างอย่างมีนัยสำคัญเฉพาะแบบเรียนจากสิ่งที่บันทึกไว้** (t(801) = −2.13, p = .03) — 3.06 เทียบกับ 2.94",
+        "**คะแนนมุมมองต่อการเรียนออนไลน์ของทุกกลุ่มอยู่ราว 3 จาก 5 เท่านั้น** คือกลางๆ ไม่ได้ชอบและไม่ได้เกลียด",
+      ],
+      soWhat:
+        "ข้อค้นพบชี้ทางแก้ที่ต่างจากที่มักทำกัน — **เมื่อด้านที่สูงคือปริมาณ ส่วนด้านความซับซ้อนกลับต่ำ การอบรมให้ใช้เครื่องมือเป็นจึงไม่ใช่คำตอบ** สิ่งที่ต้องจัดการคือจำนวนแพลตฟอร์มและจำนวนกำหนดส่งที่วิ่งเข้ามาพร้อมกันจากหลายวิชา · ผู้เขียนเสนอให้ลดจำนวนระบบที่ใช้ในหลักสูตรเดียวกันลง และเพิ่มสัดส่วนการเรียนจากสิ่งที่บันทึกไว้สำหรับกลุ่มที่ตอบรับดีกว่า เพราะให้ผู้เรียนจัดจังหวะเองได้",
+      caveat:
+        "**เก็บจากมหาวิทยาลัยเดียวและนิสิตรุ่นเดียว** ในช่วงที่มหาวิทยาลัยสั่งย้ายมาเรียนออนไลน์ทั้งหมด บริบทนี้ไม่ได้เกิดซ้ำในภาวะปกติ · ผู้เขียนระบุเองว่าใช้วิธีเชิงปริมาณอย่างเดียว จึงจับรายละเอียดของประสบการณ์ได้ไม่ครบ และเสนอให้ทำการสัมภาษณ์เชิงลึกต่อ · เป็นการรายงานความรู้สึกด้วยตนเอง ไม่ใช่การวัดภาระงานจริง",
+    },
+    en: {
+      headline: "First-year students were not stressed because the technology was hard — they were stressed by how much of it arrived at once",
+      question:
+        "First-year students moved mid-course from classrooms to online learning. How did they view the two modes — live sessions and recorded material — and which kinds of technology stress did they feel? Did science and non-science students differ?",
+      method:
+        "A 45-item online questionnaire in Thai completed by 803 first-year students at one university, from a cohort of 6,778, in the 2020 academic year. Two sections used five-point Likert scales: 20 items on views of the two learning modes and 20 on four kinds of technostress — overload, complexity, insecurity and uncertainty. Content validity was reviewed by three specialists and the instrument was piloted; the two groups were compared with t-tests.",
+      findings: [
+        "**Techno-overload stood clearly above the other three in both groups** — 3.52 among science students and 3.64 among non-science students, out of 5.",
+        "**The other three all sat in the middle-to-low range** — complexity 2.83 and 2.88, insecurity 2.95 and 2.96, uncertainty 2.73 and 2.95.",
+        "**Only one difference between the groups was significant: techno-uncertainty** (t = −3.62, p < .01). **Complexity (p = .42) and insecurity (p = .91) showed no difference at all**, and overload sat exactly on the line (p = .05).",
+        "**On views of the modes, non-science students were more positive about both, but significantly so only for the recorded mode** (t(801) = −2.13, p = .03) — 3.06 against 2.94.",
+        "**Every group's rating of online learning hovered around 3 out of 5** — neither liked nor disliked.",
+      ],
+      soWhat:
+        "The finding points somewhere other than the usual remedy. **When the high score is quantity while complexity is low, training people to use the tools is not the answer.** What has to be managed is the number of platforms and the number of deadlines arriving together from different courses. The authors recommend reducing how many systems a single programme uses, and offering more recorded material for the group that responded better to it, because it lets students set their own pace.",
+      caveat:
+        "**One university, one cohort**, during a period when the institution had mandated fully online teaching — a context that does not recur in normal conditions. The authors note the study is quantitative only and therefore cannot capture the texture of the experience, and they call for interviews as a follow-up. These are self-reported feelings, not measured workload.",
+    },
+  },
 ];
 
 const byDoi = new Map(
