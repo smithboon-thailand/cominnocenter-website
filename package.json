@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "indexnow": "node scripts/indexnow.mjs",
     "check:text": "node scripts/check-rendered-text.mjs",
-    "verify": "npm run lint && npm run build && npm run check:text"
+    "check:images": "node scripts/check-image-files.mjs",
+    "verify": "npm run lint && npm run build && npm run check:text && npm run check:images"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

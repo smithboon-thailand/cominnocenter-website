@@ -98,6 +98,23 @@ export type PaperSummary = PaperRef & {
   /** ภาษาที่**ตัวบทความ**เขียน ไม่ใช่ภาษาของหน้าเว็บ — ส่งเข้า inLanguage ของ JSON-LD */
   articleLanguage: "th" | "en";
   /**
+   * คำบรรยายภาพประกอบหัวบทสรุป (บังคับ) — ไฟล์อยู่ที่
+   * `public/images/research/summaries/<slug>.webp` พร้อมคู่ย่อ `-800` และ `-1200`
+   * จึงเก็บแค่คำบรรยาย ไม่ต้องเก็บ path ซ้ำให้หลุดจากกันภายหลัง
+   *
+   * **หลักการวาด: วาดรูปร่างของ "ข้อค้นพบ" ไม่ใช่วาดเนื้อเรื่อง** — ในชุดนี้มีงานที่
+   * แตะเหตุการณ์จริงซึ่งมีผู้เสียชีวิต การคุกคามทางเพศ ความขัดแย้งที่ยังดำเนินอยู่
+   * และโรคที่ยังถูกตีตรา ภาพประกอบตามเนื้อเรื่องจะเสียหายมากกว่าไม่มีภาพ
+   * ภาพจึงเป็นอุปมานามธรรมของ*โครงสร้างข้อสรุป* เท่านั้น (เช่น "เชื่อใจมากแต่ไม่จ่าย"
+   * = ชามใหญ่เต็มปรี่ต่อเส้นด้ายบางไปยังชามจิ๋วที่ว่าง) และทำตาม BRAND.md E3
+   * ทุกใบ: วัตถุกระดาษ สองสีต่อภาพ พื้นครีม ไม่มีตัวอักษร ไม่มีคน
+   *
+   * เขียนแยกสองภาษา ไม่ใช่คำแปลตรงตัว และต้องบอกว่า "ภาพเป็นรูปอะไร"
+   * ไม่ใช่ทวนพาดหัวซ้ำกับ h1 ที่อยู่เหนือมัน
+   */
+  illustrationAltTh: string;
+  illustrationAltEn: string;
+  /**
    * สัญญาอนุญาตของบทความต้นฉบับ — **ไม่มีค่าแปลว่าวารสารสงวนลิขสิทธิ์ไว้**
    * ไม่ได้แปลว่ายังไม่ได้ตรวจ ห้ามเดาใส่ และห้ามแสดงข้อความ CC ให้รายการที่ไม่มีค่า
    */
@@ -119,6 +136,8 @@ export type PaperSummary = PaperRef & {
 export const paperSummaries: PaperSummary[] = [
   {
     slug: "engage-a3-model",
+    illustrationAltTh: "ภาพประกอบกระดาษ สะพานโค้งที่วางอยู่บนฐานซึ่งถูกวางไว้ก่อน",
+    illustrationAltEn: "Paper-craft illustration of an arched span resting on a foundation block laid down first",
     doi: "10.5114/hivar.2022.115679",
     articleLanguage: "en",
     license: "cc-by-nc-sa",
@@ -161,6 +180,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "hiv-risk-communication-samut-sakhon",
+    illustrationAltTh: "ภาพประกอบกระดาษ แท่งสองแท่งสูงขึ้น ส่วนแท่งที่สามยังราบอยู่กับพื้น",
+    illustrationAltEn: "Paper-craft illustration of two risen bars beside a third that stays flat",
     doi: "10.5114/hivar.2019.88535",
     articleLanguage: "en",
     license: "cc-by-nc-sa",
@@ -204,6 +225,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "hiv-knowledge-public-health-officers",
+    illustrationAltTh: "ภาพประกอบกระดาษ ฟันเฟืองเรียงขบกัน โดยมีช่องหนึ่งว่างอยู่",
+    illustrationAltEn: "Paper-craft illustration of a gear train with one gear missing from the row",
     doi: "10.5114/hivar.2017.72029",
     articleLanguage: "en",
     license: "cc-by-nc-sa",
@@ -246,6 +269,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "vr360-neck-shoulder-pain",
+    illustrationAltTh: "ภาพประกอบกระดาษ แผ่นสี่เหลี่ยมแบนใบเล็ก เทียบกับวงแหวนที่โอบรอบจุดกึ่งกลาง",
+    illustrationAltEn: "Paper-craft illustration of a small flat rectangle beside a ring that wraps all the way around",
     doi: "10.55131/jphd/2022/200118",
     articleLanguage: "en",
     license: "cc-by-nc-nd",
@@ -289,6 +314,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "cryptocurrency-adoption-reddit",
+    illustrationAltTh: "ภาพประกอบกระดาษ ตราชั่งสามตัวเอียงคนละองศา",
+    illustrationAltEn: "Paper-craft illustration of three balance scales, each tipped at a different angle",
     doi: "10.1080/23311975.2024.2402513",
     articleLanguage: "en",
     license: "cc-by",
@@ -330,6 +357,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "bitcoin-ownership-property-rights",
+    illustrationAltTh: "ภาพประกอบกระดาษ กรอบเปล่าที่มองทะลุได้ แต่ทอดเงาทึบเต็มรูป",
+    illustrationAltEn: "Paper-craft illustration of an empty frame casting a solid, completely filled shadow",
     doi: "10.35297/001c.123605",
     articleLanguage: "en",
     license: "cc-by",
@@ -370,6 +399,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "bangkok-election-social-media",
+    illustrationAltTh: "ภาพประกอบกระดาษ กองแผ่นกลมสองแถวที่ความสูงไม่ตรงกันสักตำแหน่ง",
+    illustrationAltEn: "Paper-craft illustration of two rows of stacked discs whose heights never line up",
     indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
     articleLanguage: "en",
     pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/132679/99578",
@@ -414,6 +445,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "nodam-maewong-framing",
+    illustrationAltTh: "ภาพประกอบกระดาษ วัตถุสามชิ้นคนละรูปทรงที่ทอดเงาไปรวมเป็นเงาเดียว",
+    illustrationAltEn: "Paper-craft illustration of three differently shaped objects casting one shared shadow",
     indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/148722",
     articleLanguage: "en",
     pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/148722/109366",
@@ -456,6 +489,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "health-content-working-women",
+    illustrationAltTh: "ภาพประกอบกระดาษ รูปทรงชิ้นเดียว กับแผ่นที่เจาะช่องสามช่องซึ่งไม่มีช่องไหนพอดี",
+    illustrationAltEn: "Paper-craft illustration of one shape beside a panel of three openings it fits none of",
     indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/230947",
     articleLanguage: "th",
     pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/230947/166266",
@@ -498,6 +533,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "on-demand-app-loyalty",
+    illustrationAltTh: "ภาพประกอบกระดาษ วัตถุที่ยึดไว้ด้วยสายหนาเส้นเดียว ท่ามกลางเส้นบางที่ไม่ได้ยึดอะไร",
+    illustrationAltEn: "Paper-craft illustration of an object held by one thick cord among thin threads attached to nothing",
     indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/247870",
     articleLanguage: "th",
     pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/247870/169198",
@@ -540,6 +577,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "tv-crisis-communication-korat",
+    illustrationAltTh: "ภาพประกอบกระดาษ จอสามจอหันออกนอกทั้งหมด โดยมีสามเหลี่ยมอยู่ข้างหลังที่ไม่มีจอไหนหันไปมอง",
+    illustrationAltEn: "Paper-craft illustration of three screens all facing outward, with a triangle behind them that none of them faces",
     indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/251243",
     articleLanguage: "th",
     pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/251243/171220",
@@ -586,6 +625,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "retirees-sodium-campaign",
+    illustrationAltTh: "ภาพประกอบกระดาษ กรวยห้าอันเรียงกัน โดยมีอันหนึ่งกว้างกว่าที่เหลือมาก",
+    illustrationAltEn: "Paper-craft illustration of five funnels in a row, one far wider than the rest",
     indexUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/view/253798",
     articleLanguage: "th",
     pdfUrl: "https://so03.tci-thaijo.org/index.php/jprad/article/download/253798/174298",
@@ -630,6 +671,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "sexual-harassment-entertainment-tv",
+    illustrationAltTh: "ภาพประกอบกระดาษ แผ่นบางคลุมทับรูปทรงมีเหลี่ยมคมที่ยังดันทะลุขึ้นมาให้เห็น",
+    illustrationAltEn: "Paper-craft illustration of a thin sheet draped over a sharp-edged form that still shows through",
     indexUrl: "https://so02.tci-thaijo.org/index.php/jcomm/article/view/259563",
     articleLanguage: "th",
     license: "cc-by-nc-nd",
@@ -676,6 +719,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "southern-border-narrative",
+    illustrationAltTh: "ภาพประกอบกระดาษ วัตถุชิ้นเดียวที่ทอดเงาห้าเงาออกไปคนละทิศ",
+    illustrationAltEn: "Paper-craft illustration of a single object casting five shadows in five different directions",
     indexUrl: "https://so02.tci-thaijo.org/index.php/jcomm/article/view/275202",
     articleLanguage: "th",
     license: "cc-by-nc-nd",
@@ -718,6 +763,8 @@ export const paperSummaries: PaperSummary[] = [
   },
   {
     slug: "horror-storytelling-engagement",
+    illustrationAltTh: "ภาพประกอบกระดาษ ชามใบใหญ่เต็มปรี่ ต่อด้วยเส้นด้ายบางไปยังชามจิ๋วที่มีเพียงชิ้นเดียว",
+    illustrationAltEn: "Paper-craft illustration of a brimming bowl linked by a thin thread to a tiny bowl holding one disc",
     indexUrl: "https://so12.tci-thaijo.org/index.php/jcmn/article/view/5690",
     articleLanguage: "th",
     pdfUrl: "https://so12.tci-thaijo.org/index.php/jcmn/article/download/5690/5224",
