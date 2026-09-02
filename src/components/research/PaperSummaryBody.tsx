@@ -6,6 +6,9 @@
  * วันหนึ่งจะมีภาษาหนึ่งได้หัวข้อใหม่แล้วอีกภาษาไม่ได้ ซึ่งเป็นปัญหาเดิมที่
  * โปรเจ็คนี้เจอมาแล้วกับการ์ดโครงการที่ฝั่ง EN โชว์ผลลัพธ์เป็นภาษาไทย
  *
+ * งานที่เป็น **ประกาศแผนวิจัย** (`kind="protocol"`) ใช้โครงเดียวกันแต่เปลี่ยนชื่อ
+ * หัวข้อเป็น "จะทำอะไร / จะทำอย่างไร" และขึ้นป้ายบอกไว้ก่อนเนื้อหา — ดู `PROTOCOL_COPY`
+ *
  * **ข้อจำกัดอยู่ท้ายสุดและอยู่ในกรอบของตัวเอง** โดยตั้งใจ — ไม่ซ่อน ไม่ปนกับผล
  * เพื่อให้คนที่อ่านแค่ผลแล้วจะเอาไปอ้างต่อ เห็นเงื่อนไขก่อนปิดหน้า
  */
@@ -71,17 +74,65 @@ const COPY = {
   },
 } as const;
 
+/**
+ * หัวข้อชุดของ **ประกาศแผนวิจัย (study protocol)** — งานที่วารสารตรวจและตีพิมพ์
+ * *แผน* ก่อนเริ่มเก็บข้อมูล
+ *
+ * ต้องเปลี่ยนหัวข้อ ไม่ใช่ใช้ชุดเดิม เพราะหัวข้อ "พบอะไร" เติมอย่างซื่อสัตย์ไม่ได้
+ * เลยกับงานที่ยังไม่มีผล — ตัวบทความเองเขียนว่า "Since this is a study protocol,
+ * precise findings are not yet available" ถ้าคงหัวข้อเดิมไว้ ผู้อ่านที่กวาดสายตา
+ * ผ่านหน้ารายการบทสรุปจะเข้าใจว่ามีผลแล้ว ซึ่งเป็นการอ้างเกินกว่าที่งานรองรับ
+ * (เคยตัดงานสองชิ้นนี้ทิ้งด้วยเหตุผลนี้ใน PR #31 · ผู้ใช้ทักเมื่อ 2 ก.ย. 2569 ว่า
+ * แผนวิจัยก็ควรมีหน้าของตัวเอง เพียงแต่ต้องเรียกให้ตรงกับสิ่งที่มันเป็น)
+ */
+const PROTOCOL_COPY = {
+  th: {
+    method: "จะทำอย่างไร",
+    findings: "จะทำอะไร",
+    soWhat: "ทำไมแผนนี้จึงสำคัญ",
+    caveat: "ข้อควรรู้ก่อนนำไปอ้าง",
+    noticeLabel: "ประกาศแผนวิจัย",
+    notice:
+      "งานชิ้นนี้เป็นการตีพิมพ์ **แผนการวิจัยก่อนเริ่มเก็บข้อมูล** วารสารตรวจวิธีการตั้งแต่ต้น เพื่อให้ผู้อ่านเทียบได้ภายหลังว่าสิ่งที่รายงานตรงกับที่ประกาศไว้หรือไม่ — **หน้านี้จึงยังไม่มีผลการศึกษา** มีเพียงคำถาม วิธีการ และสิ่งที่ทีมวิจัยตั้งใจจะทำ",
+  },
+  en: {
+    method: "How it will be done",
+    findings: "What the study will do",
+    soWhat: "Why this plan matters",
+    caveat: "What to know before citing this",
+    noticeLabel: "Study protocol",
+    notice:
+      "This is a **research plan published before any data was collected**. The journal reviews the method up front so that what gets reported later can be checked against what was announced — so **there are no results on this page**, only the question, the method, and what the team intends to do.",
+  },
+} as const;
+
 export default function PaperSummaryBody({
   copy,
   locale,
+  kind,
 }: {
   copy: PaperCopy;
   locale: "th" | "en";
+  kind?: "protocol";
 }) {
-  const t = COPY[locale];
+  const protocol = kind === "protocol" ? PROTOCOL_COPY[locale] : null;
+  const t = { ...COPY[locale], ...(protocol ?? {}) };
 
   return (
     <div className="mt-12 flex flex-col gap-10">
+      {protocol ? (
+        /* ป้ายอยู่**เหนือ**เนื้อบทสรุป ไม่ใช่ท้ายหน้าแบบกล่องข้อจำกัด เพราะเป็น
+           ข้อมูลที่เปลี่ยนวิธีอ่านทั้งหน้า ต้องเห็นก่อนอ่าน ไม่ใช่รู้ทีหลัง */
+        <section className="rounded-lg border-l-4 border-l-pink-500 border-y border-r border-ink-300 bg-ink-0 p-6">
+          <p className="text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
+            {protocol.noticeLabel}
+          </p>
+          <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">
+            {withEmphasis(protocol.notice)}
+          </p>
+        </section>
+      ) : null}
+
       <section>
         <h2 className="text-h3-m md:text-h3 text-ink-900">{t.question}</h2>
         <p className="mt-3 text-[17px] leading-[1.7] text-ink-700">{withEmphasis(copy.question)}</p>

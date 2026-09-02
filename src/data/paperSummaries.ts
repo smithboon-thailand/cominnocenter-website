@@ -109,6 +109,23 @@ export type PaperSummary = PaperRef & {
   /** ภาษาที่**ตัวบทความ**เขียน ไม่ใช่ภาษาของหน้าเว็บ — ส่งเข้า inLanguage ของ JSON-LD */
   articleLanguage: "th" | "en";
   /**
+   * ประเภทของงาน — **ไม่มีค่าแปลว่างานที่มีผลแล้ว**
+   *
+   * `"protocol"` คือ**ประกาศแผนวิจัย** ซึ่งวารสารตรวจและตีพิมพ์*แผน*ก่อนเริ่มเก็บ
+   * ข้อมูล เพื่อให้วิธีการถูกตรวจตั้งแต่ต้นและเทียบได้ภายหลังว่าผลที่รายงานตรงกับ
+   * ที่ประกาศไว้ไหม งานประเภทนี้**ยังไม่มีผลการศึกษา** ตัวบทความเขียนไว้เองว่า
+   * *"Since this is a study protocol, precise findings are not yet available"*
+   *
+   * เมื่อใส่ค่านี้ หน้าเว็บจะเปลี่ยนหัวข้อจาก "พบอะไร" เป็น "จะทำอะไร" ขึ้นป้าย
+   * บอกก่อนเนื้อหา และเปลี่ยนคำบนลิงก์ในหน้ารายการ — ต้องเปลี่ยนครบทั้งสามที่
+   * ไม่ใช่แค่ในหน้ารายละเอียด เพราะผู้อ่านที่กวาดสายตาผ่านรายการก็ต้องไม่เข้าใจผิด
+   * (เคยตัดงานสองชิ้นนี้ทิ้งใน PR #31 เพราะเติมหัวข้อ "พบอะไร" อย่างซื่อสัตย์ไม่ได้
+   *  · ผู้ใช้ทักเมื่อ 2 ก.ย. 2569 ว่าแผนวิจัยก็ควรมีหน้าของตัวเอง เพียงแต่ต้องเรียก
+   *  ให้ตรงกับสิ่งที่มันเป็น ซึ่งถูกกว่าการตัดทิ้ง — การประกาศแผนล่วงหน้าเป็นสิ่งที่
+   *  ศูนย์ฯ ควรแสดง ไม่ใช่สิ่งที่ต้องซ่อนจนกว่าจะมีผล)
+   */
+  kind?: "protocol";
+  /**
    * คำบรรยายภาพประกอบหัวบทสรุป (บังคับ) — ไฟล์อยู่ที่
    * `public/images/research/summaries/<slug>.webp` พร้อมคู่ย่อ `-800` และ `-1200`
    * จึงเก็บแค่คำบรรยาย ไม่ต้องเก็บ path ซ้ำให้หลุดจากกันภายหลัง
@@ -957,6 +974,329 @@ export const paperSummaries: PaperSummary[] = [
         "The staff's own answers cut against the common assumption that knowledge management starts with a new platform. When the top obstacle is unfamiliarity, adding another tool makes the problem worse. What they chose was the channel already in their daily lives plus people to guide them — technology second, relationships first.",
       caveat:
         "**The 100% response rate came from a management requirement, not from willingness**, which may pull answers toward what respondents thought the organisation wanted to hear — consistent with the 25.2% who named forced participation as a problem. These are self-reported preferences, not observed behaviour. **The data is from 2014–2015**: the option list still included Hi5, and Facebook's role in Thai workplaces has changed considerably since. Evidence comes from a single department using one reference topic.",
+    },
+  },
+  {
+    slug: "ai-generated-citations-students",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กรอบรูปที่ทำอย่างประณีตทุกด้าน แต่ข้างในว่างเปล่าเป็นพื้นสีเดียวกับฉากหลัง",
+    illustrationAltEn:
+      "Paper-craft illustration of a meticulously made frame whose interior is empty — the same ground as the background",
+    doi: "10.1163/26659077-20252811",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "ai-generated-citations-students.pdf",
+    th: {
+      headline: "นิสิตหนึ่งในห้าค้นข้อมูลวิชาการจากแชตบอต และคำพูดที่มันยกมาอ้างไม่มีอยู่จริงสักประโยค",
+      question:
+        "เมื่อได้โจทย์ที่ต้องหาความรู้วิชาการซึ่งไม่คุ้นเคย นิสิตไทยหันไปหาแหล่งไหน และข้อมูลที่ได้จากปัญญาประดิษฐ์เชื่อถือได้แค่ไหนเมื่อเอาไปตรวจกับต้นฉบับจริง",
+      method:
+        "ให้นิสิตปริญญาตรีจุฬาลงกรณ์มหาวิทยาลัย 240 คน ทำโจทย์เดียวกันคือค้นอย่างรวดเร็วว่า Rudolf Carnap นักปรัชญาสายตรรกวิทยา คิดอย่างไรกับแนวคิดการพิสูจน์ยืนยันความหมาย พร้อมยกข้อความจากงานเขียนของเขามาประกอบหนึ่งข้อความ ใช้แหล่งใดก็ได้ตามใจ แล้วรายงานผ่านแบบสอบถามที่มีโครงสร้างว่าได้ข้อมูลมาจากที่ไหน ระบุถึงรุ่นของเครื่องมือ · จากนั้นผู้วิจัยนำข้อความที่นิสิตยกมาอ้างไปไล่ตรวจกับงานเขียนต้นฉบับที่ระบุไว้ทีละข้อ",
+      findings: [
+        "**กูเกิล 57% · แชตบอต 22% · วิกิพีเดีย 21%** — เกินหนึ่งในห้าเลือกแชตบอตเป็นแหล่งหลักในงานที่ต้องอ้างอิงงานวิชาการ โดยให้เหตุผลว่าได้คำตอบตรงและกระชับ",
+        "**คำตอบ 37 ชิ้นมีข้อความที่ระบุว่าเป็นของ Carnap** พร้อมชื่อหนังสือและปีที่พิมพ์ครบถ้วน อ่านแล้วเข้ารูปการอ้างอิงวิชาการทุกประการ",
+        "**ไม่มีข้อความใดเลยปรากฏอยู่ในงานที่อ้างถึง** ทั้งหมดเป็นข้อความที่ระบบแต่งขึ้นเลียนสำนวนและแนวคิดของเขา",
+        "**ในการชี้แจงหลังการทดลอง นิสิตทั้ง 37 คนยืนยันว่ามั่นใจ** ว่ากำลังอ้างข้อความจริงจากงานของ Carnap — ไม่มีใครเอะใจว่าต้องกลับไปตรวจ",
+      ],
+      soWhat:
+        "ปัญหาที่งานนี้ชี้ไม่ใช่ว่าปัญญาประดิษฐ์ตอบผิด แต่คือ**รูปแบบของคำตอบที่ดูเหมือนผ่านการตรวจสอบมาแล้ว** มีชื่อหนังสือ มีปี มีสำนวนของเจ้าของงาน ซึ่งในบริบทวิชาการคือสัญญาณว่า “ตรวจมาแล้ว” · ข้อเสนอของผู้เขียนจึงไม่ใช่การห้ามใช้ แต่ให้แพลตฟอร์มแจ้งข้อจำกัดของตัวเองให้ชัดว่าไม่สามารถตรวจสอบหรือให้การอ้างอิงที่ถูกต้องได้ และให้สถาบันการศึกษาสอนการตรวจย้อนกลับไปยังต้นฉบับเป็นทักษะการรู้เท่าทันสื่อชุดใหม่ — คนที่นำไปใช้ได้ทันทีคือผู้สอนที่ออกแบบงานมอบหมาย",
+      caveat:
+        "**เป็นโจทย์เดียว มหาวิทยาลัยเดียว** และแหล่งข้อมูลที่นิสิตเลือกสะท้อนช่วงเวลาที่เก็บข้อมูล ซึ่งรุ่นที่ระบุไว้ในบทความคือ ChatGPT 3.5 (ต้นฉบับส่งวารสารเดือนมกราคม 2567) เครื่องมือรุ่นที่ค้นเว็บและแนบลิงก์ได้อาจให้ผลต่างออกไป **สัดส่วน 57/22/21 จึงเป็นภาพของช่วงนั้น ไม่ใช่สัดส่วนปัจจุบัน** · หัวข้อที่ใช้เป็นปรัชญาเฉพาะทางที่มีข้อความต้นฉบับออนไลน์ไม่มาก ซึ่งเป็นเงื่อนไขที่เอื้อให้เกิดการแต่งข้อความมากกว่าหัวข้อทั่วไป · งานนี้ไม่ได้วัดว่าการอบรมแบบใดช่วยลดปัญหาได้จริง",
+    },
+    en: {
+      headline: "One student in five researched an academic question with a chatbot — and not one of the quotations it supplied exists",
+      question:
+        "Given a task that requires unfamiliar academic material, where do Thai students go for it, and how well does what an AI returns hold up when checked against the original works?",
+      method:
+        "240 undergraduates at Chulalongkorn University were given the same task: quickly find out what Rudolf Carnap thought about verificationism and support the summary with a quotation from one of his works, using any online source they liked. Immediately afterwards a structured questionnaire recorded which source they had used, down to the version of the tool. The researchers then checked every quotation the students submitted against the work it was attributed to.",
+      findings: [
+        "**Google 57%, a chatbot 22%, Wikipedia 21%** — more than a fifth chose a conversational AI as their main source for a task requiring an academic citation, citing the directness and brevity of the answers.",
+        "**37 submissions contained a quotation attributed to Carnap**, complete with the title of the work and the year of publication, in the form a scholarly citation takes.",
+        "**Not one of those quotations appears in the work it cites.** All of them were generated text imitating his style and ideas.",
+        "**At the debriefing all 37 students said they were confident** they had been quoting Carnap directly. None had thought to verify it.",
+      ],
+      soWhat:
+        "The problem this study identifies is not that the AI was wrong. It is that **the answer arrived in the form of something already verified** — a title, a year, the author's cadence — which in academic work is precisely the signal that checking has been done. The authors' proposal is not a ban but disclosure: platforms stating plainly that they cannot verify sources or supply reliable citations, and institutions teaching verification back to the original as a new component of media literacy. The people who can act on this immediately are the ones who set the assignments.",
+      caveat:
+        "**One task, one university.** The source mix reflects when the data was gathered: the article names ChatGPT 3.5 as the version in use (the manuscript was submitted in January 2024), and tools that now search the web and attach links may behave differently, so **the 57/22/21 split is a snapshot, not a current figure**. The topic was a specialised area of philosophy with limited primary text online — conditions that favour fabrication more than a general topic would. The study does not test which interventions actually reduce the problem.",
+    },
+  },
+  {
+    slug: "chinese-media-thailand-cannabis",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ริบบิ้นเรียบตรงเส้นหนึ่งลอดผ่านช่องแคบ แล้วออกมาอีกด้านเป็นเส้นที่ยับและโค้งลง",
+    illustrationAltEn:
+      "Paper-craft illustration of a smooth ribbon passing through a narrow slot and coming out creased and curling downward",
+    doi: "10.1016/j.heliyon.2023.e15478",
+    articleLanguage: "en",
+    license: "cc-by-nc-nd",
+    localCopy: "chinese-media-thailand-cannabis.pdf",
+    th: {
+      headline: "ข่าวรายงานกลางๆ แต่ช่องความเห็นไม่กลาง และปลายทางคือ “ไม่ไปแล้ว”",
+      question:
+        "หลังไทยปลดล็อกกัญชา สื่อภาษาจีนเล่าเรื่องไทยในฐานะจุดหมายท่องเที่ยวอย่างไร และผู้อ่านชาวจีนตอบสนองต่อเรื่องเล่านั้นในทิศทางเดียวกับน้ำเสียงของข่าวหรือไม่",
+      method:
+        "วิเคราะห์เนื้อหาโพสต์ 128 โพสต์บนเว่ยป๋อ ระหว่างปี 2562 ถึง 2565 จากสำนักข่าวภาษาจีนสี่แห่ง (สามแห่งเป็นสื่อจีน อีกแห่งเป็นหนังสือพิมพ์ภาษาจีนในกรุงเทพฯ) ใช้กรอบทฤษฎีการวางกรอบข่าวและทฤษฎีอัตลักษณ์ทางสังคม ลงรหัสโดยผู้ลงรหัสสามคนพร้อมทดสอบความสอดคล้องระหว่างกัน · โพสต์ที่มีปฏิสัมพันธ์น้อยกว่า 10 ครั้งถูกตัดออกจากการวิเคราะห์",
+      findings: [
+        "**น้ำเสียงของข่าวเป็นกลางเป็นส่วนใหญ่** ผู้ลงรหัสทั้งสามคนจัดโพสต์เป็นข้อความกลางๆ ที่ 94.5% · 85.2% · 82.8% ตามลำดับ ส่วนที่ชักชวนเชิงบวกมีเพียง 0.8–2.3%",
+        "**มุมที่เล่ามากที่สุดคือการอธิบายตัวนโยบาย 55.5% (71 โพสต์) รองลงมาคือข่าวเชิงลบเกี่ยวกับการปลดล็อก 36.7% (47 โพสต์)** ขณะที่ข่าวเชิงบวกมีเพียง 4.7% (6 โพสต์) และประโยชน์ทางการแพทย์ 10.9% (14 โพสต์) · จำนวนโพสต์พุ่งสูงสุดในเดือนที่นโยบายมีผลบังคับใช้",
+        "**ความเห็นของผู้อ่านไปคนละทางกับน้ำเสียงของข่าว** ผู้วิจัยพบชุดความเห็นที่ปฏิเสธไทยในฐานะจุดหมายท่องเที่ยว โดยให้เหตุผลว่ากลัวเผลอกินอาหารที่มีกัญชาผสม ไม่มั่นใจการกำกับดูแลหลังปลดล็อก และมองว่าเป็นการทำตามชาติตะวันตก",
+        "**หนึ่งในสามของโพสต์ไม่ระบุแหล่งที่มา** — อ้างสื่อไทย 58.6% (75 โพสต์) เป็นเนื้อหาที่สื่อจีนเรียบเรียงเอง 7.8% (10 โพสต์) และไม่ระบุแหล่ง 33.6% (43 โพสต์)",
+        "**โพสต์ที่ห้ามปรามชัดเจนที่สุดไม่ใช่ความเห็นของสื่อ** แต่เป็นการส่งต่อประกาศของสถานทูตจีนในไทยที่ห้ามนำผลิตภัณฑ์กัญชากลับประเทศ",
+      ],
+      soWhat:
+        "บทเรียนสำหรับงานสื่อสารภาพลักษณ์ประเทศคือ **การนับว่าข่าวเป็นกลางกี่เปอร์เซ็นต์ ไม่ได้บอกว่าผู้รับสารรู้สึกอย่างไร** ช่องความเห็นคือที่ที่ความหมายถูกตัดสิน และข่าวที่กลางแต่ไม่ตอบคำถามที่ผู้อ่านกังวลจริง — กินอาหารข้างทางแล้วจะเจอกัญชาไหม กลับประเทศแล้วผิดกฎหมายไหม — เปิดช่องให้ความกลัวเข้ามาเติมแทน · หน่วยงานที่ทำงานด้านการท่องเที่ยวจึงต้องออกแบบสารที่ตอบคำถามระดับชีวิตประจำวันของนักท่องเที่ยว ไม่ใช่แค่ประกาศนโยบายให้ครบถ้วน",
+      caveat:
+        "**ระบบเซนเซอร์ทำให้เก็บข้อมูลได้ไม่ครบ** ผู้วิจัยระบุเองว่าต้องจำกัดที่เว่ยป๋อแพลตฟอร์มเดียว เพราะค้นในเครื่องมือค้นหาหลักของจีนไม่ได้ และคำว่ากัญชาถูกจำกัด สื่อจึงเลี่ยงไปใช้คำพ้องเสียงหรืออิโมจิ ทำให้ค้นไม่ครบ · ระบบชื่อจริงบนเว่ยป๋อทำให้ผู้ใช้เซนเซอร์ตัวเอง ความเห็นที่เห็นจึงอาจไม่ใช่ความเห็นจริง · **งานนี้ไม่ได้วัดว่าความเห็นเหล่านั้นทำให้คนเลิกเดินทางมาจริงหรือไม่** ซึ่งผู้วิจัยระบุว่าอยู่นอกขอบเขต · บทสรุปนี้ไม่ระบุชื่อสำนักข่าวทั้งสี่ เพราะข้อค้นพบเรื่องการไม่อ้างแหล่งที่มาผูกกับสำนักข่าวเป็นรายแห่ง และบทเรียนที่นำไปใช้ได้ไม่ได้ขึ้นกับว่าเป็นแห่งใด",
+    },
+    en: {
+      headline: "The coverage was mostly neutral. The comment threads were not — and they ended at “I'm not going.”",
+      question:
+        "After Thailand legalised cannabis, how did Chinese-language media narrate the country as a travel destination, and did readers respond in the same direction as the coverage they were reading?",
+      method:
+        "A content analysis of 128 Weibo posts published between 2019 and 2022 by four Chinese-language outlets (three Chinese media houses and one Chinese-language newspaper based in Bangkok), read through framing theory and social identity theory. Three coders classified the posts and inter-coder reliability was tested. Posts with fewer than ten engagements were excluded.",
+      findings: [
+        "**The tone of the coverage was predominantly neutral** — the three coders classified 94.5%, 85.2% and 82.8% of posts respectively as neutral statements, against only 0.8–2.3% offering positive encouragement.",
+        "**The dominant angle was explaining the policy itself, at 55.5% (71 posts), followed by negative news about legalisation at 36.7% (47 posts)**, with positive news at just 4.7% (6 posts) and medical benefits at 10.9% (14). Volume peaked in the month the policy took effect.",
+        "**Reader comments ran in the opposite direction to the coverage.** The researchers found a cluster of comments rejecting Thailand as a destination, reasoning that they might unknowingly eat food containing cannabis, that oversight after legalisation could not be trusted, and that the policy was imitation of the West.",
+        "**A third of the posts cited no source at all** — 58.6% (75 posts) drew on Thai media reports, 7.8% (10) were compiled by the outlets themselves, and 33.6% (43) gave no source.",
+        "**The most strongly discouraging posts were not editorial opinion** but forwarded notices from the Chinese embassy prohibiting citizens from bringing cannabis products home.",
+      ],
+      soWhat:
+        "For nation-image work the lesson is that **counting how much coverage is neutral tells you nothing about how it lands.** The comment thread is where meaning is settled, and coverage that stays neutral while leaving the reader's actual worry unanswered — could I eat it by accident at a street stall, what happens when I fly home — leaves a space that fear fills instead. Tourism communication has to answer questions at the level of a traveller's day, not only announce the policy completely.",
+      caveat:
+        "**Censorship left the dataset incomplete**, and the authors say so: the study had to be confined to Weibo because the relevant terms cannot be searched on China's main search engine, and because outlets evade the restricted word using homophones or emoji, so the search cannot have caught everything. Weibo's real-name system encourages self-censorship, so visible comments may not be genuine opinion. **The study does not measure whether those comments translated into fewer trips** — the authors place that outside its scope. This summary does not name the four outlets, because the finding about missing source attribution attaches to individual outlets and the usable lesson does not depend on which one.",
+    },
+  },
+  {
+    slug: "joox-rooms-relational-bonds",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ รูปทรงมนสองรูปซ้อนทับกันเกือบสนิท เหลื่อมกันเพียงริ้วบางๆ ที่ขอบด้านล่าง",
+    illustrationAltEn:
+      "Paper-craft illustration of two rounded shapes lying almost exactly on top of one another, offset by only a thin sliver along the lower edge",
+    doi: "10.1080/23311983.2026.2675861",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "joox-rooms-relational-bonds.pdf",
+    th: {
+      headline: "แฟนเพลงแยกไม่ออกว่ารักศิลปินหรือรักแพลตฟอร์ม และนั่นคือข้อค้นพบ ไม่ใช่ความบกพร่องของแบบวัด",
+      question:
+        "อะไรทำให้ผู้ฟังผูกพันกับบริการสตรีมมิงเพลงที่มีห้องไลฟ์ให้คุยกับศิลปินแบบทันที และความผูกพันนั้นนำไปสู่การใช้ต่อและบอกต่อจริงหรือไม่",
+      method:
+        "แบบสอบถามออนไลน์กับผู้ใช้ห้องไลฟ์ JOOX Rooms ในไทย เก็บเดือนเมษายนถึงพฤษภาคม 2567 เริ่มทำ 306 คน เหลือ 175 คนหลังคัดข้อมูล กระจายแบบบอกต่อ วิเคราะห์ด้วยโมเดลสมการโครงสร้าง แยกสายสัมพันธ์สามแบบตามกรอบ relational bonds — ด้านการเงิน (ส่วนลด เหรียญในระบบ รางวัลจากเกม) ด้านสังคม (แชตสด การตอบกลับของศิลปิน คำทักเฉพาะบุคคล) และด้านโครงสร้าง (การตอบอย่างมืออาชีพ ระบบที่ใช้ได้จริง การจัดเรียงข้อมูล)",
+      findings: [
+        "**สายสัมพันธ์ทั้งสามแบบเพิ่มความผูกพันทางอารมณ์กับแพลตฟอร์ม** และความผูกพันนั้นทำนายความตั้งใจจะใช้ต่อและบอกต่อ",
+        "**ความผูกพันทางอารมณ์เป็นตัวส่งผ่านแบบเต็มรูป** — สายสัมพันธ์ทั้งสามไม่ได้ผลักดันพฤติกรรมโดยตรง แต่ส่งผลผ่านความรู้สึกผูกพันเท่านั้น",
+        "**ความผูกพันกับศิลปินกับความผูกพันกับแพลตฟอร์มวัดแยกกันไม่ได้** ค่าสหสัมพันธ์สูงถึง .89 จนโมเดลเกิดปัญหาค่าความแปรปรวนติดลบ ผู้วิจัยจึงตัดตัวแปรความผูกพันกับศิลปินออกจากโมเดลสุดท้าย — **สมมติฐานทุกข้อที่เกี่ยวกับศิลปินจึงทดสอบไม่ได้ ไม่ใช่ไม่พบผล**",
+        "ค่าความกลมกลืนของโมเดลการวัดอยู่ในเกณฑ์ยอมรับได้ (robust CFI = 0.914 · robust RMSEA = 0.066 · SRMR = 0.060)",
+      ],
+      soWhat:
+        "สำหรับแพลตฟอร์มและค่ายเพลง ข้อเสนอที่ใช้ได้คือ**ต้องลงทุนทั้งสามด้านพร้อมกัน** เพราะแต่ละด้านสร้างความผูกพันคนละชนิด — ส่วนลดสร้างความผูกพันแบบแลกเปลี่ยน แชตสดสร้างความใกล้ชิด ระบบที่เสถียรสร้างความไว้วางใจ ถ้าเลือกทำแต่ด้านราคาจะได้ยอดใช้งานระยะสั้นที่ไม่มีความลึก · ส่วนข้อค้นพบที่ทำให้ต้องตัดตัวแปรทิ้งกลับมีนัยเชิงปฏิบัติมากที่สุด: ถ้าผู้ฟังแยกความรู้สึกที่มีต่อศิลปินออกจากแพลตฟอร์มไม่ได้ การย้ายแพลตฟอร์มก็มีต้นทุนทางความรู้สึกติดอยู่ด้วย ไม่ใช่แค่ต้นทุนการเปลี่ยนแอป",
+      caveat:
+        "**เก็บตัวอย่างแบบบอกต่อ จึงเอนไปทางผู้ใช้ที่ผูกพันสูงอยู่แล้ว** ผู้เขียนระบุเองว่าอาจทำให้ความสัมพันธ์ที่วัดได้สูงเกินจริง · เป็นการวัดตัดขวางครั้งเดียว บอกลำดับเวลาไม่ได้ · เก็บจากแพลตฟอร์มเดียวในประเทศเดียว · **และเพราะตัวแปรความผูกพันกับศิลปินถูกตัดออก งานนี้ไม่ได้แปลว่าศิลปินไม่สำคัญ แต่แปลว่าเครื่องมือชุดนี้วัดแยกจากแพลตฟอร์มไม่ได้** ความต่างนี้สำคัญและห้ามอ่านข้าม",
+    },
+    en: {
+      headline: "Fans could not separate loving the artist from loving the platform — and that is the finding, not a flaw in the instrument",
+      question:
+        "What makes listeners attach to a music streaming service that lets them talk to artists live, and does that attachment actually lead to continued use and recommendation?",
+      method:
+        "An online survey of JOOX Rooms users in Thailand, collected in April and May 2024. 306 people began the survey and 175 remained after data cleaning; distribution was by snowball sampling. The data was analysed with structural equation modelling, separating three relational bonds: financial (discounts, in-app coins, game rewards), social (live chat, artist responsiveness, personalised greetings) and structural (professional responses, reliable service, curated information).",
+      findings: [
+        "**All three bonds increased affective engagement with the platform**, and that engagement predicted intentions to keep using the service and to recommend it.",
+        "**Affective engagement was a full mediator** — none of the three bonds drove behaviour directly; they worked only through how users felt.",
+        "**Engagement with artists and engagement with the platform could not be measured apart.** They correlated at .89, producing a negative variance in the model, so the artist construct was dropped from the final specification — **every hypothesis involving artists is therefore untested, not disconfirmed**.",
+        "Measurement-model fit was acceptable (robust CFI = 0.914, robust RMSEA = 0.066, SRMR = 0.060).",
+      ],
+      soWhat:
+        "For platforms and labels the usable implication is to **invest in all three bonds at once**, because each produces a different kind of attachment: discounts produce transactional attachment, live chat produces closeness, reliable service produces trust. Building only on price yields short-term activity with no depth. The finding that forced a construct out of the model is the most practical of all: if listeners cannot separate what they feel about an artist from what they feel about the platform, then switching platforms carries an emotional cost, not merely the cost of installing a different app.",
+      caveat:
+        "**Snowball sampling skews toward users who were already highly engaged**, and the authors note this may inflate the observed relationships. The design is cross-sectional, so it cannot establish sequence. It covers a single platform in a single country. **And because the artist construct was removed, this study does not show that artists do not matter — it shows that this instrument could not separate them from the platform.** That distinction should not be read past.",
+    },
+  },
+  {
+    slug: "genz-cruelty-free-purchase",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ขั้นบันไดเรียงสูงขึ้นสามขั้น ส่วนขั้นบนสุดหลุดลอยห่างออกไปเล็กน้อย",
+    illustrationAltEn:
+      "Paper-craft illustration of three rising steps with the topmost one detached, floating slightly out of reach",
+    doi: "10.14456/cmap.2023.5",
+    articleLanguage: "en",
+    th: {
+      headline: "เจนซีเลือกสินค้าไม่ทดลองกับสัตว์เพราะค่านิยม แต่สิ่งที่ทำนายการซื้อได้แรงที่สุดคือความภักดี ซึ่งหายไปเมื่อราคาขึ้น",
+      question:
+        "ผู้บริโภคเจนซีไทยให้คุณค่ากับสินค้าที่ไม่ทดลองกับสัตว์ในแง่ใด มีทัศนคติต่อเครื่องมือสื่อสารการตลาดของแบรนด์กลุ่มนี้อย่างไร และปัจจัยใดทำนายความตั้งใจซื้อได้จริง",
+      method:
+        "แบบสอบถามออนไลน์ 400 คน เก็บแบบโควตาจากคนไทยอายุ 18 ถึง 26 ปีที่รู้จักแบรนด์ซึ่งประกาศว่าไม่ทดลองกับสัตว์ (ผู้ตอบเป็นหญิง 84.7% ชาย 11.35% เพศอื่น 4.00%) วัดสี่ด้านคือค่านิยม ทัศนคติต่อเครื่องมือสื่อสารการตลาดแบบผสมผสาน ความภักดีต่อแบรนด์ และความตั้งใจซื้อ ด้วยมาตรวัดลิเคิร์ตห้าระดับ ค่าความเชื่อมั่นทั้งฉบับ .93 · วิเคราะห์ด้วยสหสัมพันธ์เพียร์สันและการถดถอยพหุคูณแบบขั้นตอน",
+      findings: [
+        "**ค่านิยมที่ได้คะแนนสูงสุดคือค่านิยมสากลนิยม 4.65 จาก 5** ตามด้วยคุณค่าเชิงหน้าที่ 4.08 และคุณค่าเชิงสังคม 3.36 — ผู้ตอบให้น้ำหนักกับการดูแลสัตว์และธรรมชาติมากกว่าการได้รับการยอมรับจากคนรอบตัว",
+        "**ตัวทำนายความตั้งใจซื้อที่แรงที่สุดคือความภักดีต่อแบรนด์ (β = .486)** ตามด้วยทัศนคติ (β = .300) และค่านิยม (β = .119) ทั้งสามอธิบายความแปรปรวนของความตั้งใจซื้อได้ 62.9% · ความภักดีกับความตั้งใจซื้อสัมพันธ์กันสูงสุดที่ r = .74",
+        "**ข้อที่ได้คะแนนต่ำที่สุดในหมวดความภักดีคือ “จะซื้อแบรนด์นี้ต่อแม้ราคาขึ้น”** ขณะที่ข้อการบอกต่อได้คะแนนสูงสุดในหมวดที่ 4.40 — ยินดีเชียร์ให้คนอื่น แต่ไม่ยินดีจ่ายเพิ่มเอง",
+        "**เครื่องมือสื่อสารที่ชอบที่สุดคือการส่งเสริมการขาย 4.59** ตามด้วยการประชาสัมพันธ์ 4.46 และสื่อนอกบ้าน 4.28 ส่วนการตลาดทางตรงได้คะแนนต่ำที่สุด ซึ่งผู้เขียนอ่านว่าเป็นการปฏิเสธการขายตรงแบบเร่งเร้า",
+        "**ข้อที่ได้คะแนนต่ำสุดในหมวดความตั้งใจซื้อคือ “จะซื้อแม้ไม่มีขายใกล้ตัว” ที่ 3.60** ความสะดวกในการหาซื้อจึงยังเป็นเงื่อนไข",
+      ],
+      soWhat:
+        "ข้อค้นพบชี้ช่องว่างที่ใช้ได้ทันทีสำหรับคนทำแบรนด์และคนทำแคมเปญรณรงค์ — **ค่านิยมพาคนมาถึงหน้าร้าน แต่ไม่ได้พาไปถึงการจ่ายเงินเมื่อราคาต่างกัน** แบรนด์ที่สื่อสารด้วยเนื้อหาเชิงคุณค่าอย่างเดียวจะได้เสียงเชียร์ที่ดังแต่ยอดขายที่บาง ขณะที่ข้อมูลชุดเดียวกันบอกว่าการประชาสัมพันธ์ที่ให้ความรู้ได้คะแนนสูงเป็นอันดับสอง จึงทำหน้าที่คนละอย่างกับโปรโมชันและต้องมาคู่กัน · และการกระจายสินค้าให้หาซื้อได้สะดวกเป็นเงื่อนไขที่ตัดออกไม่ได้",
+      caveat:
+        "**ผู้ตอบเป็นผู้หญิง 84.7% ตัวเลขทั้งหมดจึงสะท้อนกลุ่มนี้เป็นหลัก** · **“กลุ่มผู้บริโภคห้ากลุ่ม” ที่บทความเสนอมาจากการตีความค่าเฉลี่ยรายข้อและค่าสหสัมพันธ์ ไม่ได้มาจากการวิเคราะห์จัดกลุ่มทางสถิติ** จึงควรอ่านเป็นการบรรยายลักษณะ ไม่ใช่กลุ่มที่แยกออกจากกันได้จริงในทางสถิติ · สินค้ากลุ่มนี้ในตลาดไทยส่วนใหญ่เป็นเครื่องสำอางและของใช้ส่วนตัว ผลจึงผูกกับหมวดสินค้านั้น · เป็นความตั้งใจซื้อที่ผู้ตอบแจ้งเอง ไม่ใช่ยอดซื้อจริง",
+    },
+    en: {
+      headline: "Thai Gen Z buy cruelty-free out of values — but the strongest predictor of purchase is loyalty, and loyalty falls away when the price rises",
+      question:
+        "What do Thai Gen Z consumers value in cruelty-free products, how do they feel about the marketing communication of those brands, and what actually predicts an intention to buy?",
+      method:
+        "An online survey of 400 Thai respondents aged 18 to 26 who were aware of cruelty-free brands, collected by quota sampling (84.7% women, 11.35% men, 4.00% other genders). Four constructs were measured on five-point Likert scales — values, attitudes toward integrated marketing communication tools, brand loyalty and purchase intention — with an overall reliability of .93. Analysis used Pearson correlations and stepwise multiple regression.",
+      findings: [
+        "**Universalism scored highest among the value dimensions at 4.65 out of 5**, ahead of functional value at 4.08 and social value at 3.36 — respondents weighted care for animals and nature above recognition from people around them.",
+        "**The strongest predictor of purchase intention was brand loyalty (β = .486)**, followed by attitude (β = .300) and values (β = .119); together they explained 62.9% of the variance. Loyalty and purchase intention correlated most strongly at r = .74.",
+        "**The lowest-scoring loyalty item was “I would keep buying this brand even if its price increased”**, while the advocacy items scored highest in that section at 4.40 — willing to recommend, unwilling to pay more.",
+        "**The best-liked communication tool was sales promotion at 4.59**, followed by public relations at 4.46 and out-of-home media at 4.28, with direct marketing lowest — which the authors read as a rejection of hard selling.",
+        "**The lowest purchase-intention item was “I would buy even if it is not available locally”, at 3.60.** Convenience of supply remains a condition.",
+      ],
+      soWhat:
+        "The gap here is immediately usable for brands and for campaigners: **values bring people to the shelf, but they do not carry them across a price difference.** A brand communicating only on values earns loud advocacy and thin sales. The same data shows public relations that educates scoring second highest, which means it does a different job from promotion and the two have to run together — and that distribution, so the product is actually within reach, is not an optional part of the plan.",
+      caveat:
+        "**84.7% of respondents were women, so every figure here principally describes that group.** **The five consumer segments the article proposes were derived by interpreting item means and correlations, not by statistical cluster analysis**, so they should be read as descriptions rather than as groups that separate reliably. Cruelty-free products in the Thai market are mostly cosmetics and personal care, which ties the findings to that category. And these are self-reported intentions, not observed purchases.",
+    },
+  },
+  {
+    slug: "dating-apps-disclosure-msm",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ริบบิ้นสองเส้นเข้าหากันจากคนละด้าน แล้วเรียวลงจนแทบไม่เหลือตรงแผ่นกั้นบางๆ ที่คั่นกลาง",
+    illustrationAltEn:
+      "Paper-craft illustration of two ribbons approaching from opposite sides and thinning almost to nothing at the slender divider between them",
+    doi: "10.14456/jhr.2016.32",
+    articleLanguage: "en",
+    th: {
+      headline: "ยิ่งบอกข้อมูลส่วนตัวมาก ยิ่งไว้ใจกัน และยิ่งสัมพันธ์กับการไม่ใช้ถุงยาง",
+      question:
+        "แอปหาคู่บนมือถือเปลี่ยนวิธีนัดพบของชายที่มีเพศสัมพันธ์กับชายในไทย งานนี้ถามว่าการเปิดเผยข้อมูลส่วนตัวระหว่างคุยกันในแอปสัมพันธ์กับพฤติกรรมทางเพศหลังนัดเจอกันอย่างไร",
+      method:
+        "แบบสอบถามออนไลน์แบบไม่ระบุตัวตน เก็บกลางเดือนกุมภาพันธ์ถึงกลางเดือนมีนาคม 2558 ผู้ตอบ 277 คน ผ่านเกณฑ์คัดเข้าเป็นผู้ใช้แอปหาคู่เพื่อหาคู่นัด 222 คน กระจายแบบสอบถามผ่านเว็บบอร์ดสาธารณะและกลุ่มปิดบนเฟซบุ๊ก วิเคราะห์ความสัมพันธ์ด้วยค่าสหสัมพันธ์",
+      findings: [
+        "**ความถี่ในการใช้แอปสัมพันธ์กับการมีเพศสัมพันธ์แบบไม่ป้องกัน** ทั้งจำนวนวันที่ใช้ (r = .249) จำนวนสถานที่ที่ใช้ (r = .320) และเวลาที่ใช้ต่อครั้ง (r = .360)",
+        "**การเปิดเผยข้อมูลที่ระบุตัวได้ก็สัมพันธ์กับการไม่ป้องกันเช่นกัน** — บัญชีเฟซบุ๊ก (r = .337) เบอร์โทรศัพท์ (r = .306) และที่อยู่ (r = .240)",
+        "**คนส่วนใหญ่ปกปิดชื่อจริง 88.3% แต่เปิดเผยรูปถ่ายจริงของตัวเอง 80%** และมากกว่าครึ่ง (54.3%) เปิดเผยข้อมูลมากกว่าสองประเภท",
+        "**ในกลุ่มที่ไปพบกันจริง 106 คน มี 77 คน (72.6%) ที่มีเพศสัมพันธ์ทางทวารหนัก และในจำนวนนั้น 27 คนไม่ได้ใช้ถุงยาง**",
+        "**การใช้ถุงยางกระจุกอยู่ที่เพศสัมพันธ์ทางทวารหนักเท่านั้นที่ 91.5%** ส่วนเพศสัมพันธ์ทางปากใช้เพียง 13.2% และการใช้มือ 17.9%",
+        "**ในรอบหกเดือนที่ผ่านมา 37.3% ไม่เคยตรวจเอชไอวี และ 44.6% ไม่เคยตรวจโรคติดต่อทางเพศสัมพันธ์อื่น**",
+      ],
+      soWhat:
+        "ข้อเสนอของงานคือย้ายงานสื่อสารเรื่องเอชไอวีเข้าไปอยู่ในที่ที่กลุ่มเป้าหมายอยู่จริง ทั้งในตัวแอปเองและบนเฟซบุ๊ก แทนที่จะรอให้คนเดินเข้ามาหาข้อมูล · แต่สิ่งที่ใช้ออกแบบตัวสารได้คือ**กลไก** ไม่ใช่แค่ช่องทาง — ความไว้วางใจที่เกิดจากการแลกข้อมูลกันคือสิ่งที่มาก่อนการลดการป้องกัน สารที่ได้ผลจึงต้องพูดกับความรู้สึกว่า “รู้จักกันแล้ว” ไม่ใช่พูดกับคนที่คิดว่ากำลังเจอคนแปลกหน้า · และตัวเลขการใช้ถุงยางที่ต่ำมากในเพศสัมพันธ์ทางปากชี้ว่าความเข้าใจเรื่องช่องทางการติดต่อยังไม่ครบ",
+      caveat:
+        "**เป็นค่าสหสัมพันธ์ ไม่ใช่ความเป็นเหตุเป็นผล** การเปิดเผยข้อมูลกับการไม่ป้องกันไปด้วยกัน แต่ข้อมูลชุดนี้ไม่ได้พิสูจน์ว่าอย่างหนึ่งทำให้เกิดอีกอย่าง · เก็บด้วยวิธีสะดวกจากผู้ใช้เว็บบอร์ดและกลุ่มเฉพาะ ผู้เขียนระบุเองว่าใช้แทนภาพรวมทั้งประเทศไม่ได้ · **ข้อมูลเก็บต้นปี 2558 ซึ่งผ่านมากว่าสิบปี** ทั้งแอปที่ใช้กันและทางเลือกในการป้องกันเอชไอวีเปลี่ยนไปมากตั้งแต่นั้น ตัวเลขจึงควรใช้อ่านกลไก ไม่ใช่ใช้อ้างสถานการณ์ปัจจุบัน · **บทคัดย่อของบทความระบุจำนวนผู้ตอบไว้ 286 คน ซึ่งไม่ตรงกับเนื้อในที่ระบุ 277 คนและผ่านเกณฑ์ 222 คน** บทสรุปนี้ใช้ตัวเลขจากเนื้อใน ซึ่งตรงกับตารางผลทุกตาราง",
+    },
+    en: {
+      headline: "The more personal information was shared, the more trust followed — and the more that tracked with sex without a condom",
+      question:
+        "Dating apps changed how men who have sex with men in Thailand arrange to meet. This study asks how the personal information disclosed while chatting in an app relates to what happens sexually after they meet.",
+      method:
+        "An anonymous online survey run from mid-February to mid-March 2015. 277 people responded and 222 passed the screening as app users seeking partners. The questionnaire was distributed through public web boards and closed Facebook groups, and relationships were examined with correlation analysis.",
+      findings: [
+        "**How much the apps were used correlated with unprotected sex** — number of days used (r = .249), number of locations used from (r = .320) and time spent per session (r = .360).",
+        "**Disclosing identifying information correlated with it as well** — a Facebook account (r = .337), a mobile number (r = .306) and an address (r = .240).",
+        "**88.3% withheld their real name, yet 80% shared a real photograph of themselves**, and more than half (54.3%) disclosed more than two types of information.",
+        "**Of the 106 respondents who met someone in person, 77 (72.6%) had anal sex, and 27 of them did so without a condom.**",
+        "**Condom use was concentrated on anal sex at 91.5%**, falling to 13.2% for oral sex and 17.9% for manual sex.",
+        "**In the previous six months, 37.3% had never tested for HIV and 44.6% had never tested for other sexually transmitted infections.**",
+      ],
+      soWhat:
+        "The study's recommendation is to move HIV communication into the places the audience already is — inside the apps and on Facebook — rather than waiting for people to come looking. But the part that shapes the message is **the mechanism, not the channel**: trust built by exchanging information is what comes before protection drops away, so a message that works has to speak to the feeling of already knowing someone, not to someone who thinks they are meeting a stranger. The very low condom use in oral sex also points to an incomplete picture of transmission routes.",
+      caveat:
+        "**These are correlations, not causes.** Disclosure and unprotected sex move together; this data does not establish that one produces the other. Recruitment was by convenience through particular web boards and groups, and the authors state it cannot stand for the country as a whole. **The data was collected in early 2015, more than a decade ago**; both the apps in use and the available means of HIV prevention have changed substantially since, so the figures are useful for reading the mechanism rather than for describing the present. **The article's abstract states 286 respondents, which does not match the body's 277 respondents and 222 who passed screening** — this summary uses the body's figures, which are the ones every results table reports.",
+    },
+  },
+  {
+    slug: "infectious-disease-stigma-scales",
+    kind: "protocol",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ไม้บรรทัดสองอันวางเคียงกัน อันหนึ่งมีขีดแบ่งครบทั้งอัน อีกอันเพิ่งมีขีดแรกๆ",
+    illustrationAltEn:
+      "Paper-craft illustration of two rulers lying side by side, one fully graduated and the other carrying only its first few marks",
+    doi: "10.12688/wellcomeopenres.26014.1",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "infectious-disease-stigma-scales.pdf",
+    th: {
+      headline: "ไทยยังไม่มีเครื่องมือวัดการตีตราช่วงโรคระบาดที่ผ่านการตรวจสอบ นี่คือแผนสร้างขึ้นสองภาษา",
+      question:
+        "การตีตราทำให้คนไม่กล้าไปรับบริการสุขภาพและทำให้การควบคุมการระบาดสะดุด แต่ไทยยังไม่มีแบบวัดที่ผ่านการตรวจสอบคุณภาพว่าใช้วัดประสบการณ์การถูกตีตราของกลุ่มเปราะบางได้จริง งานนี้จึงประกาศแผนแปลและตรวจสอบแบบวัดชุดหนึ่งให้ใช้ได้ในบริบทไทยและพม่า",
+      method:
+        "แปลและปรับแบบวัด RAPID ซึ่งวัดการตีตราจากชุมชนและการตีตราตนเอง รวม 16 ข้อ เป็นภาษาไทยและภาษาพม่า ตามแนวปฏิบัติ ISPOR ด้วยวิธีแปลไปแล้วแปลกลับ · แบ่งเป็นสองระยะ ระยะแรกให้ผู้เชี่ยวชาญสองคณะ คณะละ 8 คน ประเมินสามรอบแบบเดลฟาย แล้วสัมภาษณ์เชิงปริชานกับสมาชิกชุมชนละ 15 ถึง 20 คน · ระยะที่สองตรวจสอบคุณสมบัติการวัดกับผู้เข้าร่วม 400 คน (ชุมชนละ 200 คน) ด้วยการวิเคราะห์องค์ประกอบเชิงยืนยันและการทดสอบความเที่ยง",
+      findings: [
+        "**สองชุมชนที่งานนี้ทำงานด้วยคือชายไทยที่มีเพศสัมพันธ์กับชาย ในประเด็นการตีตราจากฝีดาษวานร และแรงงานข้ามชาติชาวเมียนมา ในประเด็นการตีตราจากโควิด-19**",
+        "**คณะผู้เชี่ยวชาญออกแบบให้มีคนในชุมชนอยู่ด้วยตั้งแต่ต้น ไม่ใช่มีแต่นักวิชาการ** — แต่ละคณะ 8 คน ประกอบด้วยผู้นำชุมชนที่มีประสบการณ์ตรง 2 คน ผู้เชี่ยวชาญด้านสุขภาพที่ทำงานกับกลุ่มนั้น 2 คน นักวิจัย 2 คน ผู้เชี่ยวชาญภาษา 1 คน และผู้เชี่ยวชาญด้านวัฒนธรรม 1 คน",
+        "**เกณฑ์ตัดสินถูกประกาศไว้ล่วงหน้า** ข้อคำถามที่ได้ค่าดัชนีความตรงเชิงเนื้อหารายข้อต่ำกว่า 0.78 จะถูกนำกลับไปแก้ ส่วนรอบสุดท้ายตั้งเป้าให้ผู้เชี่ยวชาญเกิน 80% ให้คะแนนความตรงเชิงพินิจในระดับสูง และค่าดัชนีความตรงทั้งฉบับเกิน 0.90",
+        "**ระยะที่สองต้องขอการรับรองจริยธรรมการวิจัยแยกอีกฉบับ** และเลือกตัวอย่างแบบโควตาให้ครอบคลุมห้ากลุ่มย่อยในแต่ละชุมชน ตั้งแต่ผู้ที่หายป่วย ผู้สัมผัสใกล้ชิด บุคลากรสาธารณสุข ผู้ปฏิบัติงานสนับสนุนช่วงระบาด ไปจนถึงคนทั่วไปในชุมชน",
+      ],
+      soWhat:
+        "ถ้าแผนนี้เดินจนจบ ไทยจะมีเครื่องมือที่หยิบไปใช้วัดการตีตราได้ทันทีเมื่อเกิดการระบาดครั้งหน้า แทนที่จะเริ่มออกแบบแบบสอบถามตอนที่สถานการณ์เดินไปแล้ว — ซึ่งเป็นเหตุผลที่ผู้เขียนระบุว่าเครื่องมือวัดการตีตราส่วนใหญ่มาไม่ทันใช้กับการระบาดที่กำลังเกิดขึ้น · และเพราะแบบวัดต้นทางออกแบบให้ใช้ข้ามโรคได้ ฉบับภาษาไทยและภาษาพม่าจึงไม่ผูกกับโรคใดโรคหนึ่ง",
+      caveat:
+        "**นี่คือแผน ไม่ใช่ผล** ณ วันที่ตีพิมพ์ยังไม่มีการเก็บข้อมูล และเอกสารระบุเองว่าการรับรองจริยธรรมการวิจัยอยู่ระหว่างพิจารณา ส่วนระยะที่สองต้องขออนุมัติแยกอีกฉบับ · **การเลือกตัวอย่างเป็นแบบโควตา ไม่ใช่การสุ่ม** ผลที่ได้ภายหลังจึงใช้ประเมินคุณภาพของเครื่องมือได้ แต่ใช้ประมาณระดับการตีตราของประชากรทั้งกลุ่มไม่ได้ · ฉบับที่เผยแพร่ผ่านการประเมินจากผู้ทรงคุณวุฒิอิสระแล้ว 1 ท่าน",
+    },
+    en: {
+      headline: "Thailand has no validated way to measure stigma during an outbreak — this is the plan to build one in two languages",
+      question:
+        "Stigma keeps people from seeking care and undermines outbreak control, yet Thailand has no validated instrument for measuring how vulnerable groups experience it. This protocol sets out a plan to adapt and validate one for the Thai and Burmese contexts.",
+      method:
+        "The RAPID Community and Self Stigma Scales — 16 items in total — will be translated into Thai and Burmese following ISPOR guidelines, using forward and back translation. The work runs in two phases. Phase 1 puts the translations to two expert panels of eight members each across three Delphi rounds, then to cognitive interviews with 15 to 20 members of each community. Phase 2 validates the adapted scales with 400 participants (200 per community) through confirmatory factor analysis and reliability testing.",
+      findings: [
+        "**The two communities are Thai men who have sex with men, for mpox-related stigma, and Myanmar migrants, for COVID-19-related stigma.**",
+        "**The expert panels are designed to include community members from the start, not only academics** — each panel of eight comprises two community leaders with lived experience, two health specialists working with that group, two researchers, one language expert and one cultural expert.",
+        "**Decision thresholds are declared in advance.** Items scoring below 0.78 on the item-level content validity index go back for revision, and the final round targets more than 80% of experts rating face validity highly and an overall scale-level index above 0.90.",
+        "**Phase 2 requires a separate ethics approval** and uses quota sampling to cover five subgroups in each community: recovered individuals, close contacts, healthcare workers, outbreak support staff and general community members.",
+      ],
+      soWhat:
+        "If the plan runs to completion, Thailand would have an instrument ready to deploy the moment the next outbreak begins, rather than starting to design a questionnaire once events are already moving — which is the authors' stated reason most stigma instruments arrive too late to inform anything. And because the source scales were built to work across diseases, the Thai and Burmese versions would not be tied to any single one.",
+      caveat:
+        "**This is a plan, not a result.** No data had been collected at publication, the document states that ethics approval was still pending, and Phase 2 requires a separate approval of its own. **Sampling is by quota rather than random selection**, so the eventual results will speak to the quality of the instrument and not to the level of stigma in the wider population. The published version carries one approving independent peer review.",
+    },
+  },
+  {
+    slug: "gamified-wmsds-prevention",
+    kind: "protocol",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ลูกศรโค้งต่อกันเป็นวงรอบ โดยมีอยู่ช่วงหนึ่งที่ยังเป็นสีพื้นครีม ไม่ได้ลงสีเหมือนช่วงอื่น",
+    illustrationAltEn:
+      "Paper-craft illustration of curved arrows forming a closed loop, with one segment still left in bare cream, uncoloured like the rest",
+    doi: "10.12688/wellcomeopenres.21428.1",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "gamified-wmsds-prevention.pdf",
+    th: {
+      headline: "แผนทดสอบว่าท่าบริหาร 12 ท่าที่ส่งผ่านกลุ่มเฟซบุ๊กแบบเกม จะช่วยลดอาการปวดจากงานของแรงงานข้ามชาติได้หรือไม่",
+      question:
+        "แรงงานข้ามชาติชาวเมียนมาในโรงงานอาหารทะเลเผชิญอาการปวดกล้ามเนื้อและข้อจากลักษณะงานที่ทำซ้ำๆ แต่สื่อสุขภาพแบบเดิมมักไปไม่ถึงเพราะกำแพงภาษาและวัฒนธรรม งานนี้ประกาศแผนพัฒนาและทดสอบชุดการสื่อสารสุขภาพที่ออกแบบให้ตรงกับภาษา วัฒนธรรม และลักษณะงานของคนกลุ่มนี้",
+      method:
+        "แบ่งเป็นสองระยะ · ระยะแรกพัฒนาชุดกิจกรรมจากการสนทนากลุ่ม กลุ่มละ 8 ถึง 10 คนจนข้อมูลอิ่มตัว การสัมภาษณ์ผู้ให้ข้อมูลหลักครั้งละ 40 ถึง 60 นาที และการตรวจโดยผู้เชี่ยวชาญ พร้อมปรับแบบประเมินโดยตั้งต้นจากแบบสอบถามอาการทางกล้ามเนื้อและกระดูกฉบับนอร์ดิก · ระยะที่สองนำไปใช้จริงกับผู้เข้าร่วมที่ตั้งเป้าไว้ 400 คน ซึ่งคาดว่าเหลือราว 360 คนหลังหักการออกกลางคัน 10% แล้ววัดก่อนและหลังด้วยแบบประเมินที่ผ่านการตรวจแล้ว · ขึ้นทะเบียนการทดลองไว้กับ Thai Clinical Trials Registry ตั้งแต่เดือนพฤษภาคม 2567",
+      findings: [
+        "**ชุดกิจกรรมคือท่าบริหาร 12 ท่า** ที่เลือกให้ตรงกับส่วนของร่างกายที่ลักษณะงานกระทบมากที่สุด เช่น คอและหลัง โดยผ่านการปรึกษาผู้เชี่ยวชาญด้านสุขภาพ",
+        "**ช่องทางคือกลุ่มเฟซบุ๊ก ไม่ใช่แอปที่ต้องติดตั้งใหม่** เกณฑ์คัดเข้ากำหนดว่าผู้เข้าร่วมต้องเข้าเฟซบุ๊กอย่างน้อยสัปดาห์ละครั้ง — เป็นการเลือกช่องทางที่กลุ่มเป้าหมายใช้อยู่แล้ว",
+        "**กลไกเกมถูกกำหนดไว้ล่วงหน้าเป็นข้อๆ** โพสต์ให้ความรู้สัปดาห์ละ 3 ครั้ง ควิซสัปดาห์ละ 3 ครั้งสลับวัน และภารกิจประจำสัปดาห์ · ให้คะแนนตามการมีส่วนร่วม (กดถูกใจ 1 คะแนน · แสดงความเห็น 2 คะแนน · ทำควิซ 1 คะแนน ตอบถูก 2 คะแนน · ร่วมภารกิจประจำสัปดาห์ 5 คะแนน) และแสดงกระดานผู้นำเฉพาะผู้เข้าร่วมที่ตื่นตัวที่สุด 10% แรก",
+        "**สิ่งที่จะวัดคือความรู้ ความตระหนัก และอาการทางกล้ามเนื้อและข้อที่ผู้เข้าร่วมรายงานเอง** เปรียบเทียบก่อนและหลังด้วยสถิติ t-test หรือ ANOVA พร้อมติดตามระดับการมีส่วนร่วมจากพฤติกรรมจริงในกลุ่ม",
+        "**คำว่า “ethical” ในชื่องานมาจากเงื่อนไขที่เขียนไว้ล่วงหน้า** ทั้งการขอความยินยอมโดยได้รับข้อมูลครบ การรักษาความลับ และการกำหนดเพดานค่าตอบแทนไม่ให้เกิน 200 บาท เพื่อไม่ให้เงินกลายเป็นแรงกดดันให้เข้าร่วม",
+      ],
+      soWhat:
+        "แผนนี้ตอบโจทย์ที่งานสื่อสารสุขภาพกับแรงงานข้ามชาติติดมาตลอด คือสื่อไปไม่ถึงคนที่ควรได้ประโยชน์ · จุดที่หน่วยงานอื่นหยิบไปใช้ได้ทันทีมีสองเรื่อง หนึ่งคือวิธีเลือกช่องทาง — ไม่สร้างแอปใหม่ แต่เข้าไปอยู่ในที่ที่กลุ่มเป้าหมายอยู่แล้ว สองคือการเขียนกลไกจูงใจและเพดานค่าตอบแทนไว้เป็นลายลักษณ์อักษรตั้งแต่ก่อนเริ่ม ซึ่งทำให้ตรวจสอบได้ว่าการเข้าร่วมเป็นความสมัครใจจริง · งานคู่กันที่ตีพิมพ์ผลแล้วคือขั้นตอนออกแบบท่าบริหารร่วมกับตัวแรงงานเอง",
+      caveat:
+        "**นี่คือแผน ไม่ใช่ผล** ตัวบทความระบุเองว่ายังไม่มีข้อค้นพบเพราะเป็นการประกาศแผน สิ่งที่อยู่ในหัวข้อ “จะทำอะไร” คือสิ่งที่ทีมตั้งใจจะทำและจะวัด ไม่ใช่สิ่งที่เกิดขึ้นแล้ว · **การออกแบบเป็นการวัดก่อนและหลังในกลุ่มเดียว ไม่มีกลุ่มเปรียบเทียบ** การเปลี่ยนแปลงที่วัดได้จึงแยกออกจากปัจจัยอื่นในช่วงเวลาเดียวกันไม่ได้ · ทำในโรงงานแห่งเดียว และวัดอาการจากการรายงานของผู้เข้าร่วมเอง ไม่ใช่การตรวจร่างกาย · ฉบับที่เผยแพร่ยังอยู่ระหว่างรอการประเมินจากผู้ทรงคุณวุฒิ",
+    },
+    en: {
+      headline: "A plan to test whether twelve exercises, delivered as a game inside a Facebook group, can reduce work-related pain among migrant workers",
+      question:
+        "Myanmar migrant workers in Thailand's seafood industry develop musculoskeletal disorders from repetitive work, but conventional health communication rarely reaches them across language and cultural barriers. This protocol sets out a plan to develop and test a health communication package built for their language, culture and the actual nature of their work.",
+      method:
+        "The study runs in two phases. Phase 1 develops the package through focus group discussions of 8 to 10 participants until saturation, key informant interviews of 40 to 60 minutes each and expert review, and adapts an assessment form starting from the Nordic Musculoskeletal Questionnaire. Phase 2 implements it with a target of 400 participants — an expected 360 after a 10% dropout allowance — measured before and after with the validated form. The trial was registered with the Thai Clinical Trials Registry in May 2024.",
+      findings: [
+        "**The package is twelve exercises**, chosen with health specialists to target the body areas the work affects most, such as the neck and back.",
+        "**The channel is a Facebook group rather than an app that has to be installed.** The inclusion criteria require participants to log in at least once a week — a deliberate choice to work where the audience already is.",
+        "**The game mechanics are specified in advance**: informational posts three times a week, quizzes three times a week on alternating days, and a weekly challenge. Points are awarded for participation (1 for a reaction, 2 for a comment, 1 for completing a quiz and 2 for answering correctly, 5 for joining the weekly challenge), with a leaderboard showing only the most active 10%.",
+        "**What will be measured is knowledge, awareness and self-reported musculoskeletal symptoms**, compared before and after with t-tests or ANOVA, alongside engagement tracked from actual behaviour in the group.",
+        "**The word “ethical” in the title refers to conditions written down in advance** — informed consent, confidentiality, and a cap on compensation of no more than 200 baht so that payment does not become pressure to take part.",
+      ],
+      soWhat:
+        "The plan addresses the problem that has dogged health communication with migrant workers: the material never reaches the people it is for. Two things here are directly reusable. The first is the channel decision — not building an app, but going where the audience already is. The second is writing the incentive design and the payment ceiling down before recruitment starts, which makes it possible to check afterwards that participation was genuinely voluntary. The companion study that has already reported results covers designing the exercises together with the workers themselves.",
+      caveat:
+        "**This is a plan, not a result.** The article states plainly that findings are not yet available because it is a protocol; everything under “what the study will do” is intended, not achieved. **The design is a single-group before-and-after measurement with no comparison group**, so any change observed cannot be separated from anything else happening over the same period. It takes place in one factory, and symptoms are self-reported rather than clinically assessed. The published version was awaiting peer review.",
     },
   },
 ];
