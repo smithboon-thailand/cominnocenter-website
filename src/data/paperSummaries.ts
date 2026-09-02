@@ -1438,6 +1438,51 @@ export const paperSummaries: PaperSummary[] = [
         "**One university, one cohort**, during a period when the institution had mandated fully online teaching — a context that does not recur in normal conditions. The authors note the study is quantitative only and therefore cannot capture the texture of the experience, and they call for interviews as a follow-up. These are self-reported feelings, not measured workload.",
     },
   },
+  {
+    slug: "brand-attitude-congruence-purchase",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ สะพานสองช่วงพาดระหว่างเสาสองต้น ช่วงบนกว้างหนา อีกช่วงแคบกว่าวางขนานอยู่ด้านล่าง",
+    illustrationAltEn:
+      "Paper-craft illustration of two spans bridging the same pair of piers, the upper one broad and thick, the other narrower running parallel below it",
+    doi: "10.13187/me.2024.2.239",
+    articleLanguage: "en",
+    th: {
+      headline: "การมีจุดยืนตรงกันช่วยให้นิสิตอยากซื้อจริง แต่เป็นเพียงส่วนหนึ่งของเส้นทาง ไม่ใช่ทั้งหมด",
+      question:
+        "เมื่อผู้บริโภครุ่นใหม่คาดหวังให้แบรนด์แสดงจุดยืนต่อประเด็นสังคม การที่จุดยืนของแบรนด์ตรงกับของผู้บริโภคส่งผลต่อความตั้งใจซื้อมากน้อยเพียงใด และส่งผลผ่านอะไร",
+      method:
+        "แบบสอบถามที่ผู้ตอบประเมินตนเอง มาตรวัด 7 ระดับ กับนิสิตนักศึกษาไทยอายุ 18–24 ปีจากหลายมหาวิทยาลัย 434 คน (หญิง 53% ชาย 47%) โดยใช้แบรนด์อสังหาริมทรัพย์ Sansiri เป็นกรณีศึกษา · วัดความคล้ายของจุดยืน คุณค่าแบรนด์ การรับรู้แบรนด์ ภาพลักษณ์ ความน่าเชื่อถือ ความผูกพันเชิงความรู้สึก ความรู้สึกเป็นชุมชน และความตั้งใจซื้อ · ทดลองใช้กับผู้ตอบ 50 คนก่อน · วิเคราะห์ด้วยสถิติเชิงพรรณนา ค่าความสอดคล้องภายใน และโมเดลสมการโครงสร้างเพื่อทดสอบการส่งผ่าน",
+      findings: [
+        "**ข้อที่ได้คะแนนสูงสุดทั้งชุดคือ “จะซื้อจากแบรนด์ที่มีจุดยืนตรงกับเรามากกว่า”** ที่ 5.74 จาก 7 (SD 1.40) และผู้ตอบยังระบุว่าจะไม่ค่อยซื้อจากแบรนด์ที่มีจุดยืนตรงข้าม",
+        "**ความคล้ายของจุดยืนเป็นตัวส่งผ่านแบบบางส่วน ไม่ใช่ทั้งหมด** — เส้นทางอ้อม β = .18 (p < .001) ขณะที่เส้นทางรวมอยู่ที่ β = .95 (p < .001) แปลว่าคุณค่าแบรนด์ยังส่งผลไปยังความตั้งใจซื้อโดยตรงเป็นส่วนใหญ่",
+        "**การรับรู้แบรนด์และภาพลักษณ์ได้คะแนนสูงที่สุดในบรรดาองค์ประกอบ** — นึกถึงแบรนด์ได้ง่าย 5.42 · แยกออกจากคู่แข่งได้ 5.31 · รู้สึกดีกับภาพลักษณ์ 5.62 · เห็นว่าน่าสนใจกว่าแบรนด์อื่น 5.20",
+        "**ความรู้สึกเป็นส่วนหนึ่งของชุมชนแบรนด์ได้คะแนนต่ำที่สุดในทุกองค์ประกอบ** แม้จะยังอยู่ในระดับค่อนข้างสูงก็ตาม — ผู้ตอบเห็นด้วยกับแบรนด์ แต่ไม่ได้รู้สึกว่าตนเป็นสมาชิกของกลุ่มผู้สนับสนุน",
+        "**ความน่าเชื่อถือมาจากการทำได้ตามที่โฆษณาไว้** — ทำตามคำสัญญาในโฆษณา 5.36 และเชื่อถือชื่อเสียงของแบรนด์ได้ 5.50",
+      ],
+      soWhat:
+        "สำหรับแบรนด์ที่กำลังชั่งใจว่าจะแสดงจุดยืนต่อประเด็นสังคมหรือไม่ ข้อมูลนี้บอกสองอย่างพร้อมกัน — **จุดยืนที่ตรงกันมีน้ำหนักจริงกับผู้บริโภครุ่นนี้** (เป็นข้อที่ได้คะแนนสูงสุดทั้งชุด) แต่**มันทำงานเป็นส่วนเสริม ไม่ใช่ตัวหลัก** ค่าส่งผ่านที่ .18 เทียบกับเส้นทางรวม .95 หมายความว่าการรับรู้แบรนด์ ภาพลักษณ์ และการทำได้ตามที่โฆษณาไว้ ยังเป็นฐานที่ต้องมีก่อน · และการที่ความรู้สึกเป็นชุมชนได้คะแนนต่ำสุดชี้ว่าการเห็นด้วยกับจุดยืนแบรนด์ไม่เท่ากับการอยากเป็นสมาชิกของชุมชนแบรนด์ ซึ่งเป็นคนละเป้าหมายและต้องออกแบบคนละแบบ",
+      caveat:
+        "**ผู้เขียนระบุข้อจำกัดไว้เองสองข้อ** คือขนาดตัวอย่างไม่ใหญ่และเป็นการรายงานด้วยตนเองทั้งหมด · **ค่าสัมประสิทธิ์เส้นทางรวมที่ .95 สูงผิดปกติ** ซึ่งเป็นสิ่งที่พบได้บ่อยเมื่อวัดทุกตัวแปรด้วยแบบสอบถามชุดเดียวกันในคราวเดียว จึงควรอ่านขนาดของผลด้วยความระมัดระวัง · เป็นแบรนด์เดียวและหมวดสินค้าเดียว (อสังหาริมทรัพย์) กับผู้ตอบที่เป็นนิสิตอายุ 18–24 ปี ซึ่งส่วนใหญ่ยังไม่ใช่ผู้ซื้อจริงของสินค้าหมวดนี้ · วัดความตั้งใจซื้อ ไม่ใช่การซื้อจริง",
+    },
+    en: {
+      headline: "Sharing a brand's stance does move Thai students toward buying — but it carries part of the route, not the whole of it",
+      question:
+        "Younger consumers increasingly expect brands to take positions on social issues. How much does agreement between a brand's stance and a consumer's own affect the intention to buy, and what does it work through?",
+      method:
+        "A self-rated questionnaire on seven-point scales completed by 434 Thai university students aged 18 to 24 (53% women, 47% men), using the property brand Sansiri as the case. It measured attitude similarity, brand value, brand awareness, image, reliability, sentiment engagement, sense of community and purchase intention, after a pilot with 50 respondents, and was analysed with descriptive statistics, internal consistency and a structural equation model testing mediation.",
+      findings: [
+        "**The single highest-scoring item in the whole instrument was “I am more likely to buy from brands whose stance matches mine”**, at 5.74 out of 7 (SD 1.40); respondents also said they were less likely to buy from brands taking the opposite position.",
+        "**Attitude similarity mediated only partially.** The indirect path was β = .18 (p < .001) against a total path of β = .95 (p < .001) — meaning brand value still reaches purchase intention mostly by the direct route.",
+        "**Awareness and image scored highest among the components** — the brand comes to mind easily 5.42, is recognisable among rivals 5.31, feels good in image 5.62 and more attractive than others 5.20.",
+        "**Sense of belonging to a brand community scored lowest of all components**, though still relatively high — respondents agreed with the brand without feeling they were members of its advocacy group.",
+        "**Reliability rested on delivering what the advertising promised** — fulfils its advertised promise 5.36, reputation can be trusted 5.50.",
+      ],
+      soWhat:
+        "For a brand weighing whether to take a public position, the data says two things at once. **Shared stance genuinely carries weight with this cohort** — it is the highest-scoring item in the study. But **it works as a supplement, not the main channel**: a mediated effect of .18 against a total of .95 means awareness, image and actually delivering what was advertised remain the base that has to be there first. And the lowest score going to sense of community says that agreeing with a brand's position is not the same as wanting to belong to its community — different goals, needing different design.",
+      caveat:
+        "**The authors name two limitations themselves**: a modest sample and entirely self-reported measures. **The total path coefficient of .95 is unusually high**, which commonly happens when every variable is measured with the same instrument at the same sitting, so the size of the effect should be read cautiously. It covers one brand in one category — property — with respondents aged 18 to 24 who are mostly not yet buyers in that category. And it measures purchase intention, not purchases.",
+    },
+  },
 ];
 
 const byDoi = new Map(
