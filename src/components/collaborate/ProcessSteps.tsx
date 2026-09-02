@@ -1,4 +1,6 @@
 import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/effects/Reveal";
+import { stagger } from "@/components/effects/stagger";
 import { processSteps, processCopy } from "@/data/process";
 
 type ProcessStepsProps = {
@@ -27,9 +29,11 @@ export default function ProcessSteps({ locale = "th" }: ProcessStepsProps) {
         description={t.description}
       />
       <ol className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3" aria-label={t.listLabel}>
-        {steps.map((step) => (
-          <li
+        {steps.map((step, i) => (
+          <Reveal
+            as="li"
             key={step.number}
+            delay={stagger(i)}
             className="relative overflow-hidden rounded-lg border border-ink-300 bg-white p-6"
           >
             {/* มุมกระดาษพับโทน Ink — ล้อภาษา paper-craft ของชุดภาพ Phase 2 */}
@@ -54,7 +58,7 @@ export default function ProcessSteps({ locale = "th" }: ProcessStepsProps) {
                 {step.description}
               </p>
             </div>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </>

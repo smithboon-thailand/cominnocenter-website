@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
 import PageBanner from "@/components/ui/PageBanner";
+import Reveal from "@/components/effects/Reveal";
+import { stagger } from "@/components/effects/stagger";
 import { researchers } from "@/data/researchers";
 import { leadership, objectives, type SocialLink } from "@/data/leadership";
 import { highlightsFor, type HighlightPerson } from "@/data/highlights";
@@ -82,7 +84,7 @@ export default function EnglishAboutPage() {
 
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <SectionHeader locale="en" title="Our story" />
             <div className="mt-4 max-w-prose space-y-4 text-[17px] leading-[1.7] text-ink-700">
               <p>
@@ -97,8 +99,8 @@ export default function EnglishAboutPage() {
                 innovation genuinely benefits Thai society and the region.
               </p>
             </div>
-          </div>
-          <div className="rounded-lg border border-ink-300 bg-white p-8 md:p-10">
+          </Reveal>
+          <Reveal delay={stagger(1)} className="rounded-lg border border-ink-300 bg-white p-8 md:p-10">
             <h3 className="text-h3-m md:text-h3 text-ink-900">Vision</h3>
             <p className="mt-3 text-[17px] leading-[1.7] text-ink-700">
               To be a leading center in communication innovation, creating positive impact on
@@ -130,7 +132,7 @@ export default function EnglishAboutPage() {
                 </span>
               ))}
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -138,12 +140,12 @@ export default function EnglishAboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <SectionHeader locale="en" title="Our objectives" />
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
-            {objectives.map((item) => (
-              <div key={item.number}>
+            {objectives.map((item, i) => (
+              <Reveal key={item.number} delay={stagger(i)}>
                 <p className="text-[15px] font-medium leading-[1.6] text-ink-500">{item.number}</p>
                 <h3 className="mt-2 text-h3-m md:text-h3 text-ink-900">{item.title}</h3>
                 <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{item.descriptionEn}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

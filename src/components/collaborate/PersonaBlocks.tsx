@@ -1,5 +1,7 @@
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Reveal from "@/components/effects/Reveal";
+import { stagger } from "@/components/effects/stagger";
 import Stat from "@/components/ui/Stat";
 import { personas, personaCopy } from "@/data/personas";
 
@@ -28,8 +30,9 @@ export default function PersonaBlocks({ locale = "th" }: PersonaBlocksProps) {
       />
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {personas.map((p, i) => (
-          <div
+          <Reveal
             key={p.key}
+            delay={stagger(i)}
             className="flex flex-col rounded-lg border border-ink-300 bg-white p-6"
           >
             <h3 className="text-h3-m md:text-h3 text-ink-900">
@@ -53,7 +56,7 @@ export default function PersonaBlocks({ locale = "th" }: PersonaBlocksProps) {
             >
               {isTh ? p.caseTitleTh : p.caseTitleEn} →
             </Link>
-          </div>
+          </Reveal>
         ))}
       </div>
     </>
