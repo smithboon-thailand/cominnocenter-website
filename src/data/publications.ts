@@ -673,7 +673,35 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Lamoonpot",
+          "given": "Kittiphum",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Media Education (Mediaobrazovanie)",
+      "volume": "20",
+      "issue": "2",
+      "page": "239-250",
+      "articleNumber": "",
+      "publisher": "Cherkas Global University Press",
+      "year": 2024,
+      "month": 5,
+      "day": 25
+    }
   },
   {
     "title": "Praxeological Status of Unintentional Speech Acts",
@@ -714,7 +742,30 @@ export const publications: PublicationEntry[] = [
     "doi": "10.4324/9781032670508-11",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Tonsaithong",
+          "given": "Chanajai",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Multi-Stakeholder Contribution in Asian Environmental Communication",
+      "volume": "",
+      "issue": "",
+      "page": "103-121",
+      "articleNumber": "",
+      "publisher": "Routledge",
+      "year": 2024,
+      "month": 5,
+      "day": 13
+    }
   },
   {
     "title": "Philosophical Foundations of Communication Studies",
@@ -930,7 +981,25 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "PASAA",
+      "volume": "65",
+      "issue": "1",
+      "page": "203-233",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2023,
+      "month": 1,
+      "day": 0
+    }
   },
   {
     "title": "Segmenting Thai Generation Z Consumers on Cruelty-free Products: Their Value, Attitude, Brand Loyalty, and Purchase Intention",
@@ -1377,7 +1446,7 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "Tripodos",
       "volume": "",
       "issue": "48",
-      "page": "53-68",
+      "page": "53-67",
       "articleNumber": "",
       "publisher": "Blanquerna - Universitat Ramon Llull",
       "year": 2020,
@@ -1885,8 +1954,8 @@ export const publications: PublicationEntry[] = [
       ],
       "containerTitle": "",
       "volume": "30",
-      "issue": "",
-      "page": "",
+      "issue": "4",
+      "page": "231-239",
       "articleNumber": "",
       "publisher": "Chulalongkorn University Press",
       "year": 2016,
@@ -1960,8 +2029,8 @@ export const publications: PublicationEntry[] = [
       ],
       "containerTitle": "",
       "volume": "29",
-      "issue": "",
-      "page": "",
+      "issue": "5",
+      "page": "395-401",
       "articleNumber": "",
       "publisher": "Chulalongkorn University Press",
       "year": 2015,

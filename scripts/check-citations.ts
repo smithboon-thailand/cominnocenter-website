@@ -151,6 +151,29 @@ for (const p of citable) {
  * แล้วเข้าใจว่าไม่เคยมี ซึ่งอาจนำไปสู่การไปโหลดซ้ำหรือเขียนสรุปจากบทคัดย่อแทน
  */
 const summaries = readFileSync(new URL("../src/data/paperSummaries.ts", import.meta.url), "utf8");
+
+/**
+ * ผลงานที่มี DOI ควรมีข้อมูลบรรณานุกรมด้วย — **ถ้าไม่มี ปุ่มอ้างอิงจะหายไปเงียบๆ**
+ *
+ * เจอของจริงเมื่อ 2 ก.ย. 2569: งานที่จับคู่ DOI ได้จากการค้นดัชนี ถูกบันทึกแต่เลข
+ * DOI โดยไม่ได้ดึงระเบียนเต็ม ผลคือหน้าบทสรุปของงานนั้นไม่มีปุ่มอ้างอิงเลย ทั้งที่
+ * ทะเบียนมีข้อมูลครบ · **ทำให้พังเฉพาะรายการที่มีหน้าบทสรุป** เพราะเป็นจุดที่ผู้อ่าน
+ * เห็นความขาดจริงๆ ส่วนรายการอื่นแค่แจ้งไว้ให้รู้ ไม่ถึงกับหยุดงาน
+ */
+const summarised = new Set(
+  [...summaries.matchAll(/doi:\s*"([^"]+)"/g)].map((m) => m[1].toLowerCase()),
+);
+const missing = publications.filter((p) => p.doi && !p.citation);
+for (const p of missing) {
+  const line = `${p.doi} — ${p.title.slice(0, 60)}`;
+  if (summarised.has(p.doi!.toLowerCase()))
+    problems.push(
+      `ข้อมูล · ผลงานมีหน้าบทสรุปแต่ไม่มีข้อมูลบรรณานุกรม ปุ่มอ้างอิงจะหาย\n    ${line}\n` +
+        "    แก้ที่ตาราง CITATION_FIXES ใน scripts/fetch-publications.mjs โดยอ้างจากตัวไฟล์บทความ",
+    );
+  else console.warn(`  หมายเหตุ: ${line} ไม่มีข้อมูลบรรณานุกรม จึงไม่มีปุ่มอ้างอิง`);
+}
+
 for (const m of summaries.matchAll(/localCopy:\s*"([^"]+)"/g)) {
   const file = new URL(`../research-sources/papers/${m[1]}`, import.meta.url);
   try {

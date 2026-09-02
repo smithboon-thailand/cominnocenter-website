@@ -151,6 +151,7 @@ const PROTECTED_WORDS: Record<string, string> = {
   bayesian: "Bayesian",
   english: "English",
   elephant: "Elephant",
+  sansiri: "Sansiri",
   z: "Z",
 };
 

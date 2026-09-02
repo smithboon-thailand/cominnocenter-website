@@ -446,6 +446,29 @@ const CITATION_FIXES = {
     ],
     issue: "1",
   },
+  // Journal of Health Research สองฉบับนี้ทะเบียนลงข้อมูลสลับช่องจนสคริปต์ต้องทิ้ง
+  // ค่าที่ไม่เข้าเค้าไป (container-title มาเป็นเลขฉบับ · page มาเป็นชื่อวารสาร)
+  // ผลคือการอ้างอิงเหลือแค่เลขเล่ม ไม่มีเลขฉบับและเลขหน้า — เติมจากบรรทัด
+  // "Cite this article as" ที่วารสารพิมพ์ไว้ในตัวไฟล์เอง ซึ่งเป็นคำของสำนักพิมพ์
+  // "J Health Res. 2016; 30(4): 231-9."
+  "10.14456/jhr.2016.32": { issue: "4", page: "231-239" },
+  // "J Health Res. 2015; 29(5): 395-401."
+  "10.14456/jhr.2015.30": { issue: "5", page: "395-401" },
+  // ทะเบียนลงช่วงหน้าไว้ 53-68 ตามเลขที่ติดมากับ DOI (…48p53-68) แต่ตัวเล่มที่
+  // ตีพิมพ์ระบุ "Tripodos, number 48 | 2020 | 53-67" บนหน้าแรก และหน้าสุดท้าย
+  // ของบทความมีเลขหน้า 67 จริง (ไฟล์ 15 หน้า เริ่มที่ 53) จึงใช้ตามตัวเล่ม
+  "10.51698/tripodos.2020.48p53-68": { page: "53-67" },
+  // Crossref มีระเบียนของบทความนี้แต่ **ไม่ได้ลงชื่อผู้เขียนไว้เลย** (author: null)
+  // ผลคือไม่มีปุ่มอ้างอิงให้ผู้อ่าน · เติมจากหน้าแรกของไฟล์บทความ ซึ่งพิมพ์ทั้ง
+  // รายชื่อผู้เขียนและ "2024. 20(2): 239-250" ไว้ครบ
+  "10.13187/me.2024.2.239": {
+    authors: [
+      { family: "Lamoonpot", given: "Kittiphum", literal: "" },
+      { family: "Boonchutima", given: "Smith", literal: "" },
+      { family: "Mazahir", given: "Ibtesam", literal: "" },
+    ],
+    page: "239-250",
+  },
 };
 
 function citationFrom(meta, doi = "") {
@@ -458,7 +481,10 @@ function citationFrom(meta, doi = "") {
     .filter((a) => a.family || a.literal)
     // ชื่อที่มีแต่ literal และอ่านแล้วเป็นหน่วยงาน ไม่ใช่คน — ตัดทิ้ง
     .filter((a) => a.family || !looksLikeOrganisation(a.literal));
-  if (!authors.length) return undefined;
+  const fix = CITATION_FIXES[doi] || {};
+  // ตรวจ "ไม่มีผู้เขียนเลย" **หลัง**ใส่ค่าแก้แล้ว เพราะบางรายการที่ทะเบียนไม่ลง
+  // ชื่อผู้เขียนไว้เลย เราเติมจากตัวไฟล์บทความได้ — ถ้าเช็คก่อนจะตัดทิ้งไปเปล่าๆ
+  if (!authors.length && !(fix.authors || []).length) return undefined;
   const parts = meta.issued?.["date-parts"]?.[0] || [];
   const container = clean((meta["container-title"] || [""])[0] || "");
   const rawPages = clean(meta.page || "");
@@ -482,7 +508,7 @@ function citationFrom(meta, doi = "") {
     year: parts[0] || 0,
     month: parts[1] || 0,
     day: parts[2] || 0,
-    ...(CITATION_FIXES[doi] || {}),
+    ...fix,
   };
 }
 
@@ -621,14 +647,25 @@ async function findInIndexes(row) {
       // (เคยเกิด: วิทยานิพนธ์ ป.เอก ถูกจับคู่กับบทความประชุมที่ตั้งชื่อใกล้เคียงกัน)
       if (normalizeType(item.type) !== normalizeType(row.type)) continue;
       if (titleOverlap(row.title, t) >= 0.75 && surnames.some((s) => surnameIn(item.author, s))) {
+        const doi = (item.DOI || "").toLowerCase();
+        /**
+         * ดึงระเบียนเต็มของ DOI ที่เพิ่งจับคู่ได้ **เพื่อให้มีข้อมูลบรรณานุกรมด้วย**
+         *
+         * ผลการค้นด้วย `select=` มีแค่ชื่อเรื่อง ผู้เขียน ปี ไม่มีเลขเล่ม ฉบับ หน้า
+         * เดิมจึงบันทึกแต่ DOI แล้วปล่อย `citation` ว่าง ผลคือผลงานที่มาทางนี้
+         * **ไม่มีปุ่มอ้างอิงบนเว็บเลย** ทั้งที่ทะเบียนมีข้อมูลครบ (เจอ 2 รายการ
+         * เมื่อ 2 ก.ย. 2569 หนึ่งในนั้นเป็นงานที่เพิ่งทำหน้าบทสรุปให้)
+         */
+        const full = await resolveDoi(doi).catch(() => null);
         return {
           ...row,
           verified: "doi",
-          doi: (item.DOI || "").toLowerCase(),
-          venue: (item["container-title"] || [""])[0] || row.venue,
+          doi,
+          venue: full?.venue || (item["container-title"] || [""])[0] || row.venue,
           year: item.issued?.["date-parts"]?.[0]?.[0] || row.year,
           type: item.type || row.type,
           citations: item["is-referenced-by-count"] ?? row.citations,
+          citation: full?.citation,
         };
       }
     }
