@@ -13,7 +13,8 @@
     "check:citations": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-citations.ts",
     "check:routes": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-routes.ts",
     "check:content": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-content.ts",
-    "verify": "npm run lint && npm run build && npm run check:text && npm run check:images && npm run check:citations && npm run check:routes && npm run check:content"
+    "verify": "npm run lint && npm run build && npm run check:text && npm run check:images && npm run check:citations && npm run check:routes && npm run check:content",
+    "check:csp": "node scripts/check-csp.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

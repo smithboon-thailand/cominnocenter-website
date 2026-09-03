@@ -1,5 +1,37 @@
 import type { NextConfig } from "next";
 
+/**
+ * Content-Security-Policy — เหตุผลของแต่ละบรรทัดอยู่ที่ `headers()` ท้ายไฟล์
+ *
+ * เขียนเป็นอาร์เรย์แล้วค่อยต่อกัน เพื่อให้เพิ่มโดเมนใหม่เห็นเป็น diff บรรทัดเดียว
+ * ไม่ใช่สตริงยาวบรรทัดเดียวที่อ่าน diff ไม่ออก
+ */
+const CSP = [
+  "default-src 'self'",
+  // 'unsafe-inline' จำเป็นเพราะ Next ฝังสคริปต์ bootstrap ไว้ในทุกหน้า (ดูหมายเหตุ)
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com",
+  // Tailwind + Next ใส่ style inline ทั้งคู่
+  "style-src 'self' 'unsafe-inline'",
+  // i.ytimg = thumbnail ของ facade · cuculturecom = รูปหลักสูตรวัฒนธรรม · GA ยิง pixel
+  "img-src 'self' data: blob: https://i.ytimg.com https://cuculturecom-static.vercel.app https://www.google-analytics.com https://www.googletagmanager.com",
+  // ฟอนต์ Kanit self-host มาแล้วตอน build ผ่าน next/font/google
+  "font-src 'self' data:",
+  // ฟอร์มติดต่อ/รับข่าวสารยิงด้วย fetch · GA และ Vercel Analytics ส่ง beacon
+  "connect-src 'self' https://formspree.io https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+  // iframe ของ YouTube โหลดเมื่อกดเล่นเท่านั้น — ใส่ทั้งสองโฮสต์เพราะ nocookie
+  // เปลี่ยนเส้นทางไป www.youtube.com ได้ในบางกรณี
+  "frame-src https://www.youtube-nocookie.com https://www.youtube.com",
+  // เว็บนี้ไม่ใช้ Flash/Java/ปลั๊กอินใดๆ
+  "object-src 'none'",
+  // กัน <base> ที่ถูกแทรกเข้ามาเปลี่ยนปลายทางของลิงก์สัมพัทธ์ทั้งหน้า
+  "base-uri 'self'",
+  // คู่กับ X-Frame-Options — ตัวนี้เป็นมาตรฐานปัจจุบัน ตัวนั้นไว้สำหรับเบราว์เซอร์เก่า
+  "frame-ancestors 'self'",
+  // ฟอร์มไม่ได้ submit ออกนอกจริง (ใช้ fetch) แต่ล็อกไว้กันการถูกดัดแปลง
+  "form-action 'self' https://formspree.io",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
   // เปิดใช้ src/app/global-not-found.tsx — หน้า 404 ที่ render ที่เซิร์ฟเวอร์
   // สำหรับ URL ที่ไม่ตรงกับ route ไหนเลย (จำเป็นเพราะ root layout มีสองตัว
@@ -102,11 +134,39 @@ const nextConfig: NextConfig = {
    *    เข้าไม่ได้ทันที · ส่วน `preload` แทบถอนคืนไม่ได้ ใช้เวลาเป็นเดือนกว่าจะหลุด
    *    จากรายการของเบราว์เซอร์ — เป็นการตัดสินใจที่ต้องตั้งใจ ไม่ใช่ผลพลอยได้
    *
-   * 2. **ยังไม่ใส่ Content-Security-Policy** ซึ่งเป็นตัวที่ได้ประโยชน์สูงสุด แต่ก็เป็น
-   *    ตัวที่ทำเว็บพังเงียบได้ง่ายที่สุดด้วย เพราะต้องไล่ให้ครบทุกโดเมนที่เว็บเรียกจริง
-   *    (ดู `data/privacy.ts` ซึ่งเป็นรายการที่ใกล้เคียงที่สุดที่เรามี) แล้วทดสอบทุกหน้า
-   *    ที่มี embed ก่อน · ทำเป็นงานแยกที่มีการทดสอบของตัวเอง ดีกว่าใส่พร้อมกันตรงนี้
-   *    แล้วไม่มีใครรู้ว่าอันไหนทำให้พัง
+   * 2. **ไม่แตะ HSTS ต่อไปเช่นเดิม** — ดูข้อ 1
+   *
+   * ─── Content-Security-Policy (เพิ่ม 3 ก.ย. 2569) ───────────────────────────
+   *
+   * CSP ได้ประโยชน์สูงสุดในบรรดา header ทั้งหมด แต่ก็ทำเว็บพังเงียบได้ง่ายที่สุด
+   * เพราะเบราว์เซอร์บล็อกทรัพยากรที่ไม่อยู่ในรายการโดยไม่มีอะไรฟ้องผู้อ่าน
+   * รายการข้างล่างจึงมาจาก**การวัดของจริง** ไม่ใช่การไล่อ่านซอร์ส:
+   * ยก `next start` ขึ้นมาแล้วเปิดทุกหน้าที่มี embed/ฟอร์มด้วยเบราว์เซอร์จริง
+   * เก็บทั้งคำขอที่ออกไปและ CSP violation ที่เกิดขึ้น (ดูสคริปต์ในคอมมิตนี้)
+   *
+   * **โดเมนที่ต้องมี และมาจากไหน**
+   *   YouTube        `frame-src` youtube-nocookie (iframe ตอนกดเล่น) ·
+   *                  `img-src` i.ytimg.com (thumbnail ของ facade ก่อนกดเล่น)
+   *   Formspree      `connect-src` — ContactForm/NewsletterForm ยิงด้วย fetch
+   *                  ไม่ใช่ form submit จริง `form-action` จึงไม่พอ ต้องมีทั้งคู่
+   *   GA4            `script-src` googletagmanager · `connect-src` +`img-src`
+   *                  google-analytics — **โหลดเฉพาะเมื่อผู้ใช้กดยอมรับ** จึงไม่โผล่
+   *                  ในการทดสอบอัตโนมัติ ต้องใส่จากการอ่าน AnalyticsConsent.tsx
+   *                  (ลืมข้อนี้ = แถบคุกกี้ทำงาน แต่ GA ไม่เก็บอะไรเลยแบบเงียบๆ)
+   *   Vercel         `script-src` + `connect-src` — Analytics ใน root layout
+   *   หลักสูตรวัฒนธรรม `img-src` — dependency ภายนอกตัวสุดท้ายจาก Phase 0
+   *
+   * **ทำไมต้องมี `'unsafe-inline'` ใน script-src** — Next ฝังสคริปต์ inline สำหรับ
+   * bootstrap/hydration ทุกหน้า วิธีที่ถูกต้องกว่าคือ nonce แต่ nonce ต้องสร้างใหม่
+   * ทุก request ซึ่งบังคับให้ทุกหน้ากลายเป็น dynamic — เว็บนี้เป็น static ทั้ง 183 หน้า
+   * การแลกทั้งเว็บไปเป็น dynamic เพื่อ CSP ที่แข็งขึ้นหนึ่งขั้นไม่คุ้ม
+   * **จึงยอมรับข้อจำกัดนี้อย่างรู้ตัว ไม่ใช่มองข้าม**
+   *
+   * ส่วนที่ได้จริงคือ `object-src 'none'` · `base-uri 'self'` · `frame-ancestors`
+   * · และการล็อกปลายทางของ connect/img/frame ซึ่งเป็นด่านที่กันการดูดข้อมูลออก
+   * ไปโดเมนแปลกปลอมได้แม้สคริปต์จะถูกแทรกเข้ามาได้แล้ว
+   *
+   * **ถ้าเพิ่มบริการภายนอกใหม่ ต้องมาเพิ่มที่นี่ด้วย** ไม่งั้นมันจะเงียบไป
    */
   async headers() {
     return [
@@ -122,6 +182,7 @@ const nextConfig: NextConfig = {
           // ปิดสิทธิ์อุปกรณ์ที่เว็บนี้ไม่ใช้เลย · ไม่ใส่ interest-cohort เพราะ FLoC
           // ถูกยกเลิกไปแล้ว การลอกมาเป็นการสะสมค่าที่ไม่มีความหมาย
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Content-Security-Policy", value: CSP },
         ],
       },
     ];
