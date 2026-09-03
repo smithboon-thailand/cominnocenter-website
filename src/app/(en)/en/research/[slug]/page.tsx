@@ -8,6 +8,7 @@ import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryB
 import CitationTool from "@/components/research/CitationTool";
 import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
+import { truncate } from "@/lib/text";
 import {
   paperSummaries,
   paperSummaryBySlug,
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: Props) {
   if (!summary) return { title: "Summary not found" };
   return {
     title: plainText(summary.en.headline),
-    description: plainText(summary.en.question).slice(0, 160),
+    description: truncate(plainText(summary.en.question), 160, "en"),
     alternates: {
       canonical: `/en/research/${slug}`,
       languages: {
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props) {
     },
     openGraph: {
       title: plainText(summary.en.headline),
-      description: plainText(summary.en.question).slice(0, 200),
+      description: truncate(plainText(summary.en.question), 200, "en"),
       // A child page's openGraph replaces the layout's wholesale — images must be repeated
       // Use this paper's own artwork: og-default would give all 15 pages the same share card
       images: [`/images/research/summaries/${slug}.webp`],
