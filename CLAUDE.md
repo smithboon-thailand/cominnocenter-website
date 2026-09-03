@@ -47,9 +47,10 @@ src/
 │   ├── globals.css         # design tokens ตาม BRAND.md I1 + keyframes
 │   ├── sitemap.ts          # สร้างจาก data file แตกสองภาษาอัตโนมัติ + hreflang
 ├── components/
-│   ├── Header  Footer  ContactForm  NewsletterForm  ProjectGallery  VideoShowcase  HomeLeadership
-│   ├── ui/                 # Button, DisplayHeading, PageBanner, ProjectCard, ResponsiveArtwork,
-│   │                       #   SdgBadge, SdgFilterChips, SdgPosterGrid, SectionHeader, Stat
+│   ├── Header  Footer  ContactForm  NewsletterForm  ProjectGallery  VideoShowcase
+│   ├── ui/                 # Button, DisplayHeading, PageHero, ProjectCard, ResponsiveArtwork,
+│   │                       #   SdgBadge, SdgFilterChips, SdgPosterGrid, SectionHeader,
+│   │                       #   SectionIcon (ไอคอน 20 บทบาท), Stat
 │   ├── effects/            # HeroArtwork, Reveal, ParallaxHero, GlassCard, AnimatedCounter,
 │   │                       #   InnovationNetwork
 │   ├── impact/             # ImpactExplorer (filter), ProjectFooterNav (related/prev-next)
