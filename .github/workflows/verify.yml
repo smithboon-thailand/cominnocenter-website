@@ -21,7 +21,9 @@ concurrency:
 
 jobs:
   verify:
-    name: lint + build + text + images + citations + routes
+    # ชื่อนี้คือสิ่งที่ขึ้นบนหน้า PR — เพิ่มขั้นตอนใหม่ใน `npm run verify` เมื่อไหร่
+    # ให้เติมที่นี่ด้วย ไม่งั้นคนอ่านจะเข้าใจว่า CI ตรวจน้อยกว่าที่ตรวจจริง
+    name: lint + build + text + images + citations + routes + content
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -30,8 +32,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          # check:citations และ check:routes รันด้วย --experimental-strip-types
-          # ซึ่งต้อง Node 22.6 ขึ้นไป — อย่าลดเลขนี้ลงโดยไม่เปลี่ยนสองสคริปต์นั้นด้วย
+          # check:citations · check:routes · check:content รันด้วย
+          # --experimental-strip-types ซึ่งต้อง Node 22.6 ขึ้นไป — อย่าลดเลขนี้ลง
+          # โดยไม่เปลี่ยนสามสคริปต์นั้นด้วย · check:content ยังต้องการ ICU เต็ม
+          # เพราะ truncate() ตัดคำไทยด้วย Intl.Segmenter (Node ทางการมีให้อยู่แล้ว)
           node-version: 22
           cache: npm
 
