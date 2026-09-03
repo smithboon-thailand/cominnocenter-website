@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import ResearchExplorer from "@/components/research/ResearchExplorer";
 import JsonLd from "@/components/seo/JsonLd";
 import { publicationListSchema } from "@/lib/schema";
@@ -35,16 +35,22 @@ export default function ResearchPage() {
       <JsonLd data={publicationListSchema(publications, authorName, "th")} />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-          งานวิจัย
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">ผลงานตีพิมพ์ของศูนย์ฯ</h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          งานบริการทุกชิ้นของเราตั้งอยู่บนฐานงานวิจัย หน้านี้รวมผลงานตีพิมพ์ของคณาจารย์ประจำศูนย์ฯ
-          ทั้งหนังสือ บทความวารสารนานาชาติ และบทความประชุมวิชาการ กดที่ชื่อเรื่องเพื่อเปิดผลงานต้นทาง
-        </p>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+      <PageHero
+        page="research"
+        locale="th"
+        kicker="งานวิจัย"
+        title="ผลงานตีพิมพ์ของศูนย์ฯ"
+        lede="งานบริการทุกชิ้นของเราตั้งอยู่บนฐานงานวิจัย หน้านี้รวมผลงานตีพิมพ์ของคณาจารย์ประจำศูนย์ฯ ทั้งหนังสือ บทความวารสารนานาชาติ และบทความประชุมวิชาการ กดที่ชื่อเรื่องเพื่อเปิดผลงานต้นทาง"
+      />
+
+      {/*
+        แถวตัวเลขเคยอยู่ในบล็อกหัวหน้า คั่นระหว่างคำนำกับภาพประกอบ
+        ย้ายออกมาเป็นแถบของตัวเองใต้ hero เพราะช่องข้อความของ PageHero กว้าง ~58%
+        ใส่ตัวเลขสี่ช่องแล้วแน่นเกินอ่าน — และการได้เต็มความกว้างทำให้ตัวเลข
+        อ่านง่ายกว่าเดิมด้วย
+      */}
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-12">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
           <Stat value={publicationStats.total} unit="รายการ" label="ผลงานตีพิมพ์" />
           <Stat
             value={publicationStats.verifiable}
@@ -55,7 +61,6 @@ export default function ResearchPage() {
           <Stat value={publicationStats.books} unit="เล่ม" label="หนังสือวิชาการ (Springer)" delay={240} />
           <Stat value={publicationStats.since} label="ตีพิมพ์ต่อเนื่องตั้งแต่ปี" animate={false} />
         </div>
-        <PageBanner page="research" locale="th" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

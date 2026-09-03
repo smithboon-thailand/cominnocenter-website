@@ -5,7 +5,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 import PersonaBlocks from "@/components/collaborate/PersonaBlocks";
 import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 
 export const metadata = {
@@ -40,18 +40,13 @@ export default function EnglishCollaboratePage() {
       <Header active="collaborate" locale="en" />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
-          Collaborate
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">Create impact together</h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          Whether research, training, campaigns, or other forms of collaboration — we welcome
-          partnerships with government, business, and civil society to build communication
-          innovation for quality of life and sustainability.
-        </p>
-        <PageBanner page="collaborate" locale="en" />
-      </section>
+      <PageHero
+        page="collaborate"
+        locale="en"
+        kicker="Collaborate"
+        title="Create impact together"
+        lede="Whether research, training, campaigns, or other forms of collaboration — we welcome partnerships with government, business, and civil society to build communication innovation for quality of life and sustainability."
+      />
 
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

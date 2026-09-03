@@ -22,6 +22,7 @@ export default function ResponsiveArtwork({
   height,
   className = "",
   priority = false,
+  objectPosition,
 }: {
   /** path ไม่มีนามสกุล เช่น "/images/about/banner" */
   base: string;
@@ -35,6 +36,14 @@ export default function ResponsiveArtwork({
   className?: string;
   /** เปิดเมื่อภาพอยู่เหนือเส้นพับและเป็น LCP element ของหน้า */
   priority?: boolean;
+  /**
+   * จุดยึดตอนครอป เช่น `"72% 50%"` — ใส่เมื่อกรอบที่แสดงแคบกว่าสัดส่วนไฟล์ต้นฉบับ
+   *
+   * ภาพ paper-craft ของเราเป็น 21:9 และ**จงใจวางวัตถุไว้ข้างเดียว เว้นพื้นที่ว่าง
+   * อีกข้างไว้ให้ข้อความ** ถ้าครอปจากกึ่งกลางตามค่าเริ่มต้นของ `object-cover`
+   * จะได้ที่ว่างครึ่งหนึ่งและวัตถุขาดครึ่ง — ต้องยึดไปทางฝั่งที่วัตถุอยู่
+   */
+  objectPosition?: string;
 }) {
   return (
     <div
@@ -53,6 +62,7 @@ export default function ResponsiveArtwork({
         height={height}
         fetchPriority={priority ? "high" : "auto"}
         decoding="async"
+        style={objectPosition ? { objectPosition } : undefined}
         className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
