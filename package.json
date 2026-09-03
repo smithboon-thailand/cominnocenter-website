@@ -11,7 +11,8 @@
     "check:text": "node scripts/check-rendered-text.mjs",
     "check:images": "node scripts/check-image-files.mjs",
     "check:citations": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-citations.ts",
-    "verify": "npm run lint && npm run build && npm run check:text && npm run check:images && npm run check:citations"
+    "check:routes": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-routes.ts",
+    "verify": "npm run lint && npm run build && npm run check:text && npm run check:images && npm run check:citations && npm run check:routes"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
