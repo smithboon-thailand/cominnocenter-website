@@ -106,8 +106,15 @@ type PaperRef =
 export type PaperSummary = PaperRef & {
   /** ใช้เป็น URL: /research/<slug> และ /en/research/<slug> */
   slug: string;
-  /** ภาษาที่**ตัวบทความ**เขียน ไม่ใช่ภาษาของหน้าเว็บ — ส่งเข้า inLanguage ของ JSON-LD */
-  articleLanguage: "th" | "en";
+  /**
+   * ภาษาที่**ตัวบทความ**เขียน ไม่ใช่ภาษาของหน้าเว็บ — ส่งเข้า inLanguage ของ JSON-LD
+   *
+   * เพิ่ม `"ru"` เมื่อ 3 ก.ย. 2569 เพราะผลงานร่วมกับ Санкт-Петербургский
+   * государственный университет ตีพิมพ์เป็นภาษารัสเซีย · **ค่านี้ต้องตรงกับภาษา
+   * ของต้นฉบับจริง** ไม่ใช่ภาษาของบทสรุป ถ้าใส่ผิด JSON-LD จะบอกเสิร์ชเอนจินว่า
+   * บทความอยู่ในภาษาที่ผู้อ่านหาไม่เจอ
+   */
+  articleLanguage: "th" | "en" | "ru";
   /**
    * ประเภทของงาน — **ไม่มีค่าแปลว่างานที่มีผลแล้ว**
    *
@@ -1772,6 +1779,104 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone designing behaviour-change work or working with social norms, the point worth carrying forward is that **norms do not spread because people are told what is right; they spread when people can see that others want the same conditions** — which turns the communication problem from “how do we persuade them” into “how do we make an existing shared preference visible”. Connecting the argument to campaign work is the centre's own reading; the article itself does not discuss campaigns.",
       caveat:
         "**This is philosophical argument alone, with no empirical evidence.** The proposed “universally shared subjective preference” is an assumption the paper does not test, and it is precisely where other schools would push back. Defining wrongdoing through consent is a liberal framework, not the only one in ethics. **The question of why an individual ought to follow a norm is touched on only briefly and left unresolved** — a scope limit the author states at the outset.",
+    },
+  },
+  {
+    slug: "dating-apps-substance-persuasion",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กรวยกระดาษพับใบเดียว มีกระดาษพับชิ้นเดียวกำลังตกเข้าปากกรวยด้านบน ส่วนใต้ปลายกรวยมีกระดาษพับสองชิ้นคนละรูปวางอยู่",
+    illustrationAltEn:
+      "Paper-craft illustration of a single folded paper funnel with one folded piece dropping into its wide top opening and two differently shaped folded pieces resting below its narrow spout",
+    doi: "10.2147/prbm.s121480",
+    articleLanguage: "en",
+    license: "cc-by-nc",
+    th: {
+      headline: "ช่องทางที่สร้างไว้ให้นัดพบ กลายเป็นช่องทางส่งคำชวนใช้สารเสพติดไปด้วย",
+      question:
+        "แอปหาคู่เป็นช่องทางหลักที่ชายซึ่งมีเพศสัมพันธ์กับชายในไทยใช้หาคู่นัด งานนี้ถามว่าช่องทางเดียวกันนี้ถูกใช้ส่งคำชวนให้ลองสารเสพติดด้วยหรือไม่ และคำชวนเหล่านั้นสัมพันธ์กับพฤติกรรมการใช้สารจริงแค่ไหน",
+      method:
+        "แบบสอบถามออนไลน์ 21 ข้อ เก็บ 9 กุมภาพันธ์ถึง 10 มีนาคม 2559 (เลือกช่วงนี้เพราะคร่อมวันวาเลนไทน์ซึ่งการใช้แอปสูง) ได้ผู้ตอบ 350 คน — 200 คนจากเว็บไซต์ 8 แห่ง และ 150 คนจากช่องทางโซเชียล 5 ช่องทาง คัดผู้ตอบแบบสะดวก วิเคราะห์ด้วยสถิติเชิงพรรณนา ค่าสหสัมพันธ์เพียร์สัน และการถดถอยพหุคูณแบบขั้นตอน ผ่านการรับรองจริยธรรมการวิจัยจากสถาบันต้นสังกัดของผู้วิจัย และเก็บข้อมูลโดยไม่ระบุตัวตน",
+      findings: [
+        "**ราวสามในสี่ (73.74%) ใช้แอปหาคู่ในรอบหกเดือนที่ผ่านมา** และส่วนใหญ่ (80.3%) นัดพบผู้ใช้แอปคนอื่นสัปดาห์ละหนึ่งคน",
+        "**มากกว่าครึ่ง (54.6%) เคยถูกชักชวนให้ลองใช้สารเสพติดผ่านแอป**",
+        "**ในกลุ่มที่เคยใช้สาร มากกว่าสี่ในห้า (82.9%) ได้สารมาจากการแบ่งกันใช้หรือซื้อร่วมกับคนที่รู้จักผ่านแอป** ซึ่งชี้ว่าแอปทำหน้าที่เป็นทั้งช่องทางชักชวนและช่องทางกระจาย",
+        "**หนึ่งในสี่ (25.7%) ของผู้ใช้สาร ใช้เป็นประจำอย่างน้อยสัปดาห์ละครั้ง**",
+        "**สองในสามของผู้ใช้สารใช้สารระหว่างมีเพศสัมพันธ์** (มีเพียง 34.3% ที่มีเพศสัมพันธ์โดยไม่ใช้สารไปด้วย) และในกลุ่มที่ใช้สารระหว่างมีเพศสัมพันธ์ 31.4% ไม่ได้ใช้ถุงยางอย่างสม่ำเสมอ",
+        "**ผู้ใช้สารถึง 77.1% ไม่ได้ตรวจเอชไอวีเลยในรอบหกเดือน**",
+        "**ตัวแปรที่ทำนายพฤติกรรมการใช้สารได้ดีที่สุดสองตัวคือ การตัดสินใจตอบรับคำชวน และความรู้สึกพอใจเมื่อได้รับคำชวน** — แบบจำลองถดถอยอธิบายพฤติกรรมได้ราว 60% (R² 0.572–0.591) นั่นคือ**ตัวคำชวนเองมีน้ำหนักมากกว่าที่คิด** ไม่ใช่แค่ทัศนคติต่อสารเสพติดที่มีอยู่เดิม",
+      ],
+      soWhat:
+        "ข้อค้นพบที่ใช้ออกแบบงานสื่อสารได้คือ **จุดแทรกแซงอยู่ที่ “ตอนได้รับคำชวน” ไม่ใช่ตอนตัดสินใจใช้** เพราะตัวแปรที่ทำนายได้ดีที่สุดคือความรู้สึกตอบสนองต่อคำชวน ไม่ใช่ทัศนคติต่อสารเสพติดโดยทั่วไป · และเพราะแอปทำหน้าที่ทั้งชวนและกระจาย งานป้องกันที่รอให้คนเดินเข้ามาหาข้อมูลจึงมาช้ากว่าคำชวนเสมอ · ตัวเลขการไม่ตรวจเอชไอวีที่สูงมากในกลุ่มที่ใช้สารระหว่างมีเพศสัมพันธ์ ชี้ว่าการสื่อสารเรื่องการตรวจกับเรื่องสารเสพติดควรออกแบบไปด้วยกัน ไม่ใช่แยกแคมเปญ",
+      caveat:
+        "**เป็นค่าสหสัมพันธ์และการทำนายทางสถิติ ไม่ใช่การพิสูจน์ว่าอะไรทำให้เกิดอะไร** · คัดผู้ตอบแบบสะดวกจากเว็บไซต์และช่องทางโซเชียลเฉพาะกลุ่ม ผู้เขียนระบุเองว่าจำกัดความหลากหลายของกลุ่มตัวอย่างและใช้แทนภาพรวมไม่ได้ · เก็บข้อมูลทั้งหมดทางออนไลน์ ไม่มีการสัมภาษณ์ตัวต่อตัว · ถามเรื่องการป้องกันเฉพาะการใช้ถุงยาง ไม่ได้ถามถึงวิธีป้องกันอื่น · **ข้อมูลเก็บต้นปี 2559 ซึ่งผ่านมาเกือบสิบปี** ทั้งแอปที่ใช้กันและทางเลือกในการป้องกันเอชไอวีเปลี่ยนไปมาก ตัวเลขจึงควรใช้อ่านกลไก ไม่ใช่อ้างสถานการณ์ปัจจุบัน · **บทสรุปนี้ตั้งใจไม่ระบุชื่อแอปทั้งห้าที่บทความรายงานไว้** เพราะข้อค้นพบเป็นการวิจารณ์การใช้งานที่เกิดบนแพลตฟอร์มเหล่านั้น และชื่อแอปไม่ได้เพิ่มอะไรให้บทเรียนที่นำไปใช้ได้ · เขียนจากฉบับเต็มใน PubMed Central ซึ่งไม่มีตารางผล ตัวเลขที่ยกมาจึงเป็นเฉพาะที่ระบุไว้ในเนื้อความโดยตรง",
+    },
+    en: {
+      headline: "A channel built for meeting people also carries invitations to use drugs",
+      question:
+        "Dating apps are a main channel through which men who have sex with men in Thailand find partners. This study asks whether the same channel is also used to invite others to try illicit substances, and how strongly those invitations relate to actual substance use.",
+      method:
+        "A 21-item online survey run from 9 February to 10 March 2016 — a window chosen to span Valentine's Day, when app use is high. 350 people responded: 200 through eight websites and 150 through five social media channels, recruited by convenience sampling. Analysis used descriptive statistics, Pearson correlations and stepwise multiple regression. The study had research ethics approval from the researchers' institution and collected no identifying information.",
+      findings: [
+        "**About three in four (73.74%) had used a dating app in the previous six months**, and most (80.3%) met one other app user per week.",
+        "**More than half (54.6%) had been urged through an app to try a substance.**",
+        "**Among those who had used substances, more than four in five (82.9%) obtained them by sharing with, or buying alongside, people they had met through the apps** — the apps function as a distribution channel, not only as a channel for persuasion.",
+        "**One in four substance users (25.7%) used at least weekly.**",
+        "**Two-thirds of substance users combined substances with sex** — only 34.3% had sex without using at the same time — and among those who combined the two, 31.4% did not use condoms consistently.",
+        "**77.1% of substance users had not tested for HIV at all in the previous six months.**",
+        "**The two strongest predictors of substance-use behaviour were the decision to accept an invitation and the satisfaction felt on receiving one** — the regression models account for roughly 60% of the behaviour (R² 0.572–0.591). **The invitation itself carries more weight than expected**, over and above pre-existing attitudes to substances.",
+      ],
+      soWhat:
+        "For communication design the usable finding is that **the point of intervention is the moment an invitation arrives, not the moment of use** — the strongest predictor was how someone responded to being asked, not their general attitude to substances. Because the apps serve both to persuade and to distribute, prevention work that waits for people to come looking for information will always arrive after the invitation has. And the very high proportion of substance users who had not tested for HIV suggests that testing messages and substance messages should be designed together rather than run as separate campaigns.",
+      caveat:
+        "**These are correlations and statistical predictions, not demonstrations of cause.** Recruitment was by convenience through particular websites and social channels; the authors state this limits the diversity of the sample and that it cannot stand for the wider population. All data was collected online with no face-to-face interviews. Protection was asked about only in terms of condom use, not other methods. **The data was collected in early 2016, nearly a decade ago**; both the apps in use and the available means of HIV prevention have changed substantially, so the figures are best read for the mechanism rather than as a description of the present. **This summary deliberately does not name the five apps the article reports**, because the finding is a criticism of behaviour occurring on those platforms and the names add nothing to the lesson that can be applied. Written from the PubMed Central full text, which does not carry the results tables, so only figures stated directly in the text are quoted here.",
+    },
+  },
+  {
+    slug: "pr-evaluation-coefficient",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ลูกบาศก์กระดาษพับสองลูกขนาดเท่ากันเป๊ะ วางอยู่บนปลายทางลาดกระดาษที่ยาวไม่เท่ากัน ลูกบนทางลาดที่ยาวกว่าจึงอยู่สูงกว่า",
+    illustrationAltEn:
+      "Paper-craft illustration of two identically sized folded paper cubes resting on the raised ends of paper ramps of unequal length, so the cube on the longer ramp sits higher",
+    doi: "10.21638/11701/spbu09.2017.210",
+    articleLanguage: "ru",
+    kind: "argument",
+    th: {
+      headline: "ผลงานประชาสัมพันธ์เท่ากัน ไม่ได้แปลว่าทำงานได้ดีเท่ากัน — ต้องหารด้วยความง่ายของเรื่องที่ได้มาทำ",
+      question:
+        "การวัดผลงานประชาสัมพันธ์เป็นเรื่องขัดแย้งกันมานาน เอเจนซีแต่ละเจ้าใช้สูตรของตัวเองซึ่งเป็นจุดขาย จึงต้านมาตรฐานกลาง ส่วนลูกค้าคุ้นกับตัวเลขเดิมอย่าง AVE (การตีมูลค่าข่าวเป็นค่าโฆษณาพื้นที่เท่ากัน) ซึ่งถูกวิจารณ์มานานแต่ยังใช้กันอยู่ครึ่งวงการ บทความถามว่าจะออกแบบระบบวัดผลอย่างไรให้ทั้งสองฝ่ายตกลงกันได้ตั้งแต่ต้น",
+      method:
+        "เป็นบทความเชิงแนวคิดเชิงวิธีวิทยา ไม่ได้เก็บข้อมูลเชิงประจักษ์ ผู้เขียนทบทวนข้อวิจารณ์ที่มีต่อ AVE และต่อสมมติฐานที่เอเจนซีตั้งขึ้นเอง แล้วเสนอชุดตัวชี้วัดพร้อมตัวอย่างการคำนวณ",
+      findings: [
+        "**ข้อเสนอหลักคือ “ค่าสัมประสิทธิ์ศักยภาพของประเด็นข่าว” ที่ตกลงกันตั้งแต่ตอนวางแผน** ไม่ใช่ตอนรายงานผล — ประเมินว่าเรื่องที่จะสื่อสารมีแรงดึงดูดสื่อในตัวเองมากแค่ไหน",
+        "**ค่านี้กลับทางกับสัญชาตญาณ: ยิ่งประเด็นมีศักยภาพสูง ค่าสัมประสิทธิ์ยิ่งต่ำ** ตัวอย่างที่เสนอคือ ศักยภาพสูง = 0.5 · ปานกลาง = 1.5 · ต่ำ = 2.0 เพราะประเด็นที่แรงอยู่แล้วสร้างข่าวได้เอง ส่วนประเด็นที่จืดต้องใช้แรงของเอเจนซีมากกว่า",
+        "**ใช้เป็นตัวคูณกับตัวชี้วัดเชิงปริมาณ** ตัวอย่างในบทความ: ส่งเชิญ 100 ราย ตอบรับ 20 ราย ถ้าประเด็นศักยภาพปานกลาง (1.5) ได้ 20/100 × 1.5 = 0.3 แต่ถ้าประเด็นศักยภาพต่ำ (2.0) ตัวเลขเดียวกันได้ 0.4 — **ผลงานเท่ากันแต่คะแนนต่างกัน เพราะต้นทุนความยากต่างกัน**",
+        "**องค์ประกอบที่สองคือรายชื่อสื่อที่จัดลำดับความสำคัญร่วมกันและอธิบายเหตุผลไว้** — สื่อท้องถิ่นอาจสำคัญกว่าฉบับส่วนกลางสำหรับงานระดับภูมิภาค การนับจำนวนข่าวเฉยๆ จึงมองข้ามเรื่องนี้",
+        "**องค์ประกอบที่สามคือคุณภาพเนื้อหา ซึ่งเป็นค่าสัมประสิทธิ์แบบ “ลด” เท่านั้น** — ถ้าสารหลักที่ตั้งไว้สี่ข้อ ปรากฏในข่าวเพียงข้อเดียว คุณภาพเนื้อหาไม่เกิน 0.25",
+        "**ผู้เขียนระบุเองว่าวิธีนี้ไม่ได้ทำให้การวัดแม่นยำขึ้น** เป้าหมายคือทำให้ความคาดหวังของเอเจนซีกับลูกค้าตรงกัน ไม่ใช่ทำให้การประเมินเป็นภววิสัยมากขึ้น",
+      ],
+      soWhat:
+        "สิ่งที่องค์กรเอาไปใช้ได้ทันทีไม่ใช่ตัวเลขสัมประสิทธิ์ แต่เป็น**ลำดับเวลา** — ตกลงเกณฑ์วัดผลและประเมินความยากของประเด็นให้เสร็จ*ก่อน*เริ่มงาน ไม่ใช่มาเถียงกันตอนส่งรายงาน · ข้อขัดแย้งเรื่องผลงานประชาสัมพันธ์ส่วนใหญ่เกิดจากไม่เคยตั้งเป้าที่วัดได้ร่วมกันตั้งแต่แรก · และการแยก “ผลงานของเอเจนซี” ออกจาก “แรงของประเด็นเอง” เป็นวิธีคิดที่ใช้ได้แม้ไม่ใช้สูตรนี้",
+      caveat:
+        "**เป็นข้อเสนอเชิงวิธีวิทยา ไม่ใช่ผลการวิจัยเชิงประจักษ์ และเป็นข้อเสนอของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ** · ตัวเลขสัมประสิทธิ์ 0.5 / 1.5 / 2.0 เป็น**ตัวอย่างที่ผู้เขียนยกขึ้นเพื่ออธิบายหลักการ** ไม่ได้มาจากการสอบเทียบกับข้อมูลจริง · การจัดว่าประเด็นไหนศักยภาพสูงหรือต่ำยังเป็นดุลพินิจ ซึ่งย้ายจุดที่ต้องตกลงกันไป ไม่ได้ทำให้หายไป · ตัวอย่างประกอบอ้างอิงบริบทสื่อรัสเซีย การนำมาใช้ที่อื่นต้องปรับ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อเอเจนซีสองแห่งที่บทความยกสมมติฐานขึ้นมาวิจารณ์** เพราะข้อวิจารณ์นั้นไม่ได้เพิ่มอะไรให้หลักการที่นำไปใช้ได้",
+    },
+    en: {
+      headline: "The same PR results do not mean the same performance — divide by how easy the story was to begin with",
+      question:
+        "Measuring public relations performance has long been contested. Agencies use proprietary formulas as a point of differentiation and so resist common standards, while clients fall back on familiar numbers such as AVE — pricing coverage at what the equivalent advertising space would cost — which has been criticised for years yet is still used by around half the industry. The paper asks how an evaluation system could be designed so that both sides agree on it before the work starts.",
+      method:
+        "A conceptual, methodological paper with no empirical data collection. The authors review the standing criticisms of AVE and of the assumptions agencies build into their own formulas, then propose a set of indicators with worked examples.",
+      findings: [
+        "**The central proposal is a “news-hook potential coefficient” agreed at the planning stage**, not at the reporting stage — an assessment of how much media pull the story carries on its own.",
+        "**The coefficient runs counter to intuition: the higher the potential, the lower the number.** The illustrative values are high potential = 0.5, medium = 1.5, low = 2.0, because a strong story generates coverage by itself while a weak one takes more work from the agency.",
+        "**It is applied as a multiplier on quantitative indicators.** The paper's own example: 100 invitations sent and 20 accepted gives 20/100 × 1.5 = 0.3 for a medium-potential story, but 0.4 for a low-potential one. **The same output scores differently because the difficulty differed.**",
+        "**The second component is a jointly agreed, argued media list ranked by priority** — a local title may matter more than a national edition for a regional event, which a raw count of placements ignores.",
+        "**The third is content quality, and it can only reduce.** If one of four intended key messages appears in the coverage, content quality is no more than 0.25.",
+        "**The authors state plainly that this does not make measurement more accurate.** Its purpose is to align the expectations of agency and client, not to make evaluation more objective.",
+      ],
+      soWhat:
+        "What an organisation can use immediately is not the coefficient itself but **the sequence**: settle the measures and assess the difficulty of the story *before* the work begins, rather than arguing about it when the report lands. Most disputes over PR results come from never having set an agreed, measurable target in the first place. And separating “what the agency did” from “how much pull the story had anyway” is a useful way to think even without adopting this formula.",
+      caveat:
+        "**This is a methodological proposal rather than an empirical finding, and it is the authors' proposal, not a position of the Center.** The coefficients of 0.5 / 1.5 / 2.0 are **illustrative values used to explain the principle**, not calibrated against data. Judging a story as high or low potential remains a matter of judgement, which relocates the point that has to be agreed rather than removing it. The worked examples draw on the Russian media context and would need adapting elsewhere. **This summary deliberately does not name the two agencies whose assumptions the article singles out for criticism**, since those names add nothing to the principle that can be applied.",
     },
   },
 ];
