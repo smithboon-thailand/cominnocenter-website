@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroArtwork from "@/components/effects/HeroArtwork";
+import CtaBackdrop from "@/components/effects/CtaBackdrop";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -335,13 +336,9 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-ink-900">
-        <Image
+        <CtaBackdrop
           src="/images/home/cta-bg.webp"
-          alt=""
-          aria-hidden
-          fill
-          className="object-cover"
-          sizes="100vw"
+          video={{ webm: "/videos/cta-loop.webm", mp4: "/videos/cta-loop.mp4" }}
         />
         <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
           <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
