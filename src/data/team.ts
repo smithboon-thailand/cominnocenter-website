@@ -172,12 +172,15 @@ export const researchAssistants: TeamMember[] = [
     alt: "หฤทัย สิทธิภูวบุณย์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
-    name: "ธวินท์ แจ่มแจ้ง",
-    nameEn: "Thavin Chaemchaeng",
+    // ยืนยันการสะกดโดยผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "ธวินท์ แจ่มแจ้ง /
+    // Thavin Chaemchaeng" ผิดทั้งชื่อไทยและการถอดเป็นอังกฤษ ค่าที่ถูกคือ
+    // "ธาวิน แจ่มแจ้ง / Thavin Jamjang" · ชื่อเดิมติดมาจากเว็บ Wix
+    name: "ธาวิน แจ่มแจ้ง",
+    nameEn: "Thavin Jamjang",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_7fd4bdf8ae7b48efac5cf79fc4fdd215"),
-    alt: "ธวินท์ แจ่มแจ้ง ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
+    alt: "ธาวิน แจ่มแจ้ง ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
 ];
 
