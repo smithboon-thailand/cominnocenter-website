@@ -121,7 +121,10 @@ export const affiliatedResearchers: TeamMember[] = [
   },
   {
     name: "รศ.ดร.ไวพจน์ จันทร์เสม",
-    nameEn: "Assoc. Prof. Dr. Wai Phan Chansem",
+    // ยืนยันการสะกดโดยผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บถอดเป็น "Wai Phan Chansem"
+    // ซึ่งเป็นการถอดเสียงทีละพยางค์ ไม่ใช่ชื่ออังกฤษที่เจ้าตัวใช้จริง
+    // ชื่อไทยถูกอยู่แล้ว เปลี่ยนเฉพาะฝั่งอังกฤษ
+    nameEn: "Assoc. Prof. Dr. Wipoj Chansem",
     roleTh: "นักวิจัย",
     role: "Researcher",
     image: media("8e0d14_1c1c8fde9c5c4013892804a6d82da63e"),
