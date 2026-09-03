@@ -33,6 +33,7 @@ export default function NewsPageEn() {
       <PageHero
         page="news"
         locale="en"
+        kicker="News & Events"
         title={
           <>
             News &amp; Events

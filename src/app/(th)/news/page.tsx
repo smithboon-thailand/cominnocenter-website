@@ -34,6 +34,7 @@ export default function NewsPage() {
       <PageHero
         page="news"
         locale="th"
+        kicker="ข่าวและกิจกรรม"
         title="ข่าวและกิจกรรม"
         lede="ข่าวประชาสัมพันธ์ กิจกรรม และเรื่องราวจากการทำงานของศูนย์ฯ"
       />
