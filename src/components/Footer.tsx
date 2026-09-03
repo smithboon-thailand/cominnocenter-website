@@ -1,7 +1,7 @@
 import Image from "next/image";
 import NewsletterForm from "./NewsletterForm";
 import CookieSettingsButton from "./analytics/CookieSettingsButton";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 
 const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
@@ -58,8 +58,8 @@ export default function Footer({ locale = "th" }: FooterProps) {
           <div className="text-sm">
             <div className="text-white font-medium mb-3">{t.contact}</div>
             <p>
-              <a href="mailto:comminno@chula.ac.th" className="hover:text-pink-400 transition-colors">
-                comminno@chula.ac.th
+              <a href={EMAIL_HREF} className="hover:text-pink-400 transition-colors">
+                {EMAIL}
               </a>
             </p>
             <p className="mt-1">

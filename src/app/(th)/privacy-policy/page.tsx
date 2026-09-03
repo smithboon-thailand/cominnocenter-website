@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieSettingsButton from "@/components/analytics/CookieSettingsButton";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 import {
   PRIVACY_LAST_UPDATED,
   privacyRows,
@@ -154,10 +154,9 @@ export default function PrivacyPolicyPage() {
             <p className="mt-4 text-[17px] leading-[1.7] text-ink-700">
               ใช้สิทธิเหล่านี้ได้โดยเขียนมาที่{" "}
               <a
-                href="mailto:comminno@chula.ac.th"
+                href={EMAIL_HREF}
                 className="text-pink-500 hover:text-pink-700 hover:underline"
               >
-                comminno@chula.ac.th
               </a>{" "}
               การถอนความยินยอมไม่กระทบการเก็บและใช้ข้อมูลที่ทำไปแล้วโดยชอบก่อนหน้านั้น
             </p>
@@ -172,10 +171,9 @@ export default function PrivacyPolicyPage() {
             คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย กรุงเทพมหานคร
             <br />
             <a
-              href="mailto:comminno@chula.ac.th"
+              href={EMAIL_HREF}
               className="text-pink-500 hover:text-pink-700 hover:underline"
             >
-              comminno@chula.ac.th
             </a>{" "}
             ·{" "}
             <a

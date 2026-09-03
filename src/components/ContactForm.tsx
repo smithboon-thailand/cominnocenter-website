@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import Button from "@/components/ui/Button";
 import { processSteps } from "@/data/process";
+import { EMAIL } from "@/data/contact";
 
 type ContactFormProps = {
   locale?: "th" | "en";
@@ -25,7 +26,7 @@ const COPY = {
     other: "อื่นๆ",
     message: "ข้อความ",
     messagePlaceholder: "บอกเราเกี่ยวกับโครงการหรือความต้องการของคุณ...",
-    error: "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรืออีเมลมาที่ comminno@chula.ac.th",
+    error: `เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรืออีเมลมาที่ ${EMAIL}`,
     submitting: "กำลังส่ง...",
     submit: "ส่งข้อความ",
     required: "จำเป็นต้องกรอก",
@@ -46,7 +47,7 @@ const COPY = {
     other: "Other",
     message: "Message",
     messagePlaceholder: "Tell us about your project or needs...",
-    error: "Something went wrong. Please try again or email comminno@chula.ac.th",
+    error: `Something went wrong. Please try again or email ${EMAIL}`,
     submitting: "Sending...",
     submit: "Send message",
     required: "required",

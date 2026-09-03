@@ -6,7 +6,7 @@ import PersonaBlocks from "@/components/collaborate/PersonaBlocks";
 import ProcessSteps from "@/components/collaborate/ProcessSteps";
 import SectionHeader from "@/components/ui/SectionHeader";
 import PageBanner from "@/components/ui/PageBanner";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 
 export const metadata = {
   alternates: {
@@ -90,10 +90,9 @@ export default function EnglishCollaboratePage() {
                   <div>
                     <p className="mb-1 text-ink-500">Email</p>
                     <a
-                      href="mailto:comminno@chula.ac.th"
+                      href={EMAIL_HREF}
                       className="font-medium text-ink-900 hover:text-pink-500"
                     >
-                      comminno@chula.ac.th
                     </a>
                   </div>
                   <div>
