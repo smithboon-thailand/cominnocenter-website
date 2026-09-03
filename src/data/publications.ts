@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-02)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-03)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -1872,7 +1872,7 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "International Journal of Social Sciences",
       "volume": "VI",
       "issue": "2",
-      "page": "",
+      "page": "63-76",
       "articleNumber": "",
       "publisher": "European Research Center (EURREC)",
       "year": 2017,

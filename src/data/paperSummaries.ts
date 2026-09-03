@@ -1483,6 +1483,100 @@ export const paperSummaries: PaperSummary[] = [
         "**The authors name two limitations themselves**: a modest sample and entirely self-reported measures. **The total path coefficient of .95 is unusually high**, which commonly happens when every variable is measured with the same instrument at the same sitting, so the size of the effect should be read cautiously. It covers one brand in one category — property — with respondents aged 18 to 24 who are mostly not yet buyers in that category. And it measures purchase intention, not purchases.",
     },
   },
+  {
+    slug: "russian-media-capitol-riots",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กรอบสี่เหลี่ยมสีน้ำเงินสี่ชั้นตั้งเรียงซ้อนกันเป็นอุโมงค์ ปลายอุโมงค์ปิดด้วยแผ่นกระดาษสีแดงทึบ",
+    illustrationAltEn:
+      "Paper-craft illustration of four blue rectangular frames standing in a row to form a tunnel, its far end closed by a solid red panel",
+    doi: "10.1177/00027642221078767",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "สื่อรัสเซียเล่าเหตุการณ์บุกรัฐสภาสหรัฐฯ ด้วยกรอบสี่ชั้น และปลายทางของทั้งสี่ชั้นคือการพูดถึงรัสเซียเอง",
+      question:
+        "หลังผู้ชุมนุมบุกอาคารรัฐสภาสหรัฐอเมริกาเมื่อ 6 มกราคม 2564 สื่อตะวันตกบางสำนักรายงานว่ารัสเซีย “มองเหตุการณ์นี้ต่างออกไป” · คำถามของงานนี้คือ ภาพที่สื่อรัสเซียประกอบขึ้นให้ผู้อ่านภายในประเทศของตนเอง เป็นภาพเดียวกับที่ถูกส่งออกไปยังผู้ฟังต่างชาติหรือไม่ และประกอบขึ้นด้วยวิธีใด",
+      method:
+        "การวิเคราะห์กรอบการนำเสนอเชิงคุณภาพ ตามแนวคิดเรื่องกรอบของ Goffman และวิธีของ Entman โดยใช้ชุดกรอบพื้นฐานห้าแบบของ Neuman และคณะ (ผลกระทบต่อคน · ความไร้อำนาจ · เศรษฐกิจ · ศีลธรรม · ความขัดแย้ง) เป็นโครงตั้งต้น · เก็บข้อความ**ทุกชิ้น**ที่ตรงคำค้นที่กำหนดไว้ล่วงหน้า จากหนังสือพิมพ์รายวันระดับชาติ 3 ฉบับและสถานีโทรทัศน์ของรัฐ 1 ช่อง ซึ่งงานเลือกมาเพราะอยู่ในกลุ่มที่ใกล้ชิดรัฐบาลและมีผู้รับสารมากที่สุด · ช่วงเวลา 1 มกราคม ถึง 1 กุมภาพันธ์ 2564 · ดึงข้อความจากหอสมุดแห่งชาติรัสเซียและฐานข้อมูลสื่อสองแห่ง แล้วผู้เขียนแปลเอง · กรอบที่ใช้จริงได้จากการอ่านตัวอย่างนำร่องก่อน แล้วจึงนำไปใช้กับข้อความที่เหลือ",
+      findings: [
+        "**กรอบที่หนึ่ง — จะเรียกผู้ก่อเหตุว่าอะไร** สื่อในกลุ่มตัวอย่างเรียกผู้ชุมนุมว่าผู้ประท้วงทางการเมืองที่มาพร้อมข้อเรียกร้อง ไม่ใช่ผู้ก่อจลาจล และมักเรียกว่าคนธรรมดาที่เหนื่อยล้าจากการถูกกดขี่ · วิธีที่ใช้ซ้ำคือการอ้างคำพูดของ “คนทั่วไป” ที่อยู่ในเหตุการณ์ แทนการอ้างเจ้าหน้าที่หรือผู้เชี่ยวชาญ",
+        "**กรอบที่สอง — คนตัวเล็กกับอำนาจรัฐ** เมื่อวางไว้แล้วว่าผู้ชุมนุมคือคนธรรมดา การดำเนินคดีจึงถูกเล่าเป็นการลงโทษที่เกินกว่าเหตุ และถูกเล่าคู่กับการเปรียบเทียบตรงๆ ว่าการจัดการผู้ชุมนุมในสหรัฐฯ หนักกว่าที่รัสเซียทำกับผู้ชุมนุมของตนเอง",
+        "**กรอบที่สาม — ศีลธรรม** ประเด็นที่ถูกหยิบมามากที่สุดคือเสรีภาพสื่อและการปิดกั้นเสียงฝ่ายตรงข้าม โดยมีข้อสรุปร่วมกันว่าสหรัฐฯ ไม่ได้ทำตามค่านิยมที่ตนประกาศ จึงหมดสถานะที่จะสอนประเทศอื่นเรื่องประชาธิปไตย",
+        "**กรอบที่สี่ — การแข่งขัน** เหตุการณ์ถูกอ่านผ่านการชิงความเป็นผู้นำโลกระหว่างสองประเทศ ความอ่อนแอของอีกฝ่ายจึงไม่ได้ถูกเล่าเป็นเรื่องภายในของเขา แต่เป็นการเสียอำนาจนำ",
+        "**ข้อสังเกตที่ผู้เขียนเห็นว่าสำคัญที่สุด คือกรอบทั้งสี่ชั้นวางอยู่บนการยอมรับว่าประชาธิปไตยเป็นค่านิยมที่ดี** ไม่ใช่การเสนอว่าระบอบอื่นดีกว่า — คำวิจารณ์ทั้งหมดมีรูปเป็น “คุณไม่ได้ทำตามสิ่งที่คุณเองบอกว่าดี” ซึ่งเป็นรูปที่โต้กลับได้ยากกว่าการปฏิเสธค่านิยมนั้นตรงๆ",
+        "ผู้เขียนสรุปว่าชุดกรอบที่พบมีลักษณะของการโฆษณาชวนเชื่อ จากการวางบทบาทให้ทุกฝ่ายในเรื่องไปในทางที่เอื้อต่อข้อสรุปที่ตั้งไว้ล่วงหน้า",
+      ],
+      soWhat:
+        "บทเรียนที่ใช้ได้กว้างกว่ากรณีนี้คือ**การเล่าเรื่องเหตุการณ์ในประเทศหนึ่ง มักไม่ได้มีเป้าหมายอยู่ที่ประเทศนั้น** ในกรณีนี้ปลายทางของทั้งสี่กรอบคือข้อสรุปเรื่องความชอบธรรมของฝ่ายผู้เล่าเอง · สำหรับคนอ่านข่าวต่างประเทศ วิธีตรวจที่งานนี้สาธิตให้ดูคือถามสามคำถาม — ใครถูกเลือกมาให้พูด เขาถูกแนะนำตัวว่าเป็นใคร และคำพูดนั้นถูกวางไว้ตรงไหนของเรื่อง — สามข้อนี้บอกทิศทางของกรอบได้ก่อนอ่านเนื้อหาจบด้วยซ้ำ · สำหรับการเรียนการสอนด้านนิเทศศาสตร์ งานนี้เป็นตัวอย่างที่เห็นชัดว่าการวิเคราะห์กรอบทำงานอย่างไรกับข่าวการเมืองระหว่างประเทศ",
+      caveat:
+        "**การวิเคราะห์กรอบอ่านได้แค่ตัวบท ไม่ได้บอกว่าผู้รับสารคิดตามหรือไม่** ซึ่งผู้เขียนระบุข้อจำกัดนี้ไว้เองในบทสรุป · ขอบเขตคือสื่อสี่แห่งในช่วงหนึ่งเดือน ไม่ใช่ภาพรวมของสื่อรัสเซียทั้งหมด · ข้อความทั้งหมดผู้เขียนแปลเอง ผู้อ่านจึงตรวจคำแปลย้อนกลับจากตัวบทความไม่ได้ · เป็นงานเชิงคุณภาพ ไม่ได้รายงานจำนวนชิ้นงานในแต่ละกรอบหรือค่าความสอดคล้องระหว่างผู้วิเคราะห์ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อสำนักข่าวและชื่อบุคคลที่ถูกอ้างถึงในบทความ** เพราะข้อวิจารณ์ในงานเป็นคำของผู้เขียนงานวิจัย ไม่ใช่คำของศูนย์ฯ และรายชื่อไม่ได้เพิ่มอะไรให้บทเรียนที่นำไปใช้ได้",
+    },
+    en: {
+      headline:
+        "Russian media told the U.S. Capitol story through four layered frames, and all four end up talking about Russia",
+      question:
+        "After a mob entered the United States Capitol on 6 January 2021, some Western outlets reported that Russia “took a different view” of it. This study asks whether the picture Russian media assembled for readers at home was the same one sent abroad, and how that picture was built.",
+      method:
+        "Qualitative frame analysis, following Goffman's concept of frames and Entman's method, scaffolded on the five common frames of Neuman and colleagues (human impact, powerlessness, economics, moral values, conflict). **Every** text matching a pre-set keyword list was included, drawn from three national daily newspapers and one state television channel — selected because they sit closest to government and reach the largest audiences. The window ran from 1 January to 1 February 2021; texts came from the Russian National Library and two media databases and were translated by the authors. The working frames emerged from a pilot reading first and were then applied to the rest of the sample.",
+      findings: [
+        "**Frame one — what to call the people involved.** The sampled outlets described them as political protesters arriving with demands rather than rioters, and often as ordinary people worn down by oppression. The recurring device was quoting “ordinary people” present at the scene instead of officials or experts.",
+        "**Frame two — small people against state power.** Once the participants were established as ordinary people, the prosecutions were narrated as disproportionate punishment, paired with an explicit comparison holding that the United States treats protesters more harshly than Russia treats its own.",
+        "**Frame three — moral values.** The most-used theme was press freedom and the silencing of opposing voices, converging on the conclusion that the United States had not lived up to the values it professes and so had lost standing to lecture other countries on democracy.",
+        "**Frame four — competition.** The events were read through the contest for global leadership between the two countries, so the other side's weakness was narrated not as its internal affair but as a loss of primacy.",
+        "**The observation the authors treat as most important is that all four frames rest on accepting democracy as a good**, not on arguing that some other system is better. Every criticism takes the form “you are not doing what you yourself call good” — a shape that is harder to answer than rejecting the value outright.",
+        "The authors conclude that the frame set is propagandistic in character, given how consistently every actor in the story is positioned to support a conclusion fixed in advance.",
+      ],
+      soWhat:
+        "The lesson travels well beyond this case: **coverage of an event in one country often is not aimed at that country**. Here all four frames terminate in a claim about the legitimacy of the side doing the telling. For anyone reading foreign news, the check this study demonstrates is three questions — who was chosen to speak, how were they introduced, and where in the story was the quote placed. Those three tell you the direction of the frame before you have finished reading. For communication teaching, it is a clear worked example of frame analysis applied to international political news.",
+      caveat:
+        "**Frame analysis reads texts only; it does not show what audiences made of them** — a limitation the authors state themselves in the conclusion. The scope is four outlets across one month, not Russian media as a whole. All quoted material was translated by the authors, so readers cannot check the translations against the originals from the article itself. The work is qualitative and reports neither counts per frame nor inter-coder agreement. **This summary deliberately omits the names of the outlets and of the people quoted in the article**, because the criticism in the study belongs to its authors rather than to the centre, and the names add nothing to the transferable lesson.",
+    },
+  },
+  {
+    slug: "colorism-advertising-free-speech",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ โต๊ะกลมล้อมด้วยเก้าอี้เจ็ดตัว เว้นด้านหน้าเป็นช่องว่างที่ไม่มีเก้าอี้ตั้งอยู่",
+    illustrationAltEn:
+      "Paper-craft illustration of a round table ringed by seven chairs, the near side left as an empty gap where no chair stands",
+    doi: "10.20472/ss2017.6.2.005",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "ในข้อความ 70 ชิ้นที่ถกเรื่องโฆษณาเหยียดสีผิว ไม่มีชิ้นใดเลยที่พูดถึงเสรีภาพในการแสดงออก",
+      question:
+        "ต้นปี 2559 โฆษณาครีมผิวขาวของแบรนด์ไทยรายหนึ่งถูกวิจารณ์อย่างกว้างขวางจนถูกถอน และมีเสียงเรียกร้องให้ออกกฎหมายเอาผิด “โฆษณาที่เลือกปฏิบัติ” · งานนี้ถามว่าการถกเถียงสาธารณะครั้งนั้นได้ชั่งข้อเรียกร้องดังกล่าวกับคุณค่าเรื่องเสรีภาพในการแสดงออกไว้ด้วยหรือไม่",
+      method:
+        "วิเคราะห์เนื้อหาข้อความที่กล่าวถึงกรณีนี้ 70 ชิ้น — ภาษาอังกฤษ 18 ชิ้น ภาษาไทย 52 ชิ้น — ครอบคลุมทั้งสิ่งพิมพ์ สื่อออนไลน์ และโพสต์บนโซเชียลมีเดีย · เกณฑ์การอ่านมีข้อเดียว คือก่อนที่ข้อความนั้นจะเรียกร้องให้ใช้มาตรการทางกฎหมาย ข้อความนั้นได้เอ่ยถึงคุณค่าของเสรีภาพในการแสดงออก หรือได้แยกระหว่าง “คำพูด” กับ “การกระทำ” ไว้หรือไม่ · เนื้อหาส่วนที่เหลือของบทความเป็นการโต้แย้งเชิงปรัชญาต่อข้อเสนอให้ออกกฎหมาย",
+      findings: [
+        "**ไม่มีข้อความชิ้นใดเลยใน 70 ชิ้นที่เอ่ยถึงเสรีภาพในการแสดงออก หรือแยกคำพูดออกจากการกระทำ — ศูนย์เปอร์เซ็นต์** ผู้เขียนสรุปว่าคุณค่าข้อนี้ไม่ได้อยู่ในบทสนทนาสาธารณะเรื่องโฆษณาที่เลือกปฏิบัติในไทยเลย",
+        "**ข้อความที่เรียกร้องให้ออกกฎหมายไม่ได้ระบุชัดว่ากฎหมายนั้นมุ่งแก้ปัญหาอะไร** ผู้เขียนต้องประมวลข้อกังวลที่กระจัดกระจายออกมาเองเป็นสองข้อ คือโฆษณาแบบนี้ทำให้คนผิวเข้มรู้สึกถูกดูหมิ่น และการบอกว่าผิวขาวดีกว่าเป็นการเลือกปฏิบัติในตัวมันเอง",
+        "**ความนิยมเรื่องสีผิวไม่ได้ชี้ไปทางเดียวกันทุกสังคม** งานทบทวนไว้ว่าในสังคมที่มีอดีตเป็นเกษตรกรรม ผิวขาวถูกใช้สื่อว่าไม่ได้ทำงานกลางแจ้ง ส่วนในสังคมอุตสาหกรรมที่คนทำงานในร่ม ผิวแทนกลับถูกใช้สื่อว่ามีเวลาว่าง — ทิศทางกลับด้านกันได้ เพราะสิ่งที่คนต้องการสื่อคือสถานะ ไม่ใช่สีผิวในตัวเอง",
+        "**ข้อสรุปเชิงข้อเสนอของผู้เขียนคือไม่ควรออกกฎหมายเอาผิด** โดยให้เหตุผลว่าความรู้สึกถูกกระทบไม่ใช่ความเสียหายที่วัดได้ และกลไกที่มีอยู่แล้ว — ผู้บริโภคเลือกไม่ซื้อ กับผลต่อชื่อเสียงของแบรนด์ — ตอบสนองต่อกรณีแบบนี้ได้เองอยู่แล้ว · **ส่วนนี้เป็นข้อโต้แย้งเชิงปรัชญาของผู้เขียน ไม่ใช่ผลที่ได้จากการวิเคราะห์เนื้อหา**",
+      ],
+      soWhat:
+        "ส่วนที่นำไปใช้ต่อได้โดยไม่ต้องเห็นด้วยกับข้อสรุปของผู้เขียน คือ**ตัวเลข 0 จาก 70** ซึ่งเป็นภาพของบทสนทนาสาธารณะที่ด้านหนึ่งของการถกเถียงมาตรฐานหายไปทั้งด้าน ไม่ใช่แค่เป็นเสียงข้างน้อย · สำหรับคนทำงานข่าวและคนออกแบบเวทีรับฟังความคิดเห็น วิธีตรวจแบบนี้ทำซ้ำได้ง่ายกับประเด็นอื่น เพียงถามว่าจุดยืนที่เป็นไปได้จุดใดบ้างที่ไม่ปรากฏในกองข้อความเลยแม้แต่ชิ้นเดียว · สำหรับการสอนจริยธรรมโฆษณา กรณีนี้ใช้เป็นโจทย์ที่มีทั้งข้อมูลเชิงประจักษ์และข้อโต้แย้งสองทางอยู่ในชิ้นเดียวกัน",
+      caveat:
+        "**เป็นกรณีศึกษาเดียว ตัวอย่าง 70 ชิ้น** ตัวเลข 0% จึงบอกเรื่องบทสนทนารอบกรณีนี้ ไม่ใช่บทสนทนาสาธารณะของไทยโดยรวม · บทความไม่ได้ระบุช่วงเวลาที่เก็บข้อความ วิธีเลือกตัวอย่าง หรือค่าความสอดคล้องระหว่างผู้วิเคราะห์ ผู้อ่านจึงตรวจซ้ำได้ยาก · **เนื้อหาส่วนใหญ่ของบทความเป็นการโต้แย้งเชิงบรรทัดฐานจากจุดยืนเสรีนิยมคลาสสิก ไม่ใช่ข้อค้นพบ** ศูนย์ฯ สรุปมาในฐานะข้อเสนอของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อแบรนด์และไม่ยกถ้อยคำบนตัวโฆษณา** เพราะทั้งสองอย่างชี้ตัวบริษัทได้ทันที ขณะที่บทเรียนที่นำไปใช้ได้ไม่ต้องพึ่งชื่อเลย",
+    },
+    en: {
+      headline:
+        "Across 70 texts debating a skin-whitening advertisement, not one raised freedom of speech",
+      question:
+        "In early 2016 a skin-whitening advertisement by a Thai brand drew wide criticism and was withdrawn, and voices called for a law against “discriminatory advertising”. This study asks whether that public debate ever weighed the proposal against the value of free expression.",
+      method:
+        "A content analysis of 70 texts mentioning the case — 18 in English and 52 in Thai — spanning print, online publications and social media posts. The reading criterion was single: before a text called for legal action, did it mention the value of free speech, or distinguish “words” from “deeds”? The remainder of the article is a philosophical argument against the proposed legislation.",
+      findings: [
+        "**Not one of the 70 texts mentioned freedom of speech or separated words from deeds — zero percent.** The authors conclude the value is simply absent from Thai public discourse about discriminatory advertising.",
+        "**The texts calling for a law did not state clearly what the law was meant to fix.** The authors had to reconstruct the scattered concerns into two: that such advertising insults and distresses people with darker skin, and that claiming lighter skin is preferable is itself discriminatory.",
+        "**Preference in skin tone does not point the same way in every society.** The review notes that in societies with an agrarian past, lighter skin signals not working outdoors, while in industrialised societies where work is indoors, a tan signals leisure time instead — the direction reverses, because what people are signalling is status rather than skin tone as such.",
+        "**The authors' normative conclusion is that no such law should be passed**, on the grounds that hurt feelings are not measurable harm and that existing mechanisms — consumers declining to buy, and the reputational cost to the brand — already respond to cases like this. **This part is the authors' philosophical argument, not a result of the content analysis.**",
+      ],
+      soWhat:
+        "The part that transfers without having to share the authors' conclusion is **the figure of 0 out of 70**: a picture of a public conversation in which one whole side of a standard debate is missing, not merely outnumbered. For journalists and for anyone designing public consultation, the check repeats easily on other issues — ask which tenable positions appear in none of the texts at all. For teaching advertising ethics, the case carries both an empirical result and both sides of an argument in a single paper.",
+      caveat:
+        "**One case, 70 texts.** The 0% therefore describes the conversation around this case, not Thai public discourse in general. The article does not state the collection window, the sampling method, or any inter-coder agreement, so the result is hard to reproduce. **Most of the article is normative argument from a classical-liberal position rather than a finding** — the centre summarises it as the authors' proposal, not as a position of its own. **This summary deliberately omits the brand's name and the wording on the advertisement**, since either identifies the company immediately while the usable lesson needs neither.",
+    },
+  },
 ];
 
 const byDoi = new Map(
