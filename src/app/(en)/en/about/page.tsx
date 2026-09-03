@@ -80,7 +80,7 @@ export default function EnglishAboutPage() {
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           <Reveal>
-            <SectionHeader locale="en" title="Our story" />
+            <SectionHeader icon="story" locale="en" title="Our story" />
             <div className="mt-4 max-w-prose space-y-4 text-[17px] leading-[1.7] text-ink-700">
               <p>
                 The Center of Excellence in Communication Innovation was founded under the
@@ -133,7 +133,7 @@ export default function EnglishAboutPage() {
 
       <section className="border-y border-ink-300 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <SectionHeader locale="en" title="Our objectives" />
+          <SectionHeader icon="mission" locale="en" title="Our objectives" />
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
             {objectives.map((item, i) => (
               <Reveal key={item.number} delay={stagger(i)}>
@@ -150,7 +150,8 @@ export default function EnglishAboutPage() {
       <section id="leadership" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
         <SectionHeader
           locale="en"
-          title="Leadership"
+          icon="people"
+            title="Leadership"
           description="Experienced academics and practitioners with international research and partnership networks"
         />
 
@@ -322,6 +323,7 @@ export default function EnglishAboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <SectionHeader
             locale="en"
+            icon="people"
             title="Center researchers"
             description="Researchers from many disciplines driving communication innovation, sustainability, and emerging technology"
           />

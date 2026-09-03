@@ -70,6 +70,7 @@ export default function EnglishCollaboratePage() {
             <div className="lg:col-span-3">
               <SectionHeader
                 locale="en"
+                icon="contactForm"
                 title="Send us a message"
                 description="Share a brief outline of your project or needs. Our team will follow up."
               />

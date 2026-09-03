@@ -24,6 +24,7 @@ export default function ProcessSteps({ locale = "th" }: ProcessStepsProps) {
     <>
       <SectionHeader
         locale={locale}
+        icon="nextSteps"
         eyebrow={t.eyebrow}
         title={t.title}
         description={t.description}

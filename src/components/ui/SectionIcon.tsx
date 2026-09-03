@@ -7,8 +7,8 @@
  * เขียนเป็นถ้อยคำต่างกัน **128 แบบ** แต่เกือบทั้งหมด**ทำหน้าที่ซ้ำกัน** — "พบอะไร"
  * บนหน้างานวิจัยเชิงประจักษ์ · "เสนออะไร" บนบทความเชิงแนวคิด · "จะทำอะไร" บนหน้าแผนวิจัย
  * ทั้งสามคือช่องเดียวกันในโครงเรื่องเดียวกัน ถ้าวาดตามถ้อยคำจะได้ไอคอน 128 ตัวที่ดูแลไม่ไหว
- * และผู้อ่านจำไม่ได้ · จัดตามบทบาทแล้วเหลือ **20 บทบาท** ไฟล์นี้ทำรอบแรก **14 ตัว**
- * ซึ่งครอบคลุม 93% ของจุดที่ต้องใช้
+ * และผู้อ่านจำไม่ได้ · จัดตามบทบาทแล้วเหลือ **20 บทบาท** ไฟล์นี้มี **20 ตัวครบแล้ว**
+ * (รอบแรก 14 ตัวครอบคลุม 93% · รอบสองอีก 6 ตัวเก็บหัวข้อที่ปรากฏหน้าละครั้ง)
  *
  * ภาษาภาพเดียวกับ `expertise/ServiceIcon.tsx` เป๊ะ (BRAND.md E1)
  *   - SVG 48×48 · รูปทรงแบนระบายสีทึบ ไม่ใช่ line icon
@@ -32,6 +32,7 @@ const GREEN = "#90C048";
 const PINK = "#E0218A";
 const YELLOW = "#FFC018";
 const ORANGE = "#F0A818";
+const RED = "#C0182F";
 
 export type SectionIconRole =
   // โครงเรื่องงานวิจัย — ฟ้า/เขียว
@@ -49,8 +50,15 @@ export type SectionIconRole =
   // การเชื่อมโยงไปหน้าอื่น — ส้ม/ฟ้า
   | "relatedProjects"
   | "relatedNews"
+  // คน องค์กร และตัวตนของศูนย์ — แดง/เหลือง (คู่เดียวกับช่วง "ส่งต่อความรู้")
+  | "people"
+  | "partners"
+  | "story"
+  | "mission"
   // ติดต่อ — ชมพู/ฟ้า
   | "invite"
+  | "contactForm"
+  | "nextSteps"
   | "highlight";
 
 export default function SectionIcon({
@@ -207,6 +215,48 @@ function glyph(role: SectionIconRole, facet: string) {
         </>
       );
 
+    // ── คน องค์กร และตัวตนของศูนย์ ─────────────────────────────────────────
+    case "people":
+      // คนสามคน คนกลางเด่น — ทีม
+      return (
+        <>
+          <circle cx="24" cy="15" r="8" fill={RED} />
+          <path d="M10 41c0-8 6-13 14-13s14 5 14 13Z" fill={RED} />
+          <circle cx="9" cy="19" r="6" fill={YELLOW} />
+          <circle cx="39" cy="19" r="6" fill={YELLOW} />
+          <path d="M24 7a8 8 0 0 1 8 8h-8Z" fill={facet} opacity="0.2" />
+        </>
+      );
+    case "partners":
+      // ริบบิ้นสองเส้นถักกัน — ภาษาเดียวกับภาพแบนเนอร์หน้าเกี่ยวกับเรา/ร่วมงาน
+      return (
+        <>
+          <path d="M4 18c8 0 10 12 18 12s10-12 18-12" fill="none" stroke={RED} strokeWidth="6" strokeLinecap="round" />
+          <path d="M6 32c8 0 10-12 18-12s10 12 18 12" fill="none" stroke={YELLOW} strokeWidth="6" strokeLinecap="round" />
+          <circle cx="24" cy="25" r="5" fill={RED} />
+        </>
+      );
+    case "story":
+      // แผ่นเอกสารพับมุม มีบรรทัด — เรื่องราว/ที่มา
+      return (
+        <>
+          <path d="M8 6h22l10 10v26H8Z" fill={YELLOW} />
+          <path d="M30 6v10h10Z" fill={facet} opacity="0.3" />
+          <rect x="14" y="22" width="20" height="3.5" rx="1.75" fill={RED} />
+          <rect x="14" y="29" width="20" height="3.5" rx="1.75" fill={RED} />
+          <rect x="14" y="36" width="12" height="3.5" rx="1.75" fill={RED} opacity="0.55" />
+        </>
+      );
+    case "mission":
+      // ธงปลายแฉกบนเสา — พันธกิจที่ปักไว้
+      return (
+        <>
+          <path d="M11 6h4v36h-4Z" fill={RED} />
+          <path d="M15 8h24l-6 8 6 8H15Z" fill={YELLOW} />
+          <path d="M15 8h24l-6 8H15Z" fill={facet} opacity="0.14" />
+        </>
+      );
+
     // ── ติดต่อ ────────────────────────────────────────────────────────────
     case "invite":
       // ซองจดหมายเปิดฝา — คำเชิญร่วมงาน (65 จุดทั่วเว็บ)
@@ -215,6 +265,29 @@ function glyph(role: SectionIconRole, facet: string) {
           <path d="M4 14h40v24a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3Z" fill={PINK} />
           <path d="M4 14 24 29 44 14v5L24 34 4 19Z" fill={facet} opacity="0.26" />
           <path d="M24 4 44 14 24 29 4 14Z" fill={BLUE} />
+        </>
+      );
+    case "contactForm":
+      // แบบฟอร์ม + ดินสอ — ช่องกรอกข้อความถึงศูนย์ฯ
+      return (
+        <>
+          <rect x="6" y="8" width="30" height="34" rx="3" fill={BLUE} />
+          <rect x="12" y="16" width="18" height="3.5" rx="1.75" fill={PINK} />
+          <rect x="12" y="24" width="18" height="3.5" rx="1.75" fill={PINK} />
+          <rect x="12" y="32" width="10" height="3.5" rx="1.75" fill={PINK} opacity="0.6" />
+          <path d="m30 32 11-11 6 6-11 11-7 1Z" fill={PINK} />
+          <path d="m41 21 6 6 1.5-1.5-6-6Z" fill={facet} opacity="0.3" />
+        </>
+      );
+    case "nextSteps":
+      // สามจุดเรียงต่อกัน จุดกลางเด่น — ลำดับขั้นตอนที่จะเกิดขึ้น
+      return (
+        <>
+          <circle cx="10" cy="24" r="6" fill={PINK} />
+          <circle cx="24" cy="24" r="6" fill={BLUE} />
+          <circle cx="38" cy="24" r="6" fill={PINK} opacity="0.45" />
+          <path d="M16 24h2M30 24h2" stroke={facet} strokeWidth="3" opacity="0.3" strokeLinecap="round" />
+          <path d="M24 18a6 6 0 0 1 6 6h-6Z" fill={facet} opacity="0.18" />
         </>
       );
     case "highlight":

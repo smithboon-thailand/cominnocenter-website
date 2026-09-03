@@ -245,6 +245,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
+            icon="people"
             eyebrow="ทีมของเรา"
             title="ผู้นำของศูนย์"
             description="ผู้บริหารที่มีทั้งผลงานวิชาการและประสบการณ์ลงมือทำจริง คลิกเพื่อดูประวัติฉบับเต็ม"

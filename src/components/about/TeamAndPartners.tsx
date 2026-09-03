@@ -99,6 +99,7 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeader
           locale={locale}
+          icon="people"
           title={isEn ? "Postdocs and PhD candidates" : "Postdoc และนักศึกษาปริญญาเอก"}
           description={
             isEn
@@ -122,7 +123,8 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
         <div className="mx-auto max-w-7xl px-6 py-24">
           <SectionHeader
             locale={locale}
-            title={isEn ? "Affiliated researchers" : "นักวิจัยร่วม"}
+            icon="people"
+          title={isEn ? "Affiliated researchers" : "นักวิจัยร่วม"}
             description={
               isEn
                 ? "Researchers who have collaborated with the center"
@@ -140,6 +142,7 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <SectionHeader
           locale={locale}
+          icon="people"
           title={isEn ? "Research assistants and support team" : "ผู้ช่วยวิจัยและทีมสนับสนุน"}
           description={
             isEn
@@ -158,7 +161,8 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
         <div className="mx-auto max-w-7xl px-6 py-24">
           <SectionHeader
             locale={locale}
-            title={isEn ? "Partners and client organizations" : "พันธมิตรและองค์กรที่ร่วมงาน"}
+            icon="partners"
+          title={isEn ? "Partners and client organizations" : "พันธมิตรและองค์กรที่ร่วมงาน"}
             description={
               isEn
                 ? "Organizations that have collaborated with and supported the center's projects"
