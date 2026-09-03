@@ -123,8 +123,19 @@ export type PaperSummary = PaperRef & {
    *  · ผู้ใช้ทักเมื่อ 2 ก.ย. 2569 ว่าแผนวิจัยก็ควรมีหน้าของตัวเอง เพียงแต่ต้องเรียก
    *  ให้ตรงกับสิ่งที่มันเป็น ซึ่งถูกกว่าการตัดทิ้ง — การประกาศแผนล่วงหน้าเป็นสิ่งที่
    *  ศูนย์ฯ ควรแสดง ไม่ใช่สิ่งที่ต้องซ่อนจนกว่าจะมีผล)
+   *
+   * `"argument"` คือ**บทความเชิงแนวคิด** ที่ไม่ได้เก็บข้อมูลเชิงประจักษ์ตั้งแต่ต้น
+   * เป็นการให้เหตุผลทางทฤษฎีล้วนๆ (ปรัชญาการสื่อสาร ปรัชญากฎหมาย ทฤษฎีศิลปะ)
+   * หัวข้อเปลี่ยนเป็น "เสนออะไร / ให้เหตุผลอย่างไร" ด้วยตรรกะเดียวกับ `protocol`
+   * คือ **"พบอะไร" เติมอย่างซื่อสัตย์ไม่ได้กับงานที่ไม่มีสิ่งที่พบ**
+   *
+   * ป้ายของ `argument` **บอกด้วยว่าข้อเสนอเป็นของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ**
+   * เพราะงานกลุ่มนี้เสนอจุดยืนเชิงบรรทัดฐานที่ถกเถียงได้ — ถ้าไม่บอก ผู้อ่านย่อม
+   * อ่านหน้าบนเว็บของศูนย์ฯ ว่าเป็นคำแถลงของศูนย์ฯ ซึ่งเป็นปัญหาเดียวกับกติกาข้อ 5
+   * เพียงแต่คนละด้าน (ข้อ 5 กันการที่ศูนย์ฯ ดูเหมือนตัดสินใคร · ข้อนี้กันการที่
+   * ศูนย์ฯ ดูเหมือนประกาศจุดยืนทางปรัชญาแทนผู้เขียน)
    */
-  kind?: "protocol";
+  kind?: "protocol" | "argument";
   /**
    * คำบรรยายภาพประกอบหัวบทสรุป (บังคับ) — ไฟล์อยู่ที่
    * `public/images/research/summaries/<slug>.webp` พร้อมคู่ย่อ `-800` และ `-1200`
@@ -1575,6 +1586,192 @@ export const paperSummaries: PaperSummary[] = [
         "The part that transfers without having to share the authors' conclusion is **the figure of 0 out of 70**: a picture of a public conversation in which one whole side of a standard debate is missing, not merely outnumbered. For journalists and for anyone designing public consultation, the check repeats easily on other issues — ask which tenable positions appear in none of the texts at all. For teaching advertising ethics, the case carries both an empirical result and both sides of an argument in a single paper.",
       caveat:
         "**One case, 70 texts.** The 0% therefore describes the conversation around this case, not Thai public discourse in general. The article does not state the collection window, the sampling method, or any inter-coder agreement, so the result is hard to reproduce. **Most of the article is normative argument from a classical-liberal position rather than a finding** — the centre summarises it as the authors' proposal, not as a position of its own. **This summary deliberately omits the brand's name and the wording on the advertisement**, since either identifies the company immediately while the usable lesson needs neither.",
+    },
+  },
+  {
+    slug: "social-media-moderation-property-rights",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ วงกบประตูสีเขียวตั้งลอยเดี่ยวๆ บนพื้นว่าง บานประตูสีครีมเปิดค้างอยู่ ไม่มีรั้วต่อออกไปทั้งสองข้าง",
+    illustrationAltEn:
+      "Paper-craft illustration of a green gate frame standing alone on bare ground, its cream leaf swung open, with no fence running off to either side",
+    doi: "10.51698/tripodos.2020.48p53-68",
+    articleLanguage: "en",
+    th: {
+      headline: "เสรีภาพในการพูดคือสิทธิที่จะไม่ถูกขัดขวาง ไม่ใช่สิทธิที่จะได้เวทีจากคนอื่น",
+      question:
+        "เป้าหมายที่ 16.10 ของ SDG พูดถึงการเข้าถึงข้อมูลข่าวสารและการคุ้มครองเสรีภาพขั้นพื้นฐาน ขณะเดียวกันแพลตฟอร์มโซเชียลมีเดียถูกวิจารณ์ว่า “เซ็นเซอร์” เนื้อหาของผู้ใช้ · งานนี้ถามว่าการที่เจ้าของแพลตฟอร์มลบเนื้อหาหรือระงับบัญชี เป็นการละเมิดเสรีภาพในการแสดงออกจริงหรือไม่",
+      method:
+        "การให้เหตุผลเชิงปรัชญาการเมืองและปรัชญากฎหมาย ไล่เป็นขั้น — เริ่มจากแยก **เสรีภาพ** ออกจาก **ความสามารถ** ตามที่ Rothbard อธิบายไว้และเทียบกับแนวคิดเรื่องเสรีภาพของ Locke · แล้วแยก **สิทธิเชิงลบ** (สิทธิที่ขอเพียงให้คนอื่นไม่มาแทรกแซง) ออกจาก **สิทธิเชิงบวก** (สิทธิที่คนอื่นต้องลงมือทำหรือจ่ายให้จึงจะเป็นจริง) ตามที่ Berlin วางไว้ · แล้วจึงเชื่อมเสรีภาพในการสื่อสารเข้ากับสิทธิในทรัพย์สิน · ไม่มีการเก็บข้อมูลและไม่มีกรณีศึกษาเชิงประจักษ์",
+      findings: [
+        "**เสรีภาพไม่เท่ากับความสามารถ** — ตัวอย่างที่งานยกคือคนเราไม่ได้ “ไม่มีเสรีภาพ” ที่จะกระโดดข้ามมหาสมุทร แต่ไม่มี*ความสามารถ*ต่างหาก · การขาดความสามารถไม่ใช่การถูกลิดรอนสิทธิ และการสับสนสองอย่างนี้เป็นต้นทางของข้อถกเถียงที่พันกัน",
+        "**สิทธิเชิงลบกับสิทธิเชิงบวกเรียกร้องจากคนอื่นไม่เท่ากัน** — สิทธิเชิงลบขอเพียงให้คนอื่นไม่มาแทรกแซง จึงไม่ต้องบังคับใครเลย ส่วนสิทธิเชิงบวกแปลว่าต้องมีใครสักคนถูกบังคับให้ลงมือทำหรือจ่าย เพื่อให้สิทธินั้นเป็นจริงขึ้นมา",
+        "**เสรีภาพในการพูดไม่ใช่สิทธิที่ลอยอยู่เดี่ยวๆ แต่เป็นส่วนขยายของสิทธิในทรัพย์สิน** — คำถามที่มักถูกข้ามคือ “พูดที่ไหน” เพราะการพูดต้องเกิดบนพื้นที่ใดพื้นที่หนึ่งเสมอ ไม่ว่าจะเป็นของตนเอง หรือของคนที่ยินยอมให้ใช้",
+        "**เมื่อวางบนกรอบนี้ การที่แพลตฟอร์มเอกชนไม่ยอมเผยแพร่เนื้อหาบางอย่าง จึงไม่ใช่การเซ็นเซอร์ แต่คือการใช้สิทธิเหนือทรัพย์สินของตน** — งานแยกให้ชัดระหว่างเอกชนที่ปฏิเสธจะแบกข้อความของคนอื่นไว้บนพื้นที่ตัวเอง กับรัฐที่ห้ามคนพูดบนพื้นที่ที่เขาเป็นเจ้าของโดยชอบ ซึ่งเป็นคนละเรื่องกัน",
+        "**ข้อสรุปกลับด้านกับข้อวิจารณ์ที่ได้ยินบ่อย** — ผู้เขียนเสนอว่าการออกกฎบังคับให้แพลตฟอร์มยกเลิกนโยบายเนื้อหาของตน จะเป็นภัยต่อเสรีภาพในการแสดงออก*มากกว่า* การที่แพลตฟอร์มลบโพสต์ เพราะเป็นการบังคับเจ้าของทรัพย์สินให้ทำสิ่งที่เขาไม่ต้องการ",
+      ],
+      soWhat:
+        "ข้อถกเถียงเรื่องแพลตฟอร์มกับเสรีภาพในการแสดงออกกลับมาทุกครั้งที่มีการลบโพสต์ที่เป็นข่าว งานนี้ให้**เครื่องมือแยกคำถาม**ที่ใช้ได้โดยไม่ต้องเห็นด้วยกับข้อสรุป — ก่อนถามว่า “นี่คือการเซ็นเซอร์หรือไม่” ให้ถามก่อนสองข้อ คือเวทีที่กำลังพูดถึงเป็นของใคร และผู้เรียกร้องกำลังขอให้ใครงดเว้นการกระทำ หรือขอให้ใครถูกบังคับให้ทำอะไรบางอย่าง · สองคำถามนี้แยกกรณีที่ดูเหมือนกันออกจากกันได้ทันที และใช้ได้กับสื่อทุกชนิด ไม่ใช่เฉพาะโซเชียลมีเดีย",
+      caveat:
+        "**เป็นการให้เหตุผลจากจุดยืนเสรีนิยมคลาสสิกสายสิทธิในทรัพย์สิน** ซึ่งเป็นหนึ่งในหลายสำนักคิด ไม่ใช่ข้อสรุปที่วงวิชาการเห็นตรงกัน · ข้อสมมติตั้งต้นที่ว่าสิทธิทั้งหมดทอนลงเป็นสิทธิในทรัพย์สินได้ เป็นจุดที่นักปรัชญาจำนวนมากไม่ยอมรับ — ถ้าไม่รับข้อสมมตินี้ ข้อสรุปก็ไม่ตามมา · งานไม่ได้เก็บข้อมูลและไม่ได้ทดสอบข้อเสนอกับกรณีจริง · เขียนเมื่อปี 2563 ก่อนกฎหมายกำกับแพลตฟอร์มรุ่นใหม่หลายฉบับจะมีผล จึงไม่ได้ตอบข้อโต้แย้งเรื่องอำนาจเหนือตลาดของแพลตฟอร์มขนาดใหญ่ ซึ่งกลายเป็นแกนหลักของการถกเถียงในระยะหลัง",
+    },
+    en: {
+      headline: "Free speech is a right against being stopped, not a right to be carried on someone else's platform",
+      question:
+        "SDG target 16.10 calls for public access to information and the protection of fundamental freedoms, while social media platforms are criticised for “censoring” user content. Does a platform owner deleting a post or suspending an account actually violate freedom of expression?",
+      method:
+        "A step-by-step argument in political and legal philosophy. It separates **freedom** from **power** as Rothbard sets it out, alongside Locke's conception of liberty; then separates **negative rights** (which ask only that others not interfere) from **positive rights** (which require someone else to act or pay before the right is real), following Berlin; and then ties communication freedom to property rights. No data is collected and no empirical case is examined.",
+      findings: [
+        "**Freedom is not the same as power.** A person is not “unfree” to leap an ocean — they lack the *power* to. Lacking power is not being deprived of a right, and confusing the two is where tangled arguments begin.",
+        "**Negative and positive rights ask different things of other people.** A negative right asks only that others refrain, so it coerces nobody. A positive right means someone must be compelled to act or to pay before the right exists in practice.",
+        "**Free speech is not a free-standing right but an extension of property rights.** The question usually skipped is *where* — speech always happens somewhere, either on your own property or on property whose owner has agreed to host you.",
+        "**On that framing, a private platform declining to carry content is not censorship but the exercise of property rights.** The article draws a sharp line between a private party refusing to carry someone's ideas on its own property and a government forbidding speech on property the speaker legitimately owns.",
+        "**The conclusion inverts the common criticism.** The author argues that compelling platforms to abandon their content policies would threaten freedom of expression *more* than deleting posts does, because it forces property owners to do what they do not wish to do.",
+      ],
+      soWhat:
+        "The platform-and-speech argument returns every time a newsworthy post is removed. Whether or not you accept the conclusion, the article supplies a **way of splitting the question**: before asking “is this censorship?”, ask whose platform it is, and whether the demand is that someone refrain from acting or that someone be compelled to act. Those two questions separate cases that look identical, and they apply to any medium, not only social media.",
+      caveat:
+        "**This is reasoning from a classical-liberal, property-rights position** — one school among several, not a settled academic conclusion. The founding assumption that all rights reduce to property rights is exactly what many philosophers reject; without it, the conclusion does not follow. Nothing is measured and the argument is not tested against real cases. It was written in 2020, before the newer platform-regulation regimes took effect, so it does not engage the market-power argument about very large platforms that dominates the later debate.",
+    },
+  },
+  {
+    slug: "deceptive-pr-responsibility",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ โซ่สามห่วงเรียงกัน ห่วงกลางเป็นคนละสีและมีรอยแยกเปิดอยู่ แต่โซ่ยังคล้องต่อกัน",
+    illustrationAltEn:
+      "Paper-craft illustration of a three-link chain, its middle link in a different colour and split open, yet still holding the chain together",
+    doi: "10.51698/tripodos.2018.42.21-38",
+    articleLanguage: "en",
+    th: {
+      headline: "เมื่อข่าวแจกที่เป็นเท็จผ่านมือกองบรรณาธิการไปถึงผู้อ่าน ใครต้องรับผิด",
+      question:
+        "นักข่าวใช้ข่าวแจก จดหมายข่าว และการแถลงข่าวเป็นวัตถุดิบของงานข่าวตามปกติ · ถ้าข้อมูลนั้นไม่จริง หรือจงใจให้เป็นเท็จ แล้วผู้อ่านเสียหายจากการเชื่อ ใครควรรับผิด — คนทำประชาสัมพันธ์ที่ปล่อยข้อมูลเท็จ นักข่าวที่พึ่งแหล่งข่าวนั้นมากเกินไป หรือผู้อ่านเอง",
+      method:
+        "ปรัชญากฎหมาย ด้วยวิธี **การทดลองทางความคิด** — ตั้งกรณีสมมติขึ้นชุดหนึ่งแล้วไล่เปรียบเทียบทีละขั้น เริ่มจากบริษัทที่กล่าวอ้างสรรพคุณเท็จกับผู้ซื้อโดยตรง → เปลี่ยนเป็นซื้อโฆษณาในหนังสือพิมพ์ → เปลี่ยนเป็นส่งข่าวแจกให้กองบรรณาธิการนำไปเขียนเป็นข่าว แล้วดูว่าความรับผิดขยับไปอย่างไรในแต่ละขั้น · วิเคราะห์ด้วยกรอบเรื่องเจตนา วิธีการและเป้าหมาย และเรื่องเจตจำนงของผู้ที่เข้ามาคั่นกลาง · ไม่มีการเก็บข้อมูลจริง",
+      findings: [
+        "**สองขั้นแรกตอบไม่ยาก** — ทั้งการหลอกลวงผู้ซื้อโดยตรงและการซื้อพื้นที่โฆษณา ผู้รับผิดคือบริษัท เพราะบริษัทควบคุมข้อความเองและเป็นฝ่ายได้เงินไป การที่ข้อความเดินผ่านสื่อไม่ได้เปลี่ยนอะไร",
+        "**ขั้นที่สามต่างออกไป เพราะมีคนที่มีเจตจำนงของตัวเองเข้ามาคั่น** — กองบรรณาธิการไม่ได้ถูกจ้าง และเลือกเองว่าจะเขียนหรือไม่เขียน การมีผู้เลือกคั่นอยู่จึง “ตัด” สายของเหตุและผลที่วิ่งจากบริษัทไปถึงผู้เสียหาย",
+        "**แต่บริษัทก็ยังใช้สื่อเป็นเครื่องมือไปสู่เป้าหมายที่ต้องห้ามอยู่ดี** — งานเทียบกับกรณีบุรุษไปรษณีย์ที่ส่งซองซึ่งข้างในเป็นข้อความหลอกลวง โดยไม่รู้ว่าข้างในเขียนว่าอะไร · บุรุษไปรษณีย์เป็นเพียงเครื่องมือ ไม่ได้มีเจตนา จึงไม่ต้องรับผิด",
+        "**และนี่คือหัวใจของข้อเสนอ — กองบรรณาธิการไม่ใช่บุรุษไปรษณีย์** เพราะ**การรู้เนื้อหาและการคัดเลือกว่าจะเผยแพร่อะไรคือเนื้องานของเขาโดยตรง** เขาจึงถูกกันออกจากความรับผิดทั้งหมดไม่ได้ แม้จะไม่ใช่ผู้ได้เงินไปก็ตาม",
+        "**ข้อสรุปคือไม่มีคำตอบสำเร็จรูป** — ผู้เขียนระบุเองว่าตอบ “จากบนเก้าอี้” ไม่ได้ ต้องดูเป็นรายกรณี และ**ข้อความหลอกลวงโดยตัวมันเองยังไม่ใช่ความผิด** ต้องมีผู้เสียหายที่ระบุตัวได้ซึ่งเรียกร้องความเป็นธรรม แล้วให้ผู้ตัดสินชั่งจากทั้งหลักการและจากแนวปฏิบัติที่วงการนั้นถือกันอยู่ในเวลาและสถานที่นั้น",
+      ],
+      soWhat:
+        "สำหรับกองบรรณาธิการและคนทำงานประชาสัมพันธ์ ข้อที่ใช้ได้ทันทีคือ**การเลือกว่าจะเผยแพร่อะไรเป็นการกระทำที่มีน้ำหนักในตัวเอง ไม่ใช่การส่งต่อเฉยๆ** — ข้อแยกระหว่างบุรุษไปรษณีย์กับบรรณาธิการเป็นเหตุผลที่กระชับที่สุดข้อหนึ่งว่าทำไมการตรวจสอบข้อเท็จจริงจึงไม่ใช่งานเสริมที่ทำก็ได้ไม่ทำก็ได้ · สำหรับการสอนจริยธรรมสื่อ โครงของงานใช้เป็นแบบฝึกหัดได้ตรงๆ เพราะมันไล่กรณีทีละขั้นให้เห็นว่าความรับผิดขยับตรงไหนและเพราะอะไร",
+      caveat:
+        "**เป็นการทดลองทางความคิด ไม่ใช่การศึกษาคดีจริง** ไม่มีข้อมูลและไม่มีคำพิพากษาจริงมาประกอบ · กรอบที่ใช้เป็นปรัชญากฎหมายสายเสรีนิยม ซึ่งวางความรับผิดบนความยินยอมและสิทธิในทรัพย์สินเป็นหลัก สำนักคิดอื่นให้คำตอบต่างออกไปได้ · **ไม่ใช่ความเห็นทางกฎหมาย และไม่ได้อิงกฎหมายไทย** ผู้ที่ต้องการคำตอบสำหรับกรณีจริงต้องดูตัวบทและแนวคำพิพากษาของเขตอำนาจนั้นเอง · ชื่อบริษัทและหนังสือพิมพ์ในกรณีสมมติเป็นชื่อที่ผู้เขียนตั้งขึ้น ไม่ได้อ้างถึงองค์กรใดที่มีอยู่จริง",
+    },
+    en: {
+      headline: "When a false press release reaches readers through a newsroom, who is answerable",
+      question:
+        "Journalists routinely build stories on press releases, newsletters and briefings. If that material is untrue, or deliberately false, and readers are harmed by believing it, who should answer for the harm — the PR practitioner who issued it, the journalist who leaned too heavily on the source, or the public?",
+      method:
+        "Legal philosophy conducted as a **thought experiment**: a hypothetical case is set up and then varied step by step. A company makes a false claim directly to a buyer; then it buys a newspaper advertisement instead; then it merely sends a press release that an editorial team turns into a news story. At each step the argument asks where responsibility moves, analysed through a means-and-ends framework and the question of intervening free will. No real data is gathered.",
+      findings: [
+        "**The first two steps are straightforward.** Whether the company deceives the buyer directly or through paid advertising, the company answers: it controlled the message and it took the money. Passing through a medium changes nothing.",
+        "**The third step differs, because an actor with free will stands in between.** The newsroom is not paid and chooses for itself whether to publish, and that choice “breaks” the chain of causation running from company to victim.",
+        "**Yet the company has still used the medium as a means toward a forbidden end.** The article compares this to a postman delivering an envelope whose fraudulent contents he does not know: the postman is only a means, has no intent, and is not answerable.",
+        "**And here is the core of the argument — a newsroom is not that postman.** **Knowing the content and choosing what to publish is precisely its job**, so it cannot be excluded from responsibility altogether, even though it is not the party that took the money.",
+        "**The conclusion is that there is no off-the-shelf answer.** The authors state plainly that the question cannot be settled “from the armchair”. It goes case by case, and **a deceptive message is not by itself a crime**: there must be an identifiable victim seeking restitution, and an adjudicator weighing both abstract principle and the expectations that practice has established in that time and place.",
+      ],
+      soWhat:
+        "For newsrooms and PR practitioners the usable point is that **choosing what to publish is an act with weight of its own, not mere relaying**. The postman-versus-editor distinction is one of the most compact reasons on record for why fact-checking is not an optional extra. For teaching media ethics, the structure works directly as an exercise, because it walks a single case through variations and shows exactly where responsibility shifts and why.",
+      caveat:
+        "**This is a thought experiment, not a study of decided cases** — no data and no actual judgments. The framework is liberal legal philosophy, resting responsibility on consent and property rights; other schools answer differently. **It is not legal advice and it is not grounded in Thai law**; anyone needing an answer for a real case must consult the statutes and precedents of that jurisdiction. The company and newspaper in the hypothetical are names the authors invented and refer to no real organisation.",
+    },
+  },
+  {
+    slug: "video-art-screen-savers",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ จอสี่เหลี่ยมแนวนอนเปล่าๆ ตั้งอยู่บนขาตั้งวาดภาพแบบจิตรกร",
+    illustrationAltEn:
+      "Paper-craft illustration of a blank widescreen panel standing on a painter's easel",
+    doi: "10.22492/ijcs.3.1.05",
+    articleLanguage: "en",
+    th: {
+      headline: "วิดีโออาร์ตใช้เวลาครึ่งศตวรรษหาที่ยืนในวัฒนธรรมมวลชน แล้วเดินเข้าห้องนั่งเล่นทางประตูที่ไม่มีใครเฝ้า",
+      question:
+        "ปี 2558 มีการเปิดตัวภาพพักหน้าจอชุดใหม่บนกล่องทีวีของ Apple เป็นคลิปถ่ายทางอากาศแบบสโลว์โมชันจากเมืองและภูมิประเทศทั่วโลก · งานนี้ถามว่าคลิปเหล่านี้นับเป็นวิดีโออาร์ตได้หรือไม่ และถ้าได้ มันหมายความว่าอะไรกับสถานะของวิดีโออาร์ตในวัฒนธรรมมวลชน",
+      method:
+        "การให้เหตุผลเชิงทฤษฎีศิลปะและวัฒนธรรมศึกษา — ทบทวนนิยามของงานศิลปะก่อน แล้วแยกจุดมุ่งหมายของศิลปะแบบที่ไม่ได้มุ่งประโยชน์ออกจากแบบที่มุ่งประโยชน์ตามที่ Lévi-Strauss จำแนกไว้ · ตรวจว่าภาพพักหน้าจอเข้าเกณฑ์ข้อใดบ้าง แล้ววางผลที่ได้ไว้ในบริบทของประวัติศาสตร์วิดีโออาร์ตและพฤติกรรมการใช้จอในบ้าน · ไม่มีการสำรวจผู้ชมและไม่มีข้อมูลเชิงปริมาณ",
+      findings: [
+        "**ของที่มีประโยชน์ใช้สอยเป็นงานศิลปะได้** — ข้อที่ว่าศิลปะต้องไม่มีประโยชน์ใช้สอยถูกตรวจสอบแล้วพบว่าแคบเกินไป เพราะศิลปะทำหน้าที่ได้หลายอย่างในประวัติศาสตร์ รวมถึงการสื่ออารมณ์ การให้ความบันเทิง และการเป็นรูปแบบหนึ่งของการสื่อสาร",
+        "**ภาพพักหน้าจอเกิดมาเพื่อประโยชน์ใช้สอยล้วนๆ** คือถนอมจอไม่ให้ภาพไหม้ติด แต่ทำหน้าที่แบบงานศิลปะเพิ่มขึ้นมาด้วย — สื่ออารมณ์ สร้างบรรยากาศ และมุ่งไปที่ผู้ชมคนหนึ่ง",
+        "**สิ่งที่เปลี่ยนไปจริงคือที่ตั้ง ไม่ใช่ตัวงาน** — ผู้เขียนเสนอว่าเทคโนโลยีนี้ให้ความหมายใหม่แก่วิดีโออาร์ตด้วยการเปลี่ยนมันเป็น**วัตถุตกแต่งภายใน** จากงานที่ต้องเดินไปดูในหอศิลป์ กลายเป็นสิ่งที่ทำงานอยู่กลางห้องนั่งเล่นจำนวนมหาศาล โดยแทบไม่มีใครสังเกต",
+        "**เงื่อนไขที่จะทำให้มันโตต่อคือการเปิดให้ผู้ใช้เลือกเอง** — ณ เวลาที่เขียน ผู้ใช้ยังใส่คลิปของตัวเองไม่ได้ เลือกได้เฉพาะชุดที่ผู้ผลิตให้มา · ผู้เขียนเสนอว่าถ้าเปิดให้ใส่ของจากภายนอกได้เมื่อใด ตลาดของภาพพักหน้าจอที่เป็นงานศิลปะก็น่าจะเกิดขึ้น เพราะจอใหญ่กลางห้องคือพื้นที่แสดงรสนิยมแบบเดียวกับชั้นเก็บแผ่นเพลง",
+        "**เป็นข้อเสนอในรูปคำถามปลายเปิด ไม่ใช่คำประกาศ** — ตัวบทความจบด้วยการถามว่าเรากำลังอยู่ตรงจุดกำเนิดของศิลปะมวลชนแบบใหม่หรือไม่ ไม่ได้ยืนยันว่าใช่",
+      ],
+      soWhat:
+        "สำหรับคนที่ทำงานกับสื่อและพื้นที่แสดงผล ประเด็นที่ยกออกมาใช้ต่อได้คือ**การเปลี่ยนที่ตั้งของงานเปลี่ยนสถานะของงาน** — สิ่งเดียวกันย้ายจากหอศิลป์มาอยู่บนจอในบ้านแล้วความหมายเปลี่ยน ทั้งที่ตัวคลิปไม่เปลี่ยนเลยสักนิด · เป็นกรอบที่คิดต่อได้กับจอในที่สาธารณะ จอในล็อบบี้อาคาร และงานที่เผยแพร่ผ่านแพลตฟอร์มที่ไม่ได้ตั้งใจให้เป็นพื้นที่ศิลปะตั้งแต่แรก",
+      caveat:
+        "**เป็นบทความเชิงแนวคิด ไม่มีข้อมูลผู้ชมและไม่มีตัวเลขใดรองรับ** ข้อเสนอเรื่องแนวโน้มจึงเป็นการคาดการณ์ของผู้เขียน ไม่ใช่ผลการวัด · เขียนเมื่อปี 2561 โดยอ้างอิงอุปกรณ์และข้อจำกัดของแพลตฟอร์ม ณ เวลานั้น ซึ่งเปลี่ยนไปแล้ว · นิยาม “ศิลปะ” ที่ใช้เป็นนิยามกว้าง ถ้าใช้นิยามที่เข้มกว่านี้ ข้อสรุปอาจไม่ตามมา · ข้อสังเกตเรื่องความแตกต่างระหว่างรุ่นวัยเป็นการอ้างงานของผู้อื่น ไม่ใช่ผลจากงานชิ้นนี้เอง",
+    },
+    en: {
+      headline: "Video art spent half a century looking for a way into popular culture, then walked into the living room through an unguarded door",
+      question:
+        "In 2015 a new screen saver arrived on Apple TV: a set of slow-motion aerial clips of skylines and landscapes from around the world. Do these count as video art — and if they do, what does that mean for where video art now sits in popular culture?",
+      method:
+        "An argument in art theory and cultural studies. It revisits what counts as visual art, separates art's non-motivated purposes from its motivated ones as Lévi-Strauss distinguishes them, tests which of those criteria a screen saver meets, and then places the result in the history of video art and in how people actually use screens at home. There is no audience survey and no quantitative data.",
+      findings: [
+        "**Purely utilitarian objects can be artworks.** The claim that art must have no use is examined and found too narrow: art has served many purposes historically, including conveying mood, entertaining, and communicating.",
+        "**Screen savers began as pure utility** — protecting a display from burn-in — but they now also do what artworks do: convey a mood, create an atmosphere, and address a viewer.",
+        "**What actually changed is the location, not the work.** The author's proposal is that the technology gives video art a new meaning by turning it into an **interior object**: from something you travel to a gallery to see, into something running in the middle of a vast number of living rooms, almost unremarked.",
+        "**What would let it grow is letting viewers choose.** At the time of writing, users could not supply their own clips and were limited to the manufacturer's set. If third-party screen savers were allowed, the author expects a market in screen-saver art to follow, since the large screen in the room displays taste the way a record collection does.",
+        "**It is offered as an open question, not a declaration.** The article closes by asking whether we are at the birth of a new popular art form, rather than asserting that we are.",
+      ],
+      soWhat:
+        "For anyone working with media and display space, the transferable point is that **moving a work changes what the work is**: the same clips carry a different meaning in a living room than in a gallery, without a frame of the footage changing. That frame extends to public screens, lobby displays, and work distributed through platforms never designed as art spaces.",
+      caveat:
+        "**This is a conceptual article with no audience data and no figures behind it**, so the claims about where things are heading are the author's forecast rather than a measurement. It was written in 2018 around the devices and platform limits of that moment, which have since changed. The working definition of “art” is a broad one; a stricter definition would not yield the same conclusion. The remarks about generational differences cite other people's work, not findings of this one.",
+    },
+  },
+  {
+    slug: "communication-moral-norms",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แท่งสี่เหลี่ยมสองก้อนหันหน้าเข้าหากันโดยมีช่องว่างคั่น และมีลูกบาศก์สีส้มหนึ่งก้อนลอยอยู่กลางช่องว่างนั้น",
+    illustrationAltEn:
+      "Paper-craft illustration of two blocks facing each other across a gap, with a single orange cube suspended in the middle of that gap",
+    doi: "10.1163/26659077-01902005",
+    articleLanguage: "en",
+    th: {
+      headline: "ทำไมคนถึงรับกฎศีลธรรมมาถือ — ข้อเสนอคือกฎเหล่านี้ไม่ใช่คำสั่ง แต่เป็นเครื่องมือที่คนสร้างขึ้นเพื่อใช้กับคนอื่น",
+      question:
+        "ปรัชญาศีลธรรมมีช่องว่างเก่าแก่ระหว่างข้อความที่**บรรยายว่าอะไรเป็นอย่างไร** กับข้อความที่**กำหนดว่าควรทำอะไร** — ต่อให้ยอมรับว่าการฆ่าคนเป็นสิ่งไม่ดี ก็ยังไม่ได้อธิบายว่าทำไมฉันจึงไม่ควรฆ่า · งานนี้ถามว่าช่องว่างนี้ข้ามได้อย่างไร และการสื่อสารมีบทบาทอะไรอยู่ตรงนั้น",
+      method:
+        "การให้เหตุผลเชิงปรัชญาศีลธรรม โดยเสนอให้**แยกคำถามออกเป็นสามข้อแทนที่จะเป็นสองข้อ** — อะไรถูกอะไรผิด · ทำไมสังคมหนึ่งจึงพัฒนาและรับกฎศีลธรรมข้อหนึ่งมาใช้ · และทำไมคนคนหนึ่งจึงควรทำตามกฎนั้น — เพราะสามข้อนี้ต้องใช้วิธีตอบคนละแบบ · งานเน้นความสัมพันธ์ระหว่างสองข้อแรก และแตะข้อสามเพียงสั้นๆ · ไม่มีการเก็บข้อมูล",
+      findings: [
+        "**ข้อเสนอหลักคือให้แทรกคำถามข้อที่สองเข้าไปกลางช่องว่าง** ระหว่าง “เป็นอย่างไร” กับ “ควรทำอย่างไร” — เพราะสองข้อนั้นตอบด้วยวิธีคนละแบบ การพยายามกระโดดข้ามตรงๆ จึงติดขัดเสมอ",
+        "**เมื่อมองแบบนี้ จริยศาสตร์เชิงบรรทัดฐานไม่ได้ตอบว่าใครควรทำอะไร แต่ตอบว่าถ้ารับกฎข้อนี้มาใช้ สังคมจะกลายเป็นแบบไหน** ซึ่งเป็นคำถามที่ตอบได้ด้วยการพิจารณาผลของกฎ ไม่ใช่ด้วยการอ้างอำนาจของใคร",
+        "**คำถามทางจริยธรรมเกิดขึ้นเพราะการกระทำของคนหนึ่งไปกระทบอีกคน** งานจึงนิยาม “การกระทำผิด” ว่าคือการกระทำต่อผู้อื่นโดยผู้นั้นไม่ยินยอม",
+        "**สิ่งที่ทุกคนมีร่วมกันไม่ใช่ค่านิยมชุดเดียวกัน แต่คือความไม่อยากถูกกระทำโดยไม่ยินยอม** — ผู้เขียนเรียกว่าเป็นความชอบเชิงอัตวิสัยที่เป็นสากล และเสนอว่านี่คือสะพานข้ามไปสู่ข้อความเชิงกำหนดให้ทำ",
+        "**กฎศีลธรรมจึงเป็นเครื่องมือที่คนสร้างขึ้นเพื่อใช้กับผู้อื่นเป็นหลัก** ไม่ใช่คู่มือที่แต่ละคนหยิบมาอ่านก่อนตัดสินใจ — คนต้องการกฎเพราะกฎสร้างสภาพแวดล้อมที่ปลอดภัยสำหรับตัวเขาเอง",
+        "**การสื่อสารคือสิ่งที่ทำให้ขั้นตอนนี้เป็นไปได้** — เมื่อความชอบที่มีร่วมกันถูกทำให้ปรากฏ กฎจึงถูกซึมซับผ่านวัฒนธรรมและกลายเป็นของที่ใช้ร่วมกันระหว่างผู้คน · สิ่งนี้เกิดขึ้นได้เพียงเพราะมนุษย์สื่อสารกันได้ และสร้างสถาบันที่ซับซ้อนขึ้นเพื่อให้ร่วมมือกันได้ดีขึ้น",
+      ],
+      soWhat:
+        "สำหรับคนที่ออกแบบการรณรงค์เปลี่ยนพฤติกรรมหรือทำงานกับบรรทัดฐานทางสังคม ข้อที่นำไปคิดต่อได้คือ**บรรทัดฐานไม่ได้แพร่เพราะคนถูกบอกว่าอะไรถูก แต่แพร่เมื่อคนมองเห็นว่าคนอื่นก็อยากได้สภาพแบบเดียวกัน** — ซึ่งเปลี่ยนโจทย์ของงานสื่อสารจาก “จะโน้มน้าวให้เขาเชื่อตามอย่างไร” ไปเป็น “จะทำให้ความต้องการที่มีร่วมกันอยู่แล้วปรากฏให้เห็นได้อย่างไร” · การเชื่อมข้อนี้เข้ากับงานรณรงค์เป็นการอ่านต่อของศูนย์ฯ เอง ตัวบทความไม่ได้เขียนถึงการรณรงค์ไว้",
+      caveat:
+        "**เป็นการให้เหตุผลเชิงปรัชญาล้วน ไม่มีข้อมูลเชิงประจักษ์** · ข้อเสนอเรื่อง “ความชอบเชิงอัตวิสัยที่เป็นสากล” เป็นข้อสมมติที่งานไม่ได้ทดสอบ และเป็นจุดที่สำนักคิดอื่นโต้แย้งได้โดยตรง · การนิยามการกระทำผิดด้วยความยินยอมเป็นกรอบของสายเสรีนิยม ซึ่งไม่ใช่กรอบเดียวที่ใช้กันในจริยศาสตร์ · **คำถามที่ว่าทำไมบุคคลหนึ่งจึงควรทำตามกฎ ผู้เขียนแตะเพียงสั้นๆ และไม่ได้ตอบให้จบ** ซึ่งเป็นขอบเขตที่ผู้เขียนระบุไว้เองตั้งแต่ต้นบทความ",
+    },
+    en: {
+      headline: "Why people take on moral rules — the argument is that these rules are not commands but tools people build to apply to others",
+      question:
+        "Moral philosophy has a long-standing gap between statements that **describe how things are** and statements that **prescribe what ought to be done**: agreeing that murder is bad still does not explain why I should not murder. How is that gap crossed, and what part does communication play in crossing it?",
+      method:
+        "An argument in moral philosophy that proposes **splitting the problem into three questions rather than two** — what is right and wrong; why a society develops and adopts a particular moral norm; and why an individual ought to follow it — because each needs a different method to answer. The paper concentrates on the relationship between the first two and touches only briefly on the third. No data is collected.",
+      findings: [
+        "**The central move is to insert the second question into the gap** between “is” and “ought”. The two are answered by different methods, which is why attempts to jump straight across keep stalling.",
+        "**Seen this way, normative ethics does not tell anyone what to do; it tells you what kind of society follows from adopting a given norm** — a question answerable by examining the norm's effects rather than by appeal to authority.",
+        "**Ethical questions arise because one person's actions affect another**, so the paper defines wrongdoing as acting upon another person without that person's consent.",
+        "**What everyone shares is not one set of values but the wish not to be acted upon without consent** — the author calls this a universally shared subjective preference, and proposes it as the bridge to prescriptive statements.",
+        "**Moral norms are therefore devices people create largely to impose on others**, not manuals each person consults before deciding. People want the rules because the rules produce conditions that are safer for themselves.",
+        "**Communication is what makes the step possible.** Once a shared preference becomes visible, the norm is internalised through culture and enters the shared space between people — which happens only because humans can communicate, and can build the more complex institutions that better cooperation needs.",
+      ],
+      soWhat:
+        "For anyone designing behaviour-change work or working with social norms, the point worth carrying forward is that **norms do not spread because people are told what is right; they spread when people can see that others want the same conditions** — which turns the communication problem from “how do we persuade them” into “how do we make an existing shared preference visible”. Connecting the argument to campaign work is the centre's own reading; the article itself does not discuss campaigns.",
+      caveat:
+        "**This is philosophical argument alone, with no empirical evidence.** The proposed “universally shared subjective preference” is an assumption the paper does not test, and it is precisely where other schools would push back. Defining wrongdoing through consent is a liberal framework, not the only one in ethics. **The question of why an individual ought to follow a norm is touched on only briefly and left unresolved** — a scope limit the author states at the outset.",
     },
   },
 ];

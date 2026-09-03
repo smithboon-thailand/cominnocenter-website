@@ -51,6 +51,13 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
+/** คำนำหน้าชื่อเรื่องบนหน้าบทสรุป — ต้องบอกชนิดของงานตั้งแต่บรรทัดแรกที่อ่านเจอ */
+const KICKER_TH = {
+  empirical: "บทสรุปงานวิจัย",
+  protocol: "สรุปแผนวิจัย",
+  argument: "สรุปบทความเชิงแนวคิด",
+} as const;
+
 export default async function PaperSummaryPage({ params }: Props) {
   const { slug } = await params;
   const summary = paperSummaryBySlug(slug);
@@ -103,7 +110,7 @@ export default async function PaperSummaryPage({ params }: Props) {
 
           {/* เรียกให้ตรงกับสิ่งที่งานเป็น — แผนวิจัยไม่ใช่ผลวิจัย ผู้อ่านต้องรู้ตั้งแต่บรรทัดแรก */}
           <p className="mt-8 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-            {summary.kind === "protocol" ? "สรุปแผนวิจัย" : "บทสรุปงานวิจัย"}
+            {KICKER_TH[summary.kind ?? "empirical"]}
           </p>
           <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.th.headline)}</h1>
 
