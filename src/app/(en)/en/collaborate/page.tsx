@@ -89,6 +89,7 @@ export default function EnglishCollaboratePage() {
                       href={EMAIL_HREF}
                       className="font-medium text-ink-900 hover:text-pink-500"
                     >
+                      {EMAIL}
                     </a>
                   </div>
                   <div>

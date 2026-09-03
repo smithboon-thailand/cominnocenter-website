@@ -162,6 +162,7 @@ export default function PrivacyPolicyPage() {
                 href={EMAIL_HREF}
                 className="text-pink-500 hover:text-pink-700 hover:underline"
               >
+                {EMAIL}
               </a>
               . Withdrawing consent does not affect the lawfulness of collection and use that
               already took place beforehand.
@@ -181,6 +182,7 @@ export default function PrivacyPolicyPage() {
               href={EMAIL_HREF}
               className="text-pink-500 hover:text-pink-700 hover:underline"
             >
+              {EMAIL}
             </a>{" "}
             ·{" "}
             <a

@@ -157,6 +157,7 @@ export default function PrivacyPolicyPage() {
                 href={EMAIL_HREF}
                 className="text-pink-500 hover:text-pink-700 hover:underline"
               >
+                {EMAIL}
               </a>{" "}
               การถอนความยินยอมไม่กระทบการเก็บและใช้ข้อมูลที่ทำไปแล้วโดยชอบก่อนหน้านั้น
             </p>
@@ -174,6 +175,7 @@ export default function PrivacyPolicyPage() {
               href={EMAIL_HREF}
               className="text-pink-500 hover:text-pink-700 hover:underline"
             >
+              {EMAIL}
             </a>{" "}
             ·{" "}
             <a
