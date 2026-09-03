@@ -55,7 +55,11 @@ export const MEDIA_PROFESSOR_LABEL: Record<MediaProfessorKey, { th: string; en: 
   smith: { th: "รศ.ดร.สมิทธิ์ บุญชุติมา", en: "Assoc. Prof. Dr. Smith Boonchutima" },
   teerada: { th: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์", en: "Asst. Prof. Dr. Teerada Chongkolrattanaporn" },
   pavel: { th: "รศ.ดร. Pavel Slutskiy", en: "Assoc. Prof. Dr. Pavel Slutskiy" },
-  watsayut: { th: "อ.ดร.วรรษยุต คงจันทร์", en: "Dr. Watsayut Kongchan" },
+  // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "Dr. Watsayut Kongchan"
+  // ซึ่งเป็นการถอดเสียงคนละแบบกับที่เจ้าตัวใช้ · ค่านี้ต้องตรงกับ researchers.ts
+  // **หมายเหตุ: บทความที่ตีพิมพ์แล้วยังลงชื่อว่า Watsayut Kongchan** รายการอ้างอิง
+  // บนหน้า /research จึงคงตามที่วารสารพิมพ์ไว้ ไม่แก้ตาม (ดู CLAUDE.md กฎข้อ 8)
+  watsayut: { th: "อ.ดร.วรรษยุต คงจันทร์", en: "Dr. Wassayut Kongjan" },
   center: { th: "ศูนย์ฯ", en: "The Center" },
 };
 
@@ -395,7 +399,7 @@ export const mediaMentions: MediaMention[] = [
     summaryTh:
       "งานวิจัยร่วมระหว่าง รศ.ดร.สมิทธิ์, ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ และ อ.ดร.วรรษยุต คงจันทร์ เรื่อง Cognitive Load Theory ในการศึกษาออนไลน์ ตีพิมพ์ปี 2023 และยังถูกอ้างอิงต่อเนื่อง",
     summaryEn:
-      "Joint research by Smith Boonchutima, Teerada Chongkolrattanaporn, and Watsayut Kongchan on Cognitive Load Theory in online education — published in 2023 and still being cited",
+      "Joint research by Smith Boonchutima, Teerada Chongkolrattanaporn, and Wassayut Kongjan on Cognitive Load Theory in online education — published in 2023 and still being cited",
     date: "2023-10-31",
     datePrecision: "day",
     professors: ["smith", "teerada", "watsayut"],
@@ -429,11 +433,11 @@ export const mediaMentions: MediaMention[] = [
     code: "C-17",
     image: "/images/media/C-17.webp",
     nameTh: "อ.ดร.วรรษยุต คงจันทร์ — ช่อง YouTube สอน SPSS และเครื่องมือวิจัย",
-    nameEn: "Dr. Watsayut Kongchan's YouTube channel teaching SPSS and research tools",
+    nameEn: "Dr. Wassayut Kongjan's YouTube channel teaching SPSS and research tools",
     summaryTh:
       "ช่อง YouTube ของ อ.ดร.วรรษยุต คงจันทร์ มีคลิปสอน SPSS ขั้นพื้นฐานและการวิเคราะห์ข้อมูลสำหรับการวิจัย มีผู้ชมสูงในกลุ่มนักศึกษา ใช้เป็นแหล่งความรู้สาธารณะ",
     summaryEn:
-      "Dr. Watsayut Kongchan's YouTube channel with tutorials on SPSS basics and research data analysis — popular among students as a public learning resource",
+      "Dr. Wassayut Kongjan's YouTube channel with tutorials on SPSS basics and research data analysis — popular among students as a public learning resource",
     date: "2024-01-01",
     datePrecision: "year",
     professors: ["watsayut"],

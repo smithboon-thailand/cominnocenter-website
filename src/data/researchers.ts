@@ -28,7 +28,12 @@ export type Researcher = {
 export const researchers: Researcher[] = [
   {
     name: "ดร.วรรษยุต คงจันทร์",
-    nameEn: "Dr. Watsayut Kongchan",
+    // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "Dr. Watsayut Kongchan"
+    // **บทความที่ตีพิมพ์แล้วยังลงชื่อว่า Watsayut Kongchan** ทั้งใน Crossref
+    // และในตัววารสาร รายการอ้างอิงบนหน้า /research จึงคงตามที่พิมพ์จริง ไม่แก้ตาม
+    // (CLAUDE.md กฎข้อ 8 — publications.ts เป็นไฟล์ generated ห้ามแก้ด้วยมือ)
+    // ชื่อไฟล์ภาพและ URL ช่อง YouTube ก็คงเดิม เพราะเป็นที่อยู่จริงของทรัพยากร
+    nameEn: "Dr. Wassayut Kongjan",
     roleTh: "นักวิจัยประจำศูนย์",
     role: "Center Researcher",
     faculty:
