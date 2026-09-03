@@ -10,9 +10,14 @@
  * AnalyticsConsent.tsx (GA4 + คุกกี้ + localStorage) · layout ทั้งสอง (Vercel Analytics)
  * ContactForm.tsx + NewsletterForm.tsx (Formspree) · videos.ts (YouTube) · projects.ts
  * ถ้าเพิ่มบริการใหม่ที่แตะข้อมูลผู้ใช้ ต้องมาเพิ่มที่นี่ด้วยเสมอ
+ *
+ * ตรวจซ้ำ 3 ก.ย. 2569 ด้วยการอ่าน**โฮสต์ที่ HTML ที่ build ออกมาอ้างถึงจริง**
+ * ไม่ใช่อ่านจากซอร์สอย่างเดียว — วิธีนี้ทำให้เจอว่าโฮสต์ภาพหลักสูตรวัฒนธรรม
+ * ถูกเรียกเป็น <img src> แต่ไม่ได้ประกาศไว้ · เป็นช่องว่างชนิดเดียวกับที่การตรวจ
+ * ของอีกทีมพบในเว็บอีกตัว (ประกาศชื่อผู้ประมวลผลที่ไม่ได้ใช้ และไม่ประกาศตัวที่ใช้จริง)
  */
 
-export const PRIVACY_LAST_UPDATED = "2026-08-31";
+export const PRIVACY_LAST_UPDATED = "2026-09-03";
 
 export type PrivacyRow = {
   /** สิ่งที่เก็บ */
@@ -124,5 +129,16 @@ export const privacyThirdParties: PrivacyThirdParty[] = [
     noteEn:
       "Video thumbnails load from i.ytimg.com when a page with videos opens; the player itself loads from youtube-nocookie.com only when you press play",
     href: "https://policies.google.com/privacy",
+  },
+  {
+    // เพิ่มเมื่อ 3 ก.ย. 2569 หลังการตรวจของอีกทีมชี้ว่า "ผู้รับข้อมูลที่ประกาศไว้"
+    // กับ "ผู้รับข้อมูลจริง" หลุดจากกันได้ง่าย — ตรวจ HTML ที่ build ออกมาแล้วพบว่า
+    // ภาพหลักสูตรวัฒนธรรม 7 ใบยังโหลดจากโฮสต์นี้เป็น <img src> คือเบราว์เซอร์
+    // ของผู้อ่านติดต่อไปเองทุกครั้งที่เปิดหน้า ไม่ได้รอให้กด จึงต้องประกาศไว้ด้วย
+    name: "cuculturecom-static.vercel.app",
+    noteTh:
+      "โฮสต์ภาพประกอบของหลักสูตรสื่อสารเชิงวัฒนธรรม เบราว์เซอร์จะโหลดภาพจากที่นี่เมื่อเปิดหน้าโครงการที่มีภาพชุดนั้น — เห็นเฉพาะคำขอโหลดภาพตามปกติ ไม่มีคุกกี้และไม่มีข้อมูลที่คุณกรอก",
+    noteEn:
+      "Hosts the illustrations for the cultural communication programme. Your browser loads those images from it when you open a project page that uses them — it sees an ordinary image request, with no cookies and nothing you typed",
   },
 ];

@@ -132,16 +132,16 @@ export const affiliatedResearchers: TeamMember[] = [
 /** ผู้ช่วยวิจัย — ไม่ใส่สังกัดศูนย์ */
 export const researchAssistants: TeamMember[] = [
   {
-    name: "วรรณวิสา เวชประสิทธิ์",
-    nameEn: "Wanwisa Wetchprasit",
+    name: "วันวิสา เวชประสิทธิ์",
+    nameEn: "Wanwisa Wechprasith",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_de18afe153e9498ba2f6886f70a2ef35"),
-    alt: "วรรณวิสา เวชประสิทธิ์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
+    alt: "วันวิสา เวชประสิทธิ์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
     name: "ชนาภา อิทธิอมรกุลชัย",
-    nameEn: "Chanapa Itthiamornkulchai",
+    nameEn: "Chanapa Itdhiamornkulchai",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_31a4089134c7492b9152bb547c2e358c"),
