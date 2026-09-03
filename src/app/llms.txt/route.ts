@@ -8,6 +8,7 @@ import { leadership } from "@/data/leadership";
 import { EMAIL, PHONE_SCHEMA } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 import { SITE_URL } from "@/lib/schema";
+import { truncate } from "@/lib/text";
 
 /**
  * /llms.txt — แผนผังเว็บฉบับย่อสำหรับโมเดลภาษา
@@ -49,7 +50,8 @@ function body() {
 
   const projectLines = projects.map((p) => {
     const outcome = projectCopyEn[p.slug]?.outcome ?? p.outcome;
-    const short = outcome.length > 180 ? `${outcome.slice(0, 177).trimEnd()}...` : outcome;
+    // เนื้อหาในไฟล์นี้เป็นภาษาอังกฤษล้วน จึงตัดด้วย locale "en"
+    const short = truncate(outcome, 180, "en");
     return `- [${p.titleEn}](${th(`/impact/${p.slug}`)}): ${short} (SDG ${p.sdg.join(", ")})`;
   });
 

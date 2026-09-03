@@ -8,6 +8,7 @@ import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryB
 import CitationTool from "@/components/research/CitationTool";
 import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
+import { truncate } from "@/lib/text";
 import {
   paperSummaries,
   paperSummaryBySlug,
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: Props) {
   if (!summary) return { title: "ไม่พบบทสรุป" };
   return {
     title: plainText(summary.th.headline),
-    description: plainText(summary.th.question).slice(0, 160),
+    description: truncate(plainText(summary.th.question), 160, "th"),
     alternates: {
       canonical: `/research/${slug}`,
       languages: {
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props) {
     },
     openGraph: {
       title: plainText(summary.th.headline),
-      description: plainText(summary.th.question).slice(0, 200),
+      description: truncate(plainText(summary.th.question), 200, "th"),
       // openGraph ของหน้าลูกทับของ layout ทั้งก้อน ต้องใส่ images เองทุกครั้ง
       // ใช้ภาพประจำเรื่อง ไม่ใช่ og-default เพราะทั้ง 15 หน้าจะขึ้นการ์ดเหมือนกันหมด
       images: [`/images/research/summaries/${slug}.webp`],
