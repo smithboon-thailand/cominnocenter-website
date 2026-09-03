@@ -159,12 +159,13 @@ export const researchAssistants: TeamMember[] = [
     alt: "สุพัตรา เพ็ชรี ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
-    name: "เอกสิทธิ์ สุมนา",
-    nameEn: "Ekasit Sumana",
+    // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "เอกสิทธิ์ สุมนา / Ekasit Sumana"
+    name: "เอกะสิทธิ์ สุมะนะ",
+    nameEn: "Akasit Sumana",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_17484343fc0b423e86bf30bc9954242b"),
-    alt: "เอกสิทธิ์ สุมนา ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
+    alt: "เอกะสิทธิ์ สุมะนะ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
     name: "หฤทัย สิทธิภูวบุณย์",
