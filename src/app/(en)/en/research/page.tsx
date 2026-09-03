@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Stat from "@/components/ui/Stat";
 import Button from "@/components/ui/Button";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import ResearchExplorer from "@/components/research/ResearchExplorer";
 import JsonLd from "@/components/seo/JsonLd";
 import { publicationListSchema } from "@/lib/schema";
@@ -34,17 +34,26 @@ export default function ResearchPageEn() {
       <JsonLd data={publicationListSchema(publications, authorName, "en")} />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">
-          Research
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">Publications from the center</h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          Every service we deliver rests on a research base. This page collects the published work
-          of the center&apos;s faculty — books, international journal articles, and conference
-          papers. Select a title to open the original publication.
-        </p>
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+      <PageHero
+        page="research"
+        locale="en"
+        kicker="Research"
+        title="Publications from the center"
+        lede={
+          <>
+            Every service we deliver rests on a research base. This page collects the published
+            work of the center&apos;s faculty — books, international journal articles, and
+            conference papers. Select a title to open the original publication.
+          </>
+        }
+      />
+
+      {/*
+        แถวตัวเลขเคยอยู่ในบล็อกหัวหน้า คั่นระหว่างคำนำกับภาพประกอบ
+        ย้ายออกมาเป็นแถบของตัวเองใต้ hero ด้วยเหตุผลเดียวกับหน้าไทย
+      */}
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-12">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
           <Stat value={publicationStats.total} unit="publications" label="Published works" />
           <Stat
             value={publicationStats.verifiable}
@@ -55,7 +64,6 @@ export default function ResearchPageEn() {
           <Stat value={publicationStats.books} unit="books" label="Academic books (Springer)" delay={240} />
           <Stat value={publicationStats.since} label="Publishing continuously since" animate={false} />
         </div>
-        <PageBanner page="research" locale="en" />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">

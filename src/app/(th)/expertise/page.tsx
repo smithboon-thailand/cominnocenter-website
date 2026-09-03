@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import ExpertiseExplorer from "@/components/expertise/ExpertiseExplorer";
 
 export const metadata = {
@@ -20,20 +20,13 @@ export default function ExpertisePage() {
       <Header active="expertise" />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-          ความเชี่ยวชาญ
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">
-          เก้าบริการ ครบทั้งกระบวนการสื่อสาร
-        </h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          จากงานวิจัยถึงการลงมือทำ เราดูแลครบทั้ง 4 ช่วงของกระบวนการสื่อสาร — เข้าใจและออกแบบ
-          ผลิตสื่อ ขับเคลื่อน และส่งต่อความรู้ ทุกบริการมีผลงานจริงรองรับ
-          กดที่การ์ดเพื่อกางรายชื่อโครงการ หรือกดจุดสีเพื่อดูผลงานตามเป้าหมาย SDG
-        </p>
-        <PageBanner page="expertise" locale="th" />
-      </section>
+      <PageHero
+        page="expertise"
+        locale="th"
+        kicker="ความเชี่ยวชาญ"
+        title="เก้าบริการ ครบทั้งกระบวนการสื่อสาร"
+        lede="จากงานวิจัยถึงการลงมือทำ เราดูแลครบทั้ง 4 ช่วงของกระบวนการสื่อสาร — เข้าใจและออกแบบ ผลิตสื่อ ขับเคลื่อน และส่งต่อความรู้ ทุกบริการมีผลงานจริงรองรับ กดที่การ์ดเพื่อกางรายชื่อโครงการ หรือกดจุดสีเพื่อดูผลงานตามเป้าหมาย SDG"
+      />
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <ExpertiseExplorer />

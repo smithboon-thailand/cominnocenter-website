@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import { newsSorted, newsCover } from "@/data/news";
 
 export const metadata = {
@@ -30,17 +30,20 @@ export default function NewsPageEn() {
       <Header locale="en" />
       <main>
 
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="text-h1-m md:text-h1 text-ink-900">
+      <PageHero
+        page="news"
+        locale="en"
+        title={
+          <>
             News &amp; Events
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-2xl">
+          </>
+        }
+        lede={
+          <>
             News, events, and stories from the center&apos;s work
-          </p>
-        </div>
-        <PageBanner page="news" locale="en" />
-      </section>
+          </>
+        }
+      />
 
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/effects/Reveal";
 import { stagger } from "@/components/effects/stagger";
 import { researchers } from "@/data/researchers";
@@ -69,18 +69,13 @@ export default function AboutPage() {
       <JsonLd data={leadership.map((l) => personSchema(l, "th"))} />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-          เกี่ยวกับเรา
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">
-          ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร
-        </h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          เพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
-        </p>
-        <PageBanner page="about" locale="th" />
-      </section>
+      <PageHero
+        page="about"
+        locale="th"
+        kicker="เกี่ยวกับเรา"
+        title="ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร"
+        lede="เพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย"
+      />
 
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">

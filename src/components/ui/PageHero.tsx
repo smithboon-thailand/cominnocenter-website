@@ -35,7 +35,11 @@ export default function PageHero({
 }: {
   page: PageBannerKey;
   locale: "th" | "en";
-  kicker: string;
+  /**
+   * ป้ายเหนือหัวเรื่อง — **ไม่บังคับ** เพราะหน้าข่าวทั้งสองภาษาไม่เคยมี
+   * และการเติมเองเท่ากับแต่งข้อความที่ผู้อ่านเห็นขึ้นมาใหม่ ซึ่งเป็นเรื่องของผู้ใช้
+   */
+  kicker?: string;
   title: ReactNode;
   lede: ReactNode;
   /** แถวปุ่มหรือชิปที่อยากให้อยู่ในจอแรกด้วย */
@@ -52,9 +56,20 @@ export default function PageHero({
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-8 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-12">
           <div>
-            <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-              {kicker}
-            </p>
+            {/*
+              หน้าอังกฤษเดิมใส่ `uppercase` ให้ป้ายนี้ หน้าไทยไม่ใส่ — ตั้งใจคงไว้
+              เพราะภาษาไทยไม่มีตัวพิมพ์ใหญ่ให้แปลง การใส่จึงไม่มีผลอะไรนอกจาก
+              ทำให้คลาสสองภาษาต่างกันโดยไม่จำเป็น
+            */}
+            {kicker ? (
+              <p
+                className={`mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500 ${
+                  locale === "en" ? "uppercase" : ""
+                }`}
+              >
+                {kicker}
+              </p>
+            ) : null}
             <h1 className="text-h1-m md:text-h1 text-ink-900">{title}</h1>
             <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">{lede}</p>
             {children ? <div className="mt-8">{children}</div> : null}
