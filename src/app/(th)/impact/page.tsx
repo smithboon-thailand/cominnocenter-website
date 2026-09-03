@@ -5,7 +5,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import SdgBadge from "@/components/ui/SdgBadge";
 import SdgFilterChips from "@/components/ui/SdgFilterChips";
 import Button from "@/components/ui/Button";
-import PageBanner from "@/components/ui/PageBanner";
+import PageHero from "@/components/ui/PageHero";
 import ImpactExplorer, { type ImpactCardData } from "@/components/impact/ImpactExplorer";
 import { projects, type Project } from "@/data/projects";
 import { SDG_IDS, type SdgId } from "@/data/sdg";
@@ -71,19 +71,13 @@ export default function ImpactPage() {
       <Header active="impact" />
       <main>
 
-      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28">
-        <p className="mb-2 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-          ผลงาน
-        </p>
-        <h1 className="text-h1-m md:text-h1 text-ink-900">
-          นวัตกรรมการสื่อสารที่เกิดผลจริง
-        </h1>
-        <p className="mt-4 max-w-prose text-[17px] leading-[1.7] text-ink-700">
-          ทุกโครงการของเราเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน
-          เลือกเป้าหมายเพื่อดูผลงานในเรื่องนั้น
-        </p>
-        <PageBanner page="impact" locale="th" />
-      </section>
+      <PageHero
+        page="impact"
+        locale="th"
+        kicker="ผลงาน"
+        title="นวัตกรรมการสื่อสารที่เกิดผลจริง"
+        lede="ทุกโครงการของเราเชื่อมโยงกับเป้าหมายการพัฒนาที่ยั่งยืน เลือกเป้าหมายเพื่อดูผลงานในเรื่องนั้น"
+      />
 
       <Suspense
         fallback={
