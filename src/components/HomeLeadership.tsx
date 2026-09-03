@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/effects/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { leadership } from "@/data/leadership";
 
 type HomeLeadershipProps = {
@@ -17,17 +18,31 @@ export default function HomeLeadership({ locale = "th" }: HomeLeadershipProps) {
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <Reveal>
-            <div>
-              <p className="text-sm font-medium text-pink-500 mb-2">Leadership</p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-blue-700">
-                {isEn ? "Center leadership" : "ผู้นำของศูนย์"}
-              </h2>
-              <p className="mt-3 text-neutral-600 max-w-xl">
-                {isEn
+            {/*
+              **หมายเหตุ: ตอนนี้ไม่มีหน้าไหนเรียกใช้ component นี้** หน้าแรกทั้งสองภาษา
+              เขียนบล็อกผู้นำของตัวเองไว้ในไฟล์หน้า ที่แก้ข้างล่างจึงเป็นการทำให้ไฟล์นี้
+              ถูกต้องเผื่อวันที่มีคนหยิบไปใช้ ไม่ใช่การแก้บั๊กที่ผู้อ่านเห็นอยู่
+
+              เดิมเขียน markup เอง ซึ่งหลุดออกจากระบบไปสี่เรื่องพร้อมกัน (3 ก.ย. 2569)
+                1. ป้ายเหนือหัวเรื่องเป็นคำว่า "Leadership" **ตายตัวทั้งสองภาษา**
+                   ถ้าถูกใช้จริงหน้าไทยจะขึ้นภาษาอังกฤษ ผิดกติกา i18n ข้อ 7 — และซ้ำกับ h2
+                   ที่อยู่ใต้มันอยู่แล้ว จึงตัดทิ้งแทนการแต่งคำไทยขึ้นใหม่
+                2. `font-semibold` = น้ำหนัก 600 ซึ่ง BRAND.md v1.2 **ห้าม**
+                   (Kanit 400/500 เท่านั้น)
+                3. `text-3xl md:text-4xl` ไม่ใช่ type scale ของแบรนด์
+                4. `text-blue-700` / `text-neutral-600` ไม่ใช่ token ของแบรนด์
+              ย้ายมาใช้ SectionHeader แก้ครบทั้งสี่เรื่องในครั้งเดียว
+            */}
+            <SectionHeader
+              locale={locale}
+              icon="people"
+              title={isEn ? "Center leadership" : "ผู้นำของศูนย์"}
+              description={
+                isEn
                   ? "Academic and practice leaders — tap to view full profiles and selected works."
-                  : "ทีมผู้นำด้านวิชาการและการปฏิบัติจริง กดเพื่อดูประวัติและผลงานฉบับเต็ม"}
-              </p>
-            </div>
+                  : "ทีมผู้นำด้านวิชาการและการปฏิบัติจริง กดเพื่อดูประวัติและผลงานฉบับเต็ม"
+              }
+            />
           </Reveal>
           <Reveal delay={100}>
             <Link

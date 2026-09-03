@@ -250,6 +250,7 @@ export default function EnglishHomePage() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             locale="en"
+            icon="people"
             eyebrow="Our team"
             title="Center leadership"
             description="Leaders with both academic track records and hands-on experience — click for full profiles"

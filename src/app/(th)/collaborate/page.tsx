@@ -69,6 +69,7 @@ export default function CollaboratePage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
             <div className="lg:col-span-3">
               <SectionHeader
+                icon="contactForm"
                 title="ส่งข้อความถึงเรา"
                 description="กรอกแบบฟอร์มด้านล่าง แล้วเราจะติดต่อกลับโดยเร็วที่สุด"
               />

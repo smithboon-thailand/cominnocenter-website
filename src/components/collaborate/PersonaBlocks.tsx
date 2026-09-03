@@ -24,6 +24,7 @@ export default function PersonaBlocks({ locale = "th" }: PersonaBlocksProps) {
     <>
       <SectionHeader
         locale={locale}
+        icon="partners"
         eyebrow={t.eyebrow}
         title={t.title}
         description={t.description}

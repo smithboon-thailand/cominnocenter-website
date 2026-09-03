@@ -81,7 +81,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           <Reveal>
-            <SectionHeader title="เรื่องราวของเรา" />
+            <SectionHeader icon="story" title="เรื่องราวของเรา" />
             <div className="mt-4 max-w-prose space-y-4 text-[17px] leading-[1.7] text-ink-700">
               <p>
                 ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร ก่อตั้งขึ้นภายใต้คณะนิเทศศาสตร์
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
       <section className="border-y border-ink-300 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <SectionHeader title="วัตถุประสงค์หลัก" />
+          <SectionHeader icon="mission" title="วัตถุประสงค์หลัก" />
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
             {objectives.map((item, i) => (
               <Reveal key={item.number} delay={stagger(i)}>
@@ -149,7 +149,8 @@ export default function AboutPage() {
       {/* Leadership — ไม่มีสี SDG (BRAND.md PART H) */}
       <section id="leadership" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
         <SectionHeader
-          title="ผู้นำของศูนย์"
+          icon="people"
+            title="ผู้นำของศูนย์"
           description="ทีมผู้นำที่มีประสบการณ์ด้านวิชาการและการปฏิบัติจริง พร้อมผลงานวิจัยและเครือข่ายความร่วมมือระดับนานาชาติ"
         />
 
@@ -319,6 +320,7 @@ export default function AboutPage() {
       <section className="border-y border-ink-300 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <SectionHeader
+            icon="people"
             title="อาจารย์นักวิจัยประจำศูนย์"
             description="ทีมนักวิจัยจากหลากหลายสาขา ที่ร่วมขับเคลื่อนนวัตกรรมการสื่อสาร ความยั่งยืน และเทคโนโลยีล้ำสมัย"
           />
