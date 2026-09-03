@@ -132,9 +132,9 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       <section className="mx-auto max-w-3xl space-y-12 px-6 pb-16">
-        <SectionHeader title="ความท้าทาย" description={project.challenge} />
+        <SectionHeader title="ความท้าทาย" icon="challenge" description={project.challenge} />
         <div className="space-y-5">
-          <SectionHeader title="แนวทางของเรา" description={project.approach} />
+          <SectionHeader title="แนวทางของเรา" icon="approach" description={project.approach} />
           {usedServices.length > 0 && (
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[15px] leading-[1.6]">
               <span className="text-ink-500">บริการที่ใช้ในโครงการนี้:</span>
@@ -155,7 +155,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* ส่วนผลลัพธ์ — พื้น tint ของ SDG หลัก (จุดสีเดียวของหน้านอกจากแถบบน) */}
       <section style={{ backgroundColor: goal.tint }}>
         <div className="mx-auto max-w-3xl px-6 py-16">
-          <SectionHeader title="ผลลัพธ์" description={project.impact} />
+          <SectionHeader title="ผลลัพธ์" icon="outcome" description={project.impact} />
           {results.length > 0 && (
             <div
               className={`mt-8 grid grid-cols-2 gap-x-6 gap-y-8 ${
@@ -210,7 +210,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {gallery.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-16">
           <div className="mb-6">
-            <SectionHeader title="ภาพจากโครงการ" description="คลิกที่ภาพเพื่อดูขนาดใหญ่" />
+            <SectionHeader title="ภาพจากโครงการ" icon="gallery" description="คลิกที่ภาพเพื่อดูขนาดใหญ่" />
           </div>
           <ProjectGallery images={gallery} />
         </section>

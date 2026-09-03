@@ -14,6 +14,8 @@
  * เพื่อให้คนที่อ่านแค่ผลแล้วจะเอาไปอ้างต่อ เห็นเงื่อนไขก่อนปิดหน้า
  */
 
+import SectionIcon from "@/components/ui/SectionIcon";
+
 type PaperCopy = {
   headline: string;
   question: string;
@@ -163,17 +165,26 @@ export default function PaperSummaryBody({
       ) : null}
 
       <section>
-        <h2 className="text-h3-m md:text-h3 text-ink-900">{t.question}</h2>
+        <div className="flex items-start gap-3">
+          <SectionIcon role="question" className="mt-0.5 h-7 w-7 shrink-0" />
+          <h2 className="text-h3-m md:text-h3 text-ink-900">{t.question}</h2>
+        </div>
         <p className="mt-3 text-[17px] leading-[1.7] text-ink-700">{withEmphasis(copy.question)}</p>
       </section>
 
       <section>
-        <h2 className="text-h3-m md:text-h3 text-ink-900">{t.method}</h2>
+        <div className="flex items-start gap-3">
+          <SectionIcon role="method" className="mt-0.5 h-7 w-7 shrink-0" />
+          <h2 className="text-h3-m md:text-h3 text-ink-900">{t.method}</h2>
+        </div>
         <p className="mt-3 text-[17px] leading-[1.7] text-ink-700">{withEmphasis(copy.method)}</p>
       </section>
 
       <section>
-        <h2 className="text-h3-m md:text-h3 text-ink-900">{t.findings}</h2>
+        <div className="flex items-start gap-3">
+          <SectionIcon role="findings" className="mt-0.5 h-7 w-7 shrink-0" />
+          <h2 className="text-h3-m md:text-h3 text-ink-900">{t.findings}</h2>
+        </div>
         <ul className="mt-3 flex flex-col gap-3">
           {copy.findings.map((f) => (
             <li key={plainText(f)} className="flex gap-3 text-[17px] leading-[1.7] text-ink-700">
@@ -185,12 +196,18 @@ export default function PaperSummaryBody({
       </section>
 
       <section>
-        <h2 className="text-h3-m md:text-h3 text-ink-900">{t.soWhat}</h2>
+        <div className="flex items-start gap-3">
+          <SectionIcon role="soWhat" className="mt-0.5 h-7 w-7 shrink-0" />
+          <h2 className="text-h3-m md:text-h3 text-ink-900">{t.soWhat}</h2>
+        </div>
         <p className="mt-3 text-[17px] leading-[1.7] text-ink-700">{withEmphasis(copy.soWhat)}</p>
       </section>
 
       <section className="rounded-lg border border-ink-300 bg-ink-0 p-6">
-        <h2 className="text-[15px] font-medium leading-[1.6] text-ink-900">{t.caveat}</h2>
+        <div className="flex items-start gap-2.5">
+          <SectionIcon role="caveat" className="h-5 w-5 shrink-0" />
+          <h2 className="text-[15px] font-medium leading-[1.6] text-ink-900">{t.caveat}</h2>
+        </div>
         <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{withEmphasis(copy.caveat)}</p>
       </section>
     </div>
