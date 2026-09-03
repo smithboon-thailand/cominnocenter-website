@@ -7,6 +7,7 @@ import SdgFilterChips from "@/components/ui/SdgFilterChips";
 import Button from "@/components/ui/Button";
 import PageHero from "@/components/ui/PageHero";
 import ImpactExplorer, { type ImpactCardData } from "@/components/impact/ImpactExplorer";
+import SectionIcon from "@/components/ui/SectionIcon";
 import { projects, type Project } from "@/data/projects";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
 import { SDG_IDS, type SdgId } from "@/data/sdg";
@@ -97,6 +98,7 @@ export default function ImpactPageEn() {
 
       <section className="bg-ink-900">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
           <h2 className="text-h2-m md:text-h2 text-white">
             Want results like these for your goals?
           </h2>

@@ -13,6 +13,7 @@ import { highlightsFor, type HighlightPerson } from "@/data/highlights";
 import { SDG, SDG_IDS } from "@/data/sdg";
 import TeamAndPartners from "@/components/about/TeamAndPartners";
 import JsonLd from "@/components/seo/JsonLd";
+import SectionIcon from "@/components/ui/SectionIcon";
 import { personSchema } from "@/lib/schema";
 
 export const metadata = {
@@ -391,6 +392,7 @@ export default function EnglishAboutPage() {
 
       <section className="bg-ink-900">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
           <h2 className="text-h2-m md:text-h2 text-white">Interested in working with us?</h2>
           <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
             We would love to hear from you and build projects with real social impact together.

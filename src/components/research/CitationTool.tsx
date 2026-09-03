@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { CitationMeta, PublicationEntry } from "@/data/publications";
+import SectionIcon from "@/components/ui/SectionIcon";
 import {
   CITATION_STYLES,
   citationFilename,
@@ -125,7 +126,10 @@ export default function CitationTool({
     >
       {compact ? null : (
         <>
-          <h2 className="text-h3-m md:text-h3 text-ink-900">{t.heading}</h2>
+          <div className="flex items-start gap-3">
+            <SectionIcon role="citation" className="mt-0.5 h-7 w-7 shrink-0" />
+            <h2 className="text-h3-m md:text-h3 text-ink-900">{t.heading}</h2>
+          </div>
           <p className="mt-2 text-[15px] leading-[1.6] text-ink-700">{t.intro}</p>
         </>
       )}

@@ -124,9 +124,9 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
       </section>
 
       <section className="mx-auto max-w-3xl space-y-12 px-6 pb-16">
-        <SectionHeader locale="en" title="Challenge" description={copy.challenge} />
+        <SectionHeader locale="en" title="Challenge" icon="challenge" description={copy.challenge} />
         <div className="space-y-5">
-          <SectionHeader locale="en" title="Our approach" description={copy.approach} />
+          <SectionHeader locale="en" title="Our approach" icon="approach" description={copy.approach} />
           {usedServices.length > 0 && (
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[15px] leading-[1.6]">
               <span className="text-ink-500">Services used on this project:</span>
@@ -146,7 +146,7 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
 
       <section style={{ backgroundColor: goal.tint }}>
         <div className="mx-auto max-w-3xl px-6 py-16">
-          <SectionHeader locale="en" title="Impact" description={copy.impact} />
+          <SectionHeader locale="en" title="Impact" icon="outcome" description={copy.impact} />
           {results.length > 0 && (
             <div
               className={`mt-8 grid grid-cols-2 gap-x-6 gap-y-8 ${
@@ -197,6 +197,7 @@ export default async function EnglishCaseStudyPage({ params }: Props) {
           <div className="mb-6">
             <SectionHeader
               locale="en"
+              icon="gallery"
               title="Project photos"
               description="Click an image to view full size"
             />

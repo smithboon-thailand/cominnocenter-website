@@ -7,6 +7,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
 import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
+import SectionIcon from "@/components/ui/SectionIcon";
 import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
 import { truncate } from "@/lib/text";
 import {
@@ -199,6 +200,7 @@ export default async function PaperSummaryPage({ params }: Props) {
 
         <section className="bg-ink-900">
           <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+            <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
             <h2 className="text-h2-m md:text-h2 text-white">อยากทำวิจัยร่วมกับเรา</h2>
             <p className="mx-auto mt-3 max-w-prose text-[17px] leading-[1.7] text-ink-300">
               เราเปิดรับความร่วมมือด้านงานวิจัย การประเมินผลโครงการ และการตีพิมพ์ร่วม

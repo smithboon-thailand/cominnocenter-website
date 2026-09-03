@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SectionHeader from "@/components/ui/SectionHeader";
 import ProjectGallery from "@/components/ProjectGallery";
 import { newsPosts, getNewsBySlug, newsImages, newsCover } from "@/data/news";
 import { getProjectBySlug } from "@/data/projects";
@@ -125,8 +126,9 @@ export default async function NewsDetailPageEn({ params }: Props) {
 
       {gallery.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 pb-16">
-          <h2 className="text-2xl font-medium text-blue-700 mb-2">Gallery</h2>
-          <p className="text-sm text-neutral-500 mb-6">Click an image to view full size</p>
+          <div className="mb-6">
+            <SectionHeader locale="en" icon="gallery" title="Gallery" description="Click an image to view full size" />
+          </div>
           <ProjectGallery images={gallery} />
         </section>
       )}

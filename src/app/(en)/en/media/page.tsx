@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import PageHero from "@/components/ui/PageHero";
 import MediaExplorer from "@/components/media/MediaExplorer";
+import SectionIcon from "@/components/ui/SectionIcon";
 import { mediaSorted } from "@/data/media";
 
 export const metadata = {
@@ -40,6 +41,7 @@ export default function MediaPageEn() {
 
       <section className="bg-ink-900">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
           <h2 className="text-h2-m md:text-h2 text-white">
             Want our professors at your event?
           </h2>

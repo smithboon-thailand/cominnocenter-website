@@ -50,6 +50,7 @@ export default function ProjectFooterNav({ slug, locale = "th" }: ProjectFooterN
           <div className="mx-auto max-w-7xl px-6 py-16">
             <SectionHeader
               locale={locale}
+              icon="relatedProjects"
               title={t.relatedTitle}
               description={t.relatedDesc}
             />
@@ -75,7 +76,7 @@ export default function ProjectFooterNav({ slug, locale = "th" }: ProjectFooterN
 
       {news.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-12">
-          <SectionHeader locale={locale} title={t.newsTitle} />
+          <SectionHeader locale={locale} icon="relatedNews" title={t.newsTitle} />
           <ul className="mt-6 flex flex-col divide-y divide-ink-100 border-t border-ink-100">
             {news.map((post) => (
               <li key={post.slug}>

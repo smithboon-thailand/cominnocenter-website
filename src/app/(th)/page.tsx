@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import VideoShowcase from "@/components/VideoShowcase";
 import ContextCTA from "@/components/ui/ContextCTA";
+import SectionIcon from "@/components/ui/SectionIcon";
 import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
@@ -342,6 +343,7 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
+          <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
           <h2 className="text-h2-m md:text-h2 text-white">
             มีโจทย์การสื่อสารที่อยากเห็นผลจริงไหม
           </h2>

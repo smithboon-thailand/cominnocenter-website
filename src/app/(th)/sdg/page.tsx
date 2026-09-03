@@ -4,6 +4,7 @@ import Stat from "@/components/ui/Stat";
 import SdgPosterGrid from "@/components/ui/SdgPosterGrid";
 import SdgWheel from "@/components/sdg/SdgWheel";
 import Button from "@/components/ui/Button";
+import SectionIcon from "@/components/ui/SectionIcon";
 import { projects } from "@/data/projects";
 import { partners } from "@/data/partners";
 import { SDG_IDS } from "@/data/sdg";
@@ -59,6 +60,7 @@ export default function SdgPage() {
 
       <section className="bg-ink-900">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+          <SectionIcon role="invite" onDark className="mx-auto mb-4 h-9 w-9" />
           <h2 className="text-h2-m md:text-h2 text-white">
             เป้าหมายไหนที่องค์กรของคุณกำลังขับเคลื่อน
           </h2>
