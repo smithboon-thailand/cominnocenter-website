@@ -160,8 +160,12 @@ export function scholarlyArticleSchema(args: {
   doi?: string;
   /** URL หน้าบทความที่วารสาร — ใช้เป็นที่อยู่ถาวรแทน DOI เมื่อไม่มี DOI */
   indexUrl?: string;
-  /** ภาษาที่ตัวบทความเขียน ไม่ใช่ภาษาของหน้าเว็บที่สรุป */
-  inLanguage: "th" | "en";
+  /**
+   * ภาษาที่ตัวบทความเขียน ไม่ใช่ภาษาของหน้าเว็บที่สรุป
+   * (เพิ่ม "ru" เมื่อ 3 ก.ย. 2569 — ผลงานร่วมกับมหาวิทยาลัยรัฐเซนต์ปีเตอร์สเบิร์ก
+   *  ตีพิมพ์เป็นภาษารัสเซีย ดูเหตุผลเต็มที่ `articleLanguage` ใน paperSummaries.ts)
+   */
+  inLanguage: "th" | "en" | "ru";
   authors: string[];
   authorName: (slug: string) => string;
   path: string;
