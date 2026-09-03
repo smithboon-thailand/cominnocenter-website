@@ -1,0 +1,40 @@
+name: Verify
+
+# รัน `npm run verify` ชุดเดียวกับที่ CLAUDE.md ข้อ 6 บังคับให้รันก่อน push
+# แต่รันอัตโนมัติทุก PR ที่จะเข้า main — เพราะกฎที่ต้องอาศัยความจำของคนทำงาน
+# จะถูกลืมในวันที่รีบ และ main คือเว็บ production จริง (www.cominnocenter.com)
+#
+# **จงใจไม่ผูก verify เข้ากับ `npm run build`** ตามเหตุผลใน CLAUDE.md ข้อ 6:
+# Vercel รัน build ตอน deploy ถ้าสคริปต์ตรวจพลาดจะทำให้เว็บจริง deploy ไม่ได้
+# ซึ่งร้ายแรงกว่าบั๊กที่มันกัน · ที่นี่คือที่ที่ถูกต้องสำหรับมัน — ขวางที่ PR
+# ไม่ใช่ขวางที่ deploy
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# ถ้ามี commit ใหม่ตามมาติดๆ ให้ยกเลิกรอบเก่า จะได้ไม่ต่อคิวรอผลที่ล้าสมัยแล้ว
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: lint + build + text + images + citations + routes
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # check:citations และ check:routes รันด้วย --experimental-strip-types
+          # ซึ่งต้อง Node 22.6 ขึ้นไป — อย่าลดเลขนี้ลงโดยไม่เปลี่ยนสองสคริปต์นั้นด้วย
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run verify

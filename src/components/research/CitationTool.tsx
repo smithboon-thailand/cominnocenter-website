@@ -5,7 +5,8 @@ import type { CitationMeta, PublicationEntry } from "@/data/publications";
 import {
   CITATION_STYLES,
   citationFilename,
-  formatCitation,
+  citationSegments,
+  plainCitation,
   type CitationStyle,
 } from "@/lib/citation";
 
@@ -69,7 +70,8 @@ export default function CitationTool({
   const [failed, setFailed] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const text = formatCitation(style, publication, citation);
+  const parts = citationSegments(style, publication, citation);
+  const text = plainCitation(parts);
   const current = CITATION_STYLES.find((s) => s.id === style)!;
 
   // เคลียร์ตัวตั้งเวลาเมื่อ component ถูกถอด กัน setState หลัง unmount
@@ -146,12 +148,17 @@ export default function CitationTool({
         ))}
       </div>
 
-      {/* ใช้ pre เพราะ BibTeX กับ RIS ต้องคงการขึ้นบรรทัดและการเยื้อง */}
+      {/* ใช้ pre เพราะ BibTeX กับ RIS ต้องคงการขึ้นบรรทัดและการเยื้อง
+          ตัวเอนเป็นส่วนหนึ่งของรูปแบบ APA/MLA ไม่ใช่การตกแต่ง — ชื่อวารสารและ
+          ชื่อหนังสือต้องเอน ผู้ที่ลากคลุมแล้วคัดลอกจากหน้าเว็บจะได้ตัวเอนติดไปด้วย
+          ส่วนปุ่มคัดลอกส่งเป็นข้อความล้วนตามธรรมชาติของคลิปบอร์ด */}
       <pre
         className="mt-4 max-h-72 overflow-auto whitespace-pre-wrap break-words rounded-md border
           border-ink-300 bg-white p-4 text-[14px] leading-[1.7] text-ink-900"
       >
-        {text}
+        {parts.map((part, i) =>
+          part.italic ? <em key={i}>{part.text}</em> : <span key={i}>{part.text}</span>,
+        )}
       </pre>
 
       <div className="mt-4 flex flex-wrap items-center gap-3">

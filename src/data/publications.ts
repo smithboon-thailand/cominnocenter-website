@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-01)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-03)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -62,7 +62,15 @@ export type CitationMeta = {
   containerTitle: string;
   volume: string;
   issue: string;
+  /** ช่วงหน้าจริง เช่น "144-154" — ว่างเมื่อวารสารใช้เลขบทความแทนเลขหน้า */
   page: string;
+  /**
+   * เลขบทความ (article number / eLocator) เช่น "e0317506" หรือ "77"
+   *
+   * **คนละช่องกับ page โดยตั้งใจ** APA 7 ต้องใส่คำว่า "Article" นำหน้า
+   * ส่วน MLA 9 ต้องไม่ใส่ "pp." ถ้าเก็บรวมกันจะแยกไม่ออกตอนสร้างการอ้างอิง
+   */
+  articleNumber: string;
   publisher: string;
   year: number;
   month: number;
@@ -107,6 +115,7 @@ export const publications: PublicationEntry[] = [
       "volume": "12",
       "issue": "1",
       "page": "",
+      "articleNumber": "77",
       "publisher": "Springer Science and Business Media LLC",
       "year": 2026,
       "month": 4,
@@ -180,6 +189,7 @@ export const publications: PublicationEntry[] = [
       "volume": "11",
       "issue": "",
       "page": "151",
+      "articleNumber": "",
       "publisher": "F1000 Research Ltd",
       "year": 2026,
       "month": 2,
@@ -218,6 +228,7 @@ export const publications: PublicationEntry[] = [
       "volume": "13",
       "issue": "1",
       "page": "",
+      "articleNumber": "2675861",
       "publisher": "Informa UK Limited",
       "year": 2026,
       "month": 5,
@@ -256,6 +267,7 @@ export const publications: PublicationEntry[] = [
       "volume": "13",
       "issue": "1",
       "page": "",
+      "articleNumber": "2647143",
       "publisher": "Informa UK Limited",
       "year": 2026,
       "month": 3,
@@ -289,6 +301,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "",
+      "articleNumber": "",
       "publisher": "Common Ground Research Networks",
       "year": 2026,
       "month": 3,
@@ -329,6 +342,7 @@ export const publications: PublicationEntry[] = [
       "volume": "28",
       "issue": "1",
       "page": "1-19",
+      "articleNumber": "",
       "publisher": "Walter de Gruyter GmbH",
       "year": 2025,
       "month": 11,
@@ -367,7 +381,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "PLOS ONE",
       "volume": "20",
       "issue": "2",
-      "page": "e0317506",
+      "page": "",
+      "articleNumber": "e0317506",
       "publisher": "Public Library of Science (PLoS)",
       "year": 2025,
       "month": 2,
@@ -402,6 +417,7 @@ export const publications: PublicationEntry[] = [
       "volume": "12",
       "issue": "4",
       "page": "461-480",
+      "articleNumber": "",
       "publisher": "Intellect",
       "year": 2025,
       "month": 10,
@@ -431,6 +447,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "",
+      "articleNumber": "",
       "publisher": "Springer Nature Singapore",
       "year": 2025,
       "month": 0,
@@ -469,6 +486,7 @@ export const publications: PublicationEntry[] = [
       "volume": "11",
       "issue": "1",
       "page": "",
+      "articleNumber": "",
       "publisher": "Informa UK Limited",
       "year": 2025,
       "month": 7,
@@ -513,6 +531,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "",
+      "articleNumber": "",
       "publisher": "SAGE Publications",
       "year": 2025,
       "month": 12,
@@ -552,6 +571,7 @@ export const publications: PublicationEntry[] = [
       "volume": "11",
       "issue": "1",
       "page": "",
+      "articleNumber": "2402513",
       "publisher": "Informa UK Limited",
       "year": 2024,
       "month": 9,
@@ -591,6 +611,7 @@ export const publications: PublicationEntry[] = [
       "volume": "9",
       "issue": "",
       "page": "347",
+      "articleNumber": "",
       "publisher": "F1000 Research Ltd",
       "year": 2024,
       "month": 6,
@@ -635,6 +656,7 @@ export const publications: PublicationEntry[] = [
       "volume": "11",
       "issue": "3",
       "page": "517-526",
+      "articleNumber": "",
       "publisher": "Intellect",
       "year": 2024,
       "month": 10,
@@ -651,7 +673,35 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Lamoonpot",
+          "given": "Kittiphum",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Media Education (Mediaobrazovanie)",
+      "volume": "20",
+      "issue": "2",
+      "page": "239-250",
+      "articleNumber": "",
+      "publisher": "Cherkas Global University Press",
+      "year": 2024,
+      "month": 5,
+      "day": 25
+    }
   },
   {
     "title": "Praxeological Status of Unintentional Speech Acts",
@@ -676,6 +726,7 @@ export const publications: PublicationEntry[] = [
       "volume": "54",
       "issue": "4",
       "page": "591-606",
+      "articleNumber": "",
       "publisher": "Wiley",
       "year": 2024,
       "month": 10,
@@ -691,7 +742,30 @@ export const publications: PublicationEntry[] = [
     "doi": "10.4324/9781032670508-11",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Tonsaithong",
+          "given": "Chanajai",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Multi-Stakeholder Contribution in Asian Environmental Communication",
+      "volume": "",
+      "issue": "",
+      "page": "103-121",
+      "articleNumber": "",
+      "publisher": "Routledge",
+      "year": 2024,
+      "month": 5,
+      "day": 13
+    }
   },
   {
     "title": "Philosophical Foundations of Communication Studies",
@@ -716,6 +790,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "",
+      "articleNumber": "",
       "publisher": "Springer Nature Singapore",
       "year": 2024,
       "month": 0,
@@ -744,6 +819,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "44-53",
+      "articleNumber": "",
       "publisher": "Universitas Prof. Dr. Moestopo Beragama",
       "year": 2024,
       "month": 6,
@@ -772,6 +848,7 @@ export const publications: PublicationEntry[] = [
       "volume": "28",
       "issue": "1",
       "page": "",
+      "articleNumber": "",
       "publisher": "Mises Institute",
       "year": 2024,
       "month": 9,
@@ -811,7 +888,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "Heliyon",
       "volume": "9",
       "issue": "4",
-      "page": "e15478",
+      "page": "",
+      "articleNumber": "e15478",
       "publisher": "Elsevier BV",
       "year": 2023,
       "month": 4,
@@ -846,6 +924,7 @@ export const publications: PublicationEntry[] = [
       "volume": "45",
       "issue": "2-3",
       "page": "63-79",
+      "articleNumber": "",
       "publisher": "Informa UK Limited",
       "year": 2023,
       "month": 5,
@@ -885,6 +964,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "2-9",
+      "articleNumber": "",
       "publisher": "IEEE",
       "year": 2023,
       "month": 10,
@@ -901,7 +981,25 @@ export const publications: PublicationEntry[] = [
     "citations": 1,
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "PASAA",
+      "volume": "65",
+      "issue": "1",
+      "page": "203-233",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2023,
+      "month": 1,
+      "day": 0
+    }
   },
   {
     "title": "Segmenting Thai Generation Z Consumers on Cruelty-free Products: Their Value, Attitude, Brand Loyalty, and Purchase Intention",
@@ -916,15 +1014,21 @@ export const publications: PublicationEntry[] = [
     "citation": {
       "authors": [
         {
-          "family": "",
-          "given": "",
-          "literal": "Emmika Lounporn"
+          "family": "Lounporn",
+          "given": "Emmika",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
         }
       ],
       "containerTitle": "Communication and Media in Asia Pacific",
       "volume": "6",
-      "issue": "",
+      "issue": "1",
       "page": "52-62",
+      "articleNumber": "",
       "publisher": "Chulalongkorn University",
       "year": 2023,
       "month": 0,
@@ -970,6 +1074,7 @@ export const publications: PublicationEntry[] = [
       "volume": "31",
       "issue": "4",
       "page": "683-701",
+      "articleNumber": "",
       "publisher": "Institute of Social Sciences Ivo Pilar",
       "year": 2022,
       "month": 12,
@@ -1013,7 +1118,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "Thinking Skills and Creativity",
       "volume": "44",
       "issue": "",
-      "page": "101017",
+      "page": "",
+      "articleNumber": "101017",
       "publisher": "Elsevier BV",
       "year": 2022,
       "month": 6,
@@ -1048,6 +1154,7 @@ export const publications: PublicationEntry[] = [
       "volume": "70",
       "issue": "2",
       "page": "162-177",
+      "articleNumber": "",
       "publisher": "SAGE Publications",
       "year": 2022,
       "month": 3,
@@ -1082,7 +1189,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "American Behavioral Scientist",
       "volume": "",
       "issue": "",
-      "page": "000276422211182",
+      "page": "",
+      "articleNumber": "",
       "publisher": "SAGE Publications",
       "year": 2022,
       "month": 8,
@@ -1117,6 +1225,7 @@ export const publications: PublicationEntry[] = [
       "volume": "9",
       "issue": "1",
       "page": "",
+      "articleNumber": "2102481",
       "publisher": "Informa UK Limited",
       "year": 2022,
       "month": 7,
@@ -1136,11 +1245,6 @@ export const publications: PublicationEntry[] = [
     "citation": {
       "authors": [
         {
-          "family": "",
-          "given": "",
-          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
-        },
-        {
           "family": "Boonchutima",
           "given": "Smith",
           "literal": ""
@@ -1149,11 +1253,6 @@ export const publications: PublicationEntry[] = [
           "family": "Kreeprasertkul",
           "given": "Kanokpar",
           "literal": ""
-        },
-        {
-          "family": "",
-          "given": "",
-          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
         },
         {
           "family": "Sarika",
@@ -1166,19 +1265,9 @@ export const publications: PublicationEntry[] = [
           "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
-        },
-        {
           "family": "Yamkachorn",
           "given": "Natnaree",
           "literal": ""
-        },
-        {
-          "family": "",
-          "given": "",
-          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
         },
         {
           "family": "Jumpee",
@@ -1186,25 +1275,16 @@ export const publications: PublicationEntry[] = [
           "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
-        },
-        {
           "family": "Prasansutthiporn",
           "given": "Monthip",
           "literal": ""
-        },
-        {
-          "family": "",
-          "given": "",
-          "literal": "Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand"
         }
       ],
       "containerTitle": "Journal of Public Health and Development",
       "volume": "20",
       "issue": "1",
       "page": "",
+      "articleNumber": "",
       "publisher": "ASEAN Institute for Health Development",
       "year": 2022,
       "month": 1,
@@ -1243,6 +1323,7 @@ export const publications: PublicationEntry[] = [
       "volume": "21",
       "issue": "2",
       "page": "144-154",
+      "articleNumber": "",
       "publisher": "Termedia Sp. z.o.o.",
       "year": 2022,
       "month": 4,
@@ -1294,6 +1375,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "",
       "page": "",
+      "articleNumber": "",
       "publisher": "Springer Singapore",
       "year": 2021,
       "month": 0,
@@ -1364,7 +1446,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "Tripodos",
       "volume": "",
       "issue": "48",
-      "page": "53-68",
+      "page": "53-67",
+      "articleNumber": "",
       "publisher": "Blanquerna - Universitat Ramon Llull",
       "year": 2020,
       "month": 12,
@@ -1399,6 +1482,7 @@ export const publications: PublicationEntry[] = [
       "volume": "65",
       "issue": "3",
       "page": "482-511",
+      "articleNumber": "",
       "publisher": "SAGE Publications",
       "year": 2020,
       "month": 12,
@@ -1460,6 +1544,7 @@ export const publications: PublicationEntry[] = [
       "volume": "18",
       "issue": "4",
       "page": "285-295",
+      "articleNumber": "",
       "publisher": "Termedia Sp. z.o.o.",
       "year": 2019,
       "month": 10,
@@ -1498,7 +1583,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "American Behavioral Scientist",
       "volume": "",
       "issue": "",
-      "page": "000276421879369",
+      "page": "",
+      "articleNumber": "",
       "publisher": "SAGE Publications",
       "year": 2018,
       "month": 8,
@@ -1506,7 +1592,7 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
-    "title": "s Video-art Becoming a Form of Popular Art? The case of Apple TV’s Aerial Screen Savers",
+    "title": "Is Video-art Becoming a Form of Popular Art? The case of Apple TV’s Aerial Screen Savers",
     "venue": "IAFOR Journal of Cultural Studies",
     "year": 2018,
     "type": "journal-article",
@@ -1528,6 +1614,7 @@ export const publications: PublicationEntry[] = [
       "volume": "3",
       "issue": "1",
       "page": "",
+      "articleNumber": "",
       "publisher": "The International Academic Forum (IAFOR)",
       "year": 2018,
       "month": 4,
@@ -1572,6 +1659,7 @@ export const publications: PublicationEntry[] = [
       "volume": "",
       "issue": "42",
       "page": "21-38",
+      "articleNumber": "",
       "publisher": "Blanquerna - Universitat Ramon Llull",
       "year": 2018,
       "month": 6,
@@ -1613,9 +1701,10 @@ export const publications: PublicationEntry[] = [
         }
       ],
       "containerTitle": "Psychology Research and Behavior Management",
-      "volume": "Volume 10",
+      "volume": "10",
       "issue": "",
       "page": "31-38",
+      "articleNumber": "",
       "publisher": "Informa UK Limited",
       "year": 2017,
       "month": 1,
@@ -1660,6 +1749,7 @@ export const publications: PublicationEntry[] = [
       "volume": "10",
       "issue": "6",
       "page": "836-841",
+      "articleNumber": "",
       "publisher": "Elsevier BV",
       "year": 2017,
       "month": 11,
@@ -1699,6 +1789,7 @@ export const publications: PublicationEntry[] = [
       "volume": "16",
       "issue": "4",
       "page": "226-235",
+      "articleNumber": "",
       "publisher": "Termedia Sp. z.o.o.",
       "year": 2017,
       "month": 12,
@@ -1719,11 +1810,6 @@ export const publications: PublicationEntry[] = [
     "citation": {
       "authors": [
         {
-          "family": "",
-          "given": "",
-          "literal": "St. Petersburg State University"
-        },
-        {
           "family": "Bykova",
           "given": "Elena V.",
           "literal": ""
@@ -1734,25 +1820,16 @@ export const publications: PublicationEntry[] = [
           "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "St. Petersburg State University"
-        },
-        {
           "family": "Slutskiy",
           "given": "Pavel A.",
           "literal": ""
-        },
-        {
-          "family": "",
-          "given": "",
-          "literal": "Chulalongkorn University"
         }
       ],
       "containerTitle": "Vestnik of Saint Petersburg University. Language and Literature",
       "volume": "14",
       "issue": "2",
       "page": "275-284",
+      "articleNumber": "",
       "publisher": "Saint Petersburg State University",
       "year": 2017,
       "month": 0,
@@ -1795,7 +1872,8 @@ export const publications: PublicationEntry[] = [
       "containerTitle": "International Journal of Social Sciences",
       "volume": "VI",
       "issue": "2",
-      "page": "",
+      "page": "63-76",
+      "articleNumber": "",
       "publisher": "European Research Center (EURREC)",
       "year": 2017,
       "month": 0,
@@ -1834,6 +1912,7 @@ export const publications: PublicationEntry[] = [
       "volume": "19",
       "issue": "2",
       "page": "90-108",
+      "articleNumber": "",
       "publisher": "Walter de Gruyter GmbH",
       "year": 2016,
       "month": 0,
@@ -1875,8 +1954,9 @@ export const publications: PublicationEntry[] = [
       ],
       "containerTitle": "",
       "volume": "30",
-      "issue": "",
-      "page": "",
+      "issue": "4",
+      "page": "231-239",
+      "articleNumber": "",
       "publisher": "Chulalongkorn University Press",
       "year": 2016,
       "month": 0,
@@ -1949,8 +2029,9 @@ export const publications: PublicationEntry[] = [
       ],
       "containerTitle": "",
       "volume": "29",
-      "issue": "",
-      "page": "",
+      "issue": "5",
+      "page": "395-401",
+      "articleNumber": "",
       "publisher": "Chulalongkorn University Press",
       "year": 2015,
       "month": 0,
@@ -1979,6 +2060,7 @@ export const publications: PublicationEntry[] = [
       "volume": "8",
       "issue": "2",
       "page": "111",
+      "articleNumber": "60300",
       "publisher": "Inderscience Publishers",
       "year": 2014,
       "month": 0,
@@ -2028,6 +2110,7 @@ export const publications: PublicationEntry[] = [
       "volume": "3",
       "issue": "4",
       "page": "53-70",
+      "articleNumber": "",
       "publisher": "Common Ground Research Networks",
       "year": 2012,
       "month": 0,

@@ -413,7 +413,7 @@ export const newsPosts: NewsPost[] = [
       "นิทรรศการนี้เป็นส่วนหนึ่งของโครงการวิจัย “การสื่อสารเรื่องการใช้ยาเพื่อลดความเสี่ยงโรคไต” ที่ได้รับทุนสนับสนุนจาก สสส. สะท้อนความมุ่งมั่นของศูนย์ฯ ในการพัฒนากลยุทธ์การสื่อสารด้านสุขภาพที่มีประสิทธิภาพสำหรับชุมชนไทย",
     ],
     bodyEn: [
-      "Assistant Professor Dr. Teerada Chongkolrattanaporn and Dr. Kamonrat Kitrungpaisan from our Public Relations Department collaborated with the Food and Drug Administration (FDA) and Thai Health Promotion Foundation to present an interactive exhibition on rational medication use at Thailand's First National Forum on Rational Drug Use.",
+      "Assistant Professor Dr. Teerada Chongkolrattanaporn and Dr. Kamonrat Kijrungpaisarn from our Public Relations Department collaborated with the Food and Drug Administration (FDA) and Thai Health Promotion Foundation to present an interactive exhibition on rational medication use at Thailand's First National Forum on Rational Drug Use.",
       "The event took place July 8–9, 2025 at Centara Life Government Complex, Bangkok, engaging healthcare professionals and the public through educational games and discussions about proper medication use.",
       "This initiative is part of our research project “Communication for Medication Use to Reduce Kidney Disease Risk,” funded by ThaiHealth, showcasing our center's commitment to developing effective health communication strategies for Thai communities.",
     ],

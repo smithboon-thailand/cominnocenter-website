@@ -35,6 +35,9 @@ const COPY = {
     index: "เปิดระเบียนในดัชนีวิชาการ",
     selfNote: "ข้อมูลจากโปรไฟล์ ORCID ของผู้เขียน",
     summary: "อ่านบทสรุปภาษาง่าย",
+    /* แผนวิจัยยังไม่มีผล ลิงก์จึงต้องไม่สัญญาว่าจะได้อ่าน "บทสรุปของงาน" */
+    summaryProtocol: "อ่านสรุปแผนวิจัย",
+    summaryArgument: "อ่านสรุปบทความเชิงแนวคิด",
     cite: "อ้างอิงงานนี้",
     citeHide: "ปิดการอ้างอิง",
     provenance:
@@ -52,6 +55,8 @@ const COPY = {
     index: "Open the record in an academic index",
     selfNote: "From the author's ORCID profile",
     summary: "Read the plain-language summary",
+    summaryProtocol: "Read the study-protocol summary",
+    summaryArgument: "Read the conceptual-article summary",
     cite: "Cite this",
     citeHide: "Hide citation",
     provenance:
@@ -271,7 +276,11 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                                   text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700
                                   focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
                               >
-                                {t.summary}
+                                {summary.kind === "protocol"
+                                  ? t.summaryProtocol
+                                  : summary.kind === "argument"
+                                    ? t.summaryArgument
+                                    : t.summary}
                                 <span aria-hidden="true">→</span>
                               </Link>
                             ) : null}

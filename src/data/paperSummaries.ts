@@ -109,6 +109,34 @@ export type PaperSummary = PaperRef & {
   /** ภาษาที่**ตัวบทความ**เขียน ไม่ใช่ภาษาของหน้าเว็บ — ส่งเข้า inLanguage ของ JSON-LD */
   articleLanguage: "th" | "en";
   /**
+   * ประเภทของงาน — **ไม่มีค่าแปลว่างานที่มีผลแล้ว**
+   *
+   * `"protocol"` คือ**ประกาศแผนวิจัย** ซึ่งวารสารตรวจและตีพิมพ์*แผน*ก่อนเริ่มเก็บ
+   * ข้อมูล เพื่อให้วิธีการถูกตรวจตั้งแต่ต้นและเทียบได้ภายหลังว่าผลที่รายงานตรงกับ
+   * ที่ประกาศไว้ไหม งานประเภทนี้**ยังไม่มีผลการศึกษา** ตัวบทความเขียนไว้เองว่า
+   * *"Since this is a study protocol, precise findings are not yet available"*
+   *
+   * เมื่อใส่ค่านี้ หน้าเว็บจะเปลี่ยนหัวข้อจาก "พบอะไร" เป็น "จะทำอะไร" ขึ้นป้าย
+   * บอกก่อนเนื้อหา และเปลี่ยนคำบนลิงก์ในหน้ารายการ — ต้องเปลี่ยนครบทั้งสามที่
+   * ไม่ใช่แค่ในหน้ารายละเอียด เพราะผู้อ่านที่กวาดสายตาผ่านรายการก็ต้องไม่เข้าใจผิด
+   * (เคยตัดงานสองชิ้นนี้ทิ้งใน PR #31 เพราะเติมหัวข้อ "พบอะไร" อย่างซื่อสัตย์ไม่ได้
+   *  · ผู้ใช้ทักเมื่อ 2 ก.ย. 2569 ว่าแผนวิจัยก็ควรมีหน้าของตัวเอง เพียงแต่ต้องเรียก
+   *  ให้ตรงกับสิ่งที่มันเป็น ซึ่งถูกกว่าการตัดทิ้ง — การประกาศแผนล่วงหน้าเป็นสิ่งที่
+   *  ศูนย์ฯ ควรแสดง ไม่ใช่สิ่งที่ต้องซ่อนจนกว่าจะมีผล)
+   *
+   * `"argument"` คือ**บทความเชิงแนวคิด** ที่ไม่ได้เก็บข้อมูลเชิงประจักษ์ตั้งแต่ต้น
+   * เป็นการให้เหตุผลทางทฤษฎีล้วนๆ (ปรัชญาการสื่อสาร ปรัชญากฎหมาย ทฤษฎีศิลปะ)
+   * หัวข้อเปลี่ยนเป็น "เสนออะไร / ให้เหตุผลอย่างไร" ด้วยตรรกะเดียวกับ `protocol`
+   * คือ **"พบอะไร" เติมอย่างซื่อสัตย์ไม่ได้กับงานที่ไม่มีสิ่งที่พบ**
+   *
+   * ป้ายของ `argument` **บอกด้วยว่าข้อเสนอเป็นของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ**
+   * เพราะงานกลุ่มนี้เสนอจุดยืนเชิงบรรทัดฐานที่ถกเถียงได้ — ถ้าไม่บอก ผู้อ่านย่อม
+   * อ่านหน้าบนเว็บของศูนย์ฯ ว่าเป็นคำแถลงของศูนย์ฯ ซึ่งเป็นปัญหาเดียวกับกติกาข้อ 5
+   * เพียงแต่คนละด้าน (ข้อ 5 กันการที่ศูนย์ฯ ดูเหมือนตัดสินใคร · ข้อนี้กันการที่
+   * ศูนย์ฯ ดูเหมือนประกาศจุดยืนทางปรัชญาแทนผู้เขียน)
+   */
+  kind?: "protocol" | "argument";
+  /**
    * คำบรรยายภาพประกอบหัวบทสรุป (บังคับ) — ไฟล์อยู่ที่
    * `public/images/research/summaries/<slug>.webp` พร้อมคู่ย่อ `-800` และ `-1200`
    * จึงเก็บแค่คำบรรยาย ไม่ต้องเก็บ path ซ้ำให้หลุดจากกันภายหลัง
@@ -814,6 +842,936 @@ export const paperSummaries: PaperSummary[] = [
         "The study puts a number on the attitude-behaviour gap content creators keep running into: followers trust the programme and will recommend it, but that has not converted into paid support. What the results point to is designing a ladder from the low-cost actions people already take up towards tangible support, rather than jumping straight to asking for donations.",
       caveat:
         "The authors state two limits themselves: some behaviours were measured only through questionnaire answers and may diverge from what people actually do, and 400 respondents remains a small sample against everyone who has followed programmes of this kind, so the conclusions do not yet cover the whole population.",
+    },
+  },
+  {
+    slug: "migrant-worker-exercise-codesign",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กล่องใบเล็กที่มีรูปทรงพอดีวางอยู่ข้างใน ขณะที่รูปทรงใหญ่กว่าวางค้างอยู่ข้างนอก",
+    illustrationAltEn:
+      "Paper-craft illustration of a small box holding the one shape that fits, with a larger shape left outside it",
+    doi: "10.1186/s40900-026-00891-8",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "migrant-worker-exercise-codesign.pdf",
+    th: {
+      headline: "ถามคนทำงานก่อนออกแบบ จึงได้ท่าบริหารที่ทำได้จริงในห้องพักและนอกเวลางาน",
+      question:
+        "แรงงานข้ามชาติชาวเมียนมาในโรงงานอาหารทะเลของไทยเจ็บป่วยจากงานซ้ำๆ อย่างการแกะกุ้งและยืนนาน แต่โครงการสุขภาพทั่วไปเข้าไม่ถึงคนกลุ่มนี้เพราะกำแพงภาษาและวัฒนธรรม งานนี้ถามว่าถ้าให้คนทำงานร่วมออกแบบตั้งแต่ต้น โปรแกรมที่ได้จะต่างจากที่ผู้เชี่ยวชาญออกแบบเองอย่างไร",
+      method:
+        "งานออกแบบร่วมแบบผสมวิธี จัดวงสนทนากับแรงงานชาวเมียนมา 29 คน แบ่งสามกลุ่มตามอายุงาน (น้อยกว่า 2 ปี 10 คน · 2–5 ปี 11 คน · มากกว่า 5 ปี 8 คน) ทั้งหมดมาจากโรงงานเดียว คุยด้วยภาษาเมียนมาและจัดเวลาให้เข้ากับกะทำงาน 12 ชั่วโมง ประกอบกับการคุยกับฝ่ายบุคคลและหัวหน้าสายการผลิต 5 คน แล้วส่งให้นักกายภาพบำบัดต่างประเทศ 4 คนตรวจความตรงเชิงเนื้อหา · ขอความยินยอมเป็นรายบุคคลโดยไม่มีฝ่ายบริหารอยู่ด้วย ให้เวลาตัดสินใจ 48 ชั่วโมง และไม่ให้หัวหน้างานเป็นผู้ชี้ตัวผู้เข้าร่วม",
+      findings: [
+        "**แรงงานทั้ง 29 คนมีอาการที่มือทุกคน** ทั้งชา เสียว และปวด · 25 คน (86%) มีอาการมือแข็งตอนเช้าจนกระทบชีวิตนอกงานด้วย · ปวดคอ 79% ปวดหลังส่วนล่าง 72% ปวดข้อเท้า 45%",
+        "**23 คนจาก 29 (79%) ซื้อยาแก้ปวดกินเองอย่างน้อยสัปดาห์ละครั้ง** และบางคนกลับไปทำงานแบบเดิมทันทีหลังผ่าตัด สะท้อนว่าคนกลุ่มนี้พยายามดูแลตัวเองอยู่แล้ว แต่ด้วยวิธีที่เสี่ยง",
+        "**26 คนจาก 29 (89.7%) ใช้เฟซบุ๊กทุกวัน** และเลือกช่องทางนี้เพราะเปิดดูเรื่องสุขภาพได้โดยหัวหน้าไม่เห็น · ขอเป็นวิดีโอสาธิตมากกว่าเอกสาร และ**ปฏิเสธการอบรมแบบบังคับในวันหยุดวันเดียวของสัปดาห์**",
+        "อุปสรรคเข้าถึงบริการสุขภาพที่แรงงานเล่าเอง — บุคลากรไม่พูดภาษาพม่า ล่ามในโรงพยาบาลรัฐพูดจาไม่ให้เกียรติ ประกันของโรงงานคุ้มครองเฉพาะอุบัติเหตุเฉียบพลันไม่ครอบคลุมอาการเรื้อรัง และถูกเลือกปฏิบัติ",
+        "ข้อกำหนดที่แรงงานตั้งเองกลายเป็นโจทย์ออกแบบ — ท่าบริหารต้องทำได้ในพื้นที่แคบระดับห้องพัก ไม่ใช้อุปกรณ์ ทำนอกเวลางาน และไม่ทำให้รายได้ลดลง เพราะทุกคนมีภาระส่งเงินกลับบ้าน",
+        "ผลลัพธ์คือชุดท่าบริหาร 12 ท่า 4 สัปดาห์ ที่**ผ่านการตรวจความตรงเชิงเนื้อหาจากผู้เชี่ยวชาญในระดับสูง** (I-CVI 0.95–1.00 · S-CVI/Ave 0.94) แสดงว่าการฟังคนทำงานไม่ได้ทำให้คุณภาพทางคลินิกลดลง",
+      ],
+      soWhat:
+        "บทเรียนที่ใช้ได้กับงานสื่อสารสุขภาพทุกแบบคือ ข้อจำกัดที่คนหน้างานบอกไม่ใช่ข้อจำกัดที่ต้องยอมแลกกับคุณภาพ แต่เป็นเงื่อนไขที่ทำให้โปรแกรมถูกใช้จริง · การเลือกช่องทางที่คนกลุ่มเป้าหมายใช้อยู่แล้วและปกปิดตัวตนได้ สำคัญกว่าการเลือกช่องทางที่องค์กรถนัด",
+      caveat:
+        "**งานนี้เป็นการออกแบบร่วม ไม่ใช่การทดสอบว่าท่าบริหารได้ผลจริง** สิ่งที่พิสูจน์แล้วคือกระบวนการออกแบบให้ผลลัพธ์ที่ทั้งใช้ได้จริงและผ่านมาตรฐานคลินิก ส่วนผลต่อสุขภาพจะรู้ในระยะถัดไปที่ยังไม่ได้ทำ · เก็บข้อมูลจากโรงงานเดียว 29 คน ด้วยการเลือกตัวอย่างตามสะดวก จึงไม่ใช่ภาพแทนแรงงานข้ามชาติทั้งอุตสาหกรรม",
+    },
+    en: {
+      headline: "Ask the workers first, and you get exercises that fit a dormitory room and the hours they actually have",
+      question:
+        "Myanmar migrant workers in Thailand's seafood plants are injured by repetitive tasks such as shrimp peeling and long hours standing, yet ordinary health programmes never reach them because of language and cultural barriers. This study asked what changes when the workers help design the programme from the start.",
+      method:
+        "A mixed-methods co-design study. Engagement sessions were held with 29 Myanmar workers in three groups by length of service (under 2 years, 10; 2–5 years, 11; over 5 years, 8), all from a single factory, conducted in Myanmar language and scheduled around 12-hour shifts. Five workplace stakeholders (HR managers and line supervisors) were consulted, and four international physical therapists assessed content validity. Consent was taken privately without management present, with 48 hours to decide, and supervisors did not refer participants.",
+      findings: [
+        "**Every one of the 29 workers reported hand symptoms** — numbness, tingling and pain. Twenty-five (86%) had morning hand stiffness that affected life outside work as well. Neck pain 79%, lower back pain 72%, ankle pain 45%.",
+        "**23 of the 29 (79%) bought over-the-counter painkillers at least weekly**, and some returned to identical work straight after surgery — this group was already trying to manage its own health, but by risky means.",
+        "**26 of 29 (89.7%) used Facebook daily** and chose it because they could read about health without supervisors seeing. They asked for video demonstrations rather than written material, and **rejected compulsory workshops on their single day off**.",
+        "Barriers to care named by the workers themselves: providers who do not speak Burmese, interpreters in government hospitals who treated them disrespectfully, workplace insurance covering only acute injury rather than chronic conditions, and discrimination.",
+        "The constraints the workers set became the design brief — exercises had to work in a dormitory-sized space, need no equipment, run outside working hours, and never reduce earnings, since all of them send money home.",
+        "The result was a 12-exercise, four-week programme that **scored highly on expert content validity** (I-CVI 0.95–1.00; S-CVI/Ave 0.94), showing that listening to workers did not cost clinical quality.",
+      ],
+      soWhat:
+        "The transferable lesson for any health communication work is that the constraints named by the people at the sharp end are not a trade-off against quality — they are the conditions under which a programme gets used at all. Choosing a channel the audience already uses, and can use privately, matters more than choosing the channel the organisation is comfortable with.",
+      caveat:
+        "**This is a co-design study, not a test of whether the exercises work.** What it demonstrates is that the design process produced something both usable and clinically valid; the health effects belong to a later phase that has not been run. Evidence comes from one factory and 29 people recruited by purposive convenience sampling, so it does not represent migrant workers across the industry.",
+    },
+  },
+  {
+    slug: "thailand-image-cannabis-youtube",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กองแผ่นกลมสีเดียวสูงท่วม กับกองสีที่สองที่เตี้ยมากอยู่ข้างๆ",
+    illustrationAltEn:
+      "Paper-craft illustration of one tall stack of discs in a single colour beside a second stack that is barely off the ground",
+    doi: "10.1371/journal.pone.0317506",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "thailand-image-cannabis-youtube.pdf",
+    th: {
+      headline: "โลกมองไทยหลังปลดล็อกกัญชาในแง่บวกท่วมท้น แต่แทบไม่มีคลิปไหนเตือนนักท่องเที่ยวเรื่องกฎหมายบ้านตัวเอง",
+      question:
+        "หลังไทยปลดล็อกกัญชาเมื่อ 9 มิถุนายน 2565 ภาพของประเทศบนยูทูบซึ่งเป็นแหล่งข้อมูลหลักของนักท่องเที่ยวทั่วโลกถูกเล่าออกมาอย่างไร ใครเป็นคนเล่า และเล่าครบหรือไม่",
+      method:
+        "วิเคราะห์เนื้อหาคลิปยูทูบ 57 คลิป ที่เผยแพร่ระหว่าง 9 มีนาคม ถึง 9 กันยายน 2565 คือสามเดือนก่อนและสามเดือนหลังวันปลดล็อก แบ่งเป็นคลิปข่าว 30 คลิป (52.6%) และวล็อก 27 คลิป (47.4%) วิเคราะห์ด้วยกรอบการประกอบสร้างข่าวและภาพลักษณ์ประเทศ",
+      findings: [
+        "**คลิปร้อยละ 81 เผยแพร่หลังวันประกาศปลดล็อก** และกระจุกตัวในเดือนมิถุนายนที่มีถึง 21 คลิป (36.8%) ก่อนจะลดเหลือ 2 คลิป (3.5%) ในเดือนกันยายน",
+        "**โทนโดยรวมเป็นบวก 43 คลิป (75.4%)** ลบเพียง 4 คลิป (7.0%) ก้ำกึ่ง 9 คลิป (15.8%) และเป็นกลาง 1 คลิป (1.8%)",
+        "มิติที่ถูกพูดถึงมากที่สุดคือมิติอารมณ์ 89.5% รองมาคือมิติสังคม 82.5% และกายภาพ 77.2% ส่วนมิติการเมืองถูกพูดถึงน้อยที่สุดที่ 50.9%",
+        "**คนที่ถูกอ้างเป็นเสียงแรกคือคนไทยทั่วไป 42.1% และเจ้าหน้าที่รัฐไทย 26.3%** รวมกันเกือบเจ็ดในสิบ แปลว่าเรื่องเล่าที่โลกได้ยินมาจากฝั่งไทยเป็นหลัก",
+        "**คลิปจำนวนมากมีเสียงเดียว** — 28.1% ไม่มีผู้ถูกอ้างคนที่สองเลย และ 64.9% ไม่มีคนที่สาม",
+        "**มีคลิปจำนวนน้อยมากที่เตือนนักท่องเที่ยวเรื่องความยุ่งยากทางกฎหมายเมื่อกลับประเทศตัวเอง** ทั้งที่เป็นข้อมูลที่ผู้ชมกลุ่มนี้ต้องใช้มากที่สุด",
+      ],
+      soWhat:
+        "สำหรับงานสื่อสารภาพลักษณ์ประเทศ ผลนี้ชี้ว่าการเปลี่ยนนโยบายครั้งใหญ่สร้างความสนใจได้จริงและได้โทนบวก แต่ความสนใจนั้นมีอายุสั้นและกระจุกอยู่ที่ช่วงประกาศ · ที่สำคัญกว่าคือเรื่องเล่าที่บวกแต่ไม่ครบอาจทำให้ผู้ชมตัดสินใจโดยขาดข้อมูลที่จำเป็น ซึ่งย้อนกลับมากระทบชื่อเสียงของประเทศได้ในภายหลัง",
+      caveat:
+        "วิเคราะห์คลิปเพียง 57 คลิปจากแพลตฟอร์มเดียวในช่วงหกเดือน จึงเป็นภาพช่วงเวลาหนึ่งไม่ใช่ภาพรวมของสื่อทั้งหมด · ผู้เขียนเองเสนอให้งานต่อไปขยายทั้งขนาดตัวอย่างและแหล่งข้อมูล · ข้อมูลเก็บปี 2565 ก่อนที่ทิศทางนโยบายกัญชาของไทยจะเปลี่ยนอีกครั้ง",
+    },
+    en: {
+      headline: "The world's picture of Thailand after cannabis legalisation was overwhelmingly positive — and almost never mentioned the law back home",
+      question:
+        "After Thailand legalised cannabis on 9 June 2022, how was the country portrayed on YouTube — a primary information source for travellers worldwide — who was doing the telling, and was the account complete?",
+      method:
+        "A content analysis of 57 YouTube clips published between 9 March and 9 September 2022, the three months either side of legalisation: 30 news segments (52.6%) and 27 vlogs (47.4%), analysed through media framing and nation-image frameworks.",
+      findings: [
+        "**81% of the clips appeared after the legalisation announcement**, concentrated in June with 21 clips (36.8%), falling to just 2 clips (3.5%) by September.",
+        "**Overall tone was positive in 43 clips (75.4%)**, negative in only 4 (7.0%), ambivalent in 9 (15.8%) and neutral in 1 (1.8%).",
+        "The most covered dimension was emotional at 89.5%, then social at 82.5% and physical at 77.2%. The political dimension was covered least, at 50.9%.",
+        "**The first-quoted voice was an ordinary Thai citizen in 42.1% of clips and a Thai government official in 26.3%** — together nearly seven in ten, meaning the story the world heard came mainly from the Thai side.",
+        "**Many clips carried a single voice** — 28.1% quoted no second actor at all, and 64.9% quoted no third.",
+        "**Very few clips warned travellers about the legal complications of returning to their own countries**, the very information that audience most needed.",
+      ],
+      soWhat:
+        "For nation-image work, this shows a major policy change can generate real attention in a favourable tone — but that the attention is short-lived and clusters around the announcement. More importantly, an account that is positive but incomplete can leave audiences deciding without information they need, which can rebound on the country's reputation later.",
+      caveat:
+        "Only 57 clips from a single platform over six months, so this is a snapshot rather than a picture of all media coverage. The authors themselves call for larger samples and more sources in future work. The data was collected in 2022, before the direction of Thai cannabis policy shifted again.",
+    },
+  },
+  {
+    slug: "health-officers-knowledge-sharing",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ประตูบานใหม่ที่ปิดอยู่ ข้างๆ มีบานเก่าที่เปิดค้างและมีร่องรอยการใช้งาน",
+    illustrationAltEn:
+      "Paper-craft illustration of a new door standing shut beside an older, well-worn one that is propped open",
+    doi: "10.14456/jhr.2015.30",
+    articleLanguage: "en",
+    th: {
+      headline: "อุปสรรคใหญ่ที่สุดคือไม่คุ้นเครื่องมือใหม่ เจ้าหน้าที่จึงเลือกเครื่องมือที่ใช้อยู่ทุกวันกับการเจอหน้ากัน",
+      question:
+        "ราชการไทยกำหนดให้ทุกหน่วยงานต้องจัดการความรู้ภายในองค์กร งานนี้ถามว่าเจ้าหน้าที่ที่ต้องทำจริงติดขัดตรงไหน และถ้าให้เลือกเอง เขาอยากแลกเปลี่ยนความรู้กันด้วยวิธีไหนและบนช่องทางใด",
+      method:
+        "สำรวจด้วยแบบสอบถามส่งทางไปรษณีย์ถึงเจ้าหน้าที่กรมควบคุมโรคที่รับผิดชอบงานสื่อสารสุขภาพทั่วประเทศ 111 คน (ชาย 41 หญิง 70) ตอบกลับครบ 100% เพราะผู้บริหารระดับสูงกำหนดให้ต้องตอบ · ใช้หัวข้อการสื่อสารป้องกันโรคเบาหวานเป็นกรณีตั้งต้น · แบบสอบถาม 18 ข้อผ่านการตรวจความตรงเชิงเนื้อหาจากผู้เชี่ยวชาญ 5 ท่าน · ตอบได้มากกว่าหนึ่งข้อต่อคำถาม",
+      findings: [
+        "**อุปสรรคอันดับหนึ่งคือไม่คุ้นเคยกับเทคโนโลยีใหม่ 54.1% (60 คน)** รองลงมาคือมักแบ่งปันเรื่องที่ไม่เกี่ยวข้อง 43.2% (48 คน) และความไม่สะดวกในการประสานงาน 40.5% (45 คน)",
+        "**ไม่อยากเปิดเผยข้อมูล 36.9% (41 คน) และไม่มีแรงจูงใจ 32.4% (36 คน)** ขณะที่ 25.2% (28 คน) ระบุว่าปัญหาคือการถูกบังคับให้เข้าร่วม",
+        "**ช่องทางที่เลือกมากที่สุดคือเฟซบุ๊ก 53.2% (59 คน)** ทิ้งห่างเว็บบอร์ดและอีเมลที่ได้เท่ากันที่ 19.8% แชท 18.9% ประชุมทางไกล 18.9% ส่วนทวิตเตอร์ได้เพียง 6.3%",
+        "**กิจกรรมที่อยากได้กลับเป็นแบบพบหน้า** — ประชุมและศึกษาดูงาน 30.6% (34 คน) บรรยายและอบรมเชิงปฏิบัติการ 29.7% (33 คน) และมีพี่เลี้ยงคอยแนะ 27.0% (30 คน)",
+        "**องค์ประกอบกลุ่มที่ต้องการชัดเจนที่สุดคือกลุ่มคละประสบการณ์และมีพี่เลี้ยง 55.9% (62 คน)** เทียบกับกลุ่มที่มีแต่คนช่ำชองซึ่งได้เพียง 16.2% และกลุ่มมือใหม่ล้วน 6.3%",
+      ],
+      soWhat:
+        "คำตอบของคนหน้างานสวนทางกับสมมติฐานที่มักตั้งกันว่าการจัดการความรู้ต้องเริ่มที่แพลตฟอร์มใหม่ · เมื่ออุปสรรคอันดับหนึ่งคือความไม่คุ้นเคย การเพิ่มเครื่องมือใหม่ยิ่งทำให้ปัญหาหนักขึ้น สิ่งที่เจ้าหน้าที่เลือกคือช่องทางที่ใช้อยู่แล้วในชีวิตประจำวัน บวกกับคนที่คอยแนะ — เทคโนโลยีเป็นเรื่องรอง ความสัมพันธ์เป็นเรื่องหลัก",
+      caveat:
+        "**อัตราตอบกลับ 100% มาจากการที่ผู้บริหารกำหนดให้ตอบ ไม่ใช่ความสมัครใจ** ซึ่งอาจทำให้คำตอบโน้มไปทางที่คิดว่าองค์กรอยากได้ยิน และสอดคล้องกับที่ผู้ตอบ 25.2% ระบุเองว่าการถูกบังคับเข้าร่วมเป็นปัญหา · เป็นการสำรวจความชอบที่แจ้งเอง ไม่ใช่การสังเกตพฤติกรรมจริง · **เก็บข้อมูลปี 2557–2558** ตัวเลือกในแบบสอบถามยังมีไฮไฟฟ์ บทบาทของเฟซบุ๊กในที่ทำงานไทยจึงต่างจากปัจจุบันมาก · เก็บจากกรมเดียวและใช้หัวข้อเบาหวานเป็นกรณีตั้งต้น",
+    },
+    en: {
+      headline: "The biggest obstacle was unfamiliar technology — so the staff chose the tool they already used daily, and each other",
+      question:
+        "Thai government offices are required to run internal knowledge management. This study asked where the officers who actually have to do it get stuck, and — given the choice — how and where they would rather share what they know.",
+      method:
+        "A postal survey of 111 officers responsible for health communication at the Department of Disease Control nationwide (41 men, 70 women), with a 100% response rate because senior management required regional managers to respond. Diabetes prevention communication was the reference topic. The 18-item questionnaire passed content-validity review by five specialists. Respondents could select more than one answer per question.",
+      findings: [
+        "**The leading obstacle was unfamiliarity with new technology at 54.1% (60 people)**, followed by a tendency to share irrelevant material at 43.2% (48) and inconvenient collaboration at 40.5% (45).",
+        "**Unwillingness to disclose information reached 36.9% (41) and lack of motivation 32.4% (36)**, while 25.2% (28) named compulsory participation itself as a problem.",
+        "**Facebook was the most chosen platform at 53.2% (59 people)**, far ahead of web boards and email at 19.8% each, chat at 18.9%, videoconference at 18.9%, and Twitter at just 6.3%.",
+        "**The activities they wanted were face to face** — meetings and study trips at 30.6% (34), lectures and workshops at 29.7% (33), and mentoring at 27.0% (30).",
+        "**The clearest preference of all was for mixed-experience groups with a mentor, at 55.9% (62 people)**, against 16.2% for groups of experienced communicators only and 6.3% for beginners only.",
+      ],
+      soWhat:
+        "The staff's own answers cut against the common assumption that knowledge management starts with a new platform. When the top obstacle is unfamiliarity, adding another tool makes the problem worse. What they chose was the channel already in their daily lives plus people to guide them — technology second, relationships first.",
+      caveat:
+        "**The 100% response rate came from a management requirement, not from willingness**, which may pull answers toward what respondents thought the organisation wanted to hear — consistent with the 25.2% who named forced participation as a problem. These are self-reported preferences, not observed behaviour. **The data is from 2014–2015**: the option list still included Hi5, and Facebook's role in Thai workplaces has changed considerably since. Evidence comes from a single department using one reference topic.",
+    },
+  },
+  {
+    slug: "ai-generated-citations-students",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กรอบรูปที่ทำอย่างประณีตทุกด้าน แต่ข้างในว่างเปล่าเป็นพื้นสีเดียวกับฉากหลัง",
+    illustrationAltEn:
+      "Paper-craft illustration of a meticulously made frame whose interior is empty — the same ground as the background",
+    doi: "10.1163/26659077-20252811",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "ai-generated-citations-students.pdf",
+    th: {
+      headline: "นิสิตหนึ่งในห้าค้นข้อมูลวิชาการจากแชตบอต และคำพูดที่มันยกมาอ้างไม่มีอยู่จริงสักประโยค",
+      question:
+        "เมื่อได้โจทย์ที่ต้องหาความรู้วิชาการซึ่งไม่คุ้นเคย นิสิตไทยหันไปหาแหล่งไหน และข้อมูลที่ได้จากปัญญาประดิษฐ์เชื่อถือได้แค่ไหนเมื่อเอาไปตรวจกับต้นฉบับจริง",
+      method:
+        "ให้นิสิตปริญญาตรีจุฬาลงกรณ์มหาวิทยาลัย 240 คน ทำโจทย์เดียวกันคือค้นอย่างรวดเร็วว่า Rudolf Carnap นักปรัชญาสายตรรกวิทยา คิดอย่างไรกับแนวคิดการพิสูจน์ยืนยันความหมาย พร้อมยกข้อความจากงานเขียนของเขามาประกอบหนึ่งข้อความ ใช้แหล่งใดก็ได้ตามใจ แล้วรายงานผ่านแบบสอบถามที่มีโครงสร้างว่าได้ข้อมูลมาจากที่ไหน ระบุถึงรุ่นของเครื่องมือ · จากนั้นผู้วิจัยนำข้อความที่นิสิตยกมาอ้างไปไล่ตรวจกับงานเขียนต้นฉบับที่ระบุไว้ทีละข้อ",
+      findings: [
+        "**กูเกิล 57% · แชตบอต 22% · วิกิพีเดีย 21%** — เกินหนึ่งในห้าเลือกแชตบอตเป็นแหล่งหลักในงานที่ต้องอ้างอิงงานวิชาการ โดยให้เหตุผลว่าได้คำตอบตรงและกระชับ",
+        "**คำตอบ 37 ชิ้นมีข้อความที่ระบุว่าเป็นของ Carnap** พร้อมชื่อหนังสือและปีที่พิมพ์ครบถ้วน อ่านแล้วเข้ารูปการอ้างอิงวิชาการทุกประการ",
+        "**ไม่มีข้อความใดเลยปรากฏอยู่ในงานที่อ้างถึง** ทั้งหมดเป็นข้อความที่ระบบแต่งขึ้นเลียนสำนวนและแนวคิดของเขา",
+        "**ในการชี้แจงหลังการทดลอง นิสิตทั้ง 37 คนยืนยันว่ามั่นใจ** ว่ากำลังอ้างข้อความจริงจากงานของ Carnap — ไม่มีใครเอะใจว่าต้องกลับไปตรวจ",
+      ],
+      soWhat:
+        "ปัญหาที่งานนี้ชี้ไม่ใช่ว่าปัญญาประดิษฐ์ตอบผิด แต่คือ**รูปแบบของคำตอบที่ดูเหมือนผ่านการตรวจสอบมาแล้ว** มีชื่อหนังสือ มีปี มีสำนวนของเจ้าของงาน ซึ่งในบริบทวิชาการคือสัญญาณว่า “ตรวจมาแล้ว” · ข้อเสนอของผู้เขียนจึงไม่ใช่การห้ามใช้ แต่ให้แพลตฟอร์มแจ้งข้อจำกัดของตัวเองให้ชัดว่าไม่สามารถตรวจสอบหรือให้การอ้างอิงที่ถูกต้องได้ และให้สถาบันการศึกษาสอนการตรวจย้อนกลับไปยังต้นฉบับเป็นทักษะการรู้เท่าทันสื่อชุดใหม่ — คนที่นำไปใช้ได้ทันทีคือผู้สอนที่ออกแบบงานมอบหมาย",
+      caveat:
+        "**เป็นโจทย์เดียว มหาวิทยาลัยเดียว** และแหล่งข้อมูลที่นิสิตเลือกสะท้อนช่วงเวลาที่เก็บข้อมูล ซึ่งรุ่นที่ระบุไว้ในบทความคือ ChatGPT 3.5 (ต้นฉบับส่งวารสารเดือนมกราคม 2567) เครื่องมือรุ่นที่ค้นเว็บและแนบลิงก์ได้อาจให้ผลต่างออกไป **สัดส่วน 57/22/21 จึงเป็นภาพของช่วงนั้น ไม่ใช่สัดส่วนปัจจุบัน** · หัวข้อที่ใช้เป็นปรัชญาเฉพาะทางที่มีข้อความต้นฉบับออนไลน์ไม่มาก ซึ่งเป็นเงื่อนไขที่เอื้อให้เกิดการแต่งข้อความมากกว่าหัวข้อทั่วไป · งานนี้ไม่ได้วัดว่าการอบรมแบบใดช่วยลดปัญหาได้จริง",
+    },
+    en: {
+      headline: "One student in five researched an academic question with a chatbot — and not one of the quotations it supplied exists",
+      question:
+        "Given a task that requires unfamiliar academic material, where do Thai students go for it, and how well does what an AI returns hold up when checked against the original works?",
+      method:
+        "240 undergraduates at Chulalongkorn University were given the same task: quickly find out what Rudolf Carnap thought about verificationism and support the summary with a quotation from one of his works, using any online source they liked. Immediately afterwards a structured questionnaire recorded which source they had used, down to the version of the tool. The researchers then checked every quotation the students submitted against the work it was attributed to.",
+      findings: [
+        "**Google 57%, a chatbot 22%, Wikipedia 21%** — more than a fifth chose a conversational AI as their main source for a task requiring an academic citation, citing the directness and brevity of the answers.",
+        "**37 submissions contained a quotation attributed to Carnap**, complete with the title of the work and the year of publication, in the form a scholarly citation takes.",
+        "**Not one of those quotations appears in the work it cites.** All of them were generated text imitating his style and ideas.",
+        "**At the debriefing all 37 students said they were confident** they had been quoting Carnap directly. None had thought to verify it.",
+      ],
+      soWhat:
+        "The problem this study identifies is not that the AI was wrong. It is that **the answer arrived in the form of something already verified** — a title, a year, the author's cadence — which in academic work is precisely the signal that checking has been done. The authors' proposal is not a ban but disclosure: platforms stating plainly that they cannot verify sources or supply reliable citations, and institutions teaching verification back to the original as a new component of media literacy. The people who can act on this immediately are the ones who set the assignments.",
+      caveat:
+        "**One task, one university.** The source mix reflects when the data was gathered: the article names ChatGPT 3.5 as the version in use (the manuscript was submitted in January 2024), and tools that now search the web and attach links may behave differently, so **the 57/22/21 split is a snapshot, not a current figure**. The topic was a specialised area of philosophy with limited primary text online — conditions that favour fabrication more than a general topic would. The study does not test which interventions actually reduce the problem.",
+    },
+  },
+  {
+    slug: "chinese-media-thailand-cannabis",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ริบบิ้นเรียบตรงเส้นหนึ่งลอดผ่านช่องแคบ แล้วออกมาอีกด้านเป็นเส้นที่ยับและโค้งลง",
+    illustrationAltEn:
+      "Paper-craft illustration of a smooth ribbon passing through a narrow slot and coming out creased and curling downward",
+    doi: "10.1016/j.heliyon.2023.e15478",
+    articleLanguage: "en",
+    license: "cc-by-nc-nd",
+    localCopy: "chinese-media-thailand-cannabis.pdf",
+    th: {
+      headline: "ข่าวรายงานกลางๆ แต่ช่องความเห็นไม่กลาง และปลายทางคือ “ไม่ไปแล้ว”",
+      question:
+        "หลังไทยปลดล็อกกัญชา สื่อภาษาจีนเล่าเรื่องไทยในฐานะจุดหมายท่องเที่ยวอย่างไร และผู้อ่านชาวจีนตอบสนองต่อเรื่องเล่านั้นในทิศทางเดียวกับน้ำเสียงของข่าวหรือไม่",
+      method:
+        "วิเคราะห์เนื้อหาโพสต์ 128 โพสต์บนเว่ยป๋อ ระหว่างปี 2562 ถึง 2565 จากสำนักข่าวภาษาจีนสี่แห่ง (สามแห่งเป็นสื่อจีน อีกแห่งเป็นหนังสือพิมพ์ภาษาจีนในกรุงเทพฯ) ใช้กรอบทฤษฎีการวางกรอบข่าวและทฤษฎีอัตลักษณ์ทางสังคม ลงรหัสโดยผู้ลงรหัสสามคนพร้อมทดสอบความสอดคล้องระหว่างกัน · โพสต์ที่มีปฏิสัมพันธ์น้อยกว่า 10 ครั้งถูกตัดออกจากการวิเคราะห์",
+      findings: [
+        "**น้ำเสียงของข่าวเป็นกลางเป็นส่วนใหญ่** ผู้ลงรหัสทั้งสามคนจัดโพสต์เป็นข้อความกลางๆ ที่ 94.5% · 85.2% · 82.8% ตามลำดับ ส่วนที่ชักชวนเชิงบวกมีเพียง 0.8–2.3%",
+        "**มุมที่เล่ามากที่สุดคือการอธิบายตัวนโยบาย 55.5% (71 โพสต์) รองลงมาคือข่าวเชิงลบเกี่ยวกับการปลดล็อก 36.7% (47 โพสต์)** ขณะที่ข่าวเชิงบวกมีเพียง 4.7% (6 โพสต์) และประโยชน์ทางการแพทย์ 10.9% (14 โพสต์) · จำนวนโพสต์พุ่งสูงสุดในเดือนที่นโยบายมีผลบังคับใช้",
+        "**ความเห็นของผู้อ่านไปคนละทางกับน้ำเสียงของข่าว** ผู้วิจัยพบชุดความเห็นที่ปฏิเสธไทยในฐานะจุดหมายท่องเที่ยว โดยให้เหตุผลว่ากลัวเผลอกินอาหารที่มีกัญชาผสม ไม่มั่นใจการกำกับดูแลหลังปลดล็อก และมองว่าเป็นการทำตามชาติตะวันตก",
+        "**หนึ่งในสามของโพสต์ไม่ระบุแหล่งที่มา** — อ้างสื่อไทย 58.6% (75 โพสต์) เป็นเนื้อหาที่สื่อจีนเรียบเรียงเอง 7.8% (10 โพสต์) และไม่ระบุแหล่ง 33.6% (43 โพสต์)",
+        "**โพสต์ที่ห้ามปรามชัดเจนที่สุดไม่ใช่ความเห็นของสื่อ** แต่เป็นการส่งต่อประกาศของสถานทูตจีนในไทยที่ห้ามนำผลิตภัณฑ์กัญชากลับประเทศ",
+      ],
+      soWhat:
+        "บทเรียนสำหรับงานสื่อสารภาพลักษณ์ประเทศคือ **การนับว่าข่าวเป็นกลางกี่เปอร์เซ็นต์ ไม่ได้บอกว่าผู้รับสารรู้สึกอย่างไร** ช่องความเห็นคือที่ที่ความหมายถูกตัดสิน และข่าวที่กลางแต่ไม่ตอบคำถามที่ผู้อ่านกังวลจริง — กินอาหารข้างทางแล้วจะเจอกัญชาไหม กลับประเทศแล้วผิดกฎหมายไหม — เปิดช่องให้ความกลัวเข้ามาเติมแทน · หน่วยงานที่ทำงานด้านการท่องเที่ยวจึงต้องออกแบบสารที่ตอบคำถามระดับชีวิตประจำวันของนักท่องเที่ยว ไม่ใช่แค่ประกาศนโยบายให้ครบถ้วน",
+      caveat:
+        "**ระบบเซนเซอร์ทำให้เก็บข้อมูลได้ไม่ครบ** ผู้วิจัยระบุเองว่าต้องจำกัดที่เว่ยป๋อแพลตฟอร์มเดียว เพราะค้นในเครื่องมือค้นหาหลักของจีนไม่ได้ และคำว่ากัญชาถูกจำกัด สื่อจึงเลี่ยงไปใช้คำพ้องเสียงหรืออิโมจิ ทำให้ค้นไม่ครบ · ระบบชื่อจริงบนเว่ยป๋อทำให้ผู้ใช้เซนเซอร์ตัวเอง ความเห็นที่เห็นจึงอาจไม่ใช่ความเห็นจริง · **งานนี้ไม่ได้วัดว่าความเห็นเหล่านั้นทำให้คนเลิกเดินทางมาจริงหรือไม่** ซึ่งผู้วิจัยระบุว่าอยู่นอกขอบเขต · บทสรุปนี้ไม่ระบุชื่อสำนักข่าวทั้งสี่ เพราะข้อค้นพบเรื่องการไม่อ้างแหล่งที่มาผูกกับสำนักข่าวเป็นรายแห่ง และบทเรียนที่นำไปใช้ได้ไม่ได้ขึ้นกับว่าเป็นแห่งใด",
+    },
+    en: {
+      headline: "The coverage was mostly neutral. The comment threads were not — and they ended at “I'm not going.”",
+      question:
+        "After Thailand legalised cannabis, how did Chinese-language media narrate the country as a travel destination, and did readers respond in the same direction as the coverage they were reading?",
+      method:
+        "A content analysis of 128 Weibo posts published between 2019 and 2022 by four Chinese-language outlets (three Chinese media houses and one Chinese-language newspaper based in Bangkok), read through framing theory and social identity theory. Three coders classified the posts and inter-coder reliability was tested. Posts with fewer than ten engagements were excluded.",
+      findings: [
+        "**The tone of the coverage was predominantly neutral** — the three coders classified 94.5%, 85.2% and 82.8% of posts respectively as neutral statements, against only 0.8–2.3% offering positive encouragement.",
+        "**The dominant angle was explaining the policy itself, at 55.5% (71 posts), followed by negative news about legalisation at 36.7% (47 posts)**, with positive news at just 4.7% (6 posts) and medical benefits at 10.9% (14). Volume peaked in the month the policy took effect.",
+        "**Reader comments ran in the opposite direction to the coverage.** The researchers found a cluster of comments rejecting Thailand as a destination, reasoning that they might unknowingly eat food containing cannabis, that oversight after legalisation could not be trusted, and that the policy was imitation of the West.",
+        "**A third of the posts cited no source at all** — 58.6% (75 posts) drew on Thai media reports, 7.8% (10) were compiled by the outlets themselves, and 33.6% (43) gave no source.",
+        "**The most strongly discouraging posts were not editorial opinion** but forwarded notices from the Chinese embassy prohibiting citizens from bringing cannabis products home.",
+      ],
+      soWhat:
+        "For nation-image work the lesson is that **counting how much coverage is neutral tells you nothing about how it lands.** The comment thread is where meaning is settled, and coverage that stays neutral while leaving the reader's actual worry unanswered — could I eat it by accident at a street stall, what happens when I fly home — leaves a space that fear fills instead. Tourism communication has to answer questions at the level of a traveller's day, not only announce the policy completely.",
+      caveat:
+        "**Censorship left the dataset incomplete**, and the authors say so: the study had to be confined to Weibo because the relevant terms cannot be searched on China's main search engine, and because outlets evade the restricted word using homophones or emoji, so the search cannot have caught everything. Weibo's real-name system encourages self-censorship, so visible comments may not be genuine opinion. **The study does not measure whether those comments translated into fewer trips** — the authors place that outside its scope. This summary does not name the four outlets, because the finding about missing source attribution attaches to individual outlets and the usable lesson does not depend on which one.",
+    },
+  },
+  {
+    slug: "joox-rooms-relational-bonds",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ รูปทรงมนสองรูปซ้อนทับกันเกือบสนิท เหลื่อมกันเพียงริ้วบางๆ ที่ขอบด้านล่าง",
+    illustrationAltEn:
+      "Paper-craft illustration of two rounded shapes lying almost exactly on top of one another, offset by only a thin sliver along the lower edge",
+    doi: "10.1080/23311983.2026.2675861",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "joox-rooms-relational-bonds.pdf",
+    th: {
+      headline: "แฟนเพลงแยกไม่ออกว่ารักศิลปินหรือรักแพลตฟอร์ม และนั่นคือข้อค้นพบ ไม่ใช่ความบกพร่องของแบบวัด",
+      question:
+        "อะไรทำให้ผู้ฟังผูกพันกับบริการสตรีมมิงเพลงที่มีห้องไลฟ์ให้คุยกับศิลปินแบบทันที และความผูกพันนั้นนำไปสู่การใช้ต่อและบอกต่อจริงหรือไม่",
+      method:
+        "แบบสอบถามออนไลน์กับผู้ใช้ห้องไลฟ์ JOOX Rooms ในไทย เก็บเดือนเมษายนถึงพฤษภาคม 2567 เริ่มทำ 306 คน เหลือ 175 คนหลังคัดข้อมูล กระจายแบบบอกต่อ วิเคราะห์ด้วยโมเดลสมการโครงสร้าง แยกสายสัมพันธ์สามแบบตามกรอบ relational bonds — ด้านการเงิน (ส่วนลด เหรียญในระบบ รางวัลจากเกม) ด้านสังคม (แชตสด การตอบกลับของศิลปิน คำทักเฉพาะบุคคล) และด้านโครงสร้าง (การตอบอย่างมืออาชีพ ระบบที่ใช้ได้จริง การจัดเรียงข้อมูล)",
+      findings: [
+        "**สายสัมพันธ์ทั้งสามแบบเพิ่มความผูกพันทางอารมณ์กับแพลตฟอร์ม** และความผูกพันนั้นทำนายความตั้งใจจะใช้ต่อและบอกต่อ",
+        "**ความผูกพันทางอารมณ์เป็นตัวส่งผ่านแบบเต็มรูป** — สายสัมพันธ์ทั้งสามไม่ได้ผลักดันพฤติกรรมโดยตรง แต่ส่งผลผ่านความรู้สึกผูกพันเท่านั้น",
+        "**ความผูกพันกับศิลปินกับความผูกพันกับแพลตฟอร์มวัดแยกกันไม่ได้** ค่าสหสัมพันธ์สูงถึง .89 จนโมเดลเกิดปัญหาค่าความแปรปรวนติดลบ ผู้วิจัยจึงตัดตัวแปรความผูกพันกับศิลปินออกจากโมเดลสุดท้าย — **สมมติฐานทุกข้อที่เกี่ยวกับศิลปินจึงทดสอบไม่ได้ ไม่ใช่ไม่พบผล**",
+        "ค่าความกลมกลืนของโมเดลการวัดอยู่ในเกณฑ์ยอมรับได้ (robust CFI = 0.914 · robust RMSEA = 0.066 · SRMR = 0.060)",
+      ],
+      soWhat:
+        "สำหรับแพลตฟอร์มและค่ายเพลง ข้อเสนอที่ใช้ได้คือ**ต้องลงทุนทั้งสามด้านพร้อมกัน** เพราะแต่ละด้านสร้างความผูกพันคนละชนิด — ส่วนลดสร้างความผูกพันแบบแลกเปลี่ยน แชตสดสร้างความใกล้ชิด ระบบที่เสถียรสร้างความไว้วางใจ ถ้าเลือกทำแต่ด้านราคาจะได้ยอดใช้งานระยะสั้นที่ไม่มีความลึก · ส่วนข้อค้นพบที่ทำให้ต้องตัดตัวแปรทิ้งกลับมีนัยเชิงปฏิบัติมากที่สุด: ถ้าผู้ฟังแยกความรู้สึกที่มีต่อศิลปินออกจากแพลตฟอร์มไม่ได้ การย้ายแพลตฟอร์มก็มีต้นทุนทางความรู้สึกติดอยู่ด้วย ไม่ใช่แค่ต้นทุนการเปลี่ยนแอป",
+      caveat:
+        "**เก็บตัวอย่างแบบบอกต่อ จึงเอนไปทางผู้ใช้ที่ผูกพันสูงอยู่แล้ว** ผู้เขียนระบุเองว่าอาจทำให้ความสัมพันธ์ที่วัดได้สูงเกินจริง · เป็นการวัดตัดขวางครั้งเดียว บอกลำดับเวลาไม่ได้ · เก็บจากแพลตฟอร์มเดียวในประเทศเดียว · **และเพราะตัวแปรความผูกพันกับศิลปินถูกตัดออก งานนี้ไม่ได้แปลว่าศิลปินไม่สำคัญ แต่แปลว่าเครื่องมือชุดนี้วัดแยกจากแพลตฟอร์มไม่ได้** ความต่างนี้สำคัญและห้ามอ่านข้าม",
+    },
+    en: {
+      headline: "Fans could not separate loving the artist from loving the platform — and that is the finding, not a flaw in the instrument",
+      question:
+        "What makes listeners attach to a music streaming service that lets them talk to artists live, and does that attachment actually lead to continued use and recommendation?",
+      method:
+        "An online survey of JOOX Rooms users in Thailand, collected in April and May 2024. 306 people began the survey and 175 remained after data cleaning; distribution was by snowball sampling. The data was analysed with structural equation modelling, separating three relational bonds: financial (discounts, in-app coins, game rewards), social (live chat, artist responsiveness, personalised greetings) and structural (professional responses, reliable service, curated information).",
+      findings: [
+        "**All three bonds increased affective engagement with the platform**, and that engagement predicted intentions to keep using the service and to recommend it.",
+        "**Affective engagement was a full mediator** — none of the three bonds drove behaviour directly; they worked only through how users felt.",
+        "**Engagement with artists and engagement with the platform could not be measured apart.** They correlated at .89, producing a negative variance in the model, so the artist construct was dropped from the final specification — **every hypothesis involving artists is therefore untested, not disconfirmed**.",
+        "Measurement-model fit was acceptable (robust CFI = 0.914, robust RMSEA = 0.066, SRMR = 0.060).",
+      ],
+      soWhat:
+        "For platforms and labels the usable implication is to **invest in all three bonds at once**, because each produces a different kind of attachment: discounts produce transactional attachment, live chat produces closeness, reliable service produces trust. Building only on price yields short-term activity with no depth. The finding that forced a construct out of the model is the most practical of all: if listeners cannot separate what they feel about an artist from what they feel about the platform, then switching platforms carries an emotional cost, not merely the cost of installing a different app.",
+      caveat:
+        "**Snowball sampling skews toward users who were already highly engaged**, and the authors note this may inflate the observed relationships. The design is cross-sectional, so it cannot establish sequence. It covers a single platform in a single country. **And because the artist construct was removed, this study does not show that artists do not matter — it shows that this instrument could not separate them from the platform.** That distinction should not be read past.",
+    },
+  },
+  {
+    slug: "genz-cruelty-free-purchase",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ขั้นบันไดเรียงสูงขึ้นสามขั้น ส่วนขั้นบนสุดหลุดลอยห่างออกไปเล็กน้อย",
+    illustrationAltEn:
+      "Paper-craft illustration of three rising steps with the topmost one detached, floating slightly out of reach",
+    doi: "10.14456/cmap.2023.5",
+    articleLanguage: "en",
+    th: {
+      headline: "เจนซีเลือกสินค้าไม่ทดลองกับสัตว์เพราะค่านิยม แต่สิ่งที่ทำนายการซื้อได้แรงที่สุดคือความภักดี ซึ่งหายไปเมื่อราคาขึ้น",
+      question:
+        "ผู้บริโภคเจนซีไทยให้คุณค่ากับสินค้าที่ไม่ทดลองกับสัตว์ในแง่ใด มีทัศนคติต่อเครื่องมือสื่อสารการตลาดของแบรนด์กลุ่มนี้อย่างไร และปัจจัยใดทำนายความตั้งใจซื้อได้จริง",
+      method:
+        "แบบสอบถามออนไลน์ 400 คน เก็บแบบโควตาจากคนไทยอายุ 18 ถึง 26 ปีที่รู้จักแบรนด์ซึ่งประกาศว่าไม่ทดลองกับสัตว์ (ผู้ตอบเป็นหญิง 84.7% ชาย 11.35% เพศอื่น 4.00%) วัดสี่ด้านคือค่านิยม ทัศนคติต่อเครื่องมือสื่อสารการตลาดแบบผสมผสาน ความภักดีต่อแบรนด์ และความตั้งใจซื้อ ด้วยมาตรวัดลิเคิร์ตห้าระดับ ค่าความเชื่อมั่นทั้งฉบับ .93 · วิเคราะห์ด้วยสหสัมพันธ์เพียร์สันและการถดถอยพหุคูณแบบขั้นตอน",
+      findings: [
+        "**ค่านิยมที่ได้คะแนนสูงสุดคือค่านิยมสากลนิยม 4.65 จาก 5** ตามด้วยคุณค่าเชิงหน้าที่ 4.08 และคุณค่าเชิงสังคม 3.36 — ผู้ตอบให้น้ำหนักกับการดูแลสัตว์และธรรมชาติมากกว่าการได้รับการยอมรับจากคนรอบตัว",
+        "**ตัวทำนายความตั้งใจซื้อที่แรงที่สุดคือความภักดีต่อแบรนด์ (β = .486)** ตามด้วยทัศนคติ (β = .300) และค่านิยม (β = .119) ทั้งสามอธิบายความแปรปรวนของความตั้งใจซื้อได้ 62.9% · ความภักดีกับความตั้งใจซื้อสัมพันธ์กันสูงสุดที่ r = .74",
+        "**ข้อที่ได้คะแนนต่ำที่สุดในหมวดความภักดีคือ “จะซื้อแบรนด์นี้ต่อแม้ราคาขึ้น”** ขณะที่ข้อการบอกต่อได้คะแนนสูงสุดในหมวดที่ 4.40 — ยินดีเชียร์ให้คนอื่น แต่ไม่ยินดีจ่ายเพิ่มเอง",
+        "**เครื่องมือสื่อสารที่ชอบที่สุดคือการส่งเสริมการขาย 4.59** ตามด้วยการประชาสัมพันธ์ 4.46 และสื่อนอกบ้าน 4.28 ส่วนการตลาดทางตรงได้คะแนนต่ำที่สุด ซึ่งผู้เขียนอ่านว่าเป็นการปฏิเสธการขายตรงแบบเร่งเร้า",
+        "**ข้อที่ได้คะแนนต่ำสุดในหมวดความตั้งใจซื้อคือ “จะซื้อแม้ไม่มีขายใกล้ตัว” ที่ 3.60** ความสะดวกในการหาซื้อจึงยังเป็นเงื่อนไข",
+      ],
+      soWhat:
+        "ข้อค้นพบชี้ช่องว่างที่ใช้ได้ทันทีสำหรับคนทำแบรนด์และคนทำแคมเปญรณรงค์ — **ค่านิยมพาคนมาถึงหน้าร้าน แต่ไม่ได้พาไปถึงการจ่ายเงินเมื่อราคาต่างกัน** แบรนด์ที่สื่อสารด้วยเนื้อหาเชิงคุณค่าอย่างเดียวจะได้เสียงเชียร์ที่ดังแต่ยอดขายที่บาง ขณะที่ข้อมูลชุดเดียวกันบอกว่าการประชาสัมพันธ์ที่ให้ความรู้ได้คะแนนสูงเป็นอันดับสอง จึงทำหน้าที่คนละอย่างกับโปรโมชันและต้องมาคู่กัน · และการกระจายสินค้าให้หาซื้อได้สะดวกเป็นเงื่อนไขที่ตัดออกไม่ได้",
+      caveat:
+        "**ผู้ตอบเป็นผู้หญิง 84.7% ตัวเลขทั้งหมดจึงสะท้อนกลุ่มนี้เป็นหลัก** · **“กลุ่มผู้บริโภคห้ากลุ่ม” ที่บทความเสนอมาจากการตีความค่าเฉลี่ยรายข้อและค่าสหสัมพันธ์ ไม่ได้มาจากการวิเคราะห์จัดกลุ่มทางสถิติ** จึงควรอ่านเป็นการบรรยายลักษณะ ไม่ใช่กลุ่มที่แยกออกจากกันได้จริงในทางสถิติ · สินค้ากลุ่มนี้ในตลาดไทยส่วนใหญ่เป็นเครื่องสำอางและของใช้ส่วนตัว ผลจึงผูกกับหมวดสินค้านั้น · เป็นความตั้งใจซื้อที่ผู้ตอบแจ้งเอง ไม่ใช่ยอดซื้อจริง",
+    },
+    en: {
+      headline: "Thai Gen Z buy cruelty-free out of values — but the strongest predictor of purchase is loyalty, and loyalty falls away when the price rises",
+      question:
+        "What do Thai Gen Z consumers value in cruelty-free products, how do they feel about the marketing communication of those brands, and what actually predicts an intention to buy?",
+      method:
+        "An online survey of 400 Thai respondents aged 18 to 26 who were aware of cruelty-free brands, collected by quota sampling (84.7% women, 11.35% men, 4.00% other genders). Four constructs were measured on five-point Likert scales — values, attitudes toward integrated marketing communication tools, brand loyalty and purchase intention — with an overall reliability of .93. Analysis used Pearson correlations and stepwise multiple regression.",
+      findings: [
+        "**Universalism scored highest among the value dimensions at 4.65 out of 5**, ahead of functional value at 4.08 and social value at 3.36 — respondents weighted care for animals and nature above recognition from people around them.",
+        "**The strongest predictor of purchase intention was brand loyalty (β = .486)**, followed by attitude (β = .300) and values (β = .119); together they explained 62.9% of the variance. Loyalty and purchase intention correlated most strongly at r = .74.",
+        "**The lowest-scoring loyalty item was “I would keep buying this brand even if its price increased”**, while the advocacy items scored highest in that section at 4.40 — willing to recommend, unwilling to pay more.",
+        "**The best-liked communication tool was sales promotion at 4.59**, followed by public relations at 4.46 and out-of-home media at 4.28, with direct marketing lowest — which the authors read as a rejection of hard selling.",
+        "**The lowest purchase-intention item was “I would buy even if it is not available locally”, at 3.60.** Convenience of supply remains a condition.",
+      ],
+      soWhat:
+        "The gap here is immediately usable for brands and for campaigners: **values bring people to the shelf, but they do not carry them across a price difference.** A brand communicating only on values earns loud advocacy and thin sales. The same data shows public relations that educates scoring second highest, which means it does a different job from promotion and the two have to run together — and that distribution, so the product is actually within reach, is not an optional part of the plan.",
+      caveat:
+        "**84.7% of respondents were women, so every figure here principally describes that group.** **The five consumer segments the article proposes were derived by interpreting item means and correlations, not by statistical cluster analysis**, so they should be read as descriptions rather than as groups that separate reliably. Cruelty-free products in the Thai market are mostly cosmetics and personal care, which ties the findings to that category. And these are self-reported intentions, not observed purchases.",
+    },
+  },
+  {
+    slug: "dating-apps-disclosure-msm",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ริบบิ้นสองเส้นเข้าหากันจากคนละด้าน แล้วเรียวลงจนแทบไม่เหลือตรงแผ่นกั้นบางๆ ที่คั่นกลาง",
+    illustrationAltEn:
+      "Paper-craft illustration of two ribbons approaching from opposite sides and thinning almost to nothing at the slender divider between them",
+    doi: "10.14456/jhr.2016.32",
+    articleLanguage: "en",
+    th: {
+      headline: "ยิ่งบอกข้อมูลส่วนตัวมาก ยิ่งไว้ใจกัน และยิ่งสัมพันธ์กับการไม่ใช้ถุงยาง",
+      question:
+        "แอปหาคู่บนมือถือเปลี่ยนวิธีนัดพบของชายที่มีเพศสัมพันธ์กับชายในไทย งานนี้ถามว่าการเปิดเผยข้อมูลส่วนตัวระหว่างคุยกันในแอปสัมพันธ์กับพฤติกรรมทางเพศหลังนัดเจอกันอย่างไร",
+      method:
+        "แบบสอบถามออนไลน์แบบไม่ระบุตัวตน เก็บกลางเดือนกุมภาพันธ์ถึงกลางเดือนมีนาคม 2558 ผู้ตอบ 277 คน ผ่านเกณฑ์คัดเข้าเป็นผู้ใช้แอปหาคู่เพื่อหาคู่นัด 222 คน กระจายแบบสอบถามผ่านเว็บบอร์ดสาธารณะและกลุ่มปิดบนเฟซบุ๊ก วิเคราะห์ความสัมพันธ์ด้วยค่าสหสัมพันธ์",
+      findings: [
+        "**ความถี่ในการใช้แอปสัมพันธ์กับการมีเพศสัมพันธ์แบบไม่ป้องกัน** ทั้งจำนวนวันที่ใช้ (r = .249) จำนวนสถานที่ที่ใช้ (r = .320) และเวลาที่ใช้ต่อครั้ง (r = .360)",
+        "**การเปิดเผยข้อมูลที่ระบุตัวได้ก็สัมพันธ์กับการไม่ป้องกันเช่นกัน** — บัญชีเฟซบุ๊ก (r = .337) เบอร์โทรศัพท์ (r = .306) และที่อยู่ (r = .240)",
+        "**คนส่วนใหญ่ปกปิดชื่อจริง 88.3% แต่เปิดเผยรูปถ่ายจริงของตัวเอง 80%** และมากกว่าครึ่ง (54.3%) เปิดเผยข้อมูลมากกว่าสองประเภท",
+        "**ในกลุ่มที่ไปพบกันจริง 106 คน มี 77 คน (72.6%) ที่มีเพศสัมพันธ์ทางทวารหนัก และในจำนวนนั้น 27 คนไม่ได้ใช้ถุงยาง**",
+        "**การใช้ถุงยางกระจุกอยู่ที่เพศสัมพันธ์ทางทวารหนักเท่านั้นที่ 91.5%** ส่วนเพศสัมพันธ์ทางปากใช้เพียง 13.2% และการใช้มือ 17.9%",
+        "**ในรอบหกเดือนที่ผ่านมา 37.3% ไม่เคยตรวจเอชไอวี และ 44.6% ไม่เคยตรวจโรคติดต่อทางเพศสัมพันธ์อื่น**",
+      ],
+      soWhat:
+        "ข้อเสนอของงานคือย้ายงานสื่อสารเรื่องเอชไอวีเข้าไปอยู่ในที่ที่กลุ่มเป้าหมายอยู่จริง ทั้งในตัวแอปเองและบนเฟซบุ๊ก แทนที่จะรอให้คนเดินเข้ามาหาข้อมูล · แต่สิ่งที่ใช้ออกแบบตัวสารได้คือ**กลไก** ไม่ใช่แค่ช่องทาง — ความไว้วางใจที่เกิดจากการแลกข้อมูลกันคือสิ่งที่มาก่อนการลดการป้องกัน สารที่ได้ผลจึงต้องพูดกับความรู้สึกว่า “รู้จักกันแล้ว” ไม่ใช่พูดกับคนที่คิดว่ากำลังเจอคนแปลกหน้า · และตัวเลขการใช้ถุงยางที่ต่ำมากในเพศสัมพันธ์ทางปากชี้ว่าความเข้าใจเรื่องช่องทางการติดต่อยังไม่ครบ",
+      caveat:
+        "**เป็นค่าสหสัมพันธ์ ไม่ใช่ความเป็นเหตุเป็นผล** การเปิดเผยข้อมูลกับการไม่ป้องกันไปด้วยกัน แต่ข้อมูลชุดนี้ไม่ได้พิสูจน์ว่าอย่างหนึ่งทำให้เกิดอีกอย่าง · เก็บด้วยวิธีสะดวกจากผู้ใช้เว็บบอร์ดและกลุ่มเฉพาะ ผู้เขียนระบุเองว่าใช้แทนภาพรวมทั้งประเทศไม่ได้ · **ข้อมูลเก็บต้นปี 2558 ซึ่งผ่านมากว่าสิบปี** ทั้งแอปที่ใช้กันและทางเลือกในการป้องกันเอชไอวีเปลี่ยนไปมากตั้งแต่นั้น ตัวเลขจึงควรใช้อ่านกลไก ไม่ใช่ใช้อ้างสถานการณ์ปัจจุบัน · **บทคัดย่อของบทความระบุจำนวนผู้ตอบไว้ 286 คน ซึ่งไม่ตรงกับเนื้อในที่ระบุ 277 คนและผ่านเกณฑ์ 222 คน** บทสรุปนี้ใช้ตัวเลขจากเนื้อใน ซึ่งตรงกับตารางผลทุกตาราง",
+    },
+    en: {
+      headline: "The more personal information was shared, the more trust followed — and the more that tracked with sex without a condom",
+      question:
+        "Dating apps changed how men who have sex with men in Thailand arrange to meet. This study asks how the personal information disclosed while chatting in an app relates to what happens sexually after they meet.",
+      method:
+        "An anonymous online survey run from mid-February to mid-March 2015. 277 people responded and 222 passed the screening as app users seeking partners. The questionnaire was distributed through public web boards and closed Facebook groups, and relationships were examined with correlation analysis.",
+      findings: [
+        "**How much the apps were used correlated with unprotected sex** — number of days used (r = .249), number of locations used from (r = .320) and time spent per session (r = .360).",
+        "**Disclosing identifying information correlated with it as well** — a Facebook account (r = .337), a mobile number (r = .306) and an address (r = .240).",
+        "**88.3% withheld their real name, yet 80% shared a real photograph of themselves**, and more than half (54.3%) disclosed more than two types of information.",
+        "**Of the 106 respondents who met someone in person, 77 (72.6%) had anal sex, and 27 of them did so without a condom.**",
+        "**Condom use was concentrated on anal sex at 91.5%**, falling to 13.2% for oral sex and 17.9% for manual sex.",
+        "**In the previous six months, 37.3% had never tested for HIV and 44.6% had never tested for other sexually transmitted infections.**",
+      ],
+      soWhat:
+        "The study's recommendation is to move HIV communication into the places the audience already is — inside the apps and on Facebook — rather than waiting for people to come looking. But the part that shapes the message is **the mechanism, not the channel**: trust built by exchanging information is what comes before protection drops away, so a message that works has to speak to the feeling of already knowing someone, not to someone who thinks they are meeting a stranger. The very low condom use in oral sex also points to an incomplete picture of transmission routes.",
+      caveat:
+        "**These are correlations, not causes.** Disclosure and unprotected sex move together; this data does not establish that one produces the other. Recruitment was by convenience through particular web boards and groups, and the authors state it cannot stand for the country as a whole. **The data was collected in early 2015, more than a decade ago**; both the apps in use and the available means of HIV prevention have changed substantially since, so the figures are useful for reading the mechanism rather than for describing the present. **The article's abstract states 286 respondents, which does not match the body's 277 respondents and 222 who passed screening** — this summary uses the body's figures, which are the ones every results table reports.",
+    },
+  },
+  {
+    slug: "infectious-disease-stigma-scales",
+    kind: "protocol",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ไม้บรรทัดสองอันวางเคียงกัน อันหนึ่งมีขีดแบ่งครบทั้งอัน อีกอันเพิ่งมีขีดแรกๆ",
+    illustrationAltEn:
+      "Paper-craft illustration of two rulers lying side by side, one fully graduated and the other carrying only its first few marks",
+    doi: "10.12688/wellcomeopenres.26014.1",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "infectious-disease-stigma-scales.pdf",
+    th: {
+      headline: "ไทยยังไม่มีเครื่องมือวัดการตีตราช่วงโรคระบาดที่ผ่านการตรวจสอบ นี่คือแผนสร้างขึ้นสองภาษา",
+      question:
+        "การตีตราทำให้คนไม่กล้าไปรับบริการสุขภาพและทำให้การควบคุมการระบาดสะดุด แต่ไทยยังไม่มีแบบวัดที่ผ่านการตรวจสอบคุณภาพว่าใช้วัดประสบการณ์การถูกตีตราของกลุ่มเปราะบางได้จริง งานนี้จึงประกาศแผนแปลและตรวจสอบแบบวัดชุดหนึ่งให้ใช้ได้ในบริบทไทยและพม่า",
+      method:
+        "แปลและปรับแบบวัด RAPID ซึ่งวัดการตีตราจากชุมชนและการตีตราตนเอง รวม 16 ข้อ เป็นภาษาไทยและภาษาพม่า ตามแนวปฏิบัติ ISPOR ด้วยวิธีแปลไปแล้วแปลกลับ · แบ่งเป็นสองระยะ ระยะแรกให้ผู้เชี่ยวชาญสองคณะ คณะละ 8 คน ประเมินสามรอบแบบเดลฟาย แล้วสัมภาษณ์เชิงปริชานกับสมาชิกชุมชนละ 15 ถึง 20 คน · ระยะที่สองตรวจสอบคุณสมบัติการวัดกับผู้เข้าร่วม 400 คน (ชุมชนละ 200 คน) ด้วยการวิเคราะห์องค์ประกอบเชิงยืนยันและการทดสอบความเที่ยง",
+      findings: [
+        "**สองชุมชนที่งานนี้ทำงานด้วยคือชายไทยที่มีเพศสัมพันธ์กับชาย ในประเด็นการตีตราจากฝีดาษวานร และแรงงานข้ามชาติชาวเมียนมา ในประเด็นการตีตราจากโควิด-19**",
+        "**คณะผู้เชี่ยวชาญออกแบบให้มีคนในชุมชนอยู่ด้วยตั้งแต่ต้น ไม่ใช่มีแต่นักวิชาการ** — แต่ละคณะ 8 คน ประกอบด้วยผู้นำชุมชนที่มีประสบการณ์ตรง 2 คน ผู้เชี่ยวชาญด้านสุขภาพที่ทำงานกับกลุ่มนั้น 2 คน นักวิจัย 2 คน ผู้เชี่ยวชาญภาษา 1 คน และผู้เชี่ยวชาญด้านวัฒนธรรม 1 คน",
+        "**เกณฑ์ตัดสินถูกประกาศไว้ล่วงหน้า** ข้อคำถามที่ได้ค่าดัชนีความตรงเชิงเนื้อหารายข้อต่ำกว่า 0.78 จะถูกนำกลับไปแก้ ส่วนรอบสุดท้ายตั้งเป้าให้ผู้เชี่ยวชาญเกิน 80% ให้คะแนนความตรงเชิงพินิจในระดับสูง และค่าดัชนีความตรงทั้งฉบับเกิน 0.90",
+        "**ระยะที่สองต้องขอการรับรองจริยธรรมการวิจัยแยกอีกฉบับ** และเลือกตัวอย่างแบบโควตาให้ครอบคลุมห้ากลุ่มย่อยในแต่ละชุมชน ตั้งแต่ผู้ที่หายป่วย ผู้สัมผัสใกล้ชิด บุคลากรสาธารณสุข ผู้ปฏิบัติงานสนับสนุนช่วงระบาด ไปจนถึงคนทั่วไปในชุมชน",
+      ],
+      soWhat:
+        "ถ้าแผนนี้เดินจนจบ ไทยจะมีเครื่องมือที่หยิบไปใช้วัดการตีตราได้ทันทีเมื่อเกิดการระบาดครั้งหน้า แทนที่จะเริ่มออกแบบแบบสอบถามตอนที่สถานการณ์เดินไปแล้ว — ซึ่งเป็นเหตุผลที่ผู้เขียนระบุว่าเครื่องมือวัดการตีตราส่วนใหญ่มาไม่ทันใช้กับการระบาดที่กำลังเกิดขึ้น · และเพราะแบบวัดต้นทางออกแบบให้ใช้ข้ามโรคได้ ฉบับภาษาไทยและภาษาพม่าจึงไม่ผูกกับโรคใดโรคหนึ่ง",
+      caveat:
+        "**นี่คือแผน ไม่ใช่ผล** ณ วันที่ตีพิมพ์ยังไม่มีการเก็บข้อมูล และเอกสารระบุเองว่าการรับรองจริยธรรมการวิจัยอยู่ระหว่างพิจารณา ส่วนระยะที่สองต้องขออนุมัติแยกอีกฉบับ · **การเลือกตัวอย่างเป็นแบบโควตา ไม่ใช่การสุ่ม** ผลที่ได้ภายหลังจึงใช้ประเมินคุณภาพของเครื่องมือได้ แต่ใช้ประมาณระดับการตีตราของประชากรทั้งกลุ่มไม่ได้ · ฉบับที่เผยแพร่ผ่านการประเมินจากผู้ทรงคุณวุฒิอิสระแล้ว 1 ท่าน",
+    },
+    en: {
+      headline: "Thailand has no validated way to measure stigma during an outbreak — this is the plan to build one in two languages",
+      question:
+        "Stigma keeps people from seeking care and undermines outbreak control, yet Thailand has no validated instrument for measuring how vulnerable groups experience it. This protocol sets out a plan to adapt and validate one for the Thai and Burmese contexts.",
+      method:
+        "The RAPID Community and Self Stigma Scales — 16 items in total — will be translated into Thai and Burmese following ISPOR guidelines, using forward and back translation. The work runs in two phases. Phase 1 puts the translations to two expert panels of eight members each across three Delphi rounds, then to cognitive interviews with 15 to 20 members of each community. Phase 2 validates the adapted scales with 400 participants (200 per community) through confirmatory factor analysis and reliability testing.",
+      findings: [
+        "**The two communities are Thai men who have sex with men, for mpox-related stigma, and Myanmar migrants, for COVID-19-related stigma.**",
+        "**The expert panels are designed to include community members from the start, not only academics** — each panel of eight comprises two community leaders with lived experience, two health specialists working with that group, two researchers, one language expert and one cultural expert.",
+        "**Decision thresholds are declared in advance.** Items scoring below 0.78 on the item-level content validity index go back for revision, and the final round targets more than 80% of experts rating face validity highly and an overall scale-level index above 0.90.",
+        "**Phase 2 requires a separate ethics approval** and uses quota sampling to cover five subgroups in each community: recovered individuals, close contacts, healthcare workers, outbreak support staff and general community members.",
+      ],
+      soWhat:
+        "If the plan runs to completion, Thailand would have an instrument ready to deploy the moment the next outbreak begins, rather than starting to design a questionnaire once events are already moving — which is the authors' stated reason most stigma instruments arrive too late to inform anything. And because the source scales were built to work across diseases, the Thai and Burmese versions would not be tied to any single one.",
+      caveat:
+        "**This is a plan, not a result.** No data had been collected at publication, the document states that ethics approval was still pending, and Phase 2 requires a separate approval of its own. **Sampling is by quota rather than random selection**, so the eventual results will speak to the quality of the instrument and not to the level of stigma in the wider population. The published version carries one approving independent peer review.",
+    },
+  },
+  {
+    slug: "gamified-wmsds-prevention",
+    kind: "protocol",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ลูกศรโค้งต่อกันเป็นวงรอบ โดยมีอยู่ช่วงหนึ่งที่ยังเป็นสีพื้นครีม ไม่ได้ลงสีเหมือนช่วงอื่น",
+    illustrationAltEn:
+      "Paper-craft illustration of curved arrows forming a closed loop, with one segment still left in bare cream, uncoloured like the rest",
+    doi: "10.12688/wellcomeopenres.21428.1",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "gamified-wmsds-prevention.pdf",
+    th: {
+      headline: "แผนทดสอบว่าท่าบริหาร 12 ท่าที่ส่งผ่านกลุ่มเฟซบุ๊กแบบเกม จะช่วยลดอาการปวดจากงานของแรงงานข้ามชาติได้หรือไม่",
+      question:
+        "แรงงานข้ามชาติชาวเมียนมาในโรงงานอาหารทะเลเผชิญอาการปวดกล้ามเนื้อและข้อจากลักษณะงานที่ทำซ้ำๆ แต่สื่อสุขภาพแบบเดิมมักไปไม่ถึงเพราะกำแพงภาษาและวัฒนธรรม งานนี้ประกาศแผนพัฒนาและทดสอบชุดการสื่อสารสุขภาพที่ออกแบบให้ตรงกับภาษา วัฒนธรรม และลักษณะงานของคนกลุ่มนี้",
+      method:
+        "แบ่งเป็นสองระยะ · ระยะแรกพัฒนาชุดกิจกรรมจากการสนทนากลุ่ม กลุ่มละ 8 ถึง 10 คนจนข้อมูลอิ่มตัว การสัมภาษณ์ผู้ให้ข้อมูลหลักครั้งละ 40 ถึง 60 นาที และการตรวจโดยผู้เชี่ยวชาญ พร้อมปรับแบบประเมินโดยตั้งต้นจากแบบสอบถามอาการทางกล้ามเนื้อและกระดูกฉบับนอร์ดิก · ระยะที่สองนำไปใช้จริงกับผู้เข้าร่วมที่ตั้งเป้าไว้ 400 คน ซึ่งคาดว่าเหลือราว 360 คนหลังหักการออกกลางคัน 10% แล้ววัดก่อนและหลังด้วยแบบประเมินที่ผ่านการตรวจแล้ว · ขึ้นทะเบียนการทดลองไว้กับ Thai Clinical Trials Registry ตั้งแต่เดือนพฤษภาคม 2567",
+      findings: [
+        "**ชุดกิจกรรมคือท่าบริหาร 12 ท่า** ที่เลือกให้ตรงกับส่วนของร่างกายที่ลักษณะงานกระทบมากที่สุด เช่น คอและหลัง โดยผ่านการปรึกษาผู้เชี่ยวชาญด้านสุขภาพ",
+        "**ช่องทางคือกลุ่มเฟซบุ๊ก ไม่ใช่แอปที่ต้องติดตั้งใหม่** เกณฑ์คัดเข้ากำหนดว่าผู้เข้าร่วมต้องเข้าเฟซบุ๊กอย่างน้อยสัปดาห์ละครั้ง — เป็นการเลือกช่องทางที่กลุ่มเป้าหมายใช้อยู่แล้ว",
+        "**กลไกเกมถูกกำหนดไว้ล่วงหน้าเป็นข้อๆ** โพสต์ให้ความรู้สัปดาห์ละ 3 ครั้ง ควิซสัปดาห์ละ 3 ครั้งสลับวัน และภารกิจประจำสัปดาห์ · ให้คะแนนตามการมีส่วนร่วม (กดถูกใจ 1 คะแนน · แสดงความเห็น 2 คะแนน · ทำควิซ 1 คะแนน ตอบถูก 2 คะแนน · ร่วมภารกิจประจำสัปดาห์ 5 คะแนน) และแสดงกระดานผู้นำเฉพาะผู้เข้าร่วมที่ตื่นตัวที่สุด 10% แรก",
+        "**สิ่งที่จะวัดคือความรู้ ความตระหนัก และอาการทางกล้ามเนื้อและข้อที่ผู้เข้าร่วมรายงานเอง** เปรียบเทียบก่อนและหลังด้วยสถิติ t-test หรือ ANOVA พร้อมติดตามระดับการมีส่วนร่วมจากพฤติกรรมจริงในกลุ่ม",
+        "**คำว่า “ethical” ในชื่องานมาจากเงื่อนไขที่เขียนไว้ล่วงหน้า** ทั้งการขอความยินยอมโดยได้รับข้อมูลครบ การรักษาความลับ และการกำหนดเพดานค่าตอบแทนไม่ให้เกิน 200 บาท เพื่อไม่ให้เงินกลายเป็นแรงกดดันให้เข้าร่วม",
+      ],
+      soWhat:
+        "แผนนี้ตอบโจทย์ที่งานสื่อสารสุขภาพกับแรงงานข้ามชาติติดมาตลอด คือสื่อไปไม่ถึงคนที่ควรได้ประโยชน์ · จุดที่หน่วยงานอื่นหยิบไปใช้ได้ทันทีมีสองเรื่อง หนึ่งคือวิธีเลือกช่องทาง — ไม่สร้างแอปใหม่ แต่เข้าไปอยู่ในที่ที่กลุ่มเป้าหมายอยู่แล้ว สองคือการเขียนกลไกจูงใจและเพดานค่าตอบแทนไว้เป็นลายลักษณ์อักษรตั้งแต่ก่อนเริ่ม ซึ่งทำให้ตรวจสอบได้ว่าการเข้าร่วมเป็นความสมัครใจจริง · งานคู่กันที่ตีพิมพ์ผลแล้วคือขั้นตอนออกแบบท่าบริหารร่วมกับตัวแรงงานเอง",
+      caveat:
+        "**นี่คือแผน ไม่ใช่ผล** ตัวบทความระบุเองว่ายังไม่มีข้อค้นพบเพราะเป็นการประกาศแผน สิ่งที่อยู่ในหัวข้อ “จะทำอะไร” คือสิ่งที่ทีมตั้งใจจะทำและจะวัด ไม่ใช่สิ่งที่เกิดขึ้นแล้ว · **การออกแบบเป็นการวัดก่อนและหลังในกลุ่มเดียว ไม่มีกลุ่มเปรียบเทียบ** การเปลี่ยนแปลงที่วัดได้จึงแยกออกจากปัจจัยอื่นในช่วงเวลาเดียวกันไม่ได้ · ทำในโรงงานแห่งเดียว และวัดอาการจากการรายงานของผู้เข้าร่วมเอง ไม่ใช่การตรวจร่างกาย · ฉบับที่เผยแพร่ยังอยู่ระหว่างรอการประเมินจากผู้ทรงคุณวุฒิ",
+    },
+    en: {
+      headline: "A plan to test whether twelve exercises, delivered as a game inside a Facebook group, can reduce work-related pain among migrant workers",
+      question:
+        "Myanmar migrant workers in Thailand's seafood industry develop musculoskeletal disorders from repetitive work, but conventional health communication rarely reaches them across language and cultural barriers. This protocol sets out a plan to develop and test a health communication package built for their language, culture and the actual nature of their work.",
+      method:
+        "The study runs in two phases. Phase 1 develops the package through focus group discussions of 8 to 10 participants until saturation, key informant interviews of 40 to 60 minutes each and expert review, and adapts an assessment form starting from the Nordic Musculoskeletal Questionnaire. Phase 2 implements it with a target of 400 participants — an expected 360 after a 10% dropout allowance — measured before and after with the validated form. The trial was registered with the Thai Clinical Trials Registry in May 2024.",
+      findings: [
+        "**The package is twelve exercises**, chosen with health specialists to target the body areas the work affects most, such as the neck and back.",
+        "**The channel is a Facebook group rather than an app that has to be installed.** The inclusion criteria require participants to log in at least once a week — a deliberate choice to work where the audience already is.",
+        "**The game mechanics are specified in advance**: informational posts three times a week, quizzes three times a week on alternating days, and a weekly challenge. Points are awarded for participation (1 for a reaction, 2 for a comment, 1 for completing a quiz and 2 for answering correctly, 5 for joining the weekly challenge), with a leaderboard showing only the most active 10%.",
+        "**What will be measured is knowledge, awareness and self-reported musculoskeletal symptoms**, compared before and after with t-tests or ANOVA, alongside engagement tracked from actual behaviour in the group.",
+        "**The word “ethical” in the title refers to conditions written down in advance** — informed consent, confidentiality, and a cap on compensation of no more than 200 baht so that payment does not become pressure to take part.",
+      ],
+      soWhat:
+        "The plan addresses the problem that has dogged health communication with migrant workers: the material never reaches the people it is for. Two things here are directly reusable. The first is the channel decision — not building an app, but going where the audience already is. The second is writing the incentive design and the payment ceiling down before recruitment starts, which makes it possible to check afterwards that participation was genuinely voluntary. The companion study that has already reported results covers designing the exercises together with the workers themselves.",
+      caveat:
+        "**This is a plan, not a result.** The article states plainly that findings are not yet available because it is a protocol; everything under “what the study will do” is intended, not achieved. **The design is a single-group before-and-after measurement with no comparison group**, so any change observed cannot be separated from anything else happening over the same period. It takes place in one factory, and symptoms are self-reported rather than clinically assessed. The published version was awaiting peer review.",
+    },
+  },
+  {
+    slug: "vtuber-streamer-purchase-intention",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ตราชั่งสองอันวางเคียงกันและเอียงเท่ากัน แต่ก้อนน้ำหนักที่กดแต่ละอันเป็นคนละรูปทรง",
+    illustrationAltEn:
+      "Paper-craft illustration of two balances tipped to the same angle, each by a differently shaped weight",
+    doi: "10.1080/01973533.2023.2208246",
+    articleLanguage: "en",
+    license: "cc-by-nc",
+    localCopy: "vtuber-streamer-purchase-intention.pdf",
+    th: {
+      headline: "ความน่าเชื่อถือคนละแบบได้ผลกับคนละกลุ่ม — ความเชี่ยวชาญขายของให้แฟนตัวจริง หน้าตาขายให้คนทั่วไป",
+      question:
+        "ผู้มีอิทธิพลสายเกมสองแบบ — วีทูปเบอร์ที่เป็นตัวละครเสมือน กับสตรีมเมอร์ที่เป็นคนจริง — ส่งผลต่อความตั้งใจซื้อของผู้ชมต่างกันอย่างไร และปัจจัยความน่าเชื่อถือด้านใดสำคัญกับผู้ชมกลุ่มใด",
+      method:
+        "แบบสอบถามออนไลน์กับผู้เล่นเกมหญิงชาวไทย 686 คนที่ติดตามผู้มีอิทธิพลสายเกมหญิงอย่างน้อยหนึ่งคน อายุเฉลี่ย 24.79 ปี ในจำนวนนี้ระบุตนเองว่าเป็นโอตาคุ 105 คน และไม่ใช่โอตาคุ 581 คน · วัดการรับรู้สามด้านตามกรอบความน่าเชื่อถือของแหล่งสาร คือความเชี่ยวชาญ ความน่าดึงดูด และความน่าไว้วางใจ โดยใช้ผู้มีอิทธิพลจริงสองคนเป็นสิ่งเร้า คนหนึ่งเป็นวีทูปเบอร์ อีกคนเป็นสตรีมเมอร์ · วิเคราะห์ด้วยการเปรียบเทียบค่าเฉลี่ยและการถดถอย",
+      findings: [
+        "**เมื่อรวมทั้งสองแบบ ปัจจัยทั้งสามทำนายความตั้งใจซื้อได้อย่างมีนัยสำคัญ** — ความเชี่ยวชาญ (β = .330) ความน่าไว้วางใจ (β = .237) และความน่าดึงดูด (β = .188)",
+        "**แต่พอแยกดูทีละแบบ ภาพกลับต่างกันชัดเจน** สำหรับวีทูปเบอร์ ตัวทำนายคือความเชี่ยวชาญ (β = .423) และความน่าไว้วางใจ (β = .258) ส่วน**ความน่าดึงดูดไม่มีนัยสำคัญ** (β = .108) โมเดลอธิบายความแปรปรวนได้ 57.2%",
+        "**สำหรับสตรีมเมอร์กลับกลายเป็นตรงข้าม** ตัวทำนายคือความน่าไว้วางใจ (β = .438) และความน่าดึงดูด (β = .230) ส่วน**ความเชี่ยวชาญไม่มีนัยสำคัญ** (β = .039) โมเดลอธิบายความแปรปรวนได้ 46.7%",
+        "**กลุ่มโอตาคุให้คะแนนความเชี่ยวชาญสูงกว่าอย่างมีนัยสำคัญ** (Cohen's d = 0.518 ขนาดผลปานกลาง) และมีความตั้งใจซื้อสูงกว่า (d = 0.615 ปานกลางถึงมาก)",
+        "**ลำดับความสำคัญของปัจจัยต่างกันตามกลุ่มผู้ชม** — กลุ่มโอตาคุให้น้ำหนักความเชี่ยวชาญมากที่สุด (β = .333) ตามด้วยความน่าไว้วางใจ (.256) และความน่าดึงดูด (.178) ส่วนกลุ่มที่ไม่ใช่โอตาคุ ความน่าดึงดูดมีอิทธิพลมากที่สุด และ**ความน่าไว้วางใจไม่มีนัยสำคัญ**",
+      ],
+      soWhat:
+        "ข้อค้นพบนี้ใช้เลือกคนและเลือกสารได้ตรงขึ้น — **ถ้ากลุ่มเป้าหมายเป็นแฟนตัวจริงของหมวดนั้น สิ่งที่ต้องพิสูจน์คือความรู้จริงในเรื่องนั้น ไม่ใช่ภาพลักษณ์** เนื้อหาจึงควรให้เห็นฝีมือและความเข้าใจสินค้า · แต่ถ้าเป็นผู้ชมทั่วไป ความรู้สึกชอบและความคุ้นเคยทำงานมากกว่า · และเพราะวีทูปเบอร์เป็นตัวละครเสมือน ผลที่ว่าความน่าดึงดูดไม่มีนัยสำคัญกับกลุ่มนี้ ชี้ว่าผู้ชมประเมินตัวละครด้วยสิ่งที่ตัวละครทำได้ ไม่ใช่ด้วยรูปลักษณ์ที่ออกแบบมา",
+      caveat:
+        "**เก็บจากผู้เล่นเกมหญิงในไทยเท่านั้น** ผู้เขียนระบุเองว่าจำกัดการนำไปใช้กับบริบทวัฒนธรรมอื่น · เป็นข้อมูลที่ผู้ตอบรายงานเอง ไม่ใช่พฤติกรรมการซื้อจริง · **กลุ่มโอตาคุมีเพียง 105 คนเทียบกับอีกกลุ่ม 581 คน** ขนาดกลุ่มที่ต่างกันมากทำให้การเปรียบเทียบมีข้อจำกัด · ใช้ผู้มีอิทธิพลเพียงสองคนเป็นสิ่งเร้า และไม่ได้แยกดูว่าเนื้อหาแบบใดให้ผลต่างกัน · เป็นความตั้งใจซื้อ ไม่ใช่ยอดขาย",
+    },
+    en: {
+      headline: "Different kinds of credibility work on different audiences — expertise sells to the committed fan, appeal sells to everyone else",
+      question:
+        "Two kinds of gaming influencer — a VTuber, who is a virtual character, and a live streamer, who is a real person — affect viewers' purchase intentions differently. Which dimensions of credibility matter, and to whom?",
+      method:
+        "An online survey of 686 Thai female gamers who follow at least one female gaming influencer, mean age 24.79. Of these, 105 identified as Otaku and 581 did not. The survey measured three source-credibility dimensions — expertise, attractiveness and trustworthiness — using two real influencers as stimuli, one a VTuber and one a streamer, and analysed the data with mean comparisons and regression.",
+      findings: [
+        "**With both influencer types combined, all three dimensions significantly predicted purchase intention** — expertise (β = .330), trustworthiness (β = .237) and attractiveness (β = .188).",
+        "**Split by type, the picture changes sharply.** For the VTuber, the predictors were expertise (β = .423) and trustworthiness (β = .258), while **attractiveness was not significant** (β = .108). The model explained 57.2% of the variance.",
+        "**For the streamer it reversed.** The predictors were trustworthiness (β = .438) and attractiveness (β = .230), while **expertise was not significant** (β = .039). The model explained 46.7% of the variance.",
+        "**Otaku respondents rated expertise significantly higher** (Cohen's d = 0.518, a medium effect) and reported higher purchase intention (d = 0.615, medium to large).",
+        "**The ranking of factors differed by audience.** For Otaku, expertise mattered most (β = .333), then trustworthiness (.256) and attractiveness (.178). For non-Otaku, attractiveness had the strongest influence and **trustworthiness was not a significant predictor**.",
+      ],
+      soWhat:
+        "This is directly usable when choosing a partner and writing a brief. **If the audience is committed to the category, what has to be demonstrated is genuine knowledge of it, not image** — so the content should show skill and real understanding of the product. For a general audience, familiarity and liking do more work. And because a VTuber is a designed character, the finding that attractiveness did not predict anything for that type suggests viewers judge the character by what it can do rather than by how it was drawn.",
+      caveat:
+        "**The sample is Thai female gamers only**, and the authors note this limits transfer to other cultural contexts. The measures are self-reported intentions, not observed purchases. **The Otaku group numbered only 105 against 581 in the other group**, so the comparison rests on very unequal cells. Only two influencers served as stimuli, and the study did not separate content types. Purchase intention is not sales.",
+    },
+  },
+  {
+    slug: "fansub-viewers-sponsorship",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แผ่นสีหนึ่งวางแตะขอบอีกแผ่นหนึ่ง แล้วสีค่อยๆ ซึมข้ามไปติดที่ขอบของแผ่นข้างเคียง",
+    illustrationAltEn:
+      "Paper-craft illustration of one coloured sheet touching another, its colour bleeding across the join into the neighbouring edge",
+    doi: "10.1080/2331186x.2022.2102481",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "fansub-viewers-sponsorship.pdf",
+    th: {
+      headline: "ผู้ชมที่ชอบคอร์สที่แฟนคลับแปลให้ฟรี ก็รู้สึกดีกับผู้สนับสนุนไปด้วย และไม่ได้มองว่าเป็นการยัดเยียดโฆษณา",
+      question:
+        "คอร์สเรียนออนไลน์ที่กลุ่มแฟนคลับแปลซับให้ฟรีมีผู้สนับสนุนเป็นแบรนด์ งานนี้ถามว่าผู้ชมชาวจีนรู้สึกอย่างไรกับตัวคอร์ส กับการมีผู้สนับสนุน และกับตัวผู้สนับสนุนเอง — และความรู้สึกทั้งสามอย่างเกี่ยวข้องกันไหม",
+      method:
+        "แบบสอบถามออนไลน์แบบตัดขวาง เผยแพร่บนหน้าเว็บบอร์ดของกลุ่มแฟนซับกลุ่มหนึ่ง ได้ผู้ตอบ 216 คน (หญิง 132 คน · ครึ่งหนึ่งอายุ 18–25 ปี · จบปริญญาตรี 150 คน) วัดด้วยมาตรวัดลิเคิร์ต 5 ระดับ ค่าความเชื่อมั่นของแต่ละชุด .83 ถึง .90 · วิเคราะห์ด้วย one-sample t-test เทียบกับจุดกึ่งกลางของมาตรวัด และค่าสหสัมพันธ์เพียร์สัน",
+      findings: [
+        "**ทัศนคติทั้งสามด้านเป็นบวกอย่างมีนัยสำคัญเมื่อเทียบกับจุดกึ่งกลาง** — ต่อตัวคอร์ส t(215) = 25.25 · ต่อผู้สนับสนุน t(215) = 13.92 · ต่อการมีผู้สนับสนุนโดยรวม t(215) = 22.17 ทั้งหมด p < .001",
+        "**ผู้ชมให้คะแนนตัวคอร์สสูงที่สุด** ว่ามีคุณค่า 4.35 ดี 4.28 และเป็นประโยชน์ 4.25 จาก 5",
+        "**ผู้ชมไม่ได้มองว่าคอร์สถูกทำให้เป็นการค้าเกินไป** (3.75) และเห็นว่าการที่แบรนด์มาสนับสนุนมีเหตุผลรองรับ (3.90) เข้ากันกับเนื้อหา (3.84) และมาด้วยความจริงใจ (4.01)",
+        "**ความรู้สึกดีต่อผู้สนับสนุนมีจริงแต่ต่ำกว่าความรู้สึกต่อตัวคอร์ส** — ภาพลักษณ์ดีขึ้น 3.78 ชอบมากกว่าเดิม 3.69 เฉลี่ยทั้งชุด 3.76",
+        "**ความสัมพันธ์ระหว่างสามด้านเป็นบวกทั้งหมดแต่อยู่ในระดับปานกลาง ไม่ใช่สูง** — ทัศนคติต่อคอร์สกับต่อผู้สนับสนุน r = .36 · ต่อคอร์สกับต่อการสนับสนุนโดยรวม r = .51 · ต่อผู้สนับสนุนกับต่อการสนับสนุนโดยรวม r = .59",
+      ],
+      soWhat:
+        "งานนี้เป็นหลักฐานให้กับการสนับสนุนเนื้อหาที่ชุมชนทำกันเอง — **ความรู้สึกดีส่งต่อจากเนื้อหาไปยังผู้สนับสนุนได้จริง แต่ส่งได้ไม่เต็ม** (r ระดับกลาง) แบรนด์จึงไม่ควรคาดหวังว่าความชอบที่ผู้ชมมีต่อเนื้อหาจะกลายเป็นความชอบต่อแบรนด์แบบหนึ่งต่อหนึ่ง · จุดที่ผู้ชมให้คะแนนสูงคือ “ความเข้ากัน” และ “ความจริงใจ” ซึ่งเป็นสิ่งที่เลือกได้ตั้งแต่ตอนเลือกว่าจะไปสนับสนุนอะไร ไม่ใช่สิ่งที่แก้ทีหลังด้วยการซื้อสื่อเพิ่ม",
+      caveat:
+        "**เป็นความสัมพันธ์ ไม่ใช่เหตุและผล** ผู้เขียนระบุไว้เป็นข้อแรก · **ผู้ตอบมาจากกลุ่มแฟนซับกลุ่มเดียว และเป็นคนที่ยังติดตามอยู่** คนที่เคยดูแล้วไม่ชอบย่อมเลิกติดตามไปแล้วและไม่ได้อยู่ในกลุ่มตัวอย่าง ผู้เขียนเรียกค่าที่ได้ว่าเป็น “การประมาณอย่างมีข้อมูล” มากกว่าค่าที่แทนความเห็นสาธารณะ · ค่าความคลาดเคลื่อนของการสุ่มอยู่ที่ 7% · ไม่ได้วัดว่าความรู้สึกดีนำไปสู่การซื้อจริงหรือไม่ ซึ่งผู้เขียนเสนอเป็นงานต่อไป",
+    },
+    en: {
+      headline: "Viewers who value the courses fan groups subtitle for free feel warmly toward the sponsors too — and do not read it as commercial intrusion",
+      question:
+        "Online courses subtitled for free by fan groups carry brand sponsorship. How do Chinese viewers feel about the courses themselves, about the sponsorship, and about the sponsors — and are those three feelings connected?",
+      method:
+        "A cross-sectional online survey posted on the forum of one fansub group, yielding 216 respondents (132 women; half aged 18 to 25; 150 holding a bachelor's degree). All measures used five-point Likert scales with reliabilities between .83 and .90, analysed with one-sample t-tests against the scale midpoint and Pearson correlations.",
+      findings: [
+        "**All three attitudes were significantly positive against the scale midpoint** — toward the courses t(215) = 25.25, toward the sponsors t(215) = 13.92, and toward sponsorship overall t(215) = 22.17, all p < .001.",
+        "**The courses themselves scored highest**: valuable 4.35, good 4.28 and beneficial 4.25 out of 5.",
+        "**Viewers did not see the courses as over-commercialised** (3.75) and agreed that sponsorship made sense (3.90), fitted the content (3.84) and was sincerely meant (4.01).",
+        "**Goodwill toward the sponsors was real but lower than toward the content** — improved image 3.78, liking them more than before 3.69, section mean 3.76.",
+        "**All the relationships were positive but moderate, not strong** — courses to sponsors r = .36, courses to sponsorship overall r = .51, sponsors to sponsorship overall r = .59.",
+      ],
+      soWhat:
+        "This is evidence for sponsoring content a community makes for itself: **goodwill does transfer from the content to the sponsor, but it does not transfer in full** — the correlations are moderate. A brand should not expect affection for the content to become affection for the brand one for one. What viewers rated highest was fit and sincerity, and both are settled at the point of choosing what to sponsor, not repaired afterwards by buying more media.",
+      caveat:
+        "**These are correlations, not causes** — the authors say so first. **Respondents came from a single fansub group and were people still following it**; anyone who watched and disliked it would have unsubscribed and is absent from the sample, which is why the authors call their figure an “educated guess” rather than an estimate of public attitudes. Sampling error was 7%. The study does not test whether goodwill leads to purchase, which the authors propose as the next step.",
+    },
+  },
+  {
+    slug: "first-year-online-learning-technostress",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กองแผ่นบางๆ ซ้อนกันสูงจนย่นและทรุดลงข้างหนึ่ง ข้างๆ มีแผ่นหนาเพียงแผ่นเดียวที่ตั้งตรงอยู่ได้มั่นคง",
+    illustrationAltEn:
+      "Paper-craft illustration of a tall stack of thin sheets buckling under its own height, beside one thick board standing upright and steady",
+    doi: "10.58837/chula.pasaa.65.1.8",
+    articleLanguage: "en",
+    th: {
+      headline: "ความเครียดของนิสิตปีหนึ่งไม่ได้มาจากเทคโนโลยียาก แต่มาจากปริมาณที่ต้องรับมือพร้อมกัน",
+      question:
+        "นิสิตปีหนึ่งที่ต้องย้ายจากห้องเรียนมาเรียนออนไลน์กลางคัน มองการเรียนสองแบบ — เรียนสดพร้อมกันกับเรียนจากสิ่งที่บันทึกไว้ — อย่างไร และเครียดกับเทคโนโลยีในด้านใดบ้าง · นิสิตสายวิทย์กับสายที่ไม่ใช่วิทย์ต่างกันหรือไม่",
+      method:
+        "แบบสอบถามออนไลน์ภาษาไทย 45 ข้อ กับนิสิตปีหนึ่งของมหาวิทยาลัยแห่งหนึ่ง 803 คน จากประชากรรุ่นนั้น 6,778 คน ในปีการศึกษา 2563 · วัดสองส่วนด้วยมาตรวัดลิเคิร์ต 5 ระดับ คือมุมมองต่อการเรียนสองแบบ 20 ข้อ และความเครียดจากเทคโนโลยีสี่ด้าน 20 ข้อ — ด้านปริมาณงานล้น ด้านความซับซ้อน ด้านความไม่มั่นคงของระบบ และด้านความไม่แน่นอนของเทคโนโลยีที่เปลี่ยนบ่อย · ตรวจความตรงเชิงเนื้อหาโดยผู้เชี่ยวชาญ 3 ท่านและทดลองใช้ก่อน · เปรียบเทียบสองกลุ่มด้วย t-test",
+      findings: [
+        "**ความเครียดด้านปริมาณงานล้นสูงกว่าอีกสามด้านชัดเจนในทั้งสองกลุ่ม** — สายวิทย์ 3.52 และสายที่ไม่ใช่วิทย์ 3.64 จาก 5",
+        "**อีกสามด้านอยู่ระดับกลางค่อนไปทางต่ำทั้งหมด** — ความซับซ้อน 2.83 กับ 2.88 · ความไม่มั่นคงของระบบ 2.95 กับ 2.96 · ความไม่แน่นอน 2.73 กับ 2.95",
+        "**ความต่างระหว่างสองกลุ่มมีนัยสำคัญเพียงด้านเดียว คือความไม่แน่นอนของเทคโนโลยี** (t = −3.62, p < .01) ส่วน**ด้านความซับซ้อน (p = .42) และด้านความไม่มั่นคง (p = .91) ไม่พบความต่าง** และด้านปริมาณงานล้นอยู่ที่เส้นพอดี (p = .05)",
+        "**เรื่องมุมมองต่อการเรียน นิสิตสายที่ไม่ใช่วิทย์เป็นบวกกว่าทั้งสองแบบ แต่ต่างอย่างมีนัยสำคัญเฉพาะแบบเรียนจากสิ่งที่บันทึกไว้** (t(801) = −2.13, p = .03) — 3.06 เทียบกับ 2.94",
+        "**คะแนนมุมมองต่อการเรียนออนไลน์ของทุกกลุ่มอยู่ราว 3 จาก 5 เท่านั้น** คือกลางๆ ไม่ได้ชอบและไม่ได้เกลียด",
+      ],
+      soWhat:
+        "ข้อค้นพบชี้ทางแก้ที่ต่างจากที่มักทำกัน — **เมื่อด้านที่สูงคือปริมาณ ส่วนด้านความซับซ้อนกลับต่ำ การอบรมให้ใช้เครื่องมือเป็นจึงไม่ใช่คำตอบ** สิ่งที่ต้องจัดการคือจำนวนแพลตฟอร์มและจำนวนกำหนดส่งที่วิ่งเข้ามาพร้อมกันจากหลายวิชา · ผู้เขียนเสนอให้ลดจำนวนระบบที่ใช้ในหลักสูตรเดียวกันลง และเพิ่มสัดส่วนการเรียนจากสิ่งที่บันทึกไว้สำหรับกลุ่มที่ตอบรับดีกว่า เพราะให้ผู้เรียนจัดจังหวะเองได้",
+      caveat:
+        "**เก็บจากมหาวิทยาลัยเดียวและนิสิตรุ่นเดียว** ในช่วงที่มหาวิทยาลัยสั่งย้ายมาเรียนออนไลน์ทั้งหมด บริบทนี้ไม่ได้เกิดซ้ำในภาวะปกติ · ผู้เขียนระบุเองว่าใช้วิธีเชิงปริมาณอย่างเดียว จึงจับรายละเอียดของประสบการณ์ได้ไม่ครบ และเสนอให้ทำการสัมภาษณ์เชิงลึกต่อ · เป็นการรายงานความรู้สึกด้วยตนเอง ไม่ใช่การวัดภาระงานจริง",
+    },
+    en: {
+      headline: "First-year students were not stressed because the technology was hard — they were stressed by how much of it arrived at once",
+      question:
+        "First-year students moved mid-course from classrooms to online learning. How did they view the two modes — live sessions and recorded material — and which kinds of technology stress did they feel? Did science and non-science students differ?",
+      method:
+        "A 45-item online questionnaire in Thai completed by 803 first-year students at one university, from a cohort of 6,778, in the 2020 academic year. Two sections used five-point Likert scales: 20 items on views of the two learning modes and 20 on four kinds of technostress — overload, complexity, insecurity and uncertainty. Content validity was reviewed by three specialists and the instrument was piloted; the two groups were compared with t-tests.",
+      findings: [
+        "**Techno-overload stood clearly above the other three in both groups** — 3.52 among science students and 3.64 among non-science students, out of 5.",
+        "**The other three all sat in the middle-to-low range** — complexity 2.83 and 2.88, insecurity 2.95 and 2.96, uncertainty 2.73 and 2.95.",
+        "**Only one difference between the groups was significant: techno-uncertainty** (t = −3.62, p < .01). **Complexity (p = .42) and insecurity (p = .91) showed no difference at all**, and overload sat exactly on the line (p = .05).",
+        "**On views of the modes, non-science students were more positive about both, but significantly so only for the recorded mode** (t(801) = −2.13, p = .03) — 3.06 against 2.94.",
+        "**Every group's rating of online learning hovered around 3 out of 5** — neither liked nor disliked.",
+      ],
+      soWhat:
+        "The finding points somewhere other than the usual remedy. **When the high score is quantity while complexity is low, training people to use the tools is not the answer.** What has to be managed is the number of platforms and the number of deadlines arriving together from different courses. The authors recommend reducing how many systems a single programme uses, and offering more recorded material for the group that responded better to it, because it lets students set their own pace.",
+      caveat:
+        "**One university, one cohort**, during a period when the institution had mandated fully online teaching — a context that does not recur in normal conditions. The authors note the study is quantitative only and therefore cannot capture the texture of the experience, and they call for interviews as a follow-up. These are self-reported feelings, not measured workload.",
+    },
+  },
+  {
+    slug: "brand-attitude-congruence-purchase",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ สะพานสองช่วงพาดระหว่างเสาสองต้น ช่วงบนกว้างหนา อีกช่วงแคบกว่าวางขนานอยู่ด้านล่าง",
+    illustrationAltEn:
+      "Paper-craft illustration of two spans bridging the same pair of piers, the upper one broad and thick, the other narrower running parallel below it",
+    doi: "10.13187/me.2024.2.239",
+    articleLanguage: "en",
+    th: {
+      headline: "การมีจุดยืนตรงกันช่วยให้นิสิตอยากซื้อจริง แต่เป็นเพียงส่วนหนึ่งของเส้นทาง ไม่ใช่ทั้งหมด",
+      question:
+        "เมื่อผู้บริโภครุ่นใหม่คาดหวังให้แบรนด์แสดงจุดยืนต่อประเด็นสังคม การที่จุดยืนของแบรนด์ตรงกับของผู้บริโภคส่งผลต่อความตั้งใจซื้อมากน้อยเพียงใด และส่งผลผ่านอะไร",
+      method:
+        "แบบสอบถามที่ผู้ตอบประเมินตนเอง มาตรวัด 7 ระดับ กับนิสิตนักศึกษาไทยอายุ 18–24 ปีจากหลายมหาวิทยาลัย 434 คน (หญิง 53% ชาย 47%) โดยใช้แบรนด์อสังหาริมทรัพย์ Sansiri เป็นกรณีศึกษา · วัดความคล้ายของจุดยืน คุณค่าแบรนด์ การรับรู้แบรนด์ ภาพลักษณ์ ความน่าเชื่อถือ ความผูกพันเชิงความรู้สึก ความรู้สึกเป็นชุมชน และความตั้งใจซื้อ · ทดลองใช้กับผู้ตอบ 50 คนก่อน · วิเคราะห์ด้วยสถิติเชิงพรรณนา ค่าความสอดคล้องภายใน และโมเดลสมการโครงสร้างเพื่อทดสอบการส่งผ่าน",
+      findings: [
+        "**ข้อที่ได้คะแนนสูงสุดทั้งชุดคือ “จะซื้อจากแบรนด์ที่มีจุดยืนตรงกับเรามากกว่า”** ที่ 5.74 จาก 7 (SD 1.40) และผู้ตอบยังระบุว่าจะไม่ค่อยซื้อจากแบรนด์ที่มีจุดยืนตรงข้าม",
+        "**ความคล้ายของจุดยืนเป็นตัวส่งผ่านแบบบางส่วน ไม่ใช่ทั้งหมด** — เส้นทางอ้อม β = .18 (p < .001) ขณะที่เส้นทางรวมอยู่ที่ β = .95 (p < .001) แปลว่าคุณค่าแบรนด์ยังส่งผลไปยังความตั้งใจซื้อโดยตรงเป็นส่วนใหญ่",
+        "**การรับรู้แบรนด์และภาพลักษณ์ได้คะแนนสูงที่สุดในบรรดาองค์ประกอบ** — นึกถึงแบรนด์ได้ง่าย 5.42 · แยกออกจากคู่แข่งได้ 5.31 · รู้สึกดีกับภาพลักษณ์ 5.62 · เห็นว่าน่าสนใจกว่าแบรนด์อื่น 5.20",
+        "**ความรู้สึกเป็นส่วนหนึ่งของชุมชนแบรนด์ได้คะแนนต่ำที่สุดในทุกองค์ประกอบ** แม้จะยังอยู่ในระดับค่อนข้างสูงก็ตาม — ผู้ตอบเห็นด้วยกับแบรนด์ แต่ไม่ได้รู้สึกว่าตนเป็นสมาชิกของกลุ่มผู้สนับสนุน",
+        "**ความน่าเชื่อถือมาจากการทำได้ตามที่โฆษณาไว้** — ทำตามคำสัญญาในโฆษณา 5.36 และเชื่อถือชื่อเสียงของแบรนด์ได้ 5.50",
+      ],
+      soWhat:
+        "สำหรับแบรนด์ที่กำลังชั่งใจว่าจะแสดงจุดยืนต่อประเด็นสังคมหรือไม่ ข้อมูลนี้บอกสองอย่างพร้อมกัน — **จุดยืนที่ตรงกันมีน้ำหนักจริงกับผู้บริโภครุ่นนี้** (เป็นข้อที่ได้คะแนนสูงสุดทั้งชุด) แต่**มันทำงานเป็นส่วนเสริม ไม่ใช่ตัวหลัก** ค่าส่งผ่านที่ .18 เทียบกับเส้นทางรวม .95 หมายความว่าการรับรู้แบรนด์ ภาพลักษณ์ และการทำได้ตามที่โฆษณาไว้ ยังเป็นฐานที่ต้องมีก่อน · และการที่ความรู้สึกเป็นชุมชนได้คะแนนต่ำสุดชี้ว่าการเห็นด้วยกับจุดยืนแบรนด์ไม่เท่ากับการอยากเป็นสมาชิกของชุมชนแบรนด์ ซึ่งเป็นคนละเป้าหมายและต้องออกแบบคนละแบบ",
+      caveat:
+        "**ผู้เขียนระบุข้อจำกัดไว้เองสองข้อ** คือขนาดตัวอย่างไม่ใหญ่และเป็นการรายงานด้วยตนเองทั้งหมด · **ค่าสัมประสิทธิ์เส้นทางรวมที่ .95 สูงผิดปกติ** ซึ่งเป็นสิ่งที่พบได้บ่อยเมื่อวัดทุกตัวแปรด้วยแบบสอบถามชุดเดียวกันในคราวเดียว จึงควรอ่านขนาดของผลด้วยความระมัดระวัง · เป็นแบรนด์เดียวและหมวดสินค้าเดียว (อสังหาริมทรัพย์) กับผู้ตอบที่เป็นนิสิตอายุ 18–24 ปี ซึ่งส่วนใหญ่ยังไม่ใช่ผู้ซื้อจริงของสินค้าหมวดนี้ · วัดความตั้งใจซื้อ ไม่ใช่การซื้อจริง",
+    },
+    en: {
+      headline: "Sharing a brand's stance does move Thai students toward buying — but it carries part of the route, not the whole of it",
+      question:
+        "Younger consumers increasingly expect brands to take positions on social issues. How much does agreement between a brand's stance and a consumer's own affect the intention to buy, and what does it work through?",
+      method:
+        "A self-rated questionnaire on seven-point scales completed by 434 Thai university students aged 18 to 24 (53% women, 47% men), using the property brand Sansiri as the case. It measured attitude similarity, brand value, brand awareness, image, reliability, sentiment engagement, sense of community and purchase intention, after a pilot with 50 respondents, and was analysed with descriptive statistics, internal consistency and a structural equation model testing mediation.",
+      findings: [
+        "**The single highest-scoring item in the whole instrument was “I am more likely to buy from brands whose stance matches mine”**, at 5.74 out of 7 (SD 1.40); respondents also said they were less likely to buy from brands taking the opposite position.",
+        "**Attitude similarity mediated only partially.** The indirect path was β = .18 (p < .001) against a total path of β = .95 (p < .001) — meaning brand value still reaches purchase intention mostly by the direct route.",
+        "**Awareness and image scored highest among the components** — the brand comes to mind easily 5.42, is recognisable among rivals 5.31, feels good in image 5.62 and more attractive than others 5.20.",
+        "**Sense of belonging to a brand community scored lowest of all components**, though still relatively high — respondents agreed with the brand without feeling they were members of its advocacy group.",
+        "**Reliability rested on delivering what the advertising promised** — fulfils its advertised promise 5.36, reputation can be trusted 5.50.",
+      ],
+      soWhat:
+        "For a brand weighing whether to take a public position, the data says two things at once. **Shared stance genuinely carries weight with this cohort** — it is the highest-scoring item in the study. But **it works as a supplement, not the main channel**: a mediated effect of .18 against a total of .95 means awareness, image and actually delivering what was advertised remain the base that has to be there first. And the lowest score going to sense of community says that agreeing with a brand's position is not the same as wanting to belong to its community — different goals, needing different design.",
+      caveat:
+        "**The authors name two limitations themselves**: a modest sample and entirely self-reported measures. **The total path coefficient of .95 is unusually high**, which commonly happens when every variable is measured with the same instrument at the same sitting, so the size of the effect should be read cautiously. It covers one brand in one category — property — with respondents aged 18 to 24 who are mostly not yet buyers in that category. And it measures purchase intention, not purchases.",
+    },
+  },
+  {
+    slug: "russian-media-capitol-riots",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ กรอบสี่เหลี่ยมสีน้ำเงินสี่ชั้นตั้งเรียงซ้อนกันเป็นอุโมงค์ ปลายอุโมงค์ปิดด้วยแผ่นกระดาษสีแดงทึบ",
+    illustrationAltEn:
+      "Paper-craft illustration of four blue rectangular frames standing in a row to form a tunnel, its far end closed by a solid red panel",
+    doi: "10.1177/00027642221078767",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "สื่อรัสเซียเล่าเหตุการณ์บุกรัฐสภาสหรัฐฯ ด้วยกรอบสี่ชั้น และปลายทางของทั้งสี่ชั้นคือการพูดถึงรัสเซียเอง",
+      question:
+        "หลังผู้ชุมนุมบุกอาคารรัฐสภาสหรัฐอเมริกาเมื่อ 6 มกราคม 2564 สื่อตะวันตกบางสำนักรายงานว่ารัสเซีย “มองเหตุการณ์นี้ต่างออกไป” · คำถามของงานนี้คือ ภาพที่สื่อรัสเซียประกอบขึ้นให้ผู้อ่านภายในประเทศของตนเอง เป็นภาพเดียวกับที่ถูกส่งออกไปยังผู้ฟังต่างชาติหรือไม่ และประกอบขึ้นด้วยวิธีใด",
+      method:
+        "การวิเคราะห์กรอบการนำเสนอเชิงคุณภาพ ตามแนวคิดเรื่องกรอบของ Goffman และวิธีของ Entman โดยใช้ชุดกรอบพื้นฐานห้าแบบของ Neuman และคณะ (ผลกระทบต่อคน · ความไร้อำนาจ · เศรษฐกิจ · ศีลธรรม · ความขัดแย้ง) เป็นโครงตั้งต้น · เก็บข้อความ**ทุกชิ้น**ที่ตรงคำค้นที่กำหนดไว้ล่วงหน้า จากหนังสือพิมพ์รายวันระดับชาติ 3 ฉบับและสถานีโทรทัศน์ของรัฐ 1 ช่อง ซึ่งงานเลือกมาเพราะอยู่ในกลุ่มที่ใกล้ชิดรัฐบาลและมีผู้รับสารมากที่สุด · ช่วงเวลา 1 มกราคม ถึง 1 กุมภาพันธ์ 2564 · ดึงข้อความจากหอสมุดแห่งชาติรัสเซียและฐานข้อมูลสื่อสองแห่ง แล้วผู้เขียนแปลเอง · กรอบที่ใช้จริงได้จากการอ่านตัวอย่างนำร่องก่อน แล้วจึงนำไปใช้กับข้อความที่เหลือ",
+      findings: [
+        "**กรอบที่หนึ่ง — จะเรียกผู้ก่อเหตุว่าอะไร** สื่อในกลุ่มตัวอย่างเรียกผู้ชุมนุมว่าผู้ประท้วงทางการเมืองที่มาพร้อมข้อเรียกร้อง ไม่ใช่ผู้ก่อจลาจล และมักเรียกว่าคนธรรมดาที่เหนื่อยล้าจากการถูกกดขี่ · วิธีที่ใช้ซ้ำคือการอ้างคำพูดของ “คนทั่วไป” ที่อยู่ในเหตุการณ์ แทนการอ้างเจ้าหน้าที่หรือผู้เชี่ยวชาญ",
+        "**กรอบที่สอง — คนตัวเล็กกับอำนาจรัฐ** เมื่อวางไว้แล้วว่าผู้ชุมนุมคือคนธรรมดา การดำเนินคดีจึงถูกเล่าเป็นการลงโทษที่เกินกว่าเหตุ และถูกเล่าคู่กับการเปรียบเทียบตรงๆ ว่าการจัดการผู้ชุมนุมในสหรัฐฯ หนักกว่าที่รัสเซียทำกับผู้ชุมนุมของตนเอง",
+        "**กรอบที่สาม — ศีลธรรม** ประเด็นที่ถูกหยิบมามากที่สุดคือเสรีภาพสื่อและการปิดกั้นเสียงฝ่ายตรงข้าม โดยมีข้อสรุปร่วมกันว่าสหรัฐฯ ไม่ได้ทำตามค่านิยมที่ตนประกาศ จึงหมดสถานะที่จะสอนประเทศอื่นเรื่องประชาธิปไตย",
+        "**กรอบที่สี่ — การแข่งขัน** เหตุการณ์ถูกอ่านผ่านการชิงความเป็นผู้นำโลกระหว่างสองประเทศ ความอ่อนแอของอีกฝ่ายจึงไม่ได้ถูกเล่าเป็นเรื่องภายในของเขา แต่เป็นการเสียอำนาจนำ",
+        "**ข้อสังเกตที่ผู้เขียนเห็นว่าสำคัญที่สุด คือกรอบทั้งสี่ชั้นวางอยู่บนการยอมรับว่าประชาธิปไตยเป็นค่านิยมที่ดี** ไม่ใช่การเสนอว่าระบอบอื่นดีกว่า — คำวิจารณ์ทั้งหมดมีรูปเป็น “คุณไม่ได้ทำตามสิ่งที่คุณเองบอกว่าดี” ซึ่งเป็นรูปที่โต้กลับได้ยากกว่าการปฏิเสธค่านิยมนั้นตรงๆ",
+        "ผู้เขียนสรุปว่าชุดกรอบที่พบมีลักษณะของการโฆษณาชวนเชื่อ จากการวางบทบาทให้ทุกฝ่ายในเรื่องไปในทางที่เอื้อต่อข้อสรุปที่ตั้งไว้ล่วงหน้า",
+      ],
+      soWhat:
+        "บทเรียนที่ใช้ได้กว้างกว่ากรณีนี้คือ**การเล่าเรื่องเหตุการณ์ในประเทศหนึ่ง มักไม่ได้มีเป้าหมายอยู่ที่ประเทศนั้น** ในกรณีนี้ปลายทางของทั้งสี่กรอบคือข้อสรุปเรื่องความชอบธรรมของฝ่ายผู้เล่าเอง · สำหรับคนอ่านข่าวต่างประเทศ วิธีตรวจที่งานนี้สาธิตให้ดูคือถามสามคำถาม — ใครถูกเลือกมาให้พูด เขาถูกแนะนำตัวว่าเป็นใคร และคำพูดนั้นถูกวางไว้ตรงไหนของเรื่อง — สามข้อนี้บอกทิศทางของกรอบได้ก่อนอ่านเนื้อหาจบด้วยซ้ำ · สำหรับการเรียนการสอนด้านนิเทศศาสตร์ งานนี้เป็นตัวอย่างที่เห็นชัดว่าการวิเคราะห์กรอบทำงานอย่างไรกับข่าวการเมืองระหว่างประเทศ",
+      caveat:
+        "**การวิเคราะห์กรอบอ่านได้แค่ตัวบท ไม่ได้บอกว่าผู้รับสารคิดตามหรือไม่** ซึ่งผู้เขียนระบุข้อจำกัดนี้ไว้เองในบทสรุป · ขอบเขตคือสื่อสี่แห่งในช่วงหนึ่งเดือน ไม่ใช่ภาพรวมของสื่อรัสเซียทั้งหมด · ข้อความทั้งหมดผู้เขียนแปลเอง ผู้อ่านจึงตรวจคำแปลย้อนกลับจากตัวบทความไม่ได้ · เป็นงานเชิงคุณภาพ ไม่ได้รายงานจำนวนชิ้นงานในแต่ละกรอบหรือค่าความสอดคล้องระหว่างผู้วิเคราะห์ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อสำนักข่าวและชื่อบุคคลที่ถูกอ้างถึงในบทความ** เพราะข้อวิจารณ์ในงานเป็นคำของผู้เขียนงานวิจัย ไม่ใช่คำของศูนย์ฯ และรายชื่อไม่ได้เพิ่มอะไรให้บทเรียนที่นำไปใช้ได้",
+    },
+    en: {
+      headline:
+        "Russian media told the U.S. Capitol story through four layered frames, and all four end up talking about Russia",
+      question:
+        "After a mob entered the United States Capitol on 6 January 2021, some Western outlets reported that Russia “took a different view” of it. This study asks whether the picture Russian media assembled for readers at home was the same one sent abroad, and how that picture was built.",
+      method:
+        "Qualitative frame analysis, following Goffman's concept of frames and Entman's method, scaffolded on the five common frames of Neuman and colleagues (human impact, powerlessness, economics, moral values, conflict). **Every** text matching a pre-set keyword list was included, drawn from three national daily newspapers and one state television channel — selected because they sit closest to government and reach the largest audiences. The window ran from 1 January to 1 February 2021; texts came from the Russian National Library and two media databases and were translated by the authors. The working frames emerged from a pilot reading first and were then applied to the rest of the sample.",
+      findings: [
+        "**Frame one — what to call the people involved.** The sampled outlets described them as political protesters arriving with demands rather than rioters, and often as ordinary people worn down by oppression. The recurring device was quoting “ordinary people” present at the scene instead of officials or experts.",
+        "**Frame two — small people against state power.** Once the participants were established as ordinary people, the prosecutions were narrated as disproportionate punishment, paired with an explicit comparison holding that the United States treats protesters more harshly than Russia treats its own.",
+        "**Frame three — moral values.** The most-used theme was press freedom and the silencing of opposing voices, converging on the conclusion that the United States had not lived up to the values it professes and so had lost standing to lecture other countries on democracy.",
+        "**Frame four — competition.** The events were read through the contest for global leadership between the two countries, so the other side's weakness was narrated not as its internal affair but as a loss of primacy.",
+        "**The observation the authors treat as most important is that all four frames rest on accepting democracy as a good**, not on arguing that some other system is better. Every criticism takes the form “you are not doing what you yourself call good” — a shape that is harder to answer than rejecting the value outright.",
+        "The authors conclude that the frame set is propagandistic in character, given how consistently every actor in the story is positioned to support a conclusion fixed in advance.",
+      ],
+      soWhat:
+        "The lesson travels well beyond this case: **coverage of an event in one country often is not aimed at that country**. Here all four frames terminate in a claim about the legitimacy of the side doing the telling. For anyone reading foreign news, the check this study demonstrates is three questions — who was chosen to speak, how were they introduced, and where in the story was the quote placed. Those three tell you the direction of the frame before you have finished reading. For communication teaching, it is a clear worked example of frame analysis applied to international political news.",
+      caveat:
+        "**Frame analysis reads texts only; it does not show what audiences made of them** — a limitation the authors state themselves in the conclusion. The scope is four outlets across one month, not Russian media as a whole. All quoted material was translated by the authors, so readers cannot check the translations against the originals from the article itself. The work is qualitative and reports neither counts per frame nor inter-coder agreement. **This summary deliberately omits the names of the outlets and of the people quoted in the article**, because the criticism in the study belongs to its authors rather than to the centre, and the names add nothing to the transferable lesson.",
+    },
+  },
+  {
+    slug: "colorism-advertising-free-speech",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ โต๊ะกลมล้อมด้วยเก้าอี้เจ็ดตัว เว้นด้านหน้าเป็นช่องว่างที่ไม่มีเก้าอี้ตั้งอยู่",
+    illustrationAltEn:
+      "Paper-craft illustration of a round table ringed by seven chairs, the near side left as an empty gap where no chair stands",
+    doi: "10.20472/ss2017.6.2.005",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "ในข้อความ 70 ชิ้นที่ถกเรื่องโฆษณาเหยียดสีผิว ไม่มีชิ้นใดเลยที่พูดถึงเสรีภาพในการแสดงออก",
+      question:
+        "ต้นปี 2559 โฆษณาครีมผิวขาวของแบรนด์ไทยรายหนึ่งถูกวิจารณ์อย่างกว้างขวางจนถูกถอน และมีเสียงเรียกร้องให้ออกกฎหมายเอาผิด “โฆษณาที่เลือกปฏิบัติ” · งานนี้ถามว่าการถกเถียงสาธารณะครั้งนั้นได้ชั่งข้อเรียกร้องดังกล่าวกับคุณค่าเรื่องเสรีภาพในการแสดงออกไว้ด้วยหรือไม่",
+      method:
+        "วิเคราะห์เนื้อหาข้อความที่กล่าวถึงกรณีนี้ 70 ชิ้น — ภาษาอังกฤษ 18 ชิ้น ภาษาไทย 52 ชิ้น — ครอบคลุมทั้งสิ่งพิมพ์ สื่อออนไลน์ และโพสต์บนโซเชียลมีเดีย · เกณฑ์การอ่านมีข้อเดียว คือก่อนที่ข้อความนั้นจะเรียกร้องให้ใช้มาตรการทางกฎหมาย ข้อความนั้นได้เอ่ยถึงคุณค่าของเสรีภาพในการแสดงออก หรือได้แยกระหว่าง “คำพูด” กับ “การกระทำ” ไว้หรือไม่ · เนื้อหาส่วนที่เหลือของบทความเป็นการโต้แย้งเชิงปรัชญาต่อข้อเสนอให้ออกกฎหมาย",
+      findings: [
+        "**ไม่มีข้อความชิ้นใดเลยใน 70 ชิ้นที่เอ่ยถึงเสรีภาพในการแสดงออก หรือแยกคำพูดออกจากการกระทำ — ศูนย์เปอร์เซ็นต์** ผู้เขียนสรุปว่าคุณค่าข้อนี้ไม่ได้อยู่ในบทสนทนาสาธารณะเรื่องโฆษณาที่เลือกปฏิบัติในไทยเลย",
+        "**ข้อความที่เรียกร้องให้ออกกฎหมายไม่ได้ระบุชัดว่ากฎหมายนั้นมุ่งแก้ปัญหาอะไร** ผู้เขียนต้องประมวลข้อกังวลที่กระจัดกระจายออกมาเองเป็นสองข้อ คือโฆษณาแบบนี้ทำให้คนผิวเข้มรู้สึกถูกดูหมิ่น และการบอกว่าผิวขาวดีกว่าเป็นการเลือกปฏิบัติในตัวมันเอง",
+        "**ความนิยมเรื่องสีผิวไม่ได้ชี้ไปทางเดียวกันทุกสังคม** งานทบทวนไว้ว่าในสังคมที่มีอดีตเป็นเกษตรกรรม ผิวขาวถูกใช้สื่อว่าไม่ได้ทำงานกลางแจ้ง ส่วนในสังคมอุตสาหกรรมที่คนทำงานในร่ม ผิวแทนกลับถูกใช้สื่อว่ามีเวลาว่าง — ทิศทางกลับด้านกันได้ เพราะสิ่งที่คนต้องการสื่อคือสถานะ ไม่ใช่สีผิวในตัวเอง",
+        "**ข้อสรุปเชิงข้อเสนอของผู้เขียนคือไม่ควรออกกฎหมายเอาผิด** โดยให้เหตุผลว่าความรู้สึกถูกกระทบไม่ใช่ความเสียหายที่วัดได้ และกลไกที่มีอยู่แล้ว — ผู้บริโภคเลือกไม่ซื้อ กับผลต่อชื่อเสียงของแบรนด์ — ตอบสนองต่อกรณีแบบนี้ได้เองอยู่แล้ว · **ส่วนนี้เป็นข้อโต้แย้งเชิงปรัชญาของผู้เขียน ไม่ใช่ผลที่ได้จากการวิเคราะห์เนื้อหา**",
+      ],
+      soWhat:
+        "ส่วนที่นำไปใช้ต่อได้โดยไม่ต้องเห็นด้วยกับข้อสรุปของผู้เขียน คือ**ตัวเลข 0 จาก 70** ซึ่งเป็นภาพของบทสนทนาสาธารณะที่ด้านหนึ่งของการถกเถียงมาตรฐานหายไปทั้งด้าน ไม่ใช่แค่เป็นเสียงข้างน้อย · สำหรับคนทำงานข่าวและคนออกแบบเวทีรับฟังความคิดเห็น วิธีตรวจแบบนี้ทำซ้ำได้ง่ายกับประเด็นอื่น เพียงถามว่าจุดยืนที่เป็นไปได้จุดใดบ้างที่ไม่ปรากฏในกองข้อความเลยแม้แต่ชิ้นเดียว · สำหรับการสอนจริยธรรมโฆษณา กรณีนี้ใช้เป็นโจทย์ที่มีทั้งข้อมูลเชิงประจักษ์และข้อโต้แย้งสองทางอยู่ในชิ้นเดียวกัน",
+      caveat:
+        "**เป็นกรณีศึกษาเดียว ตัวอย่าง 70 ชิ้น** ตัวเลข 0% จึงบอกเรื่องบทสนทนารอบกรณีนี้ ไม่ใช่บทสนทนาสาธารณะของไทยโดยรวม · บทความไม่ได้ระบุช่วงเวลาที่เก็บข้อความ วิธีเลือกตัวอย่าง หรือค่าความสอดคล้องระหว่างผู้วิเคราะห์ ผู้อ่านจึงตรวจซ้ำได้ยาก · **เนื้อหาส่วนใหญ่ของบทความเป็นการโต้แย้งเชิงบรรทัดฐานจากจุดยืนเสรีนิยมคลาสสิก ไม่ใช่ข้อค้นพบ** ศูนย์ฯ สรุปมาในฐานะข้อเสนอของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อแบรนด์และไม่ยกถ้อยคำบนตัวโฆษณา** เพราะทั้งสองอย่างชี้ตัวบริษัทได้ทันที ขณะที่บทเรียนที่นำไปใช้ได้ไม่ต้องพึ่งชื่อเลย",
+    },
+    en: {
+      headline:
+        "Across 70 texts debating a skin-whitening advertisement, not one raised freedom of speech",
+      question:
+        "In early 2016 a skin-whitening advertisement by a Thai brand drew wide criticism and was withdrawn, and voices called for a law against “discriminatory advertising”. This study asks whether that public debate ever weighed the proposal against the value of free expression.",
+      method:
+        "A content analysis of 70 texts mentioning the case — 18 in English and 52 in Thai — spanning print, online publications and social media posts. The reading criterion was single: before a text called for legal action, did it mention the value of free speech, or distinguish “words” from “deeds”? The remainder of the article is a philosophical argument against the proposed legislation.",
+      findings: [
+        "**Not one of the 70 texts mentioned freedom of speech or separated words from deeds — zero percent.** The authors conclude the value is simply absent from Thai public discourse about discriminatory advertising.",
+        "**The texts calling for a law did not state clearly what the law was meant to fix.** The authors had to reconstruct the scattered concerns into two: that such advertising insults and distresses people with darker skin, and that claiming lighter skin is preferable is itself discriminatory.",
+        "**Preference in skin tone does not point the same way in every society.** The review notes that in societies with an agrarian past, lighter skin signals not working outdoors, while in industrialised societies where work is indoors, a tan signals leisure time instead — the direction reverses, because what people are signalling is status rather than skin tone as such.",
+        "**The authors' normative conclusion is that no such law should be passed**, on the grounds that hurt feelings are not measurable harm and that existing mechanisms — consumers declining to buy, and the reputational cost to the brand — already respond to cases like this. **This part is the authors' philosophical argument, not a result of the content analysis.**",
+      ],
+      soWhat:
+        "The part that transfers without having to share the authors' conclusion is **the figure of 0 out of 70**: a picture of a public conversation in which one whole side of a standard debate is missing, not merely outnumbered. For journalists and for anyone designing public consultation, the check repeats easily on other issues — ask which tenable positions appear in none of the texts at all. For teaching advertising ethics, the case carries both an empirical result and both sides of an argument in a single paper.",
+      caveat:
+        "**One case, 70 texts.** The 0% therefore describes the conversation around this case, not Thai public discourse in general. The article does not state the collection window, the sampling method, or any inter-coder agreement, so the result is hard to reproduce. **Most of the article is normative argument from a classical-liberal position rather than a finding** — the centre summarises it as the authors' proposal, not as a position of its own. **This summary deliberately omits the brand's name and the wording on the advertisement**, since either identifies the company immediately while the usable lesson needs neither.",
+    },
+  },
+  {
+    slug: "social-media-moderation-property-rights",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ วงกบประตูสีเขียวตั้งลอยเดี่ยวๆ บนพื้นว่าง บานประตูสีครีมเปิดค้างอยู่ ไม่มีรั้วต่อออกไปทั้งสองข้าง",
+    illustrationAltEn:
+      "Paper-craft illustration of a green gate frame standing alone on bare ground, its cream leaf swung open, with no fence running off to either side",
+    doi: "10.51698/tripodos.2020.48p53-68",
+    articleLanguage: "en",
+    th: {
+      headline: "เสรีภาพในการพูดคือสิทธิที่จะไม่ถูกขัดขวาง ไม่ใช่สิทธิที่จะได้เวทีจากคนอื่น",
+      question:
+        "เป้าหมายที่ 16.10 ของ SDG พูดถึงการเข้าถึงข้อมูลข่าวสารและการคุ้มครองเสรีภาพขั้นพื้นฐาน ขณะเดียวกันแพลตฟอร์มโซเชียลมีเดียถูกวิจารณ์ว่า “เซ็นเซอร์” เนื้อหาของผู้ใช้ · งานนี้ถามว่าการที่เจ้าของแพลตฟอร์มลบเนื้อหาหรือระงับบัญชี เป็นการละเมิดเสรีภาพในการแสดงออกจริงหรือไม่",
+      method:
+        "การให้เหตุผลเชิงปรัชญาการเมืองและปรัชญากฎหมาย ไล่เป็นขั้น — เริ่มจากแยก **เสรีภาพ** ออกจาก **ความสามารถ** ตามที่ Rothbard อธิบายไว้และเทียบกับแนวคิดเรื่องเสรีภาพของ Locke · แล้วแยก **สิทธิเชิงลบ** (สิทธิที่ขอเพียงให้คนอื่นไม่มาแทรกแซง) ออกจาก **สิทธิเชิงบวก** (สิทธิที่คนอื่นต้องลงมือทำหรือจ่ายให้จึงจะเป็นจริง) ตามที่ Berlin วางไว้ · แล้วจึงเชื่อมเสรีภาพในการสื่อสารเข้ากับสิทธิในทรัพย์สิน · ไม่มีการเก็บข้อมูลและไม่มีกรณีศึกษาเชิงประจักษ์",
+      findings: [
+        "**เสรีภาพไม่เท่ากับความสามารถ** — ตัวอย่างที่งานยกคือคนเราไม่ได้ “ไม่มีเสรีภาพ” ที่จะกระโดดข้ามมหาสมุทร แต่ไม่มี*ความสามารถ*ต่างหาก · การขาดความสามารถไม่ใช่การถูกลิดรอนสิทธิ และการสับสนสองอย่างนี้เป็นต้นทางของข้อถกเถียงที่พันกัน",
+        "**สิทธิเชิงลบกับสิทธิเชิงบวกเรียกร้องจากคนอื่นไม่เท่ากัน** — สิทธิเชิงลบขอเพียงให้คนอื่นไม่มาแทรกแซง จึงไม่ต้องบังคับใครเลย ส่วนสิทธิเชิงบวกแปลว่าต้องมีใครสักคนถูกบังคับให้ลงมือทำหรือจ่าย เพื่อให้สิทธินั้นเป็นจริงขึ้นมา",
+        "**เสรีภาพในการพูดไม่ใช่สิทธิที่ลอยอยู่เดี่ยวๆ แต่เป็นส่วนขยายของสิทธิในทรัพย์สิน** — คำถามที่มักถูกข้ามคือ “พูดที่ไหน” เพราะการพูดต้องเกิดบนพื้นที่ใดพื้นที่หนึ่งเสมอ ไม่ว่าจะเป็นของตนเอง หรือของคนที่ยินยอมให้ใช้",
+        "**เมื่อวางบนกรอบนี้ การที่แพลตฟอร์มเอกชนไม่ยอมเผยแพร่เนื้อหาบางอย่าง จึงไม่ใช่การเซ็นเซอร์ แต่คือการใช้สิทธิเหนือทรัพย์สินของตน** — งานแยกให้ชัดระหว่างเอกชนที่ปฏิเสธจะแบกข้อความของคนอื่นไว้บนพื้นที่ตัวเอง กับรัฐที่ห้ามคนพูดบนพื้นที่ที่เขาเป็นเจ้าของโดยชอบ ซึ่งเป็นคนละเรื่องกัน",
+        "**ข้อสรุปกลับด้านกับข้อวิจารณ์ที่ได้ยินบ่อย** — ผู้เขียนเสนอว่าการออกกฎบังคับให้แพลตฟอร์มยกเลิกนโยบายเนื้อหาของตน จะเป็นภัยต่อเสรีภาพในการแสดงออก*มากกว่า* การที่แพลตฟอร์มลบโพสต์ เพราะเป็นการบังคับเจ้าของทรัพย์สินให้ทำสิ่งที่เขาไม่ต้องการ",
+      ],
+      soWhat:
+        "ข้อถกเถียงเรื่องแพลตฟอร์มกับเสรีภาพในการแสดงออกกลับมาทุกครั้งที่มีการลบโพสต์ที่เป็นข่าว งานนี้ให้**เครื่องมือแยกคำถาม**ที่ใช้ได้โดยไม่ต้องเห็นด้วยกับข้อสรุป — ก่อนถามว่า “นี่คือการเซ็นเซอร์หรือไม่” ให้ถามก่อนสองข้อ คือเวทีที่กำลังพูดถึงเป็นของใคร และผู้เรียกร้องกำลังขอให้ใครงดเว้นการกระทำ หรือขอให้ใครถูกบังคับให้ทำอะไรบางอย่าง · สองคำถามนี้แยกกรณีที่ดูเหมือนกันออกจากกันได้ทันที และใช้ได้กับสื่อทุกชนิด ไม่ใช่เฉพาะโซเชียลมีเดีย",
+      caveat:
+        "**เป็นการให้เหตุผลจากจุดยืนเสรีนิยมคลาสสิกสายสิทธิในทรัพย์สิน** ซึ่งเป็นหนึ่งในหลายสำนักคิด ไม่ใช่ข้อสรุปที่วงวิชาการเห็นตรงกัน · ข้อสมมติตั้งต้นที่ว่าสิทธิทั้งหมดทอนลงเป็นสิทธิในทรัพย์สินได้ เป็นจุดที่นักปรัชญาจำนวนมากไม่ยอมรับ — ถ้าไม่รับข้อสมมตินี้ ข้อสรุปก็ไม่ตามมา · งานไม่ได้เก็บข้อมูลและไม่ได้ทดสอบข้อเสนอกับกรณีจริง · เขียนเมื่อปี 2563 ก่อนกฎหมายกำกับแพลตฟอร์มรุ่นใหม่หลายฉบับจะมีผล จึงไม่ได้ตอบข้อโต้แย้งเรื่องอำนาจเหนือตลาดของแพลตฟอร์มขนาดใหญ่ ซึ่งกลายเป็นแกนหลักของการถกเถียงในระยะหลัง",
+    },
+    en: {
+      headline: "Free speech is a right against being stopped, not a right to be carried on someone else's platform",
+      question:
+        "SDG target 16.10 calls for public access to information and the protection of fundamental freedoms, while social media platforms are criticised for “censoring” user content. Does a platform owner deleting a post or suspending an account actually violate freedom of expression?",
+      method:
+        "A step-by-step argument in political and legal philosophy. It separates **freedom** from **power** as Rothbard sets it out, alongside Locke's conception of liberty; then separates **negative rights** (which ask only that others not interfere) from **positive rights** (which require someone else to act or pay before the right is real), following Berlin; and then ties communication freedom to property rights. No data is collected and no empirical case is examined.",
+      findings: [
+        "**Freedom is not the same as power.** A person is not “unfree” to leap an ocean — they lack the *power* to. Lacking power is not being deprived of a right, and confusing the two is where tangled arguments begin.",
+        "**Negative and positive rights ask different things of other people.** A negative right asks only that others refrain, so it coerces nobody. A positive right means someone must be compelled to act or to pay before the right exists in practice.",
+        "**Free speech is not a free-standing right but an extension of property rights.** The question usually skipped is *where* — speech always happens somewhere, either on your own property or on property whose owner has agreed to host you.",
+        "**On that framing, a private platform declining to carry content is not censorship but the exercise of property rights.** The article draws a sharp line between a private party refusing to carry someone's ideas on its own property and a government forbidding speech on property the speaker legitimately owns.",
+        "**The conclusion inverts the common criticism.** The author argues that compelling platforms to abandon their content policies would threaten freedom of expression *more* than deleting posts does, because it forces property owners to do what they do not wish to do.",
+      ],
+      soWhat:
+        "The platform-and-speech argument returns every time a newsworthy post is removed. Whether or not you accept the conclusion, the article supplies a **way of splitting the question**: before asking “is this censorship?”, ask whose platform it is, and whether the demand is that someone refrain from acting or that someone be compelled to act. Those two questions separate cases that look identical, and they apply to any medium, not only social media.",
+      caveat:
+        "**This is reasoning from a classical-liberal, property-rights position** — one school among several, not a settled academic conclusion. The founding assumption that all rights reduce to property rights is exactly what many philosophers reject; without it, the conclusion does not follow. Nothing is measured and the argument is not tested against real cases. It was written in 2020, before the newer platform-regulation regimes took effect, so it does not engage the market-power argument about very large platforms that dominates the later debate.",
+    },
+  },
+  {
+    slug: "deceptive-pr-responsibility",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ โซ่สามห่วงเรียงกัน ห่วงกลางเป็นคนละสีและมีรอยแยกเปิดอยู่ แต่โซ่ยังคล้องต่อกัน",
+    illustrationAltEn:
+      "Paper-craft illustration of a three-link chain, its middle link in a different colour and split open, yet still holding the chain together",
+    doi: "10.51698/tripodos.2018.42.21-38",
+    articleLanguage: "en",
+    th: {
+      headline: "เมื่อข่าวแจกที่เป็นเท็จผ่านมือกองบรรณาธิการไปถึงผู้อ่าน ใครต้องรับผิด",
+      question:
+        "นักข่าวใช้ข่าวแจก จดหมายข่าว และการแถลงข่าวเป็นวัตถุดิบของงานข่าวตามปกติ · ถ้าข้อมูลนั้นไม่จริง หรือจงใจให้เป็นเท็จ แล้วผู้อ่านเสียหายจากการเชื่อ ใครควรรับผิด — คนทำประชาสัมพันธ์ที่ปล่อยข้อมูลเท็จ นักข่าวที่พึ่งแหล่งข่าวนั้นมากเกินไป หรือผู้อ่านเอง",
+      method:
+        "ปรัชญากฎหมาย ด้วยวิธี **การทดลองทางความคิด** — ตั้งกรณีสมมติขึ้นชุดหนึ่งแล้วไล่เปรียบเทียบทีละขั้น เริ่มจากบริษัทที่กล่าวอ้างสรรพคุณเท็จกับผู้ซื้อโดยตรง → เปลี่ยนเป็นซื้อโฆษณาในหนังสือพิมพ์ → เปลี่ยนเป็นส่งข่าวแจกให้กองบรรณาธิการนำไปเขียนเป็นข่าว แล้วดูว่าความรับผิดขยับไปอย่างไรในแต่ละขั้น · วิเคราะห์ด้วยกรอบเรื่องเจตนา วิธีการและเป้าหมาย และเรื่องเจตจำนงของผู้ที่เข้ามาคั่นกลาง · ไม่มีการเก็บข้อมูลจริง",
+      findings: [
+        "**สองขั้นแรกตอบไม่ยาก** — ทั้งการหลอกลวงผู้ซื้อโดยตรงและการซื้อพื้นที่โฆษณา ผู้รับผิดคือบริษัท เพราะบริษัทควบคุมข้อความเองและเป็นฝ่ายได้เงินไป การที่ข้อความเดินผ่านสื่อไม่ได้เปลี่ยนอะไร",
+        "**ขั้นที่สามต่างออกไป เพราะมีคนที่มีเจตจำนงของตัวเองเข้ามาคั่น** — กองบรรณาธิการไม่ได้ถูกจ้าง และเลือกเองว่าจะเขียนหรือไม่เขียน การมีผู้เลือกคั่นอยู่จึง “ตัด” สายของเหตุและผลที่วิ่งจากบริษัทไปถึงผู้เสียหาย",
+        "**แต่บริษัทก็ยังใช้สื่อเป็นเครื่องมือไปสู่เป้าหมายที่ต้องห้ามอยู่ดี** — งานเทียบกับกรณีบุรุษไปรษณีย์ที่ส่งซองซึ่งข้างในเป็นข้อความหลอกลวง โดยไม่รู้ว่าข้างในเขียนว่าอะไร · บุรุษไปรษณีย์เป็นเพียงเครื่องมือ ไม่ได้มีเจตนา จึงไม่ต้องรับผิด",
+        "**และนี่คือหัวใจของข้อเสนอ — กองบรรณาธิการไม่ใช่บุรุษไปรษณีย์** เพราะ**การรู้เนื้อหาและการคัดเลือกว่าจะเผยแพร่อะไรคือเนื้องานของเขาโดยตรง** เขาจึงถูกกันออกจากความรับผิดทั้งหมดไม่ได้ แม้จะไม่ใช่ผู้ได้เงินไปก็ตาม",
+        "**ข้อสรุปคือไม่มีคำตอบสำเร็จรูป** — ผู้เขียนระบุเองว่าตอบ “จากบนเก้าอี้” ไม่ได้ ต้องดูเป็นรายกรณี และ**ข้อความหลอกลวงโดยตัวมันเองยังไม่ใช่ความผิด** ต้องมีผู้เสียหายที่ระบุตัวได้ซึ่งเรียกร้องความเป็นธรรม แล้วให้ผู้ตัดสินชั่งจากทั้งหลักการและจากแนวปฏิบัติที่วงการนั้นถือกันอยู่ในเวลาและสถานที่นั้น",
+      ],
+      soWhat:
+        "สำหรับกองบรรณาธิการและคนทำงานประชาสัมพันธ์ ข้อที่ใช้ได้ทันทีคือ**การเลือกว่าจะเผยแพร่อะไรเป็นการกระทำที่มีน้ำหนักในตัวเอง ไม่ใช่การส่งต่อเฉยๆ** — ข้อแยกระหว่างบุรุษไปรษณีย์กับบรรณาธิการเป็นเหตุผลที่กระชับที่สุดข้อหนึ่งว่าทำไมการตรวจสอบข้อเท็จจริงจึงไม่ใช่งานเสริมที่ทำก็ได้ไม่ทำก็ได้ · สำหรับการสอนจริยธรรมสื่อ โครงของงานใช้เป็นแบบฝึกหัดได้ตรงๆ เพราะมันไล่กรณีทีละขั้นให้เห็นว่าความรับผิดขยับตรงไหนและเพราะอะไร",
+      caveat:
+        "**เป็นการทดลองทางความคิด ไม่ใช่การศึกษาคดีจริง** ไม่มีข้อมูลและไม่มีคำพิพากษาจริงมาประกอบ · กรอบที่ใช้เป็นปรัชญากฎหมายสายเสรีนิยม ซึ่งวางความรับผิดบนความยินยอมและสิทธิในทรัพย์สินเป็นหลัก สำนักคิดอื่นให้คำตอบต่างออกไปได้ · **ไม่ใช่ความเห็นทางกฎหมาย และไม่ได้อิงกฎหมายไทย** ผู้ที่ต้องการคำตอบสำหรับกรณีจริงต้องดูตัวบทและแนวคำพิพากษาของเขตอำนาจนั้นเอง · ชื่อบริษัทและหนังสือพิมพ์ในกรณีสมมติเป็นชื่อที่ผู้เขียนตั้งขึ้น ไม่ได้อ้างถึงองค์กรใดที่มีอยู่จริง",
+    },
+    en: {
+      headline: "When a false press release reaches readers through a newsroom, who is answerable",
+      question:
+        "Journalists routinely build stories on press releases, newsletters and briefings. If that material is untrue, or deliberately false, and readers are harmed by believing it, who should answer for the harm — the PR practitioner who issued it, the journalist who leaned too heavily on the source, or the public?",
+      method:
+        "Legal philosophy conducted as a **thought experiment**: a hypothetical case is set up and then varied step by step. A company makes a false claim directly to a buyer; then it buys a newspaper advertisement instead; then it merely sends a press release that an editorial team turns into a news story. At each step the argument asks where responsibility moves, analysed through a means-and-ends framework and the question of intervening free will. No real data is gathered.",
+      findings: [
+        "**The first two steps are straightforward.** Whether the company deceives the buyer directly or through paid advertising, the company answers: it controlled the message and it took the money. Passing through a medium changes nothing.",
+        "**The third step differs, because an actor with free will stands in between.** The newsroom is not paid and chooses for itself whether to publish, and that choice “breaks” the chain of causation running from company to victim.",
+        "**Yet the company has still used the medium as a means toward a forbidden end.** The article compares this to a postman delivering an envelope whose fraudulent contents he does not know: the postman is only a means, has no intent, and is not answerable.",
+        "**And here is the core of the argument — a newsroom is not that postman.** **Knowing the content and choosing what to publish is precisely its job**, so it cannot be excluded from responsibility altogether, even though it is not the party that took the money.",
+        "**The conclusion is that there is no off-the-shelf answer.** The authors state plainly that the question cannot be settled “from the armchair”. It goes case by case, and **a deceptive message is not by itself a crime**: there must be an identifiable victim seeking restitution, and an adjudicator weighing both abstract principle and the expectations that practice has established in that time and place.",
+      ],
+      soWhat:
+        "For newsrooms and PR practitioners the usable point is that **choosing what to publish is an act with weight of its own, not mere relaying**. The postman-versus-editor distinction is one of the most compact reasons on record for why fact-checking is not an optional extra. For teaching media ethics, the structure works directly as an exercise, because it walks a single case through variations and shows exactly where responsibility shifts and why.",
+      caveat:
+        "**This is a thought experiment, not a study of decided cases** — no data and no actual judgments. The framework is liberal legal philosophy, resting responsibility on consent and property rights; other schools answer differently. **It is not legal advice and it is not grounded in Thai law**; anyone needing an answer for a real case must consult the statutes and precedents of that jurisdiction. The company and newspaper in the hypothetical are names the authors invented and refer to no real organisation.",
+    },
+  },
+  {
+    slug: "video-art-screen-savers",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ จอสี่เหลี่ยมแนวนอนเปล่าๆ ตั้งอยู่บนขาตั้งวาดภาพแบบจิตรกร",
+    illustrationAltEn:
+      "Paper-craft illustration of a blank widescreen panel standing on a painter's easel",
+    doi: "10.22492/ijcs.3.1.05",
+    articleLanguage: "en",
+    th: {
+      headline: "วิดีโออาร์ตใช้เวลาครึ่งศตวรรษหาที่ยืนในวัฒนธรรมมวลชน แล้วเดินเข้าห้องนั่งเล่นทางประตูที่ไม่มีใครเฝ้า",
+      question:
+        "ปี 2558 มีการเปิดตัวภาพพักหน้าจอชุดใหม่บนกล่องทีวีของ Apple เป็นคลิปถ่ายทางอากาศแบบสโลว์โมชันจากเมืองและภูมิประเทศทั่วโลก · งานนี้ถามว่าคลิปเหล่านี้นับเป็นวิดีโออาร์ตได้หรือไม่ และถ้าได้ มันหมายความว่าอะไรกับสถานะของวิดีโออาร์ตในวัฒนธรรมมวลชน",
+      method:
+        "การให้เหตุผลเชิงทฤษฎีศิลปะและวัฒนธรรมศึกษา — ทบทวนนิยามของงานศิลปะก่อน แล้วแยกจุดมุ่งหมายของศิลปะแบบที่ไม่ได้มุ่งประโยชน์ออกจากแบบที่มุ่งประโยชน์ตามที่ Lévi-Strauss จำแนกไว้ · ตรวจว่าภาพพักหน้าจอเข้าเกณฑ์ข้อใดบ้าง แล้ววางผลที่ได้ไว้ในบริบทของประวัติศาสตร์วิดีโออาร์ตและพฤติกรรมการใช้จอในบ้าน · ไม่มีการสำรวจผู้ชมและไม่มีข้อมูลเชิงปริมาณ",
+      findings: [
+        "**ของที่มีประโยชน์ใช้สอยเป็นงานศิลปะได้** — ข้อที่ว่าศิลปะต้องไม่มีประโยชน์ใช้สอยถูกตรวจสอบแล้วพบว่าแคบเกินไป เพราะศิลปะทำหน้าที่ได้หลายอย่างในประวัติศาสตร์ รวมถึงการสื่ออารมณ์ การให้ความบันเทิง และการเป็นรูปแบบหนึ่งของการสื่อสาร",
+        "**ภาพพักหน้าจอเกิดมาเพื่อประโยชน์ใช้สอยล้วนๆ** คือถนอมจอไม่ให้ภาพไหม้ติด แต่ทำหน้าที่แบบงานศิลปะเพิ่มขึ้นมาด้วย — สื่ออารมณ์ สร้างบรรยากาศ และมุ่งไปที่ผู้ชมคนหนึ่ง",
+        "**สิ่งที่เปลี่ยนไปจริงคือที่ตั้ง ไม่ใช่ตัวงาน** — ผู้เขียนเสนอว่าเทคโนโลยีนี้ให้ความหมายใหม่แก่วิดีโออาร์ตด้วยการเปลี่ยนมันเป็น**วัตถุตกแต่งภายใน** จากงานที่ต้องเดินไปดูในหอศิลป์ กลายเป็นสิ่งที่ทำงานอยู่กลางห้องนั่งเล่นจำนวนมหาศาล โดยแทบไม่มีใครสังเกต",
+        "**เงื่อนไขที่จะทำให้มันโตต่อคือการเปิดให้ผู้ใช้เลือกเอง** — ณ เวลาที่เขียน ผู้ใช้ยังใส่คลิปของตัวเองไม่ได้ เลือกได้เฉพาะชุดที่ผู้ผลิตให้มา · ผู้เขียนเสนอว่าถ้าเปิดให้ใส่ของจากภายนอกได้เมื่อใด ตลาดของภาพพักหน้าจอที่เป็นงานศิลปะก็น่าจะเกิดขึ้น เพราะจอใหญ่กลางห้องคือพื้นที่แสดงรสนิยมแบบเดียวกับชั้นเก็บแผ่นเพลง",
+        "**เป็นข้อเสนอในรูปคำถามปลายเปิด ไม่ใช่คำประกาศ** — ตัวบทความจบด้วยการถามว่าเรากำลังอยู่ตรงจุดกำเนิดของศิลปะมวลชนแบบใหม่หรือไม่ ไม่ได้ยืนยันว่าใช่",
+      ],
+      soWhat:
+        "สำหรับคนที่ทำงานกับสื่อและพื้นที่แสดงผล ประเด็นที่ยกออกมาใช้ต่อได้คือ**การเปลี่ยนที่ตั้งของงานเปลี่ยนสถานะของงาน** — สิ่งเดียวกันย้ายจากหอศิลป์มาอยู่บนจอในบ้านแล้วความหมายเปลี่ยน ทั้งที่ตัวคลิปไม่เปลี่ยนเลยสักนิด · เป็นกรอบที่คิดต่อได้กับจอในที่สาธารณะ จอในล็อบบี้อาคาร และงานที่เผยแพร่ผ่านแพลตฟอร์มที่ไม่ได้ตั้งใจให้เป็นพื้นที่ศิลปะตั้งแต่แรก",
+      caveat:
+        "**เป็นบทความเชิงแนวคิด ไม่มีข้อมูลผู้ชมและไม่มีตัวเลขใดรองรับ** ข้อเสนอเรื่องแนวโน้มจึงเป็นการคาดการณ์ของผู้เขียน ไม่ใช่ผลการวัด · เขียนเมื่อปี 2561 โดยอ้างอิงอุปกรณ์และข้อจำกัดของแพลตฟอร์ม ณ เวลานั้น ซึ่งเปลี่ยนไปแล้ว · นิยาม “ศิลปะ” ที่ใช้เป็นนิยามกว้าง ถ้าใช้นิยามที่เข้มกว่านี้ ข้อสรุปอาจไม่ตามมา · ข้อสังเกตเรื่องความแตกต่างระหว่างรุ่นวัยเป็นการอ้างงานของผู้อื่น ไม่ใช่ผลจากงานชิ้นนี้เอง",
+    },
+    en: {
+      headline: "Video art spent half a century looking for a way into popular culture, then walked into the living room through an unguarded door",
+      question:
+        "In 2015 a new screen saver arrived on Apple TV: a set of slow-motion aerial clips of skylines and landscapes from around the world. Do these count as video art — and if they do, what does that mean for where video art now sits in popular culture?",
+      method:
+        "An argument in art theory and cultural studies. It revisits what counts as visual art, separates art's non-motivated purposes from its motivated ones as Lévi-Strauss distinguishes them, tests which of those criteria a screen saver meets, and then places the result in the history of video art and in how people actually use screens at home. There is no audience survey and no quantitative data.",
+      findings: [
+        "**Purely utilitarian objects can be artworks.** The claim that art must have no use is examined and found too narrow: art has served many purposes historically, including conveying mood, entertaining, and communicating.",
+        "**Screen savers began as pure utility** — protecting a display from burn-in — but they now also do what artworks do: convey a mood, create an atmosphere, and address a viewer.",
+        "**What actually changed is the location, not the work.** The author's proposal is that the technology gives video art a new meaning by turning it into an **interior object**: from something you travel to a gallery to see, into something running in the middle of a vast number of living rooms, almost unremarked.",
+        "**What would let it grow is letting viewers choose.** At the time of writing, users could not supply their own clips and were limited to the manufacturer's set. If third-party screen savers were allowed, the author expects a market in screen-saver art to follow, since the large screen in the room displays taste the way a record collection does.",
+        "**It is offered as an open question, not a declaration.** The article closes by asking whether we are at the birth of a new popular art form, rather than asserting that we are.",
+      ],
+      soWhat:
+        "For anyone working with media and display space, the transferable point is that **moving a work changes what the work is**: the same clips carry a different meaning in a living room than in a gallery, without a frame of the footage changing. That frame extends to public screens, lobby displays, and work distributed through platforms never designed as art spaces.",
+      caveat:
+        "**This is a conceptual article with no audience data and no figures behind it**, so the claims about where things are heading are the author's forecast rather than a measurement. It was written in 2018 around the devices and platform limits of that moment, which have since changed. The working definition of “art” is a broad one; a stricter definition would not yield the same conclusion. The remarks about generational differences cite other people's work, not findings of this one.",
+    },
+  },
+  {
+    slug: "communication-moral-norms",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แท่งสี่เหลี่ยมสองก้อนหันหน้าเข้าหากันโดยมีช่องว่างคั่น และมีลูกบาศก์สีส้มหนึ่งก้อนลอยอยู่กลางช่องว่างนั้น",
+    illustrationAltEn:
+      "Paper-craft illustration of two blocks facing each other across a gap, with a single orange cube suspended in the middle of that gap",
+    doi: "10.1163/26659077-01902005",
+    articleLanguage: "en",
+    th: {
+      headline: "ทำไมคนถึงรับกฎศีลธรรมมาถือ — ข้อเสนอคือกฎเหล่านี้ไม่ใช่คำสั่ง แต่เป็นเครื่องมือที่คนสร้างขึ้นเพื่อใช้กับคนอื่น",
+      question:
+        "ปรัชญาศีลธรรมมีช่องว่างเก่าแก่ระหว่างข้อความที่**บรรยายว่าอะไรเป็นอย่างไร** กับข้อความที่**กำหนดว่าควรทำอะไร** — ต่อให้ยอมรับว่าการฆ่าคนเป็นสิ่งไม่ดี ก็ยังไม่ได้อธิบายว่าทำไมฉันจึงไม่ควรฆ่า · งานนี้ถามว่าช่องว่างนี้ข้ามได้อย่างไร และการสื่อสารมีบทบาทอะไรอยู่ตรงนั้น",
+      method:
+        "การให้เหตุผลเชิงปรัชญาศีลธรรม โดยเสนอให้**แยกคำถามออกเป็นสามข้อแทนที่จะเป็นสองข้อ** — อะไรถูกอะไรผิด · ทำไมสังคมหนึ่งจึงพัฒนาและรับกฎศีลธรรมข้อหนึ่งมาใช้ · และทำไมคนคนหนึ่งจึงควรทำตามกฎนั้น — เพราะสามข้อนี้ต้องใช้วิธีตอบคนละแบบ · งานเน้นความสัมพันธ์ระหว่างสองข้อแรก และแตะข้อสามเพียงสั้นๆ · ไม่มีการเก็บข้อมูล",
+      findings: [
+        "**ข้อเสนอหลักคือให้แทรกคำถามข้อที่สองเข้าไปกลางช่องว่าง** ระหว่าง “เป็นอย่างไร” กับ “ควรทำอย่างไร” — เพราะสองข้อนั้นตอบด้วยวิธีคนละแบบ การพยายามกระโดดข้ามตรงๆ จึงติดขัดเสมอ",
+        "**เมื่อมองแบบนี้ จริยศาสตร์เชิงบรรทัดฐานไม่ได้ตอบว่าใครควรทำอะไร แต่ตอบว่าถ้ารับกฎข้อนี้มาใช้ สังคมจะกลายเป็นแบบไหน** ซึ่งเป็นคำถามที่ตอบได้ด้วยการพิจารณาผลของกฎ ไม่ใช่ด้วยการอ้างอำนาจของใคร",
+        "**คำถามทางจริยธรรมเกิดขึ้นเพราะการกระทำของคนหนึ่งไปกระทบอีกคน** งานจึงนิยาม “การกระทำผิด” ว่าคือการกระทำต่อผู้อื่นโดยผู้นั้นไม่ยินยอม",
+        "**สิ่งที่ทุกคนมีร่วมกันไม่ใช่ค่านิยมชุดเดียวกัน แต่คือความไม่อยากถูกกระทำโดยไม่ยินยอม** — ผู้เขียนเรียกว่าเป็นความชอบเชิงอัตวิสัยที่เป็นสากล และเสนอว่านี่คือสะพานข้ามไปสู่ข้อความเชิงกำหนดให้ทำ",
+        "**กฎศีลธรรมจึงเป็นเครื่องมือที่คนสร้างขึ้นเพื่อใช้กับผู้อื่นเป็นหลัก** ไม่ใช่คู่มือที่แต่ละคนหยิบมาอ่านก่อนตัดสินใจ — คนต้องการกฎเพราะกฎสร้างสภาพแวดล้อมที่ปลอดภัยสำหรับตัวเขาเอง",
+        "**การสื่อสารคือสิ่งที่ทำให้ขั้นตอนนี้เป็นไปได้** — เมื่อความชอบที่มีร่วมกันถูกทำให้ปรากฏ กฎจึงถูกซึมซับผ่านวัฒนธรรมและกลายเป็นของที่ใช้ร่วมกันระหว่างผู้คน · สิ่งนี้เกิดขึ้นได้เพียงเพราะมนุษย์สื่อสารกันได้ และสร้างสถาบันที่ซับซ้อนขึ้นเพื่อให้ร่วมมือกันได้ดีขึ้น",
+      ],
+      soWhat:
+        "สำหรับคนที่ออกแบบการรณรงค์เปลี่ยนพฤติกรรมหรือทำงานกับบรรทัดฐานทางสังคม ข้อที่นำไปคิดต่อได้คือ**บรรทัดฐานไม่ได้แพร่เพราะคนถูกบอกว่าอะไรถูก แต่แพร่เมื่อคนมองเห็นว่าคนอื่นก็อยากได้สภาพแบบเดียวกัน** — ซึ่งเปลี่ยนโจทย์ของงานสื่อสารจาก “จะโน้มน้าวให้เขาเชื่อตามอย่างไร” ไปเป็น “จะทำให้ความต้องการที่มีร่วมกันอยู่แล้วปรากฏให้เห็นได้อย่างไร” · การเชื่อมข้อนี้เข้ากับงานรณรงค์เป็นการอ่านต่อของศูนย์ฯ เอง ตัวบทความไม่ได้เขียนถึงการรณรงค์ไว้",
+      caveat:
+        "**เป็นการให้เหตุผลเชิงปรัชญาล้วน ไม่มีข้อมูลเชิงประจักษ์** · ข้อเสนอเรื่อง “ความชอบเชิงอัตวิสัยที่เป็นสากล” เป็นข้อสมมติที่งานไม่ได้ทดสอบ และเป็นจุดที่สำนักคิดอื่นโต้แย้งได้โดยตรง · การนิยามการกระทำผิดด้วยความยินยอมเป็นกรอบของสายเสรีนิยม ซึ่งไม่ใช่กรอบเดียวที่ใช้กันในจริยศาสตร์ · **คำถามที่ว่าทำไมบุคคลหนึ่งจึงควรทำตามกฎ ผู้เขียนแตะเพียงสั้นๆ และไม่ได้ตอบให้จบ** ซึ่งเป็นขอบเขตที่ผู้เขียนระบุไว้เองตั้งแต่ต้นบทความ",
+    },
+    en: {
+      headline: "Why people take on moral rules — the argument is that these rules are not commands but tools people build to apply to others",
+      question:
+        "Moral philosophy has a long-standing gap between statements that **describe how things are** and statements that **prescribe what ought to be done**: agreeing that murder is bad still does not explain why I should not murder. How is that gap crossed, and what part does communication play in crossing it?",
+      method:
+        "An argument in moral philosophy that proposes **splitting the problem into three questions rather than two** — what is right and wrong; why a society develops and adopts a particular moral norm; and why an individual ought to follow it — because each needs a different method to answer. The paper concentrates on the relationship between the first two and touches only briefly on the third. No data is collected.",
+      findings: [
+        "**The central move is to insert the second question into the gap** between “is” and “ought”. The two are answered by different methods, which is why attempts to jump straight across keep stalling.",
+        "**Seen this way, normative ethics does not tell anyone what to do; it tells you what kind of society follows from adopting a given norm** — a question answerable by examining the norm's effects rather than by appeal to authority.",
+        "**Ethical questions arise because one person's actions affect another**, so the paper defines wrongdoing as acting upon another person without that person's consent.",
+        "**What everyone shares is not one set of values but the wish not to be acted upon without consent** — the author calls this a universally shared subjective preference, and proposes it as the bridge to prescriptive statements.",
+        "**Moral norms are therefore devices people create largely to impose on others**, not manuals each person consults before deciding. People want the rules because the rules produce conditions that are safer for themselves.",
+        "**Communication is what makes the step possible.** Once a shared preference becomes visible, the norm is internalised through culture and enters the shared space between people — which happens only because humans can communicate, and can build the more complex institutions that better cooperation needs.",
+      ],
+      soWhat:
+        "For anyone designing behaviour-change work or working with social norms, the point worth carrying forward is that **norms do not spread because people are told what is right; they spread when people can see that others want the same conditions** — which turns the communication problem from “how do we persuade them” into “how do we make an existing shared preference visible”. Connecting the argument to campaign work is the centre's own reading; the article itself does not discuss campaigns.",
+      caveat:
+        "**This is philosophical argument alone, with no empirical evidence.** The proposed “universally shared subjective preference” is an assumption the paper does not test, and it is precisely where other schools would push back. Defining wrongdoing through consent is a liberal framework, not the only one in ethics. **The question of why an individual ought to follow a norm is touched on only briefly and left unresolved** — a scope limit the author states at the outset.",
     },
   },
 ];

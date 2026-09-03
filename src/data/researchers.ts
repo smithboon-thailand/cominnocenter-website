@@ -36,7 +36,7 @@ export const researchers: Researcher[] = [
     facultyEn:
       "Lecturer, Department of Public Relations, Faculty of Communication Arts, Chulalongkorn University",
     focusEn:
-      "Social-issue communication, communication innovation, and community engagement — Associate Dean for Academic Service and Social Engagement",
+      "Social-issue communication, communication innovation, and community engagement — Deputy Dean for Academic Service and Social Engagement",
     focus:
       "การสื่อสารประเด็นสังคม นวัตกรรมการสื่อสาร และการเชื่อมโยงสังคม — รองคณบดีคณะนิเทศศาสตร์ ด้านบริการวิชาการและเชื่อมโยงสังคม",
     image: "/images/researchers/watsayut-kongchan.webp",

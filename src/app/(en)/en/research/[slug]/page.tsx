@@ -51,6 +51,13 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
+/** Kicker above the title — the reader should learn what kind of work this is first */
+const KICKER_EN = {
+  empirical: "Research summary",
+  protocol: "Study protocol summary",
+  argument: "Conceptual article summary",
+} as const;
+
 export default async function PaperSummaryPageEn({ params }: Props) {
   const { slug } = await params;
   const summary = paperSummaryBySlug(slug);
@@ -103,8 +110,9 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             </Link>
           </nav>
 
+          {/* Name it for what it is — a plan is not a result, and the reader needs that first */}
           <p className="mt-8 text-[13px] font-medium leading-[1.4] tracking-[0.12em] text-pink-500">
-            Research summary
+            {KICKER_EN[summary.kind ?? "empirical"]}
           </p>
           <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.en.headline)}</h1>
 
@@ -155,7 +163,7 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             </div>
           </div>
 
-          <PaperSummaryBody copy={summary.en} locale="en" />
+          <PaperSummaryBody copy={summary.en} locale="en" kind={summary.kind} />
 
           {/* มีเฉพาะงานที่ยืนยันผ่าน DOI — ไม่มีข้อมูลทะเบียนก็ไม่สร้างการอ้างอิงให้เดา */}
           {paper.citation ? (

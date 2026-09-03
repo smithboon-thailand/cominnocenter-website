@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieSettingsButton from "@/components/analytics/CookieSettingsButton";
-import { PHONE_DISPLAY_INTL, PHONE_HREF } from "@/data/contact";
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY_INTL, PHONE_HREF } from "@/data/contact";
 import {
   PRIVACY_LAST_UPDATED,
   privacyRows,
@@ -159,10 +159,9 @@ export default function PrivacyPolicyPage() {
             <p className="mt-4 text-[17px] leading-[1.7] text-ink-700">
               To exercise any of these, write to{" "}
               <a
-                href="mailto:comminno@chula.ac.th"
+                href={EMAIL_HREF}
                 className="text-pink-500 hover:text-pink-700 hover:underline"
               >
-                comminno@chula.ac.th
               </a>
               . Withdrawing consent does not affect the lawfulness of collection and use that
               already took place beforehand.
@@ -179,10 +178,9 @@ export default function PrivacyPolicyPage() {
             Faculty of Communication Arts, Chulalongkorn University, Bangkok, Thailand
             <br />
             <a
-              href="mailto:comminno@chula.ac.th"
+              href={EMAIL_HREF}
               className="text-pink-500 hover:text-pink-700 hover:underline"
             >
-              comminno@chula.ac.th
             </a>{" "}
             ·{" "}
             <a

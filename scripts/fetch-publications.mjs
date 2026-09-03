@@ -27,13 +27,54 @@
  * - Crossref API — ผู้เขียนที่ยังไม่มี ORCID และใช้ตรวจสอบ/เติมข้อมูลทุกรายการ
  * - Semantic Scholar API — ดัชนีสำรองสำหรับรายการที่ไม่มี DOI
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const UA = {
   "User-Agent": "cominnocenter-website/1.0 (mailto:comminno@chula.ac.th)",
   Accept: "application/json",
 };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * แคชคำตอบของทะเบียนไว้บนดิสก์ — **เพื่อให้รันซ้ำได้เมื่อโดนจำกัดอัตรา**
+ *
+ * ทำไมต้องมี (2 ก.ย. 2569): รอบที่ต้องแก้ข้อมูลการอ้างอิง Crossref ตอบ 429 กับ
+ * **ทุก DOI ติดกันทั้ง 125 รายการ** หลังจบช่วงค้นรายชื่อผลงาน (ช่วงนั้นยิงไปหลาย
+ * ร้อยครั้งเพื่อไล่หน้าแบบ cursor) การถอยเป็นเท่าตัวไม่ช่วย เพราะไม่ใช่การติดขัด
+ * ชั่วขณะแต่เป็นการถูกปัดต่อเนื่อง — และกติกาข้อ 8 ห้ามแก้ publications.ts ด้วยมือ
+ * **พอสคริปต์รันไม่จบ ข้อมูลผลงานก็แก้ไม่ได้เลยทั้งชุด**
+ *
+ * แคชทำให้รอบถัดไปข้ามสิ่งที่ได้มาแล้ว ยิงเฉพาะที่ยังขาด รันซ้ำไม่กี่รอบก็ครบ
+ * **ไม่ได้ทำให้การตรวจสอบอ่อนลง** เพราะคำตอบที่เก็บคือคำตอบจริงของทะเบียน และ
+ * หมดอายุใน 7 วัน · ไฟล์อยู่ใน .cache/ ซึ่งไม่ขึ้นคลัง · สั่ง --no-cache เพื่อยิงสดทั้งหมด
+ */
+const CACHE_URL = new URL("../.cache/registry-responses.json", import.meta.url);
+const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const useCache = !process.argv.includes("--no-cache");
+let cache = {};
+if (useCache) {
+  try {
+    cache = JSON.parse(readFileSync(CACHE_URL, "utf8"));
+  } catch {
+    /* ยังไม่มีแคช — เริ่มจากว่าง */
+  }
+}
+let cacheDirty = false;
+const cacheGet = (url) => {
+  const hit = cache[url];
+  if (!useCache || !hit) return undefined;
+  return Date.now() - hit.at < CACHE_TTL_MS ? hit.body : undefined;
+};
+const cachePut = (url, body) => {
+  cache[url] = { at: Date.now(), body };
+  cacheDirty = true;
+};
+const flushCache = () => {
+  if (!cacheDirty) return;
+  mkdirSync(new URL("../.cache/", import.meta.url), { recursive: true });
+  writeFileSync(CACHE_URL, JSON.stringify(cache));
+  cacheDirty = false;
+};
 
 /**
  * เรียก API แบบทนการถูกจำกัดอัตรา
@@ -53,10 +94,37 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  */
 class RegistryUnavailable extends Error {}
 
+/**
+ * เว้นจังหวะระหว่างการเรียกทะเบียน — **กันไม่ให้ถูกจำกัดอัตราตั้งแต่แรก**
+ *
+ * ทำไมต้องมี (2 ก.ย. 2569): การถอยเป็นเท่าตัวข้างล่างแก้ปัญหา*หลัง*โดน 429 แล้ว
+ * แต่รอบที่รันจริงกลับโดน 429 **ทุกรายการติดกัน** หลังจบช่วงค้นรายชื่อผลงาน
+ * (Crossref ยอมให้ยิงรัว ๆ ได้ช่วงสั้น ๆ แล้วเริ่มปัด) ผลคือแต่ละ DOI เสียเวลา
+ * 30 วินาทีไปกับการรอเปล่า ๆ และสุดท้ายก็ไม่ได้ข้อมูล
+ *
+ * ยิงห่างกันประมาณหนึ่งในสามวินาทีช้ากว่าเดิมไม่ถึงหนึ่งนาทีตลอดทั้งรอบ
+ * แต่ทำให้รันจบได้จริง — และเป็นมารยาทที่ Crossref ขอไว้ในเอกสารของเขาเอง
+ */
+let nextCallAt = 0;
+const PACE_MS = 350;
+const pace = async () => {
+  const wait = nextCallAt - Date.now();
+  if (wait > 0) await sleep(wait);
+  nextCallAt = Date.now() + PACE_MS;
+};
+
 const getJson = async (url, tries = 5) => {
+  const cached = cacheGet(url);
+  if (cached !== undefined) return cached;
   for (let attempt = 1; ; attempt++) {
+    await pace();
     const res = await fetch(url, { headers: UA });
-    if (res.ok) return res.json();
+    if (res.ok) {
+      const body = await res.json();
+      cachePut(url, body);
+      flushCache();
+      return body;
+    }
     const retryable = res.status === 429 || res.status === 503;
     if (!retryable) throw new Error(`HTTP ${res.status}`);
     if (attempt >= tries) throw new RegistryUnavailable(`HTTP ${res.status} หลังลอง ${tries} ครั้ง`);
@@ -305,28 +373,147 @@ const looksLikeJournal = (v) => Boolean(v) && !/^\d+$/.test(v.trim());
 /** เลขหน้าจริงมีหน้าตาแบบ "144-154" · "151" · "e0317506" — ไม่ใช่วลีที่มีเว้นวรรค */
 const looksLikePages = (v) => Boolean(v) && /^[A-Za-z]?\d/.test(v.trim()) && !/\s/.test(v.trim());
 
-function citationFrom(meta) {
+/**
+ * เลขบทความ (article number / eLocator) ไม่ใช่เลขหน้า — ต้องแยกช่องกัน
+ *
+ * APA 7 สั่งให้ใส่คำว่า "Article" นำหน้าเลขบทความ (เช่น `20(2), Article e0317506.`)
+ * ส่วน MLA 9 ห้ามใส่ `pp.` นำหน้า เพราะมันไม่ใช่หน้า ถ้าเก็บรวมช่องเดียวกับเลขหน้า
+ * เราจะแยกไม่ออกตอนสร้างการอ้างอิง และได้ `pp. e0317506` ซึ่งผิดทั้งสองมาตรฐาน
+ * (Grok ตรวจเจอ ผู้ใช้แจ้งเมื่อ 2 ก.ย. 2569)
+ *
+ * รูปแบบที่ถือว่าเป็นเลขบทความ: ขึ้นต้นด้วยตัวอักษรแล้วตามด้วยตัวเลข เช่น
+ * `e0317506` (PLOS) · `e15478` (Heliyon) — วารสารที่ใช้ตัวเลขล้วนเป็นเลขบทความ
+ * (เช่น Wellcome Open Research `11:151`) **แยกจากเลขหน้าไม่ได้จากรูปแบบ**
+ * จึงปล่อยไว้เป็นเลขหน้าตามที่ทะเบียนส่งมา ไม่เดาแทน
+ */
+const looksLikeArticleNumber = (v) => /^[A-Za-z]+\d[\w.-]*$/.test(v.trim());
+
+/**
+ * เลขหน้าปลอมของบทความ "ตีพิมพ์ออนไลน์ก่อน" — ตัวเลขยาวที่เป็นรหัสภายในของสำนักพิมพ์
+ *
+ * ของจริงที่เจอ: 10.1177/00027642221118297 ทะเบียนส่ง page = "000276422211182"
+ * ซึ่งคือเลข DOI ตัดท้าย ไม่ใช่เลขหน้า ถ้าปล่อยไว้จะได้ `American Behavioral
+ * Scientist, 000276422211182.` บนหน้าเว็บจริง
+ */
+const looksLikeOnlineFirstStub = (v) => /^\d{8,}$/.test(v.trim());
+
+/**
+ * ทะเบียนบางแห่งลง "ชื่อหน่วยงาน" ไว้ในช่องผู้เขียน — ต้องคัดออกก่อนสร้างการอ้างอิง
+ *
+ * ของจริงที่เจอ: 10.55131/jphd/2022/200118 ลงชื่อ "Faculty of Communication Arts,
+ * Chulalongkorn University, Bangkok, Thailand" ไว้เป็นผู้เขียนถึง 5 รายการสลับกับคนจริง
+ * ผลคือรายการอ้างอิงบนเว็บจริงขึ้นว่า "Faculty of Communication Arts, Chulalongkorn
+ * University, Bangkok, Thailand, Boonchutima, S., ..." ซึ่งอ่านไม่รู้เรื่องและผิด
+ *
+ * **คัดออกอย่างเดียว ไม่แปลงเป็นชื่อคน** ตามหลักเดียวกับ `looksLikeJournal`:
+ * ทิ้งค่าที่ไม่เข้าเค้าดีกว่าเดาแทนทะเบียน
+ */
+const ORG_WORDS =
+  /\b(universit|facult|department|college|institute|school|hospital|ministry|centre|center|laborator|foundation|academy|society|association)\w*/i;
+const looksLikeOrganisation = (name) => ORG_WORDS.test(name) || (name.match(/,/g) || []).length >= 2;
+
+/**
+ * แก้ข้อมูลบรรณานุกรมที่ทะเบียน **ลงไว้ไม่ครบหรือผิด** — ตรวจจากตัวบทความเอง
+ *
+ * ต่างจากการกรอกผลงานเองด้วยมือซึ่งกติกาข้อ 8 ห้าม: รายการที่อยู่ในตารางนี้ต้อง
+ * **มีอยู่ในทะเบียนแล้ว** และผ่านการตรวจว่าเป็นผลงานของผู้เขียนจริงมาก่อน ตารางนี้
+ * เติมเฉพาะช่องที่ทะเบียนเว้นว่างหรือลงผิด โดยอ้างหลักฐานจากตัวไฟล์บทความ
+ * ทุกแถวต้องมีคอมเมนต์บอกว่าดูจากอะไร เพื่อให้คนถัดไปตรวจซ้ำได้
+ */
+/**
+ * ชื่อเรื่องที่ **ทะเบียนลงไว้ไม่ครบ** — เทียบกับหน้าแรกของไฟล์บทความแล้วเท่านั้น
+ *
+ * ต่างจากการแก้ตัวพิมพ์ใหญ่-เล็กซึ่งทำตอนจัดรูปการอ้างอิง (ดู `src/lib/citation.ts`)
+ * ตารางนี้แก้ **ตัวอักษรที่หายไปจากทะเบียนจริง ๆ** ซึ่งจัดรูปอย่างไรก็ไม่คืนมา
+ */
+const TITLE_FIXES = {
+  // Crossref เก็บชื่อเรื่องไว้ว่า "s Video-art Becoming..." — ตัว I หายไปตั้งแต่ตอน
+  // สำนักพิมพ์ฝากข้อมูล ตรวจกับหน้าแรกของไฟล์บทความ (IAFOR Journal of Cultural
+  // Studies 3(1), 2018) ซึ่งพิมพ์ว่า "Is Video-art Becoming a Form of Popular Art?
+  // The case of Apple TV's Aerial Screen Savers"
+  "10.22492/ijcs.3.1.05":
+    "Is Video-art Becoming a Form of Popular Art? The case of Apple TV’s Aerial Screen Savers",
+};
+
+const CITATION_FIXES = {
+  // CMAP เป็นวารสารไทยที่จด DOI กับ TCI ไม่ใช่ Crossref ทะเบียนจึงมีชื่อผู้เขียน
+  // คนแรกคนเดียวแบบ literal และไม่มีเลขฉบับ — ตรวจจากหน้าแรกของบทความ (CMAP
+  // 2023, vol. 6, no. 1, pp. 52-62) ซึ่งระบุผู้เขียนสองคนและเลขฉบับไว้ครบ
+  "10.14456/cmap.2023.5": {
+    authors: [
+      { family: "Lounporn", given: "Emmika", literal: "" },
+      { family: "Chongkolrattanaporn", given: "Teerada", literal: "" },
+    ],
+    issue: "1",
+  },
+  // Journal of Health Research สองฉบับนี้ทะเบียนลงข้อมูลสลับช่องจนสคริปต์ต้องทิ้ง
+  // ค่าที่ไม่เข้าเค้าไป (container-title มาเป็นเลขฉบับ · page มาเป็นชื่อวารสาร)
+  // ผลคือการอ้างอิงเหลือแค่เลขเล่ม ไม่มีเลขฉบับและเลขหน้า — เติมจากบรรทัด
+  // "Cite this article as" ที่วารสารพิมพ์ไว้ในตัวไฟล์เอง ซึ่งเป็นคำของสำนักพิมพ์
+  // "J Health Res. 2016; 30(4): 231-9."
+  "10.14456/jhr.2016.32": { issue: "4", page: "231-239" },
+  // "J Health Res. 2015; 29(5): 395-401."
+  "10.14456/jhr.2015.30": { issue: "5", page: "395-401" },
+  // ทะเบียนลงช่วงหน้าไว้ 53-68 ตามเลขที่ติดมากับ DOI (…48p53-68) แต่ตัวเล่มที่
+  // ตีพิมพ์ระบุ "Tripodos, number 48 | 2020 | 53-67" บนหน้าแรก และหน้าสุดท้าย
+  // ของบทความมีเลขหน้า 67 จริง (ไฟล์ 15 หน้า เริ่มที่ 53) จึงใช้ตามตัวเล่ม
+  "10.51698/tripodos.2020.48p53-68": { page: "53-67" },
+  // Crossref มีระเบียนของบทความนี้แต่ **ไม่ได้ลงชื่อผู้เขียนไว้เลย** (author: null)
+  // ผลคือไม่มีปุ่มอ้างอิงให้ผู้อ่าน · เติมจากหน้าแรกของไฟล์บทความ ซึ่งพิมพ์ทั้ง
+  // รายชื่อผู้เขียนและ "2024. 20(2): 239-250" ไว้ครบ
+  "10.13187/me.2024.2.239": {
+    authors: [
+      { family: "Lamoonpot", given: "Kittiphum", literal: "" },
+      { family: "Boonchutima", given: "Smith", literal: "" },
+      { family: "Mazahir", given: "Ibtesam", literal: "" },
+    ],
+    page: "239-250",
+  },
+  // ทะเบียนลงเลขหน้าไว้ว่างเปล่า ทั้งที่วารสารพิมพ์บรรทัด "Citation:" ไว้บนหน้าแรก
+  // ของบทความเอง — "International Journal of Social Sciences, Vol. VI(2), pp. 63-76."
+  // (หมายเหตุ: DOI ที่พิมพ์ในตัวไฟล์คือ 10.20472/SS.2017.6.2.005 ซึ่ง **resolve ไม่ได้**
+  //  ตัวที่จดทะเบียนจริงคือ 10.20472/ss2017.6.2.005 ตามที่ใช้เป็นกุญแจตรงนี้)
+  "10.20472/ss2017.6.2.005": { page: "63-76" },
+};
+
+function citationFrom(meta, doi = "") {
   const authors = (meta.author || [])
     .map((a) => ({
       family: clean(a.family || ""),
       given: clean(a.given || ""),
       literal: clean(a.literal || a.name || ""),
     }))
-    .filter((a) => a.family || a.literal);
-  if (!authors.length) return undefined;
+    .filter((a) => a.family || a.literal)
+    // ชื่อที่มีแต่ literal และอ่านแล้วเป็นหน่วยงาน ไม่ใช่คน — ตัดทิ้ง
+    .filter((a) => a.family || !looksLikeOrganisation(a.literal));
+  const fix = CITATION_FIXES[doi] || {};
+  // ตรวจ "ไม่มีผู้เขียนเลย" **หลัง**ใส่ค่าแก้แล้ว เพราะบางรายการที่ทะเบียนไม่ลง
+  // ชื่อผู้เขียนไว้เลย เราเติมจากตัวไฟล์บทความได้ — ถ้าเช็คก่อนจะตัดทิ้งไปเปล่าๆ
+  if (!authors.length && !(fix.authors || []).length) return undefined;
   const parts = meta.issued?.["date-parts"]?.[0] || [];
   const container = clean((meta["container-title"] || [""])[0] || "");
-  const pages = clean(meta.page || "");
+  const rawPages = clean(meta.page || "");
+  const pages = looksLikePages(rawPages) && !looksLikeOnlineFirstStub(rawPages) ? rawPages : "";
+  const rawArticleNumber = clean(meta["article-number"] || "");
+  // เลขยาวที่สำนักพิมพ์ใช้ตอนตีพิมพ์ออนไลน์ก่อนไม่ใช่เลขบทความจริง ตัดทิ้งเหมือนกับเลขหน้า
+  const depositedArticleNumber = looksLikeOnlineFirstStub(rawArticleNumber) ? "" : rawArticleNumber;
   return {
     authors,
     containerTitle: looksLikeJournal(container) ? container : "",
-    volume: clean(meta.volume || ""),
+    // ทะเบียนบางแห่งลงว่า "Volume 10" ทั้งคำ ซึ่งจะกลายเป็น "vol. Volume 10" ใน MLA
+    volume: clean(meta.volume || "").replace(/^vol(?:ume)?\.?\s+/i, ""),
     issue: clean(meta.issue || ""),
-    page: looksLikePages(pages) ? pages : "",
+    // ทะเบียนบางแห่งลงเลขบทความไว้ทั้งช่อง page และช่อง article-number (เช่น Elsevier)
+    // ถ้าเก็บทั้งคู่ การอ้างอิงจะมีตัวเลขเดียวกันโผล่สองที่ จึงเก็บไว้ช่องเดียว
+    page:
+      looksLikeArticleNumber(pages) || pages === depositedArticleNumber ? "" : pages,
+    articleNumber:
+      depositedArticleNumber || (looksLikeArticleNumber(pages) ? pages : ""),
     publisher: clean(meta.publisher || ""),
     year: parts[0] || 0,
     month: parts[1] || 0,
     day: parts[2] || 0,
+    ...fix,
   };
 }
 
@@ -334,14 +521,14 @@ async function resolveDoi(doi) {
   try {
     const meta = (await getJson(`https://api.crossref.org/works/${doi}`)).message;
     return {
-      title: (meta.title || [""])[0] || "",
+      title: TITLE_FIXES[doi] || (meta.title || [""])[0] || "",
       authors: meta.author || [],
       venue: looksLikeJournal((meta["container-title"] || [""])[0]) ? meta["container-title"][0] : "",
       publisher: meta.publisher || "",
       year: meta.issued?.["date-parts"]?.[0]?.[0] || 0,
       type: meta.type || "",
       citations: meta["is-referenced-by-count"],
-      citation: citationFrom(meta),
+      citation: citationFrom(meta, doi),
     };
   } catch (err) {
     // ติดต่อ Crossref ไม่ได้ ≠ Crossref บอกว่าไม่มี — อย่ากลืน
@@ -349,17 +536,24 @@ async function resolveDoi(doi) {
     /* ไม่มีใน Crossref — ลองต่อด้านล่าง */
   }
   try {
-    const res = await fetch(`https://doi.org/${doi}`, {
-      headers: { ...UA, Accept: "application/vnd.citationstyles.csl+json" },
-      redirect: "follow",
-    });
-    if (res.status === 429 || res.status === 503) {
-      throw new RegistryUnavailable(`doi.org ตอบ HTTP ${res.status}`);
+    const cslUrl = `csl:https://doi.org/${doi}`;
+    let d = cacheGet(cslUrl);
+    if (d === undefined) {
+      await pace();
+      const res = await fetch(`https://doi.org/${doi}`, {
+        headers: { ...UA, Accept: "application/vnd.citationstyles.csl+json" },
+        redirect: "follow",
+      });
+      if (res.status === 429 || res.status === 503) {
+        throw new RegistryUnavailable(`doi.org ตอบ HTTP ${res.status}`);
+      }
+      if (!res.ok) return null;
+      d = await res.json();
+      cachePut(cslUrl, d);
+      flushCache();
     }
-    if (!res.ok) return null;
-    const d = await res.json();
     return {
-      title: typeof d.title === "string" ? d.title : (d.title || [""])[0] || "",
+      title: TITLE_FIXES[doi] || (typeof d.title === "string" ? d.title : (d.title || [""])[0] || ""),
       authors: d.author || [],
       venue: looksLikeJournal(d["container-title"]) ? d["container-title"] : "",
       publisher: d.publisher || "",
@@ -367,10 +561,13 @@ async function resolveDoi(doi) {
       type: d.type || "",
       citations: undefined,
       // CSL ใช้ชื่อ field ชุดเดียวกับ Crossref จึงส่งเข้า citationFrom ได้ตรงๆ
-      citation: citationFrom({
-        ...d,
-        "container-title": [typeof d["container-title"] === "string" ? d["container-title"] : ""],
-      }),
+      citation: citationFrom(
+        {
+          ...d,
+          "container-title": [typeof d["container-title"] === "string" ? d["container-title"] : ""],
+        },
+        doi,
+      ),
     };
   } catch (err) {
     if (err instanceof RegistryUnavailable) throw err;
@@ -455,14 +652,25 @@ async function findInIndexes(row) {
       // (เคยเกิด: วิทยานิพนธ์ ป.เอก ถูกจับคู่กับบทความประชุมที่ตั้งชื่อใกล้เคียงกัน)
       if (normalizeType(item.type) !== normalizeType(row.type)) continue;
       if (titleOverlap(row.title, t) >= 0.75 && surnames.some((s) => surnameIn(item.author, s))) {
+        const doi = (item.DOI || "").toLowerCase();
+        /**
+         * ดึงระเบียนเต็มของ DOI ที่เพิ่งจับคู่ได้ **เพื่อให้มีข้อมูลบรรณานุกรมด้วย**
+         *
+         * ผลการค้นด้วย `select=` มีแค่ชื่อเรื่อง ผู้เขียน ปี ไม่มีเลขเล่ม ฉบับ หน้า
+         * เดิมจึงบันทึกแต่ DOI แล้วปล่อย `citation` ว่าง ผลคือผลงานที่มาทางนี้
+         * **ไม่มีปุ่มอ้างอิงบนเว็บเลย** ทั้งที่ทะเบียนมีข้อมูลครบ (เจอ 2 รายการ
+         * เมื่อ 2 ก.ย. 2569 หนึ่งในนั้นเป็นงานที่เพิ่งทำหน้าบทสรุปให้)
+         */
+        const full = await resolveDoi(doi).catch(() => null);
         return {
           ...row,
           verified: "doi",
-          doi: (item.DOI || "").toLowerCase(),
-          venue: (item["container-title"] || [""])[0] || row.venue,
+          doi,
+          venue: full?.venue || (item["container-title"] || [""])[0] || row.venue,
           year: item.issued?.["date-parts"]?.[0]?.[0] || row.year,
           type: item.type || row.type,
           citations: item["is-referenced-by-count"] ?? row.citations,
+          citation: full?.citation,
         };
       }
     }
@@ -688,7 +896,15 @@ export type CitationMeta = {
   containerTitle: string;
   volume: string;
   issue: string;
+  /** ช่วงหน้าจริง เช่น "144-154" — ว่างเมื่อวารสารใช้เลขบทความแทนเลขหน้า */
   page: string;
+  /**
+   * เลขบทความ (article number / eLocator) เช่น "e0317506" หรือ "77"
+   *
+   * **คนละช่องกับ page โดยตั้งใจ** APA 7 ต้องใส่คำว่า "Article" นำหน้า
+   * ส่วน MLA 9 ต้องไม่ใส่ "pp." ถ้าเก็บรวมกันจะแยกไม่ออกตอนสร้างการอ้างอิง
+   */
+  articleNumber: string;
   publisher: string;
   year: number;
   month: number;
