@@ -132,31 +132,25 @@ export const affiliatedResearchers: TeamMember[] = [
   },
 ];
 
-/** ผู้ช่วยวิจัย — ไม่ใส่สังกัดศูนย์ */
+/**
+ * ผู้ช่วยวิจัย — ไม่ใส่สังกัดศูนย์
+ *
+ * **รายชื่อชุดนี้ตัดจากหกคนเหลือสองคนเมื่อ 3 ก.ย. 2569** ตามที่ผู้ใช้ยืนยัน
+ * หลังผู้ช่วยของท่านไปตรวจสอบรายชื่อมา — วันวิสา เวชประสิทธิ์ · ชนาภา
+ * อิทธิอมรกุลชัย · หฤทัย สิทธิภูวบุณย์ · ธาวิน แจ่มแจ้ง ไม่ได้อยู่กับศูนย์ฯ แล้ว
+ * ลบทั้งการ์ดและ**ไฟล์ภาพของทั้งสี่คนออกจาก public/** ด้วย เพราะภาพบุคคลที่
+ * ไม่ได้อยู่กับศูนย์ฯ แล้วไม่ควรถูกเสิร์ฟต่อจากเว็บของศูนย์ฯ แม้จะไม่มีหน้าไหนลิงก์ถึง
+ * (ประวัติเดิมยังอยู่ใน git ถ้าวันหนึ่งต้องกู้กลับ)
+ */
 export const researchAssistants: TeamMember[] = [
   {
-    name: "วันวิสา เวชประสิทธิ์",
-    nameEn: "Wanwisa Wechprasith",
-    roleTh: "ผู้ช่วยวิจัย",
-    role: "Research Assistant",
-    image: media("8e0d14_de18afe153e9498ba2f6886f70a2ef35"),
-    alt: "วันวิสา เวชประสิทธิ์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
-  },
-  {
-    name: "ชนาภา อิทธิอมรกุลชัย",
-    nameEn: "Chanapa Itdhiamornkulchai",
-    roleTh: "ผู้ช่วยวิจัย",
-    role: "Research Assistant",
-    image: media("8e0d14_31a4089134c7492b9152bb547c2e358c"),
-    alt: "ชนาภา อิทธิอมรกุลชัย ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
-  },
-  {
-    name: "สุพัตรา เพ็ชรี",
+    // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "สุพัตรา เพ็ชรี" (มีไม้ไต่คู้)
+    name: "สุพัตรา เพชรี",
     nameEn: "Supatra Petchree",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_1e13d671d6524c9e8a3e394adc2a3bcc"),
-    alt: "สุพัตรา เพ็ชรี ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
+    alt: "สุพัตรา เพชรี ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
   {
     // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "เอกสิทธิ์ สุมนา / Ekasit Sumana"
@@ -166,25 +160,6 @@ export const researchAssistants: TeamMember[] = [
     role: "Research Assistant",
     image: media("8e0d14_17484343fc0b423e86bf30bc9954242b"),
     alt: "เอกะสิทธิ์ สุมะนะ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
-  },
-  {
-    name: "หฤทัย สิทธิภูวบุณย์",
-    nameEn: "Hrut Sitthipuwabun",
-    roleTh: "ผู้ช่วยวิจัย",
-    role: "Research Assistant",
-    image: media("8e0d14_21fc5f3f51484ff8ab3f7beea2d2f93a"),
-    alt: "หฤทัย สิทธิภูวบุณย์ ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
-  },
-  {
-    // ยืนยันการสะกดโดยผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "ธวินท์ แจ่มแจ้ง /
-    // Thavin Chaemchaeng" ผิดทั้งชื่อไทยและการถอดเป็นอังกฤษ ค่าที่ถูกคือ
-    // "ธาวิน แจ่มแจ้ง / Thavin Jamjang" · ชื่อเดิมติดมาจากเว็บ Wix
-    name: "ธาวิน แจ่มแจ้ง",
-    nameEn: "Thavin Jamjang",
-    roleTh: "ผู้ช่วยวิจัย",
-    role: "Research Assistant",
-    image: media("8e0d14_7fd4bdf8ae7b48efac5cf79fc4fdd215"),
-    alt: "ธาวิน แจ่มแจ้ง ผู้ช่วยวิจัย — ภาพจากเว็บเดิม ComInnoCenter",
   },
 ];
 
