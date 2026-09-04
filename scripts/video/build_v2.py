@@ -151,8 +151,11 @@ def group_parens(items, sep):
 
 NUM_RE = re.compile(r"^\d[\d,.]*%?$")
 # เลขกับสิ่งที่ผูกกับเลข ต้องอยู่บรรทัดเดียวกัน — พบ "23 | คนในกรุงเทพฯ" · "5 ใน | 6" · "ผู้ชมราว | 300 คน" ในเฟรมจริง
-TH_AFTER_NUM = ("คน", "วัน", "ปี", "จังหวัด", "กลุ่ม", "ชิ้น", "ครั้ง", "สัปดาห์", "เดือน", "ใน", "จาก", "%")
-EN_AFTER_NUM = {"of", "in", "to", "from", "people", "visitors", "provinces", "years", "days", "senses", "interviews", "groups"}
+TH_AFTER_NUM = ("คน", "วัน", "ปี", "จังหวัด", "กลุ่ม", "ชิ้น", "ครั้ง", "สัปดาห์", "เดือน", "ใน", "จาก", "%",
+                "ข้อความ", "คลิป", "ท่า", "ชั่วโมง", "องศา", "ใบ", "แท่ง", "เรื่อง", "ข้อ", "คู่", "ช่อง", "ราย",
+                "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม")   # ชุดที่ 2: "รีวิวลบ 1 | ข้อความ" เคยหลุดบนจอจริง
+EN_AFTER_NUM = {"of", "in", "to", "from", "people", "visitors", "provinces", "years", "days", "senses", "interviews", "groups",
+                "students", "clips", "news", "vlogs", "workers", "women", "ad", "negative", "physical", "months", "exercises", "weeks", "hours"}
 TH_BEFORE_NUM = ("ราว", "กว่า", "ประมาณ", "เกือบ", "ทั้ง", "เหลือ", "จาก", "ใน", "เพียง", "แค่")
 EN_BEFORE_NUM = {"of", "in", "to", "from", "around", "about", "over", "under", "only", "all", "than"}
 
@@ -163,8 +166,9 @@ def glue_numbers(phrases):
     for ph in phrases:
         if out:
             last = out[-1].split(" ")[-1]
-            attach = (NUM_RE.match(last) and (ph.startswith(TH_AFTER_NUM) or ph.lower() in EN_AFTER_NUM)) or \
-                     (NUM_RE.match(ph) and (last.endswith(TH_BEFORE_NUM) or last.lower() in EN_BEFORE_NUM))
+            bare_ph, bare_last = ph.lower().rstrip(",.;:"), last.lower().rstrip(",.;:")
+            attach = (NUM_RE.match(last) and (ph.startswith(TH_AFTER_NUM) or bare_ph in EN_AFTER_NUM)) or \
+                     (NUM_RE.match(ph) and (last.endswith(TH_BEFORE_NUM) or bare_last in EN_BEFORE_NUM))
             if attach:
                 out[-1] += " " + ph
                 continue
@@ -179,6 +183,14 @@ def wrap(draw, text, font, max_w, intra=True):
     lines = []
     for para in text.split("\n"):
         phrases = glue_numbers(group_parens([p for p in para.split(" ") if p], " "))
+        # ตัวคั่น "·" ต้องปิดท้ายบรรทัดก่อน ไม่ขึ้นต้นบรรทัดใหม่ (ขึ้นต้นแล้วอ่านเหมือนหัวข้อย่อย — พบในเฟรมชุดที่ 2)
+        merged = []
+        for ph in phrases:
+            if ph == "·" and merged:
+                merged[-1] += " ·"
+            else:
+                merged.append(ph)
+        phrases = merged
         line = ""
         for ph in phrases:
             cand = ph if not line else line + " " + ph
@@ -213,6 +225,15 @@ def wrap(draw, text, font, max_w, intra=True):
             line = piece
         if line:
             lines.append(line)
+        # คำอังกฤษโดดเดี่ยวบรรทัดสุดท้าย ("comparative or | not") — ดึงคำท้ายบรรทัดก่อนลงมาเป็นคู่ ถ้ายังพอดีบรรทัด
+        # ทำเฉพาะคำละติน เพราะบรรทัดไทยไม่มีช่องว่างระหว่างคำ เช็ก "คำเดียว" ไม่ได้
+        if len(lines) >= 2 and re.fullmatch(r"[A-Za-z][A-Za-z'’\-]*[.,;:!?]?", lines[-1]):
+            prev = lines[-2].split(" ")
+            if len(prev) >= 2 and not prev[-1].endswith("·"):
+                cand = prev[-1] + " " + lines[-1]
+                if draw.textlength(cand, font=font) <= max_w:
+                    lines[-2] = " ".join(prev[:-1])
+                    lines[-1] = cand
     return lines
 
 

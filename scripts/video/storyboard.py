@@ -313,6 +313,13 @@ CLIPS = [
     },
 ]
 
+# ── ชุดที่ 2 (4 ก.ย. 2569) อยู่ในไฟล์แยกเพื่อให้ไฟล์นี้อ่านได้ · storyboard.json รวมทุกชุด ส่วน HTML/MD แยกตาม --batch
+from storyboard_batch2 import CLIPS2, PALETTE2
+CLIPS += CLIPS2
+PALETTE.update(PALETTE2)
+for _c in CLIPS:
+    _c.setdefault("batch", 1)
+
 ROLE_TH = {"hook": "เปิดเรื่อง", "method": "ทำอะไร", "finding": "พบอะไร", "conclusion": "ข้อสรุป", "lesson": "บทเรียน", "caveat": "ข้อควรระวัง", "closing": "ปิดท้าย"}
 
 IMAGE_PRICE = 0.20
@@ -357,12 +364,25 @@ def build_json():
                 "visual_th": s["visual_th"], "prompt": (prompt(c["key"], s["subject"]) if s["subject"] else None),
                 "secs_v1": s["secs"],
             })
-        out.append({"key": c["key"], "slug": c["slug"], "name_th": c["name_th"], "name_en": c["name_en"],
+        out.append({"key": c["key"], "slug": c["slug"], "batch": c.get("batch", 1), "name_th": c["name_th"], "name_en": c["name_en"],
                     "palette": PALETTE[c["key"]], "label": c["label"], "scenes": scenes})
     return out
 
 
-def write_scripts_md(data):
+def write_scripts_md(data, batch=1):
+    data = [c for c in data if c.get("batch", 1) == batch]
+    if batch != 1:
+        L = [f"# บทวิดีโอชุดที่ {batch} — {len(data)} เรื่อง × ไทย/อังกฤษ (รอ lock)", "",
+             "กติกา: ศูนย์ฯ เป็นผู้เล่า ไม่ใช่ผู้ทำ · เลขเป็นคำอ่าน · ไม่มี ๆ ฯ ในเสียง · ข้อเท็จจริงตรงกับบทสรุปบนเว็บ", ""]
+        for c in data:
+            L += [f"## {c['name_th']}", ""]
+            for lang, head in (("th", "### ไทย"), ("en", "### English")):
+                L += [head, ""]
+                for sc in c["scenes"]:
+                    L += [sc["narr"][lang], ""]
+            L += ["---", ""]
+        open(os.path.join(HERE, f"scripts-batch{batch}.md"), "w", encoding="utf-8").write("\n".join(L))
+        return
     L = ["# บทวิดีโอนำร่อง 3 เรื่อง × ไทย/อังกฤษ — ฉบับ 2 (เกลาภาษาให้เป็นธรรมชาติ · รอ lock)", "",
          "เปลี่ยนจากฉบับ 1: เลี่ยงสำนวนแปล (\"การเปิดรับสื่อ\" → \"เห็นข่าวสารบ่อยขึ้น\" · \"สิ่งที่ถูกจำ\" → \"ที่คนจำได้\" · \"การให้ร่างกายมีส่วนร่วม\" → \"ให้คนได้จับ ได้ชิม ได้ฟัง\") · ตัด ๆ และ ฯ ออกจากเสียงพากย์ · อังกฤษเขียนใหม่จากความหมาย ไม่ถอดจากไทยประโยคต่อประโยค · ข้อเท็จจริงทุกข้อยังตรงกับบทสรุปบนเว็บ", ""]
     for c in data:
@@ -375,18 +395,80 @@ def write_scripts_md(data):
     open(os.path.join(HERE, "scripts-pilot-v2.md"), "w", encoding="utf-8").write("\n".join(L))
 
 
-def write_html(data):
+PILOT_HEADER = """<div class="wrap">
+<div class="eyebrow">ComInno Center · วิดีโอเล่าสาระหลักของบทความ</div>
+<h1 style="margin-top:6px">สตอรี่บอร์ดคลิปนำร่อง 3 เรื่อง × ไทย/อังกฤษ — ฉบับ 2</h1>
+<p class="lead">ฉากละหนึ่งภาพ ผูกกับย่อหน้าที่พากย์ · ภาพทุกใบเป็น paper-craft สองสีตาม BRAND.md E3 และใช้คู่สีของภาพประจำบทความนั้น · บทพากย์เกลาใหม่ทั้งสองภาษาให้เป็นภาษาพูดจริง ไม่ใช่สำนวนแปล · ทุกข้อเท็จจริงตรงกับบทสรุปบนเว็บซึ่งตรวจกับตัวบทความแล้ว</p>
+
+<div class="params">
+<div><b>ผู้ฟัง</b>นักวิชาการ นักวิจัย แหล่งทุน ผู้สนใจทั่วไป</div>
+<div><b>ความยาว</b>คลิปละ 75–95 วินาที · 8 ฉาก</div>
+<div><b>เสียง</b>ไทย Toto · อังกฤษ Sterling (เดิม)</div>
+<div><b>ภาพ</b>paper-craft 16:9 · gemini-3-pro-image · ไม่เกิน 4 วัตถุต่อภาพ</div>
+<div><b>เลย์เอาต์</b>ข้อความซ้าย 45% · ภาพขวา 55% พื้นครีมต่อเนื่องกัน</div>
+<div><b>สัญลักษณ์ประจำชุด</b>ดอกจันกระดาษ = ฉากข้อควรระวัง · การ์ดปิดโลโก้เหมือนกันทุกคลิป</div>
+</div>
+
+<div class="layout">
+<div class="changes">
+<h3>สิ่งที่เปลี่ยนจากฉบับ 1</h3>
+<ul>
+<li><b>ภาพทุกฉาก</b> เดิมมีภาพเดียวแล้วต่อด้วยการ์ดข้อความล้วน 5 ใบ ฉบับนี้ทุกฉากมีภาพประกอบที่วาด <em>รูปร่างของสิ่งที่พูดถึง</em> ในฉากนั้น (ไม่วาดเนื้อเรื่อง ตามหลักการเดียวกับภาพประจำบทความ)</li>
+<li><b>ภาษา</b> ตัดสำนวนที่ถอดจากศัพท์วิชาการหรืออังกฤษ เช่น "การเปิดรับสื่อ" → "เห็นข่าวสารบ่อยขึ้น" · "สิ่งที่ถูกจำ" → "ที่คนจำได้" · "การให้ร่างกายมีส่วนร่วม" → "ให้คนได้จับ ได้ชิม ได้ฟัง" · อังกฤษเขียนใหม่จากความหมาย ไม่ถอดจากไทยทีละประโยค</li>
+<li><b>เลย์เอาต์</b> ข้อความอยู่ซ้าย ภาพอยู่ขวาบนพื้นครีมเดียวกัน (แบบเดียวกับ hero หน้าแรกของเว็บ) แทนการสลับ "ภาพเต็มจอ → การ์ดตัวอักษร"</li>
+<li><b>ต้องอัดเสียงใหม่</b> เพราะบทเปลี่ยน ใช้เสียงและค่าเดิม ราคาเท่ารอบแรก</li>
+</ul>
+</div>
+<div>
+<div class="mock" aria-label="ตัวอย่างเลย์เอาต์ฉาก: ป้ายและข้อความซ้าย วัตถุกระดาษขวา"><div class="t"><i></i><b></b><b></b><b></b></div><div class="o"></div><div class="f"></div></div>
+<p class="note">ผังฉากแบบใหม่ — ป้ายสีชมพูกับข้อความ Kanit อยู่ซ้าย วัตถุกระดาษอยู่ขวา ภาพที่เจนจะสั่งให้เว้นพื้นครีมฝั่งซ้ายหนึ่งในสามไว้ เพื่อให้ขอบภาพกลืนกับพื้นการ์ดโดยไม่เห็นรอยต่อ</p>
+</div>
+</div>
+"""
+
+
+def header_body(batch, data):
+    if batch == 1:
+        return PILOT_HEADER
+    n = len(data)
+    return f"""<div class="wrap">
+<div class="eyebrow">ComInno Center · วิดีโอเล่าสาระหลักของบทความ</div>
+<h1 style="margin-top:6px">สตอรี่บอร์ดชุดที่ {batch} — {n} เรื่อง × ไทย/อังกฤษ</h1>
+<p class="lead">รูปแบบเดียวกับชุดนำร่องที่ผู้ใช้อนุมัติแล้ว: ฉากละหนึ่งภาพ paper-craft สองสีตามคู่สีของภาพประจำบทความ · เสียงอาจารย์เอง (ไทย Smith Boon · อังกฤษ Smith Boonbr สำเนียงอังกฤษ) อัดทีละย่อหน้า · จิงเกิล เพลงพื้นหลัง และเสียงกระดาษชุดเดิม · การ์ดปิดมีชื่อผู้เขียนทุกคน · ประธานของกริยาวิจัยคือทีมวิจัย ไม่ใช่ศูนย์ฯ · ทุกข้อเท็จจริงตรงกับบทสรุปบนเว็บ</p>
+<div class="params">
+<div><b>ผู้ฟัง</b>นักวิชาการ นักวิจัย แหล่งทุน ผู้สนใจทั่วไป</div>
+<div><b>ความยาว</b>คลิปละราว 1:40–1:55 · 8 ฉาก</div>
+<div><b>เสียง</b>ไทย Smith Boon · อังกฤษ Smith Boonbr · eleven_v3</div>
+<div><b>ภาพ</b>paper-craft 16:9 · gemini-3-pro-image · ไม่เกิน 4 วัตถุต่อภาพ</div>
+<div><b>เลย์เอาต์</b>ข้อความซ้าย ภาพขวา พื้นครีมต่อเนื่อง · ตัดบรรทัดไทยตามวรรค</div>
+<div><b>สัญลักษณ์ประจำชุด</b>ดอกจันกระดาษ = ฉากข้อควรระวัง · การ์ดปิด + ชื่อผู้เขียนทุกคน</div>
+</div>
+<div class="changes">
+<h3>สิ่งที่ขอให้ตรวจก่อนอนุมัติ</h3>
+<ul>
+<li><b>บทพากย์</b> ทั้งสองภาษา — โดยเฉพาะประธานของประโยค (ทีมวิจัย / คณะผู้วิจัย / ผู้วิจัย) ว่าตรงกับผู้ทำงานจริงของแต่ละเรื่องหรือไม่ และเรื่องไหนต่อยอดจากผลงานของนิสิตที่ควรบอกในบท</li>
+<li><b>ข้อความบนจอ</b> เว้นวรรคตามหน่วยความหมายแล้ว ตัวตัดบรรทัดจะไม่ตัดกลางคำ</li>
+<li><b>แนวคิดภาพ</b> ทุกใบนับวัตถุไม่เกินสี่ชิ้น ใบไหนเจนออกมาไม่ตรงจะรายงานตามที่เห็นจริงและถามก่อนเจนซ้ำ</li>
+<li><b>ค่าใช้จ่าย</b> ดูตารางท้ายหน้า — ทุกรายการคิดเงินเมื่อกดสร้าง จะเริ่มเมื่ออนุมัติเท่านั้น</li>
+</ul>
+</div>
+"""
+
+
+def write_html(data, batch=1):
     esc = html.escape
+    data = [c for c in data if c.get("batch", 1) == batch]
     n_new = sum(1 for c in data for s in c["scenes"] if s["image"] == "new")
     img_cost = n_new * IMAGE_PRICE
-    tts_cost = 3 * (TTS_TH + TTS_EN)
+    # ชุดนำร่องประเมินต่อคลิป · ชุดถัดไปประเมินจากใบเสร็จจริงของชุดนำร่อง (48 ท่อน = $1.25 → ≈ $0.026/ท่อน)
+    tts_cost = 3 * (TTS_TH + TTS_EN) if batch == 1 else sum(len(c["scenes"]) for c in data) * 2 * 0.026
 
     def swatches(p):
         return (f'<span class="sw" style="background:{p["obj_hex"]}" title="วัตถุ"></span>'
                 f'<span class="sw" style="background:{p["sh_hex"]}" title="เงา"></span>')
 
     parts = []
-    parts.append(f"""<title>สตอรี่บอร์ดคลิปงานวิจัยนำร่อง</title>
+    parts.append(f"""<title>{"สตอรี่บอร์ดคลิปงานวิจัยนำร่อง" if batch == 1 else f"สตอรี่บอร์ดคลิปงานวิจัยชุดที่ {batch}"}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap">
 <style>
@@ -463,36 +545,7 @@ tfoot td{{font-weight:500;border-bottom:0;border-top:2px solid var(--ink)}}
 a{{color:var(--accent)}}
 :focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
 </style>
-<div class="wrap">
-<div class="eyebrow">ComInno Center · วิดีโอเล่าสาระหลักของบทความ</div>
-<h1 style="margin-top:6px">สตอรี่บอร์ดคลิปนำร่อง 3 เรื่อง × ไทย/อังกฤษ — ฉบับ 2</h1>
-<p class="lead">ฉากละหนึ่งภาพ ผูกกับย่อหน้าที่พากย์ · ภาพทุกใบเป็น paper-craft สองสีตาม BRAND.md E3 และใช้คู่สีของภาพประจำบทความนั้น · บทพากย์เกลาใหม่ทั้งสองภาษาให้เป็นภาษาพูดจริง ไม่ใช่สำนวนแปล · ทุกข้อเท็จจริงตรงกับบทสรุปบนเว็บซึ่งตรวจกับตัวบทความแล้ว</p>
-
-<div class="params">
-<div><b>ผู้ฟัง</b>นักวิชาการ นักวิจัย แหล่งทุน ผู้สนใจทั่วไป</div>
-<div><b>ความยาว</b>คลิปละ 75–95 วินาที · 8 ฉาก</div>
-<div><b>เสียง</b>ไทย Toto · อังกฤษ Sterling (เดิม)</div>
-<div><b>ภาพ</b>paper-craft 16:9 · gemini-3-pro-image · ไม่เกิน 4 วัตถุต่อภาพ</div>
-<div><b>เลย์เอาต์</b>ข้อความซ้าย 45% · ภาพขวา 55% พื้นครีมต่อเนื่องกัน</div>
-<div><b>สัญลักษณ์ประจำชุด</b>ดอกจันกระดาษ = ฉากข้อควรระวัง · การ์ดปิดโลโก้เหมือนกันทุกคลิป</div>
-</div>
-
-<div class="layout">
-<div class="changes">
-<h3>สิ่งที่เปลี่ยนจากฉบับ 1</h3>
-<ul>
-<li><b>ภาพทุกฉาก</b> เดิมมีภาพเดียวแล้วต่อด้วยการ์ดข้อความล้วน 5 ใบ ฉบับนี้ทุกฉากมีภาพประกอบที่วาด <em>รูปร่างของสิ่งที่พูดถึง</em> ในฉากนั้น (ไม่วาดเนื้อเรื่อง ตามหลักการเดียวกับภาพประจำบทความ)</li>
-<li><b>ภาษา</b> ตัดสำนวนที่ถอดจากศัพท์วิชาการหรืออังกฤษ เช่น "การเปิดรับสื่อ" → "เห็นข่าวสารบ่อยขึ้น" · "สิ่งที่ถูกจำ" → "ที่คนจำได้" · "การให้ร่างกายมีส่วนร่วม" → "ให้คนได้จับ ได้ชิม ได้ฟัง" · อังกฤษเขียนใหม่จากความหมาย ไม่ถอดจากไทยทีละประโยค</li>
-<li><b>เลย์เอาต์</b> ข้อความอยู่ซ้าย ภาพอยู่ขวาบนพื้นครีมเดียวกัน (แบบเดียวกับ hero หน้าแรกของเว็บ) แทนการสลับ "ภาพเต็มจอ → การ์ดตัวอักษร"</li>
-<li><b>ต้องอัดเสียงใหม่</b> เพราะบทเปลี่ยน ใช้เสียงและค่าเดิม ราคาเท่ารอบแรก</li>
-</ul>
-</div>
-<div>
-<div class="mock" aria-label="ตัวอย่างเลย์เอาต์ฉาก: ป้ายและข้อความซ้าย วัตถุกระดาษขวา"><div class="t"><i></i><b></b><b></b><b></b></div><div class="o"></div><div class="f"></div></div>
-<p class="note">ผังฉากแบบใหม่ — ป้ายสีชมพูกับข้อความ Kanit อยู่ซ้าย วัตถุกระดาษอยู่ขวา ภาพที่เจนจะสั่งให้เว้นพื้นครีมฝั่งซ้ายหนึ่งในสามไว้ เพื่อให้ขอบภาพกลืนกับพื้นการ์ดโดยไม่เห็นรอยต่อ</p>
-</div>
-</div>
-""")
+{header_body(batch, data)}""")
 
     for c in data:
         p = c["palette"]
@@ -536,6 +589,24 @@ a{{color:var(--accent)}}
 </article>""")
         parts.append("</section>")
 
+    if batch != 1:
+        n_seg = sum(len(c["scenes"]) for c in data) * 2
+        parts.append(f"""<section class="budget">
+<h2>ค่าใช้จ่ายที่ขออนุมัติ — ประมาณ {img_cost + tts_cost:.2f} USD</h2>
+<table>
+<thead><tr><th>รายการ</th><th>จำนวน</th><th class="num">ประเมิน (USD)</th></tr></thead>
+<tbody>
+<tr><td>ภาพ paper-craft ใหม่ (gemini-3-pro-image · ข้อความล้วน $0.20/ใบ)</td><td>{n_new} ใบ ({len(data)} เรื่อง × 6 ใบ)</td><td class="num">{img_cost:.2f}</td></tr>
+<tr><td>อัดเสียงพากย์ทีละย่อหน้า (Smith Boon · Smith Boonbr · eleven_v3)</td><td>{n_seg} ท่อน ({len(data)} เรื่อง × 2 ภาษา × 8 ย่อหน้า) · ประเมินจากใบเสร็จชุดนำร่อง ≈ $0.026/ท่อน</td><td class="num">{tts_cost:.2f}</td></tr>
+<tr><td>ประกอบวิดีโอ (ffmpeg ในเซสชัน)</td><td>{len(data) * 2} คลิป</td><td class="num">0.00</td></tr>
+</tbody>
+<tfoot><tr><td colspan="2">รวม</td><td class="num">{img_cost + tts_cost:.2f}</td></tr></tfoot>
+</table>
+<p class="note">ภาพที่เจนออกมาไม่ตรงแนวคิดจะรายงานตามที่เห็นจริงและถามก่อนเจนซ้ำ (ใบละ $0.20) · แก้บทย่อหน้าไหนหลังอัดแล้ว อัดใหม่เฉพาะย่อหน้านั้น (≈ $0.03) · ประกอบใหม่ไม่มีค่าใช้จ่าย</p>
+</section>
+</div>""")
+        open(os.path.join(HERE, f"storyboard-batch{batch}.html"), "w", encoding="utf-8").write("\n".join(parts))
+        return n_new, img_cost, tts_cost
     parts.append(f"""<section class="budget">
 <h2>ค่าใช้จ่ายจริง (อนุมัติ 4 ก.ย. 2569 ที่ {img_cost + tts_cost:.2f})</h2>
 <table>
@@ -555,8 +626,10 @@ a{{color:var(--accent)}}
 
 
 if __name__ == "__main__":
+    import sys
+    batch = int(sys.argv[sys.argv.index("--batch") + 1]) if "--batch" in sys.argv else 1
     data = build_json()
     json.dump(data, open(os.path.join(HERE, "storyboard.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    write_scripts_md(data)
-    n_new, ic, tc = write_html(data)
+    write_scripts_md(data, batch)
+    n_new, ic, tc = write_html(data, batch)
     print(f"scenes: {sum(len(c['scenes']) for c in data)} · new images: {n_new} (${ic:.2f}) · tts: ${tc:.2f} · total ${ic + tc:.2f}")
