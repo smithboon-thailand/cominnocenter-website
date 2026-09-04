@@ -158,6 +158,7 @@ TH_AFTER_NUM = ("คน", "วัน", "ปี", "จังหวัด", "ก�
 EN_AFTER_NUM = {"of", "in", "to", "from", "people", "visitors", "provinces", "years", "days", "senses", "interviews", "groups",
                 "students", "clips", "news", "vlogs", "workers", "women", "ad", "negative", "physical", "months", "exercises", "weeks", "hours"}
 TH_BEFORE_NUM = ("ราว", "กว่า", "ประมาณ", "เกือบ", "ทั้ง", "เหลือ", "จาก", "ใน", "เพียง", "แค่", "ถึง", "ปี", "สูง", "ต่ำ", "ได้", "รวม")   # "อธิบายได้ | 63%" ชุดที่ 3
+TH_CONJ = {"กับ", "และ", "หรือ", "แต่", "จึง", "คือ"}   # คำเชื่อมที่ไม่ควรค้างท้ายบรรทัด
 EN_BEFORE_NUM = {"of", "in", "to", "from", "around", "about", "over", "under", "only", "all", "than"}
 
 
@@ -200,6 +201,8 @@ def wrap(draw, text, font, max_w, intra=True):
                 merged[-1] += " " + ph
             elif ph == "=" and merged:                       # เครื่องหมายเท่ากับต้องอยู่บรรทัดเดียวกับทั้งสองข้าง (ชุดที่ 3)
                 merged[-1] += " ="; glue_next = True
+            elif ph in TH_CONJ or ph.endswith(":"):          # คำเชื่อมโดดๆ ("เรียนสด กับ | เรียนจากคลิป") และป้ายที่ลงท้ายด้วย ":" ("ไม่ใช่โอตาคุ: | หน้าตามาก่อน")
+                merged.append(ph); glue_next = True           # ต้องไม่ปิดท้ายบรรทัด — เกาะวรรคถัดไปถ้ายังพอดีบรรทัด (ชุดที่ 3)
             else:
                 merged.append(ph)
         phrases = merged

@@ -3,7 +3,7 @@
 จับคู่ session_id → ฉาก ด้วย images2-sessions.json · ใช้: python3 fetch_images2.py status1.json [status2.json ...]"""
 import json, os, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-sess = {v: k for k, v in json.load(open(os.path.join(HERE, "images2-sessions.json"))).items()}
+sess = {v: k for k, v in json.load(open(os.path.join(HERE, os.environ.get("IMG_SESSIONS", "images2-sessions.json")))).items()}
 os.makedirs(os.path.join(HERE, "images-v2"), exist_ok=True)
 done, missing, cost = [], [], 0.0
 for f in sys.argv[1:]:
