@@ -37,8 +37,7 @@ export const paperVideos: PaperVideo[] = [
   },
   {
     slug: "elephant-tales-sensory-exhibition",
-    // ไทยยังไม่มี id — ผู้ใช้อัปโหลดไฟล์ไข้เลือดออกไทยซ้ำสองครั้งแทนคลิปนี้ (4 ก.ย.) รอคลิปที่ถูกต้อง
-    th: { seconds: 101, uploadDate: "2026-09-04" },
+    th: { youtubeId: "Dn1rYvWKNgE", seconds: 101, uploadDate: "2026-09-04" },
     en: { youtubeId: "eNrREKv-954", seconds: 104, uploadDate: "2026-09-04" },
   },
   {
