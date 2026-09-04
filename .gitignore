@@ -34,3 +34,7 @@ next-env.d.ts
 
 # แคชคำตอบของทะเบียนผลงานวิชาการ (scripts/fetch-publications.mjs)
 /.cache/
+
+# Python bytecode (scripts/video)
+__pycache__/
+*.pyc

@@ -40,7 +40,7 @@ for c in V.SB:
                 im = V.render_scene(c, s, lang, img)
             elif s["image"] == "new":
                 img = os.path.join(V.HERE, "images-v2", s["image_file"].replace(".webp", ".png"))
-                im = V.render_scene(c, s, lang, img)
+                im = V.render_scene(c, s, lang, img if os.path.exists(img) else None)   # ชุดที่ยังไม่เจนภาพ ตรวจแต่ข้อความ
             else:
                 im = V.render_closing(lang)
             tiles.append(im.resize((640, 360), Image.LANCZOS))
