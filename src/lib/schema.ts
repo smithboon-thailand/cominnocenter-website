@@ -220,6 +220,40 @@ export function breadcrumbSchema(trail: { name: string; path: string }[]) {
   };
 }
 
+/**
+ * วิดีโอเล่าสาระหลักของบทความบนหน้า /research/[slug] — คลิปอยู่บน YouTube ของศูนย์ฯ
+ * จึงให้ `embedUrl` ไม่ให้ `contentUrl` (เราไม่ได้เสิร์ฟไฟล์เอง) · `thumbnailUrl` คือภาพประจำ
+ * บทความในเว็บเราซึ่งเป็นหน้าปกที่ผู้อ่านเห็นจริง ไม่ใช่ thumbnail ของ YouTube
+ * · Google บังคับ name · thumbnailUrl · uploadDate สำหรับ VideoObject
+ */
+export function videoObjectSchema(args: {
+  name: string;
+  description: string;
+  path: string;
+  /** path ในเว็บเรา ขึ้นต้นด้วย / */
+  thumbnailPath: string;
+  uploadDate: string;
+  /** ISO 8601 เช่น "PT1M44S" */
+  duration: string;
+  youtubeId: string;
+  inLanguage: "th" | "en";
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: args.name,
+    description: args.description,
+    thumbnailUrl: `${SITE_URL}${args.thumbnailPath}`,
+    uploadDate: args.uploadDate,
+    duration: args.duration,
+    inLanguage: args.inLanguage,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${args.youtubeId}`,
+    url: `https://www.youtube.com/watch?v=${args.youtubeId}`,
+    mainEntityOfPage: `${SITE_URL}${args.path}`,
+    publisher: { "@id": ORG_ID },
+  };
+}
+
 /** โพสต์ข่าวที่เก็บจากเว็บเดิม */
 export function newsArticleSchema(post: NewsPost, locale: "th" | "en", coverUrl: string) {
   const path = locale === "th" ? `/news/${post.slug}` : `/en/news/${post.slug}`;

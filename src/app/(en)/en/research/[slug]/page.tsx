@@ -6,9 +6,11 @@ import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
+import PaperVideo from "@/components/research/PaperVideo";
 import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import SectionIcon from "@/components/ui/SectionIcon";
-import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
+import { breadcrumbSchema, scholarlyArticleSchema, videoObjectSchema } from "@/lib/schema";
+import { paperVideoBySlug, isoDuration } from "@/data/paperVideos";
 import { truncate } from "@/lib/text";
 import {
   paperSummaries,
@@ -65,6 +67,9 @@ export default async function PaperSummaryPageEn({ params }: Props) {
   const summary = paperSummaryBySlug(slug);
   if (!summary) notFound();
   const paper = publicationForSummary(summary);
+  // English-narrated video summary — only for papers whose clip is already on YouTube
+  const video = paperVideoBySlug(slug)?.en;
+  const videoId = video?.youtubeId;
 
   // No licence means the journal reserves copyright, not that it is unchecked —
   // so the page must not claim a Creative Commons licence it does not have
@@ -98,6 +103,21 @@ export default async function PaperSummaryPageEn({ params }: Props) {
             { name: "Research", path: "/en/research" },
             { name: plainText(summary.en.headline), path: `/en/research/${slug}` },
           ]),
+          // Declare a VideoObject only where the page really shows one (structured-data rule: nothing hidden)
+          ...(video && videoId
+            ? [
+                videoObjectSchema({
+                  name: plainText(summary.en.headline),
+                  description: truncate(plainText(summary.en.question), 200, "en"),
+                  path: `/en/research/${slug}`,
+                  thumbnailPath: `/images/research/summaries/${slug}.webp`,
+                  uploadDate: video.uploadDate,
+                  duration: isoDuration(video.seconds),
+                  youtubeId: videoId,
+                  inLanguage: "en",
+                }),
+              ]
+            : []),
         ]}
       />
       <main>
@@ -119,17 +139,29 @@ export default async function PaperSummaryPageEn({ params }: Props) {
           <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.en.headline)}</h1>
 
           {/* The artwork is a metaphor for the *shape of the finding*, never a depiction of
-              the subject matter — see the illustrationAltTh note in paperSummaries.ts */}
-          <ResponsiveArtwork
-            base={`/images/research/summaries/${slug}`}
-            alt={summary.illustrationAltEn}
-            // The content column is max-w-3xl (768) minus px-6 on both sides = 720px
-            sizes="(min-width: 768px) 720px, 100vw"
-            aspect="aspect-[16/9]"
-            height={900}
-            className="mt-8"
-            priority
-          />
+              the subject matter — see the illustrationAltTh note in paperSummaries.ts
+              Where a video summary exists, the same artwork becomes its poster (no stacked images) */}
+          {video && videoId ? (
+            <PaperVideo
+              youtubeId={videoId}
+              locale="en"
+              posterBase={`/images/research/summaries/${slug}`}
+              posterAlt={summary.illustrationAltEn}
+              title={plainText(summary.en.headline)}
+              seconds={video.seconds}
+            />
+          ) : (
+            <ResponsiveArtwork
+              base={`/images/research/summaries/${slug}`}
+              alt={summary.illustrationAltEn}
+              // The content column is max-w-3xl (768) minus px-6 on both sides = 720px
+              sizes="(min-width: 768px) 720px, 100vw"
+              aspect="aspect-[16/9]"
+              height={900}
+              className="mt-8"
+              priority
+            />
+          )}
 
           {/* Keep the source article visibly separate from our summary of it */}
           <div className="mt-8 rounded-lg border border-ink-300 bg-ink-0 p-6">
