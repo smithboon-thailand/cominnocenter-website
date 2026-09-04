@@ -315,8 +315,10 @@ CLIPS = [
 
 # ── ชุดที่ 2 (4 ก.ย. 2569) อยู่ในไฟล์แยกเพื่อให้ไฟล์นี้อ่านได้ · storyboard.json รวมทุกชุด ส่วน HTML/MD แยกตาม --batch
 from storyboard_batch2 import CLIPS2, PALETTE2
-CLIPS += CLIPS2
+from storyboard_batch3 import CLIPS3, PALETTE3
+CLIPS += CLIPS2 + CLIPS3
 PALETTE.update(PALETTE2)
+PALETTE.update(PALETTE3)
 for _c in CLIPS:
     _c.setdefault("batch", 1)
 
