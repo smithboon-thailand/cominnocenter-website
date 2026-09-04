@@ -1879,6 +1879,237 @@ export const paperSummaries: PaperSummary[] = [
         "**This is a methodological proposal rather than an empirical finding, and it is the authors' proposal, not a position of the Center.** The coefficients of 0.5 / 1.5 / 2.0 are **illustrative values used to explain the principle**, not calibrated against data. Judging a story as high or low potential remains a matter of judgement, which relocates the point that has to be agreed rather than removing it. The worked examples draw on the Russian media context and would need adapting elsewhere. **This summary deliberately does not name the two agencies whose assumptions the article singles out for criticism**, since those names add nothing to the principle that can be applied.",
     },
   },
+  {
+    slug: "dengue-media-exposure-longitudinal",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แท่งกระดาษพับแปดแท่งสูงต่ำไม่เท่ากัน เรียงเป็นสองแถวเหลื่อมกัน แถวหน้าเริ่มจากแท่งเตี้ยทางซ้ายแล้วสูงขึ้น ทุกแท่งทอดเงาแบนไปทางขวา",
+    illustrationAltEn:
+      "Paper-craft illustration of eight folded paper columns of uneven height in two staggered rows, the front row starting short at the left and rising, each column casting a flat shadow to the right",
+    doi: "10.1016/j.jiph.2017.01.016",
+    articleLanguage: "en",
+    license: "cc-by-nc-nd",
+    localCopy: "dengue-media-exposure-longitudinal.pdf",
+    th: {
+      headline: "สื่อเรื่องไข้เลือดออกไปถึงคนมากขึ้นทุกปี แต่ความรู้และการกำจัดลูกน้ำทุกสัปดาห์ไม่ได้ตามไปด้วย",
+      question:
+        "ไทยรณรงค์เรื่องไข้เลือดออกผ่านสื่อมวลชนมาหลายสิบปี งานนี้ถามว่าในช่วงสามปี (2556–2558) ที่มีการระบาดใหญ่ปี 2556 คั่นอยู่ คนไทยเห็นข้อมูลไข้เลือดออกในสื่อบ่อยแค่ไหน เข้าใจเรื่องยุงลายถูกต้องเพียงใด และลงมือกำจัดแหล่งเพาะพันธุ์ทุกสัปดาห์ตามคำแนะนำหรือไม่ — และสามอย่างนี้เคลื่อนไปด้วยกันไหม",
+      method:
+        "แบบสอบถามสามรอบ ปี 2556, 2557 และ 2558 ใน 25 จังหวัด (24 จังหวัดเลือกจากอัตราป่วยสูงและต่ำ บวกกรุงเทพฯ) ผู้ตอบรวม 7,772 คน (2,323 / 2,842 / 2,607 คน) อายุ 15 ปีขึ้นไปและอ่านออกเขียนได้ คัดแบบบังเอิญ — แต่ละรอบเป็นคนละกลุ่มคน ไม่ได้ติดตามคนเดิม · วัดการเปิดรับสื่อเป็นความถี่ที่เห็นข้อมูลไข้เลือดออก 5 ระดับตั้งแต่ทุกวันจนถึงไม่เคย · วัดความรู้ด้วยข้อถูก-ผิด 3 ข้อ · วัดพฤติกรรมจากความถี่ในการกำจัดแหล่งเพาะพันธุ์ · เปรียบเทียบค่าเฉลี่ยข้ามปีด้วย repeated-measures ANOVA และ t-test",
+      findings: [
+        "**การเปิดรับสื่อเพิ่มขึ้นทุกปี** คะแนนความถี่เฉลี่ย 2.84 (2556) → 3.31 (2557) → 3.37 (2558) แตกต่างกันอย่างมีนัยสำคัญ (p = 0.001) — ปี 2556 กลุ่มใหญ่สุดเห็นข้อมูลแค่เดือนละครั้ง (32.4%) ปี 2557 กลุ่มใหญ่สุดเห็นมากกว่าสามครั้งต่อสัปดาห์ (35.2%)",
+        "**แต่ความรู้ไม่ได้ไต่ตาม** สัดส่วนตอบถูกเฉลี่ย 73.6% → 81.5% → 73.3% ขึ้นปีเดียวแล้วตกกลับ ผู้เขียนอ่านว่าปี 2557 คือความตื่นตัวหลังการระบาดใหญ่ปี 2556 ซึ่งแผ่วลงเมื่อเข้าสู่ช่วงฟื้นตัว",
+        "**ความเข้าใจผิดที่ฝังแน่นที่สุดคือเรื่องน้ำ** มีเพียงราวหนึ่งในสาม (33.5% ในปี 2556 · 30.0% ในปี 2558) ที่รู้ว่ายุงลาย*ไม่ได้*วางไข่ในน้ำสกปรกส่งกลิ่น ผู้เขียนคาดว่าคนสับสนระหว่างการควบคุมมาลาเรียกับไข้เลือดออก ขณะที่ข้ออื่นตอบถูกเกิน 90%",
+        "**การลงมือทำถอยหลัง** สัดส่วนคนที่กำจัดแหล่งเพาะพันธุ์ทุกสัปดาห์ตามคำแนะนำลดจาก 61.2% (2557) เหลือ 48.3% (2558) ส่วนกลุ่มที่ทำน้อยกว่าสัปดาห์ละครั้งเพิ่มจาก 28.0% เป็น 35.2%",
+        "**ผู้เขียนสรุปตรงไปตรงมาว่า แคมเปญสื่อที่มุ่งเพิ่มความตระหนักอย่างเดียวโดยไม่มีการมีส่วนร่วมของชุมชน ไม่ได้ผลในการควบคุมไข้เลือดออก** — ความกังวลเรื่องไข้เลือดออกในไทยมาเป็นช่วง ขึ้นเมื่อภัยใกล้ตัวและซาลงหลังจากนั้น",
+      ],
+      soWhat:
+        "บทเรียนสำหรับคนทำงานสื่อสารสุขภาพคือ **การเข้าถึงไม่ใช่ตัวชี้วัดความสำเร็จ** สื่อไปถึงคนมากขึ้นทุกปีแต่พฤติกรรมกลับถอย · ความเข้าใจผิดเรื่อง “น้ำสกปรก” อยู่รอดมาสองปีทั้งที่การเปิดรับสื่อเพิ่มขึ้น แปลว่าข้อความที่ส่งออกไปอาจไม่ได้ปะทะกับความเข้าใจผิดข้อนี้ตรงๆ — แคมเปญควรตรวจก่อนว่าคนเข้าใจผิดตรงไหนแล้วยิงตรงจุดนั้น · ผู้เขียนเสนอให้รณรงค์ต่อเนื่องตลอดปีแทนการโหมเฉพาะช่วงระบาด ย้ายไปสื่อสังคมออนไลน์ที่คนใช้จริง และผูกงานสื่อเข้ากับโครงการชุมชนที่ทำให้คนลงมือทำ",
+      caveat:
+        "**ผู้ตอบแต่ละปีเป็นคนละกลุ่ม** ไม่ใช่การติดตามคนเดิม การเปลี่ยนแปลงข้ามปีจึงอาจมาจากองค์ประกอบของกลุ่มตัวอย่างที่ต่างกันด้วย ซึ่งผู้เขียนระบุไว้เอง · คัดผู้ตอบแบบบังเอิญและตัดผู้ที่อ่านหนังสือไม่ออก ซึ่งเป็นกลุ่มที่สื่อเข้าถึงยากที่สุด · **ข้อความรู้สามข้อไม่เหมือนกันทุกปี** สัดส่วนตอบถูกเฉลี่ยจึงเทียบข้ามปีได้อย่างหยาบเท่านั้น · ตัวเลขพฤติกรรมมีเฉพาะปี 2557–2558 · ข้อสรุปว่าแคมเปญ “ไม่ได้ผล” อ่านจากแนวโน้ม ไม่ใช่จากการทดลองเทียบกลุ่ม · สถิติสรุปในบทความระบุว่าปี 2558 มีพฤติกรรมตามคำแนะนำสูงสุด ขณะที่ตารางความถี่แสดงว่าการทำทุกสัปดาห์ลดลง บทสรุปนี้ยกตัวเลขจากตารางความถี่ซึ่งอ่านความหมายได้ตรง · ข้อมูลอายุกว่าสิบปี ภูมิทัศน์สื่อเปลี่ยนไปมากตั้งแต่นั้น",
+    },
+    en: {
+      headline: "Dengue messaging reached more people every year — but knowledge and weekly larva control did not follow",
+      question:
+        "Thailand has run dengue campaigns through mass media for decades. Across three years (2013–2015) that bracket the large 2013 outbreak, this study asks how often Thai people saw dengue information in the media, how accurately they understood the mosquito, and whether they destroyed breeding sites weekly as recommended — and whether those three things moved together.",
+      method:
+        "Three survey rounds in 2013, 2014 and 2015 across 25 provinces (24 chosen by high and low incidence, plus Bangkok). 7,772 respondents in total (2,323 / 2,842 / 2,607), aged 15 and over and literate, recruited by accidental sampling — each round was a different set of people, not the same people followed over time. Media exposure was measured as the frequency of seeing dengue information on five levels from every day to never; knowledge with three true/false statements; behaviour as how often respondents eliminated breeding sites. Year-to-year means were compared with repeated-measures ANOVA and t-tests.",
+      findings: [
+        "**Media exposure rose every year.** The mean frequency score went from 2.84 (2013) to 3.31 (2014) to 3.37 (2015), a significant difference (p = 0.001). In 2013 the largest group saw dengue information only once a month (32.4%); in 2014 the largest group saw it more than three times a week (35.2%).",
+        "**Knowledge did not climb with it.** The average share of correct answers went 73.6% → 81.5% → 73.3% — up for one year, then back down. The authors read 2014 as the alert that followed the 2013 outbreak, fading once the recovery period set in.",
+        "**The most stubborn misconception concerns water.** Only about a third (33.5% in 2013, 30.0% in 2015) knew that the dengue mosquito does *not* lay eggs in dirty, smelly water; the authors suspect people conflate malaria control with dengue control. Other statements were answered correctly by more than 90%.",
+        "**Action went backwards.** The share eliminating breeding sites weekly, as recommended, fell from 61.2% (2014) to 48.3% (2015), while the share doing so less than once a week rose from 28.0% to 35.2%.",
+        "**The authors' conclusion is blunt: a media campaign aimed only at raising awareness, without community participation, proved ineffective at controlling dengue.** Concern about dengue in Thailand is episodic — it rises with imminent danger and subsides afterwards.",
+      ],
+      soWhat:
+        "For health communicators the lesson is that **reach is not a success measure**: the media reached more people each year while behaviour slipped. The “dirty water” misconception survived two years of rising exposure, which suggests the messages being sent did not confront that specific error — a campaign should first find out what people actually get wrong, then aim there. The authors recommend a year-round campaign rather than outbreak-driven bursts, a move towards the social media people actually use, and tying media work to community programmes that get people to act.",
+      caveat:
+        "**Each year's respondents were a different group**, not a panel followed over time, so year-to-year changes may partly reflect differences in who was sampled — the authors say so themselves. Recruitment was accidental and excluded people who cannot read, who are precisely the hardest for media to reach. **The three knowledge statements were not identical across years**, so the average scores are only a rough cross-year comparison. Behaviour figures exist only for 2014–2015. The judgement that the campaign “did not work” is read from trends, not from a controlled comparison. The article's summary statistics describe 2015 as the year of highest recommended behaviour while its frequency table shows weekly practice falling; this summary quotes the frequency table, whose meaning is unambiguous. The data is over a decade old and the media landscape has changed considerably since.",
+    },
+  },
+  {
+    slug: "game-influencer-credibility",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แถบกระดาษสามเส้นทอดจากขอบซ้ายมาบรรจบที่ลูกบาศก์กระดาษพับลูกเดียวทางขวา เส้นกลางตึงตรงในแนวนอน เส้นบนตรงแต่เฉียงลงมา ส่วนเส้นล่างหย่อนเป็นคลื่น",
+    illustrationAltEn:
+      "Paper-craft illustration of three paper ribbons converging from the left edge on a single folded paper cube at the right: the middle ribbon runs straight and taut, the upper one straight at a downward angle, and the lower one sagging in a wave",
+    doi: "10.5559/di.31.4.06",
+    articleLanguage: "en",
+    license: "cc-by-nc",
+    localCopy: "game-influencer-credibility.pdf",
+    th: {
+      headline: "ความน่าเชื่อถือของอินฟลูเอนเซอร์เกมทำนายความตั้งใจซื้อได้ — แต่ถ้าแยกวัดสามองค์ประกอบทีละตัว ผลจะดูเหมือนมีแค่ “ความไว้ใจ” ที่ทำงาน",
+      question:
+        "ทฤษฎีบอกว่าคนตามอินฟลูเอนเซอร์เพราะน่าเชื่อถือกว่าดารา แต่หลักฐานเชิงประจักษ์ยังปนกันและแทบไม่มีในวงการเกม งานนี้ถามสองข้อ: ความน่าเชื่อถือของแหล่งสาร — ความดึงดูด ความไว้ใจได้ ความเชี่ยวชาญ — ทำนายความตั้งใจซื้อเกมที่อินฟลูเอนเซอร์เล่นได้ไหม และผลที่ขัดกันในงานก่อนหน้าอาจเกิดจากการตั้งแบบจำลองผิดหรือเปล่า",
+      method:
+        "แบบสอบถามออนไลน์กับผู้ติดตามยูทูบเบอร์สายเกมรายใหญ่ระดับโลก (PewDiePie) จากหลายประเทศ ได้ 414 คำตอบ คัดเหลือ 238 คนที่ผ่านเกณฑ์ (ชาย 77.3% อายุเฉลี่ยราว 21–22 ปี) วัดสามองค์ประกอบของความน่าเชื่อถือด้วยมาตรของ Ohanian ควบคู่กับความตั้งใจซื้อเกมที่อินฟลูเอนเซอร์เล่น วิเคราะห์ด้วยสหสัมพันธ์และแบบจำลองสมการโครงสร้าง (SEM) สองแบบเทียบกัน · ข้อมูลเปิดให้ตรวจสอบบน OSF",
+      findings: [
+        "**ทั้งสามองค์ประกอบสัมพันธ์กับความตั้งใจซื้อ** ความไว้ใจได้ r = 0.51 · ความดึงดูด 0.46 · ความเชี่ยวชาญ 0.33 และความน่าเชื่อถือรวม 0.54",
+        "**แต่พอใส่สามองค์ประกอบเป็นตัวทำนายแยกกันในแบบจำลองเดียว เหลือแค่ความไว้ใจได้ที่มีนัยสำคัญ** อีกสองตัวหายไป (R² = 0.33) — ผู้เขียนชี้ว่านี่คือปัญหา “ตัวควบคุมที่ไม่ควรควบคุม” เพราะสามองค์ประกอบเป็นด้านของสิ่งเดียวกันและซ้อนทับกันสูง การให้แข่งกันเองในสมการจึงกลบผลของกันและกัน",
+        "**เมื่อจัดเป็นปัจจัยระดับสองคือ “ความน่าเชื่อถือ” ตัวเดียวที่มีสามด้าน เส้นทางสู่ความตั้งใจซื้อเท่ากับ 0.54 (R² = 0.29) และแบบจำลองเข้ากับข้อมูลได้ดี (CFI 0.955)** — ผู้เขียนเสนอว่าผลที่ขัดกันในงานก่อนหน้าน่าจะมาจากการตั้งแบบจำลองแบบแรก",
+        "**ผู้ติดตามไม่ได้ตั้งใจซื้อเกมมากนัก** ค่าเฉลี่ยความตั้งใจซื้ออยู่ราวจุดกลาง (3.14–3.45 จากมาตร 5 ระดับ) แม้จะตามดูเป็นประจำ",
+        "**มาตรวัดความเชี่ยวชาญมีความเที่ยงต่ำ** (α = 0.46) ผลด้านนี้จึงอ่านได้ไม่มั่นใจนัก",
+      ],
+      soWhat:
+        "สำหรับแบรนด์ที่จะทำงานกับอินฟลูเอนเซอร์เกม: อย่าเลือกคนจากการติ๊กว่า “ดูดี” หรือ “เก่ง” เป็นข้อๆ — **สิ่งที่ทำงานคือความน่าเชื่อถือโดยรวมที่ผู้ชมรับรู้ ซึ่งมีความไว้ใจได้เป็นแกน** · สำหรับนักวิจัย: ผลที่ดูเหมือน “ความดึงดูดกับความเชี่ยวชาญไม่มีผล” อาจเป็นผลข้างเคียงของสมการ ไม่ใช่ข้อเท็จจริงเกี่ยวกับผู้ชม · และความตั้งใจซื้อที่อยู่ระดับกลางเตือนว่าการตามดูกับการซื้อเป็นคนละเรื่อง",
+      caveat:
+        "**เป็นการศึกษาความสัมพันธ์ ณ จุดเวลาเดียว** ไม่ได้พิสูจน์ว่าความน่าเชื่อถือทำให้ซื้อ · ผู้ติดตามอินฟลูเอนเซอร์**คนเดียว** และเป็นผู้ที่สมัครใจตอบ ใช้แทนผู้ชมเกมทั่วไปไม่ได้ · ผู้ตอบส่วนใหญ่เป็นชายอายุยี่สิบต้น · ความตั้งใจซื้อวัดจากคำบอก ไม่ได้วัดการซื้อจริง · มาตรวัดความเชี่ยวชาญมีความเที่ยงต่ำ · ระบุชื่อยูทูบเบอร์ไว้เพราะเป็นขอบเขตของงาน บทความไม่ได้วิจารณ์ตัวบุคคล · งานนี้อยู่ในบริบทช่วงโควิด-19 ที่กิจกรรมย้ายไปออนไลน์มากผิดปกติ",
+    },
+    en: {
+      headline: "A gaming influencer's credibility predicts intention to buy — but measure its three parts separately and only “trust” appears to work",
+      question:
+        "Theory says audiences follow influencers rather than celebrities because influencers are more credible, but the empirical evidence is mixed and almost none of it concerns gaming. The study asks two things: does source credibility — attractiveness, trustworthiness and expertise — predict intention to buy the games an influencer plays, and could the inconsistent results of earlier studies be an artefact of how their models were specified?",
+      method:
+        "An online survey of followers of one of the world's largest gaming YouTubers (PewDiePie), drawn from many countries. 414 responses were screened down to 238 eligible participants (77.3% men, mean age around 21–22). The three components of credibility were measured with Ohanian's scale, alongside intention to buy games the influencer plays. Analysis used correlations and two competing structural equation models. The data is openly available on OSF.",
+      findings: [
+        "**All three components correlate with purchase intention**: trustworthiness r = 0.51, attractiveness 0.46, expertise 0.33, and overall credibility 0.54.",
+        "**But when the three are entered as separate predictors in one model, only trustworthiness stays significant** and the other two vanish (R² = 0.33). The authors argue this is a “bad controls” problem: the three are facets of one construct and overlap heavily, so making them compete in the same equation masks each other's effect.",
+        "**Modelled instead as a single second-order “credibility” factor with three facets, the path to purchase intention is 0.54 (R² = 0.29) and the model fits well (CFI 0.955).** The authors suggest the contradictory findings in earlier work most likely came from the first kind of model.",
+        "**Followers do not particularly intend to buy.** Mean purchase intention sat around the neutral point (3.14–3.45 on a 5-point scale) even among people who watch regularly.",
+        "**The expertise scale had low reliability** (α = 0.46), so results for that facet should be read with less confidence.",
+      ],
+      soWhat:
+        "For brands working with gaming influencers: do not pick a partner by ticking “looks good” or “is skilled” as separate boxes — **what works is the overall credibility the audience perceives, with trustworthiness at its core**. For researchers: a result that appears to show attractiveness and expertise “don't matter” may be a side-effect of the equation rather than a fact about audiences. And purchase intention hovering at neutral is a reminder that watching and buying are different things.",
+      caveat:
+        "**A single-time-point correlational study**; it does not show that credibility causes purchase. Followers of **one** influencer, self-selected, cannot stand for gaming audiences in general. Most respondents were men in their early twenties. Purchase intention is self-reported, not observed buying. The expertise measure had low reliability. The YouTuber is named because he is the scope of the study; the article makes no criticism of him. The study is framed by the COVID-19 period, when everyday activity had shifted online to an unusual degree.",
+    },
+  },
+  {
+    slug: "elephant-tales-sensory-exhibition",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ รูปทรงกระดาษพับห้าแฉกเตี้ยๆ วางอยู่ทางซ้าย ทอดเงาแบนยาวมากไปจนสุดขอบขวาของภาพ ยาวกว่าตัววัตถุหลายเท่า",
+    illustrationAltEn:
+      "Paper-craft illustration of a low five-pointed folded paper form on the left casting a flat shadow that stretches to the right edge of the frame, many times longer than the object itself",
+    doi: "10.1016/j.tsc.2022.101017",
+    articleLanguage: "en",
+    license: "cc-by-nc-nd",
+    localCopy: "elephant-tales-sensory-exhibition.pdf",
+    th: {
+      headline: "นิทรรศการที่ให้จับ ดม ฟัง และชิม ทำให้คนตระหนักเรื่องช้างมากขึ้น — และยังจำได้อีกปีครึ่งให้หลัง",
+      question:
+        "การอนุรักษ์ช้างไทยเป็นประเด็นที่สื่อสารยากและถูกมองข้าม งานนี้ทดลองใช้นิทรรศการศิลปะที่ออกแบบให้ใช้ประสาทสัมผัสทั้งห้า แล้วถามว่าความรู้สึกว่า “ได้โต้ตอบ” กับงาน สัมพันธ์กับความตระหนักเรื่องช้างที่เพิ่มขึ้นแค่ไหน และประสบการณ์แบบนี้อยู่ในความทรงจำนานเพียงใด",
+      method:
+        "จัดนิทรรศการ “The Elephant tales” สองวัน (12–13 มีนาคม 2563) ในคอมมูนิตี้มอลล์ใกล้มหาวิทยาลัย มีผู้ชมราว 300 คน — นอกจากงานภาพ มีประติมากรรมให้สัมผัส 3 ชิ้น กลิ่นป่า เสียงช้างที่บันทึกมา และไอศกรีมรสผลไม้ที่ช้างชอบ · โปรโมตผ่านอินสตาแกรมของอินฟลูเอนเซอร์ 30 คน (ผู้ติดตามเกิน 5,000 คน) · การศึกษาที่ 1: แบบสอบถามหลังชม 231 คน (54.5% เป็นนิสิตนักศึกษาอายุ 19–27 ปี) วัดการรับรู้ปฏิสัมพันธ์และความตระหนักที่เพิ่มขึ้น · การศึกษาที่ 2: สัมภาษณ์ทางโทรศัพท์ผู้ชม 6 คนในเดือนพฤศจิกายน 2564 หรือราวปีครึ่งหลังงาน",
+      findings: [
+        "**ผู้ชมให้คะแนนทั้งสองอย่างสูงมาก** การรับรู้ปฏิสัมพันธ์เฉลี่ย 4.68 และความตระหนักที่เพิ่มขึ้น 4.66 จากเต็ม 5",
+        "**สองอย่างนี้สัมพันธ์กันระดับปานกลางถึงสูง** r = 0.64 (ช่วงความเชื่อมั่น 95% อยู่ที่ 0.56–0.71 · Kendall τ = 0.62) — ยิ่งรู้สึกว่าได้โต้ตอบกับงานมาก ยิ่งรายงานว่าตระหนักเรื่องช้างมากขึ้น",
+        "**ปีครึ่งให้หลัง ทุกคนที่สัมภาษณ์ยังจำภาพและรสชาติได้** ห้าในหกจำเสียงช้างได้ แต่มีเพียงหนึ่งในหกที่จำกลิ่นได้",
+        "**สิ่งที่ต่างจากนิทรรศการทั่วไปคือสิ่งที่ถูกจำ** ไอศกรีมและประติมากรรมที่จับได้ถูกยกขึ้นมาเองโดยไม่ต้องถามนำ ซึ่งผู้เขียนอธิบายด้วยปรากฏการณ์ von Restorff — สิ่งที่โดดออกจากบริบทถูกจำได้ดีกว่า",
+      ],
+      soWhat:
+        "สำหรับงานสื่อสารประเด็นสิ่งแวดล้อมที่คน “รู้อยู่แล้วแต่ไม่รู้สึก” **การให้ร่างกายมีส่วนร่วม — จับ ชิม ฟัง — สร้างความทรงจำที่อยู่นานกว่าการดูภาพและอ่านป้าย** และต้นทุนไม่สูง งานนี้จัดสองวันในพื้นที่ค้าปลีก · ไมโครอินฟลูเอนเซอร์จำนวนมากดึงคนมาได้ราว 300 คน · ข้อสังเกตที่ใช้ได้ทันที: กลิ่นเป็นประสาทสัมผัสที่จำได้น้อยที่สุด ถ้าจะลงทุนกับมัน ต้องทำให้เด่นกว่านี้มาก",
+      caveat:
+        "**วัดหลังชมอย่างเดียว ไม่มีการวัดก่อน** ความตระหนักที่ “เพิ่มขึ้น” จึงเป็นการประเมินตนเองของผู้ชม ไม่ใช่การเทียบก่อน-หลัง · ตัวแปรหลักวัดด้วยข้อคำถามข้อเดียว · ผู้ชมมาเองแบบสะดวก และเกินครึ่งเป็นนักศึกษา · การสัมภาษณ์ติดตามมีเพียง 6 คน · **ความตระหนักไม่ใช่การเปลี่ยนพฤติกรรม** งานนี้ไม่ได้วัดว่าใครทำอะไรต่อ · จัดงานกลางเดือนมีนาคม 2563 ก่อนมาตรการล็อกดาวน์โควิด-19 ไม่นาน",
+    },
+    en: {
+      headline: "An exhibition you could touch, smell, hear and taste raised awareness about elephants — and was still remembered a year and a half later",
+      question:
+        "Conserving the Thai elephant is an issue that has proved hard to promote. This study tried an arts exhibition designed to engage all five senses and asked how strongly visitors' sense of having “interacted” with the work related to their reported increase in awareness — and how long the experience stayed in memory.",
+      method:
+        "A two-day exhibition, “The Elephant tales”, on 12–13 March 2020 in a community mall near the university, with around 300 visitors. Beyond visual work it included three sculptures to touch, a forest scent, recorded elephant sounds and ice cream flavoured with fruits elephants prefer. It was promoted through 30 Instagram influencers with more than 5,000 followers each. Study 1: a post-visit questionnaire completed by 231 visitors (54.5% students aged 19–27) measuring perceived interactivity and raised awareness. Study 2: telephone interviews with six visitors in November 2021, about a year and a half after the event.",
+      findings: [
+        "**Visitors rated both very highly**: perceived interactivity averaged 4.68 and raised awareness 4.66 out of 5.",
+        "**The two were moderately to strongly related**: r = 0.64 (95% CI 0.56–0.71; Kendall's τ = 0.62). The more interactive visitors found the exhibition, the more they reported their awareness had increased.",
+        "**A year and a half later, everyone interviewed still remembered the visuals and the taste.** Five of six recalled the elephant sounds; only one of six recalled the scent.",
+        "**What departed from an ordinary exhibition is what stuck.** The ice cream and the touchable sculptures were raised unprompted, which the authors explain through the von Restorff effect — items that stand out from their context are remembered better.",
+      ],
+      soWhat:
+        "For communicating environmental issues that people “know about but don't feel”, **involving the body — touching, tasting, hearing — builds memories that outlast looking at pictures and reading captions**, and the cost is modest: this ran for two days in a retail space. A large group of micro-influencers drew around 300 visitors. One immediately usable observation: smell was the least remembered sense, so if you invest in it, make it far more prominent.",
+      caveat:
+        "**Measured after the visit only, with no baseline**, so the “increase” in awareness is visitors' own estimate rather than a before–after comparison. The main variables were single-item measures. Visitors were a convenience sample, more than half of them students. The follow-up interviews covered only six people. **Awareness is not behaviour change**; the study did not measure what anyone did afterwards. The event ran in mid-March 2020, shortly before COVID-19 lockdown measures.",
+    },
+  },
+  {
+    slug: "anime-thai-gen-z",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แถบกระดาษเส้นบางจำนวนมากกางออกเป็นพัดกว้างทางซ้าย ส่วนทางขวามีลูกบาศก์กระดาษพับสามลูกยืนเกาะกลุ่มชิดกัน",
+    illustrationAltEn:
+      "Paper-craft illustration of many thin paper strips fanned out loosely on the left and, on the right, three folded paper cubes standing in a tight cluster touching one another",
+    doi: "10.1080/23311983.2026.2647143",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "anime-thai-gen-z.pdf",
+    th: {
+      headline: "อนิเมะเข้ากระแสหลักในเจน Z ไทยผ่านคำบอกต่อของเพื่อนสนิท — ฟีดกว้างทำให้ค้นเจอ แต่ไม่ได้ทำให้ตัดสินใจ",
+      question:
+        "การชอบอนิเมะเคยทำให้คนไทยถูกมองว่าแปลก แต่ในเจน Z กลายเป็นเรื่องปกติ ข้อมูลไหลผ่านช่องทางไหน ใครที่ทำให้คนเชื่อจริงๆ และชุมชนแฟนทำหน้าที่อะไรต่อตัวตนของคนรุ่นนี้ งานนี้ถามจากมุมของคนสี่กลุ่มที่อยู่คนละตำแหน่งในวงการ",
+      method:
+        "สัมภาษณ์กึ่งโครงสร้าง 23 คนในกรุงเทพฯ ช่วงมีนาคม–เมษายน 2568 ครั้งละ 35–75 นาที แบ่งเป็นผู้จัดงาน 5 คน (อายุ 26–31 ปี) ผู้ผลิตเนื้อหาและอินฟลูเอนเซอร์ 4 คน (23–26 ปี) แฟนทั่วไป 7 คน (20–24 ปี) และแฟนสายเฉพาะทาง 7 คน (19–25 ปี) วิเคราะห์แก่นเรื่องจากรหัสราว 187 รหัส",
+      findings: [
+        "**ค้นพบจากฟีด แต่ตัดสินใจจากเพื่อน** 20 จาก 23 คนบอกว่า TikTok คือที่ที่เจอเรื่องใหม่ แต่แทบไม่มีใครเริ่มดูเพราะฟีดอย่างเดียว — 21 จาก 23 คนบอกว่าคำแนะนำจากเพื่อนสนิทคือสิ่งที่ทำให้ลงมือดูจริง",
+        "**อินฟลูเอนเซอร์รายใหญ่ถูกระแวง อินฟลูเอนเซอร์สายเฉพาะทางถูกไว้ใจ** ผู้ให้สัมภาษณ์มองคอนเทนต์ที่ดูเป็นการโปรโมตว่าไม่จริงใจ และให้น้ำหนักกับคนที่พิสูจน์ได้ว่ารู้ลึกในแนวนั้นๆ",
+        "**คนที่แค่ดูเงียบๆ ก็นับเป็นสมาชิกชุมชน** การ “ซุ่มดู” ไม่ได้ถูกมองว่าเป็นคนนอก และการมีส่วนร่วมหลายระดับได้รับการยอมรับเท่ากัน",
+        "**งานอีเวนต์ทำหน้าที่เป็น “ห้องทดลองตัวตน”** — คอสเพลย์และการรวมตัวเปิดพื้นที่ปลอดภัยให้ลองเป็นคนแบบอื่น แต่พื้นที่เดียวกันก็มีแรงกดดันเรื่องมาตรฐานรูปร่างหน้าตาและการใช้จ่าย แฟนบางคนใช้เงินกับงานอดิเรกนี้เกิน 50,000 บาทต่อปี",
+        "**ผู้เขียนเสนอกรอบสามอย่างจากข้อมูล** การแพร่ของวัฒนธรรมแบบ “เกิดเอง” ที่ไม่ได้อาศัยแรงผลักของบริษัท · เครือข่ายความไว้วางใจที่มีเพื่อนสนิทอยู่ตรงกลาง · และงานอีเวนต์ในฐานะห้องทดลองตัวตน",
+      ],
+      soWhat:
+        "สำหรับแบรนด์หรือองค์กรที่อยากเข้าถึงเจน Z ผ่านวัฒนธรรมแฟน: **การซื้อพื้นที่บนฟีดทำได้แค่ให้คนเห็น การตัดสินใจเกิดในวงเพื่อน** ซึ่งซื้อไม่ได้แต่เข้าไปสนับสนุนได้ เช่นหนุนครีเอเตอร์สายลึกหรือกลุ่มเฉพาะทางแทนคนดังทั่วไป · คอนเทนต์ที่ดูเป็นการขายทำลายความไว้ใจเร็วมากในชุมชนนี้ · และการออกแบบงานอีเวนต์ควรตระหนักว่าพื้นที่ที่ปลดปล่อยตัวตนก็สร้างแรงกดดันได้ในเวลาเดียวกัน",
+      caveat:
+        "**เป็นงานเชิงคุณภาพกับคน 23 คนในกรุงเทพฯ** ตัวเลขอย่าง “20 จาก 23” บอกว่าประเด็นนั้นพบบ่อยแค่ไหนในกลุ่มนี้ ไม่ใช่สัดส่วนของเจน Z ไทย · ผู้ให้สัมภาษณ์สมัครใจเข้าร่วม จึงเอนไปทางคนที่ผูกพันกับชุมชนอยู่แล้ว · ไม่มีมุมมองจากฝั่งบริษัทผู้ถือลิขสิทธิ์หรือแพลตฟอร์ม · กรอบแนวคิดสามอย่างเป็นข้อเสนอของผู้เขียนจากข้อมูลชุดนี้ ยังไม่ได้ทดสอบกับกลุ่มอื่น · เก็บข้อมูลต้นปี 2568 ภูมิทัศน์ของแพลตฟอร์มเปลี่ยนเร็ว",
+    },
+    en: {
+      headline: "Anime went mainstream among Thai Gen Z through close friends' word of mouth — the feed makes discoveries, not decisions",
+      question:
+        "Liking anime once marked a Thai person out as odd; among Generation Z it is now ordinary. Through which channels does information flow, whom do people actually believe, and what does the fan community do for this generation's sense of self? The study asks from the vantage point of four groups positioned differently within the scene.",
+      method:
+        "Twenty-three semi-structured interviews in Bangkok in March–April 2025, each lasting 35–75 minutes: five event organisers (aged 26–31), four content creators and influencers (23–26), seven casual fans (20–24) and seven niche fans (19–25). Thematic analysis was built from roughly 187 codes.",
+      findings: [
+        "**Discovered on the feed, decided by friends.** 20 of 23 named TikTok as where they first encounter new titles, yet almost no one starts watching on the strength of the feed alone — 21 of 23 said a close friend's recommendation is what actually gets them to watch.",
+        "**Big influencers are viewed with suspicion; niche ones are trusted.** Content that reads as promotion was seen as insincere, while people who demonstrably know a genre deeply carried weight.",
+        "**Quiet watchers count as members.** “Lurking” was not read as being an outsider; several levels of participation were treated as equally legitimate.",
+        "**Events function as “identity laboratories”** — cosplay and gatherings open a safe space to try being someone else, but the same spaces carry pressure over appearance standards and spending; some fans spend more than 50,000 baht a year on the hobby.",
+        "**The authors propose three frameworks from the data**: an “organic” cultural spread that did not depend on corporate push, a trust network with close friends at its centre, and events as identity laboratories.",
+      ],
+      soWhat:
+        "For brands or organisations hoping to reach Gen Z through fan culture: **buying space on the feed only gets you seen; decisions happen among friends**, which cannot be bought but can be supported — for instance by backing deep-knowledge niche creators rather than general celebrities. Content that looks like selling destroys trust quickly in this community. And event design should recognise that a space that frees identity can create pressure at the same time.",
+      caveat:
+        "**A qualitative study of 23 people in Bangkok.** Figures such as “20 of 23” say how often a theme came up in this group, not what proportion of Thai Gen Z holds a view. Participants volunteered, so the sample leans towards people already attached to the community. No perspective from rights-holders or platforms was included. The three frameworks are the authors' proposals from this dataset and have not been tested elsewhere. Data was collected in early 2025 and platform landscapes shift quickly.",
+    },
+  },
+  {
+    slug: "negative-wom-advertising-moderation",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แผ่นกระดาษสี่เหลี่ยมสี่แผ่นเรียงเป็นตาราง 2×2 สามแผ่นวางราบ ส่วนแผ่นหลังขวายกสูงขึ้นบนฐานกระดาษพับเล็กๆ",
+    illustrationAltEn:
+      "Paper-craft illustration of four square paper tiles in a two-by-two grid, three lying flat and the back-right tile raised clearly higher on a small folded paper plinth",
+    doi: "10.1080/23311886.2025.2526800",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "negative-wom-advertising-moderation.pdf",
+    th: {
+      headline: "รีวิวเชิงลบที่เทียบกับคู่แข่งไม่ได้ทำร้ายแบรนด์มากกว่ารีวิวลบธรรมดา — และการตอบโต้ด้วยโฆษณาเปรียบเทียบกลับได้ผลแย่ที่สุด",
+      question:
+        "ผู้บริโภคเจอรีวิวเชิงลบออนไลน์ตลอดเวลา บางรีวิวเทียบกับคู่แข่งตรงๆ บางรีวิวบ่นเฉยๆ งานนี้ถามว่ารีวิวลบแบบเทียบคู่แข่งทำให้ทัศนคติต่อสินค้าแย่กว่าแบบไม่เทียบไหม และโฆษณาที่ให้ข้อมูลคุณสมบัติสินค้า — แบบเทียบคู่แข่งหรือไม่เทียบ — ปรับเปลี่ยนผลนั้นอย่างไร",
+      method:
+        "การทดลอง 2×2 ระหว่างกลุ่มกับนักศึกษามหาวิทยาลัยในปากีสถาน 100 คน (อายุ 17–26 ปี เฉลี่ย 20 ปี ชายหญิงเท่ากัน) แต่ละคนอ่านรีวิวเชิงลบของหูฟังแฮนด์ฟรียี่ห้อสมมติหนึ่งข้อความ (เทียบคู่แข่ง หรือไม่เทียบ) แล้วดูโฆษณาของยี่ห้อนั้นหนึ่งชิ้น (เทียบคู่แข่ง หรือไม่เทียบ) ก่อนตอบทัศนคติต่อสินค้า 4 ข้อบนมาตร 7 ระดับ (α = 0.90) · คุณสมบัติที่ใช้ในข้อความคัดจากการทดสอบล่วงหน้าสามรอบ (ผู้ตอบ 50–52 คนต่อรอบ) · ผู้เข้าร่วมทุกคนระบุรูปแบบข้อความได้ถูกต้องในการตรวจสอบการจัดกระทำ · วิเคราะห์ด้วย two-way ANOVA · ผ่านการรับรองจริยธรรมเมื่อธันวาคม 2565",
+      findings: [
+        "**สมมติฐานแรกไม่ได้รับการสนับสนุน** รีวิวลบแบบเทียบคู่แข่งกับแบบไม่เทียบให้ทัศนคติต่อสินค้าไม่ต่างกัน (เฉลี่ย 3.39 กับ 3.61 · F = 0.67 ไม่มีนัยสำคัญ) — ผู้เขียนตีความว่าคนจับที่ “ความลบ” ไม่ได้จับที่โครงสร้างของข้อความ",
+        "**โฆษณาปรับเปลี่ยนผลได้จริง (รายงานค่า p = 0.00) แต่ไปคนละทางกับที่ทำนาย** เมื่อรีวิวลบเทียบคู่แข่ง โฆษณาแบบไม่เทียบให้ทัศนคติดีกว่า (3.68 เทียบ 3.11) ไม่ใช่โฆษณาเทียบกลับอย่างที่ผู้เขียนคาด",
+        "**คู่ที่ได้ผลดีที่สุดคือรีวิวลบแบบไม่เทียบตามด้วยโฆษณาแบบไม่เทียบ** ทัศนคติเฉลี่ย 5.07 จาก 7 · คู่ที่แย่ที่สุดคือรีวิวลบแบบไม่เทียบตามด้วยโฆษณาเปรียบเทียบ เหลือเพียง 2.15",
+        "**ผู้เขียนอธิบายด้วยสามกลไก** อคติต่อข้อมูลเชิงลบที่กลบรูปแบบข้อความ · ภาระการประมวลผลที่หนักกว่าของข้อความเปรียบเทียบ · และบริบทวัฒนธรรมของปากีสถานที่โฆษณาเปรียบเทียบพบไม่บ่อยและมักถูกมองว่าไม่เหมาะสม",
+      ],
+      soWhat:
+        "สำหรับแบรนด์ที่เจอรีวิวลบ: **การตอบโต้ด้วย “เราดีกว่าคู่แข่งตรงไหน” อาจตอกย้ำกรอบเชิงลบแทนที่จะลบล้าง** ในบริบทนี้โฆษณาที่พูดถึงคุณสมบัติของตัวเองอย่างตรงไปตรงมาทำงานได้ดีกว่าอย่างชัดเจน · การมีโฆษณาที่ให้ข้อมูลอยู่ในสายตาผู้บริโภคช่วยเป็นเรื่องเล่าทางเลือกต่อรีวิวลบได้ · และก่อนใช้โฆษณาเปรียบเทียบในตลาดใด ควรตรวจก่อนว่าคนที่นั่นมองรูปแบบนี้ว่าปกติหรือไม่เหมาะสม",
+      caveat:
+        "**นักศึกษา 100 คนจากมหาวิทยาลัยเดียวในปากีสถาน** ราว 25 คนต่อเงื่อนไข ใช้แทนผู้บริโภคกลุ่มอื่นหรือประเทศอื่นไม่ได้ และผู้เขียนเองระบุว่าผลอาจต่างมากในตลาดที่โฆษณาเปรียบเทียบเป็นเรื่องปกติ · สินค้าเป็นหูฟังแฮนด์ฟรียี่ห้อสมมติ ซึ่งเป็นสินค้าเกี่ยวพันต่ำ · ผู้เข้าร่วมเห็นรีวิวเพียงข้อความเดียวและโฆษณาเพียงชิ้นเดียว ต่างจากชีวิตจริงที่ข้อมูลขัดกันจากหลายแหล่ง · **ข้อความแบบเทียบคู่แข่งยาวกว่าแบบไม่เทียบโดยธรรมชาติ** ผู้เขียนยอมรับว่าความยาวอาจปะปนกับผลของรูปแบบ · ศึกษาเฉพาะข้อมูลเชิงเหตุผล ไม่รวมอารมณ์หรือน้ำเสียงของรีวิว · ทัศนคติทางวัฒนธรรมต่อโฆษณาเปรียบเทียบถูกใช้อธิบายผล แต่ไม่ได้วัดโดยตรง",
+    },
+    en: {
+      headline: "A negative review that compares you with a rival does no more damage than a plain one — and answering it with a comparative ad works worst of all",
+      question:
+        "Consumers meet negative reviews online constantly; some compare a product directly with a competitor, others simply complain. The study asks whether comparative negative word of mouth hurts attitudes towards a product more than the non-comparative kind, and how attribute-based advertising — itself comparative or not — moderates that effect.",
+      method:
+        "A 2×2 between-subjects experiment with 100 university students in Pakistan (aged 17–26, mean 20, half men and half women). Each read one negative review of a fictitious hands-free headset brand (comparative or non-comparative), then saw one advertisement for that brand (comparative or non-comparative), and rated attitude towards the product on four 7-point items (α = 0.90). The attributes used in the messages were selected through three pretests of 50–52 respondents each. Every participant correctly identified the message format in the manipulation check. Analysis used two-way ANOVA. Ethics approval was granted in December 2022.",
+      findings: [
+        "**Hypothesis 1 was not supported.** Comparative and non-comparative negative reviews produced attitudes that did not differ (means 3.39 vs 3.61; F = 0.67, not significant). The authors read this as consumers reacting to the negativity rather than to the structure of the message.",
+        "**Advertising did moderate the effect (reported p = 0.00), but in the opposite direction to the prediction.** After a comparative negative review, the non-comparative ad produced the better attitude (3.68 vs 3.11), not the comparative counter-ad the authors expected.",
+        "**The best-performing pairing was a non-comparative review followed by a non-comparative ad**, with mean attitude 5.07 out of 7. The worst was a non-comparative review followed by a comparative ad, at 2.15.",
+        "**The authors offer three explanations**: negativity bias that swamps message format, the heavier processing load of comparative messages, and Pakistan's cultural context, where comparative advertising is uncommon and often regarded as improper.",
+      ],
+      soWhat:
+        "For a brand facing negative reviews: **answering with “here is why we beat the competitor” may reinforce the negative frame rather than dispel it**. In this setting, an ad that spoke plainly about the product's own attributes performed clearly better. Having an informative ad in front of consumers at all offers an alternative narrative to the review. And before using comparative advertising in any market, check whether people there regard the format as normal or as improper.",
+      caveat:
+        "**100 students from a single university in Pakistan**, roughly 25 per condition; the results cannot stand for other consumer groups or countries, and the authors themselves note they could differ substantially where comparative advertising is routine. The product was a fictitious hands-free headset brand — a low-involvement product. Participants saw one review and one ad, unlike real life with many conflicting sources. **Comparative messages were naturally longer than non-comparative ones**, and the authors acknowledge that length may be confounded with format. Only cognitive content was studied, not emotional tone. Cultural attitudes to comparative advertising were invoked to explain the results but not measured directly.",
+    },
+  },
 ];
 
 const byDoi = new Map(
