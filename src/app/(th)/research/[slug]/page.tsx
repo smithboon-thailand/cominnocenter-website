@@ -6,9 +6,11 @@ import Button from "@/components/ui/Button";
 import JsonLd from "@/components/seo/JsonLd";
 import PaperSummaryBody, { plainText } from "@/components/research/PaperSummaryBody";
 import CitationTool from "@/components/research/CitationTool";
+import PaperVideo from "@/components/research/PaperVideo";
 import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import SectionIcon from "@/components/ui/SectionIcon";
-import { breadcrumbSchema, scholarlyArticleSchema } from "@/lib/schema";
+import { breadcrumbSchema, scholarlyArticleSchema, videoObjectSchema } from "@/lib/schema";
+import { paperVideoBySlug, isoDuration } from "@/data/paperVideos";
 import { truncate } from "@/lib/text";
 import {
   paperSummaries,
@@ -65,6 +67,9 @@ export default async function PaperSummaryPage({ params }: Props) {
   const summary = paperSummaryBySlug(slug);
   if (!summary) notFound();
   const paper = publicationForSummary(summary);
+  // วิดีโอสรุปพากย์ไทย — มีเฉพาะบทความที่ทำคลิปแล้วและอัปโหลดขึ้น YouTube แล้ว
+  const video = paperVideoBySlug(slug)?.th;
+  const videoId = video?.youtubeId;
 
   // ไม่มี license แปลว่าวารสารสงวนลิขสิทธิ์ ไม่ใช่ว่ายังไม่ได้ตรวจ — จึงต้องไม่อ้าง CC
   const license = summary.license ? CC_LICENSES[summary.license] : null;
@@ -96,6 +101,21 @@ export default async function PaperSummaryPage({ params }: Props) {
             { name: "งานวิจัย", path: "/research" },
             { name: plainText(summary.th.headline), path: `/research/${slug}` },
           ]),
+          // ประกาศ VideoObject เฉพาะหน้าที่มีวิดีโออยู่จริง (กติกา: ใส่แต่สิ่งที่ผู้อ่านเห็นบนหน้า)
+          ...(video && videoId
+            ? [
+                videoObjectSchema({
+                  name: plainText(summary.th.headline),
+                  description: truncate(plainText(summary.th.question), 200, "th"),
+                  path: `/research/${slug}`,
+                  thumbnailPath: `/images/research/summaries/${slug}.webp`,
+                  uploadDate: video.uploadDate,
+                  duration: isoDuration(video.seconds),
+                  youtubeId: videoId,
+                  inLanguage: "th",
+                }),
+              ]
+            : []),
         ]}
       />
       <main>
@@ -117,17 +137,29 @@ export default async function PaperSummaryPage({ params }: Props) {
           <h1 className="mt-2 text-h1-m md:text-h1 text-ink-900">{plainText(summary.th.headline)}</h1>
 
           {/* ภาพเป็นอุปมาของ "รูปร่างข้อค้นพบ" ไม่ใช่ภาพประกอบตามเนื้อเรื่อง
-              เหตุผลอยู่ในหัวข้อ illustrationAltTh ของ paperSummaries.ts */}
-          <ResponsiveArtwork
-            base={`/images/research/summaries/${slug}`}
-            alt={summary.illustrationAltTh}
-            // กรอบเนื้อหาคือ max-w-3xl (768) ลบ px-6 สองข้าง = 720px
-            sizes="(min-width: 768px) 720px, 100vw"
-            aspect="aspect-[16/9]"
-            height={900}
-            className="mt-8"
-            priority
-          />
+              เหตุผลอยู่ในหัวข้อ illustrationAltTh ของ paperSummaries.ts
+              บทความที่มีวิดีโอสรุป ภาพใบเดียวกันนี้กลายเป็นหน้าปกของวิดีโอ (ไม่ซ้อนภาพสองใบ) */}
+          {video && videoId ? (
+            <PaperVideo
+              youtubeId={videoId}
+              locale="th"
+              posterBase={`/images/research/summaries/${slug}`}
+              posterAlt={summary.illustrationAltTh}
+              title={plainText(summary.th.headline)}
+              seconds={video.seconds}
+            />
+          ) : (
+            <ResponsiveArtwork
+              base={`/images/research/summaries/${slug}`}
+              alt={summary.illustrationAltTh}
+              // กรอบเนื้อหาคือ max-w-3xl (768) ลบ px-6 สองข้าง = 720px
+              sizes="(min-width: 768px) 720px, 100vw"
+              aspect="aspect-[16/9]"
+              height={900}
+              className="mt-8"
+              priority
+            />
+          )}
 
           {/* แยกให้เห็นชัดว่าอะไรคือ "งานต้นฉบับ" อะไรคือ "คำสรุปของเรา" */}
           <div className="mt-8 rounded-lg border border-ink-300 bg-ink-0 p-6">

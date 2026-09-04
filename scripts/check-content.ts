@@ -396,6 +396,14 @@ for (const block of extract(SERVICES, /projectSlugs: (\[[^\]]*\])/gs, 9, "กล
     }
   }
 }
+// วิดีโอเล่าสาระหลักของบทความผูกกับบทสรุปด้วย slug — พิมพ์ผิดแล้ววิดีโอจะไม่มีหน้าให้ฝัง
+// (paperVideos.ts โยน error ตอนโหลดโมดูลอยู่แล้ว ตรงนี้ตรวจซ้ำโดยไม่ต้อง build)
+const summarySlugs = new Set(extract("src/data/paperSummaries.ts", /^ {4}slug: "([^"]+)"/gm, 45, "slug บทสรุป"));
+for (const slug of extract("src/data/paperVideos.ts", /^ {4}slug: "([^"]+)"/gm, 3, "slug วิดีโอ")) {
+  if (!summarySlugs.has(slug)) {
+    errors.push(`paperVideos … slug "${slug}": ไม่มีบทสรุป slug นี้ — วิดีโอชุดนี้จะไม่ปรากฏบนหน้าใด`);
+  }
+}
 // sourceUrl 17 รายการชี้ /news/<slug> ภายใน (Phase 0-C) — ปลายทางต้องมีจริง
 for (const src of extract(PROJECTS, /sourceUrl: "(\/news\/[^"]+)"/g, 15, "sourceUrl ภายใน")) {
   const slug = src.slice("/news/".length);
