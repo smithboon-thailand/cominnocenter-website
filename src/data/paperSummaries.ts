@@ -1882,9 +1882,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "dengue-media-exposure-longitudinal",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ แท่งกระดาษพับแปดแท่งสูงต่ำไม่เท่ากัน เรียงเป็นสองแถวเหลื่อมกัน แถวหน้าเริ่มจากแท่งเตี้ยทางซ้ายแล้วสูงขึ้น ทุกแท่งทอดเงาแบนไปทางขวา",
+      "ภาพประกอบกระดาษ แท่งกระดาษพับสามแท่งยืนเรียงกันสูงขึ้นเป็นบันไดจากซ้ายไปขวา ส่วนแท่งที่สี่ล้มนอนราบอยู่ทางขวา ทุกแท่งทอดเงาแบนยาวไปข้างหน้า",
     illustrationAltEn:
-      "Paper-craft illustration of eight folded paper columns of uneven height in two staggered rows, the front row starting short at the left and rising, each column casting a flat shadow to the right",
+      "Paper-craft illustration of three folded paper columns standing in a staircase that rises from left to right, with a fourth column lying toppled on its side to the right, each casting a long flat shadow forward",
     doi: "10.1016/j.jiph.2017.01.016",
     articleLanguage: "en",
     license: "cc-by-nc-nd",
