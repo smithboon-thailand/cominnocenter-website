@@ -46,6 +46,12 @@ export const paperVideos: PaperVideo[] = [
     th: { youtubeId: "GfwfzLceguA", seconds: 115, uploadDate: "2026-09-04" },
     en: { youtubeId: "bHSeDYv-EJY", seconds: 117, uploadDate: "2026-09-04" },
   },
+  // ── ชุดที่ 2 (อัปโหลด 4 ก.ย. 2569) ──
+  {
+    slug: "ai-generated-citations-students",
+    th: { youtubeId: "cn30oaqcdME", seconds: 140, uploadDate: "2026-09-04" },
+    en: { youtubeId: "5Knusvs5Rk0", seconds: 136, uploadDate: "2026-09-04" },
+  },
 ];
 
 for (const v of paperVideos) {
