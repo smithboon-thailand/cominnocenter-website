@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import {
   videosSorted,
   bestThumb,
@@ -18,6 +19,7 @@ const COPY = {
     selectPrefix: "เลือกวิดีโอ ",
     nowPlaying: "กำลังดู",
     watchOnYouTube: "เปิดบน YouTube",
+    readSummary: "อ่านบทสรุปงานวิจัย",
     listLabel: "วิดีโอทั้งหมดจากช่องของศูนย์",
     frameTitle: (title: string) => `วิดีโอ: ${title}`,
   },
@@ -26,10 +28,15 @@ const COPY = {
     selectPrefix: "Select video: ",
     nowPlaying: "Now playing",
     watchOnYouTube: "Watch on YouTube",
+    readSummary: "Read the research summary",
     listLabel: "All videos from the centre’s channel",
     frameTitle: (title: string) => `Video: ${title}`,
   },
 } as const;
+
+/** srcset ของหน้าปกในเว็บเรา — สามขนาดตามกติกาเดียวกับ ResponsiveArtwork */
+const posterSrcSet = (base: string) =>
+  `${base}-800.webp 800w, ${base}-1200.webp 1200w, ${base}.webp 1600w`;
 
 const title = (v: Video, locale: Locale) => (locale === "th" ? v.titleTh : v.titleEn);
 const summary = (v: Video, locale: Locale) => (locale === "th" ? v.summaryTh : v.summaryEn);
@@ -47,13 +54,20 @@ const year = (iso: string, locale: Locale) => {
  * เพราะ embed ลาก JS ของบุคคลที่สามเข้ามาหลายร้อย KB ตั้งแต่เปิดหน้า
  * ทั้งที่ผู้อ่านส่วนใหญ่แค่เลื่อนผ่าน — สลับคลิปดูก่อนได้โดยไม่ต้องโหลดอะไรเลย
  */
-export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
+export default function VideoShowcase({
+  locale = "th",
+  videos = videosSorted,
+}: {
+  locale?: Locale;
+  /** รายการที่จะแสดง — หน้าแรกส่ง homeVideos(locale) ซึ่งรวมวิดีโอสรุปงานวิจัยของภาษานั้นไว้ด้วย */
+  videos?: Video[];
+}) {
   const t = COPY[locale];
-  const [activeId, setActiveId] = useState(videosSorted[0]?.id ?? "");
+  const [activeId, setActiveId] = useState(videos[0]?.id ?? "");
   const [playing, setPlaying] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
-  const active = videosSorted.find((v) => v.id === activeId) ?? videosSorted[0];
+  const active = videos.find((v) => v.id === activeId) ?? videos[0];
   if (!active) return null;
 
   const select = (id: string) => {
@@ -86,10 +100,13 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
               aria-label={t.playAria(title(active, locale))}
               className="group absolute inset-0 block focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
             >
+              {/* หน้าปกในเว็บเรา (ถ้ามี) มาก่อน thumbnail ของ YouTube — คมกว่า ตรงกับเฟรมแรกของคลิป และไม่พึ่งโดเมนอื่น */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 key={active.id}
-                src={bestThumb(active)}
+                src={active.poster ? `${active.poster}.webp` : bestThumb(active)}
+                srcSet={active.poster ? posterSrcSet(active.poster) : undefined}
+                sizes={active.poster ? "(min-width: 1024px) 720px, 100vw" : undefined}
                 alt=""
                 aria-hidden
                 className="h-full w-full object-cover transition-transform duration-300 ease-brand group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -125,15 +142,26 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
         <p className="mt-2 max-w-prose text-[15px] leading-[1.6] text-ink-700">
           {summary(active, locale)}
         </p>
-        <a
-          href={youtubeWatchUrl(active.id)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
-        >
-          {t.watchOnYouTube}
-          <span aria-hidden>↗</span>
-        </a>
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-medium">
+          {active.href ? (
+            <Link
+              href={active.href}
+              className="inline-flex items-center gap-1 text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+            >
+              {t.readSummary}
+              <span aria-hidden>→</span>
+            </Link>
+          ) : null}
+          <a
+            href={youtubeWatchUrl(active.id)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-pink-500 transition-colors duration-150 ease-brand hover:text-pink-700 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
+          >
+            {t.watchOnYouTube}
+            <span aria-hidden>↗</span>
+          </a>
+        </div>
       </div>
 
       {/* รายการเลือก */}
@@ -141,7 +169,7 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
         className="space-y-1 lg:col-span-5 lg:max-h-[520px] lg:overflow-y-auto lg:pr-1"
         aria-label={t.listLabel}
       >
-        {videosSorted.map((video) => {
+        {videos.map((video) => {
           const isActive = video.id === active.id;
           return (
             <li key={video.id}>
@@ -160,7 +188,7 @@ export default function VideoShowcase({ locale = "th" }: { locale?: Locale }) {
                       ชื่อปุ่มที่ screen reader อ่านจะซ้ำสองรอบ */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={youtubeThumb(video.id)}
+                    src={video.poster ? `${video.poster}-800.webp` : youtubeThumb(video.id)}
                     alt=""
                     aria-hidden
                     loading="lazy"

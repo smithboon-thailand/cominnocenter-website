@@ -13,6 +13,7 @@ import VideoShowcase from "@/components/VideoShowcase";
 import ContextCTA from "@/components/ui/ContextCTA";
 import SectionIcon from "@/components/ui/SectionIcon";
 import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
+import { homeVideos } from "@/lib/homeVideos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
 import { partners } from "@/data/partners";
@@ -228,7 +229,7 @@ export default function HomePage() {
             </Button>
           </div>
           <div className="mt-10">
-            <VideoShowcase />
+            <VideoShowcase videos={homeVideos("th")} />
           </div>
           {/* คนที่ดูงานวิจัยจบมักอยากให้ทีมตัวเองได้ความรู้แบบนี้ — พาไปหน้าอบรมต่อ */}
           <div className="mt-12">
