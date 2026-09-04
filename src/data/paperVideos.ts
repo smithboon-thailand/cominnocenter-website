@@ -32,7 +32,8 @@ export type PaperVideo = {
 export const paperVideos: PaperVideo[] = [
   {
     slug: "dengue-media-exposure-longitudinal",
-    th: { youtubeId: "wgLmy0R1tKc", seconds: 104, uploadDate: "2026-09-04" },
+    // 4 ก.ย. ช่วงเย็น: คลิปไทยเคยเป็น wgLmy0R1tKc แต่ถูกลบตอนเก็บคลิปซ้ำ (เหลือ OGv0_iP3mI4 ซึ่งเป็นไฟล์เดียวกัน)
+    th: { youtubeId: "OGv0_iP3mI4", seconds: 104, uploadDate: "2026-09-04" },
     en: { youtubeId: "VsV5wT0iHGY", seconds: 106, uploadDate: "2026-09-04" },
   },
   {

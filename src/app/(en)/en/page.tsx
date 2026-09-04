@@ -13,6 +13,7 @@ import VideoShowcase from "@/components/VideoShowcase";
 import ContextCTA from "@/components/ui/ContextCTA";
 import SectionIcon from "@/components/ui/SectionIcon";
 import { YOUTUBE_CHANNEL_URL } from "@/data/videos";
+import { homeVideos } from "@/lib/homeVideos";
 import { projects } from "@/data/projects";
 import { leadership } from "@/data/leadership";
 import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
@@ -232,7 +233,7 @@ export default function EnglishHomePage() {
             </Button>
           </div>
           <div className="mt-10">
-            <VideoShowcase locale="en" />
+            <VideoShowcase locale="en" videos={homeVideos("en")} />
           </div>
           {/* People who finish a research talk often want it for their own team */}
           <div className="mt-12">
