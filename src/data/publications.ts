@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-03)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-04)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -13,8 +13,8 @@
  * ระดับการตรวจสอบ (field verified):
  *   "doi"   47 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
  *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
- *   "index" 12 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
- *   "self"  14 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
+ *   "index" 13 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
+ *   "self"  13 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
  *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
  *           ไม่ได้แปลว่าไม่มีจริง แต่ยังตรวจสอบออนไลน์อัตโนมัติไม่ได้
  */
@@ -1387,7 +1387,8 @@ export const publications: PublicationEntry[] = [
     "venue": "Journal of Public Health and Development",
     "year": 2021,
     "type": "journal-article",
-    "verified": "self",
+    "verified": "index",
+    "indexUrl": "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/251894",
     "authors": [
       "smith-boonchutima"
     ]

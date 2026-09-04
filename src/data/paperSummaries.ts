@@ -2110,6 +2110,150 @@ export const paperSummaries: PaperSummary[] = [
         "**100 students from a single university in Pakistan**, roughly 25 per condition; the results cannot stand for other consumer groups or countries, and the authors themselves note they could differ substantially where comparative advertising is routine. The product was a fictitious hands-free headset brand — a low-involvement product. Participants saw one review and one ad, unlike real life with many conflicting sources. **Comparative messages were naturally longer than non-comparative ones**, and the authors acknowledge that length may be confounded with format. Only cognitive content was studied, not emotional tone. Cultural attitudes to comparative advertising were invoked to explain the results but not measured directly.",
     },
   },
+  {
+    slug: "covid-official-communication-credibility",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แถบกระดาษสองเส้นทอดขนานกันข้ามภาพ ทั้งคู่ไต่ขึ้นถึงยอดแล้วลาดลง เส้นหนึ่งนำหน้าอีกเส้นเล็กน้อย",
+    illustrationAltEn:
+      "Paper-craft illustration of two paper ribbons running side by side across the frame, both climbing to a peak and descending together, one slightly ahead of the other",
+    doi: "10.1177/00027642221118297",
+    articleLanguage: "en",
+    th: {
+      headline: "คนเชื่อข้อความของรัฐเรื่องโควิดตราบเท่าที่เห็นว่ารัฐคุมโรคได้ — พอมาตรการล้มเหลว ความเชื่อก็หายไปด้วย แม้ข้อความจะจริง",
+      question:
+        "ระหว่างการระบาดของโควิด-19 ผู้ใช้โซเชียลมีเดียไทยตั้งคำถามกับข้อความทางการอยู่ตลอด งานนี้ถามว่าความเชื่อถือในข้อความของรัฐเคลื่อนไปตามอะไร สัมพันธ์กับความพอใจในผลงานควบคุมโรคหรือไม่ และเมื่อคนไม่เชื่อรัฐ เขาไปเทียบกับแหล่งไหนแล้วถือว่าใครคือผู้ตัดสินความจริง",
+      method:
+        "วิเคราะห์วาทกรรมบนโซเชียลมีเดีย — โพสต์และคอมเมนต์บนเฟซบุ๊กและทวิตเตอร์ตั้งแต่ต้นปี 2563 ถึงต้นปี 2565 ค้นตามเดือนและแฮชแท็กที่ใช้กันในแต่ละช่วง — ควบคู่กับสัมภาษณ์ผู้เชี่ยวชาญ 50 คน (ผู้ตรวจสอบข้อเท็จจริง คนทำงานข้อมูลสุขภาพ สื่อมวลชน และประชาสัมพันธ์ คัดแบบบอกต่อ) ระหว่างธันวาคม 2564 ถึงกุมภาพันธ์ 2565 · ผู้เขียนสองคนแปลข้อความไทยเป็นอังกฤษเองและมีผู้ช่วยวิจัยตรวจความสอดคล้องของการลงรหัส · ข้อมูลคะแนนนิยมรัฐบาลใช้จากโพลและสื่อเพราะไม่มีชุดข้อมูลระยะยาว · เป็นการวิเคราะห์เชิงคุณภาพ แบ่งตามสี่ช่วงของการระบาด",
+      findings: [
+        "**ช่วงแรก (มกราคม–มีนาคม 2563) ข้อความทางการสับสน** เมื่อผู้มีอำนาจบอกว่าเป็น “แค่ไข้หวัด” ขณะที่ต่างประเทศประกาศภาวะฉุกเฉิน ผู้ใช้โซเชียลก็หันไปอ้างแนวทางขององค์การอนามัยโลกแทน จนกระทั่งหน่วยงานควบคุมโรคปรับข้อความให้ตรงกับ WHO และตั้งศูนย์บริหารสถานการณ์เป็นเสียงเดียว",
+        "**ช่วงล็อกดาวน์สำเร็จ (ถึงกลางปี 2563) ความเชื่อถือสูงสุดและแทบไม่มีใครตั้งคำถาม** ไทยถูกยกเป็นตัวอย่างระดับโลก การแถลงรายวันโดยแพทย์ได้รับความไว้วางใจ และ**คนไทยเลือกเชื่อรัฐเหนือ WHO ในเรื่องหน้ากาก** — สวมหน้ากากถึงราว 90% ปลายมกราคม และเกือบ 95% กลางมีนาคม ทั้งที่ WHO ขณะนั้นยังไม่แนะนำ",
+        "**ช่วงวัคซีน (เมษายน–มิถุนายน 2564) ความเชื่อถือพังลงพร้อมกับผลงาน** ระลอกที่สามมีผู้ติดเชื้อใหม่ 36,650 รายในเดือนเมษายนเดือนเดียว มากกว่ายอดสะสมทั้งหมดก่อนหน้า ขณะที่ฉีดครบยังไม่ถึง 1% ของประชากรถึงเดือนพฤษภาคม · คำร้องออนไลน์ให้ปลดผู้รับผิดชอบด้านสาธารณสุขได้ 200,000 ชื่อในไม่กี่วัน · คะแนนนิยมผู้นำรัฐบาลตกจาก 93.3% เหลือ 19% · ประชาชนหยิบข้อมูลเปรียบเทียบประสิทธิภาพวัคซีนของ WHO และ CDC มาโต้ทางเลือกวัคซีนของรัฐ",
+        "**ทิศทางกลับหัวกับตะวันตก** ที่ผู้ไม่เชื่อรัฐใช้โซเชียลต่อต้านวัคซีน ในไทยผู้ไม่เชื่อรัฐกลับ**เรียกร้อง**วัคซีนรุ่นใหม่และตำหนิรัฐที่ไม่จัดหา สิ้นปี 2564 คนที่ฉีดแล้วหรือยินดีฉีดสูงถึง 90.2%",
+        "**ช่วงตอบโต้ (กรกฎาคม 2564)** รัฐขยายข้อกำหนดฉุกเฉินให้ครอบคลุมข้อมูลที่ “ทำให้หวาดกลัว” แม้เป็นความจริง ซึ่งถูกมองว่าเป็นการปิดปากแทนการแก้ปัญหา · พอการฉีดวัคซีนเข้าที่ปลายปี 2564 ผู้คนก็เหนื่อยกับเรื่องโควิดและวาทกรรมค่อยๆ เงียบไป",
+        "**ข้อสรุปของผู้เขียน: ความน่าเชื่อถือเป็นผลของ “การยอมรับผลงาน” ไม่ใช่ของความจริงหรือความโปร่งใส** ตราบที่นโยบายดูได้ผล ข้อความของรัฐไม่ถูกท้าทายและไม่มีใครเห็นว่าแหล่งต่างประเทศเหนือกว่า แต่เมื่อผลงานตก คนจะไปหา “ผู้ตัดสินความจริง” ที่องค์กรสากล",
+      ],
+      soWhat:
+        "สำหรับการสื่อสารในภาวะวิกฤตสุขภาพ: **สร้างความน่าเชื่อถือด้วยการอธิบายไม่พอ ถ้าผลงานที่คนเห็นสวนทาง** งานสื่อสารกับงานปฏิบัติจึงแยกจากกันไม่ได้ · เมื่อความเชื่อถือร่วง คนไม่ได้เลิกหาข้อมูล แต่ย้ายไปแหล่งที่เขาเชื่อกว่า การสื่อสารของรัฐที่**อิงและอ้างองค์กรสากลอย่างเปิดเผย**จึงยืมความน่าเชื่อถือนั้นมาได้ แทนที่จะแข่งกับมัน · และการควบคุมข้อมูลในช่วงที่ความเชื่อถือต่ำอยู่แล้วให้ผลตรงข้าม เพราะถูกอ่านว่าเป็นการยอมรับว่ามีสิ่งที่ต้องปิด",
+      caveat:
+        "**เป็นการวิเคราะห์เชิงคุณภาพและการตีความ** ไม่ได้รายงานจำนวนโพสต์หรือสัดส่วนความเห็น และ “ความสัมพันธ์” ระหว่างคะแนนนิยมกับความเชื่อถือเป็นการอ่านจากลำดับเหตุการณ์ ไม่ใช่การวัดทางสถิติ · คะแนนนิยมรัฐบาลมาจากโพลและรายงานข่าว ไม่ใช่ข้อมูลที่เก็บเอง · โพสต์ที่ยกมาเป็นตัวอย่างที่ผู้เขียนเลือก และผู้ให้สัมภาษณ์เป็นผู้เชี่ยวชาญด้านข้อมูลกับสื่อ ไม่ใช่ประชาชนทั่วไป · ผู้เขียนเองระบุว่ายังไม่ชัดว่าการตั้งคำถามกับรัฐช่วยให้การสื่อสารความเสี่ยงดีขึ้นจริงหรือไม่ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อบุคคล ยี่ห้อวัคซีน และบริษัทที่บทความยกมาเป็นเป้าของข้อวิจารณ์** เพราะบทเรียนอยู่ที่กลไก ไม่ใช่ตัวบุคคล · บทความสงวนลิขสิทธิ์โดยสำนักพิมพ์ เว็บนี้จึงไม่มีสำเนาให้ดาวน์โหลด",
+    },
+    en: {
+      headline: "People believed official COVID messaging as long as the government seemed to be winning — once measures failed, belief went with them, however true the message",
+      question:
+        "Throughout the COVID-19 pandemic, Thai social media users kept questioning official messaging. This study asks what trust in government communication actually tracked, whether it moved with approval of the government's disease-control performance, and where people turned — and whom they treated as the final arbiter of truth — once they stopped believing the government.",
+      method:
+        "Social media discourse analysis of Facebook and Twitter posts and comments from early 2020 to early 2022, searched month by month and through the hashtags in use at each stage, combined with 50 expert interviews (fact-checkers, health-information workers, journalists and public relations practitioners, recruited by snowball sampling) between December 2021 and February 2022. The two authors translated the Thai material into English and a research assistant checked coding agreement. Government approval figures were taken from polls and media reports, since no longitudinal dataset exists. The analysis is qualitative and organised around the four waves of the outbreak.",
+      findings: [
+        "**In the first stage (January–March 2020) official messaging was confused.** When those in authority described the virus as “just a cold” while other countries declared emergencies, social media users cited the World Health Organization's guidance instead — until the disease-control authority aligned its messaging with WHO and a single command centre was set up to speak with one voice.",
+        "**During the successful lockdown (to mid-2020) credibility peaked and the official line was barely questioned.** Thailand was held up as a global example, the daily briefings led by a doctor were trusted, and **on masks Thais chose the government over WHO** — mask-wearing reached about 90% by late January and almost 95% by mid-March, although WHO was not yet recommending it.",
+        "**In the vaccination stage (April–June 2021) credibility collapsed along with performance.** The third wave brought 36,650 new cases in April alone, more than the country's entire previous total, while under 1% of the population was fully vaccinated by May. An online petition to remove the official responsible for public health gathered 200,000 signatures in days; the government leader's approval fell from 93.3% to 19%; and the public used WHO and CDC comparisons of vaccine efficacy to contest the government's vaccine choices.",
+        "**The direction was the reverse of the West.** Where Western sceptics used social media to oppose vaccines, Thai sceptics of the government **demanded** newer vaccines and blamed the government for not securing them. By the end of 2021, 90.2% had been vaccinated or were willing to be.",
+        "**In the response stage (July 2021)** the government widened its emergency decree to cover information that “causes public fear” even when true, which was read as silencing rather than solving. Once vaccination got on track late in 2021, people tired of the subject and the discourse faded.",
+        "**The authors' conclusion: credibility was a function of approval, not of truthfulness or transparency.** While policies appeared to work, official messages went unchallenged and foreign sources were not seen as superior; when performance fell, people went looking for an “arbiter of truth” in international bodies.",
+      ],
+      soWhat:
+        "For crisis health communication: **explaining well is not enough to build credibility when the results people can see point the other way** — communication and delivery cannot be separated. When trust falls, people do not stop seeking information; they move to sources they trust more. Official communication that **openly grounds itself in, and cites, international bodies** can borrow that credibility rather than compete with it. And controlling information at a moment when trust is already low backfires, because it reads as an admission that there is something to hide.",
+      caveat:
+        "**A qualitative, interpretive analysis.** It reports no post counts or proportions of opinion, and the “correlation” between approval and trust is read from the sequence of events, not measured statistically. Approval figures come from polls and news reports rather than the authors' own data. The quoted posts are examples the authors selected, and the interviewees were information and media professionals rather than members of the public. The authors themselves note it remains unclear whether questioning the government actually improves risk communication. **This summary deliberately omits the names of individuals, vaccine brands and companies the article singles out for criticism**, since the lesson lies in the mechanism rather than in who was involved. The publisher retains copyright, so no copy is available for download here.",
+    },
+  },
+  {
+    slug: "online-class-cognitive-load-interactive-media",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แถบกระดาษพับจีบแบบหีบเพลงตั้งอยู่ชิ้นเดียว จีบทางซ้ายสูงและคม แล้วค่อยๆ เตี้ยและหย่อนลงไปทางขวาจนเกือบราบ",
+    illustrationAltEn:
+      "Paper-craft illustration of a single accordion-folded paper strip standing on edge, its pleats tall and crisp at the left and gradually lower and looser toward the right until it lies almost flat",
+    doi: "10.1109/tencon58879.2023.10322455",
+    articleLanguage: "en",
+    th: {
+      headline: "ควิซซ้ำๆ ในห้องเรียนออนไลน์ช่วยความจำระยะสั้นจริง แต่ยิ่งซ้ำนักศึกษายิ่งถอย — และการเอาไปใช้ต้องอาศัยการพูดคุย ไม่ใช่การสอบ",
+      question:
+        "เมื่อโควิด-19 บังคับให้วิชาวางแผนและประเมินการสื่อสารเชิงกลยุทธ์ต้องสอนออนไลน์ทั้งหมด ผู้สอนถามว่าสื่อโต้ตอบ — เว็บนำเสนอ วิดีโอ ควิซแข่งขัน และแบบทดสอบก่อน-หลังรายสัปดาห์ — ช่วยให้นักศึกษาปริญญาโท**จำ**เนื้อหาได้ดีขึ้นและ**นำไปใช้**ในโครงงานได้จริงหรือไม่ และรูปแบบไหนช่วยเรื่องไหน",
+      method:
+        "การวิจัยกึ่งทดลองกลุ่มเดียววัดก่อน-หลัง กับนักศึกษาปริญญาโทหลักสูตรนานาชาติปีหนึ่ง 23 คน ในวิชา 2800575 ภาคการศึกษาสุดท้ายของปีการศึกษา 2564 สอนผ่าน Zoom ทั้งหมด · เครื่องมือ: ระบบ myCourseVille สำหรับแบบทดสอบก่อนและหลังเรียนรายสัปดาห์ (ปรนัย) · สไลด์บนเว็บ Adobe Spark · วิดีโอบันทึกการสอนบน YouTube · ควิซ Kahoot สองรอบ (ระหว่างสัปดาห์ที่ 1–11 และทวนก่อนสอบปลายภาคด้วยชุดคำถามเดิม) · สัมภาษณ์นักศึกษาตลอด 16 สัปดาห์ · เปรียบเทียบคะแนนด้วย paired t-test · คะแนนควิซทั้งหมดไม่นับเป็นเกรด และแจ้งนักศึกษาไว้ล่วงหน้า",
+      findings: [
+        "**คะแนนหลังใช้สื่อโต้ตอบสูงกว่าก่อนใช้อย่างมีนัยสำคัญ** เฉลี่ยรวม 6.77 → 8.20 (ต่างกัน 1.42 · t = 5.905 · p < 0.001 · n = 23)",
+        "**แต่ดูรายสัปดาห์แล้วไม่ได้ผลทุกสัปดาห์** แบบทดสอบเรื่องการวางแผนสูงขึ้นอย่างมีนัยสำคัญ 5 จาก 11 สัปดาห์ · แบบทดสอบคู่มือการตัดสินใจ 7 จาก 10 ครั้ง ที่เหลือคะแนนขึ้นแต่ไม่ถึงนัยสำคัญ",
+        "**ทวนซ้ำแล้วไม่ได้เพิ่มอีก** การทำแบบทดสอบชุดเดิมรอบสองได้ 8.77 เทียบ 8.19 (ไม่มีนัยสำคัญ p = 0.085) · ควิซ Kahoot รอบสองได้ 6.30 เทียบ 6.46 ในรอบแรก (ไม่มีนัยสำคัญ p = 0.422) และ**จำนวนคนที่มาเล่นลดจากราว 10–20 คนเหลือ 4–10 คน** ผู้เขียนอ่านว่าเป็นความเบื่อจากการสอบซ้ำและการที่คะแนนไม่นับเกรด",
+        "**นักศึกษาบอกเองว่าควิซช่วยความจำระยะสั้น ไม่ได้ช่วยให้เอาไปใช้ทำโครงงาน** สิ่งที่ช่วยเรื่องการนำไปใช้คือการพูดคุยแลกเปลี่ยนกับผู้สอนและเพื่อนผ่าน Zoom เอกสารประกอบ (ตัวอย่างแผน กรณีศึกษา แนวทางเขียนแผน) และคำแนะนำตรงจากผู้สอน",
+        "**นักศึกษาขอสไลด์เป็นไฟล์ PDF ธรรมดามาจดโน้ต** แม้จะมีเว็บนำเสนอที่ฝังวิดีโอและลิงก์ให้ — ผู้เขียนโยงกับทฤษฎีภาระทางปัญญาว่าสื่อที่ดึงดูดเกินไปเบี่ยงทรัพยากรสมองออกจากเนื้อหา",
+        "**ข้อเสนอของผู้เขียน** ลดความถี่ของการสอบวัดความจำ ใช้คำถามหลายแบบ รวมควิซไว้แพลตฟอร์มเดียว และเปิดวงพูดคุยสดทุกราว 30 นาทีระหว่างบรรยาย",
+      ],
+      soWhat:
+        "สำหรับผู้สอนออนไลน์: **การทดสอบบ่อยๆ ใช้ได้กับการจำ แต่ผลตอบแทนลดลงเร็ว** ควิซครั้งที่สองแทบไม่เพิ่มอะไรและทำให้คนหายไปครึ่งหนึ่ง · การนำความรู้ไปใช้เกิดจากการสนทนาและงานจริงที่มีผู้สอนเป็นที่ปรึกษา ไม่ใช่จากสื่อที่ดูทันสมัย · และเครื่องมือที่นักศึกษาขอกลับเป็นของพื้นฐาน — ไฟล์ให้จดโน้ตได้ — ซึ่งเตือนว่า “โต้ตอบได้” ไม่ได้แปลว่า “เรียนได้ดีกว่า” เสมอไป",
+      caveat:
+        "**กลุ่มเดียว 23 คน ไม่มีกลุ่มควบคุม** จึงแยกไม่ได้ว่าคะแนนที่ขึ้นมาจากสื่อโต้ตอบหรือจากการเรียนตามปกติ · **ผู้วิจัยหลักเป็นผู้สอนวิชานี้เอง** ซึ่งบทความระบุเป็นข้อจำกัดและมีผู้ช่วยวิจัยร่วมตรวจ · แบบทดสอบรายสัปดาห์หลายครั้งมีผู้ทำเพียง 10–19 คนจาก 23 เพราะขาดเรียน · คะแนนไม่นับเกรด นักศึกษาจึงอาจไม่ตั้งใจทำ · วัดความจำระยะสั้นเป็นหลัก ไม่ได้วัดการคงอยู่ระยะยาว · ผูกกับแพลตฟอร์มเฉพาะชุดหนึ่ง · ผ่านการพิจารณาจากผู้ประเมินของศูนย์นวัตกรรมการเรียนรู้ จุฬาฯ และได้รับทุนจากศูนย์นั้นร่วมกับศูนย์ฯ นี้ · บทความสงวนลิขสิทธิ์โดย IEEE เว็บนี้จึงไม่มีสำเนาให้ดาวน์โหลด",
+    },
+    en: {
+      headline: "Repeated quizzes in an online class do lift short-term recall, but each repeat loses students — and applying the material takes conversation, not testing",
+      question:
+        "When COVID-19 forced a strategic communication planning course fully online, the instructors asked whether interactive media — a presentation website, videos, competitive quizzes and weekly pre- and post-tests — actually helped master's students **remember** the content and **apply** it in their projects, and which format helped with which.",
+      method:
+        "A one-group pre-test/post-test quasi-experiment with 23 first-year students on an international master's programme, in course 2800575 during the final semester of academic year 2021, taught entirely over Zoom. Tools: the myCourseVille learning system for weekly multiple-choice pre- and post-tests; Adobe Spark web presentations; recorded lectures on YouTube; Kahoot quizzes in two rounds (during weeks 1–11 and again before the final exam with the same questions); student interviews across the 16-week term; paired t-tests for score comparisons. Quiz scores did not count towards grades, and students were told so in advance.",
+      findings: [
+        "**Scores after the interactive media were significantly higher than before**: overall mean 6.77 → 8.20 (a difference of 1.42; t = 5.905; p < 0.001; n = 23).",
+        "**Week by week, though, it did not work every time.** Planning tests rose significantly in 5 of 11 weeks; decision-guide tests in 7 of 10. The rest rose without reaching significance.",
+        "**Repeating did not add more.** A second run of the same test scored 8.77 against 8.19 (not significant, p = 0.085); the second Kahoot round scored 6.30 against 6.46 in the first (not significant, p = 0.422), and **participation fell from roughly 10–20 students to 4–10**. The authors read this as boredom with repeated testing and the fact that scores did not count.",
+        "**Students said themselves that quizzes helped short-term memory, not application to their projects.** What helped application was live exchange with the instructor and classmates on Zoom, supporting documents (sample plans, case studies, plan-writing guidelines) and direct feedback from the instructor.",
+        "**Students asked for slides as plain PDF files to take notes on**, even though a web presentation with embedded videos and links was provided — which the authors relate to cognitive load theory: media that attracts too much attention diverts mental resources from the content.",
+        "**The authors recommend** fewer memory-focused tests, more varied question types, one platform for quizzes, and a live discussion roughly every 30 minutes of lecture.",
+      ],
+      soWhat:
+        "For online teaching: **frequent testing works for recall, but the returns fall off fast** — the second quiz added almost nothing and lost half the room. Applying knowledge came from conversation and real tasks with the instructor as adviser, not from media that looked sophisticated. And the tool students asked for was the most basic one, a file they could annotate, a reminder that “interactive” does not automatically mean “learned better”.",
+      caveat:
+        "**A single group of 23 with no control group**, so the score gains cannot be separated from ordinary learning over the term. **The lead researcher was also the course lecturer**, which the article names as a limitation mitigated by research assistants. Many weekly tests were taken by only 10–19 of the 23 students because of absences. Scores did not count, so effort may have been low. The study measured short-term recall rather than long-term retention and is tied to one particular set of platforms. It was reviewed by Chulalongkorn University's Learning Innovation Center, which funded it together with this Center. IEEE retains copyright, so no copy is available for download here.",
+    },
+  },
+  {
+    slug: "slow-paced-flight-safety-videos",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แท่งกระดาษพับสองแท่งยืนเคียงกัน แผ่นกระดาษแบนแผ่นเดียววางพาดบนยอดแท่งที่สูงกว่าเหมือนฝา ส่วนแท่งที่เตี้ยกว่าอยู่ห่างจากแผ่นนั้นเห็นช่องว่างชัด",
+    illustrationAltEn:
+      "Paper-craft illustration of two folded paper columns side by side, a single flat paper sheet resting on top of the taller one like a lid, with a clear gap between that sheet and the shorter column",
+    indexUrl: "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/251894",
+    articleLanguage: "en",
+    license: "cc-by-nc",
+    pdfUrl: "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/251894",
+    localCopy: "slow-paced-flight-safety-videos.pdf",
+    th: {
+      headline: "วิดีโอความปลอดภัยบนเครื่องบินแบบช้าและเรียบง่าย ทำให้วัยรุ่นรู้เรื่องความปลอดภัยเกือบเต็มคะแนน — ไม่ว่าจะเคยขึ้นเครื่องหรือไม่ ชายหรือหญิง",
+      question:
+        "ผู้โดยสารเพียง 30–40% ตั้งใจฟังการสาธิตความปลอดภัยก่อนเครื่องขึ้น และงานวิจัยเรื่องลักษณะของวิดีโอที่ถ่ายทอดข้อมูลได้ผลยังน้อยและขัดกัน งานนี้ถามว่าวิดีโอที่**ช้าและตัดสิ่งเร้าที่ไม่จำเป็นออก**ถ่ายทอดความรู้ให้ผู้โดยสารมือใหม่วัยรุ่นได้จริงไหม และเพศมีผลต่อประสิทธิภาพนั้นหรือไม่",
+      method:
+        "การทดลองสองกลุ่มวัดก่อน-หลังในโรงเรียนรัฐแห่งหนึ่งในเมืองใกล้กรุงเทพฯ ที่ไม่มีสนามบิน วันที่ 15 พฤษภาคม 2558 · นักเรียนอาสาสมัคร 128 คน อายุ 14–16 ปี ชายหญิงเท่ากัน — 64 คนเคยขึ้นเครื่องบินแล้ว 64 คนไม่เคย · ทำแบบทดสอบก่อน (ถูก-ผิด 20 ข้อ เรื่องการอพยพ เข็มขัดนิรภัย หน้ากากออกซิเจน เสื้อชูชีพ ผ่านการตรวจโดยผู้เชี่ยวชาญด้านความปลอดภัยการบิน 3 คน) แล้วจับคู่ตามคะแนนและประสบการณ์บินก่อนแบ่งเป็นกลุ่มทดลองกับกลุ่มควบคุมกลุ่มละ 64 · กลุ่มทดลองดูวิดีโอความปลอดภัยยาว 5 นาที 36 วินาที พูดช้ากว่า 140 คำต่อนาที (812 คำ) โดยพนักงานต้อนรับชายหญิงพูดไทยแล้วแปลอังกฤษทีละหัวข้อ ตัดสิ่งรบกวนออก · กลุ่มควบคุมดูคลิปตลกอังกฤษความยาวเท่ากันที่ไม่เกี่ยวกับการบิน · แล้วทำแบบทดสอบชุดเดิมซ้ำ ตามด้วยสนทนากลุ่มสั้นๆ · ขอความยินยอมจากผู้อำนวยการ ครู นักเรียน และผู้ปกครองครบ",
+      findings: [
+        "**ทุกกลุ่มได้คะแนนรอบสองสูงขึ้น (p < 0.001 ทั้งหมด) แม้แต่กลุ่มที่ดูคลิปตลก** เพราะทำข้อสอบชุดเดิมซ้ำ — แต่ขนาดของผลต่างกันหลายเท่า: กลุ่มควบคุม d = 0.63–0.94 ส่วนกลุ่มที่ดูวิดีโอความปลอดภัย d = 3.16–3.87",
+        "**กลุ่มที่ดูวิดีโอได้เกือบเต็ม** เฉลี่ย 19.44 (เคยบิน) และ 19.53 (ไม่เคยบิน) จาก 20 คะแนน เทียบกับ 16.44 และ 15.59 ในกลุ่มควบคุม จากคะแนนก่อนดูราว 14–15 ทั้งสองกลุ่ม — ผู้เขียนระบุว่าเกิด**ผลเพดาน**ในกลุ่มทดลอง",
+        "**ประสบการณ์บินไม่ทำให้ต่างกัน** คนที่ไม่เคยขึ้นเครื่องเลยขึ้นจาก 14.06 ไป 19.53 ไม่ต่างจากคนที่เคยบิน",
+        "**เพศไม่มีผล** คะแนนหลังดูของชาย 17.81 กับหญิง 17.69 ไม่ต่างกัน (p = 0.73) และก่อนดูก็ไม่ต่าง (p = 0.09)",
+        "**ในสนทนากลุ่ม นักเรียนบอกว่าวิดีโอน่าสนใจ ไม่น่าเบื่อ และไม่มีข้อเสนอให้ปรับปรุง** พร้อมอยากรู้เรื่องความปลอดภัยการบินเพิ่ม",
+        "**ผู้เขียนแยกสองปัญหาออกจากกัน: “ดึงความสนใจ” กับ “รักษาความสนใจเพื่อถ่ายทอดความรู้”** วิดีโอช้าและเรียบง่ายทำอย่างหลังได้ดี แต่อาจแพ้ในอย่างแรก และเสนอเป็น**สมมติฐานที่ยังไม่ได้ทดสอบ**ว่าควรใช้เนื้อหาเร้าใจดึงคนเข้ามาก่อน แล้วค่อยสอนด้วยจังหวะช้า",
+      ],
+      soWhat:
+        "สำหรับคนทำสื่อสอนเรื่องความปลอดภัยหรือสื่อการเรียนทั่วไป: **จังหวะช้า พูดทีละเรื่อง ไม่มีสิ่งรบกวน ถ่ายทอดความรู้ได้เกือบสมบูรณ์แม้กับคนที่ไม่มีพื้นเลย** และไม่ต้องทำเวอร์ชันแยกตามเพศ · แต่ต้องออกแบบ**ทางเข้า**ให้คนหันมาดูก่อนด้วย เพราะข้อมูลที่ถ่ายทอดได้ดีก็ไร้ค่าถ้าไม่มีใครมอง · ผู้เขียนโยงว่าเกี่ยวกับการเรียนออนไลน์ช่วงโควิดที่ทุกสถาบันต้องพึ่งวิดีโอ",
+      caveat:
+        "**ทดลองในหอประชุมโรงเรียน ไม่ใช่บนเครื่องบิน** และนักเรียนถูกผู้ใหญ่บอกให้ดู จึงตั้งใจกว่าผู้โดยสารจริงมาก · ไม่มีสิ่งรบกวนอย่างเสียงในห้องโดยสาร · ทดสอบเพียงรูปแบบเดียว (ช้า + สิ่งเร้าน้อย) จึงบอกไม่ได้ว่าแบบเร็วหรือแบบมีสิ่งเร้ามากจะได้ผลต่างกันอย่างไร · ดูครั้งเดียว ขณะที่ผู้โดยสารประจำเห็นซ้ำหลายครั้ง · **วัดความรู้ ไม่ได้วัดว่าจะทำตามจริงเมื่อเกิดเหตุ** · ผลเพดานทำให้แยกความต่างระหว่างผู้ที่ดูวิดีโอไม่ได้ · คัดกลุ่มตัวอย่างแบบสะดวกจากโรงเรียนเดียว · **เก็บข้อมูลปี 2558 ตีพิมพ์ปี 2564** เป็นรายงานสั้น",
+    },
+    en: {
+      headline: "A slow, simple in-flight safety video brought teenagers close to a perfect score — whether or not they had flown before, boys and girls alike",
+      question:
+        "Only 30–40% of passengers pay attention to the pre-flight safety demonstration, and research on which characteristics make a safety video effective is thin and contradictory. This study asks whether a video that is **slow-paced and stripped of unnecessary stimuli** actually conveys safety knowledge to teenage first-time flyers, and whether gender changes its effectiveness.",
+      method:
+        "A two-group pre-test/post-test experiment on 15 May 2015 at a government school in a town near Bangkok with no airport. 128 student volunteers aged 14–16, half of them boys — 64 who had flown before and 64 who had not — took a 20-item true/false test on evacuation, seat belts, oxygen masks and life vests (reviewed by three flight-safety experts), and were then matched on score and flight experience before being split into an experimental and a control group of 64 each. The experimental group watched a 5 min 36 s safety video delivered at under 140 words per minute (812 words) by a male and a female flight attendant in Thai with English after each topic, designed to minimise distraction; the control group watched an excerpt of a British comedy of the same length unrelated to flying. Both then repeated the test, followed by brief focus groups. Consent was obtained from the principal, teachers, students and parents.",
+      findings: [
+        "**Every group scored higher the second time (all p < 0.001), even the comedy group**, because they were retaking the same test — but the size of the effect differed several-fold: d = 0.63–0.94 in the control group against d = 3.16–3.87 in the group that watched the safety video.",
+        "**The video group came close to a perfect score**: means of 19.44 (with flight experience) and 19.53 (without) out of 20, against 16.44 and 15.59 in the control group, from pre-test scores of around 14–15 in both. The authors note a **ceiling effect** in the experimental group.",
+        "**Prior flying made no difference**: students who had never been on a plane went from 14.06 to 19.53, on a par with those who had.",
+        "**Gender made no difference**: post-test means of 17.81 for boys and 17.69 for girls (p = 0.73), with no difference before viewing either (p = 0.09).",
+        "**In the focus groups, students found the video interesting rather than boring, offered no suggestions for improvement**, and said they wanted to learn more about flight safety.",
+        "**The authors separate two problems: attracting attention and holding it long enough to convey knowledge.** A slow, simple video does the second well but may lose on the first; they propose, as an **untested hypothesis**, opening with engaging material to draw people in and then teaching at a slow pace.",
+      ],
+      soWhat:
+        "For anyone producing safety or instructional video: **a slow pace, one point at a time and no distractions conveyed the knowledge almost completely, even to people with no background at all**, and no separate versions by gender are needed. But the **entry point** — getting people to look in the first place — has to be designed too, because well-delivered information is worth nothing if no one is watching. The authors connect this to the pandemic shift to online teaching, when every institution came to depend on video.",
+      caveat:
+        "**Run in a school auditorium, not on an aircraft**, with students told by adults to watch, so attention was far higher than among real passengers. There were no distractions such as cabin noise. Only one format was tested (slow pace plus few stimuli), so nothing can be said about fast or stimulus-rich versions. A single viewing, whereas frequent flyers see the briefing repeatedly. **Knowledge was measured, not whether anyone would act on it in an emergency.** The ceiling effect makes differences among video viewers impossible to see. A convenience sample from one school. **Data collected in 2015, published in 2021**, as a short report.",
+    },
+  },
 ];
 
 const byDoi = new Map(

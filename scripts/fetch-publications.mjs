@@ -176,6 +176,14 @@ const THAIJO_SOURCES = [
     match: /#nodam in #maewong/i,
     url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/148722",
   },
+  // JPHD (วารสารของ ม.มหิดล บน ThaiJO) — บทความปี 2021 นี้**ไม่มี DOI** ต่างจากบทความ
+  // ปี 2022 ของวารสารเดียวกันที่จด 10.55131/jphd/... จึงต้องผูกด้วยหน้าบทความแทน
+  // (ตรวจ 4 ก.ย. 2569: ไม่มี meta citation_doi · ระเบียนระบุ Boonchutima + Noonpakdee
+  //  · vol. 19 no. 3 pp. 215-224 · Short Report)
+  {
+    match: /slow-paced safety instruction videos/i,
+    url: "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/251894",
+  },
   {
     match: /role of social media in political advertising/i,
     url: "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
