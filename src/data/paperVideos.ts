@@ -52,6 +52,27 @@ export const paperVideos: PaperVideo[] = [
     th: { youtubeId: "cn30oaqcdME", seconds: 140, uploadDate: "2026-09-04" },
     en: { youtubeId: "5Knusvs5Rk0", seconds: 136, uploadDate: "2026-09-04" },
   },
+  {
+    slug: "vr360-neck-shoulder-pain",
+    // คลิปไทยมีอัปโหลดซ้ำสองตัว (LcHP0gAl0h8 · imauooZ2pq4) ใช้ตัวแรกที่ประมวลผลเสร็จก่อน — ถ้าจะลบตัวซ้ำ ลบ imauooZ2pq4
+    th: { youtubeId: "LcHP0gAl0h8", seconds: 115, uploadDate: "2026-09-04" },
+    en: { youtubeId: "ro86971kJiM", seconds: 104, uploadDate: "2026-09-04" },
+  },
+  {
+    slug: "thailand-image-cannabis-youtube",
+    th: { youtubeId: "VvACW_JFizw", seconds: 131, uploadDate: "2026-09-04" },
+    en: { youtubeId: "C3b998X7xI4", seconds: 126, uploadDate: "2026-09-04" },
+  },
+  {
+    slug: "negative-wom-advertising-moderation",
+    th: { youtubeId: "DPeW8ezD-eM", seconds: 135, uploadDate: "2026-09-04" },
+    en: { youtubeId: "lT95OfDekBs", seconds: 130, uploadDate: "2026-09-04" },
+  },
+  {
+    slug: "migrant-worker-exercise-codesign",
+    th: { youtubeId: "Si-Gv7JUNmM", seconds: 151, uploadDate: "2026-09-04" },
+    en: { youtubeId: "I2l9YJno9hQ", seconds: 147, uploadDate: "2026-09-04" },
+  },
 ];
 
 for (const v of paperVideos) {
