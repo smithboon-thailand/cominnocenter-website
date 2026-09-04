@@ -486,7 +486,7 @@ export const publications: PublicationEntry[] = [
       "volume": "11",
       "issue": "1",
       "page": "",
-      "articleNumber": "",
+      "articleNumber": "2526800",
       "publisher": "Informa UK Limited",
       "year": 2025,
       "month": 7,
