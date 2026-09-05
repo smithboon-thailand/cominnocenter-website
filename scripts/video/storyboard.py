@@ -316,9 +316,11 @@ CLIPS = [
 # ── ชุดที่ 2 (4 ก.ย. 2569) อยู่ในไฟล์แยกเพื่อให้ไฟล์นี้อ่านได้ · storyboard.json รวมทุกชุด ส่วน HTML/MD แยกตาม --batch
 from storyboard_batch2 import CLIPS2, PALETTE2
 from storyboard_batch3 import CLIPS3, PALETTE3
-CLIPS += CLIPS2 + CLIPS3
+from storyboard_batch4 import CLIPS4, PALETTE4
+CLIPS += CLIPS2 + CLIPS3 + CLIPS4
 PALETTE.update(PALETTE2)
 PALETTE.update(PALETTE3)
+PALETTE.update(PALETTE4)
 for _c in CLIPS:
     _c.setdefault("batch", 1)
 
@@ -463,7 +465,8 @@ def write_html(data, batch=1):
     n_new = sum(1 for c in data for s in c["scenes"] if s["image"] == "new")
     img_cost = n_new * IMAGE_PRICE
     # ชุดนำร่องประเมินต่อคลิป · ชุดถัดไปประเมินจากใบเสร็จจริงของชุดนำร่อง (48 ท่อน = $1.25 → ≈ $0.026/ท่อน)
-    tts_cost = 3 * (TTS_TH + TTS_EN) if batch == 1 else sum(len(c["scenes"]) for c in data) * 2 * 0.026
+    # ชุดที่ 2–3 จ่ายจริง $2.67 และ $3.36 ต่อ 80 ท่อน — ElevenLabs คิดตามอักขระ จึงประเมินจากอักขระจริงของบท (ชุดที่ 3: 20,385 อักขระ = $3.36)
+    tts_cost = 3 * (TTS_TH + TTS_EN) if batch == 1 else sum(len(s["narr"][l]) for c in data for s in c["scenes"] for l in ("th", "en")) * (3.36 / 20385)
 
     def swatches(p):
         return (f'<span class="sw" style="background:{p["obj_hex"]}" title="วัตถุ"></span>'
