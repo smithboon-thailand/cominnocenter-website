@@ -153,15 +153,18 @@ NUM_RE = re.compile(r"^\d[\d,.]*(?:[–-]\d[\d,.]*)?%?$")   # รวมช่ว
 # เลขกับสิ่งที่ผูกกับเลข ต้องอยู่บรรทัดเดียวกัน — พบ "23 | คนในกรุงเทพฯ" · "5 ใน | 6" · "ผู้ชมราว | 300 คน" ในเฟรมจริง
 TH_AFTER_NUM = ("คน", "วัน", "ปี", "จังหวัด", "กลุ่ม", "ชิ้น", "ครั้ง", "สัปดาห์", "เดือน", "ใน", "จาก", "%",
                 "ข้อความ", "คลิป", "ท่า", "ชั่วโมง", "องศา", "ใบ", "แท่ง", "เรื่อง", "ข้อ", "คู่", "ช่อง", "ราย",
-                "ช่วง", "ด้าน", "แบบ", "ระบบ", "ครั้ง", "ข้อ", "ราย", "ชื่อ",
+                "ช่วง", "ด้าน", "แบบ", "ระบบ", "ครั้ง", "ข้อ", "ราย", "ชื่อ", "แอป", "คะแนน", "นาที",
                 "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม")   # ชุดที่ 2: "รีวิวลบ 1 | ข้อความ" เคยหลุดบนจอจริง
 EN_AFTER_NUM = {"of", "in", "to", "from", "people", "visitors", "provinces", "years", "days", "senses", "interviews", "groups",
                 "students", "clips", "news", "vlogs", "workers", "women", "ad", "negative", "physical", "months", "exercises", "weeks", "hours",
-                "men", "officers", "answered", "eligible", "models", "users", "experts", "kept"}   # ชุดที่ 5: "40 | men" · "414 | answered"
+                "men", "officers", "answered", "eligible", "models", "users", "experts", "kept",
+                "had", "sides", "apps", "others", "questions", "retirees", "followers"}   # ชุดที่ 5: "40 | men" · "414 | answered" · ชุดที่ 6: "64 | had flown" · "2 | apps"
+TH_MONTHS = ("มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม")
+EN_MONTHS = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"}
 TH_BEFORE_NUM = ("ราว", "กว่า", "ประมาณ", "เกือบ", "ทั้ง", "เหลือ", "จาก", "ใน", "เพียง", "แค่", "ถึง", "ปี", "สูง", "ต่ำ", "ได้", "รวม",
-                 "สัมภาษณ์", "ตอบ")   # "อธิบายได้ | 63%" ชุดที่ 3 · "สัมภาษณ์ | 10 คน" ชุดที่ 5
+                 "สัมภาษณ์", "ตอบ") + TH_MONTHS   # "อธิบายได้ | 63%" ชุดที่ 3 · "สัมภาษณ์ | 10 คน" ชุดที่ 5 · "ตุลาคม | 2563" ชุดที่ 6 (เดือนกับปีของมัน)
 TH_CONJ = {"กับ", "และ", "หรือ", "แต่", "จึง", "คือ"}   # คำเชื่อมที่ไม่ควรค้างท้ายบรรทัด
-EN_BEFORE_NUM = {"of", "in", "to", "from", "around", "about", "over", "under", "only", "all", "than"}
+EN_BEFORE_NUM = {"of", "in", "to", "from", "around", "about", "over", "under", "only", "all", "than"} | EN_MONTHS
 
 
 def glue_numbers(phrases):
@@ -211,6 +214,8 @@ def wrap(draw, text, font, max_w, intra=True):
                 merged[-1] += " ·"
             elif ph == "=" and merged:                       # เครื่องหมายเท่ากับต้องอยู่บรรทัดเดียวกับทั้งสองข้าง (ชุดที่ 3)
                 merged[-1] += " ="; glue_next = True
+            elif ph == "+" and merged:                       # "+" ห้ามขึ้นต้นบรรทัด แต่ไม่ดึงฝั่งขวามาเกาะ — ลองแบบ "=" แล้ว "plain review + non-comparative ad" ของชุดที่ 2 กลายเป็น "plain | review + …" (ชุดที่ 6)
+                merged[-1] += " +"
             elif ph.startswith("= ") and merged:             # "= .36" (ทศนิยมเปล่าเกาะ "=" มาแล้วใน glue_numbers) ก็ต้องเกาะฝั่งซ้ายด้วย — ชุดที่ 4 พบ "r | = .36"
                 merged[-1] += " " + ph
             elif merged and NUM_RE.match(ph) and not re.search(r"[\d·→]", merged[-1].split(" ")[-1]) \
@@ -259,10 +264,13 @@ def wrap(draw, text, font, max_w, intra=True):
         # ทำเฉพาะคำละติน เพราะบรรทัดไทยไม่มีช่องว่างระหว่างคำ เช็ก "คำเดียว" ไม่ได้
         if len(lines) >= 2 and re.fullmatch(r"[A-Za-z][A-Za-z'’\-]*[.,;:!?]?", lines[-1]):
             prev = lines[-2].split(" ")
-            if len(prev) >= 2 and not prev[-1].endswith("·"):
-                cand = prev[-1] + " " + lines[-1]
+            # ถ้าคำท้ายบรรทัดก่อนเกาะเลขอยู่ ให้ดึงลงมาทั้งเลขและลักษณนาม ("· 3 sides | compared" เคยดึงแต่ "sides" จนเลขขาดลักษณนาม — ชุดที่ 6)
+            # ถ้าคำท้ายเป็นเลขเสียเอง ไม่ดึง เพราะเลขจะขาดจากป้ายของมัน ("reuse 4.43")
+            n = 2 if len(prev) >= 3 and NUM_RE.match(prev[-2]) else 1
+            if len(prev) > n and not prev[-1].endswith("·") and not NUM_RE.match(prev[-1]) and not prev[-n].endswith("·"):
+                cand = " ".join(prev[-n:]) + " " + lines[-1]
                 if draw.textlength(cand, font=font) <= max_w:
-                    lines[-2] = " ".join(prev[:-1])
+                    lines[-2] = " ".join(prev[:-n])
                     lines[-1] = cand
     return lines
 

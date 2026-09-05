@@ -318,11 +318,13 @@ from storyboard_batch2 import CLIPS2, PALETTE2
 from storyboard_batch3 import CLIPS3, PALETTE3
 from storyboard_batch4 import CLIPS4, PALETTE4
 from storyboard_batch5 import CLIPS5, PALETTE5
-CLIPS += CLIPS2 + CLIPS3 + CLIPS4 + CLIPS5
+from storyboard_batch6 import CLIPS6, PALETTE6
+CLIPS += CLIPS2 + CLIPS3 + CLIPS4 + CLIPS5 + CLIPS6
 PALETTE.update(PALETTE2)
 PALETTE.update(PALETTE3)
 PALETTE.update(PALETTE4)
 PALETTE.update(PALETTE5)
+PALETTE.update(PALETTE6)
 for _c in CLIPS:
     _c.setdefault("batch", 1)
 
