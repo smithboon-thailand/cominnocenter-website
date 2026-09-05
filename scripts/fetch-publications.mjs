@@ -778,10 +778,58 @@ async function verifyThaijo(url, surnames) {
   const authors = [...metaValues("citation_author"), ...metaValues("DC.Creator.PersonalName")];
   if (!surnames.some((s) => authors.some((a) => norm(a).includes(s)))) return null;
   const date = metaValues("citation_date")[0] || metaValues("citation_publication_date")[0] || "";
+  const venue = thaijoJournalName(metaValues("citation_journal_title")[0] || "");
   return {
     authors,
     year: Number((date.match(/\d{4}/) || [])[0]) || 0,
-    venue: metaValues("citation_journal_title")[0] || "",
+    venue,
+    citation: thaijoCitation(metaValues, date, venue),
+  };
+}
+
+/**
+ * ชื่อวารสารตามที่ OJS ประกาศ ตัดคำขยายท้ายชื่อที่ไม่ใช่ส่วนหนึ่งของชื่อ เช่น
+ * "Journal of Communication and Management NIDA (e-Journal)"
+ */
+const thaijoJournalName = (s) => clean(s).replace(/\s*\((?:e-)?journal\)\s*$/i, "");
+
+/**
+ * ข้อมูลบรรณานุกรมจาก meta tag ของหน้าบทความ OJS — รูปแบบเดียวกับ citationFrom()
+ * ที่ใช้กับ Crossref เพื่อให้ citation.ts / check-citations / credits.py ใช้ได้เหมือนกัน
+ *
+ * ทำไมต้องมี (5 ก.ย. 2569): วารสารไทยบน ThaiJO ไม่จด DOI จึงไม่มีระเบียน Crossref
+ * ให้ดึง `citation` มา ผลคือบทความไทย 10 รายการที่มีหน้าบทสรุปแล้ว**ไม่มีปุ่มอ้างอิง**
+ * และการ์ดปิดของวิดีโอใส่ชื่อผู้เขียนไม่ได้ (คลิปความปลอดภัยบนเครื่องบินถูกสลับออกจาก
+ * ชุดที่ 2 เพราะเหตุนี้) ทั้งที่หน้า OJS ปล่อย citation_author · citation_volume ·
+ * citation_issue · citation_firstpage/lastpage · citation_date ครบทุกช่องอยู่แล้ว
+ *
+ * ชื่อผู้เขียนที่ OJS ให้เป็น "ชื่อ นามสกุล" (ตรวจแล้วทั้ง 10 หน้า นามสกุลเป็นคำเดียวทุกคน)
+ * จึงแยกคำสุดท้ายเป็น family ที่เหลือเป็น given — ถ้าเจอนามสกุลสองคำในอนาคตให้แก้ผ่าน
+ * CITATION_FIXES เหมือนรายการ DOI (ดู "Na Taguatung" ของ JHR 2015)
+ */
+function thaijoCitation(metaValues, date, venue) {
+  const names = [...new Set(metaValues("citation_author").map((n) => clean(n)).filter(Boolean))];
+  if (!names.length) return undefined;
+  const authors = names.map((n) => {
+    const words = n.split(" ").filter(Boolean);
+    return words.length > 1
+      ? { family: words[words.length - 1], given: words.slice(0, -1).join(" "), literal: "" }
+      : { family: "", given: "", literal: n };
+  });
+  const [year = 0, month = 0, day = 0] = date.split(/[\/-]/).map((x) => Number(x) || 0);
+  const first = clean(metaValues("citation_firstpage")[0] || "");
+  const last = clean(metaValues("citation_lastpage")[0] || "");
+  return {
+    authors,
+    containerTitle: looksLikeJournal(venue) ? venue : "",
+    volume: clean(metaValues("citation_volume")[0] || ""),
+    issue: clean(metaValues("citation_issue")[0] || ""),
+    page: first && last && first !== last ? `${first}-${last}` : first,
+    articleNumber: "",
+    publisher: "",
+    year,
+    month,
+    day,
   };
 }
 
@@ -809,6 +857,7 @@ async function applyThaijoSources(rows) {
       row.indexUrl = source.url;
       if (official.year) row.year = official.year; // ใช้ปีจากระเบียนทางการ
       if (official.venue) row.venue = official.venue;
+      if (official.citation && !row.citation) row.citation = official.citation;
       if (source.addAuthors) row.people = [...new Set([...row.people, ...source.addAuthors])];
       console.log(`  ThaiJO ✓ ${row.year} ${row.title.slice(0, 55)}`);
     } else {
@@ -820,6 +869,7 @@ async function applyThaijoSources(rows) {
         verified: "index",
         indexUrl: source.url,
         people: source.authors,
+        citation: official.citation,
       });
       console.log(`  ThaiJO + ${official.year} ${source.title.slice(0, 55)} (ยังไม่มีใน ORCID)`);
     }
@@ -913,7 +963,7 @@ export type PublicationEntry = {
   /** จำนวนบทในเล่ม (เฉพาะ type: book) */
   chapters?: number;
   /**
-   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเฉพาะรายการที่ยืนยันผ่าน DOI
+   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเมื่อยืนยันผ่าน DOI (Crossref) หรือหน้าบทความ ThaiJO (meta tag ของ OJS)
    * ฟิลด์ authors ในนี้คือ**ผู้เขียนครบทุกคน** รวมผู้ร่วมวิจัยที่ไม่ได้อยู่ในศูนย์ฯ
    */
   citation?: CitationMeta;
