@@ -460,8 +460,25 @@ const CITATION_FIXES = {
   // "Cite this article as" ที่วารสารพิมพ์ไว้ในตัวไฟล์เอง ซึ่งเป็นคำของสำนักพิมพ์
   // "J Health Res. 2016; 30(4): 231-9."
   "10.14456/jhr.2016.32": { issue: "4", page: "231-239" },
-  // "J Health Res. 2015; 29(5): 395-401."
-  "10.14456/jhr.2015.30": { issue: "5", page: "395-401" },
+  // "J Health Res. 2015; 29(5): 395-401." — และทะเบียนยังเก็บผู้เขียน 3 ใน 4 คน
+  // เป็น literal ทั้งก้อน (ไม่แยก given/family) ซึ่ง citation.ts จงใจไม่แยกให้
+  // (ตามความหมายของ CSL) ผลคือ APA ขึ้นเป็น "Achara Bunchum, … & Smith Boonchutima."
+  // ไม่ใช่ "Bunchum, A., … & Boonchutima, S." — เติมจากหัวบทความหน้า 395 ซึ่งพิมพ์
+  // "Achara Bunchum1, Ornjaree Na Taguatung2, Suchitra Sukonthasab1, Smith Boonchutima3,*"
+  // และบรรทัด "Cite this article as: Bunchum A, Na Taguatung O, Sukonthasab S,
+  // Boonchutima S." ยืนยันว่านามสกุลคนที่สองคือ "Na Taguatung" สองคำ (สกุล ณ ของไทย)
+  // ชื่อวารสารเติมด้วยเพราะทะเบียนลง container-title สลับช่องจนสคริปต์ทิ้งค่าไป
+  "10.14456/jhr.2015.30": {
+    authors: [
+      { family: "Bunchum", given: "Achara", literal: "" },
+      { family: "Na Taguatung", given: "Ornjaree", literal: "" },
+      { family: "Sukonthasab", given: "Suchitra", literal: "" },
+      { family: "Boonchutima", given: "Smith", literal: "" },
+    ],
+    containerTitle: "Journal of Health Research",
+    issue: "5",
+    page: "395-401",
+  },
   // ทะเบียนลงช่วงหน้าไว้ 53-68 ตามเลขที่ติดมากับ DOI (…48p53-68) แต่ตัวเล่มที่
   // ตีพิมพ์ระบุ "Tripodos, number 48 | 2020 | 53-67" บนหน้าแรก และหน้าสุดท้าย
   // ของบทความมีเลขหน้า 67 จริง (ไฟล์ 15 หน้า เริ่มที่ 53) จึงใช้ตามตัวเล่ม
