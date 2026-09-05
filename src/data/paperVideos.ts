@@ -73,6 +73,84 @@ export const paperVideos: PaperVideo[] = [
     th: { youtubeId: "Si-Gv7JUNmM", seconds: 151, uploadDate: "2026-09-04" },
     en: { youtubeId: "I2l9YJno9hQ", seconds: 147, uploadDate: "2026-09-04" },
   },
+  // ── ชุดที่ 3 (เผยแพร่ 5 ก.ย. 2569 ผ่าน Apps Script เช่นกัน · id จาก log ตรวจซ้ำด้วย oEmbed) ──
+  {
+    slug: "covid-official-communication-credibility",
+    th: { youtubeId: "0d0l4hcnZZE", seconds: 204, uploadDate: "2026-09-05" },
+    en: { youtubeId: "sccwabmGb50", seconds: 191, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "genz-cruelty-free-purchase",
+    th: { youtubeId: "9F7fMEh8ASc", seconds: 158, uploadDate: "2026-09-05" },
+    en: { youtubeId: "fWY3REmTwi4", seconds: 152, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "first-year-online-learning-technostress",
+    th: { youtubeId: "zL8Fdnq3a-4", seconds: 156, uploadDate: "2026-09-05" },
+    en: { youtubeId: "tHsVysqyScY", seconds: 146, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "joox-rooms-relational-bonds",
+    th: { youtubeId: "9hUe_LkQjqg", seconds: 167, uploadDate: "2026-09-05" },
+    en: { youtubeId: "5VpuPi4IocA", seconds: 157, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "vtuber-streamer-purchase-intention",
+    th: { youtubeId: "EW_TOux749c", seconds: 148, uploadDate: "2026-09-05" },
+    en: { youtubeId: "vnIl-uinfPk", seconds: 138, uploadDate: "2026-09-05" },
+  },
+  // ── ชุดที่ 4 (เผยแพร่ 5 ก.ย. 2569 ผ่าน Apps Script ของผู้ใช้ · id จาก log ของสคริปต์ + ฟีด RSS ของช่อง ตรวจซ้ำด้วย oEmbed ว่าชื่อคลิปตรง) ──
+  {
+    slug: "chinese-media-thailand-cannabis",
+    th: { youtubeId: "P_l-UrkagRI", seconds: 187, uploadDate: "2026-09-05" },
+    en: { youtubeId: "nnk30t0bzTE", seconds: 194, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "fansub-viewers-sponsorship",
+    th: { youtubeId: "BzN_PDvFS0w", seconds: 168, uploadDate: "2026-09-05" },
+    en: { youtubeId: "h1vzADO6cUU", seconds: 164, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "brand-attitude-congruence-purchase",
+    th: { youtubeId: "pIFWDIIEcp4", seconds: 180, uploadDate: "2026-09-05" },
+    en: { youtubeId: "HFadx7hBLQ4", seconds: 182, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "online-class-cognitive-load-interactive-media",
+    th: { youtubeId: "4RxisrnWdxQ", seconds: 199, uploadDate: "2026-09-05" },
+    en: { youtubeId: "kOEjsHCL4dY", seconds: 214, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "health-officers-knowledge-sharing",
+    th: { youtubeId: "7LXLXzgBfTs", seconds: 180, uploadDate: "2026-09-05" },
+    en: { youtubeId: "bYqDPx9tf3Y", seconds: 185, uploadDate: "2026-09-05" },
+  },
+  // ── ชุดที่ 5 (เผยแพร่ 5 ก.ย. 2569) ──
+  {
+    slug: "hiv-knowledge-public-health-officers",
+    th: { youtubeId: "8CHsPFucr4g", seconds: 188, uploadDate: "2026-09-05" },
+    en: { youtubeId: "Rjq86JIMHHY", seconds: 186, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "hiv-risk-communication-samut-sakhon",
+    th: { youtubeId: "z4jN5RcntPg", seconds: 207, uploadDate: "2026-09-05" },
+    en: { youtubeId: "tDE7_GpSRus", seconds: 215, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "engage-a3-model",
+    th: { youtubeId: "SEPZZSvrLqE", seconds: 189, uploadDate: "2026-09-05" },
+    en: { youtubeId: "avXaE8HArbE", seconds: 175, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "game-influencer-credibility",
+    th: { youtubeId: "uSHjqGYWqFA", seconds: 208, uploadDate: "2026-09-05" },
+    en: { youtubeId: "-pctJ2Ied_s", seconds: 205, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "cryptocurrency-adoption-reddit",
+    th: { youtubeId: "mARMv6j1O2g", seconds: 193, uploadDate: "2026-09-05" },
+    en: { youtubeId: "pSAzvKwLCDo", seconds: 201, uploadDate: "2026-09-05" },
+  },
 ];
 
 for (const v of paperVideos) {

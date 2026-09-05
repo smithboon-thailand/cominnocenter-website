@@ -35,8 +35,22 @@ def credit_for(slug):
     end = src.find("\n  },", i)
     block = src[start:end]
     cit = re.search(r'"citation":\s*\{(.*?)\n    \}', block, re.S).group(1)
-    authors = [(m.group(2) + " " + m.group(1)).strip() for m in re.finditer(r'"family":\s*"([^"]*)",\s*"given":\s*"([^"]*)"', cit)]
+    # ทะเบียนบางรายการ (เช่น JHR 2015) เก็บชื่อผู้เขียนไว้ในช่อง literal ทั้งก้อน ไม่แยก given/family —
+    # ถ้าอ่านแต่ given/family ชื่อจะหายไปเฉยๆ (การ์ดปิดของ ksharing รอบแรกเหลือคนเดียวจากสี่คน)
+    authors = []
+    for m in re.finditer(r'"family":\s*"([^"]*)",\s*"given":\s*"([^"]*)",\s*"literal":\s*"([^"]*)"', cit):
+        family, given, literal = m.group(1), m.group(2), m.group(3)
+        name = (given + " " + family).strip() or literal.strip()
+        if name:
+            authors.append(name)
+    if not authors:
+        raise SystemExit(f"no author names in citation for {slug}")
+    # containerTitle ว่างได้เมื่อทะเบียนไม่ลงชื่อวารสารในระเบียน CSL — ใช้ venue ของรายการแทน (citation.ts ทำแบบเดียวกัน)
     journal = re.search(r'"containerTitle":\s*"([^"]*)"', cit).group(1)
+    if not journal:
+        journal = re.search(r'"venue":\s*"([^"]*)"', block).group(1)
+    if not journal:
+        raise SystemExit(f"no journal name for {slug}")
     year = re.search(r'"year":\s*(\d{4})', cit).group(1)
     return {"authors": authors, "journal": journal, "year": year}
 

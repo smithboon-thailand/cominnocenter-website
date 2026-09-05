@@ -149,14 +149,18 @@ def group_parens(items, sep):
     return res
 
 
-NUM_RE = re.compile(r"^\d[\d,.]*%?$")
+NUM_RE = re.compile(r"^\d[\d,.]*(?:[–-]\d[\d,.]*)?%?$")   # รวมช่วงเลข "10–20" "2557–2558" (ชุดที่ 4: "10–19 | คน" · "ข้อมูลปี | 2557–2558")
 # เลขกับสิ่งที่ผูกกับเลข ต้องอยู่บรรทัดเดียวกัน — พบ "23 | คนในกรุงเทพฯ" · "5 ใน | 6" · "ผู้ชมราว | 300 คน" ในเฟรมจริง
 TH_AFTER_NUM = ("คน", "วัน", "ปี", "จังหวัด", "กลุ่ม", "ชิ้น", "ครั้ง", "สัปดาห์", "เดือน", "ใน", "จาก", "%",
                 "ข้อความ", "คลิป", "ท่า", "ชั่วโมง", "องศา", "ใบ", "แท่ง", "เรื่อง", "ข้อ", "คู่", "ช่อง", "ราย",
+                "ช่วง", "ด้าน", "แบบ", "ระบบ", "ครั้ง", "ข้อ", "ราย", "ชื่อ",
                 "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม")   # ชุดที่ 2: "รีวิวลบ 1 | ข้อความ" เคยหลุดบนจอจริง
 EN_AFTER_NUM = {"of", "in", "to", "from", "people", "visitors", "provinces", "years", "days", "senses", "interviews", "groups",
-                "students", "clips", "news", "vlogs", "workers", "women", "ad", "negative", "physical", "months", "exercises", "weeks", "hours"}
-TH_BEFORE_NUM = ("ราว", "กว่า", "ประมาณ", "เกือบ", "ทั้ง", "เหลือ", "จาก", "ใน", "เพียง", "แค่")
+                "students", "clips", "news", "vlogs", "workers", "women", "ad", "negative", "physical", "months", "exercises", "weeks", "hours",
+                "men", "officers", "answered", "eligible", "models", "users", "experts", "kept"}   # ชุดที่ 5: "40 | men" · "414 | answered"
+TH_BEFORE_NUM = ("ราว", "กว่า", "ประมาณ", "เกือบ", "ทั้ง", "เหลือ", "จาก", "ใน", "เพียง", "แค่", "ถึง", "ปี", "สูง", "ต่ำ", "ได้", "รวม",
+                 "สัมภาษณ์", "ตอบ")   # "อธิบายได้ | 63%" ชุดที่ 3 · "สัมภาษณ์ | 10 คน" ชุดที่ 5
+TH_CONJ = {"กับ", "และ", "หรือ", "แต่", "จึง", "คือ"}   # คำเชื่อมที่ไม่ควรค้างท้ายบรรทัด
 EN_BEFORE_NUM = {"of", "in", "to", "from", "around", "about", "over", "under", "only", "all", "than"}
 
 
@@ -164,6 +168,9 @@ def glue_numbers(phrases):
     """รวมวรรคที่เป็นเลขเข้ากับลักษณนาม/คำเชื่อม/คำนำหน้าของมัน ให้เป็นวรรคเดียว (คั่นด้วยช่องว่างเหมือนเดิม)"""
     out = []
     for ph in phrases:
+        if out and re.match(r"^\.\d+[%.,;:]?$", ph):      # ทศนิยมเปล่า ".89" เกาะคำหน้าเสมอ (ชุดที่ 3: "ไว้วางใจ | .26")
+            out[-1] += " " + ph
+            continue
         if out:
             last = out[-1].split(" ")[-1]
             bare_ph, bare_last = ph.lower().rstrip(",.;:"), last.lower().rstrip(",.;:")
@@ -184,10 +191,33 @@ def wrap(draw, text, font, max_w, intra=True):
     for para in text.split("\n"):
         phrases = glue_numbers(group_parens([p for p in para.split(" ") if p], " "))
         # ตัวคั่น "·" ต้องปิดท้ายบรรทัดก่อน ไม่ขึ้นต้นบรรทัดใหม่ (ขึ้นต้นแล้วอ่านเหมือนหัวข้อย่อย — พบในเฟรมชุดที่ 2)
-        merged = []
+        merged, glue_next, arrow_next = [], False, False
         for ph in phrases:
-            if ph == "·" and merged:
+            if arrow_next and merged:                        # "1.99 → 2.56" เป็นหน่วยเดียวเมื่อยังพอดีบรรทัด (ชุดที่ 5 พบ "1.99 → | 2.56") — ถ้าหน่วยยาวเกินบรรทัดให้ "→" ปิดท้ายบรรทัดเหมือนเดิม
+                arrow_next = False                           # (เกาะแบบไม่มีเงื่อนไขทำให้ "3 แบบ → ความผูกพัน → ใช้ต่อและบอกต่อ" ของชุดที่ 2 กลายเป็นหน่วยเดียวที่ยาวเกินบรรทัดแล้วถูกตัดกลางวรรค)
+                if draw.textlength(merged[-1] + " " + ph, font=font) <= max_w:
+                    merged[-1] += " " + ph
+                else:
+                    merged.append(ph)
+            elif glue_next and merged:
+                glue_next = False
+                if draw.textlength(merged[-1] + " " + ph, font=font) <= max_w:   # เกาะขวาเฉพาะเมื่อยังพอดีบรรทัด ไม่งั้นปล่อย "=" ปิดท้ายบรรทัดเหมือนเดิม
+                    merged[-1] += " " + ph
+                else:
+                    merged.append(ph)
+            elif ph == "→" and merged:
+                merged[-1] += " →"; arrow_next = True
+            elif ph == "·" and merged:
                 merged[-1] += " ·"
+            elif ph == "=" and merged:                       # เครื่องหมายเท่ากับต้องอยู่บรรทัดเดียวกับทั้งสองข้าง (ชุดที่ 3)
+                merged[-1] += " ="; glue_next = True
+            elif ph.startswith("= ") and merged:             # "= .36" (ทศนิยมเปล่าเกาะ "=" มาแล้วใน glue_numbers) ก็ต้องเกาะฝั่งซ้ายด้วย — ชุดที่ 4 พบ "r | = .36"
+                merged[-1] += " " + ph
+            elif merged and NUM_RE.match(ph) and not re.search(r"[\d·→]", merged[-1].split(" ")[-1]) \
+                    and draw.textlength(merged[-1] + " " + ph, font=font) <= max_w:
+                merged[-1] += " " + ph                       # ป้ายกับตัวเลขของมัน ("ข่าวลบ | 36.7%" · "ถาม | 4 เรื่อง") เกาะกันเมื่อยังพอดีบรรทัด (ชุดที่ 4)
+            elif ph in TH_CONJ or ph.endswith(":"):          # คำเชื่อมโดดๆ ("เรียนสด กับ | เรียนจากคลิป") และป้ายที่ลงท้ายด้วย ":" ("ไม่ใช่โอตาคุ: | หน้าตามาก่อน")
+                merged.append(ph); glue_next = True           # ต้องไม่ปิดท้ายบรรทัด — เกาะวรรคถัดไปถ้ายังพอดีบรรทัด (ชุดที่ 3)
             else:
                 merged.append(ph)
         phrases = merged

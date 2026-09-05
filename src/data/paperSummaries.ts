@@ -368,37 +368,39 @@ export const paperSummaries: PaperSummary[] = [
     pdfUrl: "https://www.econstor.eu/handle/10419/326569",
     localCopy: "cryptocurrency-adoption-reddit.pdf",
     th: {
-      headline: "เห็นคุณค่าก็อยากลงทุนคริปโต เห็นความเสี่ยงก็ถอย และแต่ละคนชั่งน้ำหนักสองอย่างนี้ไม่เท่ากัน",
+      headline: "คนใช้ Reddit ที่ลงทุนคริปโตอยู่แล้ว ถูกคุณค่าที่เห็นพาเข้ามา ส่วนความเสี่ยงที่รับรู้แทบไม่มีผล",
       question:
         "นักลงทุนรายย่อยเป็นแรงขับสำคัญที่ทำให้คริปโตเคอร์เรนซีแพร่หลาย แต่ยังไม่ค่อยมีงานที่ตรวจสอบว่า “คุณค่าที่รับรู้” กับ “ความเสี่ยงที่รับรู้” ทำงานอย่างไรในการตัดสินใจของคนกลุ่มนี้ งานนี้เข้าไปตอบช่องว่างนั้น",
       method:
-        "สำรวจผู้ใช้โซเชียลมีเดียที่ใช้งานอยู่บนแพลตฟอร์ม Reddit จำนวน 200 คน แล้ววิเคราะห์ความสัมพันธ์ระหว่างคุณค่าที่รับรู้ ความเสี่ยงที่รับรู้ ปัจจัยด้านประชากร และการยอมรับการลงทุนคริปโต",
+        "โพสต์แบบสอบถามในชุมชนคริปโตบน Reddit ช่วงตุลาคม–พฤศจิกายน 2565 ได้คำตอบ 1,444 ชุด คัดเหลือ 200 คนที่ผ่านเกณฑ์และไม่ซ้ำกัน (หญิง 51.5% · อายุ 25–44 ปี 72.5% · ถือบิตคอยน์ 70%) วัดคุณค่าที่รับรู้ ความเสี่ยงที่รับรู้ และการยอมรับการลงทุนคริปโต แล้ววิเคราะห์ด้วยแบบจำลองสมการโครงสร้าง (PLS-SEM) โดยใส่เพศ อายุ การศึกษา รายได้ และประสบการณ์ลงทุนเป็นตัวแปรควบคุม",
       findings: [
-        "คุณค่าที่รับรู้ส่งผลทางบวกต่อการยอมรับการลงทุนคริปโตเคอร์เรนซี",
-        "ความเสี่ยงที่รับรู้ส่งผลทางลบ",
-        "อายุ ระดับการศึกษา เพศ รายได้ต่อเดือน และประสบการณ์การลงทุน ทำหน้าที่เป็นตัวแปรกำกับ (moderator) ความสัมพันธ์ระหว่างสองแรงนั้นกับการยอมรับ",
+        "**คุณค่าที่รับรู้ส่งผลทางบวกต่อการยอมรับการลงทุนคริปโตอย่างชัดเจน** (t = 9.58) และเป็นผลขนาดใหญ่ (f² = 0.55) แบบจำลองอธิบายการยอมรับได้ 54.4%",
+        "**ความเสี่ยงที่รับรู้ไม่มีผลอย่างมีนัยสำคัญ** (t = 1.28, p = 0.20) สมมติฐานข้อนี้ไม่ผ่าน ผู้เขียนอธิบายว่ากลุ่มตัวอย่างอาจทนความเสี่ยงได้สูงกว่าคนทั่วไป และคุณค่าที่เห็นอาจกลบความเสี่ยงไป ซึ่งต่างจากงานก่อนหน้าหลายชิ้นที่พบว่าความเสี่ยงดึงคนถอย",
+        "**ในห้าตัวแปรประชากร มีเพียงระดับการศึกษาที่มีผล** (p = 0.024) คนที่เรียนสูงกว่ายอมรับการลงทุนนี้มากกว่า ส่วนเพศ อายุ รายได้ และประสบการณ์ลงทุนไม่มีผล",
+        "ผู้ตอบส่วนใหญ่ประเมินความรู้เรื่องคริปโตของตัวเองแค่ “เล็กน้อย” (37%) ถึง “ปานกลาง” (35.5%) มีเพียง 2.5% ที่เรียกตัวเองว่าผู้เชี่ยวชาญ",
       ],
       soWhat:
-        "สำหรับคนทำงานสื่อสารการเงิน ข้อค้นพบนี้บอกว่าการพูดถึงคริปโตด้วยข้อความชุดเดียวกับทุกกลุ่มไม่ได้ผล เพราะน้ำหนักที่คนให้กับคุณค่าและความเสี่ยงเปลี่ยนไปตามอายุ การศึกษา รายได้ และประสบการณ์ลงทุนของแต่ละคน",
+        "สำหรับคนทำงานสื่อสารการเงิน ข้อค้นพบนี้บอกว่ากับคนที่อยู่ในตลาดคริปโตอยู่แล้ว การเตือนความเสี่ยงอย่างเดียวแทบไม่เปลี่ยนการตัดสินใจ เพราะสิ่งที่ขับเคลื่อนคือคุณค่าที่เขาเห็น ถ้าอยากให้คนลงทุนอย่างรู้เท่าทัน ต้องพูดเรื่องความเสี่ยงในภาษาเดียวกับคุณค่า และเพราะการศึกษาเป็นตัวแปรเดียวที่มีผล ผู้เขียนจึงเสนอให้ลงทุนกับความรู้ทางการเงินทั้งในหลักสูตรและในชุมชนออนไลน์ที่คนกลุ่มนี้อยู่จริง",
       caveat:
-        "สำรวจผู้ใช้ Reddit 200 คน ซึ่งเป็นชุมชนออนไลน์ที่มีลักษณะเฉพาะ ไม่ใช่ตัวแทนของนักลงทุนทั่วไปหรือของผู้ใช้ในประเทศไทย",
+        "สำรวจผู้ใช้ Reddit 200 คนจากชุมชนเดียว ซึ่งเป็นคนที่ลงทุนคริปโตอยู่แล้ว ไม่ใช่ตัวแทนของนักลงทุนทั่วไปหรือของผู้ใช้ในประเทศไทย · **บทคัดย่อของบทความเขียนว่าความเสี่ยงส่งผลทางลบ และปัจจัยประชากรเป็นตัวแปรกำกับ แต่ตารางผล (ตารางที่ 5) และบทสรุปของบทความเองระบุตรงข้าม** คือความเสี่ยงไม่มีผล และมีเพียงการศึกษาที่มีผล บทสรุปนี้ยึดตามตารางผล",
     },
     en: {
       headline:
-        "Perceived value pushes people into crypto, perceived risk pulls them back — and who they are decides which wins",
+        "Reddit users already in crypto are drawn in by the value they see; the risk they perceive barely registers",
       question:
         "Retail investors drive much of cryptocurrency's adoption, yet the perceived value and perceived risk behind their decisions have not been examined closely. This study addresses that gap.",
       method:
-        "A survey of 200 social media users active on Reddit, analysing the interplay between perceived value, perceived risk, demographic factors, and the adoption of cryptocurrency investment.",
+        "A survey posted in a cryptocurrency community on Reddit in October–November 2022 drew 1,444 responses, screened to 200 qualified, non-duplicate participants (51.5% women; 72.5% aged 25–44; 70% holding Bitcoin). It measured perceived value, perceived risk and acceptance of cryptocurrency investment, analysed with structural equation modelling (PLS-SEM) with gender, age, education, income and investing experience as control variables.",
       findings: [
-        "Perceived value positively influences acceptance of cryptocurrency investment.",
-        "Perceived risk exerts a negative influence.",
-        "Age, education, gender, monthly income, and investment experience all moderate the relationship between those two forces and adoption.",
+        "**Perceived value has a clear positive effect on acceptance of cryptocurrency investment** (t = 9.58), and a large one (f² = 0.55); the model explains 54.4% of acceptance.",
+        "**Perceived risk has no significant effect** (t = 1.28, p = 0.20), so that hypothesis was not supported. The authors suggest the sample tolerates risk more than most and that perceived value may drown risk out, unlike several earlier studies in which risk held people back.",
+        "**Of the five demographic variables, only education matters** (p = 0.024): people with more schooling accept the investment more readily. Gender, age, income and investing experience have no effect.",
+        "Most respondents rated their own crypto knowledge as only “a little” (37%) to “moderate” (35.5%); just 2.5% called themselves experts.",
       ],
       soWhat:
-        "For anyone communicating about finance, the finding says a single message will not work across audiences: how much weight people give to value versus risk shifts with their age, education, income, and investing experience.",
+        "For anyone communicating about finance, the finding says that with people already in the crypto market, warning about risk on its own barely changes the decision, because what drives it is the value they see. If people are to invest with their eyes open, risk has to be discussed in the same language as value. And since education is the one variable that mattered, the authors propose investing in financial literacy, in curricula and in the online communities where these people actually are.",
       caveat:
-        "A survey of 200 Reddit users — a distinctive online community, not a representative sample of investors generally or of users in Thailand.",
+        "A survey of 200 Reddit users from a single community, all already investing in crypto — not a representative sample of investors generally or of users in Thailand. **The article's abstract states that risk has a negative effect and that demographic factors moderate it, but the article's own results table (Table 5) and conclusion say the opposite**: risk has no effect, and only education does. This summary follows the results tables.",
     },
   },
   {

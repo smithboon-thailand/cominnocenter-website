@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-04)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-05)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -2008,14 +2008,14 @@ export const publications: PublicationEntry[] = [
     "citation": {
       "authors": [
         {
-          "family": "",
-          "given": "",
-          "literal": "Achara Bunchum"
+          "family": "Bunchum",
+          "given": "Achara",
+          "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Ornjaree Na Taguatung"
+          "family": "Na Taguatung",
+          "given": "Ornjaree",
+          "literal": ""
         },
         {
           "family": "Sukonthasab",
@@ -2023,12 +2023,12 @@ export const publications: PublicationEntry[] = [
           "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Smith Boonchutima"
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
         }
       ],
-      "containerTitle": "",
+      "containerTitle": "Journal of Health Research",
       "volume": "29",
       "issue": "5",
       "page": "395-401",
