@@ -86,7 +86,7 @@ export const paperVideos: PaperVideo[] = [
   },
   {
     slug: "first-year-online-learning-technostress",
-    th: { seconds: 156, uploadDate: "2026-09-05" },
+    th: { youtubeId: "zL8Fdnq3a-4", seconds: 156, uploadDate: "2026-09-05" },
     en: { youtubeId: "tHsVysqyScY", seconds: 146, uploadDate: "2026-09-05" },
   },
   {
