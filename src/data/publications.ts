@@ -50,7 +50,7 @@ export type PublicationEntry = {
   /** จำนวนบทในเล่ม (เฉพาะ type: book) */
   chapters?: number;
   /**
-   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเฉพาะรายการที่ยืนยันผ่าน DOI
+   * ข้อมูลบรรณานุกรมตามที่ทะเบียนบันทึกไว้ — มีเมื่อยืนยันผ่าน DOI (Crossref) หรือหน้าบทความ ThaiJO (meta tag ของ OJS)
    * ฟิลด์ authors ในนี้คือ**ผู้เขียนครบทุกคน** รวมผู้ร่วมวิจัยที่ไม่ได้อยู่ในศูนย์ฯ
    */
   citation?: CitationMeta;
@@ -310,14 +310,37 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Relationship Marketing Communication of Horror Storytelling Programs",
-    "venue": "Journal of Communication and Management NIDA (e-Journal)",
+    "venue": "Journal of Communication and Management NIDA",
     "year": 2026,
     "type": "journal-article",
     "verified": "index",
     "indexUrl": "https://so12.tci-thaijo.org/index.php/jcmn/article/view/5690",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        },
+        {
+          "family": "Thongmee",
+          "given": "Krisada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Communication and Management NIDA",
+      "volume": "12",
+      "issue": "1",
+      "page": "19-37",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2026,
+      "month": 5,
+      "day": 5
+    }
   },
   {
     "title": "ai, Post-Truth Realities, and Thai Students’ Information-Seeking Behavior",
@@ -502,7 +525,40 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so02.tci-thaijo.org/index.php/jcomm/article/view/275202",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        },
+        {
+          "family": "Kleechaya",
+          "given": "Phnom",
+          "literal": ""
+        },
+        {
+          "family": "Serisamran",
+          "given": "Teerapong",
+          "literal": ""
+        },
+        {
+          "family": "Kijrungpaisarn",
+          "given": "Kamonrat",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Communication Arts",
+      "volume": "43",
+      "issue": "1",
+      "page": "111-132",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2025,
+      "month": 4,
+      "day": 30
+    }
   },
   {
     "title": "Trump in Russian Pro-Government Media: Analyzing Narratives and Metaphors in 2024 U.S. Presidential Election Coverage",
@@ -1044,7 +1100,30 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so02.tci-thaijo.org/index.php/jcomm/article/view/259563",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Jamjang",
+          "given": "Thavin",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Communication Arts",
+      "volume": "41",
+      "issue": "3",
+      "page": "130-164",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2023,
+      "month": 12,
+      "day": 30
+    }
   },
   {
     "title": "Online Video Game Influencer's Credibility and Purchase Intention",
@@ -1339,7 +1418,30 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/253798",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Wechprasith",
+          "given": "Wanwisa",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Relations and Advertising",
+      "volume": "15",
+      "issue": "1",
+      "page": "53-71",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2022,
+      "month": 6,
+      "day": 30
+    }
   },
   {
     "title": "Public Relations Internship during Covid-19 Pandemic: Lessons learnt from both mentors and mentees",
@@ -1391,7 +1493,30 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://he01.tci-thaijo.org/index.php/AIHD-MU/article/view/251894",
     "authors": [
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Noonpakdee",
+          "given": "Panusak",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Health and Development",
+      "volume": "19",
+      "issue": "3",
+      "page": "215-224",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2021,
+      "month": 9,
+      "day": 13
+    }
   },
   {
     "title": "Factors Predicting Consumer’s Loyalty to One Stop Service On-Demand Application",
@@ -1402,7 +1527,30 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/247870",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Panswad",
+          "given": "Sirawan",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Relations and Advertising",
+      "volume": "14",
+      "issue": "1",
+      "page": "101-119",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2021,
+      "month": 5,
+      "day": 28
+    }
   },
   {
     "title": "The Crisis Communication of Digital Television Channels with Administrative Penalties after Releasing News Reports of the Gunman Taking Hostages in Nakhon Ratchasima Province",
@@ -1413,7 +1561,30 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/251243",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Theekakul",
+          "given": "Salisa",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Relations and Advertising",
+      "volume": "14",
+      "issue": "2",
+      "page": "38-54",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2021,
+      "month": 12,
+      "day": 17
+    }
   },
   {
     "title": "University Students and their Techno-Stress During Covid-19 Pandemic",
@@ -1510,7 +1681,45 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "teerada-chongkolrattanaporn",
       "smith-boonchutima"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Sthapitanonda",
+          "given": "Parichart",
+          "literal": ""
+        },
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        },
+        {
+          "family": "Kachentawa",
+          "given": "Kirati",
+          "literal": ""
+        },
+        {
+          "family": "Bunchum",
+          "given": "Achara",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Relations and Advertising",
+      "volume": "13",
+      "issue": "2",
+      "page": "53-65",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2020,
+      "month": 8,
+      "day": 7
+    }
   },
   {
     "title": "Developing an HIV/AIDS risk communication intervention model among Myanmar migrant workers in a factory in Samut Sakhon, Thailand",
@@ -1631,7 +1840,25 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/148722",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Relations and Advertising",
+      "volume": "11",
+      "issue": "2",
+      "page": "111-129",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2018,
+      "month": 10,
+      "day": 2
+    }
   },
   {
     "title": "Allocating Responsibility for the Damage from Deceptive PR-Materials Disseminated by the Media: A Thought Experiment",
@@ -1993,7 +2220,25 @@ export const publications: PublicationEntry[] = [
     "indexUrl": "https://so03.tci-thaijo.org/index.php/jprad/article/view/132679",
     "authors": [
       "teerada-chongkolrattanaporn"
-    ]
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Journal of Public Relations and Advertising",
+      "volume": "9",
+      "issue": "2",
+      "page": "119-129",
+      "articleNumber": "",
+      "publisher": "",
+      "year": 2016,
+      "month": 0,
+      "day": 0
+    }
   },
   {
     "title": "Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study",

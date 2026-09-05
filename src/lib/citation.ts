@@ -166,6 +166,7 @@ const PROTECTED_PHRASES = [
   "Generation Z",
   "Apple TV",
   "Samut Sakhon",
+  "Nakhon Ratchasima",
   "JOOX Rooms",
   // ตัวพิมพ์ใหญ่ในวลีนี้เป็นที่มาของอักษรย่อชื่อแบบวัด (RAPID) จึงเป็นความหมาย ไม่ใช่สไตล์
   "(Re)-emerging and ePidemic Infectious Diseases",
