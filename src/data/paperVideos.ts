@@ -74,7 +74,7 @@ export const paperVideos: PaperVideo[] = [
     en: { youtubeId: "I2l9YJno9hQ", seconds: 147, uploadDate: "2026-09-04" },
   },
   // ── ชุดที่ 3 (คลิป 09–13) ยังไม่ได้อัปโหลด ณ 5 ก.ย. 2569 — เติมเมื่อได้ id ──
-  // ── ชุดที่ 4 (เผยแพร่ 5 ก.ย. 2569 ผ่าน Apps Script ของผู้ใช้ · id จากฟีด RSS ของช่อง จับคู่ด้วยชื่อคลิปฉบับเต็ม) ──
+  // ── ชุดที่ 4 (เผยแพร่ 5 ก.ย. 2569 ผ่าน Apps Script ของผู้ใช้ · id จาก log ของสคริปต์ + ฟีด RSS ของช่อง ตรวจซ้ำด้วย oEmbed ว่าชื่อคลิปตรง) ──
   {
     slug: "chinese-media-thailand-cannabis",
     th: { youtubeId: "P_l-UrkagRI", seconds: 187, uploadDate: "2026-09-05" },
@@ -113,17 +113,17 @@ export const paperVideos: PaperVideo[] = [
   },
   {
     slug: "engage-a3-model",
-    th: { seconds: 189, uploadDate: "2026-09-05" },
-    en: { seconds: 175, uploadDate: "2026-09-05" },
+    th: { youtubeId: "SEPZZSvrLqE", seconds: 189, uploadDate: "2026-09-05" },
+    en: { youtubeId: "avXaE8HArbE", seconds: 175, uploadDate: "2026-09-05" },
   },
   {
     slug: "game-influencer-credibility",
-    th: { seconds: 208, uploadDate: "2026-09-05" },
-    en: { seconds: 205, uploadDate: "2026-09-05" },
+    th: { youtubeId: "uSHjqGYWqFA", seconds: 208, uploadDate: "2026-09-05" },
+    en: { youtubeId: "-pctJ2Ied_s", seconds: 205, uploadDate: "2026-09-05" },
   },
   {
     slug: "cryptocurrency-adoption-reddit",
-    th: { seconds: 193, uploadDate: "2026-09-05" },
+    th: { youtubeId: "mARMv6j1O2g", seconds: 193, uploadDate: "2026-09-05" },
     en: { youtubeId: "pSAzvKwLCDo", seconds: 201, uploadDate: "2026-09-05" },
   },
 ];
