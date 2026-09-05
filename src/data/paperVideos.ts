@@ -73,7 +73,32 @@ export const paperVideos: PaperVideo[] = [
     th: { youtubeId: "Si-Gv7JUNmM", seconds: 151, uploadDate: "2026-09-04" },
     en: { youtubeId: "I2l9YJno9hQ", seconds: 147, uploadDate: "2026-09-04" },
   },
-  // ── ชุดที่ 3 (คลิป 09–13) ยังไม่ได้อัปโหลด ณ 5 ก.ย. 2569 — เติมเมื่อได้ id ──
+  // ── ชุดที่ 3 (เผยแพร่ 5 ก.ย. 2569 ผ่าน Apps Script เช่นกัน · id จาก log ตรวจซ้ำด้วย oEmbed) ──
+  {
+    slug: "covid-official-communication-credibility",
+    th: { youtubeId: "0d0l4hcnZZE", seconds: 204, uploadDate: "2026-09-05" },
+    en: { youtubeId: "sccwabmGb50", seconds: 191, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "genz-cruelty-free-purchase",
+    th: { youtubeId: "9F7fMEh8ASc", seconds: 158, uploadDate: "2026-09-05" },
+    en: { youtubeId: "fWY3REmTwi4", seconds: 152, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "first-year-online-learning-technostress",
+    th: { seconds: 156, uploadDate: "2026-09-05" },
+    en: { youtubeId: "tHsVysqyScY", seconds: 146, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "joox-rooms-relational-bonds",
+    th: { youtubeId: "9hUe_LkQjqg", seconds: 167, uploadDate: "2026-09-05" },
+    en: { youtubeId: "5VpuPi4IocA", seconds: 157, uploadDate: "2026-09-05" },
+  },
+  {
+    slug: "vtuber-streamer-purchase-intention",
+    th: { youtubeId: "EW_TOux749c", seconds: 148, uploadDate: "2026-09-05" },
+    en: { youtubeId: "vnIl-uinfPk", seconds: 138, uploadDate: "2026-09-05" },
+  },
   // ── ชุดที่ 4 (เผยแพร่ 5 ก.ย. 2569 ผ่าน Apps Script ของผู้ใช้ · id จาก log ของสคริปต์ + ฟีด RSS ของช่อง ตรวจซ้ำด้วย oEmbed ว่าชื่อคลิปตรง) ──
   {
     slug: "chinese-media-thailand-cannabis",
