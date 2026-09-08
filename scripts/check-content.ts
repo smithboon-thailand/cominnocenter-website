@@ -117,6 +117,13 @@ const FORBIDDEN: { name: string; re: RegExp; why: string }[] = [
   // Crossref และในตัววารสาร รายการอ้างอิงบนหน้า /research จึงต้องคงตามที่พิมพ์จริง
   // ถ้าใส่ไว้ ตัวตรวจจะฟ้องรายการอ้างอิงที่ถูกต้องอยู่แล้วทุกครั้งที่รัน
   {
+    name: "ยอดอ้างอิง Scopus ที่เลิกใช้แล้ว",
+    // ตัวเลขชุดนี้ hard-code อยู่ใน leadership.ts จึงล้าสมัยเงียบๆ ได้ตลอด
+    // ใส่ค่าเก่าไว้ตามกติกาของคลัง — ค่าเก่าที่ไม่ถูกจดไว้คือค่าที่จะกลับมาอีก
+    re: /24 documents · 97 citations/g,
+    why: "ค่ารอบ ส.ค. 2569 · ตรวจซ้ำ 8 ก.ย. 2569 ได้ 107 citations — แก้ที่ src/data/leadership.ts ที่เดียว",
+  },
+  {
     name: "ที่อยู่เซิร์ฟเวอร์ตอนพัฒนา",
     re: /https?:\/\/localhost(:\d+)?/g,
     why: "ค่าที่หลุดมาจากเครื่องพัฒนา — ผู้อ่านกดแล้วไปไม่ถึงไหน",
@@ -337,6 +344,86 @@ for (const file of shipped) {
       `${file}: ลิงก์ไม่มีข้อความข้างใน → ${href}\n` +
         `     เหตุ: <a> ที่ว่างเปล่ากินพื้นที่ศูนย์พิกเซล ผู้อ่านมองไม่เห็นและกดไม่ได้ เท่ากับไม่มีลิงก์นั้นอยู่จริง`,
     );
+  }
+}
+
+// ─── 3ค. slug ผู้เขียนที่หลุดขึ้นหน้าเว็บแทนชื่อคน ───────────────────────────
+//
+// `publications.ts` เก็บผู้เขียนเป็น slug (`phyu-hnin-hlaing`) แล้วหน้าเว็บ
+// แปลงเป็นชื่อคนตอน render ตัวแปลงคืน **slug เดิมเป็นค่าสำรอง** เมื่อหาไม่เจอ
+// ซึ่งแปลว่าวันที่เพิ่มผู้เขียนใหม่เข้าทะเบียนของ `fetch-publications.mjs`
+// โดยลืมใส่ `slug` ให้คนนั้นในไฟล์รายชื่อ ผู้อ่านจะเห็นคำว่า `phyu-hnin-hlaing`
+// เป็นข้อความ และ JSON-LD จะส่ง slug ดิบไปเป็นชื่อผู้เขียนให้ Google ด้วย
+//
+// TypeScript ตรวจให้ไม่ได้เลยเพราะทั้งคู่เป็น `string` ที่ถูกชนิดทุกประการ
+// (ปัญหาตระกูลเดียวกับลิงก์เปล่าในข้อ 3ข — เสียงเตือนเบาจนถูกอ่านผ่าน)
+const authorSlugs = extract(
+  "scripts/fetch-publications.mjs",
+  /^  "([a-z][a-z0-9-]+)": \{ ?(?:orcid|crossref)/gm,
+  4,
+  "slug ผู้เขียนในทะเบียน",
+);
+// ผู้เขียนที่ประกาศแบบหลายบรรทัด (มีคอมเมนต์คั่น) ไม่เข้ารูปข้างบน — เก็บเพิ่ม
+const multilineSlugs = [
+  ...readFileSync("scripts/fetch-publications.mjs", "utf8").matchAll(
+    /^  "([a-z][a-z0-9-]+)": \{$/gm,
+  ),
+].map((m) => m[1]);
+const allAuthorSlugs = [...new Set([...authorSlugs, ...multilineSlugs])];
+
+/** ข้อความที่ผู้อ่านเห็นจริง — ตัด <script> ทิ้งก่อนแล้วค่อยลอกแท็กออก */
+const visibleText = (html: string) =>
+  html
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ");
+
+for (const file of shipped) {
+  if (!file.endsWith(".html")) continue;
+  const body = readText(file);
+  if (body === null) continue;
+  const text = visibleText(body);
+  for (const slug of allAuthorSlugs) {
+    if (text.includes(slug)) {
+      errors.push(
+        `${file}: slug ผู้เขียนหลุดขึ้นหน้าเว็บแทนชื่อคน → ${slug}\n` +
+          `     แก้: ใส่ field slug: "${slug}" ให้คนนี้ใน src/data/leadership.ts, researchers.ts หรือ team.ts`,
+      );
+    }
+    // JSON-LD ร้ายแรงกว่า เพราะผู้อ่านมองไม่เห็นแต่ Google อ่าน
+    if (body.includes(`"name":"${slug}"`)) {
+      errors.push(
+        `${file}: JSON-LD ส่ง slug ดิบเป็นชื่อผู้เขียน → ${slug}\n` +
+          `     แก้: ที่เดียวกับข้างบน — schema.ts อ่านชื่อจากตัวแปลงตัวเดียวกัน`,
+      );
+    }
+  }
+}
+
+// ─── 3ง. percentile ที่ไม่บอกสาขา ────────────────────────────────────────────
+//
+// วารสารเล่มเดียวถูก Scopus จัดอันดับหลายสาขาพร้อมกัน และค่าต่างกันมาก
+// American Behavioral Scientist อยู่ที่ 97th ในสาขา Cultural Studies
+// แต่ 75th ในสาขา Social Psychology — การแสดงตัวเลขโดยไม่บอกสาขาจึงเท่ากับ
+// หยิบค่าที่ดีที่สุดมาโชว์โดยไม่บอกที่มา (กติกาข้อ 2 ของชุดข้อมูล Scopus)
+// `\b` ท้ายเลขจำเป็นจริงๆ — ถ้าไม่มี `\d+` จะถอยกลับมาจับ "9" จาก "97"
+// แล้วมองว่าตัวถัดไปไม่ใช่ " ในสาขา " จึงฟ้องทุกบรรทัดที่ถูกต้องอยู่แล้ว
+// (เจอตอนรันจริง 8 ก.ย. 2569 — ตัวตรวจที่ร้องผิดทุกครั้งจะถูกเมินภายในสัปดาห์เดียว)
+const PERCENTILE_TH = /เปอร์เซ็นไทล์ที่ \d+\b(?! ในสาขา )/g;
+const PERCENTILE_EN = /\d+(?:st|nd|rd|th) percentile(?! in )/g;
+
+for (const file of shipped) {
+  if (!file.endsWith(".html")) continue;
+  const body = readText(file);
+  if (body === null) continue;
+  const text = visibleText(body);
+  for (const re of [PERCENTILE_TH, PERCENTILE_EN]) {
+    for (const m of text.matchAll(re)) {
+      errors.push(
+        `${file}: percentile ไม่ได้บอกสาขา → ${m[0].trim()}\n` +
+          `     เหตุ: วารสารเล่มเดียวถูกจัดอันดับหลายสาขาและค่าต่างกันมาก ตัวเลขลอยๆ อ่านเป็นการเลือกค่าที่ดีที่สุด`,
+      );
+    }
   }
 }
 

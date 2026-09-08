@@ -8,9 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import SectionIcon from "@/components/ui/SectionIcon";
 import { publicationListSchema } from "@/lib/schema";
 import { publications, publicationStats } from "@/data/publications";
-import { leadership } from "@/data/leadership";
+import { personName } from "@/lib/people";
 
-const authorName = (slug: string) => leadership.find((l) => l.slug === slug)?.name ?? slug;
+const authorName = (slug: string) => personName(slug, "th");
 
 export const metadata = {
   alternates: {

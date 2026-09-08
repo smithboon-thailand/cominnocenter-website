@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-05)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-08)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -8,11 +8,11 @@
  *   DOI ที่ชี้ไปงานของคนอื่นถูกตัดออกแล้ว (รอบล่าสุดตัดออก 0 รายการ)
  * - รายการที่ไม่มี DOI ถูกค้นในดัชนีอิสระโดยบังคับให้นามสกุลผู้เขียนตรงด้วย
  * - งานชิ้นเดียวที่สำนักพิมพ์จด DOI ซ้ำสองเลขถูกยุบเป็นรายการเดียว
- *   (รอบล่าสุดยุบ 1 รายการ) เก็บเลขที่มียอดอ้างอิงสูงกว่า
+ *   (รอบล่าสุดยุบ 2 รายการ) เก็บเลขที่มียอดอ้างอิงสูงกว่า
  *
  * ระดับการตรวจสอบ (field verified):
- *   "doi"   47 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
- *   "link"  2 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
+ *   "doi"   58 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
+ *   "link"  3 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
  *   "index" 13 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
  *   "self"  13 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
  *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
@@ -86,7 +86,8 @@ export const publications: PublicationEntry[] = [
     "verified": "doi",
     "doi": "10.1186/s40900-026-00891-8",
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "phyu-hnin-hlaing"
     ],
     "citation": {
       "authors": [
@@ -130,7 +131,8 @@ export const publications: PublicationEntry[] = [
     "verified": "doi",
     "doi": "10.12688/wellcomeopenres.26014.1",
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "phyu-hnin-hlaing"
     ],
     "citation": {
       "authors": [
@@ -561,6 +563,70 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
+    "title": "TikTok as a Powerful Tool for Showcasing Philippine Destinations: Its Influence on Tourism and Digital Marketing",
+    "venue": "Psychology and Education: A Multidisciplinary Journal",
+    "year": 2025,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.70838/pemj.360210",
+    "authors": [
+      "robbie-buelo"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Datu",
+          "given": "Apolinar",
+          "literal": ""
+        },
+        {
+          "family": "Condez",
+          "given": "Dawn Nari",
+          "literal": ""
+        },
+        {
+          "family": "Buelo",
+          "given": "Robbie Jan Vincent",
+          "literal": ""
+        },
+        {
+          "family": "Sabado",
+          "given": "Cindy",
+          "literal": ""
+        },
+        {
+          "family": "Soriano",
+          "given": "Catherine",
+          "literal": ""
+        },
+        {
+          "family": "Datu",
+          "given": "Jeanette",
+          "literal": ""
+        },
+        {
+          "family": "Minay",
+          "given": "Jidnaida",
+          "literal": ""
+        },
+        {
+          "family": "Bingayen",
+          "given": "Erica",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Psychology and Education: A Multidisciplinary Journal",
+      "volume": "36",
+      "issue": "2",
+      "page": "237-245",
+      "articleNumber": "PEMJ3456",
+      "publisher": "Innovative Scholars and Researchers Alliance",
+      "year": 2025,
+      "month": 4,
+      "day": 25
+    }
+  },
+  {
     "title": "Trump in Russian Pro-Government Media: Analyzing Narratives and Metaphors in 2024 U.S. Presidential Election Coverage",
     "venue": "American Behavioral Scientist",
     "year": 2025,
@@ -592,6 +658,71 @@ export const publications: PublicationEntry[] = [
       "year": 2025,
       "month": 12,
       "day": 26
+    }
+  },
+  {
+    "title": "Use and Impact of Artificial Intelligence in Philippine Higher Education: Reflections from Instructors and Administrators",
+    "venue": "Internet Reference Services Quarterly",
+    "year": 2024,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1080/10875301.2024.2352746",
+    "citations": 43,
+    "authors": [
+      "robbie-buelo"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Giray",
+          "given": "Louie",
+          "literal": ""
+        },
+        {
+          "family": "De Silos",
+          "given": "Paolo Yves",
+          "literal": ""
+        },
+        {
+          "family": "Adornado",
+          "given": "Adonis",
+          "literal": ""
+        },
+        {
+          "family": "Buelo",
+          "given": "Robbie Jan Vincent",
+          "literal": ""
+        },
+        {
+          "family": "Galas",
+          "given": "Elbert",
+          "literal": ""
+        },
+        {
+          "family": "Reyes-Chua",
+          "given": "Ethel",
+          "literal": ""
+        },
+        {
+          "family": "Santiago",
+          "given": "Cereneo",
+          "literal": ""
+        },
+        {
+          "family": "Ulanday",
+          "given": "Ma. Leah",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Internet Reference Services Quarterly",
+      "volume": "28",
+      "issue": "3",
+      "page": "315-338",
+      "articleNumber": "",
+      "publisher": "Informa UK Limited",
+      "year": 2024,
+      "month": 6,
+      "day": 4
     }
   },
   {
@@ -643,7 +774,8 @@ export const publications: PublicationEntry[] = [
     "doi": "10.12688/wellcomeopenres.21428.1",
     "citations": 2,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "phyu-hnin-hlaing"
     ],
     "citation": {
       "authors": [
@@ -824,6 +956,60 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
+    "title": "Participation, promotion, and practices of the Indigenous Peoples Education (IPEd)- implementing schools in localizing sustainable development goals",
+    "venue": "HO CHI MINH CITY OPEN UNIVERSITY JOURNAL OF SCIENCE - SOCIAL SCIENCES",
+    "year": 2024,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.46223/hcmcoujs.soci.en.15.2.3155.2025",
+    "authors": [
+      "robbie-buelo"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Bastida, Jr.",
+          "given": "Ernesto L.",
+          "literal": ""
+        },
+        {
+          "family": "Buelo",
+          "given": "Robbie Jan Vincent T.",
+          "literal": ""
+        },
+        {
+          "family": "Tabia",
+          "given": "Fatima G.",
+          "literal": ""
+        },
+        {
+          "family": "De Lara",
+          "given": "Rudy Bhonne R.",
+          "literal": ""
+        },
+        {
+          "family": "Abargos",
+          "given": "Jerbert M.",
+          "literal": ""
+        },
+        {
+          "family": "Oliquino",
+          "given": "Catherine S.",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "HO CHI MINH CITY OPEN UNIVERSITY JOURNAL OF SCIENCE - SOCIAL SCIENCES",
+      "volume": "15",
+      "issue": "2",
+      "page": "94-115",
+      "articleNumber": "",
+      "publisher": "Ho Chi Minh City Open University Journal of Science",
+      "year": 2024,
+      "month": 10,
+      "day": 11
+    }
+  },
+  {
     "title": "Philosophical Foundations of Communication Studies",
     "venue": "Springer Nature Singapore",
     "year": 2024,
@@ -880,6 +1066,35 @@ export const publications: PublicationEntry[] = [
       "year": 2024,
       "month": 6,
       "day": 25
+    }
+  },
+  {
+    "title": "Roles of Universities and Academic Researchers in Environmental Communication in Thailand",
+    "venue": "Multi-Stakeholder Contribution in Asian Environmental Communication",
+    "year": 2024,
+    "type": "book-chapter",
+    "verified": "doi",
+    "doi": "10.4324/9781032670508-4",
+    "authors": [
+      "teerada-chongkolrattanaporn"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Multi-Stakeholder Contribution in Asian Environmental Communication",
+      "volume": "",
+      "issue": "",
+      "page": "21-35",
+      "articleNumber": "",
+      "publisher": "Routledge",
+      "year": 2024,
+      "month": 5,
+      "day": 13
     }
   },
   {
@@ -953,6 +1168,76 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
+    "title": "Health professions students’ approaches towards practice-driven ethical dilemmas; a case-based qualitative study",
+    "venue": "BMC Medical Education",
+    "year": 2023,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1186/s12909-023-04089-4",
+    "citations": 9,
+    "authors": [
+      "phyu-hnin-hlaing"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Hasswan",
+          "given": "Ahmed",
+          "literal": ""
+        },
+        {
+          "family": "Salmanpour",
+          "given": "Vida",
+          "literal": ""
+        },
+        {
+          "family": "Shorbagi",
+          "given": "Sarra",
+          "literal": ""
+        },
+        {
+          "family": "AlMahmoud",
+          "given": "Tahra",
+          "literal": ""
+        },
+        {
+          "family": "Jirjees",
+          "given": "Feras Jassim",
+          "literal": ""
+        },
+        {
+          "family": "Kawas",
+          "given": "Sausan Al",
+          "literal": ""
+        },
+        {
+          "family": "Guraya",
+          "given": "Salman Yusuf",
+          "literal": ""
+        },
+        {
+          "family": "Sulaiman",
+          "given": "Nabil",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "BMC Medical Education",
+      "volume": "23",
+      "issue": "1",
+      "page": "",
+      "articleNumber": "307",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2023,
+      "month": 5,
+      "day": 2
+    }
+  },
+  {
     "title": "The Impact of VTubers and Streamers on the Purchase Intention of Otaku and Non-Otaku Respondents: A Comparative Study",
     "venue": "Basic and Applied Social Psychology",
     "year": 2023,
@@ -996,7 +1281,9 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1109/tencon58879.2023.10322455",
     "citations": 4,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "watsayut-kongchan",
+      "teerada-chongkolrattanaporn"
     ],
     "citation": {
       "authors": [
@@ -1597,6 +1884,236 @@ export const publications: PublicationEntry[] = [
     ]
   },
   {
+    "title": "Evaluation of the forum theatre approach for public engagement around antibiotic use in Myanmar",
+    "venue": "PLOS ONE",
+    "year": 2020,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1371/journal.pone.0235625",
+    "citations": 21,
+    "authors": [
+      "phyu-hnin-hlaing"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Swe",
+          "given": "Myo Maung Maung",
+          "literal": ""
+        },
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Phyo",
+          "given": "Aung Pyae",
+          "literal": ""
+        },
+        {
+          "family": "Aung",
+          "given": "Htet Htet",
+          "literal": ""
+        },
+        {
+          "family": "Smithuis",
+          "given": "Frank",
+          "literal": ""
+        },
+        {
+          "family": "Ashley",
+          "given": "Elizabeth A.",
+          "literal": ""
+        },
+        {
+          "family": "Cheah",
+          "given": "Phaik Yeong",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "PLOS ONE",
+      "volume": "15",
+      "issue": "7",
+      "page": "",
+      "articleNumber": "e0235625",
+      "publisher": "Public Library of Science (PLoS)",
+      "year": 2020,
+      "month": 7,
+      "day": 9
+    }
+  },
+  {
+    "title": "Impact of a package of diagnostic tools, clinical algorithm, and training and communication on outpatient acute fever case management in low- and middle-income countries: protocol for a randomized controlled trial",
+    "venue": "Trials",
+    "year": 2020,
+    "type": "journal-article",
+    "verified": "link",
+    "doi": "10.1186/s13063-020-04897-9",
+    "citations": 17,
+    "authors": [
+      "phyu-hnin-hlaing"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Salami",
+          "given": "Olawale",
+          "literal": ""
+        },
+        {
+          "family": "Horgan",
+          "given": "Philip",
+          "literal": ""
+        },
+        {
+          "family": "Moore",
+          "given": "Catrin E.",
+          "literal": ""
+        },
+        {
+          "family": "Giri",
+          "given": "Abhishek",
+          "literal": ""
+        },
+        {
+          "family": "Sserwanga",
+          "given": "Asadu",
+          "literal": ""
+        },
+        {
+          "family": "Pathak",
+          "given": "Ashish",
+          "literal": ""
+        },
+        {
+          "family": "Basnyat",
+          "given": "Buddha",
+          "literal": ""
+        },
+        {
+          "family": "Kiemde",
+          "given": "Francois",
+          "literal": ""
+        },
+        {
+          "family": "Smithuis",
+          "given": "Frank",
+          "literal": ""
+        },
+        {
+          "family": "Kitutu",
+          "given": "Freddy",
+          "literal": ""
+        },
+        {
+          "family": "Phutke",
+          "given": "Gajanan",
+          "literal": ""
+        },
+        {
+          "family": "Tinto",
+          "given": "Halidou",
+          "literal": ""
+        },
+        {
+          "family": "Hopkins",
+          "given": "Heidi",
+          "literal": ""
+        },
+        {
+          "family": "Kapisi",
+          "given": "James",
+          "literal": ""
+        },
+        {
+          "family": "Swe",
+          "given": "Myo Maung Maung",
+          "literal": ""
+        },
+        {
+          "family": "Taneja",
+          "given": "Neelam",
+          "literal": ""
+        },
+        {
+          "family": "Baiden",
+          "given": "Rita",
+          "literal": ""
+        },
+        {
+          "family": "Dutta",
+          "given": "Shanta",
+          "literal": ""
+        },
+        {
+          "family": "Compaore",
+          "given": "Adelaide",
+          "literal": ""
+        },
+        {
+          "family": "Kaawa-Mafigiri",
+          "given": "David",
+          "literal": ""
+        },
+        {
+          "family": "Hussein",
+          "given": "Rashida",
+          "literal": ""
+        },
+        {
+          "family": "Shakya",
+          "given": "Summita Udas",
+          "literal": ""
+        },
+        {
+          "family": "Kukula",
+          "given": "Vida",
+          "literal": ""
+        },
+        {
+          "family": "Ongarello",
+          "given": "Stefano",
+          "literal": ""
+        },
+        {
+          "family": "Tomar",
+          "given": "Anjana",
+          "literal": ""
+        },
+        {
+          "family": "Chadha",
+          "given": "Sarabjit S.",
+          "literal": ""
+        },
+        {
+          "family": "Walia",
+          "given": "Kamini",
+          "literal": ""
+        },
+        {
+          "family": "Kelly-Cirino",
+          "given": "Cassandra",
+          "literal": ""
+        },
+        {
+          "family": "Olliaro",
+          "given": "Piero",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Trials",
+      "volume": "21",
+      "issue": "1",
+      "page": "",
+      "articleNumber": "974",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2020,
+      "month": 11,
+      "day": 25
+    }
+  },
+  {
     "title": "Freedom of Expression, Social Media Censorship, and Property Rights",
     "venue": "Tripodos",
     "year": 2020,
@@ -1662,6 +2179,160 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
+    "title": "Exploring the behavioural determinants of adherence to prescription for acute febrile illnesses, and development of a training and communication clinical trial intervention: a description of research methods",
+    "venue": "openRxiv",
+    "year": 2020,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1101/2020.12.01.20240929",
+    "authors": [
+      "phyu-hnin-hlaing"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Horgan",
+          "given": "Philip",
+          "literal": ""
+        },
+        {
+          "family": "Salami",
+          "given": "Olawale",
+          "literal": ""
+        },
+        {
+          "family": "del Barrio",
+          "given": "Mariam Otmani",
+          "literal": ""
+        },
+        {
+          "family": "Tomar",
+          "given": "Anjana",
+          "literal": ""
+        },
+        {
+          "family": "Chadha",
+          "given": "Sarabjit S",
+          "literal": ""
+        },
+        {
+          "family": "Basnyat",
+          "given": "Buddha",
+          "literal": ""
+        },
+        {
+          "family": "Shakya",
+          "given": "Summita Udas",
+          "literal": ""
+        },
+        {
+          "family": "Kaawa-Magiri",
+          "given": "David",
+          "literal": ""
+        },
+        {
+          "family": "Hopkins",
+          "given": "Heidi",
+          "literal": ""
+        },
+        {
+          "family": "Kapisi",
+          "given": "James",
+          "literal": ""
+        },
+        {
+          "family": "Kukula",
+          "given": "Vida",
+          "literal": ""
+        },
+        {
+          "family": "Baiden",
+          "given": "Rita",
+          "literal": ""
+        },
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Smithuis",
+          "given": "Frank",
+          "literal": ""
+        },
+        {
+          "family": "Campaore",
+          "given": "Adelaide",
+          "literal": ""
+        },
+        {
+          "family": "Tinto",
+          "given": "Halidou",
+          "literal": ""
+        },
+        {
+          "family": "Gautam",
+          "given": "Manu",
+          "literal": ""
+        },
+        {
+          "family": "Pathak",
+          "given": "Ashish",
+          "literal": ""
+        },
+        {
+          "family": "Kaur",
+          "given": "Manmeet",
+          "literal": ""
+        },
+        {
+          "family": "Taneja",
+          "given": "Neelam",
+          "literal": ""
+        },
+        {
+          "family": "Deb",
+          "given": "Alok Kr.",
+          "literal": ""
+        },
+        {
+          "family": "Dutta",
+          "given": "Shanta",
+          "literal": ""
+        },
+        {
+          "family": "Sahyog",
+          "given": "Jan Swasthya",
+          "literal": ""
+        },
+        {
+          "family": "Walia",
+          "given": "Kamini",
+          "literal": ""
+        },
+        {
+          "family": "Moore",
+          "given": "Catrin E",
+          "literal": ""
+        },
+        {
+          "family": "Olliaro",
+          "given": "Piero",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "articleNumber": "",
+      "publisher": "openRxiv",
+      "year": 2020,
+      "month": 12,
+      "day": 4
+    }
+  },
+  {
     "title": "Right to Clean Air' but What Went Wrong?: A Case Study on Global Public Relations in Local Communities in Thailand",
     "venue": "Asia Pacific Public Relations Research and Education Network Research Symposium",
     "year": 2020,
@@ -1719,6 +2390,111 @@ export const publications: PublicationEntry[] = [
       "year": 2020,
       "month": 8,
       "day": 7
+    }
+  },
+  {
+    "title": "Evaluation of the Pint of Science festival in Thailand",
+    "venue": "PLOS ONE",
+    "year": 2019,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1371/journal.pone.0219983",
+    "citations": 15,
+    "authors": [
+      "phyu-hnin-hlaing"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Adhikari",
+          "given": "Bipin",
+          "literal": ""
+        },
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Robinson",
+          "given": "Matthew T.",
+          "literal": ""
+        },
+        {
+          "family": "Ruecker",
+          "given": "Andrea",
+          "literal": ""
+        },
+        {
+          "family": "Tan",
+          "given": "Noel Hidalgo",
+          "literal": ""
+        },
+        {
+          "family": "Jatupornpimol",
+          "given": "Nattapat",
+          "literal": ""
+        },
+        {
+          "family": "Chanviriyavuth",
+          "given": "Rita",
+          "literal": ""
+        },
+        {
+          "family": "Cheah",
+          "given": "Phaik Yeong",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "PLOS ONE",
+      "volume": "14",
+      "issue": "7",
+      "page": "",
+      "articleNumber": "e0219983",
+      "publisher": "Public Library of Science (PLoS)",
+      "year": 2019,
+      "month": 7,
+      "day": 18
+    }
+  },
+  {
+    "title": "Application of PRECEDE-PROCEED Planning Model in Transforming the Clinical Decision Making Behavior of Physical Therapists in Myanmar",
+    "venue": "Frontiers in Public Health",
+    "year": 2019,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.3389/fpubh.2019.00114",
+    "citations": 13,
+    "authors": [
+      "phyu-hnin-hlaing"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Hlaing",
+          "given": "Phyu Hnin",
+          "literal": ""
+        },
+        {
+          "family": "Sullivan",
+          "given": "Patricia E.",
+          "literal": ""
+        },
+        {
+          "family": "Chaiyawat",
+          "given": "Pakaratee",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Frontiers in Public Health",
+      "volume": "7",
+      "issue": "",
+      "page": "",
+      "articleNumber": "114",
+      "publisher": "Frontiers Media SA",
+      "year": 2019,
+      "month": 5,
+      "day": 8
     }
   },
   {
@@ -1913,7 +2689,8 @@ export const publications: PublicationEntry[] = [
     "doi": "10.2147/prbm.s121480",
     "citations": 25,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "watsayut-kongchan"
     ],
     "citation": {
       "authors": [
@@ -1982,6 +2759,41 @@ export const publications: PublicationEntry[] = [
       "year": 2017,
       "month": 11,
       "day": 0
+    }
+  },
+  {
+    "title": "The Phenomenon of Trump’s Popularity in Russia: Media Analysis Perspective",
+    "venue": "American Behavioral Scientist",
+    "year": 2017,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.1177/0002764217693281",
+    "citations": 12,
+    "authors": [
+      "pavel-slutskiy"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Slutsky",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Gavra",
+          "given": "Dmitrii",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "American Behavioral Scientist",
+      "volume": "61",
+      "issue": "3",
+      "page": "334-344",
+      "articleNumber": "",
+      "publisher": "SAGE Publications",
+      "year": 2017,
+      "month": 2,
+      "day": 9
     }
   },
   {
@@ -2117,6 +2929,56 @@ export const publications: PublicationEntry[] = [
     "authors": [
       "teerada-chongkolrattanaporn"
     ]
+  },
+  {
+    "title": "Companies’ Accountability in Sustainability: A Comparative Analysis of SDGs in Five Countries",
+    "venue": "Communication, Culture and Change in Asia",
+    "year": 2016,
+    "type": "book-chapter",
+    "verified": "doi",
+    "doi": "10.1007/978-981-10-2815-1_5",
+    "citations": 18,
+    "authors": [
+      "pavel-slutskiy"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Pillai",
+          "given": "Kamala Vainy",
+          "literal": ""
+        },
+        {
+          "family": "Slutsky",
+          "given": "Pavel",
+          "literal": ""
+        },
+        {
+          "family": "Wolf",
+          "given": "Katharina",
+          "literal": ""
+        },
+        {
+          "family": "Duthler",
+          "given": "Gaelle",
+          "literal": ""
+        },
+        {
+          "family": "Stever",
+          "given": "Inka",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Communication, Culture and Change in Asia",
+      "volume": "",
+      "issue": "",
+      "page": "85-106",
+      "articleNumber": "",
+      "publisher": "Springer Singapore",
+      "year": 2016,
+      "month": 11,
+      "day": 5
+    }
   },
   {
     "title": "Communication in Adopting Moral Norms",

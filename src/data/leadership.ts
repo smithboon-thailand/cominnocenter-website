@@ -66,8 +66,11 @@ export const leadership: Leader[] = [
       { label: "h-index (GS)", value: 9 },
       { label: "Docs (Scopus)", value: 24 },
     ],
+    // ตัวเลข Scopus ตรวจซ้ำ 8 ก.ย. 2569 — citations 97 → 107 (ค่าเดิมเก็บไว้ ส.ค. 2569)
+    // ตัวเลขชุดนี้ hard-code จึงล้าสมัยได้เงียบๆ ต้องตรวจพร้อมรอบอัปเดต CiteScore ปีละครั้ง
+    // (ค่า Google Scholar ยังเป็นของรอบ ส.ค. 2569 — วันที่กำกับอยู่ท้ายหน้า /about)
     metricsNote:
-      "Google Scholar: Citations 263 · h-index 9 · i10-index 9 | Scopus (ID 56167805200): 24 documents · 97 citations · h-index 6",
+      "Google Scholar: Citations 263 · h-index 9 · i10-index 9 | Scopus (ID 56167805200): 24 documents · 107 citations · h-index 6",
     links: [
       { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKEmLP0AAAAJ&hl=en" },
       { label: "Scopus", href: "https://www.scopus.com/authid/detail.uri?authorId=56167805200" },
