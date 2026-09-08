@@ -11,6 +11,8 @@
  */
 
 export type Researcher = {
+  /** ผูกกับ field `authors` ของ publications.ts — ดูหมายเหตุใน TeamMember */
+  slug?: string;
   name: string;
   nameEn: string;
   roleTh: string;
@@ -27,6 +29,9 @@ export type Researcher = {
 
 export const researchers: Researcher[] = [
   {
+    // slug เป็นชื่อ**ตามที่ตีพิมพ์** ไม่ใช่ชื่อที่ท่านใช้วันนี้ เพราะต้องตรงกับ
+    // กุญแจใน AUTHORS ของสคริปต์ ซึ่งใช้ตรวจว่า DOI เป็นของคนนี้จริง (ดูหมายเหตุใต้ชื่อ)
+    slug: "watsayut-kongchan",
     name: "ดร.วรรษยุต คงจันทร์",
     // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "Dr. Watsayut Kongchan"
     // **บทความที่ตีพิมพ์แล้วยังลงชื่อว่า Watsayut Kongchan** ทั้งใน Crossref

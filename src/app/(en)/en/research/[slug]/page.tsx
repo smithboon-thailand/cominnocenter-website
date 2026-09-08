@@ -18,7 +18,7 @@ import {
   publicationForSummary,
   CC_LICENSES,
 } from "@/data/paperSummaries";
-import { leadership } from "@/data/leadership";
+import { personName } from "@/lib/people";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,7 +28,7 @@ export function generateStaticParams() {
   return paperSummaries.map((s) => ({ slug: s.slug }));
 }
 
-const authorName = (slug: string) => leadership.find((l) => l.slug === slug)?.nameEn ?? slug;
+const authorName = (slug: string) => personName(slug, "en");
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;

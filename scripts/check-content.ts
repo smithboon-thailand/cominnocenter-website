@@ -117,6 +117,18 @@ const FORBIDDEN: { name: string; re: RegExp; why: string }[] = [
   // Crossref และในตัววารสาร รายการอ้างอิงบนหน้า /research จึงต้องคงตามที่พิมพ์จริง
   // ถ้าใส่ไว้ ตัวตรวจจะฟ้องรายการอ้างอิงที่ถูกต้องอยู่แล้วทุกครั้งที่รัน
   {
+    name: "ยอดอ้างอิง Scopus ที่เลิกใช้แล้ว",
+    // ตัวเลขชุดนี้ hard-code อยู่ใน leadership.ts จึงล้าสมัยเงียบๆ ได้ตลอด
+    // ใส่ค่าเก่าไว้ตามกติกาของคลัง — ค่าเก่าที่ไม่ถูกจดไว้คือค่าที่จะกลับมาอีก
+    re: /24 documents · 97 citations/g,
+    why: "ค่ารอบ ส.ค. 2569 · ตรวจซ้ำ 8 ก.ย. 2569 ได้ 107 citations — แก้ที่ src/data/leadership.ts ที่เดียว",
+  },
+  {
+    name: "ยอดอ้างอิง Google Scholar ที่เลิกใช้แล้ว",
+    re: /Citations 263/g,
+    why: "ค่ารอบ ส.ค. 2569 · ตรวจซ้ำ 8 ก.ย. 2569 ได้ 269 — แก้ที่ src/data/leadership.ts ที่เดียว",
+  },
+  {
     name: "ที่อยู่เซิร์ฟเวอร์ตอนพัฒนา",
     re: /https?:\/\/localhost(:\d+)?/g,
     why: "ค่าที่หลุดมาจากเครื่องพัฒนา — ผู้อ่านกดแล้วไปไม่ถึงไหน",
@@ -340,6 +352,86 @@ for (const file of shipped) {
   }
 }
 
+// ─── 3ค. slug ผู้เขียนที่หลุดขึ้นหน้าเว็บแทนชื่อคน ───────────────────────────
+//
+// `publications.ts` เก็บผู้เขียนเป็น slug (`phyu-hnin-hlaing`) แล้วหน้าเว็บ
+// แปลงเป็นชื่อคนตอน render ตัวแปลงคืน **slug เดิมเป็นค่าสำรอง** เมื่อหาไม่เจอ
+// ซึ่งแปลว่าวันที่เพิ่มผู้เขียนใหม่เข้าทะเบียนของ `fetch-publications.mjs`
+// โดยลืมใส่ `slug` ให้คนนั้นในไฟล์รายชื่อ ผู้อ่านจะเห็นคำว่า `phyu-hnin-hlaing`
+// เป็นข้อความ และ JSON-LD จะส่ง slug ดิบไปเป็นชื่อผู้เขียนให้ Google ด้วย
+//
+// TypeScript ตรวจให้ไม่ได้เลยเพราะทั้งคู่เป็น `string` ที่ถูกชนิดทุกประการ
+// (ปัญหาตระกูลเดียวกับลิงก์เปล่าในข้อ 3ข — เสียงเตือนเบาจนถูกอ่านผ่าน)
+const authorSlugs = extract(
+  "scripts/fetch-publications.mjs",
+  /^  "([a-z][a-z0-9-]+)": \{ ?(?:orcid|crossref)/gm,
+  4,
+  "slug ผู้เขียนในทะเบียน",
+);
+// ผู้เขียนที่ประกาศแบบหลายบรรทัด (มีคอมเมนต์คั่น) ไม่เข้ารูปข้างบน — เก็บเพิ่ม
+const multilineSlugs = [
+  ...readFileSync("scripts/fetch-publications.mjs", "utf8").matchAll(
+    /^  "([a-z][a-z0-9-]+)": \{$/gm,
+  ),
+].map((m) => m[1]);
+const allAuthorSlugs = [...new Set([...authorSlugs, ...multilineSlugs])];
+
+/** ข้อความที่ผู้อ่านเห็นจริง — ตัด <script> ทิ้งก่อนแล้วค่อยลอกแท็กออก */
+const visibleText = (html: string) =>
+  html
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ");
+
+for (const file of shipped) {
+  if (!file.endsWith(".html")) continue;
+  const body = readText(file);
+  if (body === null) continue;
+  const text = visibleText(body);
+  for (const slug of allAuthorSlugs) {
+    if (text.includes(slug)) {
+      errors.push(
+        `${file}: slug ผู้เขียนหลุดขึ้นหน้าเว็บแทนชื่อคน → ${slug}\n` +
+          `     แก้: ใส่ field slug: "${slug}" ให้คนนี้ใน src/data/leadership.ts, researchers.ts หรือ team.ts`,
+      );
+    }
+    // JSON-LD ร้ายแรงกว่า เพราะผู้อ่านมองไม่เห็นแต่ Google อ่าน
+    if (body.includes(`"name":"${slug}"`)) {
+      errors.push(
+        `${file}: JSON-LD ส่ง slug ดิบเป็นชื่อผู้เขียน → ${slug}\n` +
+          `     แก้: ที่เดียวกับข้างบน — schema.ts อ่านชื่อจากตัวแปลงตัวเดียวกัน`,
+      );
+    }
+  }
+}
+
+// ─── 3ง. percentile ที่ไม่บอกสาขา ────────────────────────────────────────────
+//
+// วารสารเล่มเดียวถูก Scopus จัดอันดับหลายสาขาพร้อมกัน และค่าต่างกันมาก
+// American Behavioral Scientist อยู่ที่ 97th ในสาขา Cultural Studies
+// แต่ 75th ในสาขา Social Psychology — การแสดงตัวเลขโดยไม่บอกสาขาจึงเท่ากับ
+// หยิบค่าที่ดีที่สุดมาโชว์โดยไม่บอกที่มา (กติกาข้อ 2 ของชุดข้อมูล Scopus)
+// `\b` ท้ายเลขจำเป็นจริงๆ — ถ้าไม่มี `\d+` จะถอยกลับมาจับ "9" จาก "97"
+// แล้วมองว่าตัวถัดไปไม่ใช่ " ในสาขา " จึงฟ้องทุกบรรทัดที่ถูกต้องอยู่แล้ว
+// (เจอตอนรันจริง 8 ก.ย. 2569 — ตัวตรวจที่ร้องผิดทุกครั้งจะถูกเมินภายในสัปดาห์เดียว)
+const PERCENTILE_TH = /เปอร์เซ็นไทล์ที่ \d+\b(?! ในสาขา )/g;
+const PERCENTILE_EN = /\d+(?:st|nd|rd|th) percentile(?! in )/g;
+
+for (const file of shipped) {
+  if (!file.endsWith(".html")) continue;
+  const body = readText(file);
+  if (body === null) continue;
+  const text = visibleText(body);
+  for (const re of [PERCENTILE_TH, PERCENTILE_EN]) {
+    for (const m of text.matchAll(re)) {
+      errors.push(
+        `${file}: percentile ไม่ได้บอกสาขา → ${m[0].trim()}\n` +
+          `     เหตุ: วารสารเล่มเดียวถูกจัดอันดับหลายสาขาและค่าต่างกันมาก ตัวเลขลอยๆ อ่านเป็นการเลือกค่าที่ดีที่สุด`,
+      );
+    }
+  }
+}
+
 // ─── 4. การอ้างถึงกันเองของข้อมูล ─────────────────────────────────────────────
 //
 // สี่ความสัมพันธ์นี้เป็น `Record<string, …>` หรือ `string[]` ที่ TypeScript
@@ -409,6 +501,51 @@ for (const src of extract(PROJECTS, /sourceUrl: "(\/news\/[^"]+)"/g, 15, "source
   const slug = src.slice("/news/".length);
   if (!newsSlugs.has(slug)) {
     errors.push(`projects … sourceUrl → ${src}: ไม่มีข่าว slug นี้`);
+  }
+}
+
+/**
+ * ตัวเลขของหัวหน้าศูนย์ถูกเขียนไว้**สองที่ในไฟล์เดียวกัน** — ต้องตรงกันเสมอ
+ *
+ * `metrics` คือค่าที่ขึ้นเป็นตัวเลขใหญ่บนการ์ด ส่วน `metricsNote` คือบรรทัดที่มาพร้อม
+ * ที่มาใต้การ์ด ทั้งสองมาจากโปรไฟล์เดียวกันแต่ไม่ได้อ้างค่ากันเอง — แก้ที่เดียว
+ * แล้วอีกที่จะเพี้ยนโดยไม่มีอะไรพัง และผู้อ่านจะเห็นเลขสองค่าบนหน้าจอเดียวกัน
+ *
+ * เพิ่ม 8 ก.ย. 2569 ตอนอัปเดต Google Scholar 263 → 269 ซึ่งต้องแก้พร้อมกันทั้งคู่
+ */
+const leaders = readFileSync("src/data/leadership.ts", "utf8");
+const PAIRS: { what: string; card: RegExp; note: RegExp }[] = [
+  {
+    what: "Google Scholar citations",
+    card: /\{ label: "Citations \(GS\)", value: (\d+) \}/,
+    note: /Google Scholar: Citations (\d+)/,
+  },
+  {
+    what: "Google Scholar h-index",
+    card: /\{ label: "h-index \(GS\)", value: (\d+) \}/,
+    note: /Google Scholar: Citations \d+ · h-index (\d+)/,
+  },
+  {
+    what: "จำนวนผลงานใน Scopus",
+    card: /\{ label: "Docs \(Scopus\)", value: (\d+) \}/,
+    note: /Scopus \(ID \d+\): (\d+) documents/,
+  },
+];
+for (const { what, card, note } of PAIRS) {
+  const a = leaders.match(card)?.[1];
+  const b = leaders.match(note)?.[1];
+  if (!a || !b) {
+    console.error(
+      `check:content — อ่านค่า "${what}" จาก leadership.ts ไม่ได้ (card=${a ?? "?"} note=${b ?? "?"})\n` +
+        `โครงไฟล์น่าจะเปลี่ยนไป — ต้องแก้ตัวดึงในสคริปต์นี้ ไม่ใช่ปล่อยให้ตรวจผ่านโดยไม่ได้ตรวจอะไร`,
+    );
+    process.exit(1);
+  }
+  if (a !== b) {
+    errors.push(
+      `leadership.ts: ${what} ไม่ตรงกัน — บนการ์ด ${a} · ในบรรทัดที่มา ${b}\n` +
+        `     เหตุ: เป็นค่าเดียวกันที่เขียนไว้สองที่ ผู้อ่านจะเห็นเลขสองค่าบนหน้าจอเดียวกัน`,
+    );
   }
 }
 

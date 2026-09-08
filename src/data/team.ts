@@ -10,6 +10,15 @@
 const media = (id: string) => `/images/team/${id}.webp`;
 
 export type TeamMember = {
+  /**
+   * ใช้ผูกกับ field `authors` ของ publications.ts — ต้องตรงกับกุญแจใน `AUTHORS`
+   * ของ scripts/fetch-publications.mjs เป๊ะ
+   *
+   * มีเฉพาะคนที่มีผลงานบนหน้า /research เท่านั้น ถ้าไม่ใส่แล้วสคริปต์ผลิต slug
+   * ของคนนั้นออกมา หน้าเว็บจะพิมพ์ slug ดิบแทนชื่อคน (`resolvePersonName` คืน
+   * slug เป็นค่าสำรอง) — `check:content` ดักกรณีนี้ไว้แล้ว
+   */
+  slug?: string;
   name: string;
   nameEn: string;
   roleTh: string;
@@ -29,6 +38,7 @@ export type TeamMember = {
 /** Postdoctoral researchers (C2F) under the center */
 export const postdocs: TeamMember[] = [
   {
+    slug: "phyu-hnin-hlaing",
     name: "ดร.พยู ฮนิน ไหล่ (Rashida)",
     nameEn: "Dr. Phyu Hnin Hlaing",
     roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",
@@ -57,6 +67,7 @@ export const postdocs: TeamMember[] = [
     ],
   },
   {
+    slug: "robbie-buelo",
     name: "ดร.ร็อบบี้ แจน วินเซนต์ ที. บูเอโล",
     nameEn: "Dr. Robbie Jan Vincent T. Buelo",
     roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",

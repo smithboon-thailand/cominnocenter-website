@@ -5,9 +5,10 @@ import { useMemo, useState } from "react";
 import { publications, type PublicationType } from "@/data/publications";
 import { summaryForPublication } from "@/data/paperSummaries";
 import CitationTool from "./CitationTool";
+import CiteScoreNote from "./CiteScoreNote";
 import Reveal from "@/components/effects/Reveal";
 import { stagger } from "@/components/effects/stagger";
-import { leadership } from "@/data/leadership";
+import { personName, personOrcidHref, personShortName } from "@/lib/people";
 
 type ResearchExplorerProps = {
   locale?: "th" | "en";
@@ -76,28 +77,30 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
   /** เปิดแผงอ้างอิงได้ทีละรายการ — mount เฉพาะอันที่กด ไม่ใช่ทั้ง 46 รายการ */
   const [citeFor, setCiteFor] = useState<string | null>(null);
 
-  const authorName = (slug: string) => {
-    const person = leadership.find((l) => l.slug === slug);
-    if (!person) return slug;
-    return locale === "th" ? person.name : person.nameEn;
-  };
-  /** ลิงก์โปรไฟล์ ORCID ของผู้เขียน — ใช้เป็นที่มาของรายการที่ยังไม่มีดัชนีอิสระ */
-  const orcidHref = (slugs: string[]) => {
-    for (const slug of slugs) {
-      const person = leadership.find((l) => l.slug === slug);
-      const orcid = person?.links.find((l) => l.label === "ORCID");
-      if (orcid) return orcid.href;
+  /**
+   * ตรรกะอยู่ที่ `@/lib/people` เพราะคนของศูนย์ฯ กระจายอยู่สามไฟล์
+   * ถ้าค้นแค่ `leadership` ผู้เขียนที่อยู่ไฟล์อื่นจะถูกพิมพ์เป็น slug ดิบ
+   */
+  const authorName = (slug: string) => personName(slug, locale);
+  const orcidHref = (slugs: string[]) => personOrcidHref(slugs);
+  const shortName = (slug: string) => personShortName(slug, locale);
+
+  /**
+   * รายชื่อผู้เขียนบน chip มาจาก**ผลงานจริง** ไม่ใช่จากรายชื่อผู้บริหารสามคน
+   *
+   * เดิมวนจาก `leadership` ซึ่งมีแค่สามคน พอเพิ่มผู้เขียนใหม่เข้าทะเบียนของ
+   * `fetch-publications.mjs` ผลงานของท่านจึงขึ้นในรายการแต่**กรองด้วย chip ไม่ได้เลย**
+   * เพราะไม่มีปุ่มของท่าน — เรียงตามจำนวนผลงานมากไปน้อยเพื่อให้ลำดับคงที่ทุก build
+   */
+  const authorSlugs = useMemo(() => {
+    const count = new Map<string, number>();
+    for (const p of publications) {
+      for (const slug of p.authors) count.set(slug, (count.get(slug) ?? 0) + 1);
     }
-    return null;
-  };
-  /** ชื่อสั้นสำหรับ chip — ตัดคำนำหน้าตำแหน่งวิชาการออก */
-  const shortName = (slug: string) => {
-    const person = leadership.find((l) => l.slug === slug);
-    if (!person) return slug;
-    return locale === "th"
-      ? person.name.replace(/^(รศ|ผศ|ศ)\.(ดร\.)?\s*/, "")
-      : person.nameEn.replace(/^(Assoc\.|Asst\.)?\s*Prof\.\s*(Dr\.)?\s*/, "");
-  };
+    return [...count.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([slug]) => slug);
+  }, []);
 
   const filtered = useMemo(
     () =>
@@ -134,15 +137,15 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
           <button type="button" onClick={() => setAuthor(null)} className={chip(author === null)}>
             {t.all}
           </button>
-          {leadership.map((person) => (
+          {authorSlugs.map((slug) => (
             <button
-              key={person.slug}
+              key={slug}
               type="button"
-              onClick={() => setAuthor(author === person.slug ? null : person.slug)}
-              className={chip(author === person.slug)}
-              aria-pressed={author === person.slug}
+              onClick={() => setAuthor(author === slug ? null : slug)}
+              className={chip(author === slug)}
+              aria-pressed={author === slug}
             >
-              {shortName(person.slug)}
+              {shortName(slug)}
             </button>
           ))}
         </div>
@@ -258,6 +261,8 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                           );
                         })()}
                     </p>
+
+                    <CiteScoreNote venue={p.venue} locale={locale} />
 
                     {/* งานที่มีหน้าบทสรุปภาษาง่ายของเราเอง — ลิงก์เข้าเว็บ ไม่ใช่ออกไป DOI
                         ให้ผู้อ่านที่ไม่เปิดไฟล์วารสารยังได้เนื้อหาของงานชิ้นนั้น */}

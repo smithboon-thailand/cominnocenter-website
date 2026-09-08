@@ -138,8 +138,47 @@ const getJson = async (url, tries = 5) => {
 /** ผู้เขียนของศูนย์ฯ — surname ใช้ตรวจว่า DOI/ดัชนีที่เจอเป็นของคนนี้จริง */
 const AUTHORS = {
   "smith-boonchutima": { orcid: "0000-0001-7412-4506", surname: "boonchutima" },
-  "teerada-chongkolrattanaporn": { orcid: "0000-0003-2785-8595", surname: "chongkolrattanaporn" },
-  "pavel-slutskiy": { crossref: { family: "slutskiy", givenPattern: /pavel/i }, surname: "slutskiy" },
+  "teerada-chongkolrattanaporn": {
+    orcid: "0000-0003-2785-8595",
+    // เพิ่มช่องทาง Crossref 8 ก.ย. 2569 — ORCID ของท่านไม่ได้ลงบททุกชิ้น
+    // บทใน Multi-Stakeholder Contribution in Asian Environmental Communication
+    // (10.4324/9781032670508-4) อยู่ใน Crossref ครบแต่ไม่อยู่ใน ORCID จึงไม่เคยขึ้นเว็บ
+    crossref: [{ family: "chongkolrattanaporn", givenPattern: /teerada/i }],
+    surname: "chongkolrattanaporn",
+  },
+  /**
+   * อ.Pavel ตีพิมพ์ด้วยนามสกุลสองรูป — **Slutskiy** และ **Slutsky** (ไม่มี i)
+   *
+   * รูป "Slutsky" ใช้กับงานปี 2560 สองชิ้นที่ยืนยันแล้วว่าเป็นของท่าน
+   * (American Behavioral Scientist 10.1177/0002764217693281 และบทใน
+   * Communication, Culture and Change in Asia 10.1007/978-981-10-2815-1_5)
+   * ทั้งสองชิ้นไม่เคยขึ้นเว็บเลย เพราะคำค้นและตัวเทียบนามสกุลรู้จักรูปเดียว
+   * — พบ 8 ก.ย. 2569 จากการเทียบกับ export ของ Scopus
+   *
+   * จงใจไม่แก้ด้วยการตัดให้สั้นลงเป็น "slutsk" แล้วเทียบแบบ includes
+   * เพราะจะไปคว้านามสกุลคนอื่นที่ขึ้นต้นเหมือนกันเข้ามาด้วย
+   */
+  "pavel-slutskiy": {
+    crossref: [
+      { family: "slutskiy", givenPattern: /pavel/i },
+      { family: "slutsky", givenPattern: /pavel/i },
+    ],
+    surname: ["slutskiy", "slutsky"],
+  },
+  // เพิ่ม 8 ก.ย. 2569 — สามท่านนี้อยู่ในหน้าทีมของเว็บมาตลอด แต่ไม่เคยอยู่ในทะเบียนนี้
+  // ผลงานของทั้งสามจึงไม่เคยขึ้นหน้า /research เลย (พบจากการเทียบกับ export ของ Scopus)
+  //
+  // ORCID ทั้งสองเลขตรวจกับ pub.orcid.org แล้วว่าเป็นชื่อคนนี้จริง ไม่ได้คัดลอกมาจากเอกสาร
+  //
+  // **หมายเหตุเรื่องชื่อ**: เว็บเรียกท่านว่า "ดร.วรรษยุต คงจันทร์ / Dr. Wassayut Kongjan"
+  // ตามที่เจ้าตัวใช้ปัจจุบัน แต่บทความที่ตีพิมพ์แล้วลงชื่อ "Watsayut Kongchan"
+  // ทั้งใน Crossref และในตัววารสาร — `surname` ที่นี่ใช้ตรวจว่า DOI เป็นของคนนี้จริง
+  // จึงต้องเป็นชื่อ**ตามที่ตีพิมพ์** ไม่ใช่ชื่อที่ใช้วันนี้ (เหตุผลเดียวกับ PR #39)
+  "watsayut-kongchan": { orcid: "0000-0002-7868-3249", surname: "kongchan" },
+  "phyu-hnin-hlaing": { orcid: "0000-0002-0004-2572", surname: "hlaing" },
+  // ยังไม่มี ORCID — ค้นทาง Crossref โดยบังคับชื่อต้น เพราะ Buelo เป็นนามสกุลฟิลิปปินส์
+  // ที่มีผู้เขียนคนอื่นใช้ด้วย ระเบียนของท่านลงชื่อต้นเต็มว่า "Robbie Jan Vincent"
+  "robbie-buelo": { crossref: { family: "buelo", givenPattern: /robbie/i }, surname: "buelo" },
 };
 
 /**
@@ -226,6 +265,12 @@ function titleOverlap(a, b) {
  *   Semantic Scholar → { name }
  * ต้องอ่านให้ครบทุกแบบ ไม่งั้นจะตัดงานจริงทิ้ง (เคยเกิดกับ 10.14456/jhr.2015.30)
  */
+/** ผู้เขียนหนึ่งคนอาจตีพิมพ์ด้วยนามสกุลหลายรูป — คืนทุกรูปเป็นอาร์เรย์เสมอ */
+const surnamesOf = (slug) => {
+  const s = AUTHORS[slug].surname;
+  return Array.isArray(s) ? s : [s];
+};
+
 const surnameIn = (authorList, surname) =>
   (authorList || []).some((a) =>
     norm(`${a.family || ""} ${a.literal || ""} ${a.name || ""}`).includes(surname)
@@ -275,7 +320,9 @@ async function fromCrossref() {
   const out = [];
   for (const [slug, cfg] of Object.entries(AUTHORS)) {
     if (!cfg.crossref) continue;
-    const { family, givenPattern } = cfg.crossref;
+    // รับได้ทั้งอ็อบเจ็กต์เดียวและอาร์เรย์ เพราะผู้เขียนบางคนใช้นามสกุลหลายรูป
+    const variants = Array.isArray(cfg.crossref) ? cfg.crossref : [cfg.crossref];
+    for (const { family, givenPattern } of variants) {
     let cursor = "*";
     let seen = 0;
     let mineCount = 0;
@@ -313,6 +360,7 @@ async function fromCrossref() {
     }
     console.log(`  Crossref ${family}: อ่าน ${seen} รายการ เป็นของผู้เขียนคนนี้ ${mineCount}`);
     await sleep(300);
+    }
   }
   return out;
 }
@@ -619,7 +667,7 @@ async function verifyDoi(row) {
   const meta = await resolveDoi(row.doi);
   if (!meta) return { ...row, verified: "self" }; // DOI เปิดไม่ได้เลย ถือว่าไม่มีลิงก์
 
-  const surnames = row.people.map((slug) => AUTHORS[slug].surname);
+  const surnames = row.people.flatMap(surnamesOf);
   const registryHasAuthors = (meta.authors || []).some((a) =>
     `${a.family || ""}${a.literal || ""}${a.name || ""}`.trim()
   );
@@ -668,7 +716,7 @@ async function verifyDoi(row) {
  * ชั้นที่ 2 — ไม่มี DOI: ค้นดัชนีอิสระ โดยชื่อเรื่องต้องใกล้เคียง *และ* นามสกุลผู้เขียนต้องตรง
  */
 async function findInIndexes(row) {
-  const surnames = row.people.map((slug) => AUTHORS[slug].surname);
+  const surnames = row.people.flatMap(surnamesOf);
   const query = encodeURIComponent(row.title.slice(0, 120));
 
   try {
@@ -843,7 +891,7 @@ async function applyThaijoSources(rows) {
       console.warn(`  ThaiJO: ไม่พบรายการที่ตรงกับ ${source.match} — ข้าม`);
       continue;
     }
-    const surnames = targetAuthors.map((slug) => AUTHORS[slug].surname);
+    const surnames = targetAuthors.flatMap(surnamesOf);
     const official = await verifyThaijo(source.url, surnames);
     await sleep(500);
     if (!official) {
