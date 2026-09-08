@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
+import CentreResearchStats from "@/components/about/CentreResearchStats";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/effects/Reveal";
 import { stagger } from "@/components/effects/stagger";
@@ -145,6 +146,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CentreResearchStats locale="th" />
 
       {/* Leadership — ไม่มีสี SDG (BRAND.md PART H) */}
       <section id="leadership" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
