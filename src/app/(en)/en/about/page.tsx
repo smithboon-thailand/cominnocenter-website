@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
+import CentreResearchStats from "@/components/about/CentreResearchStats";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/effects/Reveal";
 import { stagger } from "@/components/effects/stagger";
@@ -146,6 +147,8 @@ export default function EnglishAboutPage() {
         </div>
       </section>
 
+      <CentreResearchStats locale="en" />
+
       {/* Leadership — no SDG colors (BRAND PART H) */}
       <section id="leadership" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
         <SectionHeader
@@ -204,6 +207,9 @@ export default function EnglishAboutPage() {
                       </div>
                     ))}
                   </div>
+                  {/* บรรทัดที่มาของตัวเลข — หน้าไทยมีมาตลอด หน้าอังกฤษเพิ่งเพิ่ม 8 ก.ย. 2569
+                      ตัวเลขที่ไม่บอกที่มาตรวจสอบย้อนกลับไม่ได้ ต้องมีครบทั้งสองภาษา */}
+                  <p className="mt-2 text-[11px] leading-[1.6] text-ink-500">{person.metricsNote}</p>
                   <p className="mt-5 max-w-prose text-[17px] leading-[1.7] text-ink-700">
                     {person.focus}
                   </p>

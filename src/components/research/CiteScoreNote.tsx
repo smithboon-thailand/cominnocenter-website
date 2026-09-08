@@ -25,10 +25,22 @@ export default function CiteScoreNote({
   const m = journalMetricFor(venue);
   if (!m) return null;
 
+  /**
+   * อันดับต้องมาคู่กับ percentile เสมอ ไม่ใช่แค่ชื่อสาขา
+   *
+   * `m.rank` เก็บไว้ในรูป "40/1434" — แปลงเป็นข้อความอ่านได้เพื่อให้ผู้อ่าน
+   * เห็นทั้งตัวตั้งและตัวหารของอันดับ ไม่ใช่เห็นแต่เปอร์เซ็นต์ที่ตีความเองไม่ได้
+   */
+  const [place, pool] = m.rank.split("/");
+  const rankText =
+    locale === "th"
+      ? `อันดับ ${place} จาก ${Number(pool).toLocaleString("th-TH")} เล่ม`
+      : `ranked ${place} of ${Number(pool).toLocaleString("en-GB")}`;
+
   const percentile =
     locale === "th"
-      ? `เปอร์เซ็นไทล์ที่ ${m.percentile} ในสาขา ${m.subject}`
-      : `${m.percentile}${ordinalSuffix(m.percentile)} percentile in ${m.subject}`;
+      ? `เปอร์เซ็นไทล์ที่ ${m.percentile} ในสาขา ${m.subject} (${rankText})`
+      : `${m.percentile}${ordinalSuffix(m.percentile)} percentile in ${m.subject} (${rankText})`;
 
   return (
     <p className="mt-1 text-[13px] leading-[1.5] text-ink-500">
