@@ -315,7 +315,8 @@ export default function EnglishAboutPage() {
         <p className="mt-12 max-w-3xl text-[13px] leading-[1.6] text-ink-500">
           Names, titles, and profiles reference ORCID, Google Scholar, Scopus, ResearchGate, and
           the Department of Public Relations faculty pages (fact-checked August 2026). Metrics
-          for Dr. Smith Boonchutima reference Google Scholar and Scopus Author ID 56167805200.
+          for Dr. Smith Boonchutima reference Google Scholar and Scopus Author ID 56167805200
+          (re-checked 8 September 2026).
         </p>
       </section>
 

@@ -314,6 +314,7 @@ export default function AboutPage() {
           ชื่อ ตำแหน่ง และประวัติอ้างอิงจาก ORCID, Google Scholar, Scopus, ResearchGate
           และหน้ารายชื่อคณาจารย์ภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ (ตรวจสอบ ส.ค. 2569)
           ตัวเลขของ รศ.ดร.สมิทธิ์ อ้างอิง Google Scholar และ Scopus Author ID 56167805200
+          (ตรวจซ้ำ 8 ก.ย. 2569)
         </p>
       </section>
 

@@ -124,6 +124,11 @@ const FORBIDDEN: { name: string; re: RegExp; why: string }[] = [
     why: "ค่ารอบ ส.ค. 2569 · ตรวจซ้ำ 8 ก.ย. 2569 ได้ 107 citations — แก้ที่ src/data/leadership.ts ที่เดียว",
   },
   {
+    name: "ยอดอ้างอิง Google Scholar ที่เลิกใช้แล้ว",
+    re: /Citations 263/g,
+    why: "ค่ารอบ ส.ค. 2569 · ตรวจซ้ำ 8 ก.ย. 2569 ได้ 269 — แก้ที่ src/data/leadership.ts ที่เดียว",
+  },
+  {
     name: "ที่อยู่เซิร์ฟเวอร์ตอนพัฒนา",
     re: /https?:\/\/localhost(:\d+)?/g,
     why: "ค่าที่หลุดมาจากเครื่องพัฒนา — ผู้อ่านกดแล้วไปไม่ถึงไหน",
@@ -496,6 +501,51 @@ for (const src of extract(PROJECTS, /sourceUrl: "(\/news\/[^"]+)"/g, 15, "source
   const slug = src.slice("/news/".length);
   if (!newsSlugs.has(slug)) {
     errors.push(`projects … sourceUrl → ${src}: ไม่มีข่าว slug นี้`);
+  }
+}
+
+/**
+ * ตัวเลขของหัวหน้าศูนย์ถูกเขียนไว้**สองที่ในไฟล์เดียวกัน** — ต้องตรงกันเสมอ
+ *
+ * `metrics` คือค่าที่ขึ้นเป็นตัวเลขใหญ่บนการ์ด ส่วน `metricsNote` คือบรรทัดที่มาพร้อม
+ * ที่มาใต้การ์ด ทั้งสองมาจากโปรไฟล์เดียวกันแต่ไม่ได้อ้างค่ากันเอง — แก้ที่เดียว
+ * แล้วอีกที่จะเพี้ยนโดยไม่มีอะไรพัง และผู้อ่านจะเห็นเลขสองค่าบนหน้าจอเดียวกัน
+ *
+ * เพิ่ม 8 ก.ย. 2569 ตอนอัปเดต Google Scholar 263 → 269 ซึ่งต้องแก้พร้อมกันทั้งคู่
+ */
+const leaders = readFileSync("src/data/leadership.ts", "utf8");
+const PAIRS: { what: string; card: RegExp; note: RegExp }[] = [
+  {
+    what: "Google Scholar citations",
+    card: /\{ label: "Citations \(GS\)", value: (\d+) \}/,
+    note: /Google Scholar: Citations (\d+)/,
+  },
+  {
+    what: "Google Scholar h-index",
+    card: /\{ label: "h-index \(GS\)", value: (\d+) \}/,
+    note: /Google Scholar: Citations \d+ · h-index (\d+)/,
+  },
+  {
+    what: "จำนวนผลงานใน Scopus",
+    card: /\{ label: "Docs \(Scopus\)", value: (\d+) \}/,
+    note: /Scopus \(ID \d+\): (\d+) documents/,
+  },
+];
+for (const { what, card, note } of PAIRS) {
+  const a = leaders.match(card)?.[1];
+  const b = leaders.match(note)?.[1];
+  if (!a || !b) {
+    console.error(
+      `check:content — อ่านค่า "${what}" จาก leadership.ts ไม่ได้ (card=${a ?? "?"} note=${b ?? "?"})\n` +
+        `โครงไฟล์น่าจะเปลี่ยนไป — ต้องแก้ตัวดึงในสคริปต์นี้ ไม่ใช่ปล่อยให้ตรวจผ่านโดยไม่ได้ตรวจอะไร`,
+    );
+    process.exit(1);
+  }
+  if (a !== b) {
+    errors.push(
+      `leadership.ts: ${what} ไม่ตรงกัน — บนการ์ด ${a} · ในบรรทัดที่มา ${b}\n` +
+        `     เหตุ: เป็นค่าเดียวกันที่เขียนไว้สองที่ ผู้อ่านจะเห็นเลขสองค่าบนหน้าจอเดียวกัน`,
+    );
   }
 }
 
