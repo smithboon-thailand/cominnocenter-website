@@ -2256,6 +2256,207 @@ export const paperSummaries: PaperSummary[] = [
         "**Run in a school auditorium, not on an aircraft**, with students told by adults to watch, so attention was far higher than among real passengers. There were no distractions such as cabin noise. Only one format was tested (slow pace plus few stimuli), so nothing can be said about fast or stimulus-rich versions. A single viewing, whereas frequent flyers see the briefing repeatedly. **Knowledge was measured, not whether anyone would act on it in an emergency.** The ceiling effect makes differences among video viewers impossible to see. A convenience sample from one school. **Data collected in 2015, published in 2021**, as a short report.",
     },
   },
+  {
+    slug: "precede-proceed-myanmar-pt",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ใบสั่งยาแผ่นเดียวที่คลี่ออกกลายเป็นพัดหลายกลีบ แต่ละกลีบยาวไม่เท่ากัน",
+    illustrationAltEn:
+      "Paper-craft illustration of a single prescription slip unfolding into a fan of several leaves, each a different length",
+    doi: "10.3389/fpubh.2019.00114",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "precede-proceed-myanmar-pt.pdf",
+    th: {
+      headline:
+        "เปลี่ยนวิธีตัดสินใจทางคลินิกด้วยคู่มือหนึ่งเล่มกับอบรมสี่วัน แล้ววัดว่าเปลี่ยนจริงไหม — เปลี่ยน และยังอยู่หลังผ่านไปหนึ่งเดือน",
+      question:
+        "นักกายภาพบำบัดในเมียนมาส่วนใหญ่ทำงานตามใบสั่งของแพทย์เป็นหลัก มากกว่าจะประเมินผู้ป่วยด้วยกระบวนการตัดสินใจของวิชาชีพตนเอง คำถามของงานนี้คือจะเปลี่ยนพฤติกรรมนั้นได้ไหม และถ้าจะเปลี่ยน ต้องแก้ที่อะไรกันแน่",
+      method:
+        "ใช้แบบจำลอง PRECEDE-PROCEED ซึ่งบังคับให้หาสาเหตุก่อนออกแบบการแก้ · ช่วง PRECEDE สำรวจสภาพจริงด้วยการสัมภาษณ์เชิงลึกผู้มีประสบการณ์อย่างน้อย 2 ปี จำนวน 18 คน สนทนากลุ่ม 1 กลุ่ม และแบบสอบถาม แล้ววิเคราะห์เนื้อหาจนได้ 10 หมวด · ช่วง PROCEED สร้างคู่มือการตัดสินใจทางคลินิก 14 บท และจัดอบรมเข้มข้น 4 วันที่นครย่างกุ้ง ผู้เข้าร่วม 34 คน วัดผลสามครั้ง คือก่อนอบรม หลังอบรมทันที และหลังผ่านไปหนึ่งเดือน",
+      findings: [
+        "**ต้นตอไม่ได้อยู่ที่ตัวคนทำงาน แต่อยู่ที่วิธีสอนและวัฒนธรรมของที่ทำงาน** — ผู้เข้าร่วมเล่าว่าการเรียนเน้นการฟังบรรยายและจำคำตอบที่กำหนดไว้แล้ว ไม่ได้ฝึกชั่งน้ำหนักข้อดีข้อเสียของทางเลือกหลายทาง ส่วนในที่ทำงาน การคิดเชิงวิพากษ์บนหลักฐานไม่ได้ถูกสนับสนุน",
+        "**ก่อนอบรม การตรวจประเมินเป็นไปแบบคร่าวๆ ตามใบสั่ง** แบบทดสอบมาตรฐานถูกใช้ไม่บ่อย และการวัดซ้ำเพื่อดูว่าผู้ป่วยเปลี่ยนไปหรือไม่แทบไม่เกิดขึ้น · ผู้ที่ประสบการณ์น้อยกว่ามีแนวโน้มทำตามใบสั่งโดยไม่ปรับมากกว่าผู้ที่ประสบการณ์มาก",
+        "**หลังอบรม สัดส่วนผู้ที่เปลี่ยนวิธีตรวจผู้ป่วยต่างจากเดิมอย่างชัดเจน** (Cochran's Q, ไคสแควร์(2) = 62.312, p < 0.0005) และการถามถึงปัจจัยส่วนบุคคล สิ่งแวดล้อม และโรคร่วม ก็ต่างจากเดิมเช่นกัน (ไคสแควร์ = 251.9, p < 0.001)",
+        "**ผลไม่ได้หายไปทันทีที่อบรมจบ** การวัดซ้ำหลังผ่านไปหนึ่งเดือนยังพบว่าผู้เข้าร่วมคงวิธีการใหม่ไว้",
+        "**สิ่งที่เปลี่ยนชัดที่สุดคือลำดับความสนใจ** เดิมสิ่งแรกที่จัดการคืออาการปวด หลังอบรมเกือบทุกคนเริ่มถามถึงภาวะสุขภาพโดยรวม การใช้ชีวิตในชุมชน และปัจจัยรอบตัวผู้ป่วยก่อน",
+      ],
+      soWhat:
+        "สำหรับคนที่ออกแบบการอบรมวิชาชีพ บทเรียนอยู่ที่ลำดับของงาน — งานนี้ไม่ได้เริ่มจากการเขียนหลักสูตร แต่เริ่มจากการหาว่าอะไรคือปัจจัยนำและปัจจัยเสริมที่ทำให้พฤติกรรมเดิมดำรงอยู่ แล้วจึงออกแบบเนื้อหาให้ตรงกับสิ่งนั้น · และรูปแบบที่ได้ผลคือคู่มือที่ใช้ต่อได้เองควบคู่กับการฝึกลงมือจริง ไม่ใช่การบรรยายอย่างเดียว ซึ่งเป็นสิ่งที่หน่วยงานในประเทศอื่นที่สอนและทำงานในลักษณะใกล้เคียงกันนำไปปรับใช้ได้",
+      caveat:
+        "**ผู้เข้าร่วม 34 คน ในเมืองเดียว และไม่มีกลุ่มเปรียบเทียบ** ความเปลี่ยนแปลงที่วัดได้จึงบอกไม่ได้ว่ามาจากการอบรมล้วนๆ · การติดตามยาวที่สุดคือหนึ่งเดือน ยังตอบไม่ได้ว่าอยู่ได้นานแค่ไหน · **สิ่งที่วัดคือวิธีทำงานที่ผู้เข้าร่วมรายงานและตอบในแบบประเมิน ไม่ใช่ผลที่เกิดกับผู้ป่วย** · ข้อมูลเก็บในปี 2560–2561 · บทสรุปนี้เล่าสภาพการทำงานตามที่งานวิจัยบันทึกไว้ในช่วงเวลานั้น ไม่ใช่คำตัดสินต่อวิชาชีพหรือต่อประเทศใด",
+    },
+    en: {
+      headline:
+        "One workbook and a four-day workshop changed how therapists reach clinical decisions — and the change was still there a month later",
+      question:
+        "Physical therapists in Myanmar largely work from the physician's prescription rather than through a decision-making process of their own profession. Can that behaviour be changed, and if so, what actually has to be fixed?",
+      method:
+        "The study used the PRECEDE-PROCEED planning model, which forces you to find the causes before designing the remedy. The PRECEDE phases mapped current practice through 18 in-depth interviews with therapists of at least two years' experience, one focus group and a questionnaire, with content analysis yielding ten categories. The PROCEED phases produced a 14-chapter clinical decision-making workbook and a four-day intensive workshop in Yangon with 34 participants, measured three times: before, immediately after, and one month later.",
+      findings: [
+        "**The cause sat in how people were taught and where they worked, not in the individuals.** Participants described an education built on lectures and predetermined right answers rather than weighing options, and a workplace where critical thinking from evidence was not encouraged.",
+        "**Before the workshop, examination was cursory and prescription-led.** Standardised tests were used infrequently and retesting to detect change was uncommon. Less experienced therapists were the most likely to follow the prescription without modification.",
+        "**After the workshop the proportion whose routine examination had changed differed significantly** (Cochran's Q, χ²(2) = 62.312, p < 0.0005), as did how often they asked about personal factors, environment and comorbidities (χ² = 251.9, p < 0.001).",
+        "**The change did not evaporate when the workshop ended** — the one-month follow-up found participants still holding to the new approach.",
+        "**The clearest shift was in what came first.** Pain used to be the impairment addressed at the outset; afterwards almost all participants began with the patient's overall health condition, community participation and surrounding circumstances.",
+      ],
+      soWhat:
+        "For anyone designing professional training, the lesson is in the sequence: this work did not start by writing a curriculum but by identifying the predisposing and reinforcing factors that kept the old behaviour in place, then built content against them. And what worked was a workbook usable afterwards combined with hands-on practice, rather than lectures alone — a pattern the authors note could transfer to therapists taught and practising in similar ways elsewhere.",
+      caveat:
+        "**Thirty-four participants in a single city, with no comparison group**, so the measured change cannot be attributed to the workshop alone. The longest follow-up is one month, leaving durability open. **What was measured is self-reported and assessed practice, not patient outcomes.** Data were collected in 2017–2018. This summary describes working patterns as the study recorded them at that time; it is not a verdict on a profession or a country.",
+    },
+  },
+  {
+    slug: "health-students-ethical-dilemmas",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ตาชั่งสองแขนที่แต่ละจานมีของวางอยู่คนละอย่าง และคานยังไม่นิ่ง",
+    illustrationAltEn:
+      "Paper-craft illustration of a two-armed balance holding a different object in each pan, the beam still unsettled",
+    doi: "10.1186/s12909-023-04089-4",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "health-students-ethical-dilemmas.pdf",
+    th: {
+      headline:
+        "เมื่อนักศึกษาวิชาชีพสุขภาพเจอโจทย์ที่ถูกทั้งสองทาง สิ่งที่เข้ามาตัดสินไม่ใช่หลักจริยธรรมอย่างเดียว",
+      question:
+        "การเรียนจริยธรรมมักสอนเป็นหลักการสี่ข้อ แต่เวลาตัดสินใจจริงในสถานการณ์ที่หลักการชนกันเอง นักศึกษาใช้อะไรเป็นตัวชี้ขาด งานนี้จึงไปดูตอนที่พวกเขากำลังถกกันจริงๆ แทนที่จะถามย้อนหลังว่าคิดอย่างไร",
+      method:
+        "วิเคราะห์เนื้อหาแบบอุปนัยจากวิดีโอบันทึกการสนทนากลุ่มย่อย 6 กลุ่ม ในเวิร์กช็อปจริยธรรมออนไลน์ความยาวหนึ่งชั่วโมง ผู้เข้าร่วมเป็นนักศึกษาแพทย์ ทันตแพทย์ และเภสัชศาสตร์จากสองมหาวิทยาลัยในสหรัฐอาหรับเอมิเรตส์ · ถอดเทปคำต่อคำ นำเข้าโปรแกรม MAXQDA 2022 เข้ารหัสแบบอุปนัยผ่านสี่ขั้น แล้วให้ผู้เข้ารหัสสองคนตรวจสอบสามเส้า · กรณีศึกษาที่ใช้มี 6 กรณี ตั้งแต่ผู้ป่วยจิตเวชที่ปฏิเสธการรักษา วัยรุ่นที่สงสัยติดโรคติดต่อทางเพศสัมพันธ์และขอไม่ให้บอกผู้ปกครอง การจ่ายยาปฏิชีวนะตามคำขอ ผู้ป่วยที่ไม่มีเงินจ่าย การตรวจก่อนสมรส ไปจนถึงจริยธรรมการวิจัยช่วงโควิด-19",
+      findings: [
+        "**มีหกอย่างที่เข้ามามีบทบาทในการตัดสินใจ** ได้แก่ อารมณ์ · ประสบการณ์ส่วนตัว · กฎหมายและระบบยุติธรรม · พื้นฐานวิชาชีพที่เรียนมา · ความรู้เรื่องการวิจัย · และการได้เรียนร่วมกับวิชาชีพอื่น",
+        "**นักศึกษาใช้หลักจริยธรรมสี่ข้อได้จริงในการให้เหตุผล** ทั้งการเคารพการตัดสินใจของผู้ป่วย การทำประโยชน์ การไม่ก่ออันตราย และความเป็นธรรม ไม่ได้ตัดสินด้วยความรู้สึกล้วนๆ",
+        "**คำที่ถูกใช้บ่อยที่สุดในวงสนทนาคือคำว่า “harm”** และรูปแบบการให้เหตุผลที่พบบ่อยคือการชั่งว่าทางไหนก่ออันตรายน้อยกว่า หรือจะเลี่ยงอันตรายทั้งหมดได้อย่างไร",
+        "**ในกรณีเดียวกัน นักศึกษาแบ่งออกเป็นสองขั้วอย่างชัดเจน** — กรณีวัยรุ่นที่ขอไม่ให้บอกผู้ปกครอง ฝ่ายหนึ่งยืนยันว่าต้องเคารพความประสงค์เพราะกลัวว่าเจ้าตัวจะถูกทำร้ายหรือลงโทษ อีกฝ่ายยืนยันว่าเมื่อยังเป็นผู้เยาว์ก็ต้องแจ้งผู้ปกครอง และมองว่าการเอาความเห็นใจเข้ามาปนจะไปรบกวนการทำงานของกฎหมาย",
+        "**ผู้เขียนตั้งข้อสังเกตว่านักศึกษาหญิงกับชายเอนไปคนละทางในกรณีการตรวจก่อนสมรส** โดยนักศึกษาหญิงแสดงความเห็นอกเห็นใจฝ่ายหญิงในโจทย์มากกว่า — เป็นข้อสังเกตจากการอ่านบทสนทนา ไม่ใช่การทดสอบทางสถิติ",
+      ],
+      soWhat:
+        "สำหรับผู้ออกแบบหลักสูตร งานนี้ชี้ว่าการสอนหลักการสี่ข้อไม่พอ เพราะสิ่งที่เข้ามาแข่งกับหลักการคือความรู้สึก ประสบการณ์ที่เคยเจอ และความเข้าใจเรื่องกฎหมาย — ทั้งสามอย่างนี้มีอยู่แล้วในตัวผู้เรียนไม่ว่าจะสอนหรือไม่ · การถกกรณีจริงเป็นกลุ่มย่อยทำให้สิ่งเหล่านี้ออกมาให้เห็นและตรวจสอบได้ และการมีนักศึกษาหลายวิชาชีพอยู่ในวงเดียวกันเป็นหนึ่งในหกปัจจัยที่พบเอง ไม่ใช่สิ่งที่ผู้วิจัยตั้งไว้ล่วงหน้า",
+      caveat:
+        "**ข้อมูลมาจากวิดีโอการสนทนาอย่างเดียว** ซึ่งผู้เขียนระบุไว้เองว่าเป็นข้อจำกัด เพราะไม่ได้เก็บด้วยการสัมภาษณ์เชิงลึกหรือการสนทนากลุ่มเพิ่มเติม · เป็นงานเชิงคุณภาพ จึงบอกได้ว่ามีเหตุผลแบบใดบ้าง แต่บอกไม่ได้ว่าแต่ละแบบมีสัดส่วนเท่าไร · บริบทเป็นนักศึกษาจากสองมหาวิทยาลัยในประเทศเดียว การนำไปใช้กับระบบการศึกษาอื่นต้องระวัง",
+    },
+    en: {
+      headline:
+        "When health professions students face a case where both answers are defensible, ethical principles are not the only thing deciding",
+      question:
+        "Ethics teaching tends to present four principles, but what settles a decision when those principles collide? This study watched students reasoning in real time rather than asking them afterwards what they thought.",
+      method:
+        "An inductive qualitative analysis of six recorded breakout-group discussions from a one-hour online ethics workshop, with medicine, dental medicine and pharmacy students from two universities in the United Arab Emirates. Recordings were transcribed verbatim, imported into MAXQDA 2022 and coded inductively through four stages of review, reflect, reduce and retrieve, with two coders triangulating the findings. Six cases were used, from a patient with mental illness refusing treatment and a teenager with a suspected sexually transmitted infection asking that his parents not be told, through antibiotic prescribing on request and a patient unable to pay, to premarital screening and research ethics during COVID-19.",
+      findings: [
+        "**Six things shaped the decisions**: emotions, personal experience, law and the legal system, professional background, knowledge of medical research, and exposure to inter-professional education.",
+        "**Students did apply the four principles in their reasoning** — autonomy, beneficence, non-maleficence and justice — rather than deciding on feeling alone.",
+        "**The single most frequent word in the discussions was “harm”**, and the commonest move was weighing which option caused the lesser harm, or whether harm could be avoided altogether.",
+        "**On the same case, students split sharply.** For the teenager who asked that his parents not be told, some insisted his wishes be respected because disclosure risked punishment or abuse; others held that a minor's parents must be informed, and saw empathy as interfering with how the law is meant to work.",
+        "**The authors note that female and male students leaned differently on the premarital screening case**, with female students expressing more concern for the woman in the scenario — an observation drawn from reading the discussions, not a statistical test.",
+      ],
+      soWhat:
+        "For curriculum designers, teaching the four principles is not sufficient, because what competes with them — feeling, prior experience, an understanding of the law — is already present in the learner whether or not it is taught. Small-group discussion of real cases brings those influences into the open where they can be examined, and having several professions in the same room emerged as one of the six factors on its own rather than being built into the study's design.",
+      caveat:
+        "**The data are recorded discussions only**, which the authors identify as a limitation, since no in-depth interviews or focus groups were collected alongside. Being qualitative, the study can say which kinds of reasoning appeared but not in what proportion. The setting is students at two universities in one country, so transfer to other education systems should be cautious.",
+    },
+  },
+  {
+    slug: "fever-diagnostics-antibiotics-trial",
+    kind: "protocol",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ทางเดินที่แยกเป็นสองแพร่ง โดยมีป้ายบอกทางวางอยู่ตรงจุดแยกแต่ยังไม่มีลูกศร",
+    illustrationAltEn:
+      "Paper-craft illustration of a path splitting in two, with a signpost standing at the fork but no arrow on it yet",
+    doi: "10.1186/s13063-020-04897-9",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "fever-diagnostics-antibiotics-trial.pdf",
+    th: {
+      headline:
+        "แผนทดลองว่าชุดตรวจเร็วกับแนวทางตัดสินใจจะลดการจ่ายยาปฏิชีวนะที่ไม่จำเป็นได้ไหม โดยไม่ทำให้คนไข้แย่ลง",
+      question:
+        "ผู้ป่วยที่มาด้วยไข้เฉียบพลันที่คลินิกผู้ป่วยนอกในประเทศรายได้น้อยถึงปานกลาง แยกด้วยตาเปล่าไม่ได้ว่าเกิดจากแบคทีเรียหรือไวรัส เมื่อไม่มีเครื่องมือตรวจ การจ่ายยาปฏิชีวนะไว้ก่อนจึงกลายเป็นวิธีปฏิบัติทั่วไป ซึ่งเป็นแรงหนึ่งที่ผลักให้เชื้อดื้อยา คำถามคือชุดเครื่องมือที่ประกอบด้วยชุดตรวจเร็ว แนวทางตัดสินใจ และการอบรมกับการสื่อสาร จะลดการจ่ายยาที่ไม่จำเป็นลงได้ไหมโดยผลการรักษาไม่แย่ลง",
+      method:
+        "การทดลองแบบสุ่มมีกลุ่มควบคุม ที่สถานพยาบาล 9 แห่งใน 6 ประเทศ คือบูร์กินาฟาโซ กานา อินเดีย เมียนมา เนปาล และยูกันดา · ตั้งเป้ารับผู้ป่วยรวมอย่างน้อย 21,876 คน และกำหนดช่วงรับผู้ป่วยไว้ 12 เดือนเพื่อให้ครอบคลุมการระบาดตามฤดูกาล · ใช้โครงร่างการวิจัยแม่ฉบับเดียวแล้วปรับให้เข้ากับการขอจริยธรรมของแต่ละประเทศ ส่วนชุดตรวจและแนวทางตัดสินใจเลือกตามข้อมูลสาเหตุของไข้ในประเทศนั้นๆ · มีการประเมินเชิงคุณภาพควบคู่ไปด้วยว่าอะไรผลักและอะไรฉุดการยอมรับเครื่องมือใหม่ · ขึ้นทะเบียนไว้ที่ ClinicalTrials.gov หมายเลข NCT04081051",
+      findings: [
+        "**ตัววัดหลักมีสองตัวและต้องดูคู่กัน** ตัวแรกคือสัดส่วนผู้ป่วยที่ผลออกมาดีในวันที่ 7 ซึ่งนิยามไว้ชัดว่าต้องมีชีวิตอยู่ ไม่มีไข้ และอาการที่มาในวันแรกหายไป ตัวที่สองคือสัดส่วนการจ่ายยาปฏิชีวนะในสองกลุ่ม",
+        "**เป้าที่ประกาศไว้ล่วงหน้าคือการลดการจ่ายยาที่ไม่จำเป็นลงอย่างน้อย 30% จากค่าตั้งต้น** ไม่ใช่การดูว่าลดลงบ้างหรือไม่",
+        "**ตัววัดรองสามตัว** ได้แก่ สัดส่วนผู้ป่วยที่บอกว่ากินยาตามสั่งเมื่อถึงวันที่ 7 · สัดส่วนบุคลากรที่ทำตามแนวทางใหม่ · และสัดส่วนผู้เข้าร่วมที่เกิดเหตุการณ์ไม่พึงประสงค์",
+        "**ช่องว่างที่ทำให้ต้องมีการทดลองนี้ถูกเขียนไว้ตรงๆ** ผู้เขียนระบุว่าอัตราการจ่ายยาปฏิชีวนะที่สถานพยาบาลเหล่านี้เป็นที่ทราบอยู่แล้ว แต่ผลลัพธ์ที่เกิดกับผู้ป่วยไม่เป็นที่ทราบ เพราะไม่มีการติดตามผู้ป่วยเป็นกิจวัตร",
+        "**ออกแบบให้แต่ละแห่งมีกำลังทางสถิติเพียงพอในตัวเอง** แล้วค่อยนำผลมารวมกันเป็นการวิเคราะห์อภิมานจากข้อมูลรวมเมื่อจบการศึกษา โดยถือว่าแต่ละแห่งเป็นหนึ่งหน่วย",
+      ],
+      soWhat:
+        "ถ้าผลออกมาตามที่ตั้งเป้า สิ่งที่ได้ไม่ใช่แค่ข้อสรุปว่าชุดตรวจเร็วดีหรือไม่ดี แต่เป็นหลักฐานสำหรับคนทำนโยบายว่าการลดการจ่ายยาปฏิชีวนะทำได้โดยไม่ต้องแลกกับความปลอดภัยของผู้ป่วย ซึ่งเป็นข้อกังวลที่ทำให้หลายที่ไม่กล้าเปลี่ยนวิธีทำงาน · การวางตัววัดผลการรักษาไว้คู่กับตัววัดการจ่ายยาตั้งแต่ต้น คือสิ่งที่ทำให้คำตอบนั้นเชื่อถือได้",
+      caveat:
+        "**นี่คือประกาศแผนวิจัย ไม่ใช่ผล** เอกสารที่ตีพิมพ์คือโครงร่างฉบับที่ 1.4 ลงวันที่ 20 ธันวาคม 2562 ยังไม่มีผลการศึกษา ณ วันที่เผยแพร่ · **กลุ่มควบคุมได้รับการดูแลตามปกติซึ่งผู้เขียนระบุว่าจะไม่เปลี่ยนระหว่างการทดลอง** และยอมรับเองว่าการดูแลตามปกติอาจมีความเสี่ยงติดมาด้วย เช่นการใช้ยาไม่เหมาะสมหรือการวินิจฉัยที่พลาดไป ซึ่งจะเฝ้าติดตาม · เป็นการศึกษาที่ออกแบบให้ตอบในระดับสถานพยาบาลเป็นหลัก การอ่านผลรวมข้ามหกประเทศจึงต้องระวังความต่างของบริบท",
+    },
+    en: {
+      headline:
+        "A plan to test whether rapid tests plus a decision algorithm can cut unnecessary antibiotics without leaving patients worse off",
+      question:
+        "Acute fevers arriving at outpatient clinics in low- and middle-income countries are clinically indistinguishable between bacterial and viral causes. Without diagnostics, prescribing antibiotics just in case has become common practice, and that feeds drug resistance. Can a package of rapid tests, a clinical algorithm, and training and communication reduce unnecessary prescribing without worsening clinical outcomes?",
+      method:
+        "A randomised controlled trial across nine clinical sites in six countries — Burkina Faso, Ghana, India, Myanmar, Nepal and Uganda — enrolling a minimum of 21,876 patients in total, with a 12-month recruitment window chosen so that seasonal variation in fever is covered. A master protocol was adapted for each country's ethics submission, and the tests and algorithms were chosen against existing data on what causes acute fever in each country. A qualitative evaluation of what drives and deters uptake of the new diagnostics runs alongside. Registered at ClinicalTrials.gov as NCT04081051.",
+      findings: [
+        "**There are two primary outcomes and they have to be read together**: the proportion of patients with a favourable outcome on day 7 — defined precisely as alive, without fever, and with day-zero symptoms resolved — and the proportion of antibiotic prescriptions in each arm.",
+        "**The target is declared in advance: a reduction of at least 30% from baseline in unnecessary prescribing**, not merely some reduction.",
+        "**Three secondary outcomes**: the proportion of patients reporting adherence to their prescription by day 7, the proportion of health workers who followed the new algorithm, and the proportion of participants experiencing adverse events.",
+        "**The gap that makes the trial necessary is stated plainly.** The authors note that prescription rates at these sites are already known, but patient outcomes are not, because patients are not routinely followed up.",
+        "**Each site is powered to stand on its own**, with results later combined in an aggregate-data meta-analysis treating the site as the unit of analysis.",
+      ],
+      soWhat:
+        "If the trial delivers what it is designed for, the result is not simply a verdict on rapid tests but evidence for policymakers that prescribing can be reduced without trading away patient safety — the worry that keeps many services from changing practice. Pairing a clinical-outcome measure with the prescribing measure from the outset is what makes that answer credible.",
+      caveat:
+        "**This is a protocol, not a result.** The published document is version 1.4, dated 20 December 2019, and no findings existed at publication. **The control arm receives routine care, which the authors state will not be altered during the trial**, and they acknowledge routine procedures may carry risks of their own, such as inappropriate antibiotic use or a missed diagnosis, which will be monitored. The design answers primarily at site level, so pooled results across six countries should be read with their differing contexts in mind.",
+    },
+  },
+  {
+    slug: "tiktok-philippine-destinations",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แว่นขยายส่องลงบนกองรูปสี่เหลี่ยมซ้อนกัน โดยรูปที่อยู่ใต้แว่นมีขอบคมกว่าใบอื่น",
+    illustrationAltEn:
+      "Paper-craft illustration of a magnifying glass over a stack of overlapping rectangles, the one beneath the lens cut with a sharper edge than the rest",
+    doi: "10.70838/pemj.360210",
+    articleLanguage: "en",
+    // Unpaywall รายงาน best_oa_location.license = cc-by-nc-nd ซึ่งเป็นแหล่งที่
+    // research-sources/README.md กำหนดให้ยึดสำหรับงานที่มี DOI · หน้านโยบายของ
+    // วารสารเขียนว่า CC BY-NC ส่วนตัวไฟล์บทความไม่มีข้อความสัญญาอนุญาตเลย
+    // เมื่อสองแหล่งไม่ตรงกันจึงใช้ค่าที่จำกัดกว่า
+    license: "cc-by-nc-nd",
+    localCopy: "tiktok-philippine-destinations.pdf",
+    th: {
+      headline:
+        "คนตอบบอกว่าติ๊กต็อกพาไปเจอที่เที่ยวที่ไม่เคยรู้จัก และบอกพร้อมกันว่าเจอคอนเทนต์เกินจริงบ่อย",
+      question:
+        "คลิปสั้นกลายเป็นช่องทางหลักที่คนใช้หาข้อมูลท่องเที่ยว งานนี้ถามผู้ที่เรียนด้านการท่องเที่ยว การโรงแรม และเทคโนโลยีสารสนเทศ ว่ามองแพลตฟอร์มนี้อย่างไร ทั้งในฐานะคนดูและในฐานะคนที่ต้องทำคอนเทนต์เอง",
+      method:
+        "แบบสอบถามออนไลน์ผ่าน Google Forms กับนิสิตระดับปริญญาตรี 150 คน จากมหาวิทยาลัยเอกชนแห่งหนึ่งในกรุงมะนิลา สามหลักสูตร คือการจัดการการท่องเที่ยว การจัดการการโรงแรม และเทคโนโลยีสารสนเทศ · ให้คะแนนความเห็นเป็นมาตรประมาณค่า แล้วรายงานผลเป็นค่าเฉลี่ยรายข้อพร้อมคำแปลความ",
+      findings: [
+        "**ข้อที่ได้คะแนนสูงสุดคือเรื่องอัลกอริทึม** คนตอบเห็นตรงกันมากที่สุดว่าอัลกอริทึมเป็นตัวกำหนดว่าคอนเทนต์ท่องเที่ยวจะไปถึงคนมากน้อยแค่ไหน — การมองเห็นจึงไม่ได้ขึ้นกับคุณภาพของคลิปอย่างเดียว",
+        "**คนตอบเชื่อถือและระแวงไปพร้อมกัน** ข้อที่ว่าแพลตฟอร์มให้ข้อมูลที่เชื่อถือได้ กับข้อที่ว่าเจอคอนเทนต์เกินจริงหรือชวนเข้าใจผิดบ่อย ได้คะแนนสูงทั้งคู่ในชุดคำถามเดียวกัน",
+        "**สิ่งที่คนตอบบอกว่าทำได้ยากคือการแยกรีวิวจริงออกจากคอนเทนต์ที่ได้รับการสนับสนุน** ซึ่งเป็นข้อที่ได้คะแนนสูงข้อหนึ่ง",
+        "**ภาพที่ว่าแพลตฟอร์มช่วยกระจายความสนใจไปยังที่ที่ยังไม่ดังไม่ได้ออกมาชัดเจน** เพราะข้อที่ว่าคอนเทนต์ที่เห็นซ้ำไปมาอยู่แต่กับที่เที่ยวยอดนิยม ได้คะแนนสูงพอกันกับข้อที่ว่าแพลตฟอร์มช่วยให้เจอที่ที่ไม่ค่อยมีคนรู้จัก",
+        "**ข้อที่ได้คะแนนต่ำที่สุดคือความหลากหลายของผู้ผลิตคอนเทนต์ช่วยในการวางแผนเดินทาง** คนตอบดูจะใช้ช่องทางอื่นเมื่อถึงขั้นวางแผนรายละเอียด",
+      ],
+      soWhat:
+        "สำหรับหน่วยงานหรือผู้ประกอบการที่คิดจะใช้คลิปสั้นเป็นช่องทางส่งเสริมการท่องเที่ยว ข้อค้นพบชี้สองอย่าง — อย่างแรก การมองเห็นถูกกำหนดโดยกลไกของแพลตฟอร์มมากพอที่จะต้องวางแผนเรื่องนี้ไว้ตั้งแต่ต้น ไม่ใช่หวังว่าคอนเทนต์ดีแล้วจะไปเอง · อย่างที่สอง เมื่อคนดูเองบอกว่าแยกรีวิวจริงกับคอนเทนต์ที่ได้รับการสนับสนุนไม่ออก การบอกให้ชัดว่าคลิปไหนได้รับการสนับสนุนจึงเป็นเรื่องของความน่าเชื่อถือในระยะยาว ไม่ใช่แค่การทำตามระเบียบ",
+      caveat:
+        "**กลุ่มตัวอย่างคือนิสิต 150 คนจากมหาวิทยาลัยเดียวในเมืองเดียว** ไม่ใช่นักท่องเที่ยวทั่วไป และสิ่งที่วัดคือความคิดเห็น ไม่ใช่พฤติกรรมการเดินทางจริง · **บทคัดย่อของบทความกล่าวถึงผลทางเศรษฐกิจ ปัญหานักท่องเที่ยวล้นพื้นที่ ความเสื่อมโทรมของสิ่งแวดล้อม และความยั่งยืน ซึ่งแบบสอบถามชุดนี้ไม่ได้วัด** บทสรุปนี้จึงยึดตามตารางผลเท่านั้น ตามหลักที่ศูนย์ฯ ใช้กับทุกบทสรุป · **บทความรายงานชุดคำถามที่ถามเรื่องเดียวกันสองชุดและได้ค่าเฉลี่ยต่างกัน โดยไม่ได้อธิบายว่าสองชุดต่างกันอย่างไร** เราจึงเล่าเฉพาะรูปแบบที่ปรากฏตรงกันทั้งสองชุด และไม่ยกตัวเลขรายข้อมาเป็นข้อสรุป",
+    },
+    en: {
+      headline:
+        "Respondents said the platform shows them places they had never heard of — and, in the same breath, that exaggerated content is common",
+      question:
+        "Short-form video has become a main channel for travel research. This study asked students of tourism management, hospitality management and information technology how they see the platform, both as viewers and as people who have to make the content themselves.",
+      method:
+        "An online questionnaire administered through Google Forms to 150 undergraduates at a private university in Manila across three programmes — tourism management, hospitality management and information technology. Opinions were captured on a rating scale and reported as per-item means with verbal interpretations.",
+      findings: [
+        "**The highest-scoring item concerned the algorithm.** Respondents agreed most strongly that the algorithm determines how far travel content travels — visibility is not a function of the clip's quality alone.",
+        "**Respondents trusted and doubted the platform at once.** The item saying it provides reliable information and the item saying misleading or exaggerated travel content is common both scored high within the same block of questions.",
+        "**What respondents said was hard was telling genuine recommendations from sponsored content**, one of the highest-scoring items.",
+        "**The picture of the platform spreading attention to lesser-known places did not come through cleanly**: the item saying the content seen is repetitive and confined to popular destinations scored as highly as the item saying the platform surfaces hidden spots.",
+        "**The lowest-scoring item was that the diversity of creators helps with travel planning**, suggesting respondents turn elsewhere once planning gets specific.",
+      ],
+      soWhat:
+        "For any agency or operator considering short-form video for destination promotion, two things follow. Visibility is governed by platform mechanics enough that it has to be planned for rather than assumed to follow good content. And when viewers themselves report being unable to separate genuine recommendations from sponsored ones, labelling sponsorship clearly becomes a matter of long-term credibility rather than mere compliance.",
+      caveat:
+        "**The sample is 150 students at a single university in one city**, not travellers in general, and what was measured is opinion rather than actual travel behaviour. **The article's abstract discusses economic effects, over-tourism, environmental degradation and sustainability, none of which this questionnaire measured**; this summary therefore follows the results tables only, as the centre does for every summary. **The article reports two overlapping sets of items covering the same ground with differing means, without explaining how the two sets differ**, so we report only the patterns that hold across both and do not treat any individual figure as a conclusion.",
+    },
+  },
 ];
 
 const byDoi = new Map(
