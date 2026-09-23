@@ -2259,9 +2259,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "precede-proceed-myanmar-pt",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ ใบสั่งยาแผ่นเดียวที่คลี่ออกกลายเป็นพัดหลายกลีบ แต่ละกลีบยาวไม่เท่ากัน",
+      "ภาพประกอบกระดาษ แถบกระดาษแนวตั้งแถบเดียวที่ปลายบนแตกออกเป็นกลีบแหลมจำนวนมาก แต่ละกลีบยาวไม่เท่ากัน",
     illustrationAltEn:
-      "Paper-craft illustration of a single prescription slip unfolding into a fan of several leaves, each a different length",
+      "Paper-craft illustration of a single upright paper strip opening at its top into a spray of many pointed leaves of differing lengths",
     doi: "10.3389/fpubh.2019.00114",
     articleLanguage: "en",
     license: "cc-by",
@@ -2407,9 +2407,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "tiktok-philippine-destinations",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ แว่นขยายส่องลงบนกองรูปสี่เหลี่ยมซ้อนกัน โดยรูปที่อยู่ใต้แว่นมีขอบคมกว่าใบอื่น",
+      "ภาพประกอบกระดาษ แว่นขยายวางทับกองแผ่นสี่เหลี่ยมที่ซ้อนกันอยู่หลายใบ โดยมีแผ่นหนึ่งปรากฏเต็มอยู่ใต้เลนส์",
     illustrationAltEn:
-      "Paper-craft illustration of a magnifying glass over a stack of overlapping rectangles, the one beneath the lens cut with a sharper edge than the rest",
+      "Paper-craft illustration of a magnifying glass resting on a stack of several overlapping paper rectangles, one of them sitting fully under the lens",
     doi: "10.70838/pemj.360210",
     articleLanguage: "en",
     // Unpaywall รายงาน best_oa_location.license = cc-by-nc-nd ซึ่งเป็นแหล่งที่
