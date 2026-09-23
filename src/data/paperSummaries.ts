@@ -202,7 +202,7 @@ export const paperSummaries: PaperSummary[] = [
         "ขั้นประเมินผลได้คะแนนต่ำสุดในหกขั้น คือ 4.18 ซึ่งอยู่ที่ระดับ “เหมาะสม” ไม่ถึง “เหมาะสมมาก”",
       ],
       soWhat:
-        "ข้อค้นพบที่ใช้ได้ทันทีคือลำดับ — งานสื่อสารสุขภาพกับกลุ่มเปราะบางมักเริ่มจากการผลิตสื่อ แต่ผู้เชี่ยวชาญให้น้ำหนักสูงสุดกับสิ่งที่ต้องทำ*ก่อน*ผลิตสื่อ คือการสร้างความไว้วางใจและการดึงคนในพื้นที่เข้ามาเป็นเจ้าของงาน องค์กรที่กำลังออกแบบแคมเปญกับแรงงานข้ามชาติเอาหกขั้นนี้ไปใช้เป็นโครงได้เลย",
+        "ข้อค้นพบที่ใช้ได้ทันทีคือลำดับ — งานสื่อสารสุขภาพกับกลุ่มเปราะบางมักเริ่มจากการผลิตสื่อ แต่ผู้เชี่ยวชาญให้น้ำหนักสูงสุดกับสิ่งที่ต้องทำ**ก่อน**ผลิตสื่อ คือการสร้างความไว้วางใจและการดึงคนในพื้นที่เข้ามาเป็นเจ้าของงาน องค์กรที่กำลังออกแบบแคมเปญกับแรงงานข้ามชาติเอาหกขั้นนี้ไปใช้เป็นโครงได้เลย",
       caveat:
         "งานชิ้นนี้ประเมินความเหมาะสมของแบบจำลองด้วยความเห็นผู้เชี่ยวชาญ 10 คน ไม่ใช่การวัดผลลัพธ์ทางสุขภาพในภาคสนาม (ส่วนนั้นอยู่ในงานปี 2019 ของทีมเดียวกัน)",
     },
@@ -219,7 +219,7 @@ export const paperSummaries: PaperSummary[] = [
         "Evaluation scored lowest of the six components at 4.18 — “appropriate”, but not “very appropriate”.",
       ],
       soWhat:
-        "The immediately usable finding is the ordering. Health campaigns for vulnerable groups usually begin by producing materials, yet the experts gave their highest marks to what has to happen *before* any material exists: earning trust and bringing local people in as owners of the work. Organisations designing a campaign with migrant workers can adopt the six steps as a scaffold.",
+        "The immediately usable finding is the ordering. Health campaigns for vulnerable groups usually begin by producing materials, yet the experts gave their highest marks to what has to happen **before** any material exists: earning trust and bringing local people in as owners of the work. Organisations designing a campaign with migrant workers can adopt the six steps as a scaffold.",
       caveat:
         "This study evaluates the model's appropriateness through the judgement of ten experts. It does not measure health outcomes in the field — that is the 2019 study by the same team.",
     },
@@ -1613,11 +1613,11 @@ export const paperSummaries: PaperSummary[] = [
       method:
         "การให้เหตุผลเชิงปรัชญาการเมืองและปรัชญากฎหมาย ไล่เป็นขั้น — เริ่มจากแยก **เสรีภาพ** ออกจาก **ความสามารถ** ตามที่ Rothbard อธิบายไว้และเทียบกับแนวคิดเรื่องเสรีภาพของ Locke · แล้วแยก **สิทธิเชิงลบ** (สิทธิที่ขอเพียงให้คนอื่นไม่มาแทรกแซง) ออกจาก **สิทธิเชิงบวก** (สิทธิที่คนอื่นต้องลงมือทำหรือจ่ายให้จึงจะเป็นจริง) ตามที่ Berlin วางไว้ · แล้วจึงเชื่อมเสรีภาพในการสื่อสารเข้ากับสิทธิในทรัพย์สิน · ไม่มีการเก็บข้อมูลและไม่มีกรณีศึกษาเชิงประจักษ์",
       findings: [
-        "**เสรีภาพไม่เท่ากับความสามารถ** — ตัวอย่างที่งานยกคือคนเราไม่ได้ “ไม่มีเสรีภาพ” ที่จะกระโดดข้ามมหาสมุทร แต่ไม่มี*ความสามารถ*ต่างหาก · การขาดความสามารถไม่ใช่การถูกลิดรอนสิทธิ และการสับสนสองอย่างนี้เป็นต้นทางของข้อถกเถียงที่พันกัน",
+        "**เสรีภาพไม่เท่ากับความสามารถ** — ตัวอย่างที่งานยกคือคนเราไม่ได้ “ไม่มีเสรีภาพ” ที่จะกระโดดข้ามมหาสมุทร แต่ไม่มี**ความสามารถ**ต่างหาก · การขาดความสามารถไม่ใช่การถูกลิดรอนสิทธิ และการสับสนสองอย่างนี้เป็นต้นทางของข้อถกเถียงที่พันกัน",
         "**สิทธิเชิงลบกับสิทธิเชิงบวกเรียกร้องจากคนอื่นไม่เท่ากัน** — สิทธิเชิงลบขอเพียงให้คนอื่นไม่มาแทรกแซง จึงไม่ต้องบังคับใครเลย ส่วนสิทธิเชิงบวกแปลว่าต้องมีใครสักคนถูกบังคับให้ลงมือทำหรือจ่าย เพื่อให้สิทธินั้นเป็นจริงขึ้นมา",
         "**เสรีภาพในการพูดไม่ใช่สิทธิที่ลอยอยู่เดี่ยวๆ แต่เป็นส่วนขยายของสิทธิในทรัพย์สิน** — คำถามที่มักถูกข้ามคือ “พูดที่ไหน” เพราะการพูดต้องเกิดบนพื้นที่ใดพื้นที่หนึ่งเสมอ ไม่ว่าจะเป็นของตนเอง หรือของคนที่ยินยอมให้ใช้",
         "**เมื่อวางบนกรอบนี้ การที่แพลตฟอร์มเอกชนไม่ยอมเผยแพร่เนื้อหาบางอย่าง จึงไม่ใช่การเซ็นเซอร์ แต่คือการใช้สิทธิเหนือทรัพย์สินของตน** — งานแยกให้ชัดระหว่างเอกชนที่ปฏิเสธจะแบกข้อความของคนอื่นไว้บนพื้นที่ตัวเอง กับรัฐที่ห้ามคนพูดบนพื้นที่ที่เขาเป็นเจ้าของโดยชอบ ซึ่งเป็นคนละเรื่องกัน",
-        "**ข้อสรุปกลับด้านกับข้อวิจารณ์ที่ได้ยินบ่อย** — ผู้เขียนเสนอว่าการออกกฎบังคับให้แพลตฟอร์มยกเลิกนโยบายเนื้อหาของตน จะเป็นภัยต่อเสรีภาพในการแสดงออก*มากกว่า* การที่แพลตฟอร์มลบโพสต์ เพราะเป็นการบังคับเจ้าของทรัพย์สินให้ทำสิ่งที่เขาไม่ต้องการ",
+        "**ข้อสรุปกลับด้านกับข้อวิจารณ์ที่ได้ยินบ่อย** — ผู้เขียนเสนอว่าการออกกฎบังคับให้แพลตฟอร์มยกเลิกนโยบายเนื้อหาของตน จะเป็นภัยต่อเสรีภาพในการแสดงออก**มากกว่า** การที่แพลตฟอร์มลบโพสต์ เพราะเป็นการบังคับเจ้าของทรัพย์สินให้ทำสิ่งที่เขาไม่ต้องการ",
       ],
       soWhat:
         "ข้อถกเถียงเรื่องแพลตฟอร์มกับเสรีภาพในการแสดงออกกลับมาทุกครั้งที่มีการลบโพสต์ที่เป็นข่าว งานนี้ให้**เครื่องมือแยกคำถาม**ที่ใช้ได้โดยไม่ต้องเห็นด้วยกับข้อสรุป — ก่อนถามว่า “นี่คือการเซ็นเซอร์หรือไม่” ให้ถามก่อนสองข้อ คือเวทีที่กำลังพูดถึงเป็นของใคร และผู้เรียกร้องกำลังขอให้ใครงดเว้นการกระทำ หรือขอให้ใครถูกบังคับให้ทำอะไรบางอย่าง · สองคำถามนี้แยกกรณีที่ดูเหมือนกันออกจากกันได้ทันที และใช้ได้กับสื่อทุกชนิด ไม่ใช่เฉพาะโซเชียลมีเดีย",
@@ -1631,11 +1631,11 @@ export const paperSummaries: PaperSummary[] = [
       method:
         "A step-by-step argument in political and legal philosophy. It separates **freedom** from **power** as Rothbard sets it out, alongside Locke's conception of liberty; then separates **negative rights** (which ask only that others not interfere) from **positive rights** (which require someone else to act or pay before the right is real), following Berlin; and then ties communication freedom to property rights. No data is collected and no empirical case is examined.",
       findings: [
-        "**Freedom is not the same as power.** A person is not “unfree” to leap an ocean — they lack the *power* to. Lacking power is not being deprived of a right, and confusing the two is where tangled arguments begin.",
+        "**Freedom is not the same as power.** A person is not “unfree” to leap an ocean — they lack the **power** to. Lacking power is not being deprived of a right, and confusing the two is where tangled arguments begin.",
         "**Negative and positive rights ask different things of other people.** A negative right asks only that others refrain, so it coerces nobody. A positive right means someone must be compelled to act or to pay before the right exists in practice.",
-        "**Free speech is not a free-standing right but an extension of property rights.** The question usually skipped is *where* — speech always happens somewhere, either on your own property or on property whose owner has agreed to host you.",
+        "**Free speech is not a free-standing right but an extension of property rights.** The question usually skipped is **where** — speech always happens somewhere, either on your own property or on property whose owner has agreed to host you.",
         "**On that framing, a private platform declining to carry content is not censorship but the exercise of property rights.** The article draws a sharp line between a private party refusing to carry someone's ideas on its own property and a government forbidding speech on property the speaker legitimately owns.",
-        "**The conclusion inverts the common criticism.** The author argues that compelling platforms to abandon their content policies would threaten freedom of expression *more* than deleting posts does, because it forces property owners to do what they do not wish to do.",
+        "**The conclusion inverts the common criticism.** The author argues that compelling platforms to abandon their content policies would threaten freedom of expression **more** than deleting posts does, because it forces property owners to do what they do not wish to do.",
       ],
       soWhat:
         "The platform-and-speech argument returns every time a newsworthy post is removed. Whether or not you accept the conclusion, the article supplies a **way of splitting the question**: before asking “is this censorship?”, ask whose platform it is, and whether the demand is that someone refrain from acting or that someone be compelled to act. Those two questions separate cases that look identical, and they apply to any medium, not only social media.",
@@ -1857,7 +1857,7 @@ export const paperSummaries: PaperSummary[] = [
         "**ผู้เขียนระบุเองว่าวิธีนี้ไม่ได้ทำให้การวัดแม่นยำขึ้น** เป้าหมายคือทำให้ความคาดหวังของเอเจนซีกับลูกค้าตรงกัน ไม่ใช่ทำให้การประเมินเป็นภววิสัยมากขึ้น",
       ],
       soWhat:
-        "สิ่งที่องค์กรเอาไปใช้ได้ทันทีไม่ใช่ตัวเลขสัมประสิทธิ์ แต่เป็น**ลำดับเวลา** — ตกลงเกณฑ์วัดผลและประเมินความยากของประเด็นให้เสร็จ*ก่อน*เริ่มงาน ไม่ใช่มาเถียงกันตอนส่งรายงาน · ข้อขัดแย้งเรื่องผลงานประชาสัมพันธ์ส่วนใหญ่เกิดจากไม่เคยตั้งเป้าที่วัดได้ร่วมกันตั้งแต่แรก · และการแยก “ผลงานของเอเจนซี” ออกจาก “แรงของประเด็นเอง” เป็นวิธีคิดที่ใช้ได้แม้ไม่ใช้สูตรนี้",
+        "สิ่งที่องค์กรเอาไปใช้ได้ทันทีไม่ใช่ตัวเลขสัมประสิทธิ์ แต่เป็น**ลำดับเวลา** — ตกลงเกณฑ์วัดผลและประเมินความยากของประเด็นให้เสร็จ**ก่อน**เริ่มงาน ไม่ใช่มาเถียงกันตอนส่งรายงาน · ข้อขัดแย้งเรื่องผลงานประชาสัมพันธ์ส่วนใหญ่เกิดจากไม่เคยตั้งเป้าที่วัดได้ร่วมกันตั้งแต่แรก · และการแยก “ผลงานของเอเจนซี” ออกจาก “แรงของประเด็นเอง” เป็นวิธีคิดที่ใช้ได้แม้ไม่ใช้สูตรนี้",
       caveat:
         "**เป็นข้อเสนอเชิงวิธีวิทยา ไม่ใช่ผลการวิจัยเชิงประจักษ์ และเป็นข้อเสนอของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ** · ตัวเลขสัมประสิทธิ์ 0.5 / 1.5 / 2.0 เป็น**ตัวอย่างที่ผู้เขียนยกขึ้นเพื่ออธิบายหลักการ** ไม่ได้มาจากการสอบเทียบกับข้อมูลจริง · การจัดว่าประเด็นไหนศักยภาพสูงหรือต่ำยังเป็นดุลพินิจ ซึ่งย้ายจุดที่ต้องตกลงกันไป ไม่ได้ทำให้หายไป · ตัวอย่างประกอบอ้างอิงบริบทสื่อรัสเซีย การนำมาใช้ที่อื่นต้องปรับ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อเอเจนซีสองแห่งที่บทความยกสมมติฐานขึ้นมาวิจารณ์** เพราะข้อวิจารณ์นั้นไม่ได้เพิ่มอะไรให้หลักการที่นำไปใช้ได้",
     },
@@ -1876,7 +1876,7 @@ export const paperSummaries: PaperSummary[] = [
         "**The authors state plainly that this does not make measurement more accurate.** Its purpose is to align the expectations of agency and client, not to make evaluation more objective.",
       ],
       soWhat:
-        "What an organisation can use immediately is not the coefficient itself but **the sequence**: settle the measures and assess the difficulty of the story *before* the work begins, rather than arguing about it when the report lands. Most disputes over PR results come from never having set an agreed, measurable target in the first place. And separating “what the agency did” from “how much pull the story had anyway” is a useful way to think even without adopting this formula.",
+        "What an organisation can use immediately is not the coefficient itself but **the sequence**: settle the measures and assess the difficulty of the story **before** the work begins, rather than arguing about it when the report lands. Most disputes over PR results come from never having set an agreed, measurable target in the first place. And separating “what the agency did” from “how much pull the story had anyway” is a useful way to think even without adopting this formula.",
       caveat:
         "**This is a methodological proposal rather than an empirical finding, and it is the authors' proposal, not a position of the Center.** The coefficients of 0.5 / 1.5 / 2.0 are **illustrative values used to explain the principle**, not calibrated against data. Judging a story as high or low potential remains a matter of judgement, which relocates the point that has to be agreed rather than removing it. The worked examples draw on the Russian media context and would need adapting elsewhere. **This summary deliberately does not name the two agencies whose assumptions the article singles out for criticism**, since those names add nothing to the principle that can be applied.",
     },
@@ -1900,7 +1900,7 @@ export const paperSummaries: PaperSummary[] = [
       findings: [
         "**การเปิดรับสื่อเพิ่มขึ้นทุกปี** คะแนนความถี่เฉลี่ย 2.84 (2556) → 3.31 (2557) → 3.37 (2558) แตกต่างกันอย่างมีนัยสำคัญ (p = 0.001) — ปี 2556 กลุ่มใหญ่สุดเห็นข้อมูลแค่เดือนละครั้ง (32.4%) ปี 2557 กลุ่มใหญ่สุดเห็นมากกว่าสามครั้งต่อสัปดาห์ (35.2%)",
         "**แต่ความรู้ไม่ได้ไต่ตาม** สัดส่วนตอบถูกเฉลี่ย 73.6% → 81.5% → 73.3% ขึ้นปีเดียวแล้วตกกลับ ผู้เขียนอ่านว่าปี 2557 คือความตื่นตัวหลังการระบาดใหญ่ปี 2556 ซึ่งแผ่วลงเมื่อเข้าสู่ช่วงฟื้นตัว",
-        "**ความเข้าใจผิดที่ฝังแน่นที่สุดคือเรื่องน้ำ** มีเพียงราวหนึ่งในสาม (33.5% ในปี 2556 · 30.0% ในปี 2558) ที่รู้ว่ายุงลาย*ไม่ได้*วางไข่ในน้ำสกปรกส่งกลิ่น ผู้เขียนคาดว่าคนสับสนระหว่างการควบคุมมาลาเรียกับไข้เลือดออก ขณะที่ข้ออื่นตอบถูกเกิน 90%",
+        "**ความเข้าใจผิดที่ฝังแน่นที่สุดคือเรื่องน้ำ** มีเพียงราวหนึ่งในสาม (33.5% ในปี 2556 · 30.0% ในปี 2558) ที่รู้ว่ายุงลาย**ไม่ได้**วางไข่ในน้ำสกปรกส่งกลิ่น ผู้เขียนคาดว่าคนสับสนระหว่างการควบคุมมาลาเรียกับไข้เลือดออก ขณะที่ข้ออื่นตอบถูกเกิน 90%",
         "**การลงมือทำถอยหลัง** สัดส่วนคนที่กำจัดแหล่งเพาะพันธุ์ทุกสัปดาห์ตามคำแนะนำลดจาก 61.2% (2557) เหลือ 48.3% (2558) ส่วนกลุ่มที่ทำน้อยกว่าสัปดาห์ละครั้งเพิ่มจาก 28.0% เป็น 35.2%",
         "**ผู้เขียนสรุปตรงไปตรงมาว่า แคมเปญสื่อที่มุ่งเพิ่มความตระหนักอย่างเดียวโดยไม่มีการมีส่วนร่วมของชุมชน ไม่ได้ผลในการควบคุมไข้เลือดออก** — ความกังวลเรื่องไข้เลือดออกในไทยมาเป็นช่วง ขึ้นเมื่อภัยใกล้ตัวและซาลงหลังจากนั้น",
       ],
@@ -1918,7 +1918,7 @@ export const paperSummaries: PaperSummary[] = [
       findings: [
         "**Media exposure rose every year.** The mean frequency score went from 2.84 (2013) to 3.31 (2014) to 3.37 (2015), a significant difference (p = 0.001). In 2013 the largest group saw dengue information only once a month (32.4%); in 2014 the largest group saw it more than three times a week (35.2%).",
         "**Knowledge did not climb with it.** The average share of correct answers went 73.6% → 81.5% → 73.3% — up for one year, then back down. The authors read 2014 as the alert that followed the 2013 outbreak, fading once the recovery period set in.",
-        "**The most stubborn misconception concerns water.** Only about a third (33.5% in 2013, 30.0% in 2015) knew that the dengue mosquito does *not* lay eggs in dirty, smelly water; the authors suspect people conflate malaria control with dengue control. Other statements were answered correctly by more than 90%.",
+        "**The most stubborn misconception concerns water.** Only about a third (33.5% in 2013, 30.0% in 2015) knew that the dengue mosquito does **not** lay eggs in dirty, smelly water; the authors suspect people conflate malaria control with dengue control. Other statements were answered correctly by more than 90%.",
         "**Action went backwards.** The share eliminating breeding sites weekly, as recommended, fell from 61.2% (2014) to 48.3% (2015), while the share doing so less than once a week rose from 28.0% to 35.2%.",
         "**The authors' conclusion is blunt: a media campaign aimed only at raising awareness, without community participation, proved ineffective at controlling dengue.** Concern about dengue in Thailand is episodic — it rises with imminent danger and subsides afterwards.",
       ],
