@@ -11,33 +11,41 @@ type Entry = {
   changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
   priority: number;
   lastModified?: Date;
+  /**
+   * มีหน้าภาษาจีนที่ /zh ด้วยหรือไม่ — ภาษาจีนมีเฉพาะหน้าหลักและหน้าโครงการ
+   * (24 ก.ย. 2569) ข่าว สื่อ และบทสรุปงานวิจัยยังไม่มี ถ้าประกาศ URL จีนให้หน้า
+   * ที่ไม่มีจริง sitemap จะชี้ไป 404 และ `check:routes` จะฟ้อง
+   */
+  zh?: boolean;
 };
 
-/** หน้าคงที่ — ทุกหน้ามีคู่อังกฤษที่ /en เสมอ ตามกติกา i18n ใน CLAUDE.md */
+/** หน้าคงที่ — ทุกหน้ามีคู่อังกฤษที่ /en เสมอ ตามกติกา i18n ใน CLAUDE.md · จีนเฉพาะที่ระบุ */
 const staticEntries: Entry[] = [
-  { path: "", changeFrequency: "weekly", priority: 1 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/expertise", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/impact", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/collaborate", changeFrequency: "monthly", priority: 0.9 },
+  { path: "", changeFrequency: "weekly", priority: 1, zh: true },
+  { path: "/about", changeFrequency: "monthly", priority: 0.8, zh: true },
+  { path: "/expertise", changeFrequency: "monthly", priority: 0.8, zh: true },
+  { path: "/impact", changeFrequency: "weekly", priority: 0.9, zh: true },
+  { path: "/collaborate", changeFrequency: "monthly", priority: 0.9, zh: true },
   { path: "/news", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/research", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/sdg", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/research", changeFrequency: "monthly", priority: 0.8, zh: true },
+  { path: "/sdg", changeFrequency: "monthly", priority: 0.8, zh: true },
   { path: "/media", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3, zh: true },
 ];
 
 /**
- * แปลง entry หนึ่งรายการเป็นสอง URL — ไทยกับอังกฤษ
+ * แปลง entry หนึ่งรายการเป็น URL ของทุกภาษาที่หน้านั้นมี — ไทย อังกฤษ และจีนถ้ามี
  *
- * ทั้งคู่ประกาศ alternates ชุดเดียวกัน (th / en / x-default → ไทย)
+ * ทุก URL ในกลุ่มประกาศ alternates ชุดเดียวกัน (th / en / zh-Hans / x-default → ไทย)
  * ให้ตรงกับแท็ก hreflang ที่แต่ละหน้าใส่ไว้ใน <head> อยู่แล้ว
  * ถ้าสองที่ไม่ตรงกัน Google จะถือว่า cluster ภาษาไม่สมบูรณ์แล้วเมินทั้งชุด
+ * — หน้าที่ไม่มีฉบับจีนต้องไม่ประกาศ zh-Hans ทั้งใน <head> และที่นี่
  */
-function bothLocales(e: Entry): MetadataRoute.Sitemap {
+function allLocales(e: Entry): MetadataRoute.Sitemap {
   const th = `${baseUrl}${e.path}`;
   const en = `${baseUrl}/en${e.path}`;
-  const languages = { th, en, "x-default": th };
+  const zh = `${baseUrl}/zh${e.path}`;
+  const languages = e.zh ? { th, en, "zh-Hans": zh, "x-default": th } : { th, en, "x-default": th };
   const common = {
     lastModified: e.lastModified ?? new Date(),
     changeFrequency: e.changeFrequency,
@@ -47,6 +55,7 @@ function bothLocales(e: Entry): MetadataRoute.Sitemap {
   return [
     { url: th, ...common },
     { url: en, ...common },
+    ...(e.zh ? [{ url: zh, ...common }] : []),
   ];
 }
 
@@ -64,6 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         path: `/impact/${p.slug}`,
         changeFrequency: "monthly",
         priority: 0.7,
+        zh: true,
       }),
     ),
     ...newsPosts.map(
@@ -85,5 +95,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   ];
 
-  return entries.flatMap(bothLocales);
+  return entries.flatMap(allLocales);
 }

@@ -24,7 +24,7 @@ import { SDG, SDG_IDS } from "@/data/sdg";
 export const metadata = {
   alternates: {
     canonical: "/en",
-    languages: { th: "/", en: "/en", "x-default": "/" },
+    languages: { th: "/", en: "/en", "zh-Hans": "/zh", "x-default": "/" },
   },
 };
 

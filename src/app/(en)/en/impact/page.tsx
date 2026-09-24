@@ -15,7 +15,7 @@ import { SDG_IDS, type SdgId } from "@/data/sdg";
 export const metadata = {
   alternates: {
     canonical: "/en/impact",
-    languages: { th: "/impact", en: "/en/impact", "x-default": "/impact" },
+    languages: { th: "/impact", en: "/en/impact", "zh-Hans": "/zh/impact", "x-default": "/impact" },
   },
   title: "Our impact",
   description:

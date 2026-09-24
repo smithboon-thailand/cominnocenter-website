@@ -1,5 +1,5 @@
 /**
- * ตรวจว่า "เส้นทาง" ของเว็บยังต่อกันครบ — ลิงก์ · sitemap · redirect · คู่ไทย-อังกฤษ
+ * ตรวจว่า "เส้นทาง" ของเว็บยังต่อกันครบ — ลิงก์ · sitemap · redirect · คู่ไทย-อังกฤษ(-จีน)
  *
  * ทำไมต้องมี (3 ก.ย. 2569)
  *
@@ -182,14 +182,23 @@ if (sitemapPaths) {
   }
 }
 
-// ── 4. ไทยกับอังกฤษต้องมีครบเป็นคู่ ──
+// ── 4. ไทยกับอังกฤษต้องมีครบเป็นคู่ · จีนเป็นชุดย่อยที่ทุกหน้าต้องมีทั้งไทยและอังกฤษ ──
+//
+// ภาษาจีน (24 ก.ย. 2569) มีเฉพาะหน้าหลักและหน้าโครงการ ไม่ได้ครบทุกหน้าอย่างอังกฤษ
+// กฎจึงเป็นทางเดียว: หน้าจีนทุกหน้าต้องมีคู่ไทยและอังกฤษ แต่หน้าไทย/อังกฤษไม่ต้อง
+// มีคู่จีน — ถ้าวันหนึ่งหน้าจีนครบทุกหน้า ให้เปลี่ยนเป็นสองทางแบบเดียวกับอังกฤษ
 
 const enOf = (path: string) => (path === "/" ? "/en" : `/en${path}`);
-const thOf = (path: string) => (path === "/en" ? "/" : path.slice(3));
+/** `/en/about` → `/about` · `/zh/about` → `/about` · `/en` → `/` */
+const thOf = (path: string) => (path === "/en" || path === "/zh" ? "/" : path.slice(3));
 
 for (const path of [...pages.keys()].sort()) {
   if (SITEMAP_EXEMPT.has(path)) continue;
-  if (path.startsWith("/en")) {
+  if (path === "/zh" || path.startsWith("/zh/")) {
+    const th = thOf(path);
+    if (!pages.has(th)) fail(`หน้าจีนไม่มีคู่ไทย: "${path}" แต่ไม่มี "${th}"`);
+    if (!pages.has(enOf(th))) fail(`หน้าจีนไม่มีคู่อังกฤษ: "${path}" แต่ไม่มี "${enOf(th)}"`);
+  } else if (path === "/en" || path.startsWith("/en/")) {
     const th = thOf(path);
     if (!pages.has(th)) fail(`หน้าอังกฤษไม่มีคู่ไทย: "${path}" แต่ไม่มี "${th}"`);
   } else {

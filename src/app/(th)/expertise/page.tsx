@@ -8,7 +8,7 @@ import SectionIcon from "@/components/ui/SectionIcon";
 export const metadata = {
   alternates: {
     canonical: "/expertise",
-    languages: { th: "/expertise", en: "/en/expertise", "x-default": "/expertise" },
+    languages: { th: "/expertise", en: "/en/expertise", "zh-Hans": "/zh/expertise", "x-default": "/expertise" },
   },
   title: "ความเชี่ยวชาญ",
   description:

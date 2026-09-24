@@ -19,6 +19,8 @@
  * ที่ไม่ทำให้เครื่องหมายกำกับหลุดจากพยัญชนะ
  */
 
+import type { Locale } from "./locale";
+
 /** สระบน/ล่างและวรรณยุกต์ไทย — ต้องมีพยัญชนะนำหน้าเสมอ ห้ามเป็นตัวสุดท้าย */
 const THAI_COMBINING = /[ัิ-ฺ็-๎]/;
 
@@ -31,7 +33,7 @@ const TRAILING_NOISE = /[\sๆ,;:·—–-]+$/;
  * คืนข้อความเดิมถ้าสั้นพออยู่แล้ว — ไม่เติมจุดไข่ปลาให้ข้อความที่ยังครบ
  * ซึ่งจะทำให้ผู้อ่านเข้าใจผิดว่ายังมีต่อ
  */
-export function truncate(text: string, max: number, locale: "th" | "en"): string {
+export function truncate(text: string, max: number, locale: Locale): string {
   const chars = [...text];
   if (chars.length <= max) return text;
 

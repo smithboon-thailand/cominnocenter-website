@@ -14,7 +14,7 @@ const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(
 export const metadata = {
   alternates: {
     canonical: "/sdg",
-    languages: { th: "/sdg", en: "/en/sdg", "x-default": "/sdg" },
+    languages: { th: "/sdg", en: "/en/sdg", "zh-Hans": "/zh/sdg", "x-default": "/sdg" },
   },
   title: "เป้าหมายการพัฒนาที่ยั่งยืน (SDG)",
   // เขียนให้ตรงกับสิ่งที่ฝ่าย ESG/CSR ค้นหาจริง — การสื่อสาร SDG องค์กร และรายงานความยั่งยืน

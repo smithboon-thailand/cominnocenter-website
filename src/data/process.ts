@@ -16,7 +16,9 @@ export type ProcessStep = {
   description: string;
 };
 
-export const processSteps: Record<"th" | "en", ProcessStep[]> = {
+import type { Locale } from "@/lib/locale";
+
+export const processSteps: Record<Locale, ProcessStep[]> = {
   th: [
     {
       number: "01",
@@ -51,6 +53,23 @@ export const processSteps: Record<"th" | "en", ProcessStep[]> = {
       description: "A summary of how we could work together, with no obligation",
     },
   ],
+  zh: [
+    {
+      number: "01",
+      title: "两个工作日内回复",
+      description: "中心团队将通过电子邮件或电话与您联系",
+    },
+    {
+      number: "02",
+      title: "30 分钟需求沟通",
+      description: "了解您的目标与机构背景（线上或到学院面谈）",
+    },
+    {
+      number: "03",
+      title: "提出初步方案",
+      description: "总结可行的合作框架，不设任何义务",
+    },
+  ],
 };
 
 /** หัวเรื่องของ section และข้อความยืนยันหลังส่ง — ล้อกับ processSteps ด้านบน */
@@ -66,5 +85,11 @@ export const processCopy = {
     title: "What happens next",
     description: "Your message will not disappear into a void. These three steps happen every time.",
     listLabel: "What happens after you send a message",
+  },
+  zh: {
+    eyebrow: "发送信息之后",
+    title: "接下来会发生什么",
+    description: "您的信息不会石沉大海。以下三个步骤每次都会发生。",
+    listLabel: "发送信息后的步骤",
   },
 } as const;

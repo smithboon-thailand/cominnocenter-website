@@ -17,10 +17,13 @@ export type Researcher = {
   nameEn: string;
   roleTh: string;
   role: string;
+  roleZh: string;
   faculty: string;
   facultyEn: string;
+  facultyZh: string;
   focusEn?: string;
   focus: string;
+  focusZh: string;
   image?: string;
   alt: string;
   email?: string;
@@ -39,6 +42,10 @@ export const researchers: Researcher[] = [
     // (CLAUDE.md กฎข้อ 8 — publications.ts เป็นไฟล์ generated ห้ามแก้ด้วยมือ)
     // ชื่อไฟล์ภาพและ URL ช่อง YouTube ก็คงเดิม เพราะเป็นที่อยู่จริงของทรัพยากร
     nameEn: "Dr. Wassayut Kongjan",
+    roleZh: "中心研究员",
+    facultyZh: "朱拉隆功大学传播艺术学院公共关系系讲师",
+    focusZh:
+      "社会议题传播、传播创新与社会联结——传播艺术学院负责学术服务与社会联结的副院长",
     roleTh: "นักวิจัยประจำศูนย์",
     role: "Center Researcher",
     faculty:
@@ -73,6 +80,9 @@ export const researchers: Researcher[] = [
   {
     name: "ศ.ดร.วธนน์ วิริยสิทธาวัฒน์",
     nameEn: "Prof. Dr. Wattana Viriyasitavat",
+    roleZh: "中心研究员",
+    facultyZh: "朱拉隆功大学商学院统计系（商业信息技术）教授",
+    focusZh: "区块链、物联网、业务流程管理、服务工作流、信息物理系统",
     roleTh: "นักวิจัยประจำศูนย์",
     role: "Center Researcher",
     faculty:
@@ -101,6 +111,10 @@ export const researchers: Researcher[] = [
   {
     name: "ศ.ดร.ลัญฉกร วุฒิสิทธิกุลกิจ",
     nameEn: "Prof. Dr. Lunchakorn Wuttisittikulkij",
+    roleZh: "中心研究员",
+    facultyZh: "朱拉隆功大学工程学院电气工程系教授",
+    focusZh:
+      "元宇宙、无线通信、5G 及后续技术、通信中的人工智能、面向智能工厂与医疗的虚拟现实（Chulaverse / MANGOs）",
     roleTh: "นักวิจัยประจำศูนย์",
     role: "Center Researcher",
     faculty:

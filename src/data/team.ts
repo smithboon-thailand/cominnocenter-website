@@ -23,13 +23,18 @@ export type TeamMember = {
   nameEn: string;
   roleTh: string;
   role: string;
+  /** จีนตัวย่อ — เพิ่ม 24 ก.ย. 2569 พร้อมหน้า /zh/about · ช่อง optional ที่ไม่มีค่าจะไม่แสดง ไม่ถอยไปภาษาอื่น */
+  roleZh: string;
   affiliation?: string;
   affiliationTh?: string;
   affiliationEn?: string;
+  affiliationZh?: string;
   focus?: string;
   focusTh?: string;
+  focusZh?: string;
   funding?: string;
   fundingTh?: string;
+  fundingZh?: string;
   image?: string;
   alt: string;
   links?: { label: string; href: string }[];
@@ -41,6 +46,10 @@ export const postdocs: TeamMember[] = [
     slug: "phyu-hnin-hlaing",
     name: "ดร.พยู ฮนิน ไหล่ (Rashida)",
     nameEn: "Dr. Phyu Hnin Hlaing",
+    roleZh: "C2F 博士后研究员",
+    affiliationZh: "朱拉隆功大学传播艺术学院传播创新卓越中心",
+    focusZh: "健康传播、符合伦理的游戏化干预、移民工人职业健康（WMSDs）、公众参与",
+    fundingZh: "朱拉隆功大学 C2F 高潜力博士后奖学金",
     roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",
     role: "C2F Postdoctoral Fellow",
     affiliation:
@@ -70,6 +79,11 @@ export const postdocs: TeamMember[] = [
     slug: "robbie-buelo",
     name: "ดร.ร็อบบี้ แจน วินเซนต์ ที. บูเอโล",
     nameEn: "Dr. Robbie Jan Vincent T. Buelo",
+    roleZh: "C2F 博士后研究员",
+    affiliationZh:
+      "朱拉隆功大学传播艺术学院 · 菲律宾 National University Dasmariñas 传播学士项目主任",
+    focusZh: "原住民传播、灾害公共舆论、SALIGAN 框架、高等教育中的人工智能、东盟媒体与传播",
+    fundingZh: "朱拉隆功大学 C2F 高潜力博士后奖学金",
     roleTh: "นักวิจัยหลังปริญญาเอก (C2F Postdoc)",
     role: "C2F Postdoctoral Fellow",
     affiliation:
@@ -98,6 +112,10 @@ export const phdCandidates: TeamMember[] = [
   {
     name: "ทินเลย์ เลนดุบ",
     nameEn: "Thinley Lhendup",
+    roleZh: "博士生",
+    affiliationZh: "朱拉隆功大学研究生院环境、发展与可持续发展（EDS）博士项目",
+    focusZh: "数字传播偏好与环境行为；不丹青少年废弃物管理教育",
+    fundingZh: "博士奖学金（C2F 及相关资助）· 与中心合作研究",
     roleTh: "นักศึกษาปริญญาเอก",
     role: "PhD Candidate",
     affiliation:
@@ -125,6 +143,7 @@ export const affiliatedResearchers: TeamMember[] = [
   {
     name: "ดร.อัจฉรา บุญชุม",
     nameEn: "Dr. Atchara Boonchum",
+    roleZh: "研究员",
     roleTh: "นักวิจัย",
     role: "Researcher",
     image: media("8e0d14_41e6a251793c40019370309bce59a0d3"),
@@ -136,6 +155,7 @@ export const affiliatedResearchers: TeamMember[] = [
     // ซึ่งเป็นการถอดเสียงทีละพยางค์ ไม่ใช่ชื่ออังกฤษที่เจ้าตัวใช้จริง
     // ชื่อไทยถูกอยู่แล้ว เปลี่ยนเฉพาะฝั่งอังกฤษ
     nameEn: "Assoc. Prof. Dr. Wipoj Chansem",
+    roleZh: "研究员",
     roleTh: "นักวิจัย",
     role: "Researcher",
     image: media("8e0d14_1c1c8fde9c5c4013892804a6d82da63e"),
@@ -158,6 +178,7 @@ export const researchAssistants: TeamMember[] = [
     // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "สุพัตรา เพ็ชรี" (มีไม้ไต่คู้)
     name: "สุพัตรา เพชรี",
     nameEn: "Supatra Petchree",
+    roleZh: "研究助理",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_1e13d671d6524c9e8a3e394adc2a3bcc"),
@@ -167,6 +188,7 @@ export const researchAssistants: TeamMember[] = [
     // ยืนยันโดยผู้ช่วยของผู้ใช้ 3 ก.ย. 2569 — เดิมเว็บเขียน "เอกสิทธิ์ สุมนา / Ekasit Sumana"
     name: "เอกะสิทธิ์ สุมะนะ",
     nameEn: "Akasit Sumana",
+    roleZh: "研究助理",
     roleTh: "ผู้ช่วยวิจัย",
     role: "Research Assistant",
     image: media("8e0d14_17484343fc0b423e86bf30bc9954242b"),
@@ -179,6 +201,7 @@ export const designers: TeamMember[] = [
   {
     name: "พรปวีณ์ ทิวทิพย์สกุล",
     nameEn: "Pornpavee Thiuthipsakul",
+    roleZh: "多媒体设计师",
     roleTh: "นักออกแบบมัลติมีเดีย",
     role: "Multimedia Designer",
     image: media("8e0d14_583440d112834e438b0d6b8215b45858"),

@@ -2,12 +2,13 @@ import Link from "next/link";
 import ProjectCard from "@/components/ui/ProjectCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { relatedProjects, projectNeighbours } from "@/lib/related";
-import { getLocalizedProjectCopy } from "@/data/projectCopyEn";
+import { projectOutcome, projectTitle } from "@/lib/projectCopy";
 import { newsPosts } from "@/data/news";
+import type { Locale } from "@/lib/locale";
 
 type ProjectFooterNavProps = {
   slug: string;
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 const COPY = {
@@ -29,6 +30,16 @@ const COPY = {
     impactPath: "/en/impact",
     newsPath: "/en/news",
   },
+  zh: {
+    relatedTitle: "相关项目",
+    relatedDesc: "使用相同服务或回应相同目标的项目",
+    newsTitle: "相关新闻",
+    prev: "上一个项目",
+    next: "下一个项目",
+    impactPath: "/zh/impact",
+    /** ยังไม่มีหน้าข่าวภาษาจีน — ส่วน "ข่าวที่เกี่ยวข้อง" จึงไม่แสดงบนหน้าจีน */
+    newsPath: null,
+  },
 } as const;
 
 /**
@@ -41,7 +52,11 @@ export default function ProjectFooterNav({ slug, locale = "th" }: ProjectFooterN
   const t = COPY[locale];
   const related = relatedProjects(slug, 3);
   const neighbours = projectNeighbours(slug);
-  const news = newsPosts.filter((post) => post.relatedProjectSlug === slug).slice(0, 3);
+  // ข่าวมีเฉพาะไทย/อังกฤษ — ภาษาที่ไม่มี newsPath ได้รายการว่าง ส่วนนี้จึงหายไปทั้งก้อน
+  const newsPath = t.newsPath;
+  const news = newsPath
+    ? newsPosts.filter((post) => post.relatedProjectSlug === slug).slice(0, 3)
+    : [];
 
   return (
     <>
@@ -59,10 +74,8 @@ export default function ProjectFooterNav({ slug, locale = "th" }: ProjectFooterN
                 <ProjectCard
                   key={p.slug}
                   href={`${t.impactPath}/${p.slug}`}
-                  title={locale === "th" ? p.title : p.titleEn}
-                  description={
-                    locale === "th" ? p.outcome : getLocalizedProjectCopy(p).outcome
-                  }
+                  title={projectTitle(p, locale)}
+                  description={projectOutcome(p, locale)}
                   image={p.image}
                   alt={p.alt}
                   sdgIds={p.sdg}
@@ -74,14 +87,14 @@ export default function ProjectFooterNav({ slug, locale = "th" }: ProjectFooterN
         </section>
       )}
 
-      {news.length > 0 && (
+      {newsPath && news.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-12">
           <SectionHeader locale={locale} icon="relatedNews" title={t.newsTitle} />
           <ul className="mt-6 flex flex-col divide-y divide-ink-100 border-t border-ink-100">
             {news.map((post) => (
               <li key={post.slug}>
                 <Link
-                  href={`${t.newsPath}/${post.slug}`}
+                  href={`${newsPath}/${post.slug}`}
                   className="block py-4 text-[17px] leading-[1.6] text-ink-900
                     transition-colors duration-150 ease-brand hover:text-pink-700
                     focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
@@ -117,7 +130,7 @@ export default function ProjectFooterNav({ slug, locale = "th" }: ProjectFooterN
                 {key === "prev" ? `${arrow} ${label}` : `${label} ${arrow}`}
               </span>
               <span className="text-[15px] font-medium leading-[1.6] text-ink-900 group-hover:text-pink-700">
-                {locale === "th" ? project.title : project.titleEn}
+                {projectTitle(project, locale)}
               </span>
             </Link>
           ))}

@@ -14,6 +14,7 @@ export const metadata = {
     languages: {
       th: "/privacy-policy",
       en: "/en/privacy-policy",
+      "zh-Hans": "/zh/privacy-policy",
       "x-default": "/privacy-policy",
     },
   },
@@ -36,7 +37,7 @@ function englishDate(iso: string) {
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen">
-      <Header locale="en" switchHref="/privacy-policy" />
+      <Header locale="en" switchHrefs={{ th: "/privacy-policy", zh: "/zh/privacy-policy" }} />
       <main>
         <section className="mx-auto max-w-3xl px-6 pb-10 pt-20 md:pt-28">
           <p className="mb-2 text-[13px] font-medium uppercase leading-[1.4] tracking-[0.12em] text-pink-500">

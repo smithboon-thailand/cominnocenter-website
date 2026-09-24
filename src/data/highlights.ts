@@ -21,6 +21,13 @@ export type Highlight = {
   titleEn: string;
   summaryTh: string;
   summaryEn: string;
+  /**
+   * จีนตัวย่อ — **optional โดยตั้งใจ** (24 ก.ย. 2569) แปลเฉพาะรายการที่หน้า /zh/about
+   * แสดงจริง (สามรายการแรกของผู้บริหารแต่ละท่าน) หน้าจีนกรองเอาเฉพาะรายการที่มี
+   * คำแปล ไม่ถอยไปแสดงอังกฤษ — ถ้าเพิ่มรายการใหม่ที่ขึ้นมาอยู่สามอันดับแรก ต้องแปลด้วย
+   */
+  titleZh?: string;
+  summaryZh?: string;
   date: string; // YYYY-MM-DD
   type: HighlightType;
   person: HighlightPerson[];
@@ -33,6 +40,9 @@ export const highlights: Highlight[] = [
   // ——— ข่าวเด่นล่าสุด ———
   {
     id: "smith-impulse-lgbtq-10y",
+    titleZh: "LGBTQ+ 城市健康十年数据——Impulse Bangkok",
+    summaryZh:
+      "Smith 副教授以 Impulse Bangkok 主席身份发布 2016–2025 年十年数据：梅毒阳性率高于艾滋病病毒；污名仍在阻碍检测。倡导双项检测与整体性的城市健康体系。",
     titleTh: "เปิดข้อมูลสุขภาพ LGBTQ+ รอบ 10 ปี — Impulse Bangkok",
     titleEn: "10-year LGBTQ+ urban health data — Impulse Bangkok",
     summaryTh:
@@ -48,6 +58,9 @@ export const highlights: Highlight[] = [
   },
   {
     id: "teerada-rueang-khong-rao",
+    titleZh: "电影《我们的故事》——从研究走向泰南和平",
+    summaryZh:
+      "Teerada 助理教授主持泰国国家研究委员会资助的项目，运用超越自我的叙事方式创作短片，为泰国深南地区打开理解与和平建设的空间。",
     titleTh: "ภาพยนตร์ ‘เรื่องของเรา’ จากงานวิจัยสู่สันติภาพชายแดนใต้",
     titleEn: "Film ‘Rueang Khong Rao’ — from research to peace in the Deep South",
     summaryTh:
@@ -63,6 +76,9 @@ export const highlights: Highlight[] = [
   },
   {
     id: "smith-acmc-president",
+    titleZh: "Smith Boonchutima 副教授当选亚洲媒体与传播大会（ACMC）主席",
+    summaryZh:
+      "自 2024 年起担任亚洲媒体与传播大会（ACMC）主席，强化亚洲范围内的媒体与学术网络。",
     titleTh: "รศ.ดร.สมิทธิ์ ดำรงตำแหน่งประธาน Asian Congress for Media and Communication",
     titleEn: "Assoc. Prof. Dr. Smith Boonchutima elected President of ACMC",
     summaryTh:
@@ -78,6 +94,9 @@ export const highlights: Highlight[] = [
   },
   {
     id: "smith-thai-media-trends-2024",
+    titleZh: "《2024 年泰国媒体趋势》分析——朱拉传播艺术学院 × DataXet",
+    summaryZh:
+      "Smith 副教授分析 2024–2025 年泰国媒体趋势：流媒体加速、宣传活动中的 AR/VR、小众内容胜过大众内容、网红的真实性，以及人工智能参与内容创作。",
     titleTh: "วิเคราะห์ Thai Media Trends 2024 — นิเทศจุฬาฯ × DataXet",
     titleEn: "Thai Media Trends 2024 analysis — Comm Arts Chula × DataXet",
     summaryTh:
@@ -123,6 +142,9 @@ export const highlights: Highlight[] = [
   },
   {
     id: "pavel-springer-books",
+    titleZh: "Pavel Slutskiy 副教授在 Springer 出版的著作",
+    summaryZh:
+      "著有 Communication and Libertarianism（2021）、Philosophical Foundations of Communication Studies（2024）以及 Global Communication: Planning Global PR Campaigns（2025）。",
     titleTh: "หนังสือระดับ Springer ของ รศ.ดร. Pavel Slutskiy",
     titleEn: "Springer books by Assoc. Prof. Dr. Pavel Slutskiy",
     summaryTh:
@@ -140,6 +162,9 @@ export const highlights: Highlight[] = [
   // ——— ธีรดา: บทบาท / งานวิจัยเพิ่มเติม ———
   {
     id: "teerada-pr-dept-head",
+    titleZh: "Teerada 助理教授——公共关系系主任",
+    summaryZh:
+      "现任朱拉隆功大学传播艺术学院公共关系系主任，曾任负责研究与国际事务的副院长。",
     titleTh: "ผศ.ดร.ธีรดา หัวหน้าภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ",
     titleEn: "Asst. Prof. Dr. Teerada — Head of Department of Public Relations",
     summaryTh:
@@ -155,6 +180,9 @@ export const highlights: Highlight[] = [
   },
   {
     id: "teerada-chatgpt-journalists",
+    titleZh: "记者使用 ChatGPT 及其对泰国新闻编辑室影响的调查",
+    summaryZh:
+      "研究泰国记者如何使用 ChatGPT 以及他们如何看待其对新闻编辑室实践的影响——人工智能与新闻业领域的近期成果。",
     titleTh: "งานวิจัยผลกระทบ ChatGPT ต่อห้องข่าวไทย",
     titleEn: "Survey on journalists’ use and impact of ChatGPT on Thai newsrooms",
     summaryTh:
@@ -202,6 +230,9 @@ export const highlights: Highlight[] = [
   // ——— Pavel: งานวิจัยเพิ่มเติม ———
   {
     id: "pavel-sdg-sustainability",
+    titleZh: "企业的可持续发展问责：五国可持续发展目标比较",
+    summaryZh:
+      "比较分析五个国家企业在可持续发展目标问责传播方面的表现——Pavel 副教授被引用最多的成果之一。",
     titleTh: "วิเคราะห์ความรับผิดชอบด้าน SDGs ขององค์กร 5 ประเทศ",
     titleEn: "Companies’ accountability in sustainability: SDGs in five countries",
     summaryTh:
@@ -217,6 +248,9 @@ export const highlights: Highlight[] = [
   },
   {
     id: "pavel-freedom-expression",
+    titleZh: "表达自由、社交媒体审查与财产权",
+    summaryZh:
+      "关于表达自由、社交媒体审查与财产权的研究——其自由意志主义传播学术的核心主题。",
     titleTh: "เสรีภาพในการแสดงออก การเซ็นเซอร์โซเชียลมีเดีย และสิทธิในทรัพย์สิน",
     titleEn: "Freedom of expression, social media censorship, and property rights",
     summaryTh:

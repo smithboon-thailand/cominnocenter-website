@@ -16,6 +16,7 @@
  */
 
 import { leadership } from "@/data/leadership";
+import type { Locale } from "@/lib/locale";
 import { researchers } from "@/data/researchers";
 import {
   affiliatedResearchers,
@@ -48,15 +49,20 @@ const EVERYONE: Person[] = [
 
 const bySlug = (slug: string) => EVERYONE.find((p) => p.slug === slug);
 
-/** ชื่อเต็มพร้อมคำนำหน้าตำแหน่งวิชาการ — คืน slug เดิมถ้าไม่รู้จักคนนี้ */
-export function personName(slug: string, locale: "th" | "en"): string {
+/**
+ * ชื่อเต็มพร้อมคำนำหน้าตำแหน่งวิชาการ — คืน slug เดิมถ้าไม่รู้จักคนนี้
+ *
+ * หน้าจีนใช้ชื่ออังกฤษ: ชื่อผู้เขียนในรายการอ้างอิงต้องตรงกับที่ตีพิมพ์ (อักษรละติน)
+ * และการถอดชื่อไทยเป็นอักษรจีนไม่มีมาตรฐานเดียว จะเป็นชื่อที่ค้นต่อไม่เจอ
+ */
+export function personName(slug: string, locale: Locale): string {
   const person = bySlug(slug);
   if (!person) return slug;
   return locale === "th" ? person.name : person.nameEn;
 }
 
 /** ชื่อสั้นสำหรับ chip ตัวกรอง — ตัดคำนำหน้าตำแหน่งวิชาการออก */
-export function personShortName(slug: string, locale: "th" | "en"): string {
+export function personShortName(slug: string, locale: Locale): string {
   const person = bySlug(slug);
   if (!person) return slug;
   return locale === "th"

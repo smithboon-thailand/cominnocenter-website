@@ -19,19 +19,34 @@ export type Persona = {
   key: string;
   titleTh: string;
   titleEn: string;
+  titleZh: string;
   bodyTh: string;
   bodyEn: string;
+  bodyZh: string;
   /** ตัวเลขหลักฐานหนึ่งตัวที่กลุ่มนี้สนใจที่สุด */
-  proof: { value: string; unitTh?: string; unitEn?: string; labelTh: string; labelEn: string };
+  proof: {
+    value: string;
+    unitTh?: string;
+    unitEn?: string;
+    unitZh?: string;
+    labelTh: string;
+    labelEn: string;
+    labelZh: string;
+  };
   /** โครงการตัวอย่างที่ตรงกับกลุ่มนี้ (slug ใน projects.ts) */
   caseSlug: string;
   caseTitleTh: string;
   caseTitleEn: string;
+  caseTitleZh: string;
 };
 
 export const personas: Persona[] = [
   {
     key: "government",
+    titleZh: "政府机构",
+    bodyZh:
+      "我们以朱拉隆功大学卓越中心的名义开展工作，拥有为全国公共部门人员培训的经验，并可以学院名义颁发培训证明。",
+    caseTitleZh: "查看 Care D+ 案例",
     titleTh: "หน่วยงานภาครัฐ",
     titleEn: "Government agencies",
     bodyTh:
@@ -44,6 +59,8 @@ export const personas: Persona[] = [
       unitEn: "people",
       labelTh: "บุคลากรสาธารณสุขที่ผ่านการอบรมของเรา",
       labelEn: "Public health personnel we have trained",
+      unitZh: "人",
+      labelZh: "接受过我们培训的公共卫生人员",
     },
     caseSlug: "care-d-plus",
     caseTitleTh: "ดูกรณี Care D+",
@@ -51,6 +68,10 @@ export const personas: Persona[] = [
   },
   {
     key: "corporate",
+    titleZh: "企业与企业社会责任团队",
+    bodyZh:
+      "每个项目都对应可持续发展目标并可衡量，数据可直接用于董事会报告、可持续发展报告或 ESG 披露。",
+    caseTitleZh: "查看 NIA 100 FACES 案例",
     titleTh: "องค์กรเอกชนและงาน CSR",
     titleEn: "Companies and CSR teams",
     bodyTh:
@@ -63,6 +84,8 @@ export const personas: Persona[] = [
       unitEn: "goals",
       labelTh: "เป้าหมาย SDG ที่งานของเราครอบคลุมแล้ว",
       labelEn: "SDGs our work already covers",
+      unitZh: "个目标",
+      labelZh: "我们的工作已覆盖的可持续发展目标",
     },
     caseSlug: "nia-100-faces",
     caseTitleTh: "ดูกรณี NIA 100 FACES",
@@ -70,6 +93,10 @@ export const personas: Persona[] = [
   },
   {
     key: "civil-society",
+    titleZh: "公民社会与资助机构",
+    bodyZh:
+      "我们以可发表的研究方法设计研究与评估，成果既可用于向资助方汇报，也可延伸为学术成果。",
+    caseTitleZh: "查看 Chula Zero Waste 案例",
     titleTh: "ภาคประชาสังคมและแหล่งทุน",
     titleEn: "Civil society and funders",
     bodyTh:
@@ -82,6 +109,8 @@ export const personas: Persona[] = [
       unitEn: "works",
       labelTh: "ผลงานวิชาการที่ตรวจสอบที่มาได้",
       labelEn: "Academic works with traceable provenance",
+      unitZh: "项",
+      labelZh: "来源可追溯的学术成果",
     },
     caseSlug: "chula-zero-waste",
     caseTitleTh: "ดูกรณี Chula Zero Waste",
@@ -101,5 +130,10 @@ export const personaCopy = {
     title: "Who we work with",
     description:
       "Each group looks for different evidence. Find the one closest to your organisation to see what we can show you.",
+  },
+  zh: {
+    eyebrow: "面向您所在机构的合作",
+    title: "我们与谁合作",
+    description: "不同类型的机构看重的证据各不相同。请选择与您最接近的一类，看看我们能为您证明什么。",
   },
 } as const;

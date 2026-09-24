@@ -4,9 +4,10 @@ import { useEffect, useId, useState } from "react";
 import Button from "@/components/ui/Button";
 import { processSteps } from "@/data/process";
 import { EMAIL } from "@/data/contact";
+import type { Locale } from "@/lib/locale";
 
 type ContactFormProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 const COPY = {
@@ -51,6 +52,27 @@ const COPY = {
     submitting: "Sending...",
     submit: "Send message",
     required: "required",
+  },
+  zh: {
+    successTitle: "信息已发送",
+    successBody: "感谢您联系我们。接下来：",
+    successAgain: "再发一条信息",
+    name: "姓名",
+    organization: "机构 / 单位",
+    email: "电子邮件",
+    phone: "电话",
+    interest: "感兴趣的合作类型",
+    interestPlaceholder: "请选择类型",
+    partnership: "合作伙伴 / 联合项目",
+    training: "培训与能力建设",
+    research: "研究与评估",
+    other: "其他",
+    message: "留言",
+    messagePlaceholder: "请介绍您的项目或需求……",
+    error: `发送失败，请重试，或发送邮件至 ${EMAIL}`,
+    submitting: "发送中……",
+    submit: "发送信息",
+    required: "必填",
   },
 } as const;
 

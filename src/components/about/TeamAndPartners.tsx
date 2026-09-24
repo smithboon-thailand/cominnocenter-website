@@ -8,28 +8,110 @@ import {
   phdCandidates,
   type TeamMember,
 } from "@/data/team";
-import { partners } from "@/data/partners";
+import { partners, type Partner } from "@/data/partners";
+import type { Locale } from "@/lib/locale";
 
-type Locale = "th" | "en";
-
-/** เลือกข้อความตาม locale โดยถอยไปใช้ค่าที่มีเสมอ (ข้อมูลเดิมบางช่องมีภาษาเดียว) */
-function pick(locale: Locale, th?: string, en?: string, base?: string): string | undefined {
-  if (locale === "th") return th ?? base;
-  return en ?? base;
+/**
+ * ข้อความของแต่ละคนตามภาษาของหน้า
+ *
+ * ไทยถอยไปใช้ค่าไม่มีภาษากำกับได้ (ข้อมูลเดิมบางช่องมีภาษาเดียวและช่องนั้นเป็นไทย)
+ * อังกฤษกับจีน**ไม่ถอยไปภาษาอื่น** — ช่องที่ไม่มีค่าจะไม่แสดง ดีกว่าให้ข้อความ
+ * ผิดภาษาโผล่กลางการ์ด (กติกา i18n ข้อ 7) · หน้าจีนแสดงชื่ออังกฤษเป็นชื่อหลัก
+ * และไม่แสดงชื่อไทยซ้ำ เพราะผู้อ่านจีนอ่านอักษรไทยไม่ออกและชื่อไทยไม่ช่วยให้ค้นต่อได้
+ */
+function memberText(person: TeamMember, locale: Locale) {
+  switch (locale) {
+    case "th":
+      return {
+        role: person.roleTh,
+        name: person.name,
+        secondaryName: person.nameEn,
+        funding: person.fundingTh ?? person.funding,
+        affiliation: person.affiliationTh ?? person.affiliation,
+        focus: person.focusTh ?? person.focus,
+        alt: person.alt,
+      };
+    case "en":
+      return {
+        role: person.role,
+        name: person.nameEn,
+        secondaryName: person.name !== person.nameEn ? person.name : undefined,
+        funding: person.funding,
+        affiliation: person.affiliationEn,
+        focus: person.focus,
+        alt: `${person.nameEn} — ${person.role}`,
+      };
+    case "zh":
+      return {
+        role: person.roleZh,
+        name: person.nameEn,
+        secondaryName: undefined,
+        funding: person.fundingZh,
+        affiliation: person.affiliationZh,
+        focus: person.focusZh,
+        alt: `${person.nameEn}——${person.roleZh}`,
+      };
+  }
 }
 
+function partnerText(p: Partner, locale: Locale) {
+  switch (locale) {
+    case "th":
+      return { name: p.name, alt: p.alt };
+    case "en":
+      return { name: p.nameEn, alt: `${p.nameEn} logo` };
+    case "zh": {
+      // หน่วยงานที่ไม่มีชื่อจีนทางการคงชื่ออังกฤษ (ชื่อเฉพาะ) — ดูหมายเหตุที่ `nameZh`
+      const name = p.nameZh ?? p.nameEn;
+      return { name, alt: `${name}标志` };
+    }
+  }
+}
+
+const COPY = {
+  th: {
+    postdocTitle: "Postdoc และนักศึกษาปริญญาเอก",
+    postdocDesc: "นักวิจัยหลังปริญญาเอกทุน C2F และนักศึกษาปริญญาเอกที่อยู่ภายใต้การดูแลและร่วมงานกับศูนย์",
+    postdocNote:
+      "ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) และ ดร.Robbie Buelo — ทุน C2F High-Potential Postdoctoral Fellowship · Thinley Lhendup — ปริญญาเอกหลักสูตร Environment, Development and Sustainability (EDS) จุฬาฯ",
+    affiliatedTitle: "นักวิจัยร่วม",
+    affiliatedDesc: "นักวิจัยที่ร่วมงานกับศูนย์ ตามข้อมูลจากเว็บไซต์เดิมของศูนย์",
+    supportTitle: "ผู้ช่วยวิจัยและทีมสนับสนุน",
+    supportDesc: "ทีมผู้ช่วยวิจัยและนักออกแบบมัลติมีเดีย ที่สนับสนุนงานวิจัยและผลงานของศูนย์",
+    partnersTitle: "พันธมิตรและองค์กรที่ร่วมงาน",
+    partnersDesc: "องค์กรที่เคยร่วมงานและสนับสนุนโครงการของศูนย์",
+  },
+  en: {
+    postdocTitle: "Postdocs and PhD candidates",
+    postdocDesc:
+      "C2F postdoctoral fellows and PhD candidates supervised by and collaborating with the center",
+    postdocNote:
+      "Dr. Phyu Hnin Hlaing and Dr. Robbie Buelo — C2F High-Potential Postdoctoral Fellowship · Thinley Lhendup — PhD in Environment, Development and Sustainability (EDS), Chulalongkorn University",
+    affiliatedTitle: "Affiliated researchers",
+    affiliatedDesc: "Researchers who have collaborated with the center",
+    supportTitle: "Research assistants and support team",
+    supportDesc: "Research assistants and multimedia designers supporting the center's work",
+    partnersTitle: "Partners and client organizations",
+    partnersDesc: "Organizations that have collaborated with and supported the center's projects",
+  },
+  zh: {
+    postdocTitle: "博士后与博士生",
+    postdocDesc: "C2F 博士后研究员，以及由中心指导并与中心合作的博士生",
+    postdocNote:
+      "Phyu Hnin Hlaing 博士与 Robbie Buelo 博士——C2F 高潜力博士后奖学金 · Thinley Lhendup——朱拉隆功大学环境、发展与可持续发展（EDS）博士项目",
+    affiliatedTitle: "合作研究人员",
+    affiliatedDesc: "曾与中心合作的研究人员",
+    supportTitle: "研究助理与支持团队",
+    supportDesc: "支持中心研究与项目工作的研究助理和多媒体设计师",
+    partnersTitle: "合作伙伴与委托机构",
+    partnersDesc: "曾与中心合作并支持中心项目的机构",
+  },
+} as const;
+
 function MemberCard({ person, locale }: { person: TeamMember; locale: Locale }) {
-  const isEn = locale === "en";
+  const t = memberText(person, locale);
   const initial =
     (person.nameEn.split(" ").filter(Boolean).slice(-1)[0] || "R").charAt(0).toUpperCase();
-  const affiliation = isEn
-    ? (person.affiliationEn ?? undefined)
-    : (person.affiliationTh ?? person.affiliation);
-  const focus = pick(locale, person.focusTh, person.focus, person.focus);
-  const funding = isEn ? person.funding : (person.fundingTh ?? person.funding);
-  const alt = isEn
-    ? `${person.nameEn} — ${person.role}`
-    : person.alt;
 
   return (
     <div className="h-full overflow-hidden rounded-lg border border-ink-300 bg-white">
@@ -37,7 +119,7 @@ function MemberCard({ person, locale }: { person: TeamMember; locale: Locale }) 
         {person.image ? (
           <Image
             src={person.image}
-            alt={alt}
+            alt={t.alt}
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 50vw, 20vw"
@@ -49,24 +131,17 @@ function MemberCard({ person, locale }: { person: TeamMember; locale: Locale }) 
         )}
       </div>
       <div className="p-4">
-        <p className="text-[11px] font-medium text-ink-500">
-          {isEn ? person.role : person.roleTh}
-        </p>
-        <h3 className="mt-0.5 text-[15px] font-medium leading-snug text-ink-900">
-          {isEn ? person.nameEn : person.name}
-        </h3>
-        {!isEn && <p className="text-[13px] text-ink-500">{person.nameEn}</p>}
-        {isEn && person.name !== person.nameEn && (
-          <p className="text-[13px] text-ink-500">{person.name}</p>
+        <p className="text-[11px] font-medium text-ink-500">{t.role}</p>
+        <h3 className="mt-0.5 text-[15px] font-medium leading-snug text-ink-900">{t.name}</h3>
+        {t.secondaryName && <p className="text-[13px] text-ink-500">{t.secondaryName}</p>}
+        {t.funding && (
+          <p className="mt-2 text-[11px] leading-snug text-ink-500">{t.funding}</p>
         )}
-        {funding && (
-          <p className="mt-2 text-[11px] leading-snug text-ink-500">{funding}</p>
+        {t.affiliation && (
+          <p className="mt-1.5 text-[11px] leading-[1.6] text-ink-500">{t.affiliation}</p>
         )}
-        {affiliation && (
-          <p className="mt-1.5 text-[11px] leading-[1.6] text-ink-500">{affiliation}</p>
-        )}
-        {focus && (
-          <p className="mt-2 text-[13px] leading-[1.6] text-ink-700 line-clamp-3">{focus}</p>
+        {t.focus && (
+          <p className="mt-2 text-[13px] leading-[1.6] text-ink-700 line-clamp-3">{t.focus}</p>
         )}
         {person.links && person.links.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">
@@ -92,7 +167,7 @@ function MemberCard({ person, locale }: { person: TeamMember; locale: Locale }) 
 }
 
 export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) {
-  const isEn = locale === "en";
+  const t = COPY[locale];
 
   return (
     <>
@@ -100,23 +175,15 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
         <SectionHeader
           locale={locale}
           icon="people"
-          title={isEn ? "Postdocs and PhD candidates" : "Postdoc และนักศึกษาปริญญาเอก"}
-          description={
-            isEn
-              ? "C2F postdoctoral fellows and PhD candidates supervised by and collaborating with the center"
-              : "นักวิจัยหลังปริญญาเอกทุน C2F และนักศึกษาปริญญาเอกที่อยู่ภายใต้การดูแลและร่วมงานกับศูนย์"
-          }
+          title={t.postdocTitle}
+          description={t.postdocDesc}
         />
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[...postdocs, ...phdCandidates].map((person) => (
             <MemberCard key={person.nameEn} person={person} locale={locale} />
           ))}
         </div>
-        <p className="mt-8 max-w-3xl text-[13px] leading-[1.6] text-ink-500">
-          {isEn
-            ? "Dr. Phyu Hnin Hlaing and Dr. Robbie Buelo — C2F High-Potential Postdoctoral Fellowship · Thinley Lhendup — PhD in Environment, Development and Sustainability (EDS), Chulalongkorn University"
-            : "ดร.พยู ฮนิน ไหล่ (Phyu Hnin Hlaing) และ ดร.Robbie Buelo — ทุน C2F High-Potential Postdoctoral Fellowship · Thinley Lhendup — ปริญญาเอกหลักสูตร Environment, Development and Sustainability (EDS) จุฬาฯ"}
-        </p>
+        <p className="mt-8 max-w-3xl text-[13px] leading-[1.6] text-ink-500">{t.postdocNote}</p>
       </section>
 
       <section className="border-y border-ink-300 bg-white">
@@ -124,12 +191,8 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
           <SectionHeader
             locale={locale}
             icon="people"
-          title={isEn ? "Affiliated researchers" : "นักวิจัยร่วม"}
-            description={
-              isEn
-                ? "Researchers who have collaborated with the center"
-                : "นักวิจัยที่ร่วมงานกับศูนย์ ตามข้อมูลจากเว็บไซต์เดิมของศูนย์"
-            }
+            title={t.affiliatedTitle}
+            description={t.affiliatedDesc}
           />
           <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
             {affiliatedResearchers.map((person) => (
@@ -143,12 +206,8 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
         <SectionHeader
           locale={locale}
           icon="people"
-          title={isEn ? "Research assistants and support team" : "ผู้ช่วยวิจัยและทีมสนับสนุน"}
-          description={
-            isEn
-              ? "Research assistants and multimedia designers supporting the center's work"
-              : "ทีมผู้ช่วยวิจัยและนักออกแบบมัลติมีเดีย ที่สนับสนุนงานวิจัยและผลงานของศูนย์"
-          }
+          title={t.supportTitle}
+          description={t.supportDesc}
         />
         <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
           {[...researchAssistants, ...designers].map((person) => (
@@ -162,35 +221,34 @@ export default function TeamAndPartners({ locale = "th" }: { locale?: Locale }) 
           <SectionHeader
             locale={locale}
             icon="partners"
-          title={isEn ? "Partners and client organizations" : "พันธมิตรและองค์กรที่ร่วมงาน"}
-            description={
-              isEn
-                ? "Organizations that have collaborated with and supported the center's projects"
-                : "องค์กรที่เคยร่วมงานและสนับสนุนโครงการของศูนย์"
-            }
+            title={t.partnersTitle}
+            description={t.partnersDesc}
           />
           <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
-            {partners.map((p) => (
-              <div
-                key={p.nameEn}
-                className="flex min-h-[140px] flex-col items-center justify-center gap-3 rounded-lg
-                  border border-ink-300 bg-white p-5 md:p-6"
-              >
-                <div className="relative h-20 w-full md:h-24">
-                  <Image
-                    src={p.image}
-                    alt={isEn ? `${p.nameEn} logo` : p.alt}
-                    fill
-                    className="object-contain p-1"
-                    sizes="(max-width: 768px) 45vw, 200px"
-                    unoptimized
-                  />
+            {partners.map((p) => {
+              const pt = partnerText(p, locale);
+              return (
+                <div
+                  key={p.nameEn}
+                  className="flex min-h-[140px] flex-col items-center justify-center gap-3 rounded-lg
+                    border border-ink-300 bg-white p-5 md:p-6"
+                >
+                  <div className="relative h-20 w-full md:h-24">
+                    <Image
+                      src={p.image}
+                      alt={pt.alt}
+                      fill
+                      className="object-contain p-1"
+                      sizes="(max-width: 768px) 45vw, 200px"
+                      unoptimized
+                    />
+                  </div>
+                  <p className="text-center text-[13px] font-medium leading-tight text-ink-700">
+                    {pt.name}
+                  </p>
                 </div>
-                <p className="text-center text-[13px] font-medium leading-tight text-ink-700">
-                  {isEn ? p.nameEn : p.name}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

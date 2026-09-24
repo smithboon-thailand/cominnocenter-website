@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import type { Locale } from "@/lib/locale";
 
 type GalleryImage = {
   src: string;
@@ -23,6 +24,13 @@ const COPY = {
     prev: "Previous image",
     next: "Next image",
   },
+  zh: {
+    view: "查看大图",
+    close: "关闭（Esc）",
+    dialog: "图片查看器",
+    prev: "上一张",
+    next: "下一张",
+  },
 } as const;
 
 export default function ProjectGallery({
@@ -30,7 +38,7 @@ export default function ProjectGallery({
   locale = "th",
 }: {
   images: GalleryImage[];
-  locale?: "th" | "en";
+  locale?: Locale;
 }) {
   const [active, setActive] = useState<number | null>(null);
   const t = COPY[locale];

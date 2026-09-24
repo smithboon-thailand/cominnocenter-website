@@ -10,6 +10,7 @@ import type { PublicationEntry } from "@/data/publications";
 import type { NewsPost } from "@/data/news";
 import { EMAIL, PHONE_SCHEMA } from "@/data/contact";
 import { orgChannels } from "@/data/social";
+import type { FullLocale, Locale } from "@/lib/locale";
 
 export const SITE_URL = "https://www.cominnocenter.com";
 
@@ -68,13 +69,14 @@ export function websiteSchema() {
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
     name: "ComInnoCenter",
-    inLanguage: ["th", "en"],
+    // จีนใช้แท็ก BCP 47 เต็ม — "zh" เฉยๆ ไม่บอกว่าตัวย่อหรือตัวเต็ม
+    inLanguage: ["th", "en", "zh-Hans"],
     publisher: { "@id": ORG_ID },
   };
 }
 
 /** ผู้บริหาร/นักวิจัย — sameAs คือกุญแจให้ Google เชื่อมโปรไฟล์ ORCID/Scopus/Scholar เข้าด้วยกัน */
-export function personSchema(leader: Leader, locale: "th" | "en" = "th") {
+export function personSchema(leader: Leader, locale: Locale = "th") {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -108,13 +110,17 @@ const SCHEMA_TYPE_BY_PUBLICATION: Record<PublicationEntry["type"], string> = {
 export function publicationListSchema(
   items: PublicationEntry[],
   authorName: (slug: string) => string,
-  locale: "th" | "en" = "th"
+  locale: Locale = "th"
 ) {
   const evidenced = items.filter((p) => p.verified !== "self");
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: locale === "th" ? "ผลงานตีพิมพ์ของศูนย์ฯ" : "Publications from the center",
+    name: {
+      th: "ผลงานตีพิมพ์ของศูนย์ฯ",
+      en: "Publications from the center",
+      zh: "中心的学术出版物",
+    }[locale],
     numberOfItems: evidenced.length,
     itemListElement: evidenced.map((p, i) => ({
       "@type": "ListItem",
@@ -236,7 +242,7 @@ export function videoObjectSchema(args: {
   /** ISO 8601 เช่น "PT1M44S" */
   duration: string;
   youtubeId: string;
-  inLanguage: "th" | "en";
+  inLanguage: FullLocale;
 }) {
   return {
     "@context": "https://schema.org",
@@ -255,7 +261,7 @@ export function videoObjectSchema(args: {
 }
 
 /** โพสต์ข่าวที่เก็บจากเว็บเดิม */
-export function newsArticleSchema(post: NewsPost, locale: "th" | "en", coverUrl: string) {
+export function newsArticleSchema(post: NewsPost, locale: FullLocale, coverUrl: string) {
   const path = locale === "th" ? `/news/${post.slug}` : `/en/news/${post.slug}`;
   return {
     "@context": "https://schema.org",
