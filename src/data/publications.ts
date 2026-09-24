@@ -1082,8 +1082,8 @@ export const publications: PublicationEntry[] = [
         }
       ],
       "containerTitle": "Ho Chi Minh City Open University Journal of Science - Social Sciences",
-      "volume": "",
-      "issue": "",
+      "volume": "15",
+      "issue": "2",
       "page": "94-115",
       "articleNumber": "",
       "publisher": "Ho Chi Minh City Open University Journal of Science",
