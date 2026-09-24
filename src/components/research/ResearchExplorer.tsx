@@ -289,11 +289,12 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                         ให้ผู้อ่านที่ไม่เปิดไฟล์วารสารยังได้เนื้อหาของงานชิ้นนั้น */}
                     {(() => {
                       /**
-                       * หน้าบทสรุปมีเฉพาะไทยกับอังกฤษ (24 ก.ย. 2569 — ฉบับจีนจะทยอยแปลเป็นชุด
-                       * ใน PR ถัดไป) หน้าจีนจึงต้องไม่สร้างลิงก์ไป /zh/research/<slug> ที่ยังไม่มี
-                       * ผู้อ่านจีนยังเปิดต้นฉบับผ่าน DOI จากชื่อเรื่องได้ตามปกติ
+                       * ฉบับจีนของบทสรุปทยอยแปลเป็นชุด (field `zh` ใน paperSummaries.ts) —
+                       * หน้าจีนจึงลิงก์ไป /zh/research/<slug> เฉพาะรายการที่มีฉบับจีนแล้ว
+                       * รายการอื่นไม่มีลิงก์ ผู้อ่านจีนยังเปิดต้นฉบับผ่าน DOI จากชื่อเรื่องได้ตามปกติ
                        */
-                      const summary = locale === "zh" ? undefined : summaryForPublication(p);
+                      const found = summaryForPublication(p);
+                      const summary = found && (locale !== "zh" || found.zh) ? found : undefined;
                       const key = p.doi || p.indexUrl || `${p.title}-${p.year}`;
                       const base = localePath(locale, "/research");
                       const open = citeFor === key;

@@ -15,6 +15,7 @@
  */
 
 import SectionIcon from "@/components/ui/SectionIcon";
+import type { Locale } from "@/lib/locale";
 
 type PaperCopy = {
   headline: string;
@@ -75,6 +76,13 @@ const COPY = {
     soWhat: "Why it matters",
     caveat: "Limits to know before citing this",
   },
+  zh: {
+    question: "这项研究问什么",
+    method: "怎么做的",
+    findings: "发现了什么",
+    soWhat: "为什么重要",
+    caveat: "引用前需要了解的局限",
+  },
 } as const;
 
 /**
@@ -114,6 +122,15 @@ const KIND_COPY = {
       notice:
         "This is a **research plan published before any data was collected**. The journal reviews the method up front so that what gets reported later can be checked against what was announced — so **there are no results on this page**, only the question, the method, and what the team intends to do.",
     },
+    zh: {
+      method: "将怎么做",
+      findings: "研究将做什么",
+      soWhat: "这个方案为什么重要",
+      caveat: "引用前需要了解",
+      noticeLabel: "研究方案",
+      notice:
+        "这是一项**在收集任何数据之前发表的研究计划**。期刊预先审查研究方法，以便日后核对报告的结果是否与预先声明的一致——因此**本页没有研究结果**，只有研究问题、方法，以及研究团队打算做的事。",
+    },
   },
   argument: {
     th: {
@@ -134,6 +151,15 @@ const KIND_COPY = {
       notice:
         "This is a **theoretical argument, not an empirical study**. What follows is the author's reasoning rather than a measurement — its weight rests on whether the argument holds, not on a sample size or a statistic. **The position is the author's, not the centre's.**",
     },
+    zh: {
+      method: "如何论证",
+      findings: "提出了什么主张",
+      soWhat: "这一主张为什么重要",
+      caveat: "引用前需要了解",
+      noticeLabel: "理论文章",
+      notice:
+        "这是一篇**理论论证，而非实证研究**。下文是作者的推理，而不是测量结果——其分量取决于论证是否成立，而不是样本量或统计值。**观点属于作者本人，不代表本中心的立场。**",
+    },
   },
 } as const;
 
@@ -143,7 +169,7 @@ export default function PaperSummaryBody({
   kind,
 }: {
   copy: PaperCopy;
-  locale: "th" | "en";
+  locale: Locale;
   kind?: "protocol" | "argument";
 }) {
   const notice = kind ? KIND_COPY[kind][locale] : null;

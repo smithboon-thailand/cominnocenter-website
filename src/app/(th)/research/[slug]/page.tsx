@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: Props) {
       languages: {
         th: `/research/${slug}`,
         en: `/en/research/${slug}`,
+        // ฉบับจีนมีเฉพาะบทสรุปที่แปลแล้ว — ประกาศ hreflang เฉพาะเมื่อหน้านั้นมีจริง
+        ...(summary.zh ? { "zh-Hans": `/zh/research/${slug}` } : {}),
         "x-default": `/research/${slug}`,
       },
     },
@@ -80,7 +82,13 @@ export default async function PaperSummaryPage({ params }: Props) {
 
   return (
     <div className="min-h-screen">
-      <Header active="research" switchHrefs={{ en: `/en/research/${slug}` }} />
+      <Header
+        active="research"
+        switchHrefs={{
+          en: `/en/research/${slug}`,
+          ...(summary.zh ? { zh: `/zh/research/${slug}` } : {}),
+        }}
+      />
       <JsonLd
         data={[
           scholarlyArticleSchema({

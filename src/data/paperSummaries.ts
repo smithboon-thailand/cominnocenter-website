@@ -177,7 +177,23 @@ export type PaperSummary = PaperRef & {
   localCopy?: string;
   th: PaperCopy;
   en: PaperCopy;
+  /**
+   * จีนตัวย่อ — **optional โดยตั้งใจ** (24 ก.ย. 2569 · PR #64) เพราะแปลทีละชุดราว 10 ชิ้น
+   * ไม่ใช่ทั้ง 62 ชิ้นในคราวเดียว · หน้า `/zh/research/[slug]` สร้างเฉพาะรายการที่มีค่านี้
+   * (`paperSummariesZh`) · hreflang `zh-Hans` ในหน้าไทย/อังกฤษ · sitemap · ลิงก์ "อ่านบทสรุป"
+   * บนหน้า /zh/research · และดัชนีค้นหา ล้วนอ่านจาก field นี้ตัวเดียว จึงเปิดพร้อมกันเสมอ
+   *
+   * **ต้องมาคู่กับ `illustrationAltZh` เสมอ** — ตัวตรวจท้ายไฟล์โยน error ถ้ามีอย่างเดียว
+   * เพราะหน้าจีนที่ alt เป็นอังกฤษคือภาษาปนที่ผู้ใช้เครื่องอ่านหน้าจอได้ยิน
+   * แปลจากฉบับอังกฤษโดยรักษากติกาข้อ 1–5 ในหัวไฟล์ครบ (ตัวเลขทุกตัว · ผลที่ไม่พบ ·
+   * ข้อจำกัด · ไม่ระบุชื่อองค์กร/บุคคลที่ถูกวิจารณ์) · เน้นด้วย `**...**` เท่านั้น
+   */
+  illustrationAltZh?: string;
+  zh?: PaperCopy;
 };
+
+/** บทสรุปที่มีฉบับจีนแล้ว — ชนิดบังคับให้ทั้ง `zh` และ `illustrationAltZh` มีค่า */
+export type PaperSummaryZh = PaperSummary & { zh: PaperCopy; illustrationAltZh: string };
 
 export const paperSummaries: PaperSummary[] = [
   {
@@ -950,6 +966,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "Only 57 clips from a single platform over six months, so this is a snapshot rather than a picture of all media coverage. The authors themselves call for larger samples and more sources in future work. The data was collected in 2022, before the direction of Thai cannabis policy shifted again.",
     },
+    illustrationAltZh:
+      "纸艺插画：一摞高高的单色圆片，旁边另一摞第二种颜色的圆片几乎贴着地面",
+    zh: {
+      headline: "大麻合法化后，世界眼中的泰国形象压倒性地正面——却几乎从不提及旅客本国的法律",
+      question:
+        "2022 年 6 月 9 日泰国大麻合法化之后，作为全球旅行者主要信息来源的 YouTube 如何呈现泰国？讲述者是谁？叙述是否完整？",
+      method:
+        "对 2022 年 3 月 9 日至 9 月 9 日（合法化前后各三个月）发布的 57 条 YouTube 视频进行内容分析：30 条新闻片段（52.6%）和 27 条视频博客（47.4%），以媒体框架和国家形象框架为分析工具。",
+      findings: [
+        "**81% 的视频出现在合法化公告之后**，集中在 6 月（21 条，36.8%），到 9 月降至仅 2 条（3.5%）。",
+        "**整体基调正面的有 43 条（75.4%）**，负面仅 4 条（7.0%），矛盾的 9 条（15.8%），中性 1 条（1.8%）。",
+        "涉及最多的维度是情感层面，占 89.5%，其次是社会层面 82.5% 和物质层面 77.2%。政治维度涉及最少，为 50.9%。",
+        "**第一位被引述的声音在 42.1% 的视频中是泰国普通民众，在 26.3% 中是泰国政府官员**——两者合计近七成，意味着世界听到的故事主要来自泰国一方。",
+        "**许多视频只有一种声音**——28.1% 完全没有引述第二位行动者，64.9% 没有引述第三位。",
+        "**极少有视频提醒旅客返回本国时可能遇到的法律麻烦**，而这恰恰是这类受众最需要的信息。",
+      ],
+      soWhat:
+        "对国家形象工作而言，这表明一项重大政策变化能够以正面基调引来真实关注——但这种关注为时短暂，且集中在公告前后。更重要的是，正面却不完整的叙述可能让受众在缺少必要信息的情况下做决定，日后可能反过来损害国家声誉。",
+      caveat:
+        "六个月内来自单一平台的 57 条视频，因此这只是一个切片，而非媒体报道的全貌。作者本人也呼吁未来研究扩大样本、增加来源。数据采集于 2022 年，早于泰国大麻政策方向再次转变之前。",
+    },
   },
   {
     slug: "health-officers-knowledge-sharing",
@@ -1040,6 +1077,25 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**One task, one university.** The source mix reflects when the data was gathered: the article names ChatGPT 3.5 as the version in use (the manuscript was submitted in January 2024), and tools that now search the web and attach links may behave differently, so **the 57/22/21 split is a snapshot, not a current figure**. The topic was a specialised area of philosophy with limited primary text online — conditions that favour fabrication more than a general topic would. The study does not test which interventions actually reduce the problem.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个做工极其精致的相框，内里却空空如也——与背景是同一片底色",
+    zh: {
+      headline: "五分之一的学生用聊天机器人研究一个学术问题——而它提供的引文没有一条真实存在",
+      question:
+        "面对一项需要陌生学术材料的任务，泰国学生会去哪里寻找？人工智能给出的内容对照原著核查后，又经得起多少检验？",
+      method:
+        "朱拉隆功大学的 240 名本科生被交给同一项任务：快速查明鲁道夫·卡尔纳普对证实主义的看法，并用他某部著作中的一段引文支持这一概述，可以使用任何自己喜欢的在线来源。任务结束后立即以结构化问卷记录他们使用的来源，细到工具的版本。研究者随后把学生提交的每一条引文与其所标注的著作逐一核对。",
+      findings: [
+        "**Google 57%，聊天机器人 22%，维基百科 21%**——超过五分之一的学生选择对话式人工智能作为完成一项需要学术引用的任务的主要来源，理由是回答直接、简短。",
+        "**37 份作业包含归于卡尔纳普名下的引文**，附有著作名称和出版年份，形式上完全是一条学术引文的样子。",
+        "**这些引文没有一条出现在其所引的著作中。**全部是模仿他的风格与思想生成的文本。",
+        "**在事后说明环节，全部 37 名学生都表示他们确信**自己是在直接引用卡尔纳普。没有人想到去核实。",
+      ],
+      soWhat:
+        "这项研究指出的问题不在于人工智能答错了，而在于**答案以一种“已经核实过”的形式出现**——书名、年份、作者的语气——而在学术工作中，这些恰恰是表示核查已经完成的信号。作者的建议不是禁止，而是披露：平台明确声明自己无法核实来源、无法提供可靠引文；教育机构则把回溯原著核实作为媒介素养的新组成部分来教授。能够立即据此行动的人，是布置作业的人。",
+      caveat:
+        "**一项任务，一所大学。**来源构成反映的是数据采集的时间：文章指明当时使用的版本是 ChatGPT 3.5（稿件于 2024 年 1 月投稿），如今能够联网搜索并附上链接的工具可能表现不同，因此**57/22/21 的分布是一个切片，而非当前数字**。研究主题是哲学中的一个专门领域，网上的一手文本有限——这种条件比一般主题更容易催生虚构。研究没有检验哪些干预措施真正能减少这一问题。",
+    },
   },
   {
     slug: "chinese-media-thailand-cannabis",
@@ -1087,6 +1143,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Censorship left the dataset incomplete**, and the authors say so: the study had to be confined to Weibo because the relevant terms cannot be searched on China's main search engine, and because outlets evade the restricted word using homophones or emoji, so the search cannot have caught everything. Weibo's real-name system encourages self-censorship, so visible comments may not be genuine opinion. **The study does not measure whether those comments translated into fewer trips** — the authors place that outside its scope. This summary does not name the four outlets, because the finding about missing source attribution attaches to individual outlets and the usable lesson does not depend on which one.",
     },
+    illustrationAltZh:
+      "纸艺插画：一条平整的丝带穿过一道窄缝，另一端出来时已被压皱并向下卷曲",
+    zh: {
+      headline: "报道大多是中性的，评论区却不是——而且最终停在“我不去了”",
+      question:
+        "泰国大麻合法化之后，中文媒体如何叙述泰国这个旅游目的地？读者的反应是否与他们所读到的报道方向一致？",
+      method:
+        "对四家中文媒体（三家中国媒体机构和一家在曼谷发行的中文报纸）在 2019 至 2022 年间发布的 128 条微博帖子进行内容分析，以框架理论和社会认同理论为分析视角。三位编码员对帖子分类，并检验了编码员间信度。互动量低于十次的帖子被排除。",
+      findings: [
+        "**报道的基调以中性为主**——三位编码员分别把 94.5%、85.2% 和 82.8% 的帖子归为中性陈述，正面鼓励性内容仅占 0.8%–2.3%。",
+        "**最主要的角度是解释政策本身，占 55.5%（71 条），其次是关于合法化的负面新闻，占 36.7%（47 条）**，正面新闻仅 4.7%（6 条），医疗益处 10.9%（14 条）。发帖量在政策生效当月达到峰值。",
+        "**读者评论的方向与报道相反。**研究者发现一批评论拒绝把泰国当作目的地，理由是可能在不知情的情况下吃到含大麻的食物、合法化之后的监管不可信，以及这项政策是在模仿西方。",
+        "**三分之一的帖子完全没有注明来源**——58.6%（75 条）引自泰国媒体报道，7.8%（10 条）由媒体自行整理，33.6%（43 条）未注明任何来源。",
+        "**劝阻意味最强的帖子并非编辑观点**，而是转发的中国使馆通知，提醒公民不得把大麻产品带回国。",
+      ],
+      soWhat:
+        "对国家形象工作而言，这项研究的启示是：**统计有多少报道是中性的，完全说明不了它落到读者那里会变成什么。**意义是在评论区里定型的；报道保持中性，却把读者真正担心的问题——我会不会在街边摊无意中吃到、回国时会怎样——悬置不答，留下的空白就会被恐惧填满。旅游传播必须回答旅行者日常层面的问题，而不只是把政策完整地宣布一遍。",
+      caveat:
+        "**审查使数据集并不完整**，作者对此直言不讳：由于相关词语无法在中国主要搜索引擎上检索，研究只能局限于微博；又因为媒体会用谐音或表情符号规避受限词，检索不可能捕捉到全部内容。微博的实名制助长自我审查，可见的评论未必是真实意见。**研究没有测量这些评论是否转化为更少的出行**——作者将其划在研究范围之外。本摘要不点名这四家媒体，因为关于未注明来源的发现涉及具体媒体，而可借鉴的教训并不取决于是哪一家。",
+    },
   },
   {
     slug: "joox-rooms-relational-bonds",
@@ -1131,6 +1207,25 @@ export const paperSummaries: PaperSummary[] = [
         "For platforms and labels the usable implication is to **invest in all three bonds at once**, because each produces a different kind of attachment: discounts produce transactional attachment, live chat produces closeness, reliable service produces trust. Building only on price yields short-term activity with no depth. The finding that forced a construct out of the model is the most practical of all: if listeners cannot separate what they feel about an artist from what they feel about the platform, then switching platforms carries an emotional cost, not merely the cost of installing a different app.",
       caveat:
         "**Snowball sampling skews toward users who were already highly engaged**, and the authors note this may inflate the observed relationships. The design is cross-sectional, so it cannot establish sequence. It covers a single platform in a single country. **And because the artist construct was removed, this study does not show that artists do not matter — it shows that this instrument could not separate them from the platform.** That distinction should not be read past.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两个圆润的形状几乎完全重叠，只在下缘错开一条细细的边",
+    zh: {
+      headline: "粉丝无法把对歌手的喜爱和对平台的喜爱分开——这是研究发现，不是测量工具的缺陷",
+      question:
+        "是什么让听众依恋一个可以与歌手实时交谈的音乐流媒体服务？这种依恋是否真的带来持续使用和推荐？",
+      method:
+        "2024 年 4 月至 5 月对泰国 JOOX Rooms 用户的在线问卷调查。306 人开始作答，数据清理后保留 175 人；采用滚雪球抽样。数据以结构方程模型分析，区分三类关系纽带：财务纽带（折扣、应用内金币、游戏奖励）、社交纽带（实时聊天、歌手回应、个性化问候）和结构纽带（专业回复、可靠服务、精选信息）。",
+      findings: [
+        "**三类纽带都提升了用户对平台的情感投入**，而这种投入预测了继续使用和推荐服务的意愿。",
+        "**情感投入是完全中介变量**——三类纽带都不直接驱动行为，而只通过用户的感受起作用。",
+        "**对歌手的投入与对平台的投入无法分开测量。**两者相关达 .89，在模型中产生负方差，因此最终模型删去了歌手这一构念——**所有涉及歌手的假设因此都是未经检验，而非被否定**。",
+        "测量模型拟合可接受（稳健 CFI = 0.914，稳健 RMSEA = 0.066，SRMR = 0.060）。",
+      ],
+      soWhat:
+        "对平台和唱片公司而言，可操作的启示是**同时投入三类纽带**，因为每一类产生的依恋不同：折扣带来交易型依恋，实时聊天带来亲近感，可靠服务带来信任。只靠价格建立关系，得到的是没有深度的短期活跃。而那个被迫从模型中移除的构念，恰恰给出了最实用的发现：如果听众无法把对歌手的感受和对平台的感受分开，那么更换平台的代价就是情感上的，而不只是安装另一个应用的代价。",
+      caveat:
+        "**滚雪球抽样偏向本已高度投入的用户**，作者指出这可能夸大观测到的关系。研究为横断面设计，无法确定先后顺序。研究只涵盖一个国家的一个平台。**由于歌手构念被移除，这项研究并没有表明歌手不重要——它表明的是这套工具无法把歌手与平台分开。**这一区别不应被忽略。",
     },
   },
   {
@@ -1365,6 +1460,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**The sample is Thai female gamers only**, and the authors note this limits transfer to other cultural contexts. The measures are self-reported intentions, not observed purchases. **The Otaku group numbered only 105 against 581 in the other group**, so the comparison rests on very unequal cells. Only two influencers served as stimuli, and the study did not separate content types. Purchase intention is not sales.",
     },
+    illustrationAltZh:
+      "纸艺插画：两架天平并排放置、倾斜角度相同，但压在各自秤盘上的砝码形状不同",
+    zh: {
+      headline: "不同类型的可信度对不同受众起作用——专业度打动忠实粉丝，吸引力打动其他所有人",
+      question:
+        "两类游戏网红——虚拟形象的 VTuber 和真人主播——对观众购买意愿的影响并不相同。可信度的哪些维度重要？对谁重要？",
+      method:
+        "对 686 名至少关注一位女性游戏网红的泰国女性玩家进行在线问卷调查，平均年龄 24.79 岁。其中 105 人自认为御宅族（Otaku），581 人不是。问卷以两位真实网红（一位 VTuber、一位主播）为刺激材料，测量信源可信度的三个维度——专业度、吸引力和可信赖度，并以均值比较和回归分析数据。",
+      findings: [
+        "**把两类网红合并分析时，三个维度都显著预测购买意愿**——专业度（β = .330）、可信赖度（β = .237）和吸引力（β = .188）。",
+        "**按类型拆开后，图景骤然改变。**对 VTuber，预测因子是专业度（β = .423）和可信赖度（β = .258），而**吸引力不显著**（β = .108）。模型解释了 57.2% 的方差。",
+        "**对主播则相反。**预测因子是可信赖度（β = .438）和吸引力（β = .230），而**专业度不显著**（β = .039）。模型解释了 46.7% 的方差。",
+        "**御宅族受访者对专业度的评分显著更高**（Cohen's d = 0.518，中等效应），报告的购买意愿也更高（d = 0.615，中到大效应）。",
+        "**各因素的排序因受众而异。**对御宅族，专业度最重要（β = .333），其次是可信赖度（.256）和吸引力（.178）。对非御宅族，吸引力影响最强，而**可信赖度不是显著预测因子**。",
+      ],
+      soWhat:
+        "这在选择合作对象和撰写投放简报时可以直接使用。**如果受众对这个品类投入很深，需要展示的是真正的专业知识，而不是形象**——内容应当体现技巧和对产品的真实理解。对一般受众，熟悉感和好感更有用。此外，由于 VTuber 是设计出来的角色，吸引力对这一类型不能预测任何结果，这说明观众是按角色能做什么来评判，而不是按它画得怎么样。",
+      caveat:
+        "**样本仅限泰国女性玩家**，作者指出这限制了向其他文化情境的推广。测量的是自我报告的意愿，而非观察到的购买。**御宅族组只有 105 人，另一组则有 581 人**，比较建立在极不均衡的样本格上。刺激材料只有两位网红，研究也未区分内容类型。购买意愿不等于销量。",
+    },
   },
   {
     slug: "fansub-viewers-sponsorship",
@@ -1411,6 +1526,26 @@ export const paperSummaries: PaperSummary[] = [
         "This is evidence for sponsoring content a community makes for itself: **goodwill does transfer from the content to the sponsor, but it does not transfer in full** — the correlations are moderate. A brand should not expect affection for the content to become affection for the brand one for one. What viewers rated highest was fit and sincerity, and both are settled at the point of choosing what to sponsor, not repaired afterwards by buying more media.",
       caveat:
         "**These are correlations, not causes** — the authors say so first. **Respondents came from a single fansub group and were people still following it**; anyone who watched and disliked it would have unsubscribed and is absent from the sample, which is why the authors call their figure an “educated guess” rather than an estimate of public attitudes. Sampling error was 7%. The study does not test whether goodwill leads to purchase, which the authors propose as the next step.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一张彩色纸片贴着另一张纸片，颜色越过接缝，渗进相邻纸片的边缘",
+    zh: {
+      headline: "看重字幕组免费翻译课程的观众，对赞助商也抱有好感——并且不把赞助视为商业侵扰",
+      question:
+        "由粉丝字幕组免费翻译的在线课程带有品牌赞助。中国观众对课程本身、对赞助行为以及对赞助商的感受如何？这三种感受之间是否相关？",
+      method:
+        "在一个字幕组的论坛上发布的横断面在线问卷，共获得 216 名受访者（女性 132 人；一半年龄在 18 至 25 岁之间；150 人拥有学士学位）。所有测量均采用五点李克特量表，信度在 .83 至 .90 之间，以单样本 t 检验（对照量表中点）和皮尔逊相关进行分析。",
+      findings: [
+        "**三种态度相对于量表中点都显著为正**——对课程 t(215) = 25.25，对赞助商 t(215) = 13.92，对赞助整体 t(215) = 22.17，均 p < .001。",
+        "**课程本身得分最高**：有价值 4.35、好 4.28、有益 4.25（满分 5）。",
+        "**观众不认为课程过度商业化**（3.75），并认同赞助合情合理（3.90）、与内容契合（3.84）、出于诚意（4.01）。",
+        "**对赞助商的好感是真实的，但低于对内容的好感**——形象改善 3.78，比以前更喜欢 3.69，该部分均值 3.76。",
+        "**所有关系都是正向但中等程度，并不强**——课程与赞助商 r = .36，课程与赞助整体 r = .51，赞助商与赞助整体 r = .59。",
+      ],
+      soWhat:
+        "这为赞助社群自发创作的内容提供了证据：**好感确实会从内容转移到赞助商，但不会完全转移**——相关只是中等程度。品牌不应指望对内容的喜爱会一比一变成对品牌的喜爱。观众评分最高的是契合度与诚意，而这两者在选择赞助什么的那一刻就已定型，事后靠加大投放也补不回来。",
+      caveat:
+        "**这些是相关，而非因果**——作者首先声明了这一点。**受访者来自单一字幕组，并且是仍在关注它的人**；看过但不喜欢的人早已取消关注，不在样本之中，因此作者把结果称作“有根据的推测”，而非对公众态度的估计。抽样误差为 7%。研究没有检验好感是否带来购买，作者将其列为下一步。",
     },
   },
   {
@@ -1927,6 +2062,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Each year's respondents were a different group**, not a panel followed over time, so year-to-year changes may partly reflect differences in who was sampled — the authors say so themselves. Recruitment was accidental and excluded people who cannot read, who are precisely the hardest for media to reach. **The three knowledge statements were not identical across years**, so the average scores are only a rough cross-year comparison. Behaviour figures exist only for 2014–2015. The judgement that the campaign “did not work” is read from trends, not from a controlled comparison. The article's summary statistics describe 2015 as the year of highest recommended behaviour while its frequency table shows weekly practice falling; this summary quotes the frequency table, whose meaning is unambiguous. The data is over a decade old and the media landscape has changed considerably since.",
     },
+    illustrationAltZh:
+      "纸艺插画：三根折纸柱子从左到右呈阶梯状逐级升高，第四根柱子倒在右侧，每根都向前投下一道长长的扁平阴影",
+    zh: {
+      headline: "登革热宣传每年触达的人都在增加——但知识和每周灭蚊行动并没有跟上",
+      question:
+        "泰国几十年来一直通过大众媒体开展登革热宣传。这项研究横跨 2013 年大规模疫情前后的三年（2013–2015），追问泰国民众在媒体上看到登革热信息的频率、他们对蚊子的认识是否准确、是否按建议每周清除孳生地——以及这三者是否同步变化。",
+      method:
+        "2013、2014 和 2015 年在 25 个府开展三轮调查（24 个府按发病率高低选取，加上曼谷）。共 7,772 名受访者（2,323 / 2,842 / 2,607），年龄 15 岁及以上且识字，采用偶遇抽样——每一轮是不同的人群，而不是对同一批人的追踪。媒体接触以看到登革热信息的频率测量，从每天到从不共五级；知识以三道是非题测量；行为以受访者清除孳生地的频率测量。逐年均值以重复测量方差分析和 t 检验比较。",
+      findings: [
+        "**媒体接触逐年上升。**平均频率得分从 2.84（2013）升至 3.31（2014）再到 3.37（2015），差异显著（p = 0.001）。2013 年最大的群体每月只看到一次登革热信息（32.4%）；2014 年最大的群体每周看到三次以上（35.2%）。",
+        "**知识没有随之攀升。**正确回答的平均比例为 73.6% → 81.5% → 73.3%——上升一年，又回落。作者把 2014 年解读为 2013 年疫情之后的警觉期，进入恢复期后便消退。",
+        "**最顽固的误解与水有关。**只有约三分之一的人（2013 年 33.5%，2015 年 30.0%）知道登革热蚊子**不会**在肮脏发臭的水中产卵；作者推测人们把疟疾防控和登革热防控混为一谈。其他题目的正确率超过 90%。",
+        "**行动出现倒退。**按建议每周清除孳生地的比例从 61.2%（2014）降至 48.3%（2015），而每周不足一次的比例从 28.0% 升至 35.2%。",
+        "**作者的结论直截了当：仅以提高认知为目标、缺乏社区参与的媒体宣传，被证明对控制登革热无效。**泰国对登革热的关注是间歇性的——危险迫近时上升，之后便消退。",
+      ],
+      soWhat:
+        "对健康传播工作者而言，教训是**触达率不是成功的衡量标准**：媒体每年触达更多人，行为却在下滑。“脏水”这一误解在接触率上升的两年里依然存在，说明发出的信息并没有针对这个具体错误——宣传应当先弄清人们到底错在哪里，再对准它。作者建议开展全年持续的宣传而非疫情驱动的突击，转向人们真正使用的社交媒体，并把媒体工作与推动人们行动起来的社区项目结合。",
+      caveat:
+        "**每一年的受访者都是不同的群体**，而非追踪同一批人，因此逐年变化可能部分反映了抽样对象的差异——作者本人也这样说明。招募为偶遇抽样，并排除了不识字的人，而这恰恰是媒体最难触达的人群。**三道知识题在各年并不完全相同**，因此平均分只是粗略的跨年比较。行为数据仅有 2014–2015 年。宣传“无效”的判断是从趋势中读出的，而非来自对照比较。文章的汇总统计把 2015 年描述为推荐行为最高的一年，而其频率表显示每周实践在下降；本摘要引用的是含义明确的频率表。数据已超过十年，媒体环境自那以来变化很大。",
+    },
   },
   {
     slug: "game-influencer-credibility",
@@ -2019,6 +2174,25 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Measured after the visit only, with no baseline**, so the “increase” in awareness is visitors' own estimate rather than a before–after comparison. The main variables were single-item measures. Visitors were a convenience sample, more than half of them students. The follow-up interviews covered only six people. **Awareness is not behaviour change**; the study did not measure what anyone did afterwards. The event ran in mid-March 2020, shortly before COVID-19 lockdown measures.",
     },
+    illustrationAltZh:
+      "纸艺插画：左侧一个低矮的五角折纸形状，向右投下一道扁平的阴影，一直延伸到画面右缘，比物体本身长出许多倍",
+    zh: {
+      headline: "一场可以触摸、闻嗅、聆听和品尝的展览提高了人们对大象的关注——一年半后依然被记得",
+      question:
+        "保护泰国大象是一个一直难以推广的议题。这项研究尝试了一场调动全部五种感官的艺术展，并追问：参观者感到自己与作品“互动”的程度，与他们报告的关注度提升之间关系有多强——这段体验又在记忆中停留了多久？",
+      method:
+        "2020 年 3 月 12 日至 13 日在大学附近的社区商场举办为期两天的展览《The Elephant tales》，约 300 人参观。除视觉作品外，展览包含三件可触摸的雕塑、森林气味、录制的大象叫声，以及以大象偏爱的水果调味的冰淇淋。宣传通过 30 位粉丝数各超过 5,000 的 Instagram 网红进行。研究一：231 位参观者（54.5% 为 19 至 27 岁的学生）填写参观后问卷，测量感知互动性和关注度提升。研究二：2021 年 11 月，即活动约一年半之后，对六位参观者进行电话访谈。",
+      findings: [
+        "**参观者对两项的评分都很高**：感知互动性平均 4.68，关注度提升 4.66（满分 5）。",
+        "**两者之间为中到强相关**：r = 0.64（95% 置信区间 0.56–0.71；Kendall's τ = 0.62）。参观者觉得展览越有互动性，报告的关注度提升就越大。",
+        "**一年半之后，每一位受访者都仍然记得视觉作品和味道。**六人中有五人记得大象的叫声；只有一人记得气味。",
+        "**与普通展览不同的部分留了下来。**冰淇淋和可触摸的雕塑是受访者主动提起的，作者以冯·雷斯托夫效应解释——在情境中突出的事物更容易被记住。",
+      ],
+      soWhat:
+        "对于传播那些人们“知道但没有感觉”的环境议题，**让身体参与——触摸、品尝、聆听——建立的记忆比看图片和读说明更持久**，而成本并不高：这场展览只在零售空间里办了两天。一大批微型网红带来了约 300 名参观者。一个可以立刻采用的观察：嗅觉是最不被记住的感官，所以如果要在这上面投入，就要让它突出得多。",
+      caveat:
+        "**仅在参观后测量，没有基线**，因此关注度的“提升”是参观者的自我估计，而非前后对比。主要变量都是单题测量。参观者为便利样本，其中一半以上是学生。后续访谈只涉及六人。**关注不等于行为改变**；研究没有测量任何人之后做了什么。活动举办于 2020 年 3 月中旬，就在新冠封锁措施之前不久。",
+    },
   },
   {
     slug: "anime-thai-gen-z",
@@ -2065,6 +2239,26 @@ export const paperSummaries: PaperSummary[] = [
         "For brands or organisations hoping to reach Gen Z through fan culture: **buying space on the feed only gets you seen; decisions happen among friends**, which cannot be bought but can be supported — for instance by backing deep-knowledge niche creators rather than general celebrities. Content that looks like selling destroys trust quickly in this community. And event design should recognise that a space that frees identity can create pressure at the same time.",
       caveat:
         "**A qualitative study of 23 people in Bangkok.** Figures such as “20 of 23” say how often a theme came up in this group, not what proportion of Thai Gen Z holds a view. Participants volunteered, so the sample leans towards people already attached to the community. No perspective from rights-holders or platforms was included. The three frameworks are the authors' proposals from this dataset and have not been tested elsewhere. Data was collected in early 2025 and platform landscapes shift quickly.",
+    },
+    illustrationAltZh:
+      "纸艺插画：左侧许多细长纸条松散地扇形展开，右侧三个折纸立方体紧紧挨在一起",
+    zh: {
+      headline: "动漫在泰国 Z 世代中走向主流，靠的是密友口碑——信息流负责发现，不负责决定",
+      question:
+        "喜欢动漫曾让一个泰国人显得另类；在 Z 世代中，这已经再平常不过。信息通过哪些渠道流动？人们真正相信谁？粉丝社群对这一代人的自我认同意味着什么？研究从圈内位置不同的四个群体的视角提出这些问题。",
+      method:
+        "2025 年 3 月至 4 月在曼谷进行 23 次半结构化访谈，每次 35 至 75 分钟：五位活动组织者（26–31 岁）、四位内容创作者和网红（23–26 岁）、七位普通粉丝（20–24 岁）和七位小众粉丝（19–25 岁）。主题分析建立在约 187 个编码之上。",
+      findings: [
+        "**在信息流里发现，由朋友来决定。**23 人中有 20 人说 TikTok 是他们最先接触新作品的地方，但几乎没有人仅凭信息流就开始观看——23 人中有 21 人说，真正让他们去看的是密友的推荐。",
+        "**大网红受到怀疑，小众网红受到信任。**读起来像推广的内容被视为不真诚，而明显对某一类型有深入了解的人则有分量。",
+        "**安静的观众也算成员。**“潜水”不被视为局外人；多种参与程度被同等看作正当。",
+        "**活动扮演着“身份实验室”的角色**——cosplay 和聚会打开了一个安全空间，让人尝试成为另一个人，但同样的空间也带来外貌标准和消费上的压力；有些粉丝每年在这项爱好上花费超过五万泰铢。",
+        "**作者从数据中提出三个框架**：不依赖企业推动的“有机”文化扩散、以密友为中心的信任网络，以及作为身份实验室的活动。",
+      ],
+      soWhat:
+        "对希望通过粉丝文化触达 Z 世代的品牌或机构而言：**在信息流上买位置只能让人看见；决定发生在朋友之间**，这买不来，但可以支持——例如扶持有深厚知识的小众创作者，而不是泛娱乐名人。看起来像在推销的内容会迅速摧毁这个社群的信任。活动设计也应认识到，一个解放身份的空间可能同时制造压力。",
+      caveat:
+        "**这是一项在曼谷对 23 人进行的定性研究。**“23 人中有 20 人”这类数字说明的是某个主题在这个群体中出现的频率，而不是泰国 Z 世代中持某种观点的比例。参与者是自愿报名的，因此样本偏向本已依附于社群的人。研究未纳入版权方或平台的视角。三个框架是作者基于这组数据提出的，尚未在其他地方得到检验。数据采集于 2025 年初，而平台格局变化很快。",
     },
   },
   {
@@ -2157,6 +2351,27 @@ export const paperSummaries: PaperSummary[] = [
         "For crisis health communication: **explaining well is not enough to build credibility when the results people can see point the other way** — communication and delivery cannot be separated. When trust falls, people do not stop seeking information; they move to sources they trust more. Official communication that **openly grounds itself in, and cites, international bodies** can borrow that credibility rather than compete with it. And controlling information at a moment when trust is already low backfires, because it reads as an admission that there is something to hide.",
       caveat:
         "**A qualitative, interpretive analysis.** It reports no post counts or proportions of opinion, and the “correlation” between approval and trust is read from the sequence of events, not measured statistically. Approval figures come from polls and news reports rather than the authors' own data. The quoted posts are examples the authors selected, and the interviewees were information and media professionals rather than members of the public. The authors themselves note it remains unclear whether questioning the government actually improves risk communication. **This summary deliberately omits the names of individuals, vaccine brands and companies the article singles out for criticism**, since the lesson lies in the mechanism rather than in who was involved. The publisher retains copyright, so no copy is available for download here.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两条纸带并排横贯画面，一同爬升到顶点又一同下降，其中一条略微领先",
+    zh: {
+      headline: "只要政府看起来在赢，人们就相信官方的新冠信息——一旦措施失败，信任也随之而去，无论信息多么真实",
+      question:
+        "整个新冠疫情期间，泰国社交媒体用户不断质疑官方信息。这项研究追问：对政府传播的信任究竟跟随什么变化？它是否随人们对政府防疫表现的认可而起伏？当人们不再相信政府时，他们转向哪里，又把谁当作真相的最终裁决者？",
+      method:
+        "对 2020 年初至 2022 年初 Facebook 和 Twitter 上的帖子与评论进行社交媒体话语分析，按月并按各阶段使用的话题标签检索，并结合 2021 年 12 月至 2022 年 2 月对 50 位专家（事实核查员、健康信息工作者、记者和公关从业者，滚雪球抽样）的访谈。两位作者把泰语材料翻译成英语，由一名研究助理核查编码一致性。政府支持率数据取自民调和媒体报道，因为不存在纵向数据集。分析为定性分析，围绕疫情的四波浪潮组织。",
+      findings: [
+        "**第一阶段（2020 年 1–3 月）官方信息混乱。**当掌权者把病毒说成“不过是感冒”而其他国家纷纷宣布紧急状态时，社交媒体用户转而引用世界卫生组织的指引——直到疾控部门把信息与世卫组织对齐，并成立统一指挥中心以一个声音发言。",
+        "**在封锁成功期间（至 2020 年年中）可信度达到顶峰，官方口径几乎无人质疑。**泰国被树为全球典范，由医生主持的每日通报受到信任，**在口罩问题上泰国人选择相信政府而非世卫组织**——1 月底口罩佩戴率约 90%，3 月中旬近 95%，而当时世卫组织尚未建议佩戴。",
+        "**在疫苗接种阶段（2021 年 4–6 月）可信度随表现一同崩塌。**第三波疫情仅 4 月就带来 36,650 例新增病例，超过此前全国累计总数，而到 5 月完成全程接种的人口不足 1%。要求撤换主管公共卫生官员的网络请愿几天内征集到 20 万个签名；政府领导人的支持率从 93.3% 跌至 19%；公众用世卫组织和美国疾控中心的疫苗有效性比较来质疑政府的疫苗选择。",
+        "**方向与西方相反。**西方的怀疑者利用社交媒体反对疫苗，泰国质疑政府的人却**要求**更新的疫苗，并指责政府没有争取到。到 2021 年底，90.2% 的人已接种或愿意接种。",
+        "**在应对阶段（2021 年 7 月）**政府扩大紧急法令，把“引起公众恐慌”的信息纳入管控范围，即便信息属实，这被解读为压制而非解决。2021 年末接种步入正轨后，人们对这个话题感到厌倦，讨论随之消退。",
+        "**作者的结论：可信度是支持率的函数，而非真实性或透明度的函数。**当政策看起来奏效时，官方信息无人挑战，外国信息源也不被视为更优；当表现下滑时，人们便去国际机构那里寻找“真相的裁决者”。",
+      ],
+      soWhat:
+        "对危机健康传播而言：**当人们眼见的结果指向相反方向时，解释得再好也不足以建立可信度**——传播与执行无法分开。信任下降时，人们并不会停止寻找信息，而是转向他们更信任的来源。**公开以国际机构为依据并加以引用**的官方传播，可以借用其可信度，而不必与之竞争。而在信任本已低落的时刻管控信息会适得其反，因为这读起来像是承认有事要隐瞒。",
+      caveat:
+        "**这是一项定性的、诠释性的分析。**它不报告帖子数量或意见比例，支持率与信任之间的“相关”是从事件顺序中读出的，而非统计测量。支持率数据来自民调和新闻报道，而非作者自己的数据。引用的帖子是作者挑选的例子，受访者是信息和媒体专业人士，而非普通公众。作者本人也指出，质疑政府是否真的改善了风险传播仍不清楚。**本摘要刻意省略了文章点名批评的个人、疫苗品牌和公司**，因为教训在于机制，而不在于涉及谁。出版方保留版权，因此这里没有可供下载的副本。",
     },
   },
   {
@@ -3145,3 +3360,23 @@ export function publicationForSummary(s: PaperSummary): PublicationEntry {
 
 export const paperSummaryBySlug = (slug: string) =>
   paperSummaries.find((s) => s.slug === slug);
+
+/**
+ * ฉบับจีนต้องมาเป็นคู่ (`zh` + `illustrationAltZh`) — โยนตอนโหลดโมดูลให้ build พัง
+ * ดีกว่าปล่อยหน้าจีนที่ alt ภาพเป็นอังกฤษขึ้นเว็บ (เหตุผลเดียวกับ paperVideos.ts)
+ */
+for (const s of paperSummaries) {
+  if (Boolean(s.zh) !== Boolean(s.illustrationAltZh)) {
+    throw new Error(
+      `paperSummaries: บทสรุป "${s.slug}" มี zh กับ illustrationAltZh ไม่ครบคู่ — ต้องใส่ทั้งสองหรือไม่ใส่เลย`,
+    );
+  }
+}
+
+/** เฉพาะบทสรุปที่มีฉบับจีน — หน้า /zh/research/[slug] และ sitemap ใช้ชุดนี้ */
+export const paperSummariesZh = paperSummaries.filter(
+  (s): s is PaperSummaryZh => Boolean(s.zh && s.illustrationAltZh),
+);
+
+export const paperSummaryZhBySlug = (slug: string) =>
+  paperSummariesZh.find((s) => s.slug === slug);
