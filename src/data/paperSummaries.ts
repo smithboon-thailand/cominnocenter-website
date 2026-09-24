@@ -2612,9 +2612,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "trump-popularity-russian-media-2016",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ แผ่นกลมสีชมพูเข้มที่ถูกตัดออกเป็นชิ้นเสี้ยวบางๆ หนึ่งชิ้น วางแยกห่างออกมาเล็กน้อย",
+      "ภาพประกอบกระดาษ แผ่นกลมสีชมพูเข้มตั้งอยู่ มีเสี้ยวเล็กหนึ่งชิ้นถูกตัดออกไปและวางราบไว้ด้านหน้า",
     illustrationAltEn:
-      "Paper-craft illustration of a deep pink disc with one thin wedge cut out and set slightly apart from it",
+      "Paper-craft illustration of an upright deep pink disc with one small wedge cut out of it and laid flat in front",
     doi: "10.1177/0002764217693281",
     articleLanguage: "en",
     th: {
@@ -2714,9 +2714,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "russian-media-mueller-investigation",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ ประตูสีน้ำเงินหม่นสามบานตั้งเรียงกัน ปิดสนิททุกบาน ขนาดต่างกันเล็กน้อย",
+      "ภาพประกอบกระดาษ ประตูสีน้ำเงินหม่นสามบานตั้งเรียงกัน ปิดสนิททุกบาน สูงไล่ระดับกัน",
     illustrationAltEn:
-      "Paper-craft illustration of three dusty blue doors standing in a row, every one shut, each a slightly different size",
+      "Paper-craft illustration of three dusty blue doors standing in a row, every one shut, each a little taller than the last",
     doi: "10.1177/0002764220978455",
     articleLanguage: "en",
     th: {
@@ -3063,9 +3063,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "bangkok-governor-2013-social-media",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ หัวใจกระดาษสีชมพูสดสามดวงซ้อนกันเป็นกองสูง ข้างๆ มีหีบบัตรกระดาษใบเล็กที่มีบัตรเสียบอยู่ในช่องหนึ่งใบ",
+      "ภาพประกอบกระดาษ หัวใจกระดาษสีชมพูสดหลายดวงซ้อนกันเป็นตั้ง ข้างๆ มีหีบบัตรกระดาษใบเล็กที่มีบัตรเสียบอยู่ในช่องหนึ่งใบ",
     illustrationAltEn:
-      "Paper-craft illustration of three vivid pink paper hearts stacked into a tall pile beside a small paper ballot box with a single slip in its slot",
+      "Paper-craft illustration of a stack of several vivid pink paper hearts beside a small paper ballot box with a single slip in its slot",
     indexUrl: "https://www.semanticscholar.org/paper/9bfa6a523337f70923e706cbfb2802f85bb57b76",
     articleLanguage: "en",
     th: {
