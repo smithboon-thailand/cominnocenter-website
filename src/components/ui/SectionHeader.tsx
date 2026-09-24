@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import SectionIcon, { type SectionIconRole } from "@/components/ui/SectionIcon";
+import type { Locale } from "@/lib/locale";
 
 type SectionHeaderProps = {
   /** ป้ายเหนือหัวเรื่อง — pink-500, tracking .12em, uppercase เฉพาะอังกฤษ (PART C) */
@@ -7,7 +8,7 @@ type SectionHeaderProps = {
   title: ReactNode;
   /** คำอธิบายหนึ่งย่อหน้า — body, ink-700, กว้าง ≤ 65ch */
   description?: ReactNode;
-  locale?: "th" | "en";
+  locale?: Locale;
   /**
    * ไอคอนประจำ**บทบาท**ของหัวข้อนี้ — ดูรายชื่อและเหตุผลใน `SectionIcon.tsx`
    *

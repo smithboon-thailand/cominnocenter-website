@@ -2,9 +2,10 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/effects/Reveal";
 import { stagger } from "@/components/effects/stagger";
 import { processSteps, processCopy } from "@/data/process";
+import type { Locale } from "@/lib/locale";
 
 type ProcessStepsProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 /**

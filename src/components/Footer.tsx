@@ -3,11 +3,12 @@ import NewsletterForm from "./NewsletterForm";
 import CookieSettingsButton from "./analytics/CookieSettingsButton";
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 import { orgChannels } from "@/data/social";
+import type { Locale } from "@/lib/locale";
 
 const LOGO_SRC = "/images/logo/logo-communication-innovation.png";
 
 type FooterProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 const COPY = {
@@ -20,6 +21,7 @@ const COPY = {
     cookies: "การตั้งค่าคุกกี้",
     privacy: "นโยบายความเป็นส่วนตัว",
     privacyHref: "/privacy-policy",
+    logoAlt: "โลโก้ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร",
   },
   en: {
     blurb:
@@ -30,6 +32,17 @@ const COPY = {
     cookies: "Cookie settings",
     privacy: "Privacy Policy",
     privacyHref: "/en/privacy-policy",
+    logoAlt: "Communication Innovation Center logo",
+  },
+  zh: {
+    blurb: "朱拉隆功大学传播艺术学院传播创新卓越中心",
+    contact: "联系我们",
+    newsletter: "订阅资讯",
+    newsletterHint: "订阅电子报，获取合作机会与最新动态",
+    cookies: "Cookie 设置",
+    privacy: "隐私政策",
+    privacyHref: "/zh/privacy-policy",
+    logoAlt: "传播创新卓越中心标志",
   },
 } as const;
 
@@ -43,11 +56,7 @@ export default function Footer({ locale = "th" }: FooterProps) {
           <div>
             <Image
               src={LOGO_SRC}
-              alt={
-                locale === "th"
-                  ? "โลโก้ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร"
-                  : "Communication Innovation Center logo"
-              }
+              alt={t.logoAlt}
               width={200}
               height={60}
               className="h-12 w-auto object-contain brightness-0 invert opacity-90"

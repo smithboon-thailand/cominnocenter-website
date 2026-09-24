@@ -4,9 +4,10 @@ import { useState } from "react";
 import AnimatedCounter from "@/components/effects/AnimatedCounter";
 import { SDG, SDG_IDS, sdgAria, type SdgId } from "@/data/sdg";
 import { projects } from "@/data/projects";
+import type { Locale } from "@/lib/locale";
 
 type SdgWheelProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 /** จำนวนโครงการต่อเป้าหมาย (นับทั้งเป้าหมายหลักและรอง — เกณฑ์เดียวกับ SdgPosterGrid) */
@@ -55,20 +56,26 @@ export default function SdgWheel({ locale = "th" }: SdgWheelProps) {
 
   const seg = 360 / 17;
 
-  const t =
-    locale === "th"
-      ? {
-          coveredLabel: "เป้าหมายที่ครอบคลุม",
-          projects: (n: number) => `${n} โครงการ`,
-          open: "เปิดรับความร่วมมือ",
-          wheelLabel: "วงล้อเป้าหมายการพัฒนาที่ยั่งยืน 17 ข้อ ความยาวแต่ละซี่ตามจำนวนโครงการ",
-        }
-      : {
-          coveredLabel: "goals covered",
-          projects: (n: number) => `${n} ${n === 1 ? "project" : "projects"}`,
-          open: "Open for collaboration",
-          wheelLabel: "Wheel of all 17 Sustainable Development Goals, segment length shows project count",
-        };
+  const t = {
+    th: {
+      coveredLabel: "เป้าหมายที่ครอบคลุม",
+      projects: (n: number) => `${n} โครงการ`,
+      open: "เปิดรับความร่วมมือ",
+      wheelLabel: "วงล้อเป้าหมายการพัฒนาที่ยั่งยืน 17 ข้อ ความยาวแต่ละซี่ตามจำนวนโครงการ",
+    },
+    en: {
+      coveredLabel: "goals covered",
+      projects: (n: number) => `${n} ${n === 1 ? "project" : "projects"}`,
+      open: "Open for collaboration",
+      wheelLabel: "Wheel of all 17 Sustainable Development Goals, segment length shows project count",
+    },
+    zh: {
+      coveredLabel: "已覆盖的目标",
+      projects: (n: number) => `${n} 个项目`,
+      open: "欢迎合作",
+      wheelLabel: "17 项可持续发展目标之轮，每段长度代表项目数量",
+    },
+  }[locale];
 
   return (
     <div className="relative mx-auto w-full max-w-[440px]">

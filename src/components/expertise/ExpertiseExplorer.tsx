@@ -8,9 +8,11 @@ import ServiceIcon from "@/components/expertise/ServiceIcon";
 import { services, serviceStages, getServiceByKey } from "@/data/services";
 import { getProjectBySlug } from "@/data/projects";
 import { SDG, sdgAria } from "@/data/sdg";
+import { localePath, type Locale } from "@/lib/locale";
+import { projectTitle } from "@/lib/projectCopy";
 
 type ExpertiseExplorerProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 const COPY = {
@@ -29,6 +31,14 @@ const COPY = {
     railLabel: "Jump to a stage of the communication process",
     chipAria: (id: number, name: string) => `${name} — see goal ${id} work`,
     impactPath: "/en/impact",
+  },
+  zh: {
+    stage: (n: number) => `第 ${n} 阶段`,
+    servicesCount: (n: number) => `${n} 项服务`,
+    evidence: (n: number) => `${n} 个实际项目`,
+    railLabel: "跳转到传播流程的某一阶段",
+    chipAria: (id: number, name: string) => `${name}——查看目标 ${id} 的项目`,
+    impactPath: localePath("zh", "/impact"),
   },
 } as const;
 
@@ -61,6 +71,14 @@ const STAGE_IMAGES: Record<string, string> = {
 export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerProps) {
   const t = COPY[locale];
   const [open, setOpen] = useState<string | null>(null);
+  const stageTitle = (s: (typeof serviceStages)[number]) =>
+    ({ th: s.titleTh, en: s.titleEn, zh: s.titleZh })[locale];
+  const stageTagline = (s: (typeof serviceStages)[number]) =>
+    ({ th: s.taglineTh, en: s.taglineEn, zh: s.taglineZh })[locale];
+  const serviceTitle = (s: (typeof services)[number]) =>
+    ({ th: s.titleTh, en: s.title, zh: s.titleZh })[locale];
+  const serviceDesc = (s: (typeof services)[number]) =>
+    ({ th: s.descTh, en: s.descEn, zh: s.descZh })[locale];
 
   // ตำแหน่งเครื่องบินกระดาษบนเส้นทาง (0–1 ของความสูงช่วงเนื้อหา) — อัปเดตตาม scroll
   const journeyRef = useRef<HTMLDivElement>(null);
@@ -106,7 +124,7 @@ export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerPr
               focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
           >
             <span aria-hidden className="text-ink-500">{i + 1}</span>
-            {locale === "th" ? stage.titleTh : stage.titleEn}
+            {stageTitle(stage)}
           </a>
         ))}
       </nav>
@@ -157,12 +175,8 @@ export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerPr
                     {t.servicesCount(stageServices.length)}
                   </p>
                 </div>
-                <h2 className="mt-1 text-h2-m md:text-h2 text-ink-900">
-                  {locale === "th" ? stage.titleTh : stage.titleEn}
-                </h2>
-                <p className="mt-1 text-[15px] leading-[1.6] text-ink-500">
-                  {locale === "th" ? stage.taglineTh : stage.taglineEn}
-                </p>
+                <h2 className="mt-1 text-h2-m md:text-h2 text-ink-900">{stageTitle(stage)}</h2>
+                <p className="mt-1 text-[15px] leading-[1.6] text-ink-500">{stageTagline(stage)}</p>
 
                 {STAGE_IMAGES[stage.key] && (
                   <div className="relative mt-6 aspect-[8/3] overflow-hidden rounded-lg border border-ink-300 sm:aspect-[4/1]">
@@ -223,7 +237,7 @@ export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerPr
                                 motion-reduce:group-hover:translate-y-0 motion-reduce:group-hover:rotate-0"
                             />
                             <h3 className="mt-4 text-h3-m md:text-h3 text-ink-900">
-                              {locale === "th" ? service.titleTh : service.title}
+                              {serviceTitle(service)}
                             </h3>
                             {/* จุดสี 8px map ไป SDG ที่เกี่ยว (PART H) — มีเลขกำกับเสมอ (B3) กดไปหน้าผลงาน */}
                             <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -246,7 +260,7 @@ export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerPr
                               ))}
                             </p>
                             <p className="mt-3 text-[15px] leading-[1.6] text-ink-700">
-                              {locale === "th" ? service.descTh : service.descEn}
+                              {serviceDesc(service)}
                             </p>
 
                             <div className="mt-auto pt-4">
@@ -291,7 +305,7 @@ export default function ExpertiseExplorer({ locale = "th" }: ExpertiseExplorerPr
                                         transition-colors duration-150 ease-brand hover:text-pink-700
                                         focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
                                     >
-                                      {locale === "th" ? p.title : p.titleEn}
+                                      {projectTitle(p, locale)}
                                     </Link>
                                   </li>
                                 ))}

@@ -3,9 +3,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { buildSearchIndex, KIND_LABEL, type SearchDoc } from "@/lib/searchIndex";
+import type { Locale } from "@/lib/locale";
 
 type SiteSearchProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 const COPY = {
@@ -24,6 +25,14 @@ const COPY = {
     hint: "Type to search · ↑↓ to move · Enter to open · Esc to close",
     results: (n: number) => `${n} ${n === 1 ? "result" : "results"}`,
     close: "Close search",
+  },
+  zh: {
+    open: "搜索全站",
+    placeholder: "搜索项目、服务、研究成果……",
+    empty: "没有找到结果",
+    hint: "输入即可搜索 · ↑↓ 移动 · Enter 打开 · Esc 关闭",
+    results: (n: number) => `${n} 条结果`,
+    close: "关闭搜索",
   },
 } as const;
 

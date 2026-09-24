@@ -20,7 +20,7 @@ import { personSchema } from "@/lib/schema";
 export const metadata = {
   alternates: {
     canonical: "/about",
-    languages: { th: "/about", en: "/en/about", "x-default": "/about" },
+    languages: { th: "/about", en: "/en/about", "zh-Hans": "/zh/about", "x-default": "/about" },
   },
   title: "เกี่ยวกับเรา",
   description:

@@ -15,7 +15,7 @@ const authorName = (slug: string) => personName(slug, "th");
 export const metadata = {
   alternates: {
     canonical: "/research",
-    languages: { th: "/research", en: "/en/research", "x-default": "/research" },
+    languages: { th: "/research", en: "/en/research", "zh-Hans": "/zh/research", "x-default": "/research" },
   },
   title: "งานวิจัยและผลงานตีพิมพ์",
   description: `ผลงานวิชาการของศูนย์ฯ ${publicationStats.total} รายการ — หนังสือ ${publicationStats.books} เล่ม บทความวารสาร ${publicationStats.articles} ชิ้น ตีพิมพ์ใน ${publicationStats.venues} วารสารและเวทีวิชาการ ตั้งแต่ปี ${publicationStats.since}`,

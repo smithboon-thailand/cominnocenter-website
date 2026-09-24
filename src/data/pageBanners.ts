@@ -1,5 +1,5 @@
 /**
- * ภาพประกอบหัวหน้าหลัก (paper-craft) — แหล่งความจริงเดียวของทั้งไทยและอังกฤษ
+ * ภาพประกอบหัวหน้าหลัก (paper-craft) — แหล่งความจริงเดียวของทั้งไทย อังกฤษ และจีน
  *
  * ทำไมต้องรวมไว้ที่เดียว: หน้าไทยกับหน้าอังกฤษเป็นคนละไฟล์ ถ้าปล่อยให้แต่ละไฟล์
  * เขียน path เอง วันหนึ่งจะมีฝั่งหนึ่งถูกเปลี่ยนภาพแล้วอีกฝั่งไม่ถูกเปลี่ยน
@@ -43,6 +43,7 @@ type Banner = {
   /** อธิบาย "ภาพนี้เป็นรูปอะไร" ไม่ใช่ทวนชื่อหน้าซ้ำกับ h1 ที่อยู่เหนือมัน */
   altTh: string;
   altEn: string;
+  altZh: string;
   /**
    * จุดยึดตอนครอป — ค่า `object-position` ที่ส่งให้ `ResponsiveArtwork`
    *
@@ -62,6 +63,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/about/banner",
     altTh: "ภาพประกอบกระดาษ ริบบิ้นหลายเส้นถักรวมกันเป็นปมเดียว",
     altEn: "Paper-craft illustration of several ribbons braided into a single knot",
+    altZh: "纸艺插画：多条丝带交织成一个结",
     // ปมริบบิ้นกินพื้นที่ 36–100% ศูนย์ถ่วงที่ 70%
     focus: "97% 50%",
   },
@@ -69,6 +71,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/expertise/banner",
     altTh: "ภาพประกอบกระดาษ ฟันเฟืองสามตัวขบกันเป็นชุดเดียว",
     altEn: "Paper-craft illustration of three gears meshing as one mechanism",
+    altZh: "纸艺插画：三枚齿轮相互咬合，构成一套机构",
     // ฟันเฟืองอยู่ 49–90% ศูนย์ถ่วงที่ 71%
     focus: "98% 50%",
   },
@@ -76,6 +79,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/impact/banner",
     altTh: "ภาพประกอบกระดาษ คลื่นวงกลมแผ่ออกจากจุดกึ่งกลางจุดเดียว",
     altEn: "Paper-craft illustration of concentric ripples spreading from a single point",
+    altZh: "纸艺插画：涟漪从同一个中心点向外扩散",
     // วงคลื่นกระจาย 26–100% ศูนย์ถ่วงที่ 64%
     focus: "81% 50%",
   },
@@ -83,6 +87,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/research/banner",
     altTh: "ภาพประกอบกระดาษ แผ่นกระดาษซ้อนกันหลายชั้นเปิดมุมให้เห็นชั้นข้างใต้",
     altEn: "Paper-craft illustration of layered sheets with a corner lifted to reveal what lies beneath",
+    altZh: "纸艺插画：层层叠放的纸张，一角掀起露出下层",
     // กองกระดาษอยู่ 40–90% ศูนย์ถ่วงที่ 64%
     focus: "84% 50%",
   },
@@ -90,6 +95,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/news/banner",
     altTh: "ภาพประกอบกระดาษ ธงเล็กหลายผืนห้อยเรียงบนเส้นโค้ง",
     altEn: "Paper-craft illustration of small flags strung along a curved line",
+    altZh: "纸艺插画：小旗帜沿一条曲线排列悬挂",
     // แถวธงอยู่ 44–96% ศูนย์ถ่วงที่ 68%
     focus: "91% 50%",
   },
@@ -97,6 +103,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/media/banner",
     altTh: "ภาพประกอบกระดาษ กรอบคำพูดสามใบซ้อนเหลื่อมกัน",
     altEn: "Paper-craft illustration of three overlapping speech bubbles",
+    altZh: "纸艺插画：三个相互重叠的对话框",
     // กรอบคำพูดอยู่ 47–92% ศูนย์ถ่วงที่ 69%
     focus: "94% 50%",
   },
@@ -104,6 +111,7 @@ export const pageBanners: Record<PageBannerKey, Banner> = {
     base: "/images/collaborate/banner",
     altTh: "ภาพประกอบกระดาษ ริบบิ้นสองสีถักเข้าด้วยกัน",
     altEn: "Paper-craft illustration of two coloured ribbons woven together",
+    altZh: "纸艺插画：两条不同颜色的丝带交织在一起",
     // ริบบิ้นพาดเต็มความกว้าง ศูนย์ถ่วงที่ 51% จึงเกือบกึ่งกลาง
     focus: "53% 50%",
   },

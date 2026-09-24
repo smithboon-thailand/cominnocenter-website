@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { CitationMeta, PublicationEntry } from "@/data/publications";
 import SectionIcon from "@/components/ui/SectionIcon";
+import type { Locale } from "@/lib/locale";
 import {
   CITATION_STYLES,
   citationFilename,
@@ -26,7 +27,7 @@ import {
 type Props = {
   publication: PublicationEntry;
   citation: CitationMeta;
-  locale?: "th" | "en";
+  locale?: Locale;
   /**
    * ใช้ในรายการหน้า /research ที่แผงเปิดใต้แถวที่กด — ตัดหัวข้อกับคำอธิบายออก
    * เพราะบริบทอยู่ที่แถวด้านบนแล้ว ถ้าใส่ซ้ำจะกลายเป็นเสียงรบกวนในรายการยาว
@@ -56,6 +57,17 @@ const COPY = {
     pick: "Citation style",
     note: "Generated from DOI registry metadata · check it against your institution's style guide before submitting",
     live: (label: string) => `${label} citation copied`,
+  },
+  zh: {
+    heading: "引用本文",
+    intro: "选择格式后即可复制到您的参考文献中",
+    copy: "复制",
+    copied: "已复制",
+    download: "下载文件",
+    failed: "复制失败——请选中文本后手动复制",
+    pick: "引用格式",
+    note: "根据 DOI 登记数据自动生成 · 提交前请对照所在机构的格式指南核对",
+    live: (label: string) => `已复制 ${label} 格式的引用`,
   },
 } as const;
 

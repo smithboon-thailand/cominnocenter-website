@@ -1,4 +1,5 @@
 import { journalMetricFor } from "@/data/researchMetrics";
+import type { Locale } from "@/lib/locale";
 
 /**
  * แถบ CiteScore ของวารสารที่ตีพิมพ์ผลงานชิ้นนั้น
@@ -20,7 +21,7 @@ export default function CiteScoreNote({
   locale,
 }: {
   venue: string;
-  locale: "th" | "en";
+  locale: Locale;
 }) {
   const m = journalMetricFor(venue);
   if (!m) return null;
@@ -32,15 +33,18 @@ export default function CiteScoreNote({
    * เห็นทั้งตัวตั้งและตัวหารของอันดับ ไม่ใช่เห็นแต่เปอร์เซ็นต์ที่ตีความเองไม่ได้
    */
   const [place, pool] = m.rank.split("/");
-  const rankText =
-    locale === "th"
-      ? `อันดับ ${place} จาก ${Number(pool).toLocaleString("th-TH")} เล่ม`
-      : `ranked ${place} of ${Number(pool).toLocaleString("en-GB")}`;
+  const rankText = {
+    th: `อันดับ ${place} จาก ${Number(pool).toLocaleString("th-TH")} เล่ม`,
+    en: `ranked ${place} of ${Number(pool).toLocaleString("en-GB")}`,
+    zh: `在 ${Number(pool).toLocaleString("zh-CN")} 种期刊中排名第 ${place}`,
+  }[locale];
 
-  const percentile =
-    locale === "th"
-      ? `เปอร์เซ็นไทล์ที่ ${m.percentile} ในสาขา ${m.subject} (${rankText})`
-      : `${m.percentile}${ordinalSuffix(m.percentile)} percentile in ${m.subject} (${rankText})`;
+  // ชื่อสาขาคงเป็นอังกฤษทุกภาษา — เป็นชื่อหมวดของ Scopus ที่ผู้อ่านต้องนำไปค้นต่อได้
+  const percentile = {
+    th: `เปอร์เซ็นไทล์ที่ ${m.percentile} ในสาขา ${m.subject} (${rankText})`,
+    en: `${m.percentile}${ordinalSuffix(m.percentile)} percentile in ${m.subject} (${rankText})`,
+    zh: `在 ${m.subject} 领域处于第 ${m.percentile} 百分位（${rankText}）`,
+  }[locale];
 
   return (
     <p className="mt-1 text-[13px] leading-[1.5] text-ink-500">
@@ -48,7 +52,7 @@ export default function CiteScoreNote({
         href={`https://www.scopus.com/sourceid/${m.sourceId}`}
         target="_blank"
         rel="noopener noreferrer"
-        title={locale === "th" ? "หน้าข้อมูลวารสารบน Scopus" : "Journal page on Scopus"}
+        title={{ th: "หน้าข้อมูลวารสารบน Scopus", en: "Journal page on Scopus", zh: "Scopus 上的期刊页面" }[locale]}
         className="font-medium text-ink-700 transition-colors duration-150 ease-brand
           hover:text-pink-700 focus-visible:outline-none
           focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
@@ -57,7 +61,9 @@ export default function CiteScoreNote({
       </a>
       {" · "}
       {percentile}
-      {m.openAccess ? ` · ${locale === "th" ? "วารสารเปิดให้เข้าถึงเสรี" : "Open access"}` : ""}
+      {m.openAccess
+        ? ` · ${{ th: "วารสารเปิดให้เข้าถึงเสรี", en: "Open access", zh: "开放获取期刊" }[locale]}`
+        : ""}
     </p>
   );
 }

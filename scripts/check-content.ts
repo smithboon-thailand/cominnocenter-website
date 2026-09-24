@@ -18,7 +18,7 @@
  * ไม่ใช่อ่านซอร์ส** เพราะค่าที่ถูกในซอร์สแล้วผิดตอน render มีอยู่จริง และเป็น
  * ชนิดที่อ่านโค้ดแล้วไม่มีทางเห็น
  *
- * ตรวจสี่เรื่อง
+ * ตรวจสี่เรื่อง (+ ข้อ 3จ ภาษาปนบนหน้าจีน ตั้งแต่ 24 ก.ย. 2569)
  *   1. **ค่าที่เลิกใช้แล้ว** — เบอร์เก่า อีเมลแบบไม่มีจุด โฮสต์เก่าที่เลิกใช้
  *      ใส่ค่าเก่าเข้าลิสต์ทันทีที่แก้ค่านั้น นั่นคือสิ่งที่กันไม่ให้บั๊กที่แก้แล้ว
  *      กลับมาอีกหกเดือนถัดไปในไฟล์ที่ไม่มีใครเปิดอ่าน
@@ -153,6 +153,7 @@ const PLACEHOLDER_PATTERNS: RegExp[] = [
 const PLACEHOLDER_FILES = [
   "src/app/(th)/privacy-policy/page.tsx",
   "src/app/(en)/en/privacy-policy/page.tsx",
+  "src/app/(zh)/zh/privacy-policy/page.tsx",
   "src/data/privacy.ts",
   "src/data/contact.ts",
   "src/app/llms.txt/route.ts",
@@ -432,6 +433,51 @@ for (const file of shipped) {
   }
 }
 
+// ─── 3จ. ภาษาปนบนหน้าจีน ────────────────────────────────────────────────────
+//
+// หน้าจีนประกอบจาก component ชุดเดียวกับไทย/อังกฤษ ทุก component จึงมีทางที่จะ
+// "ถอย" ไปใช้ข้อความภาษาอื่นเมื่อไม่มีค่าจีน — และ TypeScript ตรวจให้ไม่ได้ว่า
+// สตริงที่ถูกชนิดนั้นเป็นภาษาอะไร (เคยเกิดกับการ์ดอังกฤษที่โชว์ผลลัพธ์ภาษาไทย)
+//
+// อักษรไทยเป็นสัญญาณที่ชี้ชัดที่สุด เพราะข้อมูลไทยคือค่าเริ่มต้นของแทบทุก field
+// และผู้อ่านจีนอ่านไม่ออกแน่นอน (อังกฤษตรวจแบบนี้ไม่ได้ — ชื่อคน ชื่อวารสาร และ
+// ชื่อบทความในหน้าจีนเป็นอังกฤษโดยชอบ) · ตรวจว่าหน้าจีนมีอักษรจีนจริงด้วย
+// เพื่อไม่ให้ตัวตรวจ "ผ่านเพราะหน้าว่าง" และตรวจว่า <html lang> เป็น zh-Hans
+// ไม่ใช่ lang ของ layout อื่นที่หลุดมา
+const THAI_SCRIPT = /[\u0E00-\u0E7F]/;
+const CJK = /[\u4E00-\u9FFF]/;
+let zhPages = 0;
+
+for (const file of shipped) {
+  if (!file.endsWith(".html")) continue;
+  const route = file.slice(BUILD_DIR.length).replace(/\.html$/, "");
+  if (route !== "/zh" && !route.startsWith("/zh/")) continue;
+  zhPages++;
+  const body = readText(file);
+  if (body === null) continue;
+  if (!/<html[^>]*\slang="zh-Hans"/.test(body)) {
+    errors.push(`${file}: หน้าจีนแต่ <html lang> ไม่ใช่ zh-Hans — วางไฟล์ผิด route group หรือ layout ไม่ถูกใช้`);
+  }
+  const text = visibleText(body);
+  if (!CJK.test(text)) {
+    errors.push(`${file}: หน้าจีนไม่มีอักษรจีนเลย — ตัวตรวจนี้ไม่ได้ตรวจอะไร หรือหน้ายังไม่ได้แปล`);
+  }
+  const thai = text.match(new RegExp(`.{0,20}${THAI_SCRIPT.source}.{0,20}`));
+  if (thai) {
+    errors.push(
+      `${file}: อักษรไทยหลุดขึ้นหน้าจีน → "${thai[0].trim()}"\n` +
+        `     เหตุ: component ถอยไปใช้ค่าไทยเมื่อไม่มีค่าจีน — เติม field *Zh ในไฟล์ข้อมูล หรือซ่อนส่วนนั้นบนหน้าจีน`,
+    );
+  }
+}
+if (zhPages < 25) {
+  console.error(
+    `check:content — พบหน้าจีนที่ build ออกมาแค่ ${zhPages} หน้า (คาดไว้อย่างน้อย 25: หน้าหลัก 8 + โครงการ 18)\n` +
+      `โครงหน้าน่าจะเปลี่ยนไป — ต้องแก้ตัวดึงในสคริปต์นี้ ไม่ใช่ปล่อยให้ตรวจผ่านโดยไม่ได้ตรวจอะไร`,
+  );
+  process.exit(1);
+}
+
 // ─── 4. การอ้างถึงกันเองของข้อมูล ─────────────────────────────────────────────
 //
 // สี่ความสัมพันธ์นี้เป็น `Record<string, …>` หรือ `string[]` ที่ TypeScript
@@ -514,6 +560,8 @@ for (const src of extract(PROJECTS, /sourceUrl: "(\/news\/[^"]+)"/g, 15, "source
  * เพิ่ม 8 ก.ย. 2569 ตอนอัปเดต Google Scholar 263 → 269 ซึ่งต้องแก้พร้อมกันทั้งคู่
  */
 const leaders = readFileSync("src/data/leadership.ts", "utf8");
+// บรรทัดที่มาฉบับจีน (`metricsNoteZh` — เพิ่ม 24 ก.ย. 2569) เขียนตัวเลขชุดเดียวกันเป็นที่ที่สาม
+// จึงต้องเทียบด้วย ไม่งั้นรอบอัปเดตครั้งหน้าจะแก้สองที่แล้วลืมที่ที่สาม
 const PAIRS: { what: string; card: RegExp; note: RegExp }[] = [
   {
     what: "Google Scholar citations",
@@ -521,14 +569,29 @@ const PAIRS: { what: string; card: RegExp; note: RegExp }[] = [
     note: /Google Scholar: Citations (\d+)/,
   },
   {
+    what: "Google Scholar citations (ฉบับจีน)",
+    card: /\{ label: "Citations \(GS\)", value: (\d+) \}/,
+    note: /Google Scholar：引用 (\d+) 次/,
+  },
+  {
     what: "Google Scholar h-index",
     card: /\{ label: "h-index \(GS\)", value: (\d+) \}/,
     note: /Google Scholar: Citations \d+ · h-index (\d+)/,
   },
   {
+    what: "Google Scholar h-index (ฉบับจีน)",
+    card: /\{ label: "h-index \(GS\)", value: (\d+) \}/,
+    note: /Google Scholar：引用 \d+ 次 · h 指数 (\d+)/,
+  },
+  {
     what: "จำนวนผลงานใน Scopus",
     card: /\{ label: "Docs \(Scopus\)", value: (\d+) \}/,
     note: /Scopus \(ID \d+\): (\d+) documents/,
+  },
+  {
+    what: "จำนวนผลงานใน Scopus (ฉบับจีน)",
+    card: /\{ label: "Docs \(Scopus\)", value: (\d+) \}/,
+    note: /Scopus（ID \d+）：(\d+) 篇文献/,
   },
 ];
 for (const { what, card, note } of PAIRS) {

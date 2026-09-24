@@ -9,16 +9,17 @@ import CiteScoreNote from "./CiteScoreNote";
 import Reveal from "@/components/effects/Reveal";
 import { stagger } from "@/components/effects/stagger";
 import { personName, personOrcidHref, personShortName } from "@/lib/people";
+import { localePath, type Locale } from "@/lib/locale";
 
 type ResearchExplorerProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
-const TYPE_LABEL: Record<PublicationType, { th: string; en: string }> = {
-  book: { th: "หนังสือ", en: "Book" },
-  "journal-article": { th: "บทความวารสาร", en: "Journal article" },
-  "book-chapter": { th: "บทในหนังสือ", en: "Book chapter" },
-  "conference-paper": { th: "บทความประชุมวิชาการ", en: "Conference paper" },
+const TYPE_LABEL: Record<PublicationType, Record<Locale, string>> = {
+  book: { th: "หนังสือ", en: "Book", zh: "著作" },
+  "journal-article": { th: "บทความวารสาร", en: "Journal article", zh: "期刊论文" },
+  "book-chapter": { th: "บทในหนังสือ", en: "Book chapter", zh: "书籍章节" },
+  "conference-paper": { th: "บทความประชุมวิชาการ", en: "Conference paper", zh: "会议论文" },
 };
 
 const TYPE_ORDER: PublicationType[] = ["book", "journal-article", "book-chapter", "conference-paper"];
@@ -62,6 +63,26 @@ const COPY = {
     citeHide: "Hide citation",
     provenance:
       "Linked entries have been checked against the DOI registry or an independent academic index to confirm the authorship. Entries without a link come from the author's own ORCID profile — mostly Thai journals and conference venues that do not register DOIs.",
+  },
+  zh: {
+    filterAuthor: "按作者筛选",
+    filterType: "按类型筛选",
+    all: "全部",
+    showing: (n: number) => `${n} 项`,
+    empty: "没有符合所选条件的成果",
+    citations: (n: number) => `被引 ${n} 次`,
+    chapters: (n: number) => `${n} 章`,
+    doi: "打开原文（DOI）",
+    index: "打开学术索引中的记录",
+    selfNote: "来自作者的 ORCID 个人资料",
+    /* หน้าบทสรุปยังไม่มีฉบับจีน — สามค่านี้มีไว้ให้ชนิดครบ แต่หน้าจีนไม่แสดงลิงก์บทสรุป */
+    summary: "阅读通俗摘要",
+    summaryProtocol: "阅读研究方案摘要",
+    summaryArgument: "阅读理论文章摘要",
+    cite: "引用本文",
+    citeHide: "收起引用",
+    provenance:
+      "带链接的条目已与 DOI 登记机构或独立学术索引核对，确认作者身份属实。无链接的条目来自作者本人的 ORCID 个人资料——大多发表于尚未注册 DOI 的泰国期刊与会议。",
   },
 } as const;
 
@@ -267,9 +288,14 @@ export default function ResearchExplorer({ locale = "th" }: ResearchExplorerProp
                     {/* งานที่มีหน้าบทสรุปภาษาง่ายของเราเอง — ลิงก์เข้าเว็บ ไม่ใช่ออกไป DOI
                         ให้ผู้อ่านที่ไม่เปิดไฟล์วารสารยังได้เนื้อหาของงานชิ้นนั้น */}
                     {(() => {
-                      const summary = summaryForPublication(p);
+                      /**
+                       * หน้าบทสรุปมีเฉพาะไทยกับอังกฤษ (24 ก.ย. 2569 — ฉบับจีนจะทยอยแปลเป็นชุด
+                       * ใน PR ถัดไป) หน้าจีนจึงต้องไม่สร้างลิงก์ไป /zh/research/<slug> ที่ยังไม่มี
+                       * ผู้อ่านจีนยังเปิดต้นฉบับผ่าน DOI จากชื่อเรื่องได้ตามปกติ
+                       */
+                      const summary = locale === "zh" ? undefined : summaryForPublication(p);
                       const key = p.doi || p.indexUrl || `${p.title}-${p.year}`;
-                      const base = locale === "th" ? "/research" : "/en/research";
+                      const base = localePath(locale, "/research");
                       const open = citeFor === key;
                       return (
                         <>

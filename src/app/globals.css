@@ -57,6 +57,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+  หน้าภาษาจีน (route group (zh)) — Kanit ยังมาก่อนเสมอ อักษรจีนที่ Kanit ไม่มี
+  จึงตกมาถึง Noto Sans SC ตัวเดียว (ข้อยกเว้นฟอนต์ที่ BRAND.md PART C อนุญาต)
+  ผูกกับ lang ของเอกสาร ไม่ใช่กับคลาส เพื่อให้หน้าไทย/อังกฤษไม่มีทางได้กฎนี้
+  ทั้ง body และ `.font-sans` ต้องทับ เพราะ Tailwind ตั้ง font-family ซ้ำที่คลาสนั้น
+*/
+html[lang="zh-Hans"] body,
+html[lang="zh-Hans"] .font-sans {
+  font-family: var(--font-kanit), var(--font-noto-sc), system-ui, sans-serif;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

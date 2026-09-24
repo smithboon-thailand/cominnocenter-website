@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SDG, type SdgId } from "@/data/sdg";
 import SdgBadge from "./SdgBadge";
+import type { Locale } from "@/lib/locale";
 
 type ProjectCardProps = {
   href: string;
@@ -11,7 +12,7 @@ type ProjectCardProps = {
   alt: string;
   /** เป้าหมายแรกคือสีหลักของการ์ด (แถบบน + border hover) */
   sdgIds: readonly SdgId[];
-  locale?: "th" | "en";
+  locale?: Locale;
   /**
    * โหลดภาพทันทีแทนการรอ lazy — ใช้กับการ์ดแรกๆ ที่อยู่เหนือ fold เท่านั้น
    * บน /impact การ์ดแรกคือ LCP ของหน้า ปล่อยให้ lazy แล้ว LCP ยืดเป็น ~3 วินาที

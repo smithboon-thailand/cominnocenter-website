@@ -20,17 +20,25 @@ export type Leader = {
   nameEn: string;
   role: string;
   roleTh: string;
+  /** จีนตัวย่อ — เพิ่ม 24 ก.ย. 2569 พร้อมหน้า /zh/about · ประวัติการศึกษา/งานคงเป็นอังกฤษ (ชื่อเฉพาะ) */
+  roleZh: string;
   image: string;
   alt: string;
   education: string[];
   work: string[];
   focus: string;
   focusTh: string;
+  focusZh: string;
   email?: string;
   metrics: { label: string; value: number; suffix?: string }[];
   links: SocialLink[];
   publications: Publication[];
   metricsNote: string;
+  /**
+   * บรรทัดที่มาของตัวเลขฉบับจีน — ตัวเลขในนี้เป็นค่าเดียวกับ `metrics` และ `metricsNote`
+   * ที่เขียนไว้อีกที่ `check:content` เทียบให้ทั้งสามที่ (ดู PAIRS ในสคริปต์)
+   */
+  metricsNoteZh: string;
 };
 
 /** Self-hosted — ดาวน์โหลดจาก Wix มาไว้ที่ public/images/leadership/ (Phase 0) */
@@ -39,6 +47,9 @@ const media = (id: string) => `/images/leadership/${id}.webp`;
 export const leadership: Leader[] = [
   {
     slug: "smith-boonchutima",
+    roleZh: "中心主任",
+    focusZh: "健康传播、风险传播、数字媒体、跨国传播、社交媒体研究、公共关系",
+    metricsNoteZh: "Google Scholar：引用 269 次 · h 指数 9 · i10 指数 9 | Scopus（ID 56167805200）：24 篇文献 · 引用 107 次 · h 指数 6",
     name: "รศ.ดร.สมิทธิ์ บุญชุติมา",
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
     role: "Head of Research Operations Unit",
@@ -112,6 +123,9 @@ export const leadership: Leader[] = [
   },
   {
     slug: "teerada-chongkolrattanaporn",
+    roleZh: "中心副主任",
+    focusZh: "危机传播、环境传播、说服与谈判、国际形象与声誉、框架理论与公关活动",
+    metricsNoteZh: "依据 ORCID 0000-0003-2785-8595 及朱拉隆功大学传播艺术学院公共关系系师资页面",
     name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
     nameEn: "Asst. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
     role: "Deputy Head of Research Operations Unit",
@@ -164,6 +178,9 @@ export const leadership: Leader[] = [
   },
   {
     slug: "pavel-slutskiy",
+    roleZh: "中心副主任",
+    focusZh: "传播的政治与法律哲学、传播理论、跨文化传播、战略传播与公共关系",
+    metricsNoteZh: "依据 ResearchGate 与 Google Scholar（user=1v6dmxQAAAAJ）",
     name: "รศ.ดร. Pavel Slutskiy",
     nameEn: "Assoc. Prof. Dr. Pavel Slutskiy",
     role: "Deputy Head of Research Operations Unit",
@@ -228,6 +245,8 @@ export const objectives = [
   {
     number: "01",
     title: "Teaching & Training",
+    titleZh: "教学与培训",
+    descriptionZh: "发展知识体系并开展传播创新培训，让个人与机构能够学以致用",
     titleTh: "การเรียนการสอนและการอบรม",
     description:
       "พัฒนาองค์ความรู้และจัดอบรมด้านนวัตกรรมการสื่อสาร ให้กับบุคลากร องค์กร และผู้ที่สนใจนำไปใช้จริง",
@@ -237,6 +256,8 @@ export const objectives = [
   {
     number: "02",
     title: "Community Advocacy",
+    titleZh: "社会倡导",
+    descriptionZh: "通过有效传播提升公众认知，推动与生活质量和可持续发展相关的重要议题",
     titleTh: "การขับเคลื่อนสังคม",
     description:
       "สร้างการรับรู้และขับเคลื่อนประเด็นสำคัญ เพื่อคุณภาพชีวิตและความยั่งยืน ผ่านการสื่อสารที่มีประสิทธิภาพ",
@@ -246,6 +267,8 @@ export const objectives = [
   {
     number: "03",
     title: "Tools & Innovation",
+    titleZh: "工具与创新",
+    descriptionZh: "研究并开发有益于社会与机构的工具、实践方法与传播创新",
     titleTh: "เครื่องมือและนวัตกรรม",
     description:
       "วิจัยและพัฒนาเครื่องมือ แนวทางปฏิบัติ และนวัตกรรมการสื่อสาร ที่เป็นประโยชน์ต่อสังคมและองค์กร",

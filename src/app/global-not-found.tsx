@@ -22,7 +22,7 @@ export const metadata: Metadata = {
  * เบราว์เซอร์ประกอบเองทีหลัง คนที่ปิด JS หรือบอทที่ไม่รัน JS จะเห็นหน้าว่าง
  * ส่วนไฟล์นี้ถูก render ที่เซิร์ฟเวอร์จริง เนื้อหาอยู่ใน HTML ตั้งแต่แรก
  *
- * เป็นหน้าสองภาษาเพราะมีได้ไฟล์เดียว แต่ URL ที่หลงมาถึงตรงนี้มาจากได้ทุกภาษา
+ * เป็นหน้าหลายภาษาเพราะมีได้ไฟล์เดียว แต่ URL ที่หลงมาถึงตรงนี้มาจากได้ทุกภาษา
  * ตัวไทยเป็นหลัก (lang ของเอกสาร) อังกฤษกำกับ lang="en" ไว้ให้โปรแกรมอ่านหน้าจอ
  * เปลี่ยนเสียงถูก ส่วน /en/<หน้าที่ไม่มี> ยังได้หน้า 404 อังกฤษเต็มๆ จาก
  * (en)/en/not-found.tsx ตามเดิม
@@ -70,6 +70,15 @@ export default function GlobalNotFound() {
               className="inline-flex items-center rounded-lg border border-ink-300 px-6 py-3 font-medium text-ink-900 transition-colors hover:bg-ink-100"
             >
               English
+            </Link>
+            {/* สองตัวอักษรนี้ปล่อยให้ฟอนต์จีนของระบบแสดง — ไม่ดึง Noto Sans SC (185 KB ของ CSS)
+                เข้ามาในเอกสาร 404 ที่เป็นไทยเพื่อปุ่มเดียว ดูเหตุผลใน src/lib/fontsZh.ts */}
+            <Link
+              lang="zh-Hans"
+              href="/zh"
+              className="inline-flex items-center rounded-lg border border-ink-300 px-6 py-3 font-medium text-ink-900 transition-colors hover:bg-ink-100"
+            >
+              中文
             </Link>
           </div>
         </main>

@@ -82,7 +82,7 @@ export default async function PaperSummaryPageEn({ params }: Props) {
 
   return (
     <div className="min-h-screen">
-      <Header locale="en" active="research" switchHref={`/research/${slug}`} />
+      <Header locale="en" active="research" switchHrefs={{ th: `/research/${slug}` }} />
       <JsonLd
         data={[
           scholarlyArticleSchema({

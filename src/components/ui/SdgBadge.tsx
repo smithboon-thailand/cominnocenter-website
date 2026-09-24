@@ -1,10 +1,11 @@
 import { SDG, type SdgId, sdgAria } from "@/data/sdg";
+import type { Locale } from "@/lib/locale";
 
 type SdgBadgeProps = {
   id: SdgId;
   /** full: [● SDG 12 ชื่อเป้าหมาย] · compact: [● 12] สำหรับที่แคบ */
   variant?: "full" | "compact";
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 /**

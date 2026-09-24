@@ -14,7 +14,7 @@ const coveredGoals = SDG_IDS.filter((id) => projects.some((p) => p.sdg.includes(
 export const metadata = {
   alternates: {
     canonical: "/en/sdg",
-    languages: { th: "/sdg", en: "/en/sdg", "x-default": "/sdg" },
+    languages: { th: "/sdg", en: "/en/sdg", "zh-Hans": "/zh/sdg", "x-default": "/sdg" },
   },
   title: "Sustainable Development Goals",
   // Written for what ESG/CSR teams actually search: SDG communication and sustainability reporting

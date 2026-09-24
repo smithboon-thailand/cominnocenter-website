@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import ResponsiveArtwork from "@/components/ui/ResponsiveArtwork";
 import { pageBanners, type PageBannerKey } from "@/data/pageBanners";
+import type { Locale } from "@/lib/locale";
 
 /**
  * หัวหน้าหลัก — ข้อความกับภาพประกอบอยู่ในจอเดียวกัน
@@ -34,7 +35,7 @@ export default function PageHero({
   children,
 }: {
   page: PageBannerKey;
-  locale: "th" | "en";
+  locale: Locale;
   /**
    * ป้ายเหนือหัวเรื่อง — **ไม่บังคับ** เพราะหน้าข่าวทั้งสองภาษาไม่เคยมี
    * และการเติมเองเท่ากับแต่งข้อความที่ผู้อ่านเห็นขึ้นมาใหม่ ซึ่งเป็นเรื่องของผู้ใช้
@@ -80,7 +81,7 @@ export default function PageHero({
           */}
           <ResponsiveArtwork
             base={banner.base}
-            alt={locale === "th" ? banner.altTh : banner.altEn}
+            alt={{ th: banner.altTh, en: banner.altEn, zh: banner.altZh }[locale]}
             // ช่องภาพ = 42% ของกรอบ 1232px ≈ 517px บนเดสก์ท็อป · เต็มจอบนมือถือ
             sizes="(min-width: 1024px) 520px, 100vw"
             aspect="aspect-[5/4] lg:aspect-[4/3]"

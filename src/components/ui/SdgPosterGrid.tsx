@@ -5,9 +5,11 @@ import Link from "next/link";
 import ContextCTA from "@/components/ui/ContextCTA";
 import { SDG, SDG_IDS, sdgAria, type SdgId } from "@/data/sdg";
 import { projects } from "@/data/projects";
+import { localePath, type Locale } from "@/lib/locale";
+import { projectTitle } from "@/lib/projectCopy";
 
 type SdgPosterGridProps = {
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 /** โครงการของเป้าหมายหนึ่งๆ (นับทั้งเป้าหมายหลักและรอง) */
@@ -33,6 +35,15 @@ const COPY = {
     collaboratePath: "/en/collaborate",
     ctaHeading: "Is your organisation working on this goal?",
     ctaLabel: "Work with us",
+  },
+  zh: {
+    projects: (n: number) => `${n} 个项目`,
+    open: "欢迎合作",
+    viewAll: "在项目成果页查看",
+    impactPath: localePath("zh", "/impact"),
+    collaboratePath: localePath("zh", "/collaborate"),
+    ctaHeading: "贵机构正在推动这一目标吗？",
+    ctaLabel: "与我们合作",
   },
 } as const;
 
@@ -182,7 +193,7 @@ export default function SdgPosterGrid({ locale = "th" }: SdgPosterGridProps) {
                       className="block py-1.5 text-[13px] leading-[1.5] text-ink-700 hover:text-pink-700
                         focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
                     >
-                      {locale === "th" ? p.title : p.titleEn}
+                      {projectTitle(p, locale)}
                     </Link>
                   </li>
                 ))}

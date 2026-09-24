@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Script from "next/script";
 import { GA_ID, analyticsEnabled, consentBannerEnabled } from "@/lib/analytics";
+import type { Locale } from "@/lib/locale";
 
 /**
  * แถบขอความยินยอมคุกกี้ + ตัวโหลด Google Analytics 4
@@ -55,6 +56,17 @@ const COPY = {
     note: "You can change this at any time from the “Cookie settings” link in the footer.",
     label: "Cookie settings",
   },
+  zh: {
+    heading: "用于使用统计的 Cookie",
+    body:
+      "本网站希望通过 Google Analytics 收集访问统计，以便改进所发布的内容。" +
+      "收集的是通过 Cookie 获得的整体使用情况，中心不会用它来识别个人；" +
+      "如果您不点击接受，则不会收集任何数据。",
+    accept: "接受",
+    decline: "拒绝",
+    note: "您随时可以通过页脚的“Cookie 设置”链接更改此选择",
+    label: "Cookie 设置",
+  },
 } as const;
 
 /**
@@ -72,7 +84,7 @@ function clearGaCookies() {
   }
 }
 
-export default function AnalyticsConsent({ locale }: { locale: "th" | "en" }) {
+export default function AnalyticsConsent({ locale }: { locale: Locale }) {
   /**
    * undefined = ยังไม่ได้อ่านค่าจากเบราว์เซอร์
    *

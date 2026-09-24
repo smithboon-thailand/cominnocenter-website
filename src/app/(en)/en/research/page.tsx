@@ -15,7 +15,7 @@ const authorName = (slug: string) => personName(slug, "en");
 export const metadata = {
   alternates: {
     canonical: "/en/research",
-    languages: { th: "/research", en: "/en/research", "x-default": "/research" },
+    languages: { th: "/research", en: "/en/research", "zh-Hans": "/zh/research", "x-default": "/research" },
   },
   title: "Research & Publications",
   description: `${publicationStats.total} publications from the center — ${publicationStats.books} books, ${publicationStats.articles} journal articles, across ${publicationStats.venues} journals and academic venues since ${publicationStats.since}`,

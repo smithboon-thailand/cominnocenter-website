@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { SDG, SDG_IDS, SDG_WHITE_TEXT_OK, sdgAria, type SdgId } from "@/data/sdg";
+import type { Locale } from "@/lib/locale";
 
 type SdgFilterChipsProps = {
   /** path ของหน้ารายการ เช่น "/impact" หรือ "/en/impact" */
   basePath: string;
   active?: SdgId;
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 /**
@@ -16,7 +17,7 @@ type SdgFilterChipsProps = {
  * กดชิปที่เลือกอยู่ = ล้าง filter · ลิงก์รูปแบบ ?sdg=N (หน้า /sdg ลิงก์มาแบบเดียวกัน)
  */
 export default function SdgFilterChips({ basePath, active, locale = "th" }: SdgFilterChipsProps) {
-  const allLabel = locale === "th" ? "ทั้งหมด" : "All";
+  const allLabel = { th: "ทั้งหมด", en: "All", zh: "全部" }[locale];
   const base =
     "inline-flex h-8 items-center gap-1.5 rounded border-2 px-2.5 text-[13px] font-medium " +
     "leading-none transition-colors duration-150 ease-brand " +
@@ -24,7 +25,9 @@ export default function SdgFilterChips({ basePath, active, locale = "th" }: SdgF
 
   return (
     <nav
-      aria-label={locale === "th" ? "กรองผลงานตามเป้าหมาย SDG" : "Filter projects by SDG"}
+      aria-label={
+        { th: "กรองผลงานตามเป้าหมาย SDG", en: "Filter projects by SDG", zh: "按可持续发展目标筛选项目" }[locale]
+      }
       className="flex flex-wrap gap-2"
     >
       <Link

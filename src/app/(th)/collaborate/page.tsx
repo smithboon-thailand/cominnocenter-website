@@ -11,7 +11,7 @@ import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/data/contact";
 export const metadata = {
   alternates: {
     canonical: "/collaborate",
-    languages: { th: "/collaborate", en: "/en/collaborate", "x-default": "/collaborate" },
+    languages: { th: "/collaborate", en: "/en/collaborate", "zh-Hans": "/zh/collaborate", "x-default": "/collaborate" },
   },
   title: "ร่วมงานกับเรา",
   description:

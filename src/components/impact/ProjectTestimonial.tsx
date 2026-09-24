@@ -1,10 +1,11 @@
 import type { ProjectTestimonial as Testimonial } from "@/data/projects";
+import type { Locale } from "@/lib/locale";
 
 type Props = {
   testimonial: Testimonial;
   /** สี deep ของ SDG หลักของหน้า — ใช้กับเส้นคั่นและเครื่องหมายคำพูดเท่านั้น */
   accent: string;
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 /**
@@ -17,7 +18,7 @@ type Props = {
  * ไม่ใช่ย่อหน้าสองย่อหน้าที่บังเอิญวางติดกัน
  */
 export default function ProjectTestimonial({ testimonial, accent, locale = "th" }: Props) {
-  const label = locale === "th" ? "เสียงจากพันธมิตร" : "What our partner said";
+  const label = { th: "เสียงจากพันธมิตร", en: "What our partner said", zh: "合作伙伴的声音" }[locale];
 
   return (
     <figure className="rounded-lg border border-ink-300 bg-white p-8">

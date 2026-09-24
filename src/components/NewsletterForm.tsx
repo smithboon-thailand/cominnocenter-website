@@ -1,10 +1,11 @@
 "use client";
 
 import { useId, useState } from "react";
+import type { Locale } from "@/lib/locale";
 
 type NewsletterFormProps = {
   variant?: "light" | "dark" | "compact";
-  locale?: "th" | "en";
+  locale?: Locale;
 };
 
 const COPY = {
@@ -25,6 +26,15 @@ const COPY = {
     submitDark: "Subscribe",
     submitLight: "Subscribe",
     error: "Something went wrong. Please try again.",
+  },
+  zh: {
+    success: "订阅成功，谢谢！",
+    label: "用于接收电子报的电子邮件",
+    placeholder: "您的电子邮件",
+    loading: "订阅中……",
+    submitDark: "订阅",
+    submitLight: "订阅资讯",
+    error: "出现错误，请重试",
   },
 } as const;
 
