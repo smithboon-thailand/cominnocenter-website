@@ -556,6 +556,11 @@ const CITATION_FIXES = {
   // meta ของ OJS บนหน้าบทความ (citation_volume=23 · citation_issue=1) ตรงกัน
   // (ตรวจ 24 ก.ย. 2569)
   "10.32509/wacana.v23i1.3388": { volume: "23", issue: "1" },
+  // รอบ 8 ก.ย. 2569 Crossref ให้เลขเล่ม 15 ฉบับ 2 แต่รอบ 24 ก.ย. ระเบียนเดียวกันกลับ
+  // ไม่มีเลขเล่ม/ฉบับแล้ว (วารสารฝากข้อมูลใหม่) — ตัว DOI เองสะกด "...15.2.3155" และ
+  // หัวกระดาษของไฟล์บทความ (research-sources/papers/indigenous-education-sdgs-philippines.pdf)
+  // พิมพ์ว่า "HCMCOUJS-Social Sciences, 15(2), 94-115" จึงเติมกลับตามตัวไฟล์
+  "10.46223/hcmcoujs.soci.en.15.2.3155.2025": { volume: "15", issue: "2" },
 };
 
 function citationFrom(meta, doi = "") {
