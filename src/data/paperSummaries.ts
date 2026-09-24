@@ -2562,9 +2562,9 @@ export const paperSummaries: PaperSummary[] = [
   {
     slug: "indigenous-education-sdgs-philippines",
     illustrationAltTh:
-      "ภาพประกอบกระดาษ บ้านหลังเล็กตั้งอยู่กลางวงแหวนกระดาษสองวง วงในหนาและเต็ม วงนอกบางและขาดเป็นช่วง",
+      "ภาพประกอบกระดาษ บ้านหลังเล็กตั้งอยู่กลางวงแหวนกระดาษ วงในหนาและเต็ม ถัดออกไปเป็นวงบางสองวงที่ขาดเป็นช่วงๆ",
     illustrationAltEn:
-      "Paper-craft illustration of a small house at the centre of two paper rings, the inner ring thick and complete, the outer ring thin and broken",
+      "Paper-craft illustration of a small house at the centre of paper rings: a thick, complete inner ring, then two thin outer rings broken into arcs",
     doi: "10.46223/hcmcoujs.soci.en.15.2.3155.2025",
     articleLanguage: "en",
     license: "cc-by-nc",
