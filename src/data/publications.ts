@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-08)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-24)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -11,7 +11,7 @@
  *   (รอบล่าสุดยุบ 2 รายการ) เก็บเลขที่มียอดอ้างอิงสูงกว่า
  *
  * ระดับการตรวจสอบ (field verified):
- *   "doi"   58 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
+ *   "doi"   60 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
  *   "link"  3 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
  *   "index" 13 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
  *   "self"  13 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
@@ -199,6 +199,40 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
+    "title": "Digital divergence: How online media and techno-stress shape communication competencies across higher education roles",
+    "venue": "Kasetsart Journal of Social Sciences",
+    "year": 2026,
+    "type": "journal-article",
+    "verified": "doi",
+    "doi": "10.34044/j.kjss.2026.47.3.05",
+    "authors": [
+      "teerada-chongkolrattanaporn"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Chongkolrattanaporn",
+          "given": "Teerada",
+          "literal": ""
+        },
+        {
+          "family": "Manmin",
+          "given": "Prichaya",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Kasetsart Journal of Social Sciences",
+      "volume": "",
+      "issue": "",
+      "page": "",
+      "articleNumber": "470305",
+      "publisher": "Kasetsart University Research and Development Institute",
+      "year": 2026,
+      "month": 9,
+      "day": 1
+    }
+  },
+  {
     "title": "Enhancing fans and artists’ affective engagement and behavioral intentions in digital music streaming platforms through relational bonds: a case study of JOOX Rooms",
     "venue": "Cogent Arts & Humanities",
     "year": 2026,
@@ -368,7 +402,7 @@ export const publications: PublicationEntry[] = [
       "issue": "1",
       "page": "1-19",
       "articleNumber": "",
-      "publisher": "Walter de Gruyter GmbH",
+      "publisher": "Office of Academic Resources, Chulalongkorn University",
       "year": 2025,
       "month": 11,
       "day": 18
@@ -447,6 +481,55 @@ export const publications: PublicationEntry[] = [
       "year": 2025,
       "month": 10,
       "day": 1
+    }
+  },
+  {
+    "title": "Between Subtitles and Sentiments: How Viewers Experience Cross-Cultural Communication through Chinese Short Dramas",
+    "venue": "Proceedings of the 9th International Conference on E-Society, E-Education and E-Technology",
+    "year": 2025,
+    "type": "conference-paper",
+    "verified": "doi",
+    "doi": "10.1145/3802409.3802425",
+    "authors": [
+      "robbie-buelo"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Estacio",
+          "given": "Divina Mendoza",
+          "literal": ""
+        },
+        {
+          "family": "Ruiz",
+          "given": "Carlo Jay",
+          "literal": ""
+        },
+        {
+          "family": "Penus",
+          "given": "Zchiesa Mae",
+          "literal": ""
+        },
+        {
+          "family": "Urgelles",
+          "given": "Dominic",
+          "literal": ""
+        },
+        {
+          "family": "Buelo",
+          "given": "Robbie Jan Vincent",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Proceedings of the 9th International Conference on E-Society, E-Education and E-Technology",
+      "volume": "",
+      "issue": "",
+      "page": "305-311",
+      "articleNumber": "",
+      "publisher": "ACM",
+      "year": 2025,
+      "month": 12,
+      "day": 5
     }
   },
   {
@@ -667,7 +750,7 @@ export const publications: PublicationEntry[] = [
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.1080/10875301.2024.2352746",
-    "citations": 43,
+    "citations": 45,
     "authors": [
       "robbie-buelo"
     ],
@@ -732,7 +815,7 @@ export const publications: PublicationEntry[] = [
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.1080/23311975.2024.2402513",
-    "citations": 7,
+    "citations": 8,
     "authors": [
       "smith-boonchutima"
     ],
@@ -957,7 +1040,7 @@ export const publications: PublicationEntry[] = [
   },
   {
     "title": "Participation, promotion, and practices of the Indigenous Peoples Education (IPEd)- implementing schools in localizing sustainable development goals",
-    "venue": "HO CHI MINH CITY OPEN UNIVERSITY JOURNAL OF SCIENCE - SOCIAL SCIENCES",
+    "venue": "Ho Chi Minh City Open University Journal of Science - Social Sciences",
     "year": 2024,
     "type": "journal-article",
     "verified": "doi",
@@ -998,15 +1081,15 @@ export const publications: PublicationEntry[] = [
           "literal": ""
         }
       ],
-      "containerTitle": "HO CHI MINH CITY OPEN UNIVERSITY JOURNAL OF SCIENCE - SOCIAL SCIENCES",
-      "volume": "15",
-      "issue": "2",
+      "containerTitle": "Ho Chi Minh City Open University Journal of Science - Social Sciences",
+      "volume": "",
+      "issue": "",
       "page": "94-115",
       "articleNumber": "",
       "publisher": "Ho Chi Minh City Open University Journal of Science",
       "year": 2024,
-      "month": 10,
-      "day": 11
+      "month": 4,
+      "day": 3
     }
   },
   {
@@ -1058,8 +1141,8 @@ export const publications: PublicationEntry[] = [
         }
       ],
       "containerTitle": "WACANA: Jurnal Ilmiah Ilmu Komunikasi",
-      "volume": "",
-      "issue": "",
+      "volume": "23",
+      "issue": "1",
       "page": "44-53",
       "articleNumber": "",
       "publisher": "Universitas Prof. Dr. Moestopo Beragama",
@@ -1174,7 +1257,7 @@ export const publications: PublicationEntry[] = [
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.1186/s12909-023-04089-4",
-    "citations": 9,
+    "citations": 11,
     "authors": [
       "phyu-hnin-hlaing"
     ],
@@ -1419,7 +1502,7 @@ export const publications: PublicationEntry[] = [
     "type": "journal-article",
     "verified": "doi",
     "doi": "10.5559/di.31.4.06",
-    "citations": 4,
+    "citations": 5,
     "authors": [
       "smith-boonchutima"
     ],
@@ -1747,7 +1830,7 @@ export const publications: PublicationEntry[] = [
     "type": "book",
     "verified": "doi",
     "doi": "10.1007/978-981-33-6664-0",
-    "citations": 13,
+    "citations": 14,
     "authors": [
       "pavel-slutskiy"
     ],
@@ -3003,7 +3086,7 @@ export const publications: PublicationEntry[] = [
       "issue": "2",
       "page": "90-108",
       "articleNumber": "",
-      "publisher": "Walter de Gruyter GmbH",
+      "publisher": "Office of Academic Resources, Chulalongkorn University",
       "year": 2016,
       "month": 0,
       "day": 0
