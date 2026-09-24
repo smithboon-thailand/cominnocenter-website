@@ -157,12 +157,17 @@ export function buildSearchIndex(locale: Locale): SearchDoc[] {
      * — ผู้ใช้ที่ค้นในเว็บเรามักอยากรู้ว่า "งานนี้พูดว่าอะไร" ไม่ใช่อยากได้ไฟล์วารสาร
      * และหน้าบทสรุปก็มีลิงก์ DOI ให้อยู่แล้วสำหรับคนที่ต้องการต้นฉบับ
      *
-     * หน้าจีนยังไม่มีบทสรุป จึงชี้ไป DOI เสมอ แต่ยังใส่พาดหัวอังกฤษเป็นคำค้น
-     * เพราะผู้อ่านจีนที่ค้นด้วยคำอังกฤษก็ควรเจองานชิ้นนั้น
+     * หน้าจีนมีบทสรุปเฉพาะรายการที่แปลแล้ว (field `zh`) — รายการที่ยังไม่มีชี้ไป DOI
+     * แต่ยังใส่พาดหัวอังกฤษเป็นคำค้น เพราะผู้อ่านจีนที่ค้นด้วยคำอังกฤษก็ควรเจองานชิ้นนั้น
      */
     const summary = summaryForPublication(pub);
-    const summaryHref = locale !== "zh" && summary ? `${base}/research/${summary.slug}` : null;
-    const headline = summary ? summary[locale === "th" ? "th" : "en"].headline : "";
+    const hasPage = summary && (locale !== "zh" || summary.zh);
+    const summaryHref = hasPage ? `${base}/research/${summary.slug}` : null;
+    const headline = !summary
+      ? ""
+      : locale === "zh" && summary.zh
+        ? summary.zh.headline
+        : summary[locale === "th" ? "th" : "en"].headline;
     docs.push({
       kind: "publication",
       title: pub.title,

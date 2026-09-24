@@ -86,11 +86,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
     // หน้าบทสรุปงานวิจัย — ให้ priority สูงกว่าข่าวเพราะเป็นเนื้อหาต้นฉบับที่เราเขียนเอง
     // และเป็นสิ่งที่คนค้นหางานวิชาการของศูนย์ฯ ควรเจอ
+    // ฉบับจีนมีเฉพาะบทสรุปที่แปลแล้ว (field zh) — ประกาศ zh-Hans ให้เฉพาะรายการนั้น
     ...paperSummaries.map(
       (s): Entry => ({
         path: `/research/${s.slug}`,
         changeFrequency: "yearly",
         priority: 0.7,
+        zh: Boolean(s.zh),
       }),
     ),
   ];
