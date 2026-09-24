@@ -551,6 +551,11 @@ const CITATION_FIXES = {
   // เลขหน้า (รายการอื่นของวารสารเดียวกันมีครบ) — เติมจากบรรทัด "To cite this
   // article" ที่สำนักพิมพ์พิมพ์ไว้หน้าแรกของไฟล์: "Cogent Social Sciences, 11:1, 2526800"
   "10.1080/23311886.2025.2526800": { articleNumber: "2526800" },
+  // Crossref ลงเลขหน้า 44-53 ไว้แต่ไม่ลงเลขเล่มและเลขฉบับ — หน้าแรกของไฟล์บทความพิมพ์
+  // กล่องข้อมูล "Volume: 23 · No.: 1 · Month: June · Year: 2024 · Page: 44 - 53" และ
+  // meta ของ OJS บนหน้าบทความ (citation_volume=23 · citation_issue=1) ตรงกัน
+  // (ตรวจ 24 ก.ย. 2569)
+  "10.32509/wacana.v23i1.3388": { volume: "23", issue: "1" },
 };
 
 function citationFrom(meta, doi = "") {

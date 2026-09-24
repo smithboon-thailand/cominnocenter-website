@@ -2609,6 +2609,506 @@ export const paperSummaries: PaperSummary[] = [
         "**Every figure is teachers' self-report** of how often they do things, with no classroom observation and no measure of outcomes for learners, so answers may lean toward what teachers felt they should say. Data come from a single school division with no comparison group, and are reported as means without statistical tests. The authors' conclusion that teachers show “commendable” commitment is an interpretation of the responses, not a measured result. The article has no limitations section of its own; the limitations above are what we read from its methods.",
     },
   },
+  {
+    slug: "trump-popularity-russian-media-2016",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แผ่นกลมสีชมพูเข้มตั้งอยู่ มีเสี้ยวเล็กหนึ่งชิ้นถูกตัดออกไปและวางราบไว้ด้านหน้า",
+    illustrationAltEn:
+      "Paper-craft illustration of an upright deep pink disc with one small wedge cut out of it and laid flat in front",
+    doi: "10.1177/0002764217693281",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "ช่วงหาเสียงปี 2559 สื่อรัสเซียพูดถึงทรัมป์ในทางบวก 326 จาก 347 ครั้ง และผู้เขียนสรุปว่ารูปแบบนี้เข้าลักษณะของการโฆษณาชวนเชื่อครบทุกข้อ",
+      question:
+        "เมษายน 2559 ผลสำรวจของ YouGov ในกลุ่มประเทศ G20 พบว่ารัสเซียเป็นประเทศเดียวที่คนอยากให้ทรัมป์ได้เป็นประธานาธิบดีสหรัฐฯ มากกว่าคู่แข่งจากพรรคเดโมแครต โดยนำอยู่ 21 จุด ขณะที่อีก 15 ประเทศคู่แข่งนำเกิน 21 จุด · งานนี้ตั้งสมมติฐานว่าความนิยมนั้นไม่ได้เกิดขึ้นเอง แต่เป็นผลโดยตรงจากวิธีที่สื่อรัสเซียประกอบภาพของทรัมป์ให้คนในประเทศดู",
+      method:
+        "วิเคราะห์เนื้อหาเชิงปริมาณ (นับหน่วยข้อความและจัดน้ำเสียง) แล้วต่อด้วยการวิเคราะห์วาทกรรมที่โยงตัวบทเข้ากับบริบทสังคมการเมือง · ตัวอย่างคือข้อความ 91 ชิ้นจากสื่อที่เป็นของรัฐหรือใกล้ชิดรัฐบาล ทั้งโทรทัศน์ หนังสือพิมพ์ และเว็บไซต์ข่าว ระหว่าง 1 มีนาคม ถึง 31 กรกฎาคม 2559 คัดเฉพาะชิ้นที่มีชื่อทรัมป์ในพาดหัวหรือพาดหัวรอง · หน่วยวิเคราะห์คือข้อความที่พูดถึงทรัมป์ โดยมีคู่แข่งของเขาและผู้มีอำนาจฝ่ายรัสเซียเป็นตัวละครแวดล้อม · ผู้เขียนแปลข้อความจากภาษารัสเซียเอง",
+      findings: [
+        "**น้ำเสียงบวกเกือบทั้งหมด** — หน่วยข้อความที่บรรยายตัวทรัมป์ 347 หน่วย เป็นบวก 326 (ร้อยละ 93.95) เป็นลบ 21 · คำพูดของเขาเกี่ยวกับรัสเซีย 173 ต่อ 2 · คำพูดเกี่ยวกับนโยบายต่างประเทศของรัสเซีย 62 ต่อ 0 · ความสัมพันธ์ของเขากับผู้นำรัสเซีย 71 ต่อ 3 · คำวิจารณ์รัฐบาลสหรัฐฯ ชุดขณะนั้น 23 ต่อ 0",
+        "**คำที่ใช้เรียกเขาฟังเป็นลบในภาษาอังกฤษ แต่ไม่ลบในภาษารัสเซีย** — “อื้อฉาว” “ช็อก” “ยั่วยุ” “แปลกประหลาด” ครองพื้นที่ แต่ผู้เขียนชี้ว่าในบริบทรัสเซียคำเหล่านี้อ่านได้ว่า “ไม่ใช่คนธรรมดาและไม่โง่” · ควบคู่กับคำว่าจริงใจ พูดจากใจ กล้าและตรง · กริยาที่ใช้กับเขาเป็นรูปกระทำเกือบทั้งหมด — เขาวิจารณ์มากกว่าถูกวิจารณ์ เขาพูด ไม่ใช่ถูกพูดถึง",
+        "**เขาถูกวางเป็นนักการเมืองสหรัฐฯ คนเดียวที่เป็นมิตรกับรัสเซีย** ผู้จะฟื้นความสัมพันธ์ ยกเลิกการคว่ำบาตร ร่วมมือเรื่องซีเรีย และไม่ยุ่งกับยูเครน · สื่อยกคำพูดของเขาที่ตั้งคำถามกับหลักการป้องกันร่วมของนาโต และเรื่องการถอนข้อความสนับสนุนยูเครนออกจากนโยบายพรรค",
+        "**รัสเซียถูกขยายให้เป็นศูนย์กลางของการเลือกตั้งสหรัฐฯ** — สื่อเสนอว่าการสนับสนุนจากผู้นำรัสเซียช่วยให้ทรัมป์ได้คะแนนจากคนอเมริกัน และ “ไม่เคยมีครั้งไหนที่ชื่อประธานาธิบดีรัสเซียถูกเอ่ยถึงในการโต้วาทีชิงตำแหน่งบ่อยเท่านี้”",
+        "**น้ำเสียงต่อต้านชนชั้นนำสหรัฐฯ** — ทรัมป์ถูกเล่าเป็นผู้สนับสนุนที่ไม่คาดคิดของวาระที่สื่อรัสเซียมีอยู่แล้ว คือการโทษสถาบันการเมืองอเมริกันว่าเป็นต้นเหตุปัญหาของรัสเซีย",
+        "**เทคนิคสำคัญคือชมผ่านการยกคำพูด ไม่ใช่ผ่านประโยคประเมินของสื่อเอง** ภาพบวกส่วนใหญ่มาในรูปคำพูดของทรัมป์และรูปกริยา “เขาสามารถ” ซึ่งพิสูจน์หรือหักล้างไม่ได้ทั้งคู่",
+        "ผู้เขียนสรุปว่าวาทกรรมชุดนี้มีลักษณะของการโฆษณาชวนเชื่อครบทุกข้อตามแบบวิเคราะห์ — อคติทางอุดมการณ์ · การจัดวางตัวละครอย่างลำเอียง · ภาพมิตรและศัตรูที่ตายตัว · อนาคตที่สดใสคู่กับปัจจุบันและอดีตที่มืดมน",
+      ],
+      soWhat:
+        "สำหรับคนอ่านข่าวต่างประเทศ งานนี้ให้วิธีตรวจง่ายๆ สามข้อ — ใครถูกวางเป็นผู้กระทำเสมอและใครถูกกระทำ · ประเทศของผู้เล่าถูกขยับไปอยู่ใจกลางเรื่องของประเทศอื่นหรือไม่ · และคำชมมาในรูป “การยกคำพูด” ซึ่งไม่ต้องรับผิดชอบเหมือนประโยคประเมินหรือไม่ · งานชิ้นนี้ยังเป็นฐานตั้งต้นของชุดงานอีกสามชิ้นที่ตามรอยภาพเดียวกันไปจนถึงการเลือกตั้งปี 2567",
+      caveat:
+        "**การวิเคราะห์ตัวบทบอกไม่ได้ว่าผู้ชมคิดตามหรือไม่** ความเชื่อมโยงระหว่างเนื้อหาสื่อกับผลสำรวจความนิยมเป็นสมมติฐานของงาน ไม่ได้ทดสอบกับข้อมูลผู้รับสาร · ข้อความ 91 ชิ้นในห้าเดือน · ผู้เขียนเป็นผู้ลงรหัสและแปลเอง ไม่ได้รายงานค่าความสอดคล้องระหว่างผู้ลงรหัส · เขียนก่อนเหตุการณ์ใหญ่หลังการเลือกตั้ง ซึ่งงานชิ้นถัดไปของทีมเดียวกันตามต่อ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อสำนักข่าวและบุคคลอื่นนอกจากทรัมป์ ซึ่งเป็นตัวแบบที่งานศึกษาโดยตรง** ตามกติกาของหน้าบทสรุป",
+    },
+    en: {
+      headline:
+        "During the 2016 campaign, Russian media described Trump positively 326 times out of 347, and the authors conclude the pattern meets every mark of propaganda",
+      question:
+        "In April 2016 a YouGov poll across the G20 found Russia was the only country whose public preferred Trump for U.S. president over his Democratic rival, by 21 points, while in 15 other countries she led by more than 21. This study proposes that the popularity did not arise on its own but followed directly from how Russian media built Trump's image for audiences at home.",
+      method:
+        "Quantitative content analysis (counting text units and coding their tone) followed by discourse analysis that ties the texts to their social and political setting. The sample is 91 texts from state-owned or government-aligned television, newspapers and news sites between 1 March and 31 July 2016, selected when Trump's name appeared in the headline or subheading. The unit of analysis is the text about Trump, with his rival and the Russian authorities as surrounding actors. The authors translated the Russian texts themselves.",
+      findings: [
+        "**Almost entirely positive tone.** Of 347 units describing Trump, 326 (93.95%) were positive and 21 negative; his quotes about Russia 173 to 2; quotes on Russian foreign policy 62 to 0; his relationship with the Russian leader 71 to 3; his criticism of the sitting U.S. administration 23 to 0.",
+        "**The labels sound negative in English but not in Russian.** “Scandalous”, “shocking”, “provocative” and “eccentric” dominate, yet the authors note that in the Russian context they read as “not an ordinary person, and not a stupid one”, alongside honest, sincere, brave and direct. Verbs are almost always active: he criticises more often than he is criticised, he speaks rather than is spoken about.",
+        "**He is cast as the only U.S. politician friendly to Russia**, who would restore relations, lift sanctions, cooperate on Syria and stay out of Ukraine. Outlets quoted his questioning of NATO's collective-defence principle and the removal of pro-Ukraine language from his party platform.",
+        "**Russia is inflated into the centre of the U.S. election.** Outlets suggested the Russian leader's support won Trump votes, and that “never before has the name of the Russian president been mentioned so often in the presidential debates”.",
+        "**An anti-establishment tone.** Trump is narrated as an unexpected ally of an agenda the outlets already held: blaming the U.S. political establishment for Russia's misfortunes.",
+        "**The key technique is praise by quotation rather than by the outlet's own evaluation.** Most of the positive image arrives as Trump's quoted words and as the conditional “he can”, which can be neither proved nor refuted.",
+        "The authors conclude that the discourse has every typological feature of propaganda in their framework: ideological bias, tendentious positioning of actors, fixed images of friends and enemies, and a bright future set against a dark present and past.",
+      ],
+      soWhat:
+        "For readers of foreign news the study offers a three-point check: who is always the actor and who is acted upon; whether the narrating country has been moved to the centre of another country's story; and whether praise arrives as quotation, which carries none of the accountability of an evaluative sentence. The paper is also the baseline for three later studies by the same team that follow the same image through to the 2024 election.",
+      caveat:
+        "**Text analysis cannot show whether audiences followed.** The link between coverage and the popularity poll is the study's hypothesis, not something tested with audience data. Ninety-one texts over five months; the authors coded and translated the material themselves and report no inter-coder agreement. Written before the major post-election events, which the team's next study takes up. **This summary deliberately names no outlets and no political figures other than Trump, who is the study's direct subject**, in line with the rules of these pages.",
+    },
+  },
+  {
+    slug: "trump-image-russian-media-2017-2018",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แถบริบบิ้นสีเขียวอมน้ำเงินยาวโค้งจากซ้ายไปขวา ขอบล่างมีรอยบากตื้นๆ สี่แห่ง",
+    illustrationAltEn:
+      "Paper-craft illustration of a long teal ribbon arching from left to right, with four shallow notches cut into its lower edge",
+    doi: "10.1177/0002764218793691",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "สิบหกเดือนแรกของทรัมป์ในหนังสือพิมพ์รัสเซียสามฉบับ น้ำเสียงเป็นบวกหรือกลางเป็นหลัก และหล่นเป็นลบเพียงสี่เดือนที่สหรัฐฯ ทำสิ่งที่ขัดผลประโยชน์รัสเซีย",
+      question:
+        "ตำนานที่สื่อสร้างให้บุคคลสำคัญเปลี่ยนไปอย่างไรหลังเหตุการณ์การเมืองใหญ่ ในยุคที่อารมณ์มีผลต่อความเห็นสาธารณะมากกว่าข้อเท็จจริง · งานนี้ตามรอย “ชื่อเรียก” (nomination) ที่หนังสือพิมพ์รัสเซียใช้กับทรัมป์ นับจากวันสาบานตนรับตำแหน่ง เพื่อดูว่าภาพบวกที่งานชิ้นก่อนพบในช่วงหาเสียงยังอยู่หรือไม่",
+      method:
+        "เก็บ**ทุกข้อความ**ที่มีชื่อทรัมป์ในพาดหัว พาดหัวรอง หรือย่อหน้านำ จากหนังสือพิมพ์รายวันระดับชาติสามฉบับ — ฉบับทางการของรัฐบาล ฉบับธุรกิจ และแท็บลอยด์มวลชน — ระหว่าง 20 มกราคม 2560 ถึง 31 พฤษภาคม 2561 จากหอสมุดแห่งชาติรัสเซียและฐานข้อมูลสื่อสองแห่ง รวม 275 ชิ้น (ปี 2560 จำนวน 216 · ปี 2561 จำนวน 59) · วิเคราะห์ชื่อเรียกที่ใช้กับตัวแบบ จัดหัวข้อ และจัดน้ำเสียง · ตั้งสมมติฐานไว้ห้าข้อแล้วตรวจกับข้อมูล",
+      findings: [
+        "**ความสนใจไม่คงที่ แต่พุ่งตามเหตุการณ์** — ยอดสูงสุดคือมกราคมและกุมภาพันธ์ 2560 (32 และ 27 ชิ้น) พฤษภาคมและมิถุนายน 2560 (24 และ 21) และเมษายน 2561 (20) · ต่ำสุดคือตุลาคม 2560 และพฤษภาคม 2561 เดือนละ 6 ชิ้น",
+        "**หัวข้อที่พูดถึงมากที่สุดคือนโยบายต่างประเทศสหรัฐฯ ที่แตะผลประโยชน์รัสเซีย** (ซีเรีย ยูเครน จอร์เจีย นาโต) ร้อยละ 23.9 · การเมืองภายในสหรัฐฯ 20.0 · นโยบายต่างประเทศเรื่องอื่น 17.8 · เรื่องรัสเซียโดยตรง 17.5 · ตัวตนและครอบครัวของทรัมป์ 13.9 · เศรษฐกิจ 6.9",
+        "**น้ำเสียงโดยรวมเป็นบวกหรือกลาง** — ในหัวข้อเรื่องรัสเซีย ข้อความบวกต่อลบคือ 35 ต่อ 4 · เรื่องตัวตนของเขา 28 ต่อ 9 · ผู้เขียนสรุปว่าสมมติฐานทั้งห้าข้อได้รับการยืนยัน",
+        "**ตำนานวางอยู่บนสองฐาน** คือทรัมป์ต่างจากสถาบันการเมืองสหรัฐฯ ทั้งหมด และเขาอยากฟื้นความสัมพันธ์กับรัสเซียแต่ศัตรูภายในไม่ยอมให้ทำ — คำสำคัญของเรื่องเล่าคือ “ยัง” (ยังทำไม่ได้)",
+        "**น้ำเสียงหล่นเป็นลบเพียงสี่เดือน** และทุกครั้งตรงกับการกระทำของสหรัฐฯ ที่ขัดผลประโยชน์รัสเซีย — เมษายน 2560 (ยิงขีปนาวุธใส่ฐานทัพในซีเรีย) กันยายน 2560 (ขู่เกาหลีเหนือและถอนตัวจากข้อตกลงปารีส) ธันวาคม 2560 (งบทหารสูงเป็นประวัติการณ์และย้ายสถานทูตไปเยรูซาเลม) เมษายน 2561 (คว่ำบาตรเพิ่ม สงครามการค้า ปฏิบัติการในซีเรีย) · แม้ในช่วงนั้นสื่อก็เลี่ยงการกล่าวหาตรงๆ โดยยกคำพูดของสื่อและฝ่ายค้านในสหรัฐฯ มาแทน หรือเล่าว่าทรัมป์เป็นเหยื่อของสถานการณ์ที่บีบให้ทำ",
+        "**สื่อแต่ละแบบเล่าคนละด้านตามผู้อ่านของตน** — ฉบับรัฐบาลและฉบับธุรกิจเน้นความสัมพันธ์รัสเซีย-สหรัฐฯ ส่วนแท็บลอยด์เน้นชีวิตส่วนตัว ครอบครัว และเรื่องอื้อฉาว",
+        "ผู้เขียนสรุปว่าไม่มีการรณรงค์ทางข่าวสารเพื่อโจมตีทรัมป์เป็นการส่วนตัว แต่วาทกรรมโดยรวมยังมีลักษณะโฆษณาชวนเชื่อเช่นเดียวกับที่พบในช่วงหาเสียง",
+      ],
+      soWhat:
+        "วิธีอ่านข่าวต่างประเทศที่งานนี้สาธิตคือดู**ชื่อเรียก**ที่ใช้กับบุคคล ไม่ใช่ดูแค่หัวข้อ และจับจังหวะที่น้ำเสียงพลิก — ในกรณีนี้จังหวะพลิกตามผลประโยชน์ของประเทศผู้เล่า ไม่ได้ตามพฤติกรรมของตัวแบบโดยทั่วไป · สำหรับการสอนรู้เท่าทันสื่อ นี่คือตัวอย่างชัดเจนของภาพที่ประกอบขึ้นจาก “เขาไม่ใช่ใคร” (ไม่ใช่รัฐบาลชุดก่อน) และ “ใครขัดขวางเขา”",
+      caveat:
+        "**หนังสือพิมพ์สามฉบับ ไม่มีโทรทัศน์และสื่อออนไลน์** · ผู้เขียนลงรหัสน้ำเสียงเองและไม่ได้รายงานค่าความสอดคล้อง · ตัวเลขน้ำเสียงรายเดือนอยู่ในรูปกราฟ ไม่ได้ให้เป็นตาราง · บทความยกพาดหัวหลายชิ้นจากพฤศจิกายน 2559 ซึ่งอยู่นอกช่วงเวลาที่ประกาศไว้ · ฉบับที่เผยแพร่เป็นฉบับออนไลน์ก่อนตีพิมพ์ จึงไม่มีเลขฉบับ · การวิเคราะห์ตัวบทบอกไม่ได้ว่าผู้อ่านคิดตามหรือไม่ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อหนังสือพิมพ์และบุคคลอื่นนอกจากทรัมป์ซึ่งเป็นตัวแบบของงาน**",
+    },
+    en: {
+      headline:
+        "Across Trump's first sixteen months, three Russian dailies stayed positive or neutral, turning negative in only four months when U.S. actions cut against Russian interests",
+      question:
+        "How does a media-made myth of a prominent figure change after major political events, in an age when emotion moves public opinion more than fact? The study tracks the “nominations” (the names and labels) that Russian newspapers attached to Trump from his inauguration onward, to see whether the positive image found during the campaign survived.",
+      method:
+        "**Every** text with Trump's name in the headline, subheading or lead was collected from three national dailies — the government's paper of record, a business broadsheet and a mass tabloid — between 20 January 2017 and 31 May 2018, from the Russian National Library and two media databases: 275 texts (216 in 2017, 59 in 2018). The texts were analysed for the nominations given to the subject, coded by theme and by tone, and checked against five hypotheses.",
+      findings: [
+        "**Attention is not constant but spikes with events.** The peaks were January and February 2017 (32 and 27 texts), May and June 2017 (24 and 21) and April 2018 (20); the low points were October 2017 and May 2018 with 6 each.",
+        "**The most covered theme was U.S. foreign policy touching Russian interests** (Syria, Ukraine, Georgia, NATO) at 23.9%, then U.S. domestic politics 20.0%, other foreign policy 17.8%, Russia itself 17.5%, Trump's personality and family 13.9%, and the economy 6.9%.",
+        "**Overall tone was positive or neutral.** On the Russia theme, positive texts outnumbered negative ones 35 to 4; on his personality, 28 to 9. The authors report all five hypotheses supported.",
+        "**The myth rests on two foundations**: Trump is different from the rest of the U.S. establishment, and he wants to restore relations with Russia but his enemies will not let him. The key word in the narrative is “yet”.",
+        "**Tone dipped into negative territory in only four months**, each matching a U.S. action against Russian interests: April 2017 (missile strike on a Syrian air base), September 2017 (threats to North Korea and the Paris climate withdrawal), December 2017 (a record military budget and the embassy move to Jerusalem) and April 2018 (new sanctions, a trade war and action in Syria). Even then the outlets avoided direct accusation, quoting U.S. media and opposition politicians instead, or casting Trump as a victim of circumstances that forced his hand.",
+        "**Each outlet told the side its readers wanted.** The government and business papers stressed Russian-American relations; the tabloid stressed private life, family and scandal.",
+        "The authors conclude there was no information campaign against Trump personally, but that the discourse remained propagandistic in the same way as during the campaign.",
+      ],
+      soWhat:
+        "The study demonstrates a way to read foreign coverage: watch the **names** a person is given, not only the topics, and watch when the tone flips. Here the flips track the narrating country's interests rather than the subject's behaviour in general. For media-literacy teaching it is a clear example of an image built from “who he is not” (the previous administration) and “who is stopping him”.",
+      caveat:
+        "**Three newspapers, no television or online outlets.** The authors coded tone themselves and report no agreement statistic; monthly tone figures appear only as charts. Several headlines quoted date from November 2016, outside the stated window. The version published is an online-first version without an issue number. Text analysis cannot show whether readers followed. **This summary deliberately names no newspapers and no political figures other than Trump, the study's subject.**",
+    },
+  },
+  {
+    slug: "russian-media-mueller-investigation",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ประตูสีน้ำเงินหม่นสามบานตั้งเรียงกัน ปิดสนิททุกบาน สูงไล่ระดับกัน",
+    illustrationAltEn:
+      "Paper-craft illustration of three dusty blue doors standing in a row, every one shut, each a little taller than the last",
+    doi: "10.1177/0002764220978455",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "สื่อรัสเซียรายงานการสอบสวนเรื่องแทรกแซงเลือกตั้งสหรัฐฯ โดยปฏิเสธข้อกล่าวหาในข้อความร้อยละ 86 และไม่มีข้อความใดเลยที่ยอมรับแม้ในเชิงสมมติ",
+      question:
+        "หลังการเลือกตั้งสหรัฐฯ ปี 2559 มีข้อกล่าวหาว่ารัฐบาลรัสเซียแทรกแซงเพื่อช่วยทรัมป์ นำไปสู่การสอบสวนของอัยการพิเศษมูลเลอร์และรายงานที่เผยแพร่ในปี 2562 · งานนี้ถามว่าสื่อรัสเซียเล่าเรื่องนี้ให้คนในประเทศฟังอย่างไร ทั้งท่าทีต่อทรัมป์ ท่าทีต่อข้อกล่าวหา เหตุผลที่ให้ และภาพของสหรัฐฯ ที่ประกอบขึ้นมา — เป็นงานชิ้นที่สามของชุดเดียวกัน",
+      method:
+        "วิเคราะห์เนื้อหาจากหนังสือพิมพ์รายวันระดับชาติสามฉบับและสถานีโทรทัศน์ของรัฐหนึ่งช่อง เก็บ**ทุกข้อความ**ที่ตรงคำค้น (การเลือกตั้งสหรัฐฯ · รัสเซีย · การแทรกแซงของรัสเซีย · มูลเลอร์ · คณะกรรมาธิการวุฒิสภา ฯลฯ) ระหว่างมกราคม 2560 ถึงกันยายน 2562 จากหอสมุดแห่งชาติและฐานข้อมูลสื่อสองแห่ง ผู้เขียนแปลเอง · ชุดกรอบการปฏิเสธได้จากขั้นตอนแยก — คัดข้อความ 200 ชิ้น ให้ผู้เชี่ยวชาญหกคน (นักข่าวสอง นักภาษาศาสตร์สอง นักสื่อสารการเมืองสอง) เลือกกรอบที่พบบ่อยที่สุดคนละไม่เกินห้า แล้วรวมและถกกันเป็นกลุ่ม · จงใจเพิ่มกรอบก้าวร้าว “คุณพิสูจน์ไม่ได้หรอก แม้ทุกคนรู้ว่าเราทำ” ลงในคู่มือลงรหัสเพื่อตรวจว่ามีจริงหรือไม่",
+      findings: [
+        "**ท่าทีต่อทรัมป์เป็นกลางเกือบทั้งหมด** — ข้อความร้อยละ 84.1 ไม่มีการประเมินตัวเขา เป็นบวก 10.9 เป็นลบ 5.0 · สัดส่วนบวกเพิ่มทุกปี (2.5 → 11.6 → 17.8) ส่วนลบแกว่งไม่เพิ่ม (5.0 → 4.5 → 5.9)",
+        "**สื่อแต่ละแห่งต่างกัน** — โทรทัศน์ของรัฐเป็นกลาง 91.6 · ฉบับธุรกิจไม่มีข้อความบวกเลยและมีข้อความลบมากที่สุด (8.7) · ฉบับทางการของรัฐบาลบวก 21.7 · แท็บลอยด์บวก 26.9",
+        "**ข้อกล่าวหาเรื่องแทรกแซงถูกปฏิเสธในข้อความร้อยละ 86** (ทั้งตรงและอ้อม) รายงานโดยไม่ถกเถียงร้อยละ 14 และ**ยอมรับร้อยละ 0** — ผลนี้เหมือนกันทุกสื่อและทุกปี · ในบรรดาข้อความที่ปฏิเสธ สัดส่วนที่ปฏิเสธตรงๆ เพิ่มจาก 54.9 ในปี 2560 เป็น 85 ในปี 2562",
+        "**กรอบการปฏิเสธมีสามแบบ** — “ไม่มีหลักฐาน ให้สหรัฐฯ เอาหลักฐานมา” ร้อยละ 44.2 (จาก 71.5 ในปี 2560 ลดเหลือ 21.4 ในปี 2562) · “ไม่ใช่เรื่องของเรา ไม่ต้องแก้ตัวให้ใคร” 32.7 (จาก 21.4 เพิ่มเป็น 42.9) · “เป็นเรื่องกุขึ้นเพื่อสร้างปัญหาให้รัสเซีย” 23.1 (จาก 7.1 เพิ่มเป็น 35.7) · **กรอบก้าวร้าวที่จงใจใส่ไว้ตรวจ ไม่พบเลยแม้แต่ข้อความเดียว**",
+        "**สื่อแต่ละแห่งใช้กรอบคนละแบบ** — แท็บลอยด์ใช้กรอบ “เรื่องกุ” ร้อยละ 72 · ฉบับธุรกิจใช้กรอบ “ไม่มีหลักฐาน” 81 · ฉบับรัฐบาลใช้กรอบ “ไม่ใช่เรื่องของเรา” 66 · โทรทัศน์ของรัฐปฏิเสธในข้อความ 98.4",
+        "**เหตุผลที่ให้ว่าทำไมรัสเซียถูกกล่าวหา** — ความขัดแย้งภายในสหรัฐฯ และการต่อสู้กับทรัมป์ 47.2 (จาก 32.4 เพิ่มเป็น 61.2) · ความไร้ความสามารถหรือผลประโยชน์ของหน่วยข่าวกรองและนักการเมือง 31.9 (จาก 44.1 ลดเหลือ 12.2) · ความเกลียดชังรัสเซีย 11.8 · อื่นๆ 9.1 · โทรทัศน์ของรัฐเน้นเหตุผลเรื่องความไร้ความสามารถ (55.2) ขณะที่หนังสือพิมพ์ทั้งสามเน้นความขัดแย้งภายในสหรัฐฯ (61 ถึง 69)",
+        "**เครื่องมือทางภาษา** — คำปฏิเสธตรงๆ เช่น “ข้อกล่าวหาที่ไร้มูล” ร้อยละ 48.5 · คำอารมณ์แรง เช่น “ฮิสทีเรีย” “หวาดระแวง” 26.8 · การเย้ยหยันและประชด 15.0 · เครื่องหมายคำพูดประชด 9.7 (พุ่งเป็น 22.3 ในปี 2562)",
+        "ผู้เขียนสรุปว่าไม่มีแนวทางเดียวที่ถูกกำหนดจากส่วนกลาง เพราะแต่ละสื่อเลือกกรอบต่างกัน แต่ภาพของสหรัฐฯ ที่ทุกสื่อประกอบขึ้นตรงกันคือประเทศที่ขัดแย้งกันเอง ไร้ความสามารถ เกลียดรัสเซีย และเป็นอันตรายต่อโลก",
+      ],
+      soWhat:
+        "การปฏิเสธไม่ใช่สิ่งเดียวกันเสมอไป งานนี้ให้คำศัพท์สามกรอบ — ไม่มีหลักฐาน · ไม่ใช่เรื่องของเรา · เรื่องกุ — ที่เอาไปลงรหัสการรายงานข้อกล่าวหาของสื่อที่ใกล้ชิดรัฐได้ในทุกประเทศ · สัญญาณที่วัดได้คือการเลื่อนจากกรอบ “เอาหลักฐานมา” ไปสู่กรอบ “ไม่ใช่เรื่องของเรา” เมื่อเวลาผ่านไป ซึ่งบอกว่าผู้เล่าเลิกโต้แย้งบนพื้นฐานข้อเท็จจริงแล้ว",
+      caveat:
+        "**บทความไม่รายงานจำนวนข้อความทั้งหมดในตัวอย่าง** ตัวเลขร้อยละจึงแปลงกลับเป็นจำนวนชิ้นไม่ได้ · ผู้เขียนลงรหัสเอง ไม่มีค่าความสอดคล้อง (ผู้เชี่ยวชาญหกคนใช้เฉพาะขั้นคัดกรอบ) · มีประโยคหนึ่งในบทความเขียนว่าข้อความร้อยละ 84.1 “มี” การประเมินทรัมป์ ขณะที่ตารางและกราฟทั้งหมดแสดงว่า 84.1 คือส่วนที่**ไม่มี** บทสรุปนี้ยึดตามตาราง · การวิเคราะห์ตัวบทบอกไม่ได้ว่าผู้ชมเชื่อตาม · **งานนี้ศึกษาว่าสื่อปฏิบัติต่อข้อกล่าวหาอย่างไร ไม่ได้ตัดสินตัวข้อกล่าวหา** — บทนำของบทความเองระบุว่ารายงานของอัยการพิเศษสรุปว่าการแทรกแซงเกิดขึ้นจริงอย่างเป็นระบบ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อสำนักข่าวและบุคคลอื่นนอกจากทรัมป์และชื่อการสอบสวนซึ่งเป็นขอบเขตของงาน**",
+    },
+    en: {
+      headline:
+        "Russian media covered the Mueller investigation by denying the meddling claims in 86% of texts, and not one text conceded them even hypothetically",
+      question:
+        "After the 2016 U.S. election came accusations that the Russian government had interfered to help Trump, leading to the Special Counsel investigation under Mueller and its report in 2019. This study asks how Russian media told that story to audiences at home: their stance toward Trump, toward the accusations, the reasons they gave, and the picture of the United States they assembled. It is the third study in the series.",
+      method:
+        "Content analysis of three national dailies and one state television channel, taking **every** text that matched a keyword list (U.S. elections, Russia, Russian interference, Mueller, the Senate commission and so on) between January 2017 and September 2019, from the national library and two media databases, translated by the authors. The denial frames came from a separate procedure: 200 texts were selected, six experts (two journalists, two philologists, two political-communication specialists) each picked up to five typical frames, the frames were merged and then agreed in a group discussion. An aggressive frame, “you will never prove it, though everyone knows we did it”, was deliberately added to the codebook to test whether it existed.",
+      findings: [
+        "**The stance toward Trump was overwhelmingly neutral.** 84.1% of texts carried no assessment of him, 10.9% were positive and 5.0% negative. The positive share rose every year (2.5 → 11.6 → 17.8) while the negative share fluctuated rather than grew (5.0 → 4.5 → 5.9).",
+        "**Outlets differed.** State television was neutral in 91.6% of texts; the business daily published no positive text at all and had the highest negative share (8.7%); the government's paper was positive in 21.7%; the tabloid in 26.9%.",
+        "**The meddling claims were denied in 86% of texts** (explicitly or implicitly), reported without discussion in 14%, and **acknowledged in 0%**, in every outlet and every year. Among denials, the explicit kind rose from 54.9% in 2017 to 85% in 2019.",
+        "**Three denial frames.** “There is no evidence, let the U.S. provide it” 44.2% (from 71.5% in 2017 down to 21.4% in 2019); “not our business, we will not justify ourselves” 32.7% (from 21.4% up to 42.9%); “a hoax made up to cause Russia problems” 23.1% (from 7.1% up to 35.7%). **The aggressive frame added as a check was found in zero texts.**",
+        "**Each outlet leaned on a different frame.** The tabloid used the hoax frame in 72% of its texts; the business daily used “no evidence” in 81%; the government paper used “not our business” in 66%; state television denied the claims in 98.4%.",
+        "**Reasons given for the accusations**: internal U.S. conflict and the fight against Trump 47.2% (from 32.4% up to 61.2%); incompetence or self-interest of intelligence services and politicians 31.9% (from 44.1% down to 12.2%); Russophobia 11.8%; other 9.1%. State television favoured incompetence (55.2%) while all three newspapers favoured internal U.S. conflict (61% to 69%).",
+        "**Language tools**: plain words of negation such as “groundless accusations” 48.5%; emotionally loaded words such as “hysteria” and “paranoia” 26.8%; mockery and sarcasm 15.0%; scare quotes 9.7% (jumping to 22.3% in 2019).",
+        "The authors conclude there was no single centrally set line, since outlets chose different frames, but that every outlet assembled the same picture of the United States: conflict-ridden, incompetent, Russophobic and dangerous to the world.",
+      ],
+      soWhat:
+        "Denial is not one thing. The study supplies a three-frame vocabulary — no evidence, not our business, hoax — that can be used to code how government-aligned media anywhere handle accusations. The measurable signal is the drift over time from “show us the evidence” to “not our business”, which marks the moment the narrator stops arguing on the facts.",
+      caveat:
+        "**The article does not report the total number of texts in the sample**, so percentages cannot be converted into counts. The authors coded the material themselves with no agreement statistic (the six experts served only to select frames). One sentence in the article says 84.1% of texts “contained” an assessment of Trump, while every table and figure shows 84.1% as the share that contained **none**; this summary follows the tables. Text analysis cannot show what audiences believed. **The study examines how media treated the accusations, not the accusations themselves**; the article's own introduction notes that the Special Counsel report concluded interference did occur in a sweeping and systematic fashion. **This summary deliberately names no outlets and no individuals other than Trump and the investigation that define the study's scope.**",
+    },
+  },
+  {
+    slug: "trump-2024-russian-media-narratives",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ดาบกระดาษสีเขียวมะกอกวางราบกับพื้น ข้างๆ มีกิ่งมะกอกกระดาษตั้งขึ้น",
+    illustrationAltEn:
+      "Paper-craft illustration of an olive green paper sword lying flat on the ground beside an upright paper olive branch",
+    doi: "10.1177/00027642251405617",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "ก่อนเลือกตั้งปี 2567 หนังสือพิมพ์รัสเซียเล่าทรัมป์เป็นนักสู้ที่ถูกไล่ล่า พอชนะแล้วเขากลายเป็นผู้สร้างสันติภาพและผู้กอบกู้ภายในไม่กี่สัปดาห์",
+      question:
+        "หนังสือพิมพ์รัสเซียที่ใกล้ชิดรัฐบาลสี่ฉบับประกอบภาพทรัมป์อย่างไรในการเลือกตั้งสหรัฐฯ ปี 2567 และเรื่องเล่ากับอุปมาที่ใช้เปลี่ยนไปอย่างไรระหว่างช่วงหาเสียงกับช่วงหลังรู้ผล — งานชิ้นที่สี่ของชุดที่ตามรอยภาพเดียวกันมาตั้งแต่ปี 2559",
+      method:
+        "เก็บทุกบทความที่พูดถึงทรัมป์หรือการเลือกตั้งจากหนังสือพิมพ์รายวันระดับชาติสี่ฉบับ ระหว่าง 1 กันยายน 2567 ถึง 20 มกราคม 2568 รวม 254 ชิ้น แบ่งเป็นก่อนวันเลือกตั้ง 79 และหลังเลือกตั้งจนถึงวันสาบานตน 175 · ลงรหัสจากต้นฉบับภาษารัสเซียเป็นมี/ไม่มี ต่อบทความ สำหรับกรอบเรื่องเล่า (เหยื่อของการไล่ล่า · ผู้ทำลายระบบเดิม · ผู้สร้างสันติภาพ · ชาตินิยมอเมริกาต้องมาก่อน · นักธุรกิจผู้ปฏิบัติจริง · ผู้นำที่มีเสน่ห์ · ผู้กอบกู้) และอุปมา (นักสู้ · ผู้กอบกู้ · นักเจรจาธุรกิจ · นักแสดง · คนนอกกฎ) · นำร่องกับบทความสิบชิ้นก่อน · ค่าความสอดคล้องระหว่างผู้ลงรหัส (Cohen's kappa) สูงกว่า .85 ทั้งสองชุด",
+      findings: [
+        "**ก่อนเลือกตั้ง ภาพหลักคือคนที่ถูกโจมตีแต่ไม่ยอมแพ้** — กรอบเหยื่อของการไล่ล่าอยู่ในบทความร้อยละ 47.5 · ผู้ทำลายระบบเดิม 49 · ผู้นำที่มีเสน่ห์ 35.9 · ผู้สร้างสันติภาพ 29 · ชาตินิยม 27.9 · นักธุรกิจ 24 · ผู้กอบกู้ 19 · อุปมานักสู้อยู่ในบทความ 51.5 นักเจรจา 37.2 นักแสดง 26.9 ผู้กอบกู้ 19 คนนอกกฎ 5",
+        "**หลังรู้ผล ภาพพลิกภายในไม่กี่สัปดาห์** — กรอบผู้สร้างสันติภาพพุ่งเป็น 63 · ผู้กอบกู้ 36.4 · ชาตินิยม 35.6 · ผู้นำที่มีเสน่ห์ 35 · ขณะที่กรอบเหยื่อร่วงเหลือ 5 และผู้ทำลายระบบเหลือ 22 · อุปมานักเจรจาธุรกิจขึ้นเป็น 64.2 ผู้กอบกู้ 47 คนนอกกฎ 37.5 ส่วนนักสู้ลดเหลือ 31 และนักแสดงเหลือ 12",
+        "**กรอบผู้สร้างสันติภาพผูกกับคำสัญญาว่าจะยุติสงครามในยูเครน** และบทความที่ศึกษาไม่ตั้งคำถามว่าคำสัญญานั้นทำได้จริงหรือไม่ · ผู้เขียนตั้งข้อสังเกตว่ากรอบนี้ละเลยประวัติด้านแข็งกร้าวของเขาในสมัยแรก",
+        "**สี่ฉบับใช้สำนวนต่างกันแต่ส่งสารเดียวกัน** — แท็บลอยด์ใช้ภาษาประชานิยมและศาสนา (“ถูกพระเจ้าช่วยไว้”) · ฉบับธุรกิจใช้ภาษาผู้บริหาร (“ซีอีโอแห่งการทูต”) และเลี่ยงถ้อยคำเชิงกอบกู้ · ฉบับที่เน้นการเมืองยกคำพูดของทรัมป์เองมาก · ฉบับทางการของรัฐบาลใช้เสียงผู้เชี่ยวชาญและถ้อยคำทางการทูต",
+        "ผู้เขียนตีความว่าการพลิกภาพรับใช้อุดมการณ์ภายใน — ทรัมป์ในฐานะสัญลักษณ์ของตะวันตกที่แตกร้าวจากข้างใน และสหรัฐฯ ในฐานะมหาอำนาจที่ “ถูกยึดไปชั่วคราว” ซึ่งผู้นำที่ถูกต้องอาจพากลับสู่การทูตแบบผลประโยชน์",
+      ],
+      soWhat:
+        "การออกแบบง่ายๆ แบบสองช่วง คือก่อนและหลังรู้ผล ทำให้เห็นว่าสื่อชุดเดียวกันเขียนคนคนเดียวกันใหม่ทันทีที่ประโยชน์ใช้สอยของเขาเปลี่ยน · ใครที่ติดตามว่าสื่อใกล้ชิดรัฐปฏิบัติต่อผู้นำต่างชาติอย่างไร เอาชุดรหัสเจ็ดกรอบห้าอุปมานี้ไปใช้ได้ทันที — ลงรหัสก่อนและหลังเหตุการณ์ แล้วส่วนต่างคือสารที่ต้องการส่ง",
+      caveat:
+        "**ตัวบทกับตารางไม่ตรงกันหลายจุด** — ตัวบทเขียนว่ากรอบนักธุรกิจผู้ปฏิบัติจริงเพิ่มเป็น 63.8 หลังเลือกตั้ง ขณะที่ตารางที่ 1 ระบุ 12 และตัวเลข 64.2 เป็นของ**อุปมา**นักเจรจาธุรกิจในตารางที่ 2 · ตัวบทเขียนว่ากรอบเหยื่อลดเหลือ 19 ขณะที่ตารางระบุ 5 · บทสรุปนี้ยึดตามตาราง · ผู้เขียนเป็นผู้ลงรหัสเอง · หนังสือพิมพ์สี่ฉบับ ไม่มีโทรทัศน์ · บทความเปิดเผยว่าใช้เครื่องมือปัญญาประดิษฐ์ช่วยปรับภาษาและช่วยงานวิเคราะห์บางส่วน โดยผู้เขียนตรวจทานเนื้อหาทั้งหมดเอง · เผยแพร่ออนไลน์ก่อนตีพิมพ์ จึงยังไม่มีเลขฉบับ · **บทสรุปนี้ตั้งใจไม่ระบุชื่อหนังสือพิมพ์และบุคคลอื่นนอกจากทรัมป์ซึ่งเป็นตัวแบบของงาน**",
+    },
+    en: {
+      headline:
+        "Before the 2024 vote, Russian newspapers cast Trump as a persecuted fighter; within weeks of his win he had become peacemaker and saviour",
+      question:
+        "How did four pro-government Russian newspapers build Trump's image during the 2024 U.S. election, and how did their narratives and metaphors shift between the campaign and the weeks after the result? The fourth study in a series that has followed the same image since 2016.",
+      method:
+        "Every article about Trump or the election in four national dailies between 1 September 2024 and 20 January 2025: 254 articles, 79 before election day and 175 from the result to the inauguration. Each article was coded in the original Russian as present/absent for narrative frames (victim of persecution, disruptor of the establishment, peacemaker, America-first nationalist, pragmatic businessman, charismatic leader, saviour) and for metaphors (fighter, saviour, deal-maker, showman, rogue), after a pilot of ten articles. Inter-coder agreement (Cohen's kappa) was above .85 for both sets.",
+      findings: [
+        "**Before the election the dominant picture was a man under attack who would not yield.** The victim frame appeared in 47.5% of articles, disruptor 49%, charismatic leader 35.9%, peacemaker 29%, nationalist 27.9%, businessman 24%, saviour 19%. Among metaphors, fighter appeared in 51.5%, deal-maker 37.2%, showman 26.9%, saviour 19%, rogue 5%.",
+        "**After the result the picture flipped within weeks.** Peacemaker jumped to 63%, saviour to 36.4%, nationalist 35.6%, charismatic leader 35%, while victim fell to 5% and disruptor to 22%. The deal-maker metaphor rose to 64.2%, saviour to 47% and rogue to 37.5%, while fighter dropped to 31% and showman to 12%.",
+        "**The peacemaker frame hung on promises to end the war in Ukraine**, and the sampled articles did not question whether those promises were feasible. The authors note the frame set aside his hawkish record from the first term.",
+        "**The four papers used different registers to deliver one message.** The tabloid used populist and religious language (“spared by God”); the business daily used managerial language (“CEO of diplomacy”) and avoided redemptive rhetoric; the politics-focused paper quoted Trump himself at length; the government's paper spoke through expert commentary and diplomatic euphemism.",
+        "The authors read the pivot as serving domestic ideology: Trump as a symbol of a West fracturing from within, and the United States as a “temporarily hijacked superpower” that the right leader might steer back toward interest-based diplomacy.",
+      ],
+      soWhat:
+        "A simple two-phase design, before and after a result, shows the same outlets rewriting the same person the moment his usefulness changes. Anyone tracking how state-aligned media treat a foreign leader can reuse the seven-frame, five-metaphor code sheet directly: code before and after the event, and the difference is the intended message.",
+      caveat:
+        "**The text and the tables disagree in several places.** The text says the pragmatic-businessman narrative rose to 63.8% after the election, while Table 1 lists 12% and the 64.2% figure belongs to the deal-maker **metaphor** in Table 2; the text says the victim frame fell to 19%, while the table shows 5%. This summary follows the tables. The authors coded the material themselves. Four newspapers, no television. The article discloses that AI tools assisted with readability and parts of the analysis, with all content reviewed by the authors. Published online first, so no issue number yet. **This summary deliberately names no newspapers and no political figures other than Trump, the study's subject.**",
+    },
+  },
+  {
+    slug: "unintentional-speech-acts-praxeology",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ โดมิโนกระดาษสีส้มอ่อนสามชิ้นตั้งเรียงกัน ชิ้นแรกล้มลงเพราะใบไม้กระดาษที่ร่วงมาชน",
+    illustrationAltEn:
+      "Paper-craft illustration of three coral paper dominoes in a row, the first knocked over by a fallen paper leaf",
+    doi: "10.1111/jtsb.12433",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "พูดหรือทำท่าโดยไม่ตั้งใจ ไม่นับเป็นวัจนกรรม ผู้เขียนเสนอ แต่ผลที่ตามมายังต้องรับผิดชอบ",
+      question:
+        "วัจนกรรม (speech act — การใช้คำพูดเพื่อ “ทำ” อะไรบางอย่าง เช่น สัญญา สั่ง ขอ) ต้องเกิดจากความตั้งใจเสมอหรือไม่ · ถ้าคนหนึ่งยกแขนเพราะเมื่อยแล้วครูอ่านว่ายกมือถาม หรือพูดว่า “ตกลง” โดยไม่ได้ตั้งใจจะรับปาก สิ่งที่เกิดขึ้นนับเป็นวัจนกรรมหรือไม่ และมีผลผูกพันแค่ไหน — ข้อถกเถียงระหว่างฝ่ายที่ถือว่าเจตนาภายในเป็นเงื่อนไขจำเป็นกับฝ่ายที่ไม่ถือ",
+      method:
+        "การให้เหตุผลเชิงปรัชญาล้วน ไม่มีข้อมูลเชิงประจักษ์ · ตั้งต้นจากปฏิบัติศาสตร์ (praxeology) ของ Mises ที่นิยาม “การกระทำ” ว่าเป็นพฤติกรรมที่มีเป้าหมาย แยกจาก “พฤติกรรมเฉยๆ” อย่างการจามหรือกระพริบตา · แล้วนำไปวางบนทฤษฎีวัจนกรรมของ Austin · Searle · Grice · Bach และ Harnish · และทฤษฎีการกระทำทางสังคมของ Reinach · จัดกรณีปัญหาออกเป็นสี่กลุ่มแล้วให้เหตุผลทีละกลุ่ม โดยโต้กับข้อเสนอของ Navarro-Reyes โดยตรง",
+      findings: [
+        "**วัจนกรรมคือการตั้งใจใช้ธรรมเนียมที่มีอยู่แล้ว (เช่น ภาษา ท่าทาง พิธี) เพื่อบรรลุเป้าหมายทางสังคมที่เลือกไว้** ต้องรู้ธรรมเนียมนั้นและเต็มใจทำตาม · ไม่มีความตั้งใจก็ไม่มีการกระทำ จึงไม่มีวัจนกรรม · ผู้เขียนปฏิเสธคำขวัญที่สอนกันทั่วไปว่า “คนเราไม่สื่อสารไม่ได้” — ถ้าไม่มีเจตนาก็ไม่มีการสื่อสาร มีแต่คนที่อ่านความหมายเข้าไปเองซึ่งเป็นความผิดพลาดของผู้อ่าน",
+        "**กลุ่มแรก อุบัติเหตุ** — เรียกธรรมเนียมขึ้นมาโดยไม่ตั้งใจ (ยืดแขนแล้วถูกอ่านว่ายกมือ) · ผู้เขียนเสนอว่านี่ไม่ใช่วัจนกรรม แต่เป็น “พฤติกรรมทางวาจา” ที่บังเอิญก่อผลในเชิงบรรทัดฐาน เทียบกับคนทำความสะอาดปืนแล้วลั่นใส่โทรทัศน์ของเพื่อน — ต้องรับผิดชอบเพราะมีสายโยงเชิงเหตุผล (ความประมาท ความซุ่มซ่าม) ไม่ใช่เพราะมีเจตนา · ตรงนี้คือจุดที่ไม่เห็นด้วยกับ Navarro-Reyes ผู้ถือว่าวัจนกรรมที่ไม่ตั้งใจเป็นวัจนกรรมประเภทหนึ่งอย่างชอบธรรม",
+        "**กลุ่มที่สอง การใช้ในทางมิชอบ** — โกหก สัญญาทั้งที่ไม่คิดจะทำ เจ้าสาวที่แต่งเพราะเงิน · กรณีเหล่านี้**เป็น**วัจนกรรม เพราะเจตนามีอยู่และมุ่งไปที่เป้าหมาย (หลอกให้เชื่อ) · ธรรมเนียมเป็นตัวกำหนดผล ไม่ใช่ความจริงใจ — เซ็นสัญญาโดยไม่คิดจะทำตามก็ผูกพันตามสัญญาอยู่ดี",
+        "**กลุ่มที่สาม ความล้มเหลว** — มีทั้งเจตนาและธรรมเนียมแต่อีกฝ่ายไม่รับรู้ (ป้าย “ห้ามบุกรุก” ที่ถูกเพิกเฉย) · ยังเป็นวัจนกรรม เพราะการกระทำคือการ**พยายาม** ไม่ใช่การสำเร็จ — ซึ่งต่างจาก Austin ที่ถือว่าต้องมีการรับรู้จากผู้ฟังจึงจะครบ",
+        "**กลุ่มที่สี่ การไม่กระทำ** — มีเจตนาจะให้เกิดผล แต่ไม่ได้ตั้งใจใช้ธรรมเนียมใดเลย (วางขวดนมเปล่าไว้บนโต๊ะหวังให้คู่ครองไปซื้อ) · จะเป็นวัจนกรรมก็ต่อเมื่อชุมชนนั้น (แม้เล็กแค่คนสองคน) มีธรรมเนียมที่รู้ร่วมกันว่าขวดเปล่าแปลว่าขอให้ซื้อ · ไม่มีธรรมเนียมก็เป็นเพียงการตอบสนองต่อสถานการณ์ เหมือนเดินเลี่ยงแอ่งน้ำ · ต้องดูเป็นกรณีไป",
+        "**บทสรุปมีสองขา** — เพื่อจะเป็นวัจนกรรม ผู้พูดต้องตั้งใจทำตามธรรมเนียมที่ประกอบขึ้นเป็นการสื่อสาร · แต่การใช้ธรรมเนียมโดยไม่ตั้งใจก็ก่อผลที่ใช้ได้จริงได้ เช่น สั่งอาหารในร้านโดยไม่ตั้งใจแต่ทำตามขั้นตอนถูกต้อง ก็ต้องจ่าย — ธรรมเนียมทำให้ผลเกิด แม้เจตนาไม่มี",
+      ],
+      soWhat:
+        "ใครที่ต้องรับมือกับคำว่า “ไม่ได้ตั้งใจ” — ครู ผู้ดูแลชุมชนออนไลน์ นักกฎหมาย นักประชาสัมพันธ์ — ได้เครื่องมือแยกคำถามสามข้อออกจากกัน คือมีเจตนาจะให้เกิดผลหรือไม่ · มีเจตนาใช้ธรรมเนียมหรือไม่ · และธรรมเนียมนั้นก่อผลแล้วหรือยัง · ข้อเสนอนี้ยังเป็นคำโต้ที่กระชับต่อคำขวัญ “คนเราไม่สื่อสารไม่ได้” ซึ่งใช้สอนในวิชาสื่อสารทั่วไป",
+      caveat:
+        "**เป็นการให้เหตุผลเชิงแนวคิดล้วน ไม่มีข้อมูล** · วางอยู่บนปฏิบัติศาสตร์สาย Mises ซึ่งเป็นสำนักคิดที่ไม่แพร่หลายในปรัชญาภาษา ถ้าไม่รับข้อสมมติว่าการกระทำต้องมีเป้าหมายเสมอ ข้อสรุปก็ไม่ตามมา · ฝ่ายที่เห็นต่างซึ่งบทความอ้างถึงเอง (Alston · Harnish · Witek · Navarro-Reyes) ถือว่าเงื่อนไขภายนอกเพียงพอแล้ว · **ข้อเสนอเป็นของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ** · บทความมีผู้เขียนคนเดียว",
+    },
+    en: {
+      headline:
+        "An unintended utterance is not a speech act, the author argues, but its consequences still have to be answered for",
+      question:
+        "Must a speech act (using words to do something: promise, order, request) always be intentional? If someone stretches an arm and the teacher reads it as a raised hand, or says “yes” without meaning to accept, has a speech act occurred, and how binding is it? This is the dispute between internalists, who treat the speaker's intention as a necessary condition, and externalists, who do not.",
+      method:
+        "Pure philosophical argument with no empirical data. It starts from Mises's praxeology, which defines “action” as purposeful behaviour and separates it from mere behaviour such as sneezing or blinking, and lays that on top of the speech-act theories of Austin, Searle, Grice, Bach and Harnish, and Reinach's theory of social acts. Problem cases are sorted into four groups and argued one by one, in direct dialogue with Navarro-Reyes.",
+      findings: [
+        "**A speech act is the intentional use of an existing convention (language, gesture, ritual) to reach a chosen social aim.** It requires knowing the convention and being willing to follow it. Without intention there is no action and so no speech act. The author rejects the widely taught maxim that “one cannot not communicate”: without intention there is no communication, only a reader who mistakenly finds a message.",
+        "**Group one, accidents.** A convention is evoked unintentionally (a stretched arm read as a raised hand). The author argues this is not a speech act but “speech behaviour” that happens to carry normative consequences, like a gun-cleaning accident that breaks a friend's television. Responsibility follows from the causal link (negligence, clumsiness), not from intention. This is where he parts company with Navarro-Reyes, who treats unintentional speech acts as a legitimate kind of speech act.",
+        "**Group two, abuses.** Lying, promising without meaning to keep the promise, marrying for money. These **are** speech acts: intention is present and aimed at the goal (to deceive). The convention, not sincerity, determines the effect; a contract signed with no intention of honouring it still binds.",
+        "**Group three, failures.** Intention and convention are present but the addressee does not take them up (a “No trespassing” sign that is ignored). Still a speech act, because action is **striving**, not succeeding, contrary to Austin's requirement that uptake be secured.",
+        "**Group four, inaction.** The intention to produce an effect exists, but no convention is intentionally used (an empty milk bottle left on the table so a partner will buy more). It counts as a speech act only if that community, even a couple, shares a recognised convention that the empty bottle means “please buy milk”; otherwise the partner is reacting to a situation, like stepping around a puddle. Such cases must be judged one at a time.",
+        "**The conclusion has two legs.** To perform a speech act, the speaker must intend to follow the conventions that make communication possible; yet the unintentional use of a convention can still produce valid effects, as when a diner orders by mistake but follows the procedure correctly and must pay. The convention makes the effect happen even where intention is absent.",
+      ],
+      soWhat:
+        "Anyone who has to deal with “I didn't mean it” — teachers, online moderators, lawyers, public-relations staff — gets a tool for separating three questions: was there an intention to produce an effect, was there an intention to use a convention, and has the convention already taken effect. The article is also a compact rebuttal of the “one cannot not communicate” maxim taught in introductory communication courses.",
+      caveat:
+        "**Purely conceptual reasoning, no data.** It rests on Misesian praxeology, a school with little following in philosophy of language; reject the premise that action is always goal-directed and the conclusion does not follow. The externalists the article itself cites (Alston, Harnish, Witek, Navarro-Reyes) hold that external conditions suffice. **The proposal is the author's, not a position of the centre.** Single-author article.",
+    },
+  },
+  {
+    slug: "bayesian-probability-communication",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ เครื่องบินกระดาษสีฟ้าอ่อนกำลังพุ่งไปยังห่วงกลมกระดาษที่ตั้งอยู่เยื้องออกไปเล็กน้อย",
+    illustrationAltEn:
+      "Paper-craft illustration of a pale blue paper plane in flight toward a standing paper hoop set slightly off its line",
+    doi: "10.32509/wacana.v23i1.3388",
+    articleLanguage: "en",
+    license: "cc-by-nc-sa",
+    pdfUrl: "https://journal.moestopo.ac.id/index.php/wacana/article/download/3388/1562",
+    localCopy: "bayesian-probability-communication.pdf",
+    th: {
+      headline:
+        "ความน่าจะเป็นในการสื่อสารของมนุษย์เป็นความเชื่อของผู้ส่งสารเกี่ยวกับผู้รับ ไม่ใช่ความถี่ของข้อความ ผู้เขียนเสนอ",
+      question:
+        "ทฤษฎีสารสนเทศของ Shannon วัดปริมาณข้อมูลจากความ “ไม่คาดคิด” ของข้อความ ยิ่งข้อความมีโอกาสเกิดน้อย ยิ่งมีข้อมูลมาก โดยอาศัยความน่าจะเป็นแบบความถี่ (สังเกตซ้ำๆ แล้วนับสัดส่วน) · งานนี้ถามว่าจะให้ค่าความน่าจะเป็นเป็นตัวเลขกับข้อความที่มนุษย์ตั้งใจสร้างขึ้นครั้งเดียวได้จริงหรือ และถ้าไม่ได้ ควรใช้แนวคิดความน่าจะเป็นแบบไหนกับการสื่อสารของคน",
+      method:
+        "การวิเคราะห์เชิงทฤษฎีแบบเหตุผลนิยม ไม่มีข้อมูลเชิงประจักษ์ — ทบทวนวรรณกรรมเรื่องทฤษฎีสารสนเทศ ความน่าจะเป็นแบบความถี่กับแบบเบย์ (ความน่าจะเป็นในฐานะระดับความเชื่อ) และปฏิบัติศาสตร์สาย Mises แล้วประกอบเป็นข้อเสนอแบบจำลองใหม่",
+      findings: [
+        "**ความน่าจะเป็นแบบความถี่ใช้ได้กับชั้นของเหตุการณ์ที่เกิดซ้ำได้เท่านั้น** แต่ประโยคหนึ่งประโยคเป็นเหตุการณ์เดี่ยว และชุดของประโยคที่เป็นไปได้ไม่มีขอบเขต จึงนับสัดส่วนไม่ได้ตั้งแต่ต้น",
+        "**การกระทำของคนต่างจากเหตุการณ์ธรรมชาติ** — เราไม่รู้ว่าทำไมเหรียญออกหัวจึงต้องนับความถี่ แต่กับคนเราคาดเดาเจตนาผ่านการเทียบกับใจตัวเอง และคนเปลี่ยนใจได้ทุกวินาที ทำให้คำทำนายจากความถี่ในอดีตถูกหักล้างได้เสมอ",
+        "**ความน่าจะเป็นแบบเบย์จึงเหมาะกว่า** เพราะนิยามว่าเป็นระดับความเชื่อของผู้ประเมิน — ความไม่แน่นอนในการสื่อสารมาจากความไม่รู้ของเราเกี่ยวกับใจคนอื่น ไม่ใช่ความสุ่มในตัวเขา",
+        "**ผู้รับใช้บริบทตีความอยู่แล้ว** — ตัวอย่างอีเมลลูกโซ่ที่สลับตัวอักษรกลางคำแล้วยังอ่านออก เพราะคำสั้น เสียงเดิมอยู่ ตัวแรกตัวท้ายอยู่ที่เดิม และที่สำคัญคือคาดเดาจากบริบทได้ ส่วนคำโดดๆ ที่สลับแล้วไม่มีบริบทจะอ่านยากทันที",
+        "**ข้อเสนอหลักคือย้ายความน่าจะเป็นไปอยู่ที่ผู้ส่งสาร** — ผู้ส่งลงมือบนความเชื่อตั้งต้นว่าผู้รับรู้อะไรและใช้รหัสเดียวกันหรือไม่ เก็บหลักฐานจากปฏิกิริยาตอบกลับ แล้วปรับความเชื่อเป็นค่าใหม่ · การสื่อสารแต่ละครั้งจึงเป็น “การทดสอบ” สมมติฐานที่ผู้ส่งมีต่อผู้รับ และเป็นการกระทำแบบผู้ประกอบการที่ผลลัพธ์ไม่แน่นอน",
+        "ผู้เขียนเรียกร้องให้ทฤษฎีการสื่อสารเลื่อนจากแบบจำลองที่ยึดผู้รับและการลดความไม่แน่นอน ไปสู่แบบจำลองที่ยึดผู้ส่ง เจตนา และความเชื่อของเขา",
+      ],
+      soWhat:
+        "สำหรับการสอนทฤษฎีการสื่อสาร นี่คือทางเลือกที่จับต้องได้ในการอ่านแบบจำลอง Shannon-Weaver ใหม่ โดยวางการออกแบบสารไว้ตรงที่นักปฏิบัติทำกันอยู่แล้ว คือเดาว่าผู้ฟังรู้อะไรแล้วปรับตามปฏิกิริยา · สำหรับคนออกแบบแคมเปญ ข้อคิดที่ใช้ได้ทันทีคือเขียน “ความเชื่อตั้งต้น” เกี่ยวกับผู้รับออกมาให้ชัด และปฏิบัติต่อการปล่อยงานแต่ละรอบเป็นการทดสอบที่จะปรับความเชื่อนั้น",
+      caveat:
+        "**เป็นบทความเชิงแนวคิด ไม่มีข้อมูล** · ตั้งอยู่บนข้อสมมติของสำนักออสเตรียนที่ว่าการกระทำของคนอธิบายด้วยเป้าหมาย ไม่ใช่ด้วยสาเหตุเชิงสถิติ ผู้ที่ไม่รับข้อสมมตินี้จะไม่รับข้อสรุป · บทความเองกล่าวในที่หนึ่งว่าจิตใจ “ไม่ได้ประมวลข้อความแบบลดความไม่แน่นอน” และในอีกที่หนึ่งว่าสมองใช้บริบทคำนวณความน่าจะเป็นขณะอ่าน ซึ่งผู้เขียนคลี่คลายด้วยการย้ายความน่าจะเป็นไปเป็นความเชื่อของผู้ส่ง · **ข้อเสนอเป็นของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ**",
+    },
+    en: {
+      headline:
+        "Probability in human communication belongs to the sender's beliefs about the receiver, not to the frequency of messages, the author argues",
+      question:
+        "Shannon's information theory measures information by how unexpected a message is: the less probable, the more informative, using frequentist probability (observe repeatedly, count the proportion). This paper asks whether a numerical probability can really be assigned to a message a person deliberately creates once, and if not, which concept of probability fits human communication.",
+      method:
+        "A rationalist theoretical analysis with no empirical data: a review of the literature on information theory, on frequentist versus Bayesian probability (probability as degree of belief), and on Misesian praxeology, assembled into a proposed model.",
+      findings: [
+        "**Frequentist probability applies only to classes of repeatable events.** A single utterance is a singular event and the set of possible utterances is unbounded, so relative frequencies cannot be computed in the first place.",
+        "**Human action differs from natural events.** We do not know why a coin lands heads, so we count frequencies; with people we infer intentions by analogy with our own minds, and a person can change their mind at any moment, so any prediction from past frequency can always be falsified.",
+        "**Bayesian probability fits better**, because it is defined as the degree of belief of the person estimating: uncertainty in communication comes from our ignorance of other minds, not from randomness inside them.",
+        "**Receivers already interpret through context.** The chain email with letters scrambled inside words remains readable because words are short, the sounds survive, first and last letters stay put and, above all, context makes the words predictable; a scrambled word on its own becomes hard at once.",
+        "**The central proposal is to move probability to the sender.** The sender acts on a prior belief about what the receiver knows and whether they share a code, gathers evidence from feedback, and updates to a new belief. Each exchange is a “test” of the sender's hypothesis about the receiver, an entrepreneurial action whose outcome is uncertain.",
+        "The author calls for communication theory to shift from a receiver-centred model of uncertainty reduction to a sender-oriented model built on intentions and beliefs.",
+      ],
+      soWhat:
+        "For teaching communication theory this is a concrete alternative reading of the Shannon-Weaver model that places message design where practitioners already work: guessing what the audience knows and adjusting from feedback. For campaign designers the usable lesson is to write the prior belief about the audience down explicitly and to treat each release as a test that updates it.",
+      caveat:
+        "**A conceptual paper with no data.** It rests on the Austrian-school premise that human action is explained by purposes rather than statistical causes; readers who reject that premise will reject the conclusion. The paper itself says in one place that the mind “does not process messages” by reducing uncertainty and elsewhere that the brain uses context to compute probabilities while reading, which the author resolves by relocating probability to the sender's belief. **The proposal is the author's, not a position of the centre.**",
+    },
+  },
+  {
+    slug: "thai-universities-environmental-communication",
+    kind: "argument",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ต้นไม้กระดาษสีเขียวอ่อนต้นเดียว ลำต้นแตกเป็นกิ่งใหญ่สามกิ่ง มีรากโผล่ให้เห็นที่โคน",
+    illustrationAltEn:
+      "Paper-craft illustration of a single sage green paper tree whose trunk splits into three main branches, with roots showing at its base",
+    doi: "10.4324/9781032670508-4",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "มหาวิทยาลัยไทยทำงานสื่อสารสิ่งแวดล้อมในหกบทบาท และผู้เขียนเสนอว่านักวิชาการเป็นกลางในเรื่องนี้ไม่ได้",
+      question:
+        "มหาวิทยาลัยและนักวิจัยไทยมีบทบาทอย่างไรในการสื่อสารเรื่องสิ่งแวดล้อม จุดยืนแบบใดกำกับงานวิจัยของพวกเขา ใช้ช่องทางใด และต้องชั่งน้ำหนักเรื่องใดบ้าง — บทหนึ่งในหนังสือรวมบทความว่าด้วยการสื่อสารสิ่งแวดล้อมในเอเชีย",
+      method:
+        "บทความภาพรวมเชิงแนวคิด ไม่มีการเก็บข้อมูลอย่างเป็นระบบ · ใช้กรอบหกบทบาทของมหาวิทยาลัยจากรายงานของสมาคมมหาวิทยาลัยแถบแปซิฟิก (2560) กรอบการสื่อสารสิ่งแวดล้อมของกาญจนา แก้วเทพ และหน้าที่สองแบบของการสื่อสารสิ่งแวดล้อมตาม Cox และ Pezzullo แล้วประกอบด้วยตัวอย่างจากมหาวิทยาลัยไทยและวิทยานิพนธ์ระดับบัณฑิตศึกษาของไทย",
+      findings: [
+        "**หกบทบาทพร้อมตัวอย่างไทย** — ผู้ให้การศึกษา (หลักสูตรสิ่งแวดล้อมที่มีวิชาการสื่อสารอยู่ในนั้น) · ผู้สร้างความรู้ (สถาบันวิจัยสิ่งแวดล้อมที่ตั้งตั้งแต่ปี 2517) · ผู้แก้ปัญหาสังคม (ยุทธศาสตร์ปล่อยคาร์บอนสุทธิเป็นศูนย์ภายในปี 2593) · นวัตกร (ผลิตภัณฑ์ลดฝุ่นละอองขนาดเล็ก) · ผู้เชื่อมโยง (โครงการร่วมกับหน่วยงานสหประชาชาติ เมือง และหมู่บ้าน) · ผู้นำการเปลี่ยนแปลง (แผนลดขยะในมหาวิทยาลัยร้อยละ 30 ในห้าปี)",
+        "**งานวิจัยไทยสะท้อนจุดยืนสามแบบ** — **สายอนุรักษ์** มองว่าพฤติกรรมบุคคลคือต้นเหตุ จึงศึกษาการรับรู้ ทัศนคติ และประสิทธิผลของแคมเปญ ซึ่งเป็นกลุ่มใหญ่ที่สุดของงานไทย · **สายปฏิรูป** ทำงานระดับนโยบายและวิเคราะห์การนำเสนอข่าวสิ่งแวดล้อมของสื่อ เริ่มปรากฏราวปี 2530 · **สายถอนราก** ใช้ทฤษฎีวิพากษ์และวัฒนธรรมศึกษา เน้นกลุ่มชายขอบและพิธีกรรมท้องถิ่น เช่น พิธีกรรมอนุรักษ์แม่น้ำของชุมชนไทยวน",
+        "**หน้าที่สองแบบและวิธีสามแบบ** — หน้าที่เชิงปฏิบัติ (ให้ความรู้ เตือน ช่วยแก้ปัญหา) และหน้าที่เชิงประกอบสร้าง (จุดยืนของมหาวิทยาลัยกำหนดว่า “สิ่งแวดล้อม” หมายถึงอะไร) · วิธีการคือสื่อมวลชน (อาจารย์เป็นโฆษก) · การประชาสัมพันธ์ (วิจัยประเด็น ตั้งวัตถุประสงค์ เลือกสื่อ และประเมินสี่ระดับตั้งแต่ผลผลิตถึงผลกระทบ) · และขบวนการสิ่งแวดล้อม (อาจารย์ร่วมกับนิสิตคัดค้านแผนพัฒนาพื้นที่ของมหาวิทยาลัยแห่งหนึ่งที่กระทบชุมชนและศาลเจ้าเก่าแก่)",
+        "**สามเรื่องที่ต้องชั่งน้ำหนัก** — ผู้สอนกับผู้อำนวยความสะดวก (วัฒนธรรมไทยวางอาจารย์ไว้บนสุด แต่การสื่อสารต้องฟังก่อน) · ผู้รักกับผู้เกลียดประเด็นสิ่งแวดล้อมในหมู่ผู้รับสาร · และวาทกรรม “สิ่งแวดล้อมที่ดีกว่า” กับ “ไม่เคยเป็นเรื่องสิ่งแวดล้อม” ซึ่งโทษโครงสร้างสังคมเป็นต้นเหตุ",
+        "**ข้อสรุปของผู้เขียนคือเป็นกลางไม่ได้** — “เราเป็นได้เพียงผู้สร้างปัญหาหรือผู้ให้ทางแก้” และมหาวิทยาลัยต้องเป็นผู้นำ ไม่ใช่ผู้ยืนดู",
+      ],
+      soWhat:
+        "เป็นแผนที่สำหรับคณะนิเทศศาสตร์ที่กำลังตัดสินใจว่าจะวางงานสิ่งแวดล้อมไว้ตรงไหน — เลือกบทบาท ระบุจุดยืน (บทความชี้ว่างานไทยส่วนใหญ่อยู่สายอนุรักษ์ คำถามสายปฏิรูปและสายถอนรากจึงยังว่าง) และเลือกวิธีพร้อมการประเมิน · สำหรับนิสิต ท้ายบทคือรายการวิทยานิพนธ์ไทยที่ครอบคลุมทั้งสามจุดยืน",
+      caveat:
+        "**บทความภาพรวมโดยผู้เขียนคนเดียว** ตัวอย่างส่วนใหญ่มาจากมหาวิทยาลัยแห่งเดียวและวิทยานิพนธ์ของคณะเดียว ไม่ใช่การทบทวนอย่างเป็นระบบ ไม่มีจำนวนนับ · ตัวเลขอย่างประสิทธิภาพของผลิตภัณฑ์ลดฝุ่นอ้างจากประกาศของมหาวิทยาลัยเอง · **ข้อสรุปว่านักวิชาการเป็นกลางไม่ได้เป็นจุดยืนของผู้เขียน ไม่ใช่ของศูนย์ฯ** · หนังสือเล่มนี้สงวนลิขสิทธิ์ เว็บจึงไม่เก็บสำเนา",
+    },
+    en: {
+      headline:
+        "Thai universities do environmental communication in six roles, and the author argues that academics cannot stay neutral",
+      question:
+        "What roles do Thai universities and their researchers play in communicating about the environment, which standpoints shape their research, which channels do they use, and what do they have to balance? A chapter in an edited volume on environmental communication in Asia.",
+      method:
+        "A conceptual overview with no systematic data collection. It uses the six-role taxonomy of universities from the Association of Pacific Rim Universities (2017), Kanjana Kaewthep's framework for environmental communication in Thailand, and Cox and Pezzullo's two functions of environmental communication, illustrated with examples from Thai universities and Thai graduate theses.",
+      findings: [
+        "**Six roles with Thai examples**: educators (environment programmes that include communication courses), knowledge creators (an environmental research institute founded in 1974), societal problem-solvers (a net-zero-carbon strategy for 2050), innovators (a product to cut fine dust), connectors (projects with a United Nations agency, a city government and villages), and agents of change (a campus plan to cut waste by 30% in five years).",
+        "**Thai research reflects three standpoints.** **Conservationists** see individual behaviour as the cause and study perceptions, attitudes and campaign effectiveness; this is the largest group of Thai work. **Reformists** work at the policy level and analyse how media frame environmental news; they appear from around 1987. **Radicals** use critical and cultural theory and focus on marginalised groups and local ritual, such as a Thai-Yuan community's river-conservation rite.",
+        "**Two functions and three methods.** A pragmatic function (educating, alerting, helping to solve problems) and a constitutive one (the university's position defines what “the environment” means). The methods are mass media (faculty as spokespeople), public relations (research the issue, set objectives, choose media, evaluate at four levels from outputs to impact), and the environmental movement (faculty joining students against one university's development plan that threatened communities and historic shrines).",
+        "**Three balances**: instructor versus facilitator (Thai culture places the professor at the top, but communication has to start with listening); lovers versus haters of environmental issues among audiences; and the “better environment” discourse versus the “never about the environment” discourse that blames social structure.",
+        "**The author's conclusion is that neutrality is impossible**: “we are either the problem-makers or solutions providers”, and universities must lead rather than watch.",
+      ],
+      soWhat:
+        "A map for a communication faculty deciding where to place its environmental work: choose the role, name the standpoint (the chapter notes that most Thai work sits at the conservationist end, so reformist and radical questions remain open), and pick a method with its evaluation built in. For students, the reference list is a reading list of Thai theses across all three standpoints.",
+      caveat:
+        "**An overview by a single author.** Most examples come from one university and the theses of one faculty; it is not a systematic review and reports no counts. Figures such as the dust product's effectiveness are taken from the university's own announcement. **The thesis that academics cannot be neutral is the author's position, not the centre's.** The book is closed access, so the site holds no copy.",
+    },
+  },
+  {
+    slug: "ai-philippine-higher-education-reflections",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ดินสอกระดาษสีม่วงแดงเข้มพิงอยู่กับเฟืองกระดาษวงใหญ่",
+    illustrationAltEn:
+      "Paper-craft illustration of a deep wine paper pencil leaning against a large paper gear",
+    doi: "10.1080/10875301.2024.2352746",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "อาจารย์และผู้บริหารมหาวิทยาลัยในฟิลิปปินส์แปดคนเล่าการใช้เอไอในงานของตนเอง เห็นประโยชน์ตรงกัน กังวลเรื่องการโกงตรงกัน และไม่มีสถาบันใดมีนโยบายครบ",
+      question:
+        "อาจารย์และผู้บริหารในฟิลิปปินส์เห็นประโยชน์ ความเสี่ยง และข้อจำกัดของเอไอเชิงสร้างสรรค์ (ChatGPT · Bing · Quillbot · Grammarly) อย่างไรในการสอน งานบริหาร และงานวิจัย และสถาบันของพวกเขาทำอะไรไปแล้วบ้าง — ในช่วงไม่กี่เดือนหลัง ChatGPT เปิดตัว",
+      method:
+        "ชาติพันธุ์วรรณนาอัตชีวประวัติแบบกลุ่ม (collective autoethnography) ระหว่างมีนาคมถึงพฤษภาคม 2566 — ผู้เขียนแต่ละคนเขียนบทสะท้อนประสบการณ์ของตนเองแล้วนำมาเทียบกัน · เกณฑ์เข้าร่วมคือจบปริญญาโทหรือเอก สังกัดสถาบันอุดมศึกษาในฟิลิปปินส์ และใช้เครื่องมือเอไอในงานวิจัยมาเกินแปดเดือน · ได้บทสะท้อนแปดชิ้นจากสี่สถาบัน หนึ่งในผู้เขียนคือนักวิจัยของศูนย์ฯ · วารสารจัดพิมพ์เป็นคอลัมน์",
+      findings: [
+        "**การใช้ที่เล่าตรงกัน** — สร้างข้อสอบและแปลงรูปแบบคำถาม · หาไอเดียและย่อยแนวคิดยากให้ง่าย · ออกแบบกิจกรรมและเกณฑ์ให้คะแนน · ทำโครงร่าง · แก้ไวยากรณ์และน้ำเสียงซึ่งมีค่ามากสำหรับคนที่ภาษาอังกฤษไม่ใช่ภาษาแม่ · สังเคราะห์งานวิจัย · หารูปแบบในข้อความจำนวนมาก · ถอดความ",
+        "**ข้อจำกัดที่เจอเอง** — ข้อเท็จจริงผิด · รายการอ้างอิงที่กุขึ้น · ความรู้หยุดที่วันตัดข้อมูล · ขาดบริบทและมุมมองส่วนตัว · นิสิตส่งเรียงความจากเอไอเป็นงานของตน หรือลอกคำตอบโดยไม่เข้าใจจนตอบปากเปล่าไม่ได้",
+        "**ความกังวลที่ตรงกัน** — การโกง · การกุข้อมูล · ความคิดสร้างสรรค์และการคิดเชิงวิพากษ์ถดถอย · ทักษะฝ่อเหมือนคนที่พึ่งเครื่องคิดเลขจนคิดเลขเองไม่ได้ · ปัญหาความเป็นผู้ประพันธ์และทรัพย์สินทางปัญญา · ผู้เขียนคนหนึ่งเล่าถึงการปฏิเสธส่วนที่เพื่อนร่วมงานเขียนด้วยเอไอในต้นฉบับร่วม",
+        "**ท่าทีกระจายตั้งแต่ “มองบวกแต่ไม่คลั่ง” ไปจนถึงลังเล** — นักวิจัยของศูนย์ฯ บอกนิสิตตรงๆ ว่าตนตรวจไม่ได้ว่าใครใช้เอไอ จึงกำหนดให้ต้องแก้ไข ปรับให้เป็นของตัวเอง และตรวจสอบเนื้อหาจากเอไอทุกครั้ง พร้อมกังวลว่าการพึ่งเครื่องมือทั้งหมดจะจำกัดการคิดเชิงวิพากษ์ของนิสิต",
+        "**ไม่มีสถาบันใดในสี่แห่งมีนโยบายเอไอเชิงสร้างสรรค์ที่ครบถ้วนในขณะนั้น** — มาตรการที่มีคือระเบียบวินัยนิสิตเดิม · เปิดตัวตรวจจับข้อความเอไอในระบบตรวจการคัดลอก · ปฐมนิเทศและสัมมนาออนไลน์ · และการยกร่างนโยบายที่กำลังดำเนินอยู่ · ทุกคนเห็นตรงกันว่าต้องมีนโยบายและแนวจริยธรรมสำหรับทั้งนิสิต อาจารย์ และผู้บริหาร และการห้ามใช้ไม่มีทางได้ผล",
+      ],
+      soWhat:
+        "ภาพถ่ายของการใช้งานจริงในเดือนแรกๆ หลัง ChatGPT ซึ่งมีประโยชน์กับคณะในไทยที่กำลังร่างนโยบายเอไอ — เส้นแบ่งเชิงปฏิบัติที่ผู้เขียนเสนอคือการใช้แบบ “ช่วย” (แก้ไวยากรณ์ จัดอ้างอิง ถอดความ) กับการใช้แบบ “สร้าง” (ผลิตคำตอบให้) ควบคู่กับความโปร่งใสว่าใช้อะไรไปบ้าง",
+      caveat:
+        "**“ข้อมูล” คือบทสะท้อนของผู้เขียนเอง แปดคนจากสี่สถาบัน** ไม่ใช่การสำรวจ และไม่มีเสียงของนิสิต · บทความระบุว่ามีผู้ร่วมเก้าคนแต่นำเสนอบทสะท้อนแปดชิ้น · เขียนต้นปี 2566 กับเครื่องมือที่เปลี่ยนไปมากแล้ว · วารสารจัดประเภทเป็นคอลัมน์ ไม่ใช่บทความวิจัย · สงวนลิขสิทธิ์ เว็บไม่เก็บสำเนา · บทสรุปนี้ไม่ระบุชื่อสถาบันและไม่ระบุตัวบุคคลในเรื่องเล่า",
+    },
+    en: {
+      headline:
+        "Eight Filipino instructors and administrators reflected on their own AI use: shared gains, shared worries about cheating, and no institution with a full policy",
+      question:
+        "What benefits, risks and limits do instructors and administrators in the Philippines see in generative AI (ChatGPT, Bing, Quillbot, Grammarly) for teaching, administration and research, and what have their institutions done, in the first months after ChatGPT's launch?",
+      method:
+        "Collective autoethnography between March and May 2023: each author wrote a reflection on their own experience and the group compared them. Participants had to hold a master's or doctoral degree, be affiliated with a Philippine higher-education institution, and have used AI tools in research for more than eight months. Eight reflections from four institutions; one of the authors is a researcher at the centre. The journal published it as a column.",
+      findings: [
+        "**Uses reported across the essays**: writing quizzes and converting question types; generating ideas and simplifying difficult concepts; designing activities and rubrics; outlining; correcting grammar and tone, which matters most for writers whose first language is not English; synthesising literature; finding patterns in large bodies of text; paraphrasing.",
+        "**Limits met first-hand**: factual errors, fabricated references, a knowledge cutoff, missing context and personal insight; students submitting AI essays as their own or copying answers without understanding and then failing oral checks.",
+        "**Shared worries**: cheating, fabricated data, a decline in creativity and critical thinking, skill atrophy like the calculator user who can no longer do arithmetic, and questions of authorship and intellectual property. One author describes refusing a colleague's AI-written section of a joint manuscript.",
+        "**Attitudes ranged from “optimistic but not fanatic” to hesitant.** The centre's researcher told students plainly that he could not detect AI use, so he required them to edit, personalise and verify anything AI produced, and worried that handing all the work to tools would limit students' critical thinking.",
+        "**None of the four institutions had a full generative-AI policy at the time.** The measures in place were existing student codes of conduct, AI detection switched on in the plagiarism checker, orientation sessions and webinars, and policy drafting under way. The authors agree that policies and ethical guidelines are needed for students, instructors and administrators alike, and that prohibition would be futile.",
+      ],
+      soWhat:
+        "A snapshot of how faculty actually used the tools in the first months after ChatGPT, useful for Thai faculties drafting AI policy. The practical line the authors propose is between “assistive” use (grammar, reference management, paraphrasing) and “generative” use (producing the answer), combined with transparency about what was used.",
+      caveat:
+        "**The “data” are the authors' own reflections, eight people at four institutions**, not a survey, and no students were heard. The article states nine participants but presents eight essays. Written in early 2023 about tools that have since changed a great deal. The journal classifies it as a column rather than a research article. Closed access, so the site holds no copy. This summary names no institutions and identifies no one in the anecdotes.",
+    },
+  },
+  {
+    slug: "sdg-reporting-five-countries",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ไม้บรรทัดกระดาษสีเหลืองทองที่ไม่มีขีดวัด วางข้างนาฬิกากระดาษที่ไม่มีเข็ม",
+    illustrationAltEn:
+      "Paper-craft illustration of a golden yellow paper ruler with no markings beside a paper clock face with no hands",
+    doi: "10.1007/978-981-10-2815-1_5",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "บริษัทใหญ่ในห้าประเทศพูดถึงความยั่งยืนในรายงานร้อยละ 83 แต่ตั้งเป้าที่มีกำหนดเวลาเพียงร้อยละ 25 และวัดผลได้เพียงร้อยละ 30",
+      question:
+        "บริษัทจดทะเบียนขนาดใหญ่ที่สุดในไทย มาเลเซีย สหรัฐอาหรับเอมิเรตส์ กาตาร์ (ตลาดเกิดใหม่) และออสเตรเลีย (ประเทศพัฒนาแล้ว) เปิดเผยเป้าหมายด้านการพัฒนาที่ยั่งยืนอย่างไร — เป้าหมายวัดได้และมีกรอบเวลาหรือไม่ รายงานรับผิดชอบต่อผู้มีส่วนได้ส่วนเสียแค่ไหน วัดผลอย่างไร ตรวจว่าถึงเป้าหรือไม่ และห้าประเทศต่างกันอย่างไร",
+      method:
+        "วิเคราะห์รายงานประจำปี (และรายงานความยั่งยืนหรือรายงานความรับผิดชอบต่อสังคมแยกเล่มถ้ามี) ของบริษัท 25 แห่งที่มีมูลค่าตลาดสูงสุดในแต่ละประเทศ รวม 125 ฉบับ — รายงานประจำปี 72 · รายงานความยั่งยืน 38 · ที่เหลือเป็นรายงานความรับผิดชอบต่อสังคมและรายงานการเงิน · กลุ่มธนาคารเป็นสัดส่วนใหญ่ที่สุดร้อยละ 24.8 รองลงมาคือพลังงานและอสังหาริมทรัพย์กับก่อสร้างอย่างละ 11.2 และโทรคมนาคม 9.6 · ลงรหัสแบบมี/ไม่มี ในหัวข้ออย่างมีเป้าหมาย มีกรอบเวลา วัดได้ ประเภทของกิจกรรม ใช้แนวปฏิบัติสากล มีสถิติหลายปี เทียบเป้ากับผล และมีการรับรองอิสระ · ผู้ลงรหัสสามคนแยกกันทำ ค่าความสอดคล้องร้อยละ 96.74",
+      findings: [
+        "**รายงานร้อยละ 83.2 พูดถึงความยั่งยืน แต่มีเพียงร้อยละ 60 ที่ตั้งเป้าหมาย** และในทั้งหมดมีเป้าหมายที่มีกรอบเวลาเพียง 24.8 และเป้าหมายที่วัดได้เพียง 30.4",
+        "**กิจกรรมด้านสังคมถูกรายงานมากที่สุด** ร้อยละ 80 · สิ่งแวดล้อม 72 · เศรษฐกิจ 61.6",
+        "**ใช้แนวปฏิบัติการรายงานสากลเพียงร้อยละ 42.4** (ส่วนใหญ่คือ GRI) และมีเพียงร้อยละ 51.2 ที่เทียบวัตถุประสงค์กับผลที่ได้จริง",
+        "**ออสเตรเลียนำในด้านคุณภาพของเป้าหมาย** — มีกรอบเวลา 72 วัดได้ 76 ใช้แนวปฏิบัติ 80 และเทียบเป้ากับผล 84 · **ไทยนำในด้านการตั้งเป้าหมาย** — พูดถึงความยั่งยืน 96 และตั้งเป้าหมาย 88 ซึ่งสูงที่สุดในห้าประเทศ ใช้แนวปฏิบัติ 68 เทียบเป้ากับผล 68 แต่มีกรอบเวลาเพียง 24 และวัดได้ 40",
+        "**มาเลเซียพูดถึงความยั่งยืนครบทุกบริษัทและตั้งเป้า 72 แต่มีกรอบเวลาเพียง 4 และวัดได้ 12** · กาตาร์ตั้งเป้า 19 มีกรอบเวลา 4 วัดได้ 4 และเทียบเป้ากับผล 15.4 · สหรัฐอาหรับเอมิเรตส์ตั้งเป้า 38 มีกรอบเวลาและวัดได้อย่างละ 21 เทียบเป้ากับผล 20.8",
+        "**ผู้เขียนอธิบายอันดับของไทยด้วยข้อบังคับของตลาดหลักทรัพย์และสำนักงาน ก.ล.ต.** ที่ให้บริษัทจดทะเบียนแสดงการปฏิบัติตามหลักการกำกับดูแลกิจการและเปิดเผยงานด้านความรับผิดชอบต่อสังคม · บริษัทไทยร้อยละ 68 ออกรายงานความยั่งยืนหรือรายงานความรับผิดชอบต่อสังคมแยกเล่ม เทียบกับกาตาร์ร้อยละ 8",
+        "ผู้เขียนสรุปว่าภาคเอกชนยังขาดยุทธศาสตร์ — เป้าหมายที่ไม่มีกรอบเวลาและวัดไม่ได้ย่อมประเมินไม่ได้ · ตัวขับเคลื่อนคุณภาพการรายงานคือข้อกำหนดของแต่ละประเทศและประเภทอุตสาหกรรม (กลุ่มทรัพยากรและสาธารณูปโภครายงานละเอียดกว่ากลุ่มธนาคาร)",
+      ],
+      soWhat:
+        "สำหรับบริษัทและหน่วยกำกับดูแลในไทย ข้อค้นพบชี้จุดชัด — ไทยนำอยู่แล้วในการ**ตั้ง**เป้าหมาย ช่องว่างจึงอยู่ที่การทำให้เป้าหมายมีกรอบเวลาและวัดได้ ซึ่งเป็นปัญหาคุณภาพของการรายงาน ไม่ใช่ปัญหาความตระหนัก · สำหรับนักสื่อสารองค์กร รายงานความยั่งยืนที่ไม่มีเป้าหมายวัดได้คือเรื่องเล่า ไม่ใช่แผน",
+      caveat:
+        "**ข้อมูลจากรายงานหนึ่งรอบปีราวปี 2558** ก่อนกรอบการรายงานที่ผูกกับ SDG โดยตรงจะแพร่หลาย · การลงรหัสแบบมี/ไม่มี ทำให้ความลึกของการรายงานหายไป ซึ่งผู้เขียนระบุไว้เองในข้อจำกัด · เลือกบริษัท 25 แห่งที่ใหญ่ที่สุดตามมูลค่าตลาด องค์ประกอบอุตสาหกรรมของแต่ละประเทศจึงกำหนดผลรายประเทศไปด้วย · ตัวเลขรายประเทศอ่านจากกราฟในบทความและอาจปัดเศษ · หนังสือสงวนลิขสิทธิ์ เว็บไม่เก็บสำเนา",
+    },
+    en: {
+      headline:
+        "Big companies in five countries mention sustainability in 83% of their reports, but only 25% set time-bound goals and 30% measurable ones",
+      question:
+        "How do the largest listed companies in Thailand, Malaysia, the United Arab Emirates and Qatar (emerging markets) and Australia (a developed economy) disclose sustainable-development goals? Are the goals measurable and time-framed, how accountable is the reporting, how are initiatives measured, do companies check whether they reached their goals, and how do the five countries compare?",
+      method:
+        "Analysis of the annual reports, plus stand-alone sustainability or corporate-responsibility reports where they existed, of the 25 largest companies by market capitalisation in each country: 125 reports (72 annual reports, 38 sustainability reports, the rest corporate-responsibility and financial reports). Banking made up 24.8% of the sample, energy and real estate with construction 11.2% each, telecommunications 9.6%. Each report was coded yes/no on items such as goals stated, time frame, measurability, initiative types, guidelines used, multi-year track record, objectives compared with results, and independent assessment. Three coders worked independently with 96.74% agreement.",
+      findings: [
+        "**83.2% of reports mention sustainability, but only 60% state goals**, and across the whole sample only 24.8% have time-framed goals and 30.4% measurable ones.",
+        "**Social initiatives are reported most**, at 80%, then environmental 72% and economic 61.6%.",
+        "**Only 42.4% follow an international reporting guideline** (mostly GRI), and only 51.2% compare objectives with results.",
+        "**Australia leads on the quality of goals**: time-framed 72%, measurable 76%, guidelines 80%, objectives compared with results 84%. **Thailand leads on setting goals**: sustainability mentioned in 96% and goals in 88%, the highest of the five, guidelines 68%, objectives compared with results 68%, but time-framed only 24% and measurable 40%.",
+        "**Malaysia mentions sustainability in every report and sets goals in 72%, yet only 4% are time-framed and 12% measurable.** Qatar sets goals in 19%, with 4% time-framed, 4% measurable and 15.4% evaluated; the UAE sets goals in 38%, with 21% time-framed, 21% measurable and 20.8% evaluated.",
+        "**The authors attribute Thailand's ranking to Stock Exchange and Securities and Exchange Commission requirements** that listed companies show how they apply corporate-governance principles and disclose their social-responsibility work. 68% of Thai companies issued a stand-alone sustainability or CSR report, against 8% in Qatar.",
+        "The authors conclude that the private sector lacks strategy: a goal with no time frame and no measure cannot be evaluated. The drivers of better reporting are national requirements and the industry involved, with resources and utilities reporting in more detail than banks.",
+      ],
+      soWhat:
+        "For Thai companies and regulators the finding is specific: Thailand already leads in **stating** goals, so the gap is in making them time-bound and measurable, a reporting-quality problem rather than an awareness problem. For corporate communicators, a sustainability report without a measurable target is a story, not a plan.",
+      caveat:
+        "**One reporting year, around 2015**, before SDG-specific reporting frameworks became common. Yes/no coding flattens the depth of reporting, as the authors note in their own limitations. The 25 largest companies by market capitalisation were chosen, so each country's industry mix shapes its result. Country figures are read from charts in the chapter and may be rounded. The book is closed access, so the site holds no copy.",
+    },
+  },
+  {
+    slug: "bangkok-governor-2013-social-media",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ หัวใจกระดาษสีชมพูสดหลายดวงซ้อนกันเป็นตั้ง ข้างๆ มีหีบบัตรกระดาษใบเล็กที่มีบัตรเสียบอยู่ในช่องหนึ่งใบ",
+    illustrationAltEn:
+      "Paper-craft illustration of a stack of several vivid pink paper hearts beside a small paper ballot box with a single slip in its slot",
+    indexUrl: "https://www.semanticscholar.org/paper/9bfa6a523337f70923e706cbfb2802f85bb57b76",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "ผู้สมัครที่มียอดไลก์มากที่สุดในการเลือกตั้งผู้ว่าฯ กรุงเทพฯ ปี 2556 ได้อันดับสาม และทีมหาเสียงทุกทีมบอกตรงกันว่ายอดไลก์ทำนายคะแนนไม่ได้",
+      question:
+        "การเลือกตั้งผู้ว่าราชการกรุงเทพมหานครเดือนมีนาคม 2556 เป็นครั้งแรกที่ผู้สมัครรายใหญ่ทุกคนใช้โซเชียลมีเดียหาเสียงอย่างจริงจัง แต่ผู้สมัครที่มีผู้ติดตามมากกว่ากลับแพ้ · งานนี้ถามว่าผู้สมัครสี่อันดับแรกใช้ช่องทางใดบ้าง ใช้อย่างไร ทีมหาเสียงเห็นว่าช่องทางไหนได้ผล และโซเชียลมีเดียมีผลต่อคะแนนเสียงจริงหรือไม่",
+      method:
+        "งานเชิงคุณภาพ — วิเคราะห์เอกสารจากสื่อหาเสียงทุกชิ้นที่เก็บโดยตรงจากช่องทางของผู้สมัครสี่อันดับแรก ทั้งสื่อดั้งเดิมและสื่อดิจิทัล ตั้งแต่มีนาคม 2556 · สัมภาษณ์เชิงลึกผู้แทนของผู้สมัครและผู้เกี่ยวข้องกับการเลือกตั้ง 4 คน แล้ววิเคราะห์แก่นเรื่อง · เทียบยอดผู้ติดตามและปฏิสัมพันธ์บนเฟซบุ๊ก ยูทูบ ทวิตเตอร์ อินสตาแกรม กูเกิลพลัส และเว็บไซต์ กับผลคะแนนจริง",
+      findings: [
+        "**ผู้ชนะไม่ได้มียอดผู้ติดตามสูงสุดในช่องทางส่วนใหญ่** — ผู้สมัครอันดับสามมียอดไลก์เฟซบุ๊กมากที่สุด (238,138) · ผู้สมัครอันดับสี่มียอดชมยูทูบมากที่สุด (2.57 ล้านครั้ง จากช่องที่เปิดมาตั้งแต่ปี 2550) และผู้ติดตามอินสตาแกรมมากที่สุด · ผู้ชนะนำเฉพาะยอด “กำลังพูดถึง” บนเฟซบุ๊ก (146,294) และผู้ติดตามทวิตเตอร์ (115,328)",
+        "**ผลคะแนนจริง** — ผู้ชนะได้ 1,256,349 เสียง (ร้อยละ 47.75 ของบัตรที่ใช้) อันดับสอง 1,077,899 (40.97) อันดับสาม 166,582 อันดับสี่ 78,825 · ผู้มาใช้สิทธิ์ 2,715,640 จากผู้มีสิทธิ์ 4,244,465 คน",
+        "**ทุกคนใช้เฟซบุ๊กเป็นช่องทางหลัก** ทั้งโพสต์ข้อความ ภาพ และวิดีโอ · ทุกคนมีช่องยูทูบและบัญชีทวิตเตอร์กับอินสตาแกรม · มีเพียงผู้ชนะที่ทำแอปมือถือและกูเกิลพลัส · มีเพียงผู้สมัครอันดับสามที่ใช้เทคโนโลยีความจริงเสริมในการหาเสียง · ข้อมูลจากบริการติดตามโซเชียลมีเดียชี้ว่าผู้สมัครที่ได้ความเห็นเชิงบวกออนไลน์สูงสุด (ร้อยละ 82) คือผู้ที่ได้อันดับสี่",
+        "**ทีมหาเสียงชอบทวิตเตอร์เพราะเร็วและเปิดพื้นที่โต้ตอบ** ส่วนเฟซบุ๊กเป็นประตูกระจายข้อมูล · ทุกคนเห็นว่าโซเชียลมีเดียเป็นของใหม่เทียบกับการเลือกตั้งครั้งก่อนสี่ปีก่อนหน้า · แม้ใช้งบน้อยแต่ผู้สมัครเกือบทุกคนต้องจ้างทีมดูแลสื่อออนไลน์",
+        "**ผู้ให้สัมภาษณ์ส่วนใหญ่ยืนยันว่าโซเชียลมีเดียกำหนดผลเลือกตั้งไม่ได้** — ยอดไลก์และผู้ติดตามไม่สัมพันธ์กับคะแนน เพราะ “ใครก็กดไลก์ได้จากที่ไหนก็ได้” ผู้ติดตามอาจอายุไม่ถึงเกณฑ์ ไม่ใช่ผู้มีสิทธิ์ในกรุงเทพฯ หรืออยู่ต่างประเทศ · ผู้มีสิทธิ์ยังตัดสินใจจากการพบหน้า เช่น การเดินสายและการลงพื้นที่ชุมชน",
+        "ผู้เขียนสรุปว่าโซเชียลมีเดียยังจำเป็นแม้ทำนายคะแนนไม่ได้ เพราะช่วยสร้างภาพผู้สมัครที่ทันสมัยและเปิดบทสนทนาตรงกับผู้มีสิทธิ์",
+      ],
+      soWhat:
+        "บทเรียนที่ยังใช้ได้กับการหาเสียงและการรณรงค์ทุกชนิดคือ**ตัวเลขการมีส่วนร่วมออนไลน์กับตัวเลขการลงมือทำเป็นคนละตัว** — ยอดไลก์นับคนที่สนใจจากทุกที่ ส่วนคะแนนนับคนที่มีสิทธิ์และไปถึงคูหา · ก่อนใช้โซเชียลมีเดียเป็นตัวชี้วัด ให้ถามว่าผู้ติดตามอยู่ในกลุ่มที่ลงมือได้จริงหรือไม่ และใช้ช่องทางนี้เพื่อสร้างภาพและบทสนทนามากกว่าเพื่อนับหัว",
+      caveat:
+        "**บทคัดย่อกล่าวถึงการสำรวจผู้มีสิทธิ์ตามลักษณะประชากร แต่ตัวบทความไม่มีผลสำรวจนั้นเลย** มีเพียงการวิเคราะห์เอกสารและการสัมภาษณ์ 4 คน · ตัวเลขโซเชียลมีเดียในสองตารางเก็บคนละช่วงเวลาและไม่ตรงกัน · เป็นบทความในเอกสารการประชุมวิชาการ ไม่มี DOI ทะเบียนจึงยังไม่มีข้อมูลบรรณานุกรมสำหรับปุ่มอ้างอิง · ข้อมูลจากปี 2556 ก่อนที่แพลตฟอร์มจะเปลี่ยนวิธีแสดงผลและก่อนกฎหมายเลือกตั้งฉบับใหม่ · **บทสรุปนี้ตั้งใจเรียกผู้สมัครตามอันดับคะแนน ไม่ระบุชื่อและพรรค** ตามกติกาของหน้าบทสรุป",
+    },
+    en: {
+      headline:
+        "The candidate with the most Facebook likes in the 2013 Bangkok governor election finished third, and every campaign team agreed that likes could not predict votes",
+      question:
+        "The March 2013 Bangkok governor election was the first in which every leading candidate campaigned seriously on social media, yet the candidates with more followers lost. This study asks which channels the top four candidates used and how, which ones their campaign teams believed worked, and whether social media actually moved votes.",
+      method:
+        "A qualitative study: document analysis of every campaign item collected directly from the four leading candidates' channels, traditional and digital, from March 2013; in-depth interviews with four people representing the candidates and the election sector, analysed thematically; and a comparison of follower and engagement counts on Facebook, YouTube, Twitter, Instagram, Google+ and campaign websites against the actual vote.",
+      findings: [
+        "**The winner did not lead on followers in most channels.** The third-placed candidate had the most Facebook likes (238,138); the fourth-placed candidate had the most YouTube views (2.57 million, on a channel open since 2007) and the most Instagram followers. The winner led only on Facebook's “talking about this” count (146,294) and on Twitter followers (115,328).",
+        "**The actual result**: the winner took 1,256,349 votes (47.75% of votes cast), the runner-up 1,077,899 (40.97%), third place 166,582 and fourth 78,825; 2,715,640 of 4,244,465 registered voters turned out.",
+        "**Everyone used Facebook as the main channel**, posting text, photos and video; everyone had a YouTube channel and Twitter and Instagram accounts. Only the winner built a mobile app and a Google+ page; only the third-placed candidate used augmented reality. A social-listening service showed the candidate with the highest share of positive online comments (82%) was the one who finished fourth.",
+        "**Campaign teams preferred Twitter for its speed and room for dialogue**, with Facebook as the gateway for distributing information. All agreed social media was new compared with the election four years earlier, and although the budget was small, almost every candidate still hired a team to run the online channels.",
+        "**Most interviewees insisted social media could not decide the vote.** Likes and followers did not track votes because “anyone from anywhere can click likes”: followers might be under voting age, not registered in Bangkok, or living abroad. Voters still decided through face-to-face contact such as roadshows and community visits.",
+        "The authors conclude that social media remains necessary even though it cannot predict votes, because it builds a modern image for the candidate and opens direct conversation with voters.",
+      ],
+      soWhat:
+        "The lesson still holds for campaigns of every kind: **online engagement and real-world action are different counts.** Likes measure interested people anywhere; votes measure eligible people who reach the booth. Before using social media as a performance indicator, ask whether the followers belong to the group that can act, and use the channel for image and dialogue rather than for headcounts.",
+      caveat:
+        "**The abstract mentions a survey of voters by demographic profile, but the paper contains no such survey**; there is only the document analysis and four interviews. The social-media figures in the two tables were collected at different times and do not match. It is a conference-proceedings paper with no DOI, so the registry holds no bibliographic record for a citation button. The data are from 2013, before platforms changed how they display counts and before newer election law. **This summary deliberately refers to the candidates by their finishing order and names neither them nor their parties**, in line with the rules of these pages.",
+    },
+  },
 ];
 
 const byDoi = new Map(
