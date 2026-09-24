@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { CitationMeta, PublicationEntry } from "@/data/publications";
 import SectionIcon from "@/components/ui/SectionIcon";
 import type { Locale } from "@/lib/locale";
+import { trackEvent } from "@/lib/track";
 import {
   CITATION_STYLES,
   citationFilename,
@@ -104,6 +105,8 @@ export default function CitationTool({
     try {
       await navigator.clipboard.writeText(text);
       flash(true);
+      // นับเฉพาะที่คัดลอกสำเร็จ · doi ใช้ระบุว่างานชิ้นไหนถูกอ้างอิงบ่อย
+      trackEvent("citation_copy", { action: "copy", style, locale, doi: publication.doi ?? "" });
     } catch {
       // clipboard API ใช้ไม่ได้บน http หรือเบราว์เซอร์เก่า — บอกให้คัดลอกเอง
       flash(false);
@@ -120,6 +123,7 @@ export default function CitationTool({
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
+    trackEvent("citation_copy", { action: "download", style, locale, doi: publication.doi ?? "" });
   };
 
   const chip = (active: boolean) =>
