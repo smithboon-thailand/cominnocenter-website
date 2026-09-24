@@ -239,6 +239,25 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "This study evaluates the model's appropriateness through the judgement of ten experts. It does not measure health outcomes in the field — that is the 2019 study by the same team.",
     },
+    illustrationAltZh:
+      "纸艺插画：一道拱形跨梁架在一块先行铺好的基石之上",
+    zh: {
+      headline: "让缅甸移民工人了解艾滋病，起点是信任，而不是信息",
+      question:
+        "面向在泰缅甸跨国工人的健康传播总是撞上同样的障碍：语言隔阂、信息与工人真正想知道的内容不匹配、渠道和时机不对、效果难以持久。这项研究问的是：风险传播应当如何设计，才能把这些问题一并解决。",
+      method:
+        "研究者根据自身的田野经验和文献回顾提出一个模型草案，然后交给十位专家组成的焦点小组评审——他们是传播、公共卫生、移民和健康风险降低领域的大学学者与从业者，每人经验均超过十年——请他们按 1 到 5 分对每个组成部分的适当性打分。",
+      findings: [
+        "成果是六步骤的 ENGAGE-A3 模型——赢得信任（Earning trust）、环境扫描（ENvironmental scanning）、争取本地协助（Getting local help）、行动（Action）、游戏化（Gamification）和评估（Evaluating）——通向三个结果：评估（assessment）、意识（awareness）和倡导（advocacy）。",
+        "整体适当性得分 4.26（满分 5 分），落在“非常适当”区间。",
+        "赢得信任和游戏化并列专家评分最高，均为 4.45；其次是争取本地协助和行动，均为 4.36。",
+        "评估在六个组成部分中得分最低，为 4.18——属于“适当”，但未达到“非常适当”。",
+      ],
+      soWhat:
+        "可以立即拿来用的发现是先后顺序。面向弱势群体的健康宣传通常从制作材料开始，而专家给出最高分的却是在任何材料存在**之前**必须发生的事：赢得信任，并让本地人以工作主人的身份参与进来。与移民工人一起设计宣传活动的机构可以把这六个步骤当作框架采用。",
+      caveat:
+        "这项研究通过十位专家的判断来评估模型的适当性，并未在田野中测量健康结果——那是同一团队 2019 年的研究。",
+    },
   },
   {
     slug: "hiv-risk-communication-samut-sakhon",
@@ -284,6 +303,25 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "A single factory in Samut Sakhon, data collected in 2017, with behaviour measured by participants' self-reports.",
     },
+    illustrationAltZh:
+      "纸艺插画：两根升起的柱条旁边，第三根仍然平贴不动",
+    zh: {
+      headline: "工人参与设计的宣传活动提高了知识和信心——却没有改变他们对自身风险的感知",
+      question:
+        "如果移民工人亲自参与设计艾滋病风险传播活动，而不只是被动接收，这是否真的会改变他们的知识、信心、风险感知和预防行为？",
+      method:
+        "活动方案来自龙仔厝府（Samut Sakhon）一家工厂的两场焦点小组（共 16 名工人），以及对十位负责艾滋病预防的政府和非政府组织官员的深度访谈。随后由从工人中招募的健康志愿者在两周内向 400 名工人开展活动，起始日为 2017 年的国际安全套日。活动结合了现场活动、工作坊与培训、媒体宣传，以及定量与定性两种评估。",
+      findings: [
+        "知识得分显著提高。",
+        "安全套使用和艾滋病检测两方面的行为改变阶段都显著推进。",
+        "自我效能，以及对预防的感知益处和感知障碍，都发生了显著变化。",
+        "然而，对自身感染艾滋病的风险感知**没有显著变化**（显著性水平 0.05）。",
+      ],
+      soWhat:
+        "没有变的部分和变了的部分同样重要。这项活动让人们更有知识、更有信心保护自己，却没有先让他们觉得自己身处风险之中——这意味着健康宣传可以在不依赖恐惧的情况下改变行为。研究者把活动的效果归功于工人亲自参与设计。",
+      caveat:
+        "仅涉及龙仔厝府的一家工厂，数据采集于 2017 年，行为由参与者自我报告。",
+    },
   },
   {
     slug: "hiv-knowledge-public-health-officers",
@@ -327,6 +365,25 @@ export const paperSummaries: PaperSummary[] = [
         "The conclusion points at structure rather than at materials: with no mandate naming who is responsible, the work does not happen even where willing staff exist. The authors' practical recommendation is group training in migrants' workplaces alongside posters and flyers — matching the format the workers themselves preferred.",
       caveat:
         "A 2017 survey of officers at a single agency. What it reports about migrants comes from the officers' perspective, not from migrants directly.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一排齿轮组中缺了一枚齿轮",
+    zh: {
+      headline: "差距不在于材料薄弱——而是没有人被指派去做这件事",
+      question:
+        "艾滋病知识从泰国公共卫生系统出发，究竟能走多远才到达缅甸移民工人？这项研究问的是做这项工作的官员，而不是受众。",
+      method:
+        "向疾病控制厅风险传播与健康行为发展局的 106 名公共卫生官员发放问卷，使用 SPSS 22 版进行描述性统计和多重相关分析。",
+      findings: [
+        "106 名官员作答——女性 66 人，男性 40 人。",
+        "**未发现任何政府规定要求公共卫生官员向缅甸移民传递艾滋病知识。**",
+        "相当多的官员从未为传递艾滋病信息而与这些移民有过任何接触。",
+        "大多数缅甸移民在获取艾滋病信息时遇到重大困难，他们偏好的形式是在工作场所进行小组培训。",
+      ],
+      soWhat:
+        "结论指向的是结构而非材料：没有明确责任归属的规定，即使有愿意做事的工作人员，工作也不会发生。作者的实际建议是在移民的工作场所开展小组培训，同时配以海报和传单——这正是工人自己偏好的形式。",
+      caveat:
+        "这是 2017 年对单一机构官员的调查。它关于移民的描述来自官员的视角，而非直接来自移民。",
     },
   },
   {
@@ -372,6 +429,25 @@ export const paperSummaries: PaperSummary[] = [
         "The authors conclude that adequately designed content plus the falling cost of the technology makes VR360 a practically acceptable way of dealing with pain — meaning organisations wanting to make health media of this kind no longer need a lab or a large budget.",
       caveat:
         "This is a study of the attitudes and opinions of 20 viewers. It **does not measure whether pain actually decreased**, and the data was collected in 2017.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个小小的扁平矩形，旁边是一个完整环绕一周的圆环",
+    zh: {
+      headline: "教颈肩拉伸的 360 度视频，比普通视频更能抓住职业女性的注意力",
+      question:
+        "肌筋膜疼痛综合征对锻炼有反应，360 度相机已变得便宜，YouTube 又免费托管这种格式。一段教颈肩疼痛拉伸动作的 VR360 视频，真的会被职业年龄段的女性接受吗？",
+      method:
+        "二十名 25 至 40 岁、被认为有患该综合征风险的职业年龄段女性观看了一段 VR360 视频，随后于 2017 年 3 月至 4 月通过问卷和深度访谈收集数据。",
+      findings: [
+        "参与者对 VR360 视频极为满意。",
+        "她们非常同意：VR360 比普通视频更能让她们专注于眼前的内容。",
+        "她们感到自己置身于所观看的场景之中，并可以自由控制观看方向。",
+        "她们认为视频有趣且编排得当，并认为主持人、场地、情感表达、氛围与语调以及时长都恰当。",
+      ],
+      soWhat:
+        "作者的结论是：设计得当的内容加上不断下降的技术成本，使 VR360 成为处理疼痛的一种切实可接受的方式——这意味着想制作此类健康媒体的机构不再需要实验室或大笔预算。",
+      caveat:
+        "这是一项关于 20 名观众态度和看法的研究。它**没有测量疼痛是否真的减轻**，数据采集于 2017 年。",
     },
   },
   {
@@ -594,6 +670,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "The sample came from ThaiHealth network organisations in Bangkok and its vicinity through purposive, quota and accidental sampling, so it does not represent working-age women nationally. The private-sector group numbered only 134 against 527 in government and 413 in factories, and data was collected in 2019–2020.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个形状旁边是一块开有三个孔洞的面板，它一个也放不进去",
+    zh: {
+      headline: "一套健康内容无法服务所有工作场所——私营企业、政府机关和工厂的职员想要的东西各不相同",
+      question:
+        "职业年龄段女性是最积极寻找健康信息并把它传给身边人的群体——但饮食与保健同时也是泰国社交媒体上流传的假新闻中最大的一类。这些女性想要什么形式的健康内容？她们对此有何担忧？不同类型工作场所的女性想要的东西是否不同？",
+      method:
+        "一项定量调查，使用封闭式问卷，对象是曼谷及周边地区 ThaiHealth（泰国健康促进基金会）网络中十三家机构的 15 岁及以上职业年龄段女性，分为政府机关与国有企业、私营公司、工厂三组。每家机构配额 100 人（两家大型工厂各 50 人），目标 1,200 名受访者，回收问卷 1,074 份。所有变量的信度均超过 0.70。分析采用描述性统计和单因素方差分析。",
+      findings: [
+        "私营公司的女性想要动画视频（均值 4.20）、信息图（4.17）和照片（4.16）的程度显著高于另外两组，而政府机关与国有企业（3.02）和工厂（3.01）的女性比私营部门女性（2.47）更想要**纯文字**。",
+        "每组评分最高的表现手法各不相同：私营部门女性选择前后对比（4.21），政府机关女性选择医学信息佐证（3.99），工厂女性选择实用建议（3.68）。",
+        "三组都把“提供知识”列为内容类型的第一位（政府机关 4.18 · 私营 4.34 · 工厂 3.83）。",
+        "她们最主要的担忧也不同：私营部门女性最担心信息不正确（4.30），而政府机关和工厂女性最担心内容可能侵犯他人权利（分别为 4.20 和 3.81）。",
+        "**有三项在各组之间没有显著差异**：表达情感的手法（F = 2.872）、对信息过多的担忧（F = 2.501）以及对专业术语的担忧（F = 1.666）。",
+      ],
+      soWhat:
+        "对制作职场健康媒体的人来说，这意味着同一内容应按机构类型重新包装，而不是到处一模一样地分发。作者建议更多地使用视觉叙事——动画视频、信息图和照片——并且任何被分享的文章都必须来自可信来源。",
+      caveat:
+        "样本通过目的性、配额和偶遇抽样来自曼谷及周边地区 ThaiHealth 网络中的机构，因此不能代表全国的职业年龄段女性。私营部门组只有 134 人，而政府机关组有 527 人、工厂组有 413 人，数据采集于 2019–2020 年。",
+    },
   },
   {
     slug: "on-demand-app-loyalty",
@@ -731,6 +827,27 @@ export const paperSummaries: PaperSummary[] = [
         "The authors' recommendation follows the result: direct persuasive messaging at people educated to secondary level or below, since that is the group with weaker health beliefs. And since Bangkok retirees encounter these campaigns most on Facebook, a campaign still spending on radio and posters may simply not reach them.",
       caveat:
         "Data was gathered through an online questionnaire and word of mouth, so it reached only retirees already using the internet — which partly explains why Facebook came first. It covers Bangkok alone and measures beliefs and attitudes, not whether sodium intake actually fell.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一排五个漏斗，其中一个远比其余的宽",
+    zh: {
+      headline: "退休人群在 Facebook 上接触减盐宣传——而教育程度是区分他们健康信念的因素",
+      question:
+        "面向退休人群的减盐宣传活动应当如何设计？这项研究考察了媒体接触、对说服性信息的态度与健康信念模型之间的关系，以及哪些人口特征会造成差异。",
+      method:
+        "一项定量调查，通过社交媒体渠道和口口相传发放 Google 表单问卷，对象是居住在曼谷的 400 名 51 至 70 岁退休人士，按年龄段与截至 2019 年 12 月的实际人口（1,255,572 人）成比例分配。分析采用描述性统计和推断统计，显著性水平为 0.05。",
+      findings: [
+        "整体上对宣传媒体的接触程度为中等，Facebook 最高，其次是网站和 YouTube。接触最少的渠道是广播，其次是活动和海报。",
+        "对说服性信息的态度在每一项上都非常高。评分最高的期望是说明疾病有多严重的信息，以及能应用于日常生活的信息——符合“高威胁配高效能”的原则。",
+        "在检验的八项人口特征中，**只有两项在健康信念上产生显著差异**：教育程度和主要收入来源。性别、年龄、婚姻状况、就业状况、月收入和居住安排**均无差异**。",
+        "说服性信息与健康信念模型的四个维度——感知易感性、感知严重性、感知益处和自我效能——呈中等程度的正相关，但与感知障碍仅呈弱相关。",
+        "媒体接触与态度和健康信念均显著相关，但**这些相关性全部处于低到极低的水平**——更常看到宣传并没有让健康信念改变多少。",
+        "受访者认同最强烈的一项是：经常吃咸食患肾病的风险很高，而肾病会严重影响他们的生活。",
+      ],
+      soWhat:
+        "作者的建议顺着结果而来：把说服性信息对准中学及以下学历的人群，因为这是健康信念较弱的群体。而既然曼谷的退休人群主要在 Facebook 上接触这些宣传，一场仍在广播和海报上花钱的活动可能根本触及不到他们。",
+      caveat:
+        "数据通过在线问卷和口口相传收集，因此只触及已在使用互联网的退休人士——这部分解释了为什么 Facebook 排在第一。研究仅覆盖曼谷，测量的是信念和态度，而不是钠摄入量是否真的下降。",
     },
   },
   {
@@ -917,6 +1034,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is a co-design study, not a test of whether the exercises work.** What it demonstrates is that the design process produced something both usable and clinically valid; the health effects belong to a later phase that has not been run. Evidence comes from one factory and 29 people recruited by purposive convenience sampling, so it does not represent migrant workers across the industry.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个小盒子里装着唯一放得进去的形状，一个更大的形状被留在盒外",
+    zh: {
+      headline: "先问工人，你就会得到适合宿舍房间、也适合他们真正拥有的时间的锻炼方案",
+      question:
+        "泰国海产品加工厂的缅甸移民工人因剥虾等重复性工作和长时间站立而受伤，但普通的健康项目因语言和文化障碍从未触及他们。这项研究问的是：如果工人从一开始就参与设计项目，会有什么不同。",
+      method:
+        "一项混合方法的共同设计研究。参与式讨论面向 29 名缅甸工人，按工龄分为三组（2 年以下 10 人、2–5 年 11 人、5 年以上 8 人），全部来自同一家工厂，用缅甸语进行，并围绕 12 小时的轮班安排时间。研究咨询了五位工作场所利益相关者（人力资源经理和生产线主管），四位国际物理治疗师评估了内容效度。知情同意在没有管理层在场的情况下私下征得，给予 48 小时考虑时间，主管不参与推荐参与者。",
+      findings: [
+        "**29 名工人全部报告手部症状**——麻木、刺痛和疼痛。25 人（86%）有晨间手部僵硬，也影响到工作之外的生活。颈痛 79%，下背痛 72%，踝痛 45%。",
+        "**29 人中有 23 人（79%）至少每周购买一次非处方止痛药**，有人手术后直接回到同样的工作岗位——这个群体早已在设法管理自己的健康，只是方式有风险。",
+        "**29 人中有 26 人（89.7%）每天使用 Facebook**，选择它是因为可以在主管看不到的情况下阅读健康信息。他们要的是视频示范而不是书面材料，并且**拒绝在唯一的休息日参加强制性工作坊**。",
+        "工人自己指出的就医障碍：医疗人员不会说缅甸语，公立医院的口译员对他们态度不敬，工作场所保险只覆盖急性伤害而不覆盖慢性病，以及歧视。",
+        "工人设定的限制条件成了设计要求——锻炼必须能在宿舍大小的空间进行、不需要器械、在工作时间之外进行，并且绝不减少收入，因为他们都要寄钱回家。",
+        "成果是一套 12 个动作、为期四周的方案，**在专家内容效度评估中得分很高**（I-CVI 0.95–1.00；S-CVI/Ave 0.94），说明倾听工人并没有牺牲临床质量。",
+      ],
+      soWhat:
+        "对任何健康传播工作而言，可迁移的经验是：一线人员指出的限制条件不是与质量的取舍——它们是项目能否被使用的前提条件。选择受众已在使用、并且能私下使用的渠道，比选择机构自己用得顺手的渠道更重要。",
+      caveat:
+        "**这是一项共同设计研究，不是对锻炼是否有效的检验。**它证明的是设计过程产出了既可用又具有临床效度的方案；健康效果属于尚未开展的后续阶段。证据来自一家工厂、以目的性便利抽样招募的 29 人，因此不能代表整个行业的移民工人。",
+    },
   },
   {
     slug: "thailand-image-cannabis-youtube",
@@ -1031,6 +1169,26 @@ export const paperSummaries: PaperSummary[] = [
         "The staff's own answers cut against the common assumption that knowledge management starts with a new platform. When the top obstacle is unfamiliarity, adding another tool makes the problem worse. What they chose was the channel already in their daily lives plus people to guide them — technology second, relationships first.",
       caveat:
         "**The 100% response rate came from a management requirement, not from willingness**, which may pull answers toward what respondents thought the organisation wanted to hear — consistent with the 25.2% who named forced participation as a problem. These are self-reported preferences, not observed behaviour. **The data is from 2014–2015**: the option list still included Hi5, and Facebook's role in Thai workplaces has changed considerably since. Evidence comes from a single department using one reference topic.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一扇崭新的门紧闭着，旁边一扇用旧了的门被撑开",
+    zh: {
+      headline: "最大的障碍是不熟悉的技术——所以工作人员选择了他们每天已在使用的工具，以及彼此",
+      question:
+        "泰国政府机关被要求开展内部知识管理。这项研究询问真正要做这件事的官员卡在哪里，以及——如果可以选择——他们更愿意以何种方式、在什么地方分享自己所知。",
+      method:
+        "对疾病控制厅全国负责健康传播的 111 名官员（男性 41 人，女性 70 人）进行邮寄问卷调查，因高层管理者要求各区域负责人作答，回收率达 100%。以糖尿病预防传播为参照主题。18 题问卷通过了五位专家的内容效度审查。每题可多选。",
+      findings: [
+        "**首要障碍是不熟悉新技术，占 54.1%（60 人）**，其次是倾向于分享无关内容（43.2%，48 人）和协作不便（40.5%，45 人）。",
+        "**不愿透露信息达 36.9%（41 人），缺乏动力占 32.4%（36 人）**，另有 25.2%（28 人）把强制参与本身列为问题。",
+        "**Facebook 是被选最多的平台，占 53.2%（59 人）**，远高于网络论坛和电子邮件（各 19.8%）、聊天工具（18.9%）、视频会议（18.9%），Twitter 仅 6.3%。",
+        "**他们想要的活动是面对面的**——会议和考察 30.6%（34 人）、讲座和工作坊 29.7%（33 人）、导师指导 27.0%（30 人）。",
+        "**最明确的偏好是有导师带领的混合经验小组，占 55.9%（62 人）**，而只由资深传播者组成的小组为 16.2%，只由新手组成的小组为 6.3%。",
+      ],
+      soWhat:
+        "工作人员自己的回答与“知识管理从新平台开始”这一常见假设相悖。当首要障碍是不熟悉时，再添一个工具只会让问题更糟。他们选择的是已在日常生活中的渠道，加上能引导他们的人——技术在后，关系在先。",
+      caveat:
+        "**100% 的回收率来自管理层的要求，而非自愿**，这可能使回答偏向受访者认为组织想听的内容——与 25.2% 把强制参与列为问题的结果一致。这些是自我报告的偏好，不是观察到的行为。**数据来自 2014–2015 年**：选项里还列着 Hi5，而 Facebook 在泰国职场中的角色此后已有很大变化。证据来自单一部门、单一参照主题。",
     },
   },
   {
@@ -1412,6 +1570,26 @@ export const paperSummaries: PaperSummary[] = [
         "The plan addresses the problem that has dogged health communication with migrant workers: the material never reaches the people it is for. Two things here are directly reusable. The first is the channel decision — not building an app, but going where the audience already is. The second is writing the incentive design and the payment ceiling down before recruitment starts, which makes it possible to check afterwards that participation was genuinely voluntary. The companion study that has already reported results covers designing the exercises together with the workers themselves.",
       caveat:
         "**This is a plan, not a result.** The article states plainly that findings are not yet available because it is a protocol; everything under “what the study will do” is intended, not achieved. **The design is a single-group before-and-after measurement with no comparison group**, so any change observed cannot be separated from anything else happening over the same period. It takes place in one factory, and symptoms are self-reported rather than clinically assessed. The published version was awaiting peer review.",
+    },
+    illustrationAltZh:
+      "纸艺插画：几支弯曲的箭头围成一个闭环，其中一段仍是未上色的米白色，与其余部分不同",
+    zh: {
+      headline: "一项计划：检验在 Facebook 群组里以游戏形式推送的十二个动作，能否减轻移民工人的工作相关疼痛",
+      question:
+        "泰国海产品行业的缅甸移民工人因重复性工作患上肌肉骨骼疾病，但常规的健康传播很少能跨越语言和文化障碍触及他们。这份研究方案提出一项计划，开发并检验一套为他们的语言、文化和工作实际性质量身打造的健康传播包。",
+      method:
+        "研究分两个阶段。第一阶段通过每组 8 到 10 人、直至饱和的焦点小组讨论、每次 40 到 60 分钟的关键信息人访谈以及专家评审来开发传播包，并以北欧肌肉骨骼问卷为起点改编评估表。第二阶段实施，目标 400 名参与者——预留 10% 的流失率后预计 360 人——用经过验证的评估表进行前后测量。该试验于 2024 年 5 月在泰国临床试验注册中心注册。",
+      findings: [
+        "**传播包是十二个动作**，与健康专家共同选定，针对工作影响最大的身体部位，如颈部和背部。",
+        "**渠道是 Facebook 群组，而不是需要安装的应用程序。**纳入标准要求参与者每周至少登录一次——这是有意为之的选择，去受众已经在的地方。",
+        "**游戏机制事先已经规定**：每周三次信息帖，隔天进行每周三次测验，以及每周一次挑战。参与可获积分（点赞 1 分、评论 2 分、完成测验 1 分、答对 2 分、参加每周挑战 5 分），排行榜只显示最活跃的 10%。",
+        "**将要测量的是知识、意识和自我报告的肌肉骨骼症状**，用 t 检验或方差分析比较前后差异，同时根据群组中的实际行为追踪参与度。",
+        "**标题中的“伦理”一词指的是事先写明的条件**——知情同意、保密，以及不超过 200 泰铢的报酬上限，以免报酬变成参与的压力。",
+      ],
+      soWhat:
+        "这项计划针对的是长期困扰移民工人健康传播的问题：材料从来到不了它面向的人手里。这里有两点可以直接借鉴。第一是渠道决策——不开发应用，而是去受众已经在的地方。第二是在招募开始前就把激励设计和报酬上限写下来，这样事后可以核查参与是否真正出于自愿。已经报告结果的配套研究涵盖了与工人一起设计这些动作的过程。",
+      caveat:
+        "**这是一项计划，不是结果。**文章明确说明，由于这是研究方案，尚无研究发现；“研究将做什么”之下的一切都是意图，而非已完成。**设计是单组前后测量，没有对照组**，因此观察到的任何变化都无法与同一时期发生的其他事情区分开来。研究在一家工厂进行，症状为自我报告而非临床评估。发表的版本尚在等待同行评审。",
     },
   },
   {
@@ -2720,6 +2898,26 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone doing health communication in communities where literacy is limited or lectures do not land, a play the audience can rewrite does two things at once: it sends knowledge out, and it **brings the community's own reasoning back to the organisers** — how people actually decide about medicines, who holds authority in the household, and what stands in the way — none of which a one-way talk ever reveals. The lesson about family hierarchy suggests that messages aimed only at younger people may never reach the person who actually buys the medicine.",
       caveat:
         "**The evaluation happened once, on the same day as the play**, so it captures understanding and impressions immediately afterwards, not retention or any change in behaviour; the authors themselves note that the improvement may not reflect in-depth understanding. Focus groups covered 40 people from four of the ten plays, chosen by availability and willingness. The setting was a peri-urban slum, while most of Myanmar's population is rural. The authors caution that a young, enthusiastic theatre group may have been key to participation, so results could differ with another troupe. The evaluation was conducted by the project team itself.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个小舞台上放着一粒胶囊，一支箭头从观众席的椅子弯曲向上指向舞台",
+    zh: {
+      headline: "一出观众可以改写的戏，让仰光城郊的一个社区明白抗生素杀的是细菌——但走上舞台的人大多仍说不出为什么在药店自行购买是个问题",
+      question:
+        "在缅甸，抗生素无需处方即可出售，商店还出售把止痛药、抗生素、有时还有类固醇混在一起的“混合药”袋。当地的健康教育大多是单向讲座。这个项目尝试了论坛剧场——一出戏演两遍，第二遍由观众取代角色、把故事引向不同结局——并询问它是否改善了社区对抗生素的理解，以及观众对它有何看法。",
+      method:
+        "研究团队与仰光一个城郊镇区的本地剧团合作，选取五个供水和卫生条件差的拥挤地点，居民大多是工厂工人和体力劳动者。五场各 25–35 人的故事收集工作坊收集了居民的发热病经历，并选定两个主题编写剧本和歌曲：“发热与抗生素”和“混合药”。2018 年 9 月至 10 月共演出十场，每场 45–60 分钟，由七名青年演员出演，以主角自行用药后住院收场；重演时邀请观众上台扮演角色并改变结局，随后传达取自世界卫生组织倡导材料的四条关键信息。评估在十场中的四场当天进行演出前后的焦点小组，共 40 名参与者，以缅甸语转录、翻译并做内容分析，另有关于观众在台上行为的观察记录。",
+      findings: [
+        "**演出触及 1,175 人，其中 36 人走上舞台改写故事**（每场两到四人），而在这样的环境里，公众参与科学此前几乎没有实践过。",
+        "**演出前，大多数人听过“抗生素”这个词，却说不出它是什么**，误解朝各个方向蔓延：用于高烧、用于狗咬或蛇咬、用于预防季节性流感，或只用于肺结核。演出后，大多数焦点小组参与者能说出抗生素是杀细菌的药、不该一打喷嚏或头痛就吃、混合药袋不该自行购买，以及去诊所胜过去药店。",
+        "**人们喜欢这种形式并想要更多**，还自己提出了下一步的主题——肺结核、丙型肝炎、避孕和儿童吸毒——并表示比起正式的健康讲座，他们更喜欢这种方式，因为它更有趣、信息量更大。",
+        "**台上发生的事比焦点小组说出的更多。**大多数上台干预的观众只是劝生病的角色去看医生，似乎并不知道为什么无处方购买抗生素不妥。扮演家中晚辈的人几乎无法说服长辈，因为家庭等级确实有分量。扮演邻居的人通常会拿出钱来，好让病人看得起医生。",
+        "**社区提出了实用建议**——搭一个更逼真的药店布景，并在周日演出，因为人们周六要上班。在组织方这边，季风雨和排水不畅迫使数次延期，而当局提供的场地大多是佛教宗教建筑，这可能让其他信仰的居民却步。",
+      ],
+      soWhat:
+        "对于在识字率有限或讲座不起作用的社区做健康传播的人来说，一出观众可以改写的戏同时做了两件事：把知识送出去，并**把社区自己的推理带回给组织者**——人们究竟如何做出用药决定、家里谁说了算、什么在挡路——这些是单向讲座永远揭示不了的。关于家庭等级的教训表明，只针对年轻人的信息可能永远到不了真正买药的那个人手里。",
+      caveat:
+        "**评估只进行了一次，且与演出在同一天**，因此它捕捉的是演出后即时的理解和印象，而不是记忆保持或任何行为改变；作者自己也指出，这种改善可能并不反映深入的理解。焦点小组覆盖十场中四场的 40 人，按可得性和意愿选取。场景是城郊贫民区，而缅甸大多数人口居住在农村。作者提醒，一个年轻而热情的剧团可能是参与的关键，换一个剧团结果可能不同。评估由项目团队自己实施。",
     },
   },
   {
