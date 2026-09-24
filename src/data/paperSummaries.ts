@@ -2457,6 +2457,158 @@ export const paperSummaries: PaperSummary[] = [
         "**The sample is 150 students at a single university in one city**, not travellers in general, and what was measured is opinion rather than actual travel behaviour. **The article's abstract discusses economic effects, over-tourism, environmental degradation and sustainability, none of which this questionnaire measured**; this summary therefore follows the results tables only, as the centre does for every summary. **The article reports two overlapping sets of items covering the same ground with differing means, without explaining how the two sets differ**, so we report only the patterns that hold across both and do not treat any individual figure as a conclusion.",
     },
   },
+  {
+    slug: "forum-theatre-antibiotics-myanmar",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ เวทีเล็กๆ ที่มีแคปซูลยาวางอยู่ และลูกศรโค้งจากเก้าอี้คนดูขึ้นไปบนเวที",
+    illustrationAltEn:
+      "Paper-craft illustration of a small stage holding a capsule, with an arrow curving up from an audience chair onto the stage",
+    doi: "10.1371/journal.pone.0235625",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "forum-theatre-antibiotics-myanmar.pdf",
+    pdfUrl: "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0235625&type=printable",
+    th: {
+      headline:
+        "ละครที่ให้คนดูขึ้นเวทีแก้ตอนจบเอง ทำให้ชุมชนชานเมืองย่างกุ้งบอกได้ว่ายาปฏิชีวนะคือยาฆ่าเชื้อแบคทีเรีย แต่คนที่ขึ้นไปแก้ส่วนใหญ่ยังบอกไม่ได้ว่าทำไมซื้อกินเองถึงไม่ควร",
+      question:
+        "ในเมียนมาซื้อยาปฏิชีวนะได้ตามร้านขายยาโดยไม่ต้องมีใบสั่ง และมี “ยาชุด” ที่ผสมยาแก้ปวด ยาปฏิชีวนะ และบางครั้งสเตียรอยด์ขายในร้านค้าทั่วไป การให้ความรู้แบบบรรยายทางเดียวเป็นวิธีที่ใช้กันอยู่ งานนี้ทดลองใช้ละครเวทีแบบฟอรัม ที่ให้คนดูขึ้นมาแทนตัวละครแล้วพาเรื่องไปจบอีกแบบ และถามว่าวิธีนี้ทำให้ชุมชนเข้าใจยาปฏิชีวนะมากขึ้นไหม และคนดูคิดอย่างไรกับมัน",
+      method:
+        "ทีมวิจัยร่วมกับคณะละครท้องถิ่นทำงานในตำบลชานเมืองย่างกุ้ง เลือก 5 พื้นที่ที่แออัดและระบบน้ำกับสุขาภิบาลไม่ดี ผู้อยู่อาศัยส่วนใหญ่เป็นแรงงานโรงงานและแรงงานรับจ้าง · เริ่มจากเวิร์กช็อปเก็บเรื่องเล่า 5 ครั้ง (ครั้งละ 25–35 คน) ให้ชุมชนเล่าประสบการณ์ตอนเป็นไข้ แล้วเลือก 2 เรื่องมาเขียนบทและเพลง คือ “ไข้กับยาปฏิชีวนะ” และ “ยาชุด” · เล่น 10 รอบระหว่างเดือนกันยายน–ตุลาคม 2561 รอบละ 45–60 นาที นักแสดงเยาวชน 7 คน เรื่องจบด้วยตัวเอกต้องเข้าโรงพยาบาลเพราะกินยาเอง จากนั้นเล่นซ้ำโดยเชิญคนดูขึ้นมาแทนตัวละครเพื่อพาเรื่องไปจบแบบอื่น ปิดท้ายด้วยข้อความหลัก 4 ข้อจากสื่อรณรงค์ขององค์การอนามัยโลก · ประเมินด้วยการสนทนากลุ่มก่อนและหลังชมในวันเดียวกัน 4 รอบจาก 10 รอบ รวม 40 คน ถอดเทปภาษาพม่าแปลเป็นอังกฤษแล้ววิเคราะห์เนื้อหา บวกกับบันทึกสังเกตตอนคนดูขึ้นเวที",
+      findings: [
+        "**คนดูรวม 1,175 คน และมี 36 คนขึ้นเวทีไปแก้เรื่อง** (รอบละ 2–4 คน) ในพื้นที่ที่การมีส่วนร่วมของสาธารณะเรื่องวิทยาศาสตร์ยังแทบไม่เคยมีมาก่อน",
+        "**ก่อนชม ส่วนใหญ่เคยได้ยินคำว่ายาปฏิชีวนะแต่บอกไม่ได้ว่าคืออะไร** และมีความเข้าใจผิดหลายแบบปนกัน เช่น ใช้เมื่อไข้สูงมาก ใช้เมื่อโดนสุนัขหรืองูกัด ใช้ป้องกันไข้หวัดตามฤดู หรือใช้ได้เฉพาะวัณโรค · หลังชม ผู้ร่วมสนทนาส่วนใหญ่บอกได้ว่ายาปฏิชีวนะคือยาฆ่าเชื้อแบคทีเรีย ไม่ควรกินทุกครั้งที่จามหรือปวดหัว ไม่ควรซื้อยาชุดกินเอง และควรไปคลินิกแทนร้านขายยา",
+        "**คนดูสนุกและอยากให้ทำอีก** โดยเสนอหัวข้อถัดไปเอง ทั้งวัณโรค ไวรัสตับอักเสบซี การคุมกำเนิด และปัญหายาเสพติดในเด็ก และบอกว่าชอบแบบนี้มากกว่าการบรรยายสุขศึกษาแบบเดิมเพราะสนุกกว่าและได้ความรู้กว่า",
+        "**สิ่งที่เห็นบนเวทีบอกมากกว่าคำตอบในวงสนทนา** — คนดูที่ขึ้นไปแก้เรื่องส่วนใหญ่แค่แนะให้ตัวเอกไปหาหมอ แต่ดูเหมือนยังไม่รู้ว่าทำไมการซื้อยาปฏิชีวนะกินเองถึงไม่เหมาะสม · คนที่รับบทเป็นสมาชิกรุ่นน้องในครอบครัวแทบโน้มน้าวผู้ใหญ่ไม่สำเร็จ เพราะลำดับอาวุโสในบ้านมีน้ำหนักมาก · ส่วนคนที่รับบทเพื่อนบ้านมักเสนอช่วยเงินค่ารักษาถ้าตัวเอกไม่มีเงินไปหาหมอ",
+        "**ข้อเสนอเชิงปฏิบัติจากชุมชน** — ฉากร้านขายยาควรทำให้สมจริงกว่านี้ และควรเล่นวันอาทิตย์เพราะวันเสาร์ยังต้องทำงาน · ฝั่งผู้จัดพบว่าฝนช่วงมรสุมกับระบบระบายน้ำที่ไม่ดีทำให้ต้องเลื่อนการแสดงหลายครั้ง และสถานที่ที่ทางการจัดให้ส่วนใหญ่เป็นศาสนสถานพุทธ ซึ่งอาจทำให้คนต่างศาสนาไม่มา",
+      ],
+      soWhat:
+        "สำหรับคนทำงานสื่อสารสุขภาพในชุมชนที่คนอ่านหนังสือไม่คล่องหรือไม่คุ้นกับการบรรยาย ละครแบบให้คนดูขึ้นมาแก้เรื่องทำสองอย่างพร้อมกัน — ส่งความรู้ออกไป และ**ดึงวิธีคิดของชุมชนกลับมาให้ผู้จัดเห็น** ว่าคนตัดสินใจเรื่องยาอย่างไรจริงๆ ใครในบ้านมีอำนาจ และอะไรขวางอยู่ ซึ่งการบรรยายทางเดียวไม่มีวันเห็น · บทเรียนเรื่องลำดับอาวุโสในครอบครัวชี้ว่าข้อความที่พูดกับคนรุ่นใหม่อย่างเดียวอาจไปไม่ถึงคนที่ตัดสินใจซื้อยาจริง",
+      caveat:
+        "**ประเมินครั้งเดียวในวันเดียวกับการแสดง** จึงบอกได้แค่ความเข้าใจและความรู้สึกทันทีหลังชม ไม่ได้วัดว่าจำได้นานแค่ไหนหรือพฤติกรรมเปลี่ยนจริงไหม ผู้เขียนระบุเองว่าความเข้าใจที่ดีขึ้นอาจไม่ใช่ความเข้าใจเชิงลึก · สนทนากลุ่มกับ 40 คนจาก 4 ใน 10 รอบ ผู้ร่วมเลือกจากความสะดวกและความเต็มใจ · พื้นที่เป็นชุมชนแออัดชานเมือง ขณะที่ประชากรส่วนใหญ่ของเมียนมาอยู่ในชนบท · ผู้เขียนเตือนว่าคณะละครที่เป็นเยาวชนกระตือรือร้นอาจเป็นปัจจัยสำคัญที่ทำให้ชุมชนเข้าร่วม ผลอาจต่างออกไปกับคณะอื่น · เป็นการประเมินโครงการที่ทีมผู้จัดทำเอง",
+    },
+    en: {
+      headline:
+        "A play the audience could rewrite taught a peri-urban Yangon community that antibiotics kill bacteria — but most of those who stepped on stage still could not say why buying them over the counter is a problem",
+      question:
+        "In Myanmar antibiotics are sold without prescription, and shops sell “mixed medicine” bags combining painkillers, antibiotics and sometimes steroids. Health education there is mostly one-way talks. This project tried forum theatre — a play performed twice, where audience members replace the characters in the second run and steer the story to a different ending — and asked whether it improved the community's understanding of antibiotics and what the audience made of it.",
+      method:
+        "The research team worked with a local theatre group in a peri-urban township of Yangon, choosing five overcrowded locations with poor water and sanitation, where most residents are factory and manual workers. Five story-gathering workshops of 25–35 people each collected residents' experiences of febrile illness, and two themes were chosen for scripts and songs: “Fever and antibiotics” and “Mixed medicines”. Ten plays ran between September and October 2018, each 45–60 minutes with seven youth actors, ending with the central character hospitalised after self-medicating; the replay invited audience members to take a role and change the ending, followed by four key messages from the World Health Organization's advocacy materials. Evaluation used pre- and post-performance focus groups on the same day for four of the ten plays, 40 participants in all, transcribed in Burmese, translated and content-analysed, plus observation notes on what audience members did on stage.",
+      findings: [
+        "**The plays reached 1,175 people, and 36 of them stepped on stage to change the story** (two to four per play), in a setting where public engagement with science had barely been practised before.",
+        "**Before the play, most had heard the word “antibiotics” but could not say what they were**, and misunderstandings ran in every direction: for very high fever, for dog or snake bites, to prevent seasonal flu, or only for tuberculosis. Afterwards most focus-group participants could say that antibiotics are medicines that kill bacteria, should not be taken for every sneeze or headache, that mixed-medicine bags should not be bought on one's own, and that a clinic beats a drug shop.",
+        "**People enjoyed it and wanted more**, proposing the next topics themselves — tuberculosis, hepatitis C, contraception and drug use among children — and said they preferred it to formal health talks because it was more fun and more informative.",
+        "**What happened on stage said more than the focus groups did.** Most audience members who intervened simply advised the sick character to see a doctor, and did not appear to know why buying antibiotics without prescription was inappropriate. Whoever took the role of a junior family member was almost unable to persuade the elders, because family hierarchy carried real weight. Those playing neighbours typically offered money so the sick person could afford a doctor.",
+        "**Practical suggestions came from the community** — build a more realistic pharmacy set, and perform on Sundays because people work on Saturdays. On the organisers' side, monsoon rain and poor drainage forced several postponements, and most venues offered by the authorities were Buddhist religious buildings, which may have kept residents of other faiths away.",
+      ],
+      soWhat:
+        "For anyone doing health communication in communities where literacy is limited or lectures do not land, a play the audience can rewrite does two things at once: it sends knowledge out, and it **brings the community's own reasoning back to the organisers** — how people actually decide about medicines, who holds authority in the household, and what stands in the way — none of which a one-way talk ever reveals. The lesson about family hierarchy suggests that messages aimed only at younger people may never reach the person who actually buys the medicine.",
+      caveat:
+        "**The evaluation happened once, on the same day as the play**, so it captures understanding and impressions immediately afterwards, not retention or any change in behaviour; the authors themselves note that the improvement may not reflect in-depth understanding. Focus groups covered 40 people from four of the ten plays, chosen by availability and willingness. The setting was a peri-urban slum, while most of Myanmar's population is rural. The authors caution that a young, enthusiastic theatre group may have been key to participation, so results could differ with another troupe. The evaluation was conducted by the project team itself.",
+    },
+  },
+  {
+    slug: "pint-of-science-thailand",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แก้วเบียร์ทรงสูงหนึ่งใบ มีกรอบคำพูดกระดาษลอยขึ้นจากปากแก้วแทนฟอง",
+    illustrationAltEn:
+      "Paper-craft illustration of a single tall pint glass with a paper speech bubble rising from its rim in place of foam",
+    doi: "10.1371/journal.pone.0219983",
+    articleLanguage: "en",
+    license: "cc-by",
+    localCopy: "pint-of-science-thailand.pdf",
+    pdfUrl: "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0219983&type=printable",
+    th: {
+      headline:
+        "งานเล่าวิทยาศาสตร์ในผับที่กรุงเทพฯ คนมาเพราะสนใจอยู่แล้ว ให้คะแนนสูง และบอกว่าได้ความรู้ใหม่ แต่คืนเดียวที่พูดภาษาไทยมีคนมาน้อยที่สุด",
+      question:
+        "เทศกาล Pint of Science คือการให้นักวิจัยเล่างานของตัวเองสั้นๆ ในผับหรือร้านกาแฟ เริ่มในอังกฤษปี 2556 และจัดครั้งแรกในเอเชียที่กรุงเทพฯ ปี 2560 งานนี้ถามว่าคนที่มาเป็นใคร มาทำไม ได้อะไรกลับไป ทั้งฝั่งคนฟังและฝั่งนักวิจัยที่ขึ้นพูด และควรปรับอะไร — เป็นการประเมินอย่างเป็นระบบครั้งแรกของงานแบบนี้ในประเทศไทย",
+      method:
+        "ปี 2561 จัด 6 วัน 18 หัวข้อ ใน 4 สถานที่กลางกรุงเทพฯ (กุมภาพันธ์ 1 วัน · พฤษภาคม 4 วัน · สิงหาคม 1 วัน) พูดภาษาอังกฤษ 5 วัน ภาษาไทย 1 วัน หัวข้อละ 12–20 นาที เข้าฟรี มีขนมและเครื่องดื่ม · แจกแบบสอบถาม 180 ชุดในงานเดือนพฤษภาคมและสิงหาคม ได้กลับมาสมบูรณ์ 125 ชุด ถามเหตุผลที่มา การมีส่วนร่วม ความรู้ ความสนใจ ความสนุก และความพอใจด้านสถานที่ วิทยากร เวลา เนื้อหา และโอกาสพูดคุย (8 ข้อ ข้อละ 0–5 รวมเต็ม 40) · สัมภาษณ์กึ่งโครงสร้าง 11 คนและสนทนากลุ่ม 3 คน · เปรียบเทียบคะแนนมัธยฐานระหว่างกลุ่มด้วยสถิติไม่อิงพารามิเตอร์",
+      findings: [
+        "**ลงทะเบียนรวม 267 คนใน 6 วัน — คืนเดี่ยวเดือนกุมภาพันธ์มากที่สุด 69 คน ส่วนคืนที่พูดภาษาไทยน้อยที่สุด 13 คน** ทั้งที่ประชาสัมพันธ์สองภาษาและจัดในย่านกลางเมืองเหมือนกัน",
+        "**ผู้ตอบแบบสอบถามครึ่งหนึ่งเป็นคนไทย (49.6%) และครึ่งหนึ่งทำงานหรือเรียนสายวิทยาศาสตร์ (53.6%)** อายุเฉลี่ย 34 ปี · รู้ข่าวจากเพื่อนมากที่สุด 43.2% รองลงมาเฟซบุ๊ก 27.2% · 1 ใน 4 เคยมางานปีก่อน",
+        "**เหตุผลที่มาคือสนใจวิทยาศาสตร์ 68.0% อยากเรียนรู้ 46.4% และมาเพื่อความสนุก 44.8%** · 69.6% บอกว่าได้รู้จักคนใหม่ 58.4% ได้แลกเปลี่ยนความรู้ แต่มีเพียง 28.2% ที่ถามคำถามในงาน",
+        "**คะแนนรวมมัธยฐาน 35 จาก 40** และคนที่มาเพราะสนใจวิทยาศาสตร์ (35.2 เทียบ 33.6) มาเพื่อความสนุก (35.5 เทียบ 34.0) หรืออยากเรียนรู้ (35.5 เทียบ 34.0) ให้คะแนนสูงกว่าคนที่ไม่ได้มาด้วยเหตุผลนั้นอย่างมีนัยสำคัญ · **เพศ อายุ สัญชาติ อาชีพ ช่องทางที่รู้ข่าว และการเคยมาก่อน ไม่ทำให้คะแนนต่างกัน**",
+        "**ผู้ฟังให้คะแนนความรู้ที่มีอยู่ก่อนเฉลี่ย 2.5 แต่ให้คะแนนความรู้ใหม่ที่ได้ 4.1 จาก 5** — เป็นการประเมินตัวเองหลังงาน ไม่ใช่การทดสอบความรู้",
+        "**ฝั่งวิทยากรบอกว่าได้ฝึกทักษะการสื่อสาร ได้เครือข่ายทั้งในและนอกวงวิทยาศาสตร์ งานเป็นที่รู้จักมากขึ้น และอาจเพิ่มโอกาสได้ทุน** · ข้อเสนอจากผู้ฟัง: หัวข้อกระจุกอยู่ที่วิทยาศาสตร์การแพทย์และมาจากสถาบันเดียวมากไป ควรร่วมกับสถาบันอื่น โปรโมตในหมู่นิสิตนักศึกษาและบนโซเชียลให้มากขึ้น สถานที่ใหญ่ขึ้น ใกล้รถไฟฟ้า และพักระหว่างหัวข้อนานขึ้น",
+      ],
+      soWhat:
+        "สำหรับคนที่จะจัดงานสื่อสารวิทยาศาสตร์ในไทย ตัวเลขบอกสองอย่างพร้อมกัน — รูปแบบนี้ได้ผลดีมากกับคนที่สนใจอยู่แล้ว และ**ยังไปไม่ถึงคนที่อยู่นอกวงนั้น** ผู้ฟังส่วนใหญ่อยู่ในสายวิทยาศาสตร์หรือถนัดภาษาอังกฤษ ผู้เขียนเองระบุว่าผู้ชมกลุ่มนี้มีแนวโน้มเป็นคนรายได้ปานกลางถึงสูงและการศึกษาสูง · คืนภาษาไทยที่มีคนน้อยที่สุดจึงไม่ใช่หลักฐานว่าคนไทยไม่สนใจ แต่อาจสะท้อนว่างานถูกออกแบบและกระจายข่าวผ่านเครือข่ายที่พูดอังกฤษเป็นหลัก (ปีก่อนหน้า ผู้บรรยายไทย 2 ใน 3 คนเปลี่ยนไปพูดอังกฤษเองเพราะผู้ฟังทุกคนเข้าใจ) และจัดต่างเวลาต่างย่านจากคืนอื่น การจะขยายฐานผู้ฟังต้องแก้ที่การออกแบบงาน ไม่ใช่รอให้คนมาเอง",
+      caveat:
+        "**ผู้ประเมินคือทีมผู้จัดงานเอง** ซึ่งผู้เขียนระบุว่าไม่เป็นอิสระและเสนอให้ใช้ผู้ประเมินภายนอกในอนาคต · ผู้ตอบเป็นคนที่เลือกมางานเอง และ 55 จาก 180 ชุดตอบไม่ครบ · เป็นการวัดครั้งเดียวทันทีหลังงาน ความรู้ที่รู้สึกว่าได้ไม่ได้แปลว่าได้จริงหรือจะเปลี่ยนพฤติกรรม และผู้เขียนเตือนว่างานแบบนี้อาจไม่ได้สร้างความรู้เท่าทันวิทยาศาสตร์เชิงวิพากษ์ · ไม่ได้เก็บข้อมูลฐานะทางเศรษฐกิจ ข้อสรุปเรื่องกลุ่มรายได้เป็นการอนุมานของผู้เขียน",
+    },
+    en: {
+      headline:
+        "Science talks in Bangkok bars drew people who were already interested, scored highly and reported learning something new — yet the one Thai-language night drew the smallest crowd",
+      question:
+        "Pint of Science is a festival in which researchers give short talks about their own work in pubs and cafés. It began in the United Kingdom in 2013 and was first held in Asia in Bangkok in 2017. This study asked who comes, why, what they and the speakers take away, and what should change — the first systematic evaluation of the format in Thailand.",
+      method:
+        "In 2018 the festival ran on six days with 18 talks at four venues in central Bangkok (one day in February, four in May, one in August), in English on five days and in Thai on one, with talks of 12–20 minutes, free entry, and a snack and drink for everyone. A questionnaire was handed to all 180 attendees of the May and August events and 125 completed it, covering reasons for coming, participation, knowledge, interest, enjoyment and satisfaction with venue, speakers, timing, content and the chance to interact (eight items scored 0–5, for a maximum of 40). Eleven semi-structured interviews and one focus group of three were conducted. Median scores were compared between groups with non-parametric tests.",
+      findings: [
+        "**Registrations totalled 267 across six days — the stand-alone February night was the largest at 69, and the Thai-language night the smallest at 13**, despite bilingual publicity and a central location like the others.",
+        "**Half of the respondents were Thai (49.6%) and half worked or studied in a science-related field (53.6%)**, with a mean age of 34. Friends were the main source of information (43.2%), then Facebook (27.2%); a quarter had attended the previous year.",
+        "**People came out of interest in science (68.0%), to learn (46.4%) and to enjoy themselves (44.8%).** 69.6% said they made new contacts and 58.4% exchanged scientific knowledge, but only 28.2% asked a question.",
+        "**The median overall score was 35 out of 40**, and those who came because they were interested in science (35.2 vs 33.6), for enjoyment (35.5 vs 34.0) or to learn (35.5 vs 34.0) scored the event significantly higher than those who did not. **Gender, age, nationality, occupation, how people heard about it and prior attendance made no significant difference.**",
+        "**Attendees rated their prior knowledge of the topics at 2.5 on average but the new knowledge they gained at 4.1 out of 5** — a self-assessment after the event, not a test of knowledge.",
+        "**Speakers said they sharpened their communication skills, built networks inside and outside science, raised the visibility of their work and might improve their chances of funding.** Audience recommendations: topics were concentrated in medical science and one institution, so collaborate with other institutions; promote more among university students and on social media; find bigger venues near the Skytrain; and allow longer breaks between talks.",
+      ],
+      soWhat:
+        "For anyone planning science communication events in Thailand, the numbers say two things at once: the format works very well for people who are already interested, and **it has not yet reached anyone outside that circle**. Most attendees were in science or comfortable in English, and the authors themselves note that this audience tends to be middle to higher income and highly educated. The thin Thai-language night is therefore not evidence that Thais are uninterested; it more likely reflects an event designed and publicised through an English-speaking network (the previous year, two of three Thai presenters switched to English because everyone understood it) and held at a different time and in a different part of the city. Widening the audience means redesigning the event, not waiting for people to turn up.",
+      caveat:
+        "**The evaluators were the organisers themselves**, which the authors acknowledge is not independent, proposing external evaluators in future. Respondents were self-selected attendees, and 55 of 180 questionnaires were incomplete. It is a one-off measurement immediately after the event: knowledge people feel they gained is not the same as knowledge gained or behaviour changed, and the authors warn that such events may not build critical scientific literacy. Socio-economic status was not collected, so the point about income groups is the authors' inference.",
+    },
+  },
+  {
+    slug: "indigenous-education-sdgs-philippines",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ บ้านหลังเล็กตั้งอยู่กลางวงแหวนกระดาษสองวง วงในหนาและเต็ม วงนอกบางและขาดเป็นช่วง",
+    illustrationAltEn:
+      "Paper-craft illustration of a small house at the centre of two paper rings, the inner ring thick and complete, the outer ring thin and broken",
+    doi: "10.46223/hcmcoujs.soci.en.15.2.3155.2025",
+    articleLanguage: "en",
+    license: "cc-by-nc",
+    localCopy: "indigenous-education-sdgs-philippines.pdf",
+    pdfUrl: "https://journalofscience.ou.edu.vn/index.php/soci-en/article/download/3155/2237",
+    th: {
+      headline:
+        "ครูโรงเรียนสำหรับชนพื้นเมืองในฟิลิปปินส์ทำเป้าหมายการพัฒนาที่ยั่งยืนให้เป็นจริงในห้องเรียนได้เกือบทุกวัน แต่ยิ่งงานออกไปนอกโรงเรียน คะแนนยิ่งลดลงเหลือระดับปานกลาง",
+      question:
+        "ฟิลิปปินส์มีโครงการการศึกษาสำหรับชนพื้นเมืองที่ให้โรงเรียนในพื้นที่ห่างไกลจัดการเรียนการสอนให้เข้ากับวัฒนธรรมของชุมชน งานนี้ถามว่าครูในโรงเรียนเหล่านั้นทำอะไรบ้างที่ทำให้เป้าหมายการพัฒนาที่ยั่งยืน (SDG) เกิดขึ้นจริงในระดับท้องถิ่น — ทั้งการมีส่วนร่วมกับชุมชน การส่งเสริม และการปฏิบัติในห้องเรียน — และครูกับชุมชนมองเรื่องนี้ตรงกันหรือไม่",
+      method:
+        "วิจัยแบบผสมคู่ขนาน · แบบสอบถามครู 131 คนจากโรงเรียนที่ใช้โครงการนี้ในเขตการศึกษาเมืองบายูกัน จังหวัดอากูซานเดลซูร์ วัดด้วยมาตรวัด 5 ระดับ (การมีส่วนร่วมและการส่งเสริมวัดระดับความเห็นด้วย การปฏิบัติวัดความถี่) รวม 12 ตาราง ตารางละ 5 ข้อ · สนทนากลุ่มและสัมภาษณ์กึ่งโครงสร้างครู 20 คน (คัดจากผู้ตอบแบบสอบถามตามที่ตั้งโรงเรียน จำนวนนักเรียน และการอบรมที่เคยรับ) และผู้มีส่วนได้ส่วนเสีย 15 คน ได้แก่ ผู้ปกครอง เยาวชน และผู้นำชนเผ่า วิเคราะห์แก่นสาระ · แล้วนำสองส่วนมาเทียบว่าสอดคล้องหรือขัดกัน",
+      findings: [
+        "**ในห้องเรียนคะแนนสูงสุด** — การจัดการชั้นเรียนได้ 4.36 จาก 5 ระดับ “ทำเสมอ” โดยข้อที่สูงที่สุดของทั้งชุดคือการคำนึงถึงสิทธิและระบบปกครองของชนพื้นเมืองในการดูแลชั้นเรียน 4.41 · การวัดผล 4.10 · การออกแบบสื่อการสอน 4.05 · วิธีสอน 4.01 (ระดับ “บ่อย”) โดยข้อที่สูงคือการเชื่อมบทเรียนกับปัญหาและการต่อสู้ของสังคม 4.22 และการให้นักเรียนติดตามความก้าวหน้าของตัวเอง 4.21",
+        "**พอเป็นงานที่ต้องออกไปนอกโรงเรียน คะแนนลดลงมาอยู่ที่ 3.4–3.9** — การประสานผู้มีส่วนได้ส่วนเสีย 3.66 · กิจกรรมเพื่อสังคม 3.80 · การวางแผนพัฒนาชุมชน 3.70 · ความร่วมมือกับสถาบันอื่น 3.44 · การเผยแพร่ข้อมูล 3.89 (ใช้โซเชียลมีเดียส่งเสริมมรดกวัฒนธรรม 4.01 เป็นข้อสูงสุดของกลุ่มนี้)",
+        "**ต่ำที่สุดคืองานเชิงความรู้และการระดมสังคม ซึ่งอยู่ที่ระดับ “เห็นด้วยปานกลาง”** — การพัฒนาความรู้ของชุมชน 3.19 โดยข้อที่ต่ำที่สุดของทั้งชุดคือการทำวิจัยเองเรื่องทรัพยากรในเขตแดนบรรพชน 2.86 และการจัดอบรมการวางแผนให้ชุมชน 2.93 · การระดมสังคม 3.38 · การชวนผู้แทนชนเผ่ามาเป็นผู้ช่วยสอนได้ 3.52 ต่ำสุดในกลุ่มวิธีสอน",
+        "**เสียงจากการสนทนากลุ่มตรงกับตัวเลข** — ครูบอกว่าการหาผู้บริจาคและพันธมิตรภาคเอกชนเป็นทางที่เป็นไปได้ที่สุดในการอุดช่องว่างเรื่องสื่อการสอน ทุพโภชนาการ และบริการสุขภาพ เพราะบางหมู่บ้านไม่มีสถานีอนามัย · ปัญหาใหญ่ที่สุดของนักเรียนคืออ่านจับใจความไม่ได้ จึงเน้นโครงการแก้ปัญหาการอ่าน · ใช้เฟซบุ๊กแจ้งข่าวและมาตรการรับมือภัยพิบัติ · ก่อนทำโครงการใดต้องขออนุญาตผู้นำชนเผ่าและผู้อาวุโสก่อน และเชิญมาทำพิธีก่อนเปิดเทอม",
+        "**ครูยอมรับว่าตัวเองอาจไม่ได้มีความรู้เรื่อง SDG แน่นหนา** แต่มีวิธีทำให้เป้าหมายเหล่านั้นเกิดขึ้นในแบบของตัวเอง เช่น แปลงผักในโรงเรียนที่ลดความหิวซึ่งเป็นเหตุผลหลักที่เด็กออกกลางคัน สื่อการสอนภาษาแม่ที่เล่าเรื่องของชุมชนเอง และการให้นักเรียนร่างกติกาวินัยของห้องเอง",
+      ],
+      soWhat:
+        "สำหรับผู้วางนโยบายการศึกษาชนพื้นเมืองและหน่วยงานพัฒนา ภาพที่ออกมาชัด — ครูทำสิ่งที่อยู่ในมือได้ดีอยู่แล้ว คือห้องเรียนที่เคารพวัฒนธรรมและให้เด็กมีเสียง แต่**สิ่งที่ครูทำได้น้อยคือสิ่งที่ต้องใช้ทรัพยากร เครือข่าย และเวลาเกินกว่าโรงเรียนจะมี** ทั้งงานวิจัย การอบรม พลังงานแสงอาทิตย์ และความร่วมมือกับหน่วยงานวิทยาศาสตร์ · ถ้าจะให้โรงเรียนเหล่านี้เป็นกลไกท้องถิ่นของเป้าหมายการพัฒนาที่ยั่งยืน จุดที่ควรเติมไม่ใช่ห้องเรียน แต่คือช่องทางที่โรงเรียนจะดึงหน่วยงานภายนอกเข้ามา และการที่ครูขอความยินยอมจากผู้นำชนเผ่าก่อนเสมอคือเงื่อนไขของการทำงานที่นี่ ไม่ใช่ขั้นตอนที่ข้ามได้",
+      caveat:
+        "**ตัวเลขทั้งหมดเป็นการรายงานตัวเองของครู** ว่าทำอะไรบ่อยแค่ไหน ไม่ได้สังเกตในห้องเรียนหรือวัดผลที่เกิดกับนักเรียน จึงอาจเอนไปทางที่ครูเห็นว่าควรตอบ · เก็บจากเขตการศึกษาเดียว ไม่มีกลุ่มเปรียบเทียบ และรายงานเป็นค่าเฉลี่ยโดยไม่มีการทดสอบทางสถิติ · ข้อสรุปของผู้เขียนว่าครูมีความมุ่งมั่นสูงน่าชื่นชมเป็นการตีความจากคำตอบ ไม่ใช่ผลที่วัดได้ · บทความไม่มีส่วนที่ระบุข้อจำกัดของตัวเอง ข้อจำกัดข้างต้นเป็นสิ่งที่เราอ่านออกจากวิธีการ",
+    },
+    en: {
+      headline:
+        "Teachers in indigenous-education schools in the Philippines bring the Sustainable Development Goals to life in the classroom almost daily — but the further the work moves outside the school, the lower it scores, down to “moderate”",
+      question:
+        "The Philippines runs an Indigenous Peoples Education programme under which schools in remote areas adapt teaching to the culture of the community they serve. This study asked what teachers in those schools actually do to make the Sustainable Development Goals (SDGs) real at local level — through participation with the community, promotion, and classroom practice — and whether teachers and community members see it the same way.",
+      method:
+        "A convergent parallel mixed-methods study. A survey of 131 teachers from programme schools in the Bayugan City division of Agusan del Sur used five-point scales (agreement for participation and promotion, frequency for practices) across twelve tables of five items each. Focus groups and semi-structured interviews were held with 20 of those teachers, chosen by school location, number of learners and training received, and with 15 stakeholders — parents, young people and tribal leaders — and analysed thematically. The two strands were then compared for convergence or divergence.",
+      findings: [
+        "**Scores were highest inside the classroom.** Classroom management averaged 4.36 out of 5, in the “always” band, and the single highest item in the whole survey was respecting indigenous rights and governance when managing the class, at 4.41. Assessment scored 4.10, instructional design 4.05 and teaching methods 4.01 (“frequent”), with connecting lessons to social issues and struggles at 4.22 and letting learners monitor their own progress at 4.21.",
+        "**Once the work moved outside the school, scores fell to 3.4–3.9** — stakeholder collaboration 3.66, socio-civic activities 3.80, community development and planning 3.70, institutional partnerships 3.44, and information dissemination 3.89, where using social media to promote cultural heritage (4.01) was the top item.",
+        "**Lowest of all were knowledge work and social mobilisation, in the “moderately agree” band** — knowledge advancement 3.19, with the two lowest items in the survey being conducting one's own research on ancestral-domain resources (2.86) and running planning training for the community (2.93); social mobilisation 3.38; and asking tribal representatives to co-teach, at 3.52, the lowest of the teaching methods.",
+        "**The focus groups matched the numbers.** Teachers said donors and private-sector partners were the most feasible way to fill gaps in learning materials, malnutrition and health services, since some villages have no health centre. The biggest problem among learners was reading comprehension, so reading interventions took priority. Facebook carried news and disaster-preparedness advice. Before any project, teachers sought permission from tribal leaders and elders, and invited them to perform rituals before the school year opened.",
+        "**Teachers admitted their own knowledge of the SDGs might not be solid**, yet had their own ways of making the goals happen: school vegetable gardens that reduce the hunger which is a main reason children drop out, mother-tongue materials telling the community's own stories, and letting learners write their own classroom discipline codes.",
+      ],
+      soWhat:
+        "For indigenous-education policymakers and development agencies the picture is clear: teachers already do well what lies within their reach — a classroom that respects culture and gives children a voice — while **what they do least is whatever demands resources, networks and time beyond a school's means**: research, training, solar power, links with scientific agencies. If these schools are to be local engines of the Sustainable Development Goals, the place to invest is not the classroom but the channels through which a school can draw outside institutions in — and the teachers' habit of seeking tribal leaders' consent first is a condition of working here, not a step to be skipped.",
+      caveat:
+        "**Every figure is teachers' self-report** of how often they do things, with no classroom observation and no measure of outcomes for learners, so answers may lean toward what teachers felt they should say. Data come from a single school division with no comparison group, and are reported as means without statistical tests. The authors' conclusion that teachers show “commendable” commitment is an interpretation of the responses, not a measured result. The article has no limitations section of its own; the limitations above are what we read from its methods.",
+    },
+  },
 ];
 
 const byDoi = new Map(
