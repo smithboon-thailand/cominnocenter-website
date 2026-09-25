@@ -1955,6 +1955,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is reasoning from a classical-liberal, property-rights position** — one school among several, not a settled academic conclusion. The founding assumption that all rights reduce to property rights is exactly what many philosophers reject; without it, the conclusion does not follow. Nothing is measured and the argument is not tested against real cases. It was written in 2020, before the newer platform-regulation regimes took effect, so it does not engage the market-power argument about very large platforms that dominates the later debate.",
     },
+    illustrationAltZh:
+      "纸艺插画：一扇绿色门框独自立在空地上，米白色门扇敞开，两侧没有任何围栏延伸出去",
+    zh: {
+      headline: "言论自由是不被阻止的权利，而不是要求别人的平台替你传播的权利",
+      question:
+        "可持续发展目标具体目标 16.10 呼吁保障公众获取信息和保护基本自由，与此同时社交媒体平台因“审查”用户内容而受到批评。平台所有者删除一条帖子或封禁一个账号，真的侵犯了言论自由吗？",
+      method:
+        "一篇政治与法律哲学的逐步论证。它先按罗斯巴德的思路把**自由**与**能力**区分开，并参照洛克的自由概念；然后依照伯林的划分，把**消极权利**（只要求他人不干涉）与**积极权利**（要求他人先行动或付出，权利才成为现实）区分开；再把传播自由与财产权联系起来。文章不收集数据，也不考察实证案例。",
+      findings: [
+        "**自由不等于能力。**一个人不是“没有自由”跳过大海——他是缺乏跳过去的**能力**。缺乏能力不是被剥夺权利，把两者混为一谈正是纠缠不清的论争的起点。",
+        "**消极权利与积极权利对他人的要求不同。**消极权利只要求他人克制，因此不强迫任何人。积极权利意味着必须有人被迫行动或付出，这项权利才在实践中存在。",
+        "**言论自由不是一项独立的权利，而是财产权的延伸。**通常被跳过的问题是**在哪里**——言论总是发生在某个地方，要么在你自己的财产上，要么在所有者同意接待你的财产上。",
+        "**按这一框架，私营平台拒绝传播某些内容不是审查，而是行使财产权。**文章在两者之间划出清晰的界线：私人一方拒绝在自己的财产上传播某人的想法，与政府禁止人们在其合法拥有的财产上发表言论。",
+        "**结论把常见的批评倒转过来。**作者认为，强迫平台放弃其内容政策对言论自由的威胁**大于**删除帖子，因为这是强迫财产所有者去做他们不愿做的事。",
+      ],
+      soWhat:
+        "每当一条有新闻价值的帖子被删除，平台与言论的争论就会重演。无论你是否接受结论，这篇文章提供了一种**拆分问题的方法**：在问“这是审查吗”之前，先问这是谁的平台，以及所提出的要求是让某人克制不作为，还是强迫某人作为。这两个问题能把看起来一模一样的案例区分开来，而且适用于任何媒介，不只是社交媒体。",
+      caveat:
+        "**这是从古典自由主义、财产权立场出发的推理**——是几种学派之一，不是学界的定论。“一切权利都可归结为财产权”这一基础假设，正是许多哲学家所反对的；没有这个假设，结论就不成立。文章没有任何测量，论证也没有在真实案例上检验。它写于 2020 年，早于较新的平台监管制度生效，因此没有讨论后来主导争论的关于超大型平台市场支配力的论点。",
+    },
   },
   {
     slug: "deceptive-pr-responsibility",
@@ -2001,6 +2021,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is a thought experiment, not a study of decided cases** — no data and no actual judgments. The framework is liberal legal philosophy, resting responsibility on consent and property rights; other schools answer differently. **It is not legal advice and it is not grounded in Thai law**; anyone needing an answer for a real case must consult the statutes and precedents of that jurisdiction. The company and newspaper in the hypothetical are names the authors invented and refer to no real organisation.",
     },
+    illustrationAltZh:
+      "纸艺插画：三环相扣的链条，中间一环颜色不同且已裂开，却仍把链条连在一起",
+    zh: {
+      headline: "当一份虚假新闻稿经由新闻编辑部传到读者手中，谁该负责",
+      question:
+        "记者经常根据新闻稿、简报和通报来写报道。如果这些材料不实，甚至是蓄意造假，而读者因为相信它而受到损害，谁应当为此负责——发出稿件的公关从业者、过度依赖信源的记者，还是公众？",
+      method:
+        "以**思想实验**的方式进行的法哲学研究：设定一个假想案例，然后逐步改变条件。一家公司直接向买家作出虚假声明；然后改为购买报纸广告；再然后只是发出一份新闻稿，由编辑团队把它写成新闻报道。论证在每一步都追问责任转移到了哪里，并通过手段与目的的框架以及介入其中的自由意志问题加以分析。文章不收集任何真实数据。",
+      findings: [
+        "**前两步很直接。**无论公司是直接欺骗买家，还是通过付费广告欺骗，责任都在公司：它控制了信息，也收了钱。经由媒介传递并不改变什么。",
+        "**第三步有所不同，因为中间站着一个拥有自由意志的行动者。**新闻编辑部没有收钱，并且自行决定是否发表，这一选择“切断”了从公司到受害者的因果链。",
+        "**然而公司仍然把媒介当作达到被禁止目的的手段。**文章把这比作一名邮递员投递一个装有欺诈内容的信封，而他对内容一无所知：邮递员只是手段，没有意图，不承担责任。",
+        "**而这正是论证的核心——新闻编辑部不是那个邮递员。了解内容并决定发表什么恰恰是它的职责**，因此即便它不是收钱的一方，也不能被完全排除在责任之外。",
+        "**结论是没有现成的答案。**作者直言，这个问题无法“在扶手椅上”解决。它要逐案判断，而且**一条欺骗性信息本身并不构成犯罪**：必须有可确认的、寻求赔偿的受害者，还要有裁决者同时权衡抽象原则和当时当地的实践已经形成的预期。",
+      ],
+      soWhat:
+        "对新闻编辑部和公关从业者而言，可以拿来用的要点是：**决定发表什么本身就是一个有分量的行为，而不只是转发**。邮递员与编辑的区别，是关于“为什么事实核查不是可有可无的附加项”最简洁的理由之一。对于媒体伦理教学，这个结构可以直接当作练习使用，因为它让同一个案例经历多种变化，并准确展示责任在哪里转移、为什么转移。",
+      caveat:
+        "**这是一项思想实验，不是对已判决案件的研究**——没有数据，也没有真实判决。其框架是自由主义法哲学，把责任建立在同意与财产权之上；其他学派会给出不同答案。**它不是法律建议，也不以泰国法律为依据**；需要为真实案件寻找答案的人，必须查阅该司法管辖区的法规与判例。假想案例中的公司和报纸名称是作者虚构的，不指向任何真实机构。",
+    },
   },
   {
     slug: "video-art-screen-savers",
@@ -2046,6 +2086,26 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone working with media and display space, the transferable point is that **moving a work changes what the work is**: the same clips carry a different meaning in a living room than in a gallery, without a frame of the footage changing. That frame extends to public screens, lobby displays, and work distributed through platforms never designed as art spaces.",
       caveat:
         "**This is a conceptual article with no audience data and no figures behind it**, so the claims about where things are heading are the author's forecast rather than a measurement. It was written in 2018 around the devices and platform limits of that moment, which have since changed. The working definition of “art” is a broad one; a stricter definition would not yield the same conclusion. The remarks about generational differences cite other people's work, not findings of this one.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一块空白的宽屏面板立在画家的画架上",
+    zh: {
+      headline: "录像艺术花了半个世纪寻找进入大众文化的门路，然后从一扇无人看守的门走进了客厅",
+      question:
+        "2015 年，Apple TV 上出现了一款新的屏幕保护程序：一组来自世界各地的天际线与风景的慢动作航拍片段。这些算不算录像艺术？如果算，这对录像艺术如今在大众文化中的位置意味着什么？",
+      method:
+        "一篇艺术理论与文化研究的论证。它重新审视什么算作视觉艺术，按列维-斯特劳斯的区分把艺术的非功利目的与功利目的分开，检验屏幕保护程序满足其中哪些标准，然后把结果放进录像艺术的历史以及人们在家中实际使用屏幕的方式之中。没有观众调查，也没有量化数据。",
+      findings: [
+        "**纯粹实用的物品也可以是艺术品。**“艺术必须无用”这一主张经过检视被认为过于狭窄：艺术在历史上服务过许多目的，包括传达情绪、娱乐和交流。",
+        "**屏幕保护程序起初纯粹是实用工具**——保护显示器免于烧屏——但如今它也做着艺术品所做的事：传达情绪、营造氛围、面向观看者。",
+        "**真正改变的是位置，而不是作品。**作者的提议是，这项技术把录像艺术变成了一件**室内物件**，从而赋予它新的意义：从一件你要专程去画廊才能看到的东西，变成在无数客厅中央运行、几乎无人留意的东西。",
+        "**让它成长的条件是让观众自己选择。**在写作当时，用户不能提供自己的片段，只能使用制造商的那一套。如果允许第三方屏幕保护程序，作者预期会随之出现一个屏幕保护艺术市场，因为房间里的大屏幕像唱片收藏一样展示着品味。",
+        "**它是作为一个开放的问题提出的，而不是宣告。**文章在结尾问道：我们是否正处在一种新的大众艺术形式的诞生之际，而不是断言我们正是如此。",
+      ],
+      soWhat:
+        "对任何从事媒体与展示空间工作的人来说，可迁移的要点是：**移动一件作品会改变作品本身**——同样的片段，在客厅里与在画廊里承载的意义不同，而画面一帧也没有变。这一框架延伸到公共屏幕、大堂显示屏，以及通过从未被设计为艺术空间的平台传播的作品。",
+      caveat:
+        "**这是一篇没有观众数据、没有数字支撑的概念性文章**，因此关于事态走向的说法是作者的预测而非测量。它写于 2018 年，围绕当时的设备和平台限制展开，而这些此后已经改变。文中采用的“艺术”定义较宽；若采用更严格的定义，不会得出同样的结论。关于代际差异的评论引用的是他人的研究，不是本文的发现。",
     },
   },
   {
@@ -2094,6 +2154,27 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone designing behaviour-change work or working with social norms, the point worth carrying forward is that **norms do not spread because people are told what is right; they spread when people can see that others want the same conditions** — which turns the communication problem from “how do we persuade them” into “how do we make an existing shared preference visible”. Connecting the argument to campaign work is the centre's own reading; the article itself does not discuss campaigns.",
       caveat:
         "**This is philosophical argument alone, with no empirical evidence.** The proposed “universally shared subjective preference” is an assumption the paper does not test, and it is precisely where other schools would push back. Defining wrongdoing through consent is a liberal framework, not the only one in ethics. **The question of why an individual ought to follow a norm is touched on only briefly and left unresolved** — a scope limit the author states at the outset.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两个方块隔着一道缝隙相对而立，一个橙色小立方体悬在缝隙正中",
+    zh: {
+      headline: "人为什么会接受道德规则——文章主张这些规则不是命令，而是人们建造出来用于约束他人的工具",
+      question:
+        "道德哲学中长期存在一道鸿沟：**描述事物如何**的陈述与**规定应当如何做**的陈述之间的鸿沟——同意谋杀是坏的，仍然解释不了我为什么不应该谋杀。这道鸿沟是如何跨越的？传播在跨越它时扮演什么角色？",
+      method:
+        "一篇道德哲学论证，提议**把问题拆成三个而不是两个**——什么是对与错；一个社会为什么会形成并采纳某一特定道德规范；以及个人为什么应当遵守它——因为每个问题都需要不同的方法来回答。论文集中讨论前两个问题之间的关系，对第三个问题只略作触及。不收集数据。",
+      findings: [
+        "**核心的一步是把第二个问题插入“是”与“应当”之间的鸿沟。**两者由不同的方法回答，这正是直接跨越的尝试总是停滞的原因。",
+        "**这样看来，规范伦理学并不告诉任何人该做什么；它告诉你采纳某一规范会带来什么样的社会**——这个问题可以通过考察规范的效果来回答，而不是诉诸权威。",
+        "**伦理问题之所以出现，是因为一个人的行为影响到另一个人**，因此论文把不当行为定义为未经他人同意而对其施加行为。",
+        "**人人共有的不是同一套价值观，而是不愿在未经同意的情况下被施加行为的愿望**——作者称之为一种普遍共有的主观偏好，并提议以此作为通往规定性陈述的桥梁。",
+        "**因此，道德规范是人们创造出来、主要用于施加于他人的工具**，而不是每个人在做决定前查阅的手册。人们想要这些规则，是因为规则带来对自己更安全的条件。",
+        "**传播是使这一步成为可能的东西。**一旦共同的偏好变得可见，规范就通过文化被内化，进入人与人之间的共享空间——而这之所以发生，只是因为人类能够传播，并能建立更良好的合作所需的更复杂的制度。",
+      ],
+      soWhat:
+        "对任何设计行为改变工作或处理社会规范的人来说，值得带走的要点是：**规范的传播不是因为人们被告知什么是对的，而是当人们能看到别人想要同样的条件时**——这把传播问题从“我们如何说服他们”变成了“我们如何让已经存在的共同偏好变得可见”。把这一论证与宣传活动工作联系起来是本中心自己的解读；文章本身并未讨论宣传活动。",
+      caveat:
+        "**这纯粹是哲学论证，没有实证证据。**所提出的“普遍共有的主观偏好”是论文未加检验的假设，也正是其他学派会提出异议之处。通过同意来界定不当行为是一种自由主义框架，而不是伦理学中唯一的框架。**个人为什么应当遵守规范的问题只略作触及，未予解决**——这是作者在开篇就声明的范围限制。",
     },
   },
   {
@@ -2192,6 +2273,27 @@ export const paperSummaries: PaperSummary[] = [
         "What an organisation can use immediately is not the coefficient itself but **the sequence**: settle the measures and assess the difficulty of the story **before** the work begins, rather than arguing about it when the report lands. Most disputes over PR results come from never having set an agreed, measurable target in the first place. And separating “what the agency did” from “how much pull the story had anyway” is a useful way to think even without adopting this formula.",
       caveat:
         "**This is a methodological proposal rather than an empirical finding, and it is the authors' proposal, not a position of the Center.** The coefficients of 0.5 / 1.5 / 2.0 are **illustrative values used to explain the principle**, not calibrated against data. Judging a story as high or low potential remains a matter of judgement, which relocates the point that has to be agreed rather than removing it. The worked examples draw on the Russian media context and would need adapting elsewhere. **This summary deliberately does not name the two agencies whose assumptions the article singles out for criticism**, since those names add nothing to the principle that can be applied.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两个大小相同的折纸立方体，分别放在长短不一的纸坡道的高端，坡道较长的那个立方体位置更高",
+    zh: {
+      headline: "同样的公关结果不等于同样的绩效——要除以这个故事一开始有多容易",
+      question:
+        "衡量公共关系绩效长期存在争议。公关公司把各自的专有公式当作差异化卖点，因而抵制统一标准；客户则退回到熟悉的数字，例如 AVE（广告价值等效）——按同等广告版面的价格给报道定价——这一方法多年来饱受批评，却仍被约一半的行业使用。论文问的是：如何设计一套评估体系，让双方在工作开始之前就达成一致。",
+      method:
+        "一篇概念性、方法论的论文，没有实证数据收集。作者回顾了对 AVE 以及对公关公司自建公式中内置假设的既有批评，然后提出一组指标并附上演算示例。",
+      findings: [
+        "**核心提议是在策划阶段而非报告阶段商定一个“新闻卖点潜力系数”**——评估这个故事本身自带多大的媒体吸引力。",
+        "**这个系数与直觉相反：潜力越高，数值越低。**示例取值为高潜力 = 0.5、中潜力 = 1.5、低潜力 = 2.0，因为强故事自己就能产生报道，而弱故事需要公关公司付出更多工作。",
+        "**它作为乘数应用于量化指标。**论文自己的例子：发出 100 份邀请、20 份被接受，对中等潜力的故事得 20/100 × 1.5 = 0.3，对低潜力的故事则得 0.4。**同样的产出得分不同，因为难度不同。**",
+        "**第二个组成部分是双方共同商定、经过论证、按优先级排序的媒体名单**——对于一场地区性活动，一家本地媒体可能比全国版更重要，而单纯统计刊发数量会忽略这一点。",
+        "**第三是内容质量，而它只能做减法。**如果四条预定关键信息中只有一条出现在报道里，内容质量至多为 0.25。",
+        "**作者直言，这并不会让衡量更准确。**它的目的是让公关公司与客户的预期一致，而不是让评估更客观。",
+      ],
+      soWhat:
+        "一个机构可以立即拿来用的不是系数本身，而是**顺序**：在工作开始**之前**就确定衡量标准并评估故事的难度，而不是等报告出来再争论。大多数关于公关结果的争议，都源于一开始就从未设定一个双方认可、可衡量的目标。而把“公关公司做了什么”与“故事本来就有多大吸引力”分开，即使不采用这个公式，也是一种有用的思考方式。",
+      caveat:
+        "**这是一项方法论提议而非实证发现，并且是作者的提议，不代表本中心的立场。**0.5 / 1.5 / 2.0 这些系数是**用于说明原理的示例值**，没有用数据校准。判断一个故事潜力高低仍然是一种判断，这只是把需要商定的那一点挪了位置，而没有消除它。演算示例取自俄罗斯媒体环境，在其他地方需要调整。**本摘要有意不点出文章特别批评其假设的那两家公关公司的名字**，因为这些名字对可应用的原理没有增益。",
     },
   },
   {
@@ -2697,6 +2799,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Thirty-four participants in a single city, with no comparison group**, so the measured change cannot be attributed to the workshop alone. The longest follow-up is one month, leaving durability open. **What was measured is self-reported and assessed practice, not patient outcomes.** Data were collected in 2017–2018. This summary describes working patterns as the study recorded them at that time; it is not a verdict on a profession or a country.",
     },
+    illustrationAltZh:
+      "纸艺插画：一根直立的纸条，顶端展开成许多长短不一的尖叶",
+    zh: {
+      headline: "一本工作手册加一场四天的工作坊改变了治疗师做出临床决策的方式——一个月后这种改变依然存在",
+      question:
+        "缅甸的物理治疗师大多按照医生的处方工作，而不是通过本专业自己的决策过程。这种行为能否改变？如果能，究竟需要修正的是什么？",
+      method:
+        "研究采用 PRECEDE-PROCEED 规划模型，它迫使你先找到原因再设计对策。PRECEDE 阶段通过对 18 名有至少两年经验的治疗师的深度访谈、一场焦点小组和一份问卷描绘了现行做法，内容分析得出十个类别。PROCEED 阶段编写了一本 14 章的临床决策工作手册，并在仰光举办了一场 34 人参加的四天密集工作坊，分三次测量：之前、刚结束时和一个月后。",
+      findings: [
+        "**原因在于人们受教育的方式和工作的环境，而不在于个人。**参与者描述的教育建立在讲授和预设的正确答案之上，而不是权衡各种选项；工作场所也不鼓励基于证据的批判性思维。",
+        "**工作坊之前，检查草率且以处方为主导。**标准化测试很少使用，为了发现变化而重新测试的情况也不常见。经验较少的治疗师最有可能不加修改地照处方执行。",
+        "**工作坊之后，常规检查方式发生改变的参与者比例有显著差异**（科克伦 Q 检验，χ²(2) = 62.312，p < 0.0005），询问个人因素、环境和合并症的频率也是如此（χ² = 251.9，p < 0.001）。",
+        "**这种改变没有随着工作坊结束而消失**——一个月后的随访发现参与者仍在坚持新的方法。",
+        "**最明显的转变在于先做什么。**过去疼痛是最先处理的损伤；之后几乎所有参与者都从患者的整体健康状况、社区参与和周围环境开始。",
+      ],
+      soWhat:
+        "对任何设计专业培训的人来说，教训在于顺序：这项工作不是从编写课程开始，而是先找出让旧行为得以维持的倾向因素和强化因素，再针对它们编排内容。而起作用的是一本事后仍可使用的工作手册加上动手练习，而不是单纯的讲授——作者指出，这一模式可以推广到其他地方以类似方式受训和执业的治疗师。",
+      caveat:
+        "**单一城市的 34 名参与者，没有对照组**，因此测得的改变不能只归因于工作坊。最长随访为一个月，持久性仍是未知数。**测量的是自我报告和评估的执业方式，不是患者结局。**数据采集于 2017–2018 年。本摘要描述的是研究当时记录的工作模式；它不是对一个专业或一个国家的评判。",
+    },
   },
   {
     slug: "health-students-ethical-dilemmas",
@@ -2745,6 +2867,26 @@ export const paperSummaries: PaperSummary[] = [
         "For curriculum designers, teaching the four principles is not sufficient, because what competes with them — feeling, prior experience, an understanding of the law — is already present in the learner whether or not it is taught. Small-group discussion of real cases brings those influences into the open where they can be examined, and having several professions in the same room emerged as one of the six factors on its own rather than being built into the study's design.",
       caveat:
         "**The data are recorded discussions only**, which the authors identify as a limitation, since no in-depth interviews or focus groups were collected alongside. Being qualitative, the study can say which kinds of reasoning appeared but not in what proportion. The setting is students at two universities in one country, so transfer to other education systems should be cautious.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一架双臂天平，两个秤盘各放着不同的物件，横梁仍未平衡",
+    zh: {
+      headline: "当卫生专业的学生面对两种答案都说得通的案例时，决定的不只是伦理原则",
+      question:
+        "伦理教学往往讲授四项原则，但当这些原则相互冲突时，是什么决定了最终的判断？这项研究实时观察学生的推理过程，而不是事后询问他们怎么想。",
+      method:
+        "对一场一小时线上伦理工作坊的六段分组讨论录音进行归纳式定性分析，参与者是阿拉伯联合酋长国两所大学的医学、口腔医学和药学学生。录音逐字转录，导入 MAXQDA 2022，经过审阅、反思、提炼、检索四个阶段归纳编码，由两名编码者对结果进行三角互证。使用了六个案例：从一名拒绝治疗的精神疾病患者、一名疑似患性传播感染并要求不告知父母的青少年，到应要求开具抗生素处方和一名无力付费的患者，再到婚前筛查和新冠疫情期间的研究伦理。",
+      findings: [
+        "**六件事影响了决定**：情绪、个人经历、法律与法律制度、专业背景、对医学研究的了解，以及接触跨专业教育的经历。",
+        "**学生在推理中确实运用了四项原则**——自主、行善、不伤害和公正——而不是仅凭感觉做决定。",
+        "**讨论中出现最频繁的一个词是“伤害”**，最常见的思路是权衡哪个选项造成的伤害较小，或者伤害能否完全避免。",
+        "**面对同一个案例，学生的分歧很大。**对于要求不告知父母的那名青少年，有人坚持应当尊重他的意愿，因为披露有招致惩罚或虐待的风险；另一些人则认为未成年人的父母必须被告知，并认为同理心干扰了法律本应发挥的作用。",
+        "**作者注意到，在婚前筛查案例上女生和男生的倾向不同**，女生对情境中的女性表达了更多关切——这是从阅读讨论内容得出的观察，不是统计检验。",
+      ],
+      soWhat:
+        "对课程设计者而言，讲授四项原则并不足够，因为与之竞争的东西——感受、既往经历、对法律的理解——无论是否被教授，本来就存在于学习者身上。对真实案例的小组讨论把这些影响摆到明处，让它们可以被审视；而让多个专业同处一室，本身就作为六个因素之一浮现出来，并非研究设计中预先安排的。",
+      caveat:
+        "**数据仅为讨论录音**，作者也把这列为局限，因为没有同时收集深度访谈或焦点小组。作为定性研究，它能说明出现了哪些推理类型，但不能说明各占多大比例。研究场景是一个国家两所大学的学生，推广到其他教育体系时应当谨慎。",
     },
   },
   {
@@ -3273,6 +3415,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Purely conceptual reasoning, no data.** It rests on Misesian praxeology, a school with little following in philosophy of language; reject the premise that action is always goal-directed and the conclusion does not follow. The externalists the article itself cites (Alston, Harnish, Witek, Navarro-Reyes) hold that external conditions suffice. **The proposal is the author's, not a position of the centre.** Single-author article.",
     },
+    illustrationAltZh:
+      "纸艺插画：三块珊瑚色纸质多米诺骨牌排成一行，第一块被一片落下的纸叶推倒",
+    zh: {
+      headline: "作者主张，无意的话语不是言语行为，但它的后果仍然要有人负责",
+      question:
+        "言语行为（用言语做事：承诺、命令、请求）必须总是有意的吗？如果有人伸展手臂而老师把它读作举手，或者无意接受却说了“好”，言语行为发生了吗？它有多大约束力？这是内在论者与外在论者之间的争论：前者把说话者的意图视为必要条件，后者则不然。",
+      method:
+        "纯粹的哲学论证，没有实证数据。它从米塞斯的人类行动学出发——该理论把“行动”定义为有目的的行为，并把它与打喷嚏、眨眼之类的单纯行为区分开——再把它叠加在奥斯汀、塞尔、格赖斯、巴赫与哈尼什的言语行为理论以及莱纳赫的社会行为理论之上。疑难案例被分为四组逐一论证，并与纳瓦罗-雷耶斯直接对话。",
+      findings: [
+        "**言语行为是有意地使用既有惯例（语言、手势、仪式）来达到所选定的社会目的。**它要求知道惯例并愿意遵循它。没有意图就没有行动，因而也没有言语行为。作者否定了广为传授的“人不可能不传播”这一格言：没有意图就没有传播，只有一个误以为发现了信息的读者。",
+        "**第一组：意外。**惯例被无意中唤起（伸展的手臂被读作举手）。作者认为这不是言语行为，而是碰巧带有规范性后果的“言语举动”，就像擦枪走火打坏了朋友的电视。责任来自因果联系（疏忽、笨拙），而不是意图。这正是他与纳瓦罗-雷耶斯分道扬镳之处——后者把无意的言语行为视为一种正当的言语行为类型。",
+        "**第二组：滥用。**撒谎、无意履行的承诺、为钱结婚。这些**是**言语行为：意图存在，并指向目标（欺骗）。决定效力的是惯例而非诚意；一份签署时无意履行的合同仍然有约束力。",
+        "**第三组：失败。**意图和惯例都在，但受话者没有接受（一块被无视的“禁止入内”牌子）。这仍然是言语行为，因为行动是**努力争取**而非成功，这与奥斯汀要求必须获得领会的主张相反。",
+        "**第四组：不作为。**产生效果的意图存在，但没有有意使用任何惯例（把空牛奶瓶留在桌上好让伴侣去买）。只有当那个共同体——哪怕只是一对伴侣——共享一种公认的惯例，即空瓶意味着“请买牛奶”，它才算言语行为；否则伴侣只是在对一种情境作出反应，就像绕开一个水坑。这类案例必须逐一判断。",
+        "**结论有两条腿。**要实施言语行为，说话者必须有意遵循使传播成为可能的惯例；然而无意使用惯例仍然可以产生有效的效果，就像食客点错了菜但程序做得正确，仍然必须付钱。即使意图缺席，惯例也会让效果发生。",
+      ],
+      soWhat:
+        "任何必须应对“我不是故意的”的人——教师、网络版主、律师、公关人员——都得到一件工具，可以把三个问题分开：是否有产生效果的意图，是否有使用惯例的意图，惯例是否已经生效。这篇文章也是对传播学入门课程所教的“人不可能不传播”格言的一个简洁反驳。",
+      caveat:
+        "**纯粹的概念推理，没有数据。**它建立在米塞斯的人类行动学之上，而这一学派在语言哲学中追随者甚少；一旦否定“行动总是目标导向的”这一前提，结论就不成立。文章自己引用的外在论者（奥尔斯顿、哈尼什、维泰克、纳瓦罗-雷耶斯）认为外部条件就足够了。**该主张属于作者本人，不代表本中心的立场。**单一作者的文章。",
+    },
   },
   {
     slug: "bayesian-probability-communication",
@@ -3326,6 +3489,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**A conceptual paper with no data.** It rests on the Austrian-school premise that human action is explained by purposes rather than statistical causes; readers who reject that premise will reject the conclusion. The paper itself says in one place that the mind “does not process messages” by reducing uncertainty and elsewhere that the brain uses context to compute probabilities while reading, which the author resolves by relocating probability to the sender's belief. **The proposal is the author's, not a position of the centre.**",
     },
+    illustrationAltZh:
+      "纸艺插画：一架淡蓝色纸飞机飞向一个立着的纸环，纸环略微偏离它的航线",
+    zh: {
+      headline: "作者主张，人类传播中的概率属于发送者对接收者的信念，而不属于信息出现的频率",
+      question:
+        "香农的信息论用信息有多出人意料来衡量信息量：越不可能出现，信息量越大，所用的是频率主义概率（反复观察，统计比例）。这篇论文问的是：能否真的给一个人有意创造一次的信息赋予一个数值概率？如果不能，哪种概率概念才适合人类传播？",
+      method:
+        "一项没有实证数据的理性主义理论分析：回顾关于信息论、频率主义概率与贝叶斯概率（作为信念程度的概率）以及米塞斯人类行动学的文献，并整合为一个提议的模型。",
+      findings: [
+        "**频率主义概率只适用于可重复事件的类别。**一次话语是单一事件，而可能话语的集合是无界的，因此相对频率从一开始就无法计算。",
+        "**人类行动不同于自然事件。**我们不知道硬币为什么正面朝上，所以只能统计频率；对于人，我们通过与自己心灵的类比来推断意图，而一个人随时可以改变主意，因此任何基于过去频率的预测总是可能被证伪。",
+        "**贝叶斯概率更合适**，因为它被定义为作出估计的人的信念程度：传播中的不确定性来自我们对他人心灵的无知，而不是来自他人内部的随机性。",
+        "**接收者本来就通过语境来解读。**那封单词内部字母被打乱的连锁邮件之所以仍然可读，是因为单词短、发音得以保留、首尾字母不动，最重要的是语境让单词可以预测；而一个孤立的乱序单词立刻就变得难以辨认。",
+        "**核心提议是把概率移到发送者一方。**发送者基于对接收者知道什么、是否共享一套编码的先验信念而行动，从反馈中收集证据，然后更新为新的信念。每一次交流都是发送者关于接收者的假设的一次“检验”，是一种结果不确定的企业家式行动。",
+        "作者呼吁传播理论从以接收者为中心的不确定性降低模型，转向建立在意图与信念之上的以发送者为导向的模型。",
+      ],
+      soWhat:
+        "对传播理论教学而言，这是对香农–韦弗模型的一种具体的替代解读，把信息设计放在从业者本已工作的地方：猜测受众知道什么，并根据反馈调整。对宣传活动设计者而言，可用的教训是把关于受众的先验信念明确写下来，并把每一次发布都当作一次更新它的检验。",
+      caveat:
+        "**一篇没有数据的概念性论文。**它建立在奥地利学派的前提之上，即人类行动由目的而非统计原因来解释；不接受这一前提的读者也不会接受结论。论文本身在一处说心灵“不是通过降低不确定性来处理信息”，在另一处又说大脑在阅读时利用语境计算概率，作者通过把概率移到发送者的信念上来化解这一矛盾。**该主张属于作者本人，不代表本中心的立场。**",
+    },
   },
   {
     slug: "thai-universities-environmental-communication",
@@ -3373,6 +3557,26 @@ export const paperSummaries: PaperSummary[] = [
         "A map for a communication faculty deciding where to place its environmental work: choose the role, name the standpoint (the chapter notes that most Thai work sits at the conservationist end, so reformist and radical questions remain open), and pick a method with its evaluation built in. For students, the reference list is a reading list of Thai theses across all three standpoints.",
       caveat:
         "**An overview by a single author.** Most examples come from one university and the theses of one faculty; it is not a systematic review and reports no counts. Figures such as the dust product's effectiveness are taken from the university's own announcement. **The thesis that academics cannot be neutral is the author's position, not the centre's.** The book is closed access, so the site holds no copy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一棵鼠尾草绿色的纸树，树干分成三根主枝，根部露在底端",
+    zh: {
+      headline: "泰国大学以六种角色开展环境传播，作者主张学者不能保持中立",
+      question:
+        "泰国的大学及其研究者在环境传播中扮演哪些角色？哪些立场塑造了他们的研究？他们使用哪些渠道？又需要在哪些方面取得平衡？这是一部关于亚洲环境传播的论文集中的一章。",
+      method:
+        "一篇没有系统数据收集的概念性综述。它采用环太平洋大学联盟（2017）的大学六角色分类、Kanjana Kaewthep 关于泰国环境传播的框架，以及考克斯与佩祖洛提出的环境传播的两种功能，并以泰国大学和泰国研究生论文中的例子加以说明。",
+      findings: [
+        "**六种角色及泰国实例**：教育者（包含传播课程的环境专业）、知识创造者（1974 年成立的环境研究所）、社会问题解决者（面向 2050 年的净零碳战略）、创新者（一款减少细颗粒物的产品）、连接者（与一个联合国机构、一个市政府和多个村庄合作的项目）以及变革推动者（五年内减少 30% 废弃物的校园计划）。",
+        "**泰国的研究反映三种立场。**其一是**保护主义者**，他们把个人行为视为原因，研究认知、态度和宣传活动的效果；这是泰国研究中最大的一群。其二是**改革主义者**，他们在政策层面工作，分析媒体如何为环境新闻设置框架；他们大约从 1987 年起出现。其三是**激进主义者**，他们运用批判理论和文化理论，关注边缘群体和地方仪式，例如一个泰阮（Thai-Yuan）社区的护河仪式。",
+        "**两种功能与三种方法。**一种是务实功能（教育、警示、帮助解决问题），另一种是构成功能（大学的立场界定了“环境”意味着什么）。三种方法是大众媒体（教师担任发言人）、公共关系（研究议题、设定目标、选择媒体、从产出到影响分四个层次评估）以及环境运动（教师与学生一起反对某所大学威胁社区和历史神龛的开发计划）。",
+        "**三种平衡**：指导者与促进者之间（泰国文化把教授置于顶端，但传播必须从倾听开始）；受众中热爱环境议题者与厌恶者之间；以及“更好的环境”话语与把责任归于社会结构的“从来不是环境问题”话语之间。",
+        "**作者的结论是中立不可能**：“我们要么是问题的制造者，要么是解决方案的提供者”，大学必须引领而不是旁观。",
+      ],
+      soWhat:
+        "这是一张地图，供传播学院决定把环境工作放在哪里：选择角色，说明立场（本章指出泰国的研究大多处于保护主义一端，因此改革主义和激进主义的问题仍然敞开），并选择一种自带评估的方法。对学生而言，参考文献列表就是一份横跨三种立场的泰国学位论文阅读清单。",
+      caveat:
+        "**单一作者的综述。**大多数例子来自一所大学和一个学院的学位论文；它不是系统综述，也没有报告数量。诸如除尘产品效果之类的数字取自该大学自己的公告。**学者不能中立这一论点是作者的立场，不代表本中心的立场。**该书为封闭获取，本网站不保存副本。",
     },
   },
   {
