@@ -77,26 +77,35 @@ const EXTERNAL_IDENTITY_HOSTS = new Map<string, string>([
  * เพิ่มแถวใหม่ทุกครั้งที่แก้ค่าใดค่าหนึ่ง — ราคาของการเพิ่มคือหนึ่งบรรทัด
  * ราคาของการไม่เพิ่มคือค่าเก่ากลับมาโดยไม่มีใครสังเกต
  */
-const FORBIDDEN: { name: string; re: RegExp; why: string }[] = [
+/**
+ * `alsoInScripts` — ตรวจค่านี้ในซอร์สของ scripts/ ด้วย (ข้อ 1ข) เฉพาะค่าที่ไม่มีเหตุผล
+ * ให้อยู่ในสคริปต์ใดๆ เลย · ไม่ติดธงให้โฮสต์ Wix (download-wix-*.mjs คือเครื่องมือที่คุย
+ * กับ Wix โดยตรง) และ localhost (check-csp.mjs ต้องยก next start ขึ้นมาเอง)
+ */
+const FORBIDDEN: { name: string; re: RegExp; why: string; alsoInScripts?: boolean }[] = [
   {
     name: "อีเมลแบบไม่มีจุด",
     // (?<!\.) กันไม่ให้ `comm.inno@chula.ac.th` ที่ถูกต้องถูกจับผิด
     re: /(?<!\.)comminno@chula\.ac\.th/g,
+    alsoInScripts: true,
     why: "อีเมลศูนย์ฯ คือ comm.inno@chula.ac.th (มีจุดคั่น) — แบบไม่มีจุดเคยขึ้นเว็บพร้อมกันเก้าจุด เมลที่ส่งมาเด้งกลับโดยศูนย์ฯ ไม่รู้ตัว",
   },
   {
     name: "เบอร์โทรศัพท์เก่า",
     re: /0?2[\s-]?218[\s-]?2262/g,
+    alsoInScripts: true,
     why: "เบอร์เก่าก่อน 31 ส.ค. 2569 — เบอร์ปัจจุบันอยู่ที่ src/data/contact.ts ที่เดียว",
   },
   {
     name: "เบอร์โทรศัพท์ของสำเนาเว็บที่เลิกใช้",
     re: /0?2[\s-]?218[\s-]?2215/g,
+    alsoInScripts: true,
     why: "เบอร์ที่ผิดบนเว็บ comminno-web — ใส่ไว้กันการลอกค่ามาจากคลังนั้น",
   },
   {
     name: "โฮสต์ของสำเนาเว็บที่เลิกใช้",
     re: /comminno-go6lmsuy\.manus\.space|comminno-web\.vercel\.app/g,
+    alsoInScripts: true,
     why: "สำเนาเว็บที่ปิดไปแล้ว (3 ก.ย. 2569) — ลิงก์ไปหาจะพาผู้อ่านไปเนื้อหาที่ไม่มีใครดูแลแล้ว",
   },
   {
@@ -109,6 +118,7 @@ const FORBIDDEN: { name: string; re: RegExp; why: string }[] = [
     // ชื่อคนเป็นค่าที่ผิดแล้ว "คนตรวจด้วยตาไม่มีทางรู้" เพราะไม่มีอะไรพัง
     // และคนที่รู้ว่าผิดที่สุดคือเจ้าของชื่อ ซึ่งมักไม่ใช่คนที่เปิดเว็บตรวจ
     re: /Chaemchaeng|ธวินท์|Wai\s?Phan|Ekasit\s?Sumana|เอกสิทธิ์ สุมนา|สุพัตรา เพ็ชรี/g,
+    alsoInScripts: true,
     why: "ผู้ใช้ยืนยัน 3 ก.ย. 2569 — ที่ถูกคือ รศ.ดร.ไวพจน์ จันทร์เสม / Wipoj Chansem · เอกะสิทธิ์ สุมะนะ / Akasit Sumana · สุพัตรา เพชรี (ไม่มีไม้ไต่คู้) · ส่วน Chaemchaeng/ธวินท์ เป็นค่าที่ติดมาจาก Wix ซึ่งผิดทั้งชื่อไทยและการถอดเป็นอังกฤษ (เจ้าของชื่อไม่ได้อยู่กับศูนย์ฯ แล้ว แต่คงกฎไว้กันการนำเข้าข้อมูลเก่าซ้ำ)",
   },
   // **ไม่ใส่ "Watsayut Kongchan" ไว้ในลิสต์นี้โดยตั้งใจ** — ชื่อที่เจ้าตัวใช้คือ
@@ -218,6 +228,34 @@ for (const { name, why } of FORBIDDEN) {
   const list = [...files].slice(0, 3).join(" · ");
   const more = files.size > 3 ? ` (และอีก ${files.size - 3} ไฟล์)` : "";
   errors.push(`${name} — พบใน ${files.size} ไฟล์: ${list}${more}\n     เหตุ: ${why}`);
+}
+
+// ─── 1ข. ค่าที่เลิกใช้แล้วในซอร์สของสคริปต์ ──────────────────────────────────
+//
+// ข้อ 1 อ่านเฉพาะผลลัพธ์ที่ build ออกมา จึงมองไม่เห็นค่าที่ฝังอยู่ในสคริปต์ซึ่งไม่ได้
+// ขึ้นเว็บแต่**ส่งออกไปหาบริการภายนอก** — 26 ก.ย. 2569 พบว่า User-Agent ของ
+// fetch-publications.mjs ยังส่งอีเมลแบบไม่มีจุดให้ Crossref/ThaiJO อยู่ ทั้งที่แก้บนเว็บ
+// ไปตั้งแต่ PR #31 Crossref ใช้ที่อยู่นั้นติดต่อผู้ดูแลเมื่อมีปัญหา จึงเป็นเมลเด้งชนิด
+// เดียวกับที่เคยเกิดบนเว็บ · สแกนเฉพาะกฎที่ติดธง alsoInScripts และข้าม check-content.ts
+// เองซึ่งพิมพ์ค่าเก่าไว้ในรายการ FORBIDDEN โดยตั้งใจ
+const SCRIPT_SOURCES = walk("scripts", (n) => n.endsWith(".mjs") || n.endsWith(".ts")).filter(
+  (f) => !f.endsWith("check-content.ts"),
+);
+const scriptHits = new Map<string, Set<string>>();
+for (const file of SCRIPT_SOURCES) {
+  const body = readText(file);
+  if (body === null) continue;
+  for (const { name, re } of FORBIDDEN.filter((r) => r.alsoInScripts)) {
+    if (new RegExp(re.source, re.flags.replace("g", "")).test(body)) {
+      if (!scriptHits.has(name)) scriptHits.set(name, new Set());
+      scriptHits.get(name)!.add(file);
+    }
+  }
+}
+for (const { name, why } of FORBIDDEN) {
+  const files = scriptHits.get(name);
+  if (!files) continue;
+  errors.push(`${name} — พบในซอร์สสคริปต์: ${[...files].join(" · ")}\n     เหตุ: ${why}`);
 }
 
 // ─── 2. ตัวตนของโดเมน ────────────────────────────────────────────────────────
