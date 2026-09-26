@@ -1,6 +1,6 @@
-# researchgate — ชุดไฟล์สำหรับอัปเดตโปรไฟล์ ResearchGate
+# academia — ชุดไฟล์สำหรับอัปเดตโปรไฟล์ Academia.edu
 
-สร้างด้วย `npm run researchgate:kit` (= `npm run profile:kit -- --platform researchgate` · ค่าเริ่มต้น `--author smith-boonchutima`) — **อย่าแก้ไฟล์ที่สร้างด้วยมือ**
+สร้างด้วย `npm run academia:kit` (= `npm run profile:kit -- --platform academia` · ค่าเริ่มต้น `--author smith-boonchutima`) — **อย่าแก้ไฟล์ที่สร้างด้วยมือ**
 แก้ข้อมูลต้นทาง (`src/data/leadership.ts` · `publications.ts` · `paperSummaries.ts`) แล้วรันใหม่
 
 | ไฟล์ | ใช้ทำอะไร |
@@ -17,7 +17,7 @@
 **โฟลเดอร์นี้มีแต่ไฟล์ข้อความ** PDF ที่อัปโหลดได้อ้างไปที่ `../papers/` ซึ่งมีเฉพาะไฟล์ CC ตามกติกาใน
 `../README.md` ไฟล์ accepted manuscript ของงานที่สงวนลิขสิทธิ์อยู่ใน Drive เท่านั้น ห้ามลงคลังนี้
 
-**สำเนาทำงานอยู่ใน Google Drive** โฟลเดอร์ `05 ResearchGate` ใต้ `ComInno — คลังบทความเต็ม`
+**สำเนาทำงานอยู่ใน Google Drive** โฟลเดอร์ `06 Academia.edu` ใต้ `ComInno — คลังบทความเต็ม`
 Claude in Chrome / computer use อ่านจากที่นั่นและเขียน log ที่นั่น ส่วนในคลังนี้คือแหล่งที่สร้างซ้ำได้ ·
 ไฟล์ PDF ที่อัปโหลดได้อยู่ชุดเดียวใน `05 ResearchGate/03-public-pdf/` ใช้ร่วมกันทุกแพลตฟอร์ม
 

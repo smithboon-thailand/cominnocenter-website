@@ -15,7 +15,9 @@
     "check:content": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-content.ts",
     "verify": "npm run lint && npm run build && npm run check:text && npm run check:images && npm run check:citations && npm run check:routes && npm run check:content",
     "check:csp": "node scripts/check-csp.mjs",
-    "researchgate:kit": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./scripts/alias-loader.mjs scripts/researchgate-kit.ts"
+    "profile:kit": "node --experimental-strip-types --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./scripts/alias-loader.mjs scripts/profile-kit.ts",
+    "researchgate:kit": "npm run profile:kit -- --platform researchgate",
+    "academia:kit": "npm run profile:kit -- --platform academia"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

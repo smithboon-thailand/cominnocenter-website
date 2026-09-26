@@ -1,9 +1,9 @@
-<!-- สร้างโดย scripts/profile-kit.ts (ResearchGate) เมื่อ 2026-09-26 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run researchgate:kit -->
+<!-- สร้างโดย scripts/profile-kit.ts (Academia.edu) เมื่อ 2026-09-26 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run academia:kit -->
 
-# โปรไฟล์ ResearchGate — Assoc. Prof. Dr. Smith Boonchutima
+# โปรไฟล์ Academia.edu — Assoc. Prof. Dr. Smith Boonchutima
 
 ข้อมูลทุกช่องมาจาก `src/data/leadership.ts` ซึ่งเป็นชุดเดียวกับหน้า https://www.cominnocenter.com/about
-ถ้า RG แสดงค่าต่างจากนี้ ให้ยึดตามนี้ (เว้นแต่อาจารย์บอกเป็นอย่างอื่น)
+ถ้า Academia แสดงค่าต่างจากนี้ ให้ยึดตามนี้ (เว้นแต่อาจารย์บอกเป็นอย่างอื่น)
 
 ## ชื่อ
 
@@ -13,9 +13,9 @@
 | ชื่อไทย | รศ.ดร.สมิทธิ์ บุญชุติมา |
 | คำนำหน้า/ตำแหน่งวิชาการ | Assoc. Prof. · Dr. |
 | ชื่อที่ใช้ตีพิมพ์ (ตรวจกับรายการอ้างอิงใน 05-citations.bib) | Smith Boonchutima |
-| โปรไฟล์ RG ปัจจุบัน | https://www.researchgate.net/profile/Smith-Boonchutima |
+| โปรไฟล์ Academia ปัจจุบัน | ยังไม่มีในเว็บ — ดูจากโปรไฟล์ที่ล็อกอิน (รูปแบบมักเป็น chula.academia.edu/SmithBoonchutima) แล้วแจ้งกลับเพื่อเพิ่มเข้า leadership.ts |
 
-## สังกัด (กรอกตามลำดับที่ RG ถาม)
+## สังกัด (Academia ใช้สามช่อง University · Department · Position (เลือก Faculty Member))
 
 | ช่อง | ค่า |
 |---|---|
@@ -55,7 +55,7 @@
 - Head, Center of Excellence in Communication Innovation for Development of Quality of Life and Sustainability (2024–Present)
 - President, Asian Congress for Media and Communication (2024–Present)
 
-## Disciplines / Skills and expertise (ข้อเสนอ — RG ให้เลือกจากรายการของเขา)
+## Research Interests (ข้อเสนอ — Academia ให้พิมพ์แล้วเลือกจากหัวข้อที่มีคนใช้อยู่ ใส่ให้ครบเพราะระบบแนะนำงานให้ผู้ติดตามตามหัวข้อเหล่านี้ และใส่ให้แต่ละ paper อย่างน้อย 3 หัวข้อ)
 
 - Health Communication
 - Risk Communication
@@ -66,8 +66,12 @@
 - Communication Studies
 - Health Promotion
 - Migrant Health
+- HIV/AIDS Prevention
+- Social Media
+- Media Studies
+- Thailand
 
-## แนะนำตัวสั้น (ข้อเสนอสำหรับช่อง Introduction — ปรับได้)
+## แนะนำตัวสั้น (ข้อเสนอสำหรับช่อง About — ปรับได้)
 
 **English**
 Assoc. Prof. Dr. Smith Boonchutima is Associate Professor of Public Relations at the Faculty of Communication Arts, Chulalongkorn University, and Head of the ComInno Center (Center of Excellence in Communication Innovation for Development of Quality of Life and Sustainability). Research focus: health communication, risk communication, digital media, transnational communication, social media research, public relations. Plain-language summaries of the centre's publications are available at https://www.cominnocenter.com/en/research.
@@ -75,7 +79,7 @@ Assoc. Prof. Dr. Smith Boonchutima is Associate Professor of Public Relations at
 **ไทย**
 รศ.ดร.สมิทธิ์ บุญชุติมา หัวหน้าศูนย์คอมอินโน (ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน) และรองศาสตราจารย์ประจำภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย สนใจงานวิจัยด้านการสื่อสารสุขภาพ การสื่อสารความเสี่ยง สื่อดิจิทัล การสื่อสารข้ามชาติ การวิจัยโซเชียลมีเดีย และการประชาสัมพันธ์ บทสรุปย่อยง่ายของผลงานอยู่ที่ https://www.cominnocenter.com/research
 
-## ตัวเลขที่ใช้ตรวจสอบกับที่ RG แสดง (hard-code ในเว็บ ตรวจซ้ำปีละครั้ง)
+## ตัวเลขที่ใช้ตรวจสอบกับที่ Academia แสดง (hard-code ในเว็บ ตรวจซ้ำปีละครั้ง)
 
 Google Scholar: Citations 269 · h-index 9 · i10-index 9 | Scopus (ID 56167805200): 24 documents · 107 citations · h-index 6
 

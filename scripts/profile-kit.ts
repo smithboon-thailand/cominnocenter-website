@@ -1,5 +1,6 @@
 /**
- * สร้างชุดไฟล์สำหรับอัปเดตโปรไฟล์ ResearchGate — `npm run researchgate:kit`
+ * สร้างชุดไฟล์สำหรับอัปเดตโปรไฟล์นักวิจัยบนแพลตฟอร์มภายนอก — `npm run profile:kit -- --platform <id>`
+ * (ทางลัด: `npm run researchgate:kit` · `npm run academia:kit` — เดิมชื่อ researchgate-kit.ts ทำ RG อย่างเดียว)
  *
  * ResearchGate ไม่มี API และไม่มีการนำเข้าเป็นชุด ทุกอย่างต้องทำผ่านหน้าเว็บ
  * ขณะล็อกอิน (ด้วยมือ หรือให้ Claude in Chrome / computer use ทำตามรายการ)
@@ -32,6 +33,10 @@
  *
  * ตัวเลือก:
  *   --author <slug>        คนของศูนย์ฯ ที่จะทำชุด (ค่าเริ่มต้น smith-boonchutima)
+ *   --platform <id>        researchgate (ค่าเริ่มต้น) หรือ academia — ตรรกะจัดระดับเหมือนกัน
+ *                          ต่างกันแค่ข้อความ "ทำอะไร" ต่อระดับและช่องของโปรไฟล์ (ดู PLATFORMS)
+ *                          ผลลัพธ์ไป research-sources/<id>/ ส่วน snapshot/decisions ใช้ร่วมกันใน
+ *                          research-sources/profile-kit/
  *   --refresh-unpaywall    ถาม Unpaywall ใหม่ทุก DOI แล้วเขียน unpaywall-snapshot.json
  *   --refresh-abstracts    ดึงบทคัดย่อจาก meta tag ของวารสาร (รายการที่ไม่มี DOI)
  *                          แล้วเขียน abstracts-snapshot.json
@@ -49,11 +54,12 @@ import { EMAIL } from "../src/data/contact.ts";
 import { apa, bibtex, ris } from "../src/lib/citation.ts";
 
 const SITE = "https://www.cominnocenter.com";
-const OUT = new URL("../research-sources/researchgate/", import.meta.url);
 const PAPERS = new URL("../research-sources/papers/", import.meta.url);
-const UNPAYWALL_SNAPSHOT = new URL("unpaywall-snapshot.json", OUT);
-const ABSTRACTS_SNAPSHOT = new URL("abstracts-snapshot.json", OUT);
-const DECISIONS = new URL("decisions.json", OUT);
+/** snapshot กับคำตัดสินใช้ร่วมกันทุกแพลตฟอร์ม — สัญญาอนุญาตของบทความไม่ขึ้นกับว่าจะเอาไปวางที่ไหน */
+const SHARED = new URL("../research-sources/profile-kit/", import.meta.url);
+const UNPAYWALL_SNAPSHOT = new URL("unpaywall-snapshot.json", SHARED);
+const ABSTRACTS_SNAPSHOT = new URL("abstracts-snapshot.json", SHARED);
+const DECISIONS = new URL("decisions.json", SHARED);
 const OPEN_POLICY_FINDER = "https://openpolicyfinder.jisc.ac.uk/search?q=";
 
 const args = process.argv.slice(2);
@@ -65,15 +71,158 @@ const option = (name: string) => {
 const AUTHOR = option("--author") ?? "smith-boonchutima";
 const TODAY = new Date().toISOString().slice(0, 10);
 
+/**
+ * แพลตฟอร์มที่รองรับ — ข้อความที่ต่างกันระหว่างแพลตฟอร์มอยู่ที่นี่ที่เดียว ตรรกะจัดระดับ
+ * ลิขสิทธิ์ (classify) เหมือนกันทุกแพลตฟอร์ม ต่างกันแค่ "ทำอะไร" กับแต่ละระดับ
+ *
+ * ResearchGate: เพิ่มระเบียนด้วย DOI ได้โดยไม่มีไฟล์ · มี private full-text · สำนักพิมพ์ใหญ่ส่งบทความ
+ *   ขึ้นโปรไฟล์ให้เองผ่านข้อตกลง · เสนอ "Is this your publication?"
+ * Academia.edu: เป็นแพลตฟอร์มเชิงพาณิชย์ที่นโยบายสำนักพิมพ์จำนวนมาก**ระบุชื่อ**ว่าห้ามวาง accepted
+ *   manuscript ระดับ 2 จึงไม่อัปโหลดอะไรเลยเว้นแต่ Open Policy Finder ระบุว่าอนุญาตทุกเว็บไซต์ ·
+ *   ไม่มีไฟล์ private · ไม่ดึงจากสำนักพิมพ์ให้ ทุกรายการที่มีคือเจ้าของอัปโหลดเอง · ระเบียนโดยไม่มี
+ *   ไฟล์ทำได้เท่าที่หน้า Upload ให้ทำ (เอเจนต์ตรวจตอนทำจริง) · สัญญาอนุญาต NC: แนวปฏิบัติทั่วไป
+ *   ถือว่าผู้เขียนอัปโหลดเองไม่ใช่การใช้เชิงพาณิชย์ของผู้เขียน (ResearchGate ก็เป็นบริษัทเช่นกัน)
+ *   แต่มีผู้ตีความต่าง จึงติดหมายเหตุให้เจ้าของงานตัดสิน ไม่ตัดสินแทน
+ */
+type PlatformId = "researchgate" | "academia";
+type Platform = {
+  name: string;
+  short: string;
+  outDir: string;
+  npmScript: string;
+  linkLabel: string;
+  profileHint: string;
+  driveFolder: string;
+  affiliationNote: string;
+  bioField: string;
+  interestsLabel: string;
+  interestsNote: string;
+  extraInterests: string[];
+  abstractIntro: string;
+  abstractDoiNote: string;
+  abstractNoDoiNote: string;
+  rules: string[];
+  suggestionsHeading: string;
+  suggestionsColumn: string;
+  tier1: (file: string, license: string) => string;
+  tier1Download: (source: string, license: string) => string;
+  tier1Check: (source: string) => string;
+  tier2: (policy: string) => string;
+  tier3: (hasDoi: boolean, why: string) => string;
+};
+
+const ncNote = (license: string) =>
+  /NC/i.test(license) ? " · **สัญญาอนุญาต NC** ดูหมายเหตุท้ายกติกา" : "";
+
+const PLATFORMS: Record<PlatformId, Platform> = {
+  researchgate: {
+    name: "ResearchGate",
+    short: "RG",
+    outDir: "researchgate",
+    npmScript: "researchgate:kit",
+    linkLabel: "ResearchGate",
+    profileHint: "-",
+    driveFolder: "05 ResearchGate",
+    affiliationNote: "กรอกตามลำดับที่ RG ถาม",
+    bioField: "Introduction",
+    interestsLabel: "Disciplines / Skills and expertise",
+    interestsNote: "RG ให้เลือกจากรายการของเขา",
+    extraInterests: ["Communication Studies", "Health Promotion", "Migrant Health"],
+    abstractIntro: "รายการที่มี DOI ไม่ต้องกรอกบทคัดย่อ ResearchGate ดึงจากทะเบียนเอง",
+    abstractDoiNote: "_มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_",
+    abstractNoDoiNote: "ใช้กรอกช่อง Abstract เพราะ RG ไม่มี DOI ให้ดึงเอง",
+    rules: [
+      "**อ่านโปรไฟล์ปัจจุบันก่อน** ไล่ดูรายการ Research ทั้งหมดที่มีอยู่แล้ว สำนักพิมพ์ใหญ่หลายราย (Springer Nature · Wiley · Taylor & Francis · Elsevier · SAGE) ส่งบทความขึ้นโปรไฟล์ให้อัตโนมัติ รายการที่มีแล้วให้ติ๊ก \"มีอยู่แล้ว\" ไม่เพิ่มซ้ำ",
+      "**เพิ่มด้วย DOI ก่อนเสมอ** ค้นชื่อเรื่องเฉพาะรายการที่ไม่มี DOI (ระบุไว้ในการ์ด) การเพิ่มด้วยชื่อเรื่องทั้งที่มี DOI ทำให้เกิดรายการซ้ำ",
+      "**อัปโหลดไฟล์เฉพาะระดับ 1** และเฉพาะไฟล์ที่ระบุชื่อในการ์ด ระดับ 1? ต้องตรวจหน้าวารสารก่อน ระดับ 2 และ 3 **ห้ามอัปโหลด PDF ของสำนักพิมพ์ในทุกกรณี**",
+      "RG ถาม \"Is this your publication?\" ให้ตอบตามรายการนี้เท่านั้น รายการที่ไม่อยู่ในนี้ให้ข้าม แล้วจดชื่อไว้ใน 06-log.md เพื่อให้อาจารย์ตัดสิน",
+      "ทำทีละรายการ ช้าๆ ไม่เปิดหลายแท็บพร้อมกัน เจอหน้าต่างหรือคำถามที่ไม่คาดคิด (ยืนยันตัวตน · ขอสิทธิ์ · ข้อความเรื่องลิขสิทธิ์) ให้หยุดแล้วถาม ไม่เดา",
+      "**เขียน 06-log.md ทุกรายการ** ก่อนไปรายการถัดไป งานนี้ยาวกว่าหนึ่งเซสชัน log คือสิ่งเดียวที่ทำให้เซสชันถัดไปทำต่อได้โดยไม่ซ้ำ",
+      "เสร็จแต่ละระดับให้เทียบจำนวนบนโปรไฟล์กับตารางนี้ แล้วรายงานส่วนต่าง",
+    ],
+    suggestionsHeading: "รายการที่ RG เสนอว่า \"เป็นของคุณหรือไม่\" แต่ไม่อยู่ในรายการ (ให้อาจารย์ตัดสิน)",
+    suggestionsColumn: "ชื่อเรื่องที่ RG แสดง",
+    tier1: (file, license) =>
+      `เพิ่มระเบียนด้วย DOI/ชื่อเรื่องถ้ายังไม่มี → อัปโหลด \`${file}\` เป็น **public full-text** ระบุสัญญาอนุญาต ${license}`,
+    tier1Download: (source, license) =>
+      `เพิ่มระเบียนด้วย DOI ถ้ายังไม่มี → ดาวน์โหลดฉบับสำนักพิมพ์ด้วยเบราว์เซอร์จาก ${source} แล้วอัปโหลดเป็น **public full-text** ระบุสัญญาอนุญาต ${license}`,
+    tier1Check: (source) =>
+      `เพิ่มระเบียนด้วย DOI · เปิดหน้าบทความที่ต้นทางแล้วหาลิงก์ creativecommons.org ถ้ามีจริง ดาวน์โหลดจาก ${source} แล้วอัปโหลดเป็น public full-text · ถ้าไม่มี ให้ถือเป็นระดับ 3`,
+    tier2: (policy) =>
+      `เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](${policy}) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)`,
+    tier3: (hasDoi, why) =>
+      `เพิ่มระเบียนด้วย${hasDoi ? " DOI" : "ชื่อเรื่อง แล้วใส่ลิงก์หน้าวารสาร"} · **ไม่อัปโหลดไฟล์** (${why})`,
+  },
+  academia: {
+    name: "Academia.edu",
+    short: "Academia",
+    outDir: "academia",
+    npmScript: "academia:kit",
+    linkLabel: "Academia.edu",
+    profileHint:
+      "ยังไม่มีในเว็บ — ดูจากโปรไฟล์ที่ล็อกอิน (รูปแบบมักเป็น chula.academia.edu/SmithBoonchutima) แล้วแจ้งกลับเพื่อเพิ่มเข้า leadership.ts",
+    driveFolder: "06 Academia.edu",
+    affiliationNote: "Academia ใช้สามช่อง University · Department · Position (เลือก Faculty Member)",
+    bioField: "About",
+    interestsLabel: "Research Interests",
+    interestsNote:
+      "Academia ให้พิมพ์แล้วเลือกจากหัวข้อที่มีคนใช้อยู่ ใส่ให้ครบเพราะระบบแนะนำงานให้ผู้ติดตามตามหัวข้อเหล่านี้ และใส่ให้แต่ละ paper อย่างน้อย 3 หัวข้อ",
+    extraInterests: [
+      "Communication Studies",
+      "Health Promotion",
+      "Migrant Health",
+      "HIV/AIDS Prevention",
+      "Social Media",
+      "Media Studies",
+      "Thailand",
+    ],
+    abstractIntro:
+      "Academia สกัดบทคัดย่อจากไฟล์ที่อัปโหลด ตรวจว่าครบและไม่ขาดตอน · รายการที่เพิ่มโดยไม่มีไฟล์ต้องวางบทคัดย่อเอง (ในไฟล์นี้มีให้เฉพาะรายการที่ไม่มี DOI ที่เหลือคัดจากหน้าบทความที่ต้นทาง)",
+    abstractDoiNote:
+      "_มี DOI — ถ้าอัปโหลดไฟล์ ระบบสกัดบทคัดย่อเอง · ถ้าเพิ่มโดยไม่มีไฟล์ ให้คัดบทคัดย่อจากหน้าบทความที่ต้นทางตามตัวอักษร_",
+    abstractNoDoiNote: "ใช้กรอกช่อง Abstract",
+    rules: [
+      "**อ่านโปรไฟล์ปัจจุบันก่อน** ไล่ดู Papers ที่มีอยู่แล้ว Academia ไม่ดึงจากสำนักพิมพ์ให้ ทุกรายการที่มีคืออาจารย์เคยอัปโหลดเอง รายการที่มีแล้วให้ติ๊ก \"มีอยู่แล้ว\" ไม่อัปโหลดซ้ำ · ถ้าไฟล์ที่มีอยู่แล้วเป็น PDF ของสำนักพิมพ์ในงานระดับ 2 หรือ 3 **ห้ามลบเอง** ให้จดใน 06-log เพื่อให้อาจารย์ตัดสิน",
+      "**อัปโหลดไฟล์เฉพาะระดับ 1** และเฉพาะไฟล์ที่ระบุชื่อในการ์ด ระดับ 1? ต้องตรวจหน้าวารสารก่อน ระดับ 2 และ 3 **ห้ามอัปโหลด PDF ของสำนักพิมพ์ในทุกกรณี** และ**ห้ามวาง accepted manuscript** ถ้านโยบายไม่ระบุชัดว่าอนุญาต (นโยบายของหลายสำนักพิมพ์ระบุชื่อ Academia.edu ว่าเป็นเว็บไซต์เชิงพาณิชย์)",
+      "**หลังอัปโหลด ตรวจข้อมูลที่ระบบสกัดจากไฟล์ทุกช่อง** ชื่อเรื่อง · ผู้เขียนครบทุกคนตามลำดับ · วารสาร · ปี · DOI ระบบสกัดผิดบ่อยโดยเฉพาะชื่อไทย แก้ให้ตรงกับรายการอ้างอิง APA ในการ์ด",
+      "ใส่ Research Interests ให้แต่ละ paper อย่างน้อย 3 หัวข้อจากรายการใน 00-profile.md",
+      "ทำทีละรายการ ช้าๆ ไม่เปิดหลายแท็บพร้อมกัน เจอหน้าต่างหรือคำถามที่ไม่คาดคิด (ยืนยันตัวตน · ขอสิทธิ์ · ข้อเสนอสมัคร Premium · ข้อความเรื่องลิขสิทธิ์) ให้หยุดแล้วถาม ไม่เดา และไม่สมัครหรือจ่ายอะไร",
+      "**เขียน 06-log.md ทุกรายการ** ก่อนไปรายการถัดไป งานนี้ยาวกว่าหนึ่งเซสชัน log คือสิ่งเดียวที่ทำให้เซสชันถัดไปทำต่อได้โดยไม่ซ้ำ",
+      "เสร็จแล้วเทียบจำนวน Papers บนโปรไฟล์กับตารางนี้ แล้วรายงานส่วนต่าง",
+      "**หมายเหตุสัญญาอนุญาต NC** (CC BY-NC · BY-NC-ND · BY-NC-SA): Academia.edu เป็นบริษัท แนวปฏิบัติทั่วไปถือว่าผู้เขียนอัปโหลดงานของตัวเองไม่ใช่การใช้เชิงพาณิชย์ของผู้เขียน และ ResearchGate ก็เป็นบริษัทเช่นกัน แต่มีผู้ตีความว่าการวางบนแพลตฟอร์มที่หารายได้เข้าข่าย NC — รายการที่ติดป้ายนี้ในการ์ด ให้ทำตามที่อาจารย์สั่งไว้ล่วงหน้า ถ้ายังไม่ได้สั่ง ให้อัปโหลดเฉพาะ CC BY ก่อนแล้วถาม",
+    ],
+    suggestionsHeading: "รายการที่มีอยู่บนโปรไฟล์แต่ไม่อยู่ในรายการนี้ (ให้อาจารย์ตัดสิน)",
+    suggestionsColumn: "ชื่อเรื่องที่ Academia แสดง",
+    tier1: (file, license) =>
+      `Upload → เลือกไฟล์ \`${file}\` → ตรวจชื่อเรื่อง ผู้เขียน วารสาร ปี และ DOI ที่ระบบสกัดจากไฟล์ให้ตรงกับการ์ดนี้ · สัญญาอนุญาต ${license}${ncNote(license)}`,
+    tier1Download: (source, license) =>
+      `ดาวน์โหลดฉบับสำนักพิมพ์ด้วยเบราว์เซอร์จาก ${source} แล้ว Upload → ตรวจข้อมูลที่ระบบสกัดจากไฟล์ · สัญญาอนุญาต ${license}${ncNote(license)}`,
+    tier1Check: (source) =>
+      `เปิดหน้าบทความที่ต้นทางแล้วหาลิงก์ creativecommons.org ถ้ามีจริง ดาวน์โหลดจาก ${source} แล้ว Upload · ถ้าไม่มี ให้ถือเป็นระดับ 3`,
+    tier2: (policy) =>
+      `**ไม่อัปโหลด PDF ของสำนักพิมพ์** และ**ไม่วาง accepted manuscript** เว้นแต่ [Open Policy Finder](${policy}) ระบุว่าอนุญาตให้วางบนเว็บไซต์ใดก็ได้ · ถ้าหน้า Upload มีตัวเลือกเพิ่มรายการโดยไม่มีไฟล์ ให้เพิ่มชื่อเรื่อง + DOI ไม่งั้นข้าม`,
+    tier3: (hasDoi, why) =>
+      `**ไม่อัปโหลดไฟล์** (${why}) · ถ้าหน้า Upload มีตัวเลือกเพิ่มรายการโดยไม่มีไฟล์ ให้เพิ่ม${hasDoi ? "ชื่อเรื่อง + DOI" : "ชื่อเรื่อง + ลิงก์หน้าวารสาร"} ไม่งั้นข้าม`,
+  },
+};
+
+const PLATFORM_ID = (option("--platform") ?? "researchgate") as PlatformId;
+if (!(PLATFORM_ID in PLATFORMS)) {
+  console.error(`profile:kit — ไม่รู้จัก --platform "${PLATFORM_ID}" (ใช้ researchgate หรือ academia)`);
+  process.exit(1);
+}
+const P = PLATFORMS[PLATFORM_ID];
+const OUT = new URL(`../research-sources/${P.outDir}/`, import.meta.url);
+
 const person = leadership.find((l) => l.slug === AUTHOR);
 if (!person) {
-  console.error(`researchgate:kit — ไม่พบ "${AUTHOR}" ใน leadership.ts`);
+  console.error(`profile:kit — ไม่พบ "${AUTHOR}" ใน leadership.ts`);
   process.exit(1);
 }
 
 const mine = publications.filter((p) => p.authors.includes(AUTHOR));
 if (mine.length === 0) {
-  console.error(`researchgate:kit — ${AUTHOR} ไม่มีผลงานใน publications.ts`);
+  console.error(`profile:kit — ${AUTHOR} ไม่มีผลงานใน publications.ts`);
   process.exit(1);
 }
 
@@ -265,9 +414,7 @@ function classify(pub: PublicationEntry, n: number): Row {
         file,
         fileMissing: !existsSync(new URL(file, PAPERS)),
         link,
-        action:
-          `เพิ่มระเบียนด้วย DOI/ชื่อเรื่องถ้ายังไม่มี → อัปโหลด \`${file}\` เป็น **public full-text** ` +
-          `ระบุสัญญาอนุญาต ${label}`,
+        action: P.tier1(file, label),
       };
     }
     // สัญญาอนุญาตยืนยันแล้วแต่ยังไม่มีไฟล์ในคลัง (สำนักพิมพ์กันบอตตอนดึง — PR #42)
@@ -282,9 +429,7 @@ function classify(pub: PublicationEntry, n: number): Row {
       licenseLabel: label,
       evidence: `${evidence} · ยังไม่มีไฟล์ในคลัง (ดึงอัตโนมัติไม่ได้)`,
       link,
-      action:
-        `เพิ่มระเบียนด้วย DOI ถ้ายังไม่มี → ดาวน์โหลดฉบับสำนักพิมพ์ด้วยเบราว์เซอร์จาก ${source} ` +
-        `แล้วอัปโหลดเป็น **public full-text** ระบุสัญญาอนุญาต ${label}`,
+      action: P.tier1Download(source, label),
     };
   }
 
@@ -302,9 +447,7 @@ function classify(pub: PublicationEntry, n: number): Row {
         licenseLabel: decided.license ?? "CC (ยืนยันจากหน้าวารสาร)",
         evidence,
         link,
-        action:
-          `เพิ่มระเบียนด้วย DOI ถ้ายังไม่มี → ดาวน์โหลดฉบับสำนักพิมพ์ด้วยเบราว์เซอร์จาก ${source} ` +
-          `แล้วอัปโหลดเป็น **public full-text** ระบุสัญญาอนุญาต ${decided.license ?? "ตามที่ตรวจพบ"}`,
+        action: P.tier1Download(source, decided.license ?? "ตามที่ตรวจพบ"),
       };
     }
     return {
@@ -316,9 +459,7 @@ function classify(pub: PublicationEntry, n: number): Row {
       licenseLabel: "อ่านฟรี ไม่ใช่ CC",
       evidence,
       link,
-      action:
-        `เพิ่มระเบียนด้วย${pub.doi ? " DOI" : "ชื่อเรื่อง แล้วใส่ลิงก์หน้าวารสาร"} · ` +
-        `**ไม่อัปโหลดไฟล์** (เปิดหน้าวารสารแล้วไม่พบสัญญาอนุญาต CC ระดับบทความ)`,
+      action: P.tier3(Boolean(pub.doi), "เปิดหน้าวารสารแล้วไม่พบสัญญาอนุญาต CC ระดับบทความ"),
     };
   }
 
@@ -332,10 +473,7 @@ function classify(pub: PublicationEntry, n: number): Row {
       licenseLabel: `${up.license} (ยังไม่ยืนยัน)`,
       evidence: `Unpaywall ${up.checked ?? ""}: ${up.oa_status} · ${up.host_type ?? "-"} · ยังไม่ได้ตรวจกับหน้าวารสาร`,
       link,
-      action:
-        `เพิ่มระเบียนด้วย DOI · เปิดหน้าบทความที่ต้นทางแล้วหาลิงก์ creativecommons.org ` +
-        `ถ้ามีจริง ดาวน์โหลดจาก ${up.url_for_pdf ?? up.url ?? link} แล้วอัปโหลดเป็น public full-text · ` +
-        `ถ้าไม่มี ให้ถือเป็นระดับ 3`,
+      action: P.tier1Check(up.url_for_pdf ?? up.url ?? link),
     };
   }
 
@@ -354,10 +492,7 @@ function classify(pub: PublicationEntry, n: number): Row {
           : `Unpaywall ${up.checked ?? ""}: ไม่รู้จัก DOI นี้`
         : "ไม่มี DOI ให้ตรวจ",
       link,
-      action:
-        `เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ` +
-        `ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](${policy}) ก่อน ` +
-        `อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)`,
+      action: P.tier2(policy),
     };
   }
 
@@ -372,9 +507,7 @@ function classify(pub: PublicationEntry, n: number): Row {
       ? `Unpaywall ${up.checked ?? ""}: ${up.oa_status} · license ${up.license ?? "ไม่มี"}`
       : "วารสารบน ThaiJO เปิดให้อ่านแต่สงวนลิขสิทธิ์ (research-sources/README.md)",
     link,
-    action:
-      `เพิ่มระเบียนด้วย${pub.doi ? " DOI" : "ชื่อเรื่อง แล้วใส่ลิงก์หน้าวารสาร"} · ` +
-      `**ไม่อัปโหลดไฟล์** (วารสารเปิดให้อ่านที่ต้นทางแต่ไม่ได้ให้สิทธิ์เผยแพร่ซ้ำ)`,
+    action: P.tier3(Boolean(pub.doi), "วารสารเปิดให้อ่านที่ต้นทางแต่ไม่ได้ให้สิทธิ์เผยแพร่ซ้ำ"),
   };
 }
 
@@ -392,7 +525,7 @@ const rows = mine
 const missingFiles = rows.filter((r) => r.fileMissing);
 if (missingFiles.length) {
   console.error(
-    `researchgate:kit — localCopy หาย ${missingFiles.length} ไฟล์:\n` +
+    `profile:kit — localCopy หาย ${missingFiles.length} ไฟล์:\n` +
       missingFiles.map((r) => `  ${r.file}`).join("\n"),
   );
   process.exit(1);
@@ -411,23 +544,23 @@ const short = (t: string, n = 70) => (t.length > n ? t.slice(0, n - 1).trimEnd()
 const cite = (p: PublicationEntry) => (p.citation ? apa(p, p.citation) : `${p.title} (${p.year}). ${p.venue}.`);
 
 const count = (t: Tier) => rows.filter((r) => r.tier === t).length;
-const header = `<!-- สร้างโดย scripts/researchgate-kit.ts เมื่อ ${TODAY} — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run researchgate:kit -->`;
+const header = `<!-- สร้างโดย scripts/profile-kit.ts (${P.name}) เมื่อ ${TODAY} — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run ${P.npmScript} -->`;
 
 /* 00-profile.md */
 const profileLinks = person.links.map((l) => `- ${l.label}: ${l.href}`).join("\n");
 const orcid = person.links.find((l) => l.label === "ORCID")?.href.split("/").pop();
 const scopusId = person.links.find((l) => l.label === "Scopus")?.href.match(/authorId=(\d+)/)?.[1];
 const scholarId = person.links.find((l) => l.label === "Google Scholar")?.href.match(/user=([^&]+)/)?.[1];
-const rgUrl = person.links.find((l) => l.label === "ResearchGate")?.href;
+const profileUrl = person.links.find((l) => l.label === P.linkLabel)?.href;
 
 write(
   "00-profile.md",
   `${header}
 
-# โปรไฟล์ ResearchGate — ${person.nameEn}
+# โปรไฟล์ ${P.name} — ${person.nameEn}
 
 ข้อมูลทุกช่องมาจาก \`src/data/leadership.ts\` ซึ่งเป็นชุดเดียวกับหน้า ${SITE}/about
-ถ้า RG แสดงค่าต่างจากนี้ ให้ยึดตามนี้ (เว้นแต่อาจารย์บอกเป็นอย่างอื่น)
+ถ้า ${P.short} แสดงค่าต่างจากนี้ ให้ยึดตามนี้ (เว้นแต่อาจารย์บอกเป็นอย่างอื่น)
 
 ## ชื่อ
 
@@ -437,9 +570,9 @@ write(
 | ชื่อไทย | ${person.name} |
 | คำนำหน้า/ตำแหน่งวิชาการ | ${person.nameEn.match(/^(Assoc\. Prof\.|Asst\. Prof\.|Prof\.|Dr\.)/)?.[1] ?? ""} · Dr. |
 | ชื่อที่ใช้ตีพิมพ์ (ตรวจกับรายการอ้างอิงใน 05-citations.bib) | ${[...new Set(mine.flatMap((p) => p.citation?.authors.filter((a) => a.family.toLowerCase() === person.nameEn.split(" ").pop()!.toLowerCase()).map((a) => `${a.given} ${a.family}`) ?? []))].join(" · ")} |
-| โปรไฟล์ RG ปัจจุบัน | ${rgUrl ?? "-"} |
+| โปรไฟล์ ${P.short} ปัจจุบัน | ${profileUrl ?? P.profileHint} |
 
-## สังกัด (กรอกตามลำดับที่ RG ถาม)
+## สังกัด (${P.affiliationNote})
 
 | ช่อง | ค่า |
 |---|---|
@@ -469,17 +602,15 @@ ${person.education.map((e) => `- ${e}`).join("\n")}
 ตำแหน่งงาน
 ${person.work.map((w) => `- ${w}`).join("\n")}
 
-## Disciplines / Skills and expertise (ข้อเสนอ — RG ให้เลือกจากรายการของเขา)
+## ${P.interestsLabel} (ข้อเสนอ — ${P.interestsNote})
 
 ${person.focus
   .split(",")
   .map((f) => `- ${f.trim()}`)
   .join("\n")}
-- Communication Studies
-- Health Promotion
-- Migrant Health
+${P.extraInterests.map((f) => `- ${f}`).join("\n")}
 
-## แนะนำตัวสั้น (ข้อเสนอสำหรับช่อง Introduction — ปรับได้)
+## แนะนำตัวสั้น (ข้อเสนอสำหรับช่อง ${P.bioField} — ปรับได้)
 
 **English**
 ${person.nameEn} is Associate Professor of Public Relations at the Faculty of Communication Arts, Chulalongkorn University, and Head of the ComInno Center (Center of Excellence in Communication Innovation for Development of Quality of Life and Sustainability). Research focus: ${person.focus.toLowerCase()}. Plain-language summaries of the centre's publications are available at ${SITE}/en/research.
@@ -487,13 +618,13 @@ ${person.nameEn} is Associate Professor of Public Relations at the Faculty of Co
 **ไทย**
 ${person.name} ${person.roleTh.split(" / ")[0].replace(/ศูนย์$/, "")}ศูนย์คอมอินโน (ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสารเพื่อการพัฒนาคุณภาพชีวิตและความยั่งยืน) และรองศาสตราจารย์ประจำภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย สนใจงานวิจัยด้าน${person.focusTh} บทสรุปย่อยง่ายของผลงานอยู่ที่ ${SITE}/research
 
-## ตัวเลขที่ใช้ตรวจสอบกับที่ RG แสดง (hard-code ในเว็บ ตรวจซ้ำปีละครั้ง)
+## ตัวเลขที่ใช้ตรวจสอบกับที่ ${P.short} แสดง (hard-code ในเว็บ ตรวจซ้ำปีละครั้ง)
 
 ${person.metricsNote}
 
 ## รูปโปรไฟล์
 
-ไฟล์บนเว็บ: ${SITE}${person.image} (WebP) — สำเนา JPG ชื่อ \`00-profile-photo-${AUTHOR}.jpg\` อยู่ในโฟลเดอร์ Drive \`05 ResearchGate/03-public-pdf/\` (มาพร้อม zip)
+ไฟล์บนเว็บ: ${SITE}${person.image} (WebP) — สำเนา JPG ชื่อ \`00-profile-photo-${AUTHOR}.jpg\` อยู่ในโฟลเดอร์ Drive \`05 ResearchGate/03-public-pdf/\` (ชุดเดียวกันทุกแพลตฟอร์ม มาพร้อม zip)
 `,
 );
 
@@ -519,7 +650,7 @@ const cards = rows
       `- **อ้างอิง (APA 7):** ${cite(r.pub)}`,
       `- **ลิงก์:** ${r.link}${r.pub.doi ? "" : " (ไม่มี DOI — เพิ่มด้วยชื่อเรื่อง)"}`,
       `- **หลักฐานสัญญาอนุญาต:** ${r.evidence}`,
-      r.file ? `- **ไฟล์ (ระดับ 1 เท่านั้น):** \`research-sources/papers/${r.file}\` · Drive: 05 ResearchGate/03-public-pdf/${r.file}` : undefined,
+      r.file ? `- **ไฟล์ (ระดับ 1 เท่านั้น):** \`research-sources/papers/${r.file}\` · Drive: 05 ResearchGate/03-public-pdf/${r.file} (ชุดเดียวกันทุกแพลตฟอร์ม)` : undefined,
       s
         ? `- **หน้าบทสรุปบนเว็บ:** [ไทย](${summaryUrl(s, "th")}) · [English](${summaryUrl(s, "en")})${s.zh ? ` · [中文](${summaryUrl(s, "zh")})` : ""}`
         : `- **หน้าบทสรุปบนเว็บ:** ยังไม่มี`,
@@ -535,7 +666,7 @@ write(
   "01-checklist.md",
   `${header}
 
-# รายการผลงานสำหรับโปรไฟล์ ResearchGate — ${person.nameEn}
+# รายการผลงานสำหรับโปรไฟล์ ${P.name} — ${person.nameEn}
 
 ผลงาน ${rows.length} ชิ้นจากทะเบียนที่ตรวจสอบแล้วของเว็บ (\`src/data/publications.ts\`) เรียงตามลำดับที่ควรทำก่อน:
 ระดับลิขสิทธิ์ที่อัปโหลดได้ → ปีใหม่กว่า → ยอดอ้างอิง
@@ -549,20 +680,7 @@ ${tierSummary}
 
 ## กติกาสำหรับคนหรือเอเจนต์ที่ทำตามรายการนี้
 
-1. **อ่านโปรไฟล์ปัจจุบันก่อน** ไล่ดูรายการ Research ทั้งหมดที่มีอยู่แล้ว สำนักพิมพ์ใหญ่หลายราย
-   (Springer Nature · Wiley · Taylor & Francis · Elsevier · SAGE) ส่งบทความขึ้นโปรไฟล์ให้อัตโนมัติ
-   รายการที่มีแล้วให้ติ๊ก "มีอยู่แล้ว" ไม่เพิ่มซ้ำ
-2. **เพิ่มด้วย DOI ก่อนเสมอ** ค้นชื่อเรื่องเฉพาะรายการที่ไม่มี DOI (ระบุไว้ในการ์ด) การเพิ่มด้วยชื่อเรื่อง
-   ทั้งที่มี DOI ทำให้เกิดรายการซ้ำ
-3. **อัปโหลดไฟล์เฉพาะระดับ 1** และเฉพาะไฟล์ที่ระบุชื่อในการ์ด ระดับ 1? ต้องตรวจหน้าวารสารก่อน
-   ระดับ 2 และ 3 **ห้ามอัปโหลด PDF ของสำนักพิมพ์ในทุกกรณี**
-4. RG ถาม "Is this your publication?" ให้ตอบตามรายการนี้เท่านั้น รายการที่ไม่อยู่ในนี้ให้ข้าม
-   แล้วจดชื่อไว้ใน 06-log.md เพื่อให้อาจารย์ตัดสิน
-5. ทำทีละรายการ ช้าๆ ไม่เปิดหลายแท็บพร้อมกัน เจอหน้าต่างหรือคำถามที่ไม่คาดคิด (ยืนยันตัวตน ·
-   ขอสิทธิ์ · ข้อความเรื่องลิขสิทธิ์) ให้หยุดแล้วถาม ไม่เดา
-6. **เขียน 06-log.md ทุกรายการ** ก่อนไปรายการถัดไป งานนี้ยาวกว่าหนึ่งเซสชัน log คือสิ่งเดียวที่
-   ทำให้เซสชันถัดไปทำต่อได้โดยไม่ซ้ำ
-7. เสร็จแต่ละระดับให้เทียบจำนวนบนโปรไฟล์กับตารางนี้ แล้วรายงานส่วนต่าง
+${P.rules.map((r, i) => `${i + 1}. ${r}`).join("\n")}
 
 ## ตารางรวม
 
@@ -589,14 +707,14 @@ const abstractCards = rows
     if (ab?.abstract) {
       lines.push(
         "",
-        `**Abstract (จากหน้าวารสาร ${ab.source} ดึงเมื่อ ${ab.fetched})** — ใช้กรอกช่อง Abstract เพราะ RG ไม่มี DOI ให้ดึงเอง`,
+        `**Abstract (จากหน้าวารสาร ${ab.source} ดึงเมื่อ ${ab.fetched})** — ${P.abstractNoDoiNote}`,
         "",
         `> ${ab.abstract.replace(/\s+/g, " ").trim()}`,
       );
     } else if (!r.pub.doi) {
       lines.push("", "_ยังไม่ได้ดึงบทคัดย่อ — รัน `--refresh-abstracts`_");
     } else {
-      lines.push("", "_มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_");
+      lines.push("", P.abstractDoiNote);
     }
     if (s) {
       lines.push(
@@ -616,7 +734,7 @@ write(
 
 # บทคัดย่อและพาดหัวภาษาชาวบ้าน — ${person.nameEn}
 
-- รายการที่มี DOI ไม่ต้องกรอกบทคัดย่อ ResearchGate ดึงจากทะเบียนเอง
+- ${P.abstractIntro}
 - รายการที่ไม่มี DOI (วารสารไทยใน ThaiJO) ให้วางบทคัดย่อจากหน้าวารสารตามที่ให้ไว้ตรงๆ ไม่แต่งเพิ่ม
 - พาดหัวและลิงก์บทสรุปเป็นงานเขียนของศูนย์ฯ เอง ใช้ในช่อง Introduction ของโปรไฟล์ หรือใช้ตอบ
   คำขอ full-text ของรายการระดับ 2/3 ได้ ("ไฟล์เผยแพร่ซ้ำไม่ได้ แต่อ่านบทสรุปได้ที่…")
@@ -632,7 +750,7 @@ ${abstractCards}
 const citable = rows.filter((r) => r.pub.citation);
 write(
   "05-citations.bib",
-  `% สร้างโดย scripts/researchgate-kit.ts เมื่อ ${TODAY} จาก src/lib/citation.ts (ตัวเดียวกับปุ่มอ้างอิงบนเว็บ)
+  `% สร้างโดย scripts/profile-kit.ts เมื่อ ${TODAY} จาก src/lib/citation.ts (ตัวเดียวกับปุ่มอ้างอิงบนเว็บ)
 % ${person.nameEn} — ${citable.length} รายการ
 
 ${citable.map((r) => bibtex(r.pub, r.pub.citation!)).join("\n\n")}
@@ -643,7 +761,7 @@ write("05-citations.ris", citable.map((r) => ris(r.pub, r.pub.citation!)).join("
 /* 06-log.md */
 write(
   "06-log.md",
-  `# บันทึกการอัปเดตโปรไฟล์ ResearchGate — ${person.nameEn}
+  `# บันทึกการอัปเดตโปรไฟล์ ${P.name} — ${person.nameEn}
 
 เขียนทุกรายการที่ทำ **ก่อน** ไปรายการถัดไป (กติกาข้อ 6 ใน 01-checklist.md)
 เลข # ตรงกับ 01-checklist.md **ฉบับที่สร้างวันเดียวกัน** และต้องมีชื่อย่อผลงานกำกับเสมอ (เลขเลื่อนได้เมื่อสร้างใหม่) · สถานะใช้คำเหล่านี้: มีอยู่แล้ว · เพิ่มระเบียนแล้ว · อัปโหลดสาธารณะแล้ว ·
@@ -653,9 +771,9 @@ write(
 |---|---|---|---|
 | | | | |
 
-## รายการที่ RG เสนอว่า "เป็นของคุณหรือไม่" แต่ไม่อยู่ในรายการ (ให้อาจารย์ตัดสิน)
+## ${P.suggestionsHeading}
 
-| วันที่ | ชื่อเรื่องที่ RG แสดง | ปี | ที่มา | ตัดสิน |
+| วันที่ | ${P.suggestionsColumn} | ปี | ที่มา | ตัดสิน |
 |---|---|---|---|---|
 | | | | | |
 
@@ -673,9 +791,9 @@ write(
 /* README.md */
 write(
   "README.md",
-  `# researchgate — ชุดไฟล์สำหรับอัปเดตโปรไฟล์ ResearchGate
+  `# ${P.outDir} — ชุดไฟล์สำหรับอัปเดตโปรไฟล์ ${P.name}
 
-สร้างด้วย \`npm run researchgate:kit\` (ค่าเริ่มต้น \`--author ${AUTHOR}\`) — **อย่าแก้ไฟล์ที่สร้างด้วยมือ**
+สร้างด้วย \`npm run ${P.npmScript}\` (= \`npm run profile:kit -- --platform ${PLATFORM_ID}\` · ค่าเริ่มต้น \`--author ${AUTHOR}\`) — **อย่าแก้ไฟล์ที่สร้างด้วยมือ**
 แก้ข้อมูลต้นทาง (\`src/data/leadership.ts\` · \`publications.ts\` · \`paperSummaries.ts\`) แล้วรันใหม่
 
 | ไฟล์ | ใช้ทำอะไร |
@@ -685,21 +803,21 @@ write(
 | \`02-abstracts.md\` | บทคัดย่อของรายการที่ไม่มี DOI + พาดหัวและลิงก์บทสรุป |
 | \`05-citations.bib\` / \`.ris\` | รายการอ้างอิงทุกชิ้น ใช้กับ ORCID · Google Scholar · โปรแกรมจัดการอ้างอิง |
 | \`06-log.md\` | แม่แบบบันทึกความคืบหน้า (สำเนาที่เขียนจริงอยู่ใน Drive) |
-| \`unpaywall-snapshot.json\` | คำตอบ Unpaywall ต่อ DOI ที่ใช้จัดระดับ — รีเฟรชด้วย \`--refresh-unpaywall\` |
-| \`abstracts-snapshot.json\` | บทคัดย่อจาก meta tag ของวารสารสำหรับรายการที่ไม่มี DOI — \`--refresh-abstracts\` |
-| \`decisions.json\` | คำตัดสินหลังเปิดหน้าวารสารด้วยเบราว์เซอร์สำหรับรายการระดับ 1? — **เขียนมือ** ต้องมีวันที่และหลักฐานทุกแถว รอบรันถัดไปใช้แทนคำตอบ Unpaywall |
+| \`../profile-kit/unpaywall-snapshot.json\` | คำตอบ Unpaywall ต่อ DOI ที่ใช้จัดระดับ (ใช้ร่วมกันทุกแพลตฟอร์ม) — รีเฟรชด้วย \`--refresh-unpaywall\` |
+| \`../profile-kit/abstracts-snapshot.json\` | บทคัดย่อจาก meta tag ของวารสารสำหรับรายการที่ไม่มี DOI — \`--refresh-abstracts\` |
+| \`../profile-kit/decisions.json\` | คำตัดสินหลังเปิดหน้าวารสารด้วยเบราว์เซอร์สำหรับรายการระดับ 1? — **เขียนมือ** ต้องมีวันที่และหลักฐานทุกแถว รอบรันถัดไปใช้แทนคำตอบ Unpaywall |
 
 **โฟลเดอร์นี้มีแต่ไฟล์ข้อความ** PDF ที่อัปโหลดได้อ้างไปที่ \`../papers/\` ซึ่งมีเฉพาะไฟล์ CC ตามกติกาใน
 \`../README.md\` ไฟล์ accepted manuscript ของงานที่สงวนลิขสิทธิ์อยู่ใน Drive เท่านั้น ห้ามลงคลังนี้
 
-**สำเนาทำงานอยู่ใน Google Drive** โฟลเดอร์ \`05 ResearchGate\` ใต้ \`ComInno — คลังบทความเต็ม\`
-(มี \`03-public-pdf/\` และ \`04-private-manuscripts/\` เพิ่ม) Claude in Chrome / computer use อ่านจากที่นั่น
-และเขียน log ที่นั่น ส่วนในคลังนี้คือแหล่งที่สร้างซ้ำได้
+**สำเนาทำงานอยู่ใน Google Drive** โฟลเดอร์ \`${P.driveFolder}\` ใต้ \`ComInno — คลังบทความเต็ม\`
+Claude in Chrome / computer use อ่านจากที่นั่นและเขียน log ที่นั่น ส่วนในคลังนี้คือแหล่งที่สร้างซ้ำได้ ·
+ไฟล์ PDF ที่อัปโหลดได้อยู่ชุดเดียวใน \`05 ResearchGate/03-public-pdf/\` ใช้ร่วมกันทุกแพลตฟอร์ม
 
 ในเซสชัน remote ตัวเลือก \`--refresh-*\` ต้องรันด้วย \`NODE_USE_ENV_PROXY=1\` (เหมือน fetch-publications.mjs)
 `,
 );
 
 console.log(
-  `\nresearchgate:kit — ${person.nameEn}: ${rows.length} รายการ · ระดับ 1: ${count("1")} · 1?: ${count("1?")} · 2: ${count("2")} · 3: ${count("3")}`,
+  `\nprofile:kit (${P.name}) — ${person.nameEn}: ${rows.length} รายการ · ระดับ 1: ${count("1")} · 1?: ${count("1?")} · 2: ${count("2")} · 3: ${count("3")}`,
 );
