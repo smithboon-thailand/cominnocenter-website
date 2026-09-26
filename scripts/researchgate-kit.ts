@@ -53,6 +53,7 @@ const OUT = new URL("../research-sources/researchgate/", import.meta.url);
 const PAPERS = new URL("../research-sources/papers/", import.meta.url);
 const UNPAYWALL_SNAPSHOT = new URL("unpaywall-snapshot.json", OUT);
 const ABSTRACTS_SNAPSHOT = new URL("abstracts-snapshot.json", OUT);
+const DECISIONS = new URL("decisions.json", OUT);
 const OPEN_POLICY_FINDER = "https://openpolicyfinder.jisc.ac.uk/search?q=";
 
 const args = process.argv.slice(2);
@@ -107,6 +108,16 @@ const readJson = <T>(url: URL, fallback: T): T =>
 
 let unpaywall = readJson<Record<string, UnpaywallRow>>(UNPAYWALL_SNAPSHOT, {});
 let abstracts = readJson<Record<string, AbstractRow>>(ABSTRACTS_SNAPSHOT, {});
+
+/**
+ * คำตัดสินหลังเปิดหน้าวารสารด้วยเบราว์เซอร์ — สำหรับรายการที่ Unpaywall กับหน้าวารสารเห็นไม่ตรงกัน
+ * (ระดับ 1?) พอคนหรือเอเจนต์หน้าเบราว์เซอร์ตัดสินแล้ว บันทึกไว้ที่นี่ รอบรันถัดไปจะไม่จัดเป็น 1? ซ้ำ
+ * และไม่สั่งให้ใครไปเปิดดูอีก · **เขียนมือ ต้องมีวันที่ตรวจและหลักฐานทุกแถว** (กติกาเดียวกับ
+ * CITATION_FIXES) · กุญแจคือ DOI หรือ indexUrl · รอบแรก 26 ก.ย. 2569: Media Education 2024 ที่
+ * Unpaywall ว่า cc-by (ผ่าน cyberleninka ซึ่งเป็นคลังรวม) แต่ตัวไฟล์ระบุสงวนลิขสิทธิ์ → ระดับ 3
+ */
+type Decision = { tier: "1" | "3"; license?: string; checked: string; note: string };
+const decisions = readJson<Record<string, Decision>>(DECISIONS, {});
 
 if (flag("--refresh-unpaywall")) {
   const next: Record<string, UnpaywallRow> = {};
@@ -274,6 +285,40 @@ function classify(pub: PublicationEntry, n: number): Row {
       action:
         `เพิ่มระเบียนด้วย DOI ถ้ายังไม่มี → ดาวน์โหลดฉบับสำนักพิมพ์ด้วยเบราว์เซอร์จาก ${source} ` +
         `แล้วอัปโหลดเป็น **public full-text** ระบุสัญญาอนุญาต ${label}`,
+    };
+  }
+
+  const decided = decisions[pub.doi ?? pub.indexUrl ?? ""];
+  if (decided) {
+    const evidence = `ตรวจหน้าวารสารด้วยเบราว์เซอร์ ${decided.checked}: ${decided.note}`;
+    if (decided.tier === "1") {
+      const source = up?.url_for_pdf ?? up?.url ?? link;
+      return {
+        n,
+        pub,
+        summary,
+        up,
+        tier: "1",
+        licenseLabel: decided.license ?? "CC (ยืนยันจากหน้าวารสาร)",
+        evidence,
+        link,
+        action:
+          `เพิ่มระเบียนด้วย DOI ถ้ายังไม่มี → ดาวน์โหลดฉบับสำนักพิมพ์ด้วยเบราว์เซอร์จาก ${source} ` +
+          `แล้วอัปโหลดเป็น **public full-text** ระบุสัญญาอนุญาต ${decided.license ?? "ตามที่ตรวจพบ"}`,
+      };
+    }
+    return {
+      n,
+      pub,
+      summary,
+      up,
+      tier: "3",
+      licenseLabel: "อ่านฟรี ไม่ใช่ CC",
+      evidence,
+      link,
+      action:
+        `เพิ่มระเบียนด้วย${pub.doi ? " DOI" : "ชื่อเรื่อง แล้วใส่ลิงก์หน้าวารสาร"} · ` +
+        `**ไม่อัปโหลดไฟล์** (เปิดหน้าวารสารแล้วไม่พบสัญญาอนุญาต CC ระดับบทความ)`,
     };
   }
 
@@ -495,6 +540,9 @@ write(
 ผลงาน ${rows.length} ชิ้นจากทะเบียนที่ตรวจสอบแล้วของเว็บ (\`src/data/publications.ts\`) เรียงตามลำดับที่ควรทำก่อน:
 ระดับลิขสิทธิ์ที่อัปโหลดได้ → ปีใหม่กว่า → ยอดอ้างอิง
 
+**เลข # เป็นลำดับของรอบสร้างนี้เท่านั้น** (สร้าง ${TODAY}) พอรายการใดถูกจัดระดับใหม่หรือมีผลงานเพิ่ม เลขจะเลื่อน
+ใน 06-log จึงต้องเขียนชื่อย่อผลงานกำกับเลขเสมอ ไม่อ้างเลขลอยๆ
+
 | ระดับ | จำนวน |
 |---|---|
 ${tierSummary}
@@ -598,7 +646,7 @@ write(
   `# บันทึกการอัปเดตโปรไฟล์ ResearchGate — ${person.nameEn}
 
 เขียนทุกรายการที่ทำ **ก่อน** ไปรายการถัดไป (กติกาข้อ 6 ใน 01-checklist.md)
-เลข # ตรงกับ 01-checklist.md · สถานะใช้คำเหล่านี้: มีอยู่แล้ว · เพิ่มระเบียนแล้ว · อัปโหลดสาธารณะแล้ว ·
+เลข # ตรงกับ 01-checklist.md **ฉบับที่สร้างวันเดียวกัน** และต้องมีชื่อย่อผลงานกำกับเสมอ (เลขเลื่อนได้เมื่อสร้างใหม่) · สถานะใช้คำเหล่านี้: มีอยู่แล้ว · เพิ่มระเบียนแล้ว · อัปโหลดสาธารณะแล้ว ·
 อัปโหลด private แล้ว · ข้าม (บอกเหตุผล) · ติดปัญหา (บอกว่าอะไร)
 
 | วันที่ | # | สถานะ | หมายเหตุ |
@@ -639,6 +687,7 @@ write(
 | \`06-log.md\` | แม่แบบบันทึกความคืบหน้า (สำเนาที่เขียนจริงอยู่ใน Drive) |
 | \`unpaywall-snapshot.json\` | คำตอบ Unpaywall ต่อ DOI ที่ใช้จัดระดับ — รีเฟรชด้วย \`--refresh-unpaywall\` |
 | \`abstracts-snapshot.json\` | บทคัดย่อจาก meta tag ของวารสารสำหรับรายการที่ไม่มี DOI — \`--refresh-abstracts\` |
+| \`decisions.json\` | คำตัดสินหลังเปิดหน้าวารสารด้วยเบราว์เซอร์สำหรับรายการระดับ 1? — **เขียนมือ** ต้องมีวันที่และหลักฐานทุกแถว รอบรันถัดไปใช้แทนคำตอบ Unpaywall |
 
 **โฟลเดอร์นี้มีแต่ไฟล์ข้อความ** PDF ที่อัปโหลดได้อ้างไปที่ \`../papers/\` ซึ่งมีเฉพาะไฟล์ CC ตามกติกาใน
 \`../README.md\` ไฟล์ accepted manuscript ของงานที่สงวนลิขสิทธิ์อยู่ใน Drive เท่านั้น ห้ามลงคลังนี้

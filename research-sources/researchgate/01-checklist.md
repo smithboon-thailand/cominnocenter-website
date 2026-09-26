@@ -5,12 +5,15 @@
 ผลงาน 30 ชิ้นจากทะเบียนที่ตรวจสอบแล้วของเว็บ (`src/data/publications.ts`) เรียงตามลำดับที่ควรทำก่อน:
 ระดับลิขสิทธิ์ที่อัปโหลดได้ → ปีใหม่กว่า → ยอดอ้างอิง
 
+**เลข # เป็นลำดับของรอบสร้างนี้เท่านั้น** (สร้าง 2026-09-26) พอรายการใดถูกจัดระดับใหม่หรือมีผลงานเพิ่ม เลขจะเลื่อน
+ใน 06-log จึงต้องเขียนชื่อย่อผลงานกำกับเลขเสมอ ไม่อ้างเลขลอยๆ
+
 | ระดับ | จำนวน |
 |---|---|
 | 1 · CC ตรวจแล้ว — อัปโหลดสาธารณะได้ | 20 |
-| 1? · Unpaywall ว่า CC — ตรวจหน้าวารสารก่อน | 1 |
+| 1? · Unpaywall ว่า CC — ตรวจหน้าวารสารก่อน | 0 |
 | 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย) | 8 |
-| 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์ | 1 |
+| 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์ | 2 |
 
 ## กติกาสำหรับคนหรือเอเจนต์ที่ทำตามรายการนี้
 
@@ -53,15 +56,15 @@
 | 18 | 1 | 2017 | Utilization of dating apps by men who have sex with men for persuadin… | Psychology Research and Behavior Manage… | [10.2147/prbm.s121480](https://doi.org/10.2147/prbm.s121480) | CC BY-NC 4.0 | — | [EN](https://www.cominnocenter.com/en/research/dating-apps-substance-persuasion) | ☐ |
 | 19 | 1 | 2017 | Longitudinal study of Thai people media exposure, knowledge, and beha… | Journal of Infection and Public Health | [10.1016/j.jiph.2017.01.016](https://doi.org/10.1016/j.jiph.2017.01.016) | CC BY-NC-ND 4.0 | `dengue-media-exposure-longitudinal.pdf` | [EN](https://www.cominnocenter.com/en/research/dengue-media-exposure-longitudinal) | ☐ |
 | 20 | 1 | 2017 | Educating Burmese migrants working in Thailand with HIV/AIDS public h… | HIV & AIDS Review | [10.5114/hivar.2017.72029](https://doi.org/10.5114/hivar.2017.72029) | CC BY-NC-SA 4.0 | `hiv-knowledge-public-health-officers.pdf` | [EN](https://www.cominnocenter.com/en/research/hiv-knowledge-public-health-officers) | ☐ |
-| 21 | 1? | 2024 | Customer-Brand Attitude Congruence and Purchase Intentions Among Thai… | Media Education (Mediaobrazovanie) | [10.13187/me.2024.2.239](https://doi.org/10.13187/me.2024.2.239) | cc-by (ยังไม่ยืนยัน) | — | [EN](https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase) | ☐ |
-| 22 | 2 | 2025 | The effectiveness of augmented reality in marketing communications on… | Fashion, Style & Popular Culture | [10.1386/fspc_00152_1](https://doi.org/10.1386/fspc_00152_1) | สงวนลิขสิทธิ์ | — | — | ☐ |
-| 23 | 2 | 2024 | Promoting upcycling fashion through DIY tutorials amongst Thai Genera… | Fashion, Style & Popular Culture | [10.1386/fspc_00091_1](https://doi.org/10.1386/fspc_00091_1) | สงวนลิขสิทธิ์ | — | — | ☐ |
-| 24 | 2 | 2024 | Challenging Gender Roles in the Environmental Issues | Multi-Stakeholder Contribution in Asian… | [10.4324/9781032670508-11](https://doi.org/10.4324/9781032670508-11) | สงวนลิขสิทธิ์ | — | — | ☐ |
-| 25 | 2 | 2023 | Cognitive Load Theory in Online Education: Leveraging Interactive Med… | TENCON 2023 - 2023 IEEE Region 10 Confe… | [10.1109/tencon58879.2023.10322455](https://doi.org/10.1109/tencon58879.2023.10322455) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/online-class-cognitive-load-interactive-media) | ☐ |
-| 26 | 2 | 2022 | Credibility of the Official COVID Communication in Thailand: When Peo… | American Behavioral Scientist | [10.1177/00027642221118297](https://doi.org/10.1177/00027642221118297) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/covid-official-communication-credibility) | ☐ |
-| 27 | 2 | 2016 | Gays Dating Applications: Information Disclosure and Sexual Behavior | Journal of Health Research | [10.14456/jhr.2016.32](https://doi.org/10.14456/jhr.2016.32) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/dating-apps-disclosure-msm) | ☐ |
-| 28 | 2 | 2015 | Survey Results of Knowledge Sharing Preferences and Practices in Publ… | Journal of Health Research | [10.14456/jhr.2015.30](https://doi.org/10.14456/jhr.2015.30) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/health-officers-knowledge-sharing) | ☐ |
-| 29 | 2 | 2014 | Key qualitative and quantitative indicators: towards an integrated ev… | International Journal of Business and S… | [10.1504/ijbsr.2014.060300](https://doi.org/10.1504/ijbsr.2014.060300) | สงวนลิขสิทธิ์ | — | — | ☐ |
+| 21 | 2 | 2025 | The effectiveness of augmented reality in marketing communications on… | Fashion, Style & Popular Culture | [10.1386/fspc_00152_1](https://doi.org/10.1386/fspc_00152_1) | สงวนลิขสิทธิ์ | — | — | ☐ |
+| 22 | 2 | 2024 | Promoting upcycling fashion through DIY tutorials amongst Thai Genera… | Fashion, Style & Popular Culture | [10.1386/fspc_00091_1](https://doi.org/10.1386/fspc_00091_1) | สงวนลิขสิทธิ์ | — | — | ☐ |
+| 23 | 2 | 2024 | Challenging Gender Roles in the Environmental Issues | Multi-Stakeholder Contribution in Asian… | [10.4324/9781032670508-11](https://doi.org/10.4324/9781032670508-11) | สงวนลิขสิทธิ์ | — | — | ☐ |
+| 24 | 2 | 2023 | Cognitive Load Theory in Online Education: Leveraging Interactive Med… | TENCON 2023 - 2023 IEEE Region 10 Confe… | [10.1109/tencon58879.2023.10322455](https://doi.org/10.1109/tencon58879.2023.10322455) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/online-class-cognitive-load-interactive-media) | ☐ |
+| 25 | 2 | 2022 | Credibility of the Official COVID Communication in Thailand: When Peo… | American Behavioral Scientist | [10.1177/00027642221118297](https://doi.org/10.1177/00027642221118297) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/covid-official-communication-credibility) | ☐ |
+| 26 | 2 | 2016 | Gays Dating Applications: Information Disclosure and Sexual Behavior | Journal of Health Research | [10.14456/jhr.2016.32](https://doi.org/10.14456/jhr.2016.32) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/dating-apps-disclosure-msm) | ☐ |
+| 27 | 2 | 2015 | Survey Results of Knowledge Sharing Preferences and Practices in Publ… | Journal of Health Research | [10.14456/jhr.2015.30](https://doi.org/10.14456/jhr.2015.30) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/health-officers-knowledge-sharing) | ☐ |
+| 28 | 2 | 2014 | Key qualitative and quantitative indicators: towards an integrated ev… | International Journal of Business and S… | [10.1504/ijbsr.2014.060300](https://doi.org/10.1504/ijbsr.2014.060300) | สงวนลิขสิทธิ์ | — | — | ☐ |
+| 29 | 3 | 2024 | Customer-Brand Attitude Congruence and Purchase Intentions Among Thai… | Media Education (Mediaobrazovanie) | [10.13187/me.2024.2.239](https://doi.org/10.13187/me.2024.2.239) | อ่านฟรี ไม่ใช่ CC | — | [EN](https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase) | ☐ |
 | 30 | 3 | 2020 | The Requirement and Concern towards Health Form and Content Posted on… | Journal of Public Relations and Adverti… | [หน้าวารสาร](https://so03.tci-thaijo.org/index.php/jprad/article/view/230947) | อ่านฟรี ไม่ใช่ CC | — | [EN](https://www.cominnocenter.com/en/research/health-content-working-women) | ☐ |
 
 ## การ์ดรายชิ้น
@@ -277,17 +280,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI/ชื่อเรื่องถ้ายังไม่มี → อัปโหลด `hiv-knowledge-public-health-officers.pdf` เป็น **public full-text** ระบุสัญญาอนุญาต CC BY-NC-SA 4.0
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 21. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
-- **ระดับ:** 1? · Unpaywall ว่า CC — ตรวจหน้าวารสารก่อน
-- **อ้างอิง (APA 7):** Lamoonpot, K., Boonchutima, S., & Mazahir, I. (2024). Customer-brand attitude congruence and purchase intentions among Thai media students in higher education: A case study of the Sansiri brand. Media Education (Mediaobrazovanie), 20(2), 239-250. https://doi.org/10.13187/me.2024.2.239
-- **ลิงก์:** https://doi.org/10.13187/me.2024.2.239
-- **หลักฐานสัญญาอนุญาต:** Unpaywall 2026-09-26: green · repository · ยังไม่ได้ตรวจกับหน้าวารสาร
-- **หน้าบทสรุปบนเว็บ:** [ไทย](https://www.cominnocenter.com/research/brand-attitude-congruence-purchase) · [English](https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase)
-- **การอ้างอิง (Crossref):** 1
-- **ทำอะไร:** เพิ่มระเบียนด้วย DOI · เปิดหน้าบทความที่ต้นทางแล้วหาลิงก์ creativecommons.org ถ้ามีจริง ดาวน์โหลดจาก https://cyberleninka.ru/article/n/customer-brand-attitude-congruence-and-purchase-intentions-among-thai-media-students-in-higher-education-a-case-study-of-the แล้วอัปโหลดเป็น public full-text · ถ้าไม่มี ให้ถือเป็นระดับ 3
-- **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
-
-### 22. The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour
+### 21. The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Boonchutima, S., & Sahakitpijarn, K. (2025). The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour. Fashion, Style & Popular Culture, 12(4), 461-480. https://doi.org/10.1386/fspc_00152_1
 - **ลิงก์:** https://doi.org/10.1386/fspc_00152_1
@@ -297,7 +290,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=Fashion%2C%20Style%20%26%20Popular%20Culture) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 23. Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z
+### 22. Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Boonchutima, S., Lertjaruphatthra, R., Ukoskit, S., & Yompuck, T. (2024). Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z. Fashion, Style & Popular Culture, 11(3), 517-526. https://doi.org/10.1386/fspc_00091_1
 - **ลิงก์:** https://doi.org/10.1386/fspc_00091_1
@@ -307,7 +300,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=Fashion%2C%20Style%20%26%20Popular%20Culture) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 24. Challenging Gender Roles in the Environmental Issues
+### 23. Challenging Gender Roles in the Environmental Issues
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Boonchutima, S., & Tonsaithong, C. (2024). Challenging gender roles in the environmental issues. In Multi-Stakeholder Contribution in Asian Environmental Communication (pp. 103-121). Routledge. https://doi.org/10.4324/9781032670508-11
 - **ลิงก์:** https://doi.org/10.4324/9781032670508-11
@@ -316,7 +309,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=Multi-Stakeholder%20Contribution%20in%20Asian%20Environmental%20Communication) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 25. Cognitive Load Theory in Online Education: Leveraging Interactive Media, Testing, Interaction and to Enhance Engagement and Active Learning
+### 24. Cognitive Load Theory in Online Education: Leveraging Interactive Media, Testing, Interaction and to Enhance Engagement and Active Learning
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Boonchutima, S., Chongkolrattanaporn, T., & Kongchan, W. (2023). Cognitive load theory in online education: Leveraging interactive media, testing, interaction and to enhance engagement and active learning. TENCON 2023 - 2023 IEEE Region 10 Conference (TENCON), 2-9. https://doi.org/10.1109/tencon58879.2023.10322455
 - **ลิงก์:** https://doi.org/10.1109/tencon58879.2023.10322455
@@ -326,7 +319,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=TENCON%202023%20-%202023%20IEEE%20Region%2010%20Conference%20(TENCON)) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 26. Credibility of the Official COVID Communication in Thailand: When People Stop Believing the Government
+### 25. Credibility of the Official COVID Communication in Thailand: When People Stop Believing the Government
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Slutskiy, P., & Boonchutima, S. (2022). Credibility of the official COVID communication in Thailand: When people stop believing the government. American Behavioral Scientist. https://doi.org/10.1177/00027642221118297
 - **ลิงก์:** https://doi.org/10.1177/00027642221118297
@@ -336,7 +329,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=American%20Behavioral%20Scientist) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 27. Gays Dating Applications: Information Disclosure and Sexual Behavior
+### 26. Gays Dating Applications: Information Disclosure and Sexual Behavior
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Smith Boonchutima, Sopon Sriwattana, Rungroj Rungvimolsin, & Nattanop Palahan. (2016). Gays dating applications: Information disclosure and sexual behavior. Journal of Health Research, 30(4), 231-239. https://doi.org/10.14456/jhr.2016.32
 - **ลิงก์:** https://doi.org/10.14456/jhr.2016.32
@@ -345,7 +338,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=Journal%20of%20Health%20Research) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 28. Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study
+### 27. Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Bunchum, A., Na Taguatung, O., Sukonthasab, S., & Boonchutima, S. (2015). Survey results of knowledge sharing preferences and practices in public health communication professionals in Thailand's Department of Disease Control: A descriptive study. Journal of Health Research, 29(5), 395-401. https://doi.org/10.14456/jhr.2015.30
 - **ลิงก์:** https://doi.org/10.14456/jhr.2015.30
@@ -354,13 +347,23 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=Journal%20of%20Health%20Research) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 29. Key qualitative and quantitative indicators: towards an integrated evaluation framework for government websites in Thailand
+### 28. Key qualitative and quantitative indicators: towards an integrated evaluation framework for government websites in Thailand
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
 - **อ้างอิง (APA 7):** Boonchutima, S. (2014). Key qualitative and quantitative indicators: Towards an integrated evaluation framework for government websites in Thailand. International Journal of Business and Systems Research, 8(2), 111. https://doi.org/10.1504/ijbsr.2014.060300
 - **ลิงก์:** https://doi.org/10.1504/ijbsr.2014.060300
 - **หลักฐานสัญญาอนุญาต:** Unpaywall 2026-09-26: closed
 - **หน้าบทสรุปบนเว็บ:** ยังไม่มี
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=International%20Journal%20of%20Business%20and%20Systems%20Research) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
+- **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
+
+### 29. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
+- **ระดับ:** 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์
+- **อ้างอิง (APA 7):** Lamoonpot, K., Boonchutima, S., & Mazahir, I. (2024). Customer-brand attitude congruence and purchase intentions among Thai media students in higher education: A case study of the Sansiri brand. Media Education (Mediaobrazovanie), 20(2), 239-250. https://doi.org/10.13187/me.2024.2.239
+- **ลิงก์:** https://doi.org/10.13187/me.2024.2.239
+- **หลักฐานสัญญาอนุญาต:** ตรวจหน้าวารสารด้วยเบราว์เซอร์ 2026-09-26: Claude in Chrome เปิดดูแล้ว — DOI ชี้ไปไฟล์ PDF โดยตรง (me.cherkasgu.press) ไม่มีหน้าบทความ · ในไฟล์ระบุเพียง Copyright © 2024 by Cherkas Global University ไม่มี CC · หน้าคลังฉบับ 2024 ไม่มีลิงก์ CC · ป้าย CC BY-NC-SA 4.0 มีเฉพาะหน้าแรกของเว็บวารสาร ไม่ผูกกับบทความ · cc-by ที่ Unpaywall รายงานมาจาก cyberleninka ซึ่งเป็นคลังรวม ไม่ใช่สำนักพิมพ์ → ถือว่าอ่านฟรีแต่ไม่ใช่ CC เพิ่มระเบียนด้วย DOI ไม่อัปโหลดไฟล์
+- **หน้าบทสรุปบนเว็บ:** [ไทย](https://www.cominnocenter.com/research/brand-attitude-congruence-purchase) · [English](https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase)
+- **การอ้างอิง (Crossref):** 1
+- **ทำอะไร:** เพิ่มระเบียนด้วย DOI · **ไม่อัปโหลดไฟล์** (เปิดหน้าวารสารแล้วไม่พบสัญญาอนุญาต CC ระดับบทความ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
 ### 30. The Requirement and Concern towards Health Form and Content Posted on Social Media for Working Age Women

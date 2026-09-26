@@ -212,35 +212,25 @@ _มี DOI — RG เติมบทคัดย่อจากทะเบี�
 
 Plain-language summary: https://www.cominnocenter.com/en/research/hiv-knowledge-public-health-officers
 
-### 21. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
-
-- DOI: 10.13187/me.2024.2.239 · Media Education (Mediaobrazovanie) (2024)
-
-_มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_
-
-**พาดหัวภาษาชาวบ้าน (งานเขียนของศูนย์ฯ ใช้ได้อิสระ):** Sharing a brand's stance does move Thai students toward buying — but it carries part of the route, not the whole of it
-
-Plain-language summary: https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase
-
-### 22. The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour
+### 21. The effectiveness of augmented reality in marketing communications on Generation Z consumer behaviour
 
 - DOI: 10.1386/fspc_00152_1 · Fashion, Style & Popular Culture (2025)
 
 _มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_
 
-### 23. Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z
+### 22. Promoting upcycling fashion through DIY tutorials amongst Thai Generation Z
 
 - DOI: 10.1386/fspc_00091_1 · Fashion, Style & Popular Culture (2024)
 
 _มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_
 
-### 24. Challenging Gender Roles in the Environmental Issues
+### 23. Challenging Gender Roles in the Environmental Issues
 
 - DOI: 10.4324/9781032670508-11 · Multi-Stakeholder Contribution in Asian Environmental Communication (2024)
 
 _มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_
 
-### 25. Cognitive Load Theory in Online Education: Leveraging Interactive Media, Testing, Interaction and to Enhance Engagement and Active Learning
+### 24. Cognitive Load Theory in Online Education: Leveraging Interactive Media, Testing, Interaction and to Enhance Engagement and Active Learning
 
 - DOI: 10.1109/tencon58879.2023.10322455 · TENCON 2023 - 2023 IEEE Region 10 Conference (TENCON) (2023)
 
@@ -250,7 +240,7 @@ _มี DOI — RG เติมบทคัดย่อจากทะเบี�
 
 Plain-language summary: https://www.cominnocenter.com/en/research/online-class-cognitive-load-interactive-media
 
-### 26. Credibility of the Official COVID Communication in Thailand: When People Stop Believing the Government
+### 25. Credibility of the Official COVID Communication in Thailand: When People Stop Believing the Government
 
 - DOI: 10.1177/00027642221118297 · American Behavioral Scientist (2022)
 
@@ -260,7 +250,7 @@ _มี DOI — RG เติมบทคัดย่อจากทะเบี�
 
 Plain-language summary: https://www.cominnocenter.com/en/research/covid-official-communication-credibility
 
-### 27. Gays Dating Applications: Information Disclosure and Sexual Behavior
+### 26. Gays Dating Applications: Information Disclosure and Sexual Behavior
 
 - DOI: 10.14456/jhr.2016.32 · Journal of Health Research (2016)
 
@@ -270,7 +260,7 @@ _มี DOI — RG เติมบทคัดย่อจากทะเบี�
 
 Plain-language summary: https://www.cominnocenter.com/en/research/dating-apps-disclosure-msm
 
-### 28. Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study
+### 27. Survey Results of Knowledge Sharing Preferences and Practices in Public Health Communication Professionals in Thailand's Department of Disease Control: a Descriptive Study
 
 - DOI: 10.14456/jhr.2015.30 · Journal of Health Research (2015)
 
@@ -280,11 +270,21 @@ _มี DOI — RG เติมบทคัดย่อจากทะเบี�
 
 Plain-language summary: https://www.cominnocenter.com/en/research/health-officers-knowledge-sharing
 
-### 29. Key qualitative and quantitative indicators: towards an integrated evaluation framework for government websites in Thailand
+### 28. Key qualitative and quantitative indicators: towards an integrated evaluation framework for government websites in Thailand
 
 - DOI: 10.1504/ijbsr.2014.060300 · International Journal of Business and Systems Research (2014)
 
 _มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_
+
+### 29. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
+
+- DOI: 10.13187/me.2024.2.239 · Media Education (Mediaobrazovanie) (2024)
+
+_มี DOI — RG เติมบทคัดย่อจากทะเบียนเอง ไม่ต้องกรอก_
+
+**พาดหัวภาษาชาวบ้าน (งานเขียนของศูนย์ฯ ใช้ได้อิสระ):** Sharing a brand's stance does move Thai students toward buying — but it carries part of the route, not the whole of it
+
+Plain-language summary: https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase
 
 ### 30. The Requirement and Concern towards Health Form and Content Posted on Social Media for Working Age Women
 
