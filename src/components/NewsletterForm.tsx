@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import type { Locale } from "@/lib/locale";
+import { trackEvent } from "@/lib/track";
 
 type NewsletterFormProps = {
   variant?: "light" | "dark" | "compact";
@@ -63,6 +64,8 @@ export default function NewsletterForm({
       if (res.ok) {
         setStatus("success");
         form.reset();
+        // variant บอกตำแหน่งฟอร์ม (ท้ายเว็บ = dark · แถบ CTA = light) ไม่ส่งอีเมล
+        trackEvent("newsletter_submit", { variant, locale });
       } else {
         setStatus("error");
       }
