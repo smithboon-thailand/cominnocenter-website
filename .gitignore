@@ -50,4 +50,3 @@ __pycache__/
 /scripts/video/storyboard.json
 /scripts/video/storyboard*.html
 /scripts/video/scripts-batch*.md
-/scripts/video/*sessions*.json
