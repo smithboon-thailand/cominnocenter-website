@@ -494,6 +494,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "A survey of 200 Reddit users from a single community, all already investing in crypto — not a representative sample of investors generally or of users in Thailand. **The article's abstract states that risk has a negative effect and that demographic factors moderate it, but the article's own results table (Table 5) and conclusion say the opposite**: risk has no effect, and only education does. This summary follows the results tables.",
     },
+    illustrationAltZh:
+      "纸艺插画：三架天平，每一架都倾斜成不同的角度",
+    zh: {
+      headline:
+        "已经在加密货币圈里的 Reddit 用户，被他们看到的价值所吸引；他们感知到的风险几乎不起作用",
+      question:
+        "散户投资者推动了加密货币的大部分普及，但他们决策背后的感知价值和感知风险却很少被仔细研究。这项研究正是为填补这一空白。",
+      method:
+        "2022 年 10 月至 11 月在 Reddit 的一个加密货币社区发布问卷，共收到 1,444 份回复，筛选出 200 名合格且不重复的参与者（女性 51.5%；72.5% 年龄在 25–44 岁；70% 持有比特币）。研究测量了感知价值、感知风险和对加密货币投资的接受度，采用结构方程模型（PLS-SEM）分析，并以性别、年龄、教育、收入和投资经验作为控制变量。",
+      findings: [
+        "**感知价值对加密货币投资的接受度有明显的正向影响**（t = 9.58），而且效应很大（f² = 0.55）；模型解释了 54.4% 的接受度。",
+        "**感知风险没有显著影响**（t = 1.28，p = 0.20），因此这一假设未获支持。作者认为，这个样本比一般人更能承受风险，感知价值可能盖过了风险——这与此前几项研究中风险会让人却步的结果不同。",
+        "**五个人口变量中，只有教育起作用**（p = 0.024）：受教育程度越高的人越容易接受这种投资。性别、年龄、收入和投资经验都没有影响。",
+        "大多数受访者自评对加密货币的了解只有“一点”（37%）到“中等”（35.5%）；自称专家的只有 2.5%。",
+      ],
+      soWhat:
+        "对从事金融传播的人来说，这项发现表明：面对已经身在加密货币市场的人，单独警示风险几乎改变不了他们的决定，因为驱动决定的是他们看到的价值。如果希望人们在清醒的情况下投资，就必须用谈论价值的同一种语言来讨论风险。而既然教育是唯一起作用的变量，作者建议在课程中、以及在这些人实际聚集的网络社区中，投资于金融素养教育。",
+      caveat:
+        "对单一社区 200 名 Reddit 用户的调查，所有人都已在投资加密货币——既不能代表一般投资者，也不能代表泰国的用户。**文章摘要称风险有负面影响、且人口因素起调节作用，但文章自己的结果表（表 5）和结论所说的恰恰相反**：风险没有影响，只有教育有影响。本摘要以结果表为准。",
+    },
   },
   {
     slug: "bitcoin-ownership-property-rights",
@@ -535,6 +555,25 @@ export const paperSummaries: PaperSummary[] = [
         "It illustrates the centre's work in communication theory and legal philosophy, showing that questions about digital property are not settled by technology alone but by what makes something ownable in the first place.",
       caveat:
         "A theoretical argument rather than a statement of enforceable law. The author notes in the article that the title is not financial advice.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个空的画框，投下一片实心、完全被填满的影子",
+    zh: {
+      headline:
+        "比特币虽然无形，却仍然可以被拥有——一项法学理论上的论证",
+      question:
+        "几位自由意志主义作者认为比特币无法被拥有：作为无形的数字资产，它不符合传统所有权的标准。本文旨在反驳这一立场。",
+      method:
+        "这是一篇法学与哲学理论著作，而不是实证研究。作者检视了 Konrad S. Graf 和 Stephan Kinsella 反对承认比特币产权的论点，并逐一回应。",
+      findings: [
+        "核心论点是：比特币背后的技术使它成为一种稀缺且具有竞争性的资源——而正是这一条件，使普通财产需要所有权规则。",
+        "围绕比特币使用的冲突可能发生、也确实在发生，而产权的一般功能就是通过分配排他性的所有权来避免这类冲突；因此，产权也应当延伸到比特币上。",
+        "文章进一步讨论了在私法社会中承认比特币为可拥有的稀缺资源会带来什么后果，包括惩处比特币盗窃的困难。",
+      ],
+      soWhat:
+        "这篇文章体现了本中心在传播理论和法哲学方面的工作，说明数字财产的问题并不单靠技术来解决，而取决于究竟是什么让一样东西可以被拥有。",
+      caveat:
+        "这是理论论证，而不是可强制执行的法律陈述。作者在文中指出，文章标题并不构成投资建议。",
     },
   },
   {
@@ -581,6 +620,28 @@ export const paperSummaries: PaperSummary[] = [
         "The finding that still holds is that social media metrics are not a proxy for votes: anyone anywhere can click like, and they may not be Bangkok residents or old enough to vote. The authors argue campaigns should use new media creatively to reach younger generations while keeping traditional persuasion alongside it, because that is what wins votes.",
       caveat:
         "A survey of 400 Bangkok voters about a single election in 2013, before social media reached today's penetration — so it describes that moment's media landscape, not the present one. The authors note it covers one province out of 77.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两排叠起的圆片，高度始终对不齐",
+    zh: {
+      headline:
+        "2013 年曼谷府尹选举：点赞没有变成选票",
+      question:
+        "2013 年曼谷府尹选举是所有主要候选人都开设社交媒体账号的第一次选举——而 Facebook 点赞最多的候选人只得了第三名。那么，曼谷选民实际上是靠什么来做决定的？",
+      method:
+        "研究汇总了四位主要候选人的社交媒体数据（Facebook、YouTube、Twitter、Instagram、Google+ 以及各自的网站），并访谈了竞选团队成员，然后调查了 400 名曾在上一届府尹选举中投票的曼谷登记选民，样本分布在十二组选区，每组占样本的 7–9%。问卷涵盖人口特征、媒体使用和投票决定。",
+      findings: [
+        "电视是受访者获取选举信息时最常首先求助的媒体（47.3%），也是对其决定影响最大的媒体（37.8%），其次是户外媒体（16.5%）。",
+        "**只有 10% 的人表示新媒体——网站和社交媒体——影响了他们的投票。**",
+        "传统媒体对选举的重要性评分为 3.58 分（满分 5 分）；新媒体为 2.84 分。",
+        "受访者最赞同的说法（平均 3.85）是候选人应当与选民有面对面的接触。",
+        "Facebook 点赞最多的候选人（238,138）得了第三名，而获胜者是“正在谈论”数最高的那一位（146,294）。",
+        "56 岁及以上的选民比年轻群体更不认同新媒体有趣或即时——而大多数候选人自己在访谈中也说，社交媒体快速又便宜，但无法预测选票。",
+      ],
+      soWhat:
+        "至今仍然成立的发现是：社交媒体的指标不能代替选票——任何地方的任何人都可以点赞，他们未必是曼谷居民，也未必到了投票年龄。作者认为，竞选活动应当创造性地用新媒体触达年轻一代，同时保留传统的说服方式，因为赢得选票的是后者。",
+      caveat:
+        "对 400 名曼谷选民就 2013 年单一一次选举所做的调查，当时社交媒体的普及程度远不及今天——因此它描述的是那一时刻的媒体格局，而不是现在的。作者指出，研究只涵盖全国 77 个府中的一个。",
     },
   },
   {
@@ -1005,6 +1066,27 @@ export const paperSummaries: PaperSummary[] = [
         "The study puts a number on the attitude-behaviour gap content creators keep running into: followers trust the programme and will recommend it, but that has not converted into paid support. What the results point to is designing a ladder from the low-cost actions people already take up towards tangible support, rather than jumping straight to asking for donations.",
       caveat:
         "The authors state two limits themselves: some behaviours were measured only through questionnaire answers and may diverge from what people actually do, and 400 respondents remains a small sample against everyone who has followed programmes of this kind, so the conclusions do not yet cover the whole population.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一只满盈的碗通过一根细线连向一只很小的碗，小碗里只有一枚圆片",
+    zh: {
+      headline:
+        "恐怖故事节目的粉丝非常信任节目——而这份信任几乎从未转化为金钱",
+      question:
+        "恐怖故事节目拥有异常忠实的受众。粉丝对节目关系营销传播的看法，与他们实际的参与行为有多紧密的关联？人口特征会不会改变答案？",
+      method:
+        "以在线问卷调查 400 名 18 岁及以上、正在或曾经关注恐怖故事节目的人（Cronbach's Alpha 0.72–0.86）。受访者关注最多的节目是 The Ghost Radio 和 Angkhan Khlum Pong，并列 87.25%。问卷测量信任、承诺和沟通三个维度，并与一般参与行为和需要花钱的参与行为进行对照，采用描述统计、皮尔逊相关和单因素方差分析。",
+      findings: [
+        "对节目关系营销传播的整体看法为中等（3.36），其中信任得分最高（3.56），得分最高的单项是“我相信节目提供的信息真实可信”（3.81）。",
+        "然而整体参与行为偏低（2.45）。低成本的行为很常见——在视频下或直播时留言（3.28）、分享视频（3.25）——而捐款（1.75）和参加旅行活动（1.41）得分最低。",
+        "看法与行为呈显著正相关，但**相关程度非常低**（r = 0.167，p < .05），因此好感几乎无法预测真实的参与。",
+        "在看法上，46–59 岁（3.61）和 60 岁及以上（3.72）的群体比 18–35 岁群体更积极，而**性别、教育、职业和收入没有造成差异**。",
+        "在行为上，公务员和国有企业员工、以及月收入 10,001–30,000 泰铢的人比其他群体参与得更多，而**性别、年龄和教育没有造成差异**。",
+      ],
+      soWhat:
+        "这项研究为内容创作者一再碰到的态度—行为落差给出了一个数字：粉丝信任节目、也愿意推荐，但这并没有转化为付费支持。结果指向的做法是：从人们已经在做的低成本行为出发，设计一架逐级通往实际支持的梯子，而不是一上来就开口要捐款。",
+      caveat:
+        "作者自己指出了两项局限：部分行为只通过问卷回答来测量，可能与人们的实际做法不同；而 400 名受访者相对于所有关注过这类节目的人来说仍是小样本，因此结论尚不能涵盖整个群体。",
     },
   },
   {
@@ -1812,6 +1894,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**One university, one cohort**, during a period when the institution had mandated fully online teaching — a context that does not recur in normal conditions. The authors note the study is quantitative only and therefore cannot capture the texture of the experience, and they call for interviews as a follow-up. These are self-reported feelings, not measured workload.",
     },
+    illustrationAltZh:
+      "纸艺插画：一摞高高的薄纸因自身的高度而弯折，旁边一块厚板笔直稳固地立着",
+    zh: {
+      headline:
+        "一年级学生感到压力，不是因为技术难用——而是因为技术一下子来得太多",
+      question:
+        "一年级学生在课程中途从教室转到在线学习。他们如何看待两种模式——直播课和录播材料？他们感受到了哪几种技术压力？理科和非理科学生之间有没有差别？",
+      method:
+        "2020 学年，一所大学 6,778 名一年级学生中有 803 人完成了一份 45 题的泰语在线问卷。其中两部分采用五级李克特量表：20 题关于对两种学习模式的看法，20 题关于四种技术压力——过载、复杂、不安全感和不确定性。内容效度经三位专家审阅，问卷经过预试；两组之间以 t 检验比较。",
+      findings: [
+        "**在两组中，技术过载都明显高于其他三种**——理科学生 3.52，非理科学生 3.64（满分 5 分）。",
+        "**其他三种都处于中低区间**——复杂 2.83 和 2.88，不安全感 2.95 和 2.96，不确定性 2.73 和 2.95。",
+        "**两组之间唯一显著的差异是技术不确定性**（t = −3.62，p < .01）。**复杂（p = .42）和不安全感（p = .91）完全没有差异**，过载则恰好落在临界线上（p = .05）。",
+        "**在对学习模式的看法上，非理科学生对两种模式都更积极，但只有录播模式的差异达到显著**（t(801) = −2.13，p = .03）——3.06 对 2.94。",
+        "**所有群体对在线学习的评分都在 3 分（满分 5 分）上下**——既不喜欢，也不讨厌。",
+      ],
+      soWhat:
+        "这项发现指向的并不是通常的补救办法。**当得分高的是数量而复杂度偏低时，培训大家使用工具并不能解决问题。**需要管理的是平台的数量，以及来自不同课程、同时到期的截止日期的数量。作者建议减少单个专业所使用的系统数量，并为对录播材料反应更好的群体提供更多录播内容，因为它让学生可以按自己的节奏学习。",
+      caveat:
+        "**一所大学、一届学生**，而且是在学校规定全面在线教学的时期——这种情境在正常情况下不会再现。作者指出，本研究只有定量部分，因此无法呈现体验的细节，并呼吁后续进行访谈。这些是自我报告的感受，而不是测量出的学习负担。",
+    },
   },
   {
     slug: "brand-attitude-congruence-purchase",
@@ -1971,6 +2074,26 @@ export const paperSummaries: PaperSummary[] = [
         "The part that transfers without having to share the authors' conclusion is **the figure of 0 out of 70**: a picture of a public conversation in which one whole side of a standard debate is missing, not merely outnumbered. For journalists and for anyone designing public consultation, the check repeats easily on other issues — ask which tenable positions appear in none of the texts at all. For teaching advertising ethics, the case carries both an empirical result and both sides of an argument in a single paper.",
       caveat:
         "**One case, 70 texts.** The 0% therefore describes the conversation around this case, not Thai public discourse in general. The article does not state the collection window, the sampling method, or any inter-coder agreement, so the result is hard to reproduce. **Most of the article is normative argument from a classical-liberal position rather than a finding** — the centre summarises it as the authors' proposal, not as a position of its own. **This summary deliberately omits the brand's name and the wording on the advertisement**, since either identifies the company immediately while the usable lesson needs neither.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一张圆桌周围摆着七把椅子，靠近观者的一侧留出空缺，那里没有椅子",
+    zh: {
+      headline:
+        "在 70 篇讨论一则美白广告的文本中，没有一篇提到言论自由",
+      question:
+        "2016 年初，泰国某品牌的一则美白广告引发广泛批评并被撤下，随后有人呼吁立法禁止“歧视性广告”。这项研究问的是：这场公共讨论是否曾经把这一提议与言论自由的价值放在一起权衡。",
+      method:
+        "对 70 篇提及此案的文本进行内容分析——英文 18 篇、泰文 52 篇——涵盖印刷媒体、网络出版物和社交媒体帖子。阅读标准只有一个：在呼吁采取法律行动之前，文本是否提到了言论自由的价值，或者区分了“言”与“行”？文章其余部分是反对该立法提议的哲学论证。",
+      findings: [
+        "**70 篇文本中没有一篇提到言论自由，或把言与行分开——比例为零。**作者的结论是：在泰国关于歧视性广告的公共讨论中，这一价值根本不存在。",
+        "**呼吁立法的文本并没有说清楚这部法律要解决什么问题。**作者不得不把分散的关切重新整理成两点：这类广告侮辱了肤色较深的人并令他们难受；以及宣称白皙肤色更可取，本身就是歧视。",
+        "**对肤色的偏好并非在每个社会都指向同一个方向。**文献回顾指出，在有农业社会历史的地方，较白的皮肤意味着不必在户外劳作；而在工作都在室内的工业化社会，晒黑反而意味着有闲暇——方向是相反的，因为人们要表达的是地位，而不是肤色本身。",
+        "**作者的规范性结论是不应制定这样的法律**，理由是受伤的感受并不是可衡量的损害，而现有的机制——消费者不再购买、品牌承受声誉损失——已经能回应这类情况。**这一部分是作者的哲学论证，不是内容分析的结果。**",
+      ],
+      soWhat:
+        "即使不认同作者的结论，也能直接借鉴的部分是**70 篇中为 0 篇这个数字**：它描绘了一场公共讨论的面貌——一场常规辩论的整整一方完全缺席，而不只是人数较少。对记者以及设计公众咨询的人来说，这种检查很容易在其他议题上重复：问一问，有哪些站得住脚的立场在所有文本中都没有出现。对广告伦理教学来说，这个案例在一篇论文里同时提供了实证结果和辩论的正反两方。",
+      caveat:
+        "**一个案例，70 篇文本。**因此，0% 描述的是围绕这个案例的讨论，而不是泰国公共讨论的整体。文章没有说明收集的时间范围、抽样方法或编码员之间的一致性，因此结果难以复现。**文章的大部分内容是从古典自由主义立场出发的规范性论证，而不是研究发现**——本中心将其作为作者的主张加以摘要，而不是本中心自己的立场。**本摘要有意略去品牌名称和广告上的文字**，因为两者都能立即指认出这家公司，而可借鉴的教训并不需要它们。",
     },
   },
   {
@@ -2804,6 +2927,28 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**A single group of 23 with no control group**, so the score gains cannot be separated from ordinary learning over the term. **The lead researcher was also the course lecturer**, which the article names as a limitation mitigated by research assistants. Many weekly tests were taken by only 10–19 of the 23 students because of absences. Scores did not count, so effort may have been low. The study measured short-term recall rather than long-term retention and is tied to one particular set of platforms. It was reviewed by Chulalongkorn University's Learning Innovation Center, which funded it together with this Center. IEEE retains copyright, so no copy is available for download here.",
     },
+    illustrationAltZh:
+      "纸艺插画：一条折成手风琴状的纸条侧立着，左边的褶又高又挺，越往右越低越松，直到几乎平躺",
+    zh: {
+      headline:
+        "在线课堂上反复测验确实能提升短期记忆，但每重复一次就流失一批学生——而要把内容用起来，靠的是交流，而不是测验",
+      question:
+        "当 COVID-19 迫使一门战略传播策划课程全面转为在线授课时，任课教师想知道：互动媒体——演示网站、视频、竞赛式测验以及每周的前测和后测——是否真的帮助硕士生**记住**内容并在项目中**运用**，以及哪种形式对哪一方面有帮助。",
+      method:
+        "单组前测—后测准实验，对象是某国际硕士项目的 23 名一年级学生，课程为 2021 学年最后一个学期的 2800575，全程通过 Zoom 授课。工具包括：用于每周选择题前测和后测的 myCourseVille 学习系统；Adobe Spark 网页演示；上传到 YouTube 的录播讲课；分两轮进行的 Kahoot 测验（第 1–11 周期间一次，期末考试前再用相同题目进行一次）；贯穿 16 周学期的学生访谈；分数比较采用配对 t 检验。测验成绩不计入总评，学生事先已被告知。",
+      findings: [
+        "**使用互动媒体之后的得分显著高于之前**：整体平均分 6.77 → 8.20（相差 1.42；t = 5.905；p < 0.001；n = 23）。",
+        "**但逐周来看，并不是每次都有效。**策划测验在 11 周中有 5 周显著提高；决策指南测验在 10 周中有 7 周显著提高。其余各周虽有提高，但未达到显著。",
+        "**重复并没有带来更多提升。**同一测验第二次的得分为 8.77，对比 8.19（不显著，p = 0.085）；第二轮 Kahoot 得分 6.30，对比第一轮的 6.46（不显著，p = 0.422），而且**参与人数从约 10–20 人降到 4–10 人**。作者将此解读为对重复测验感到厌倦，以及分数不计入成绩。",
+        "**学生自己说，测验有助于短期记忆，但无助于在项目中运用。**有助于运用的是在 Zoom 上与教师和同学的实时交流、辅助文件（策划书范例、案例研究、策划写作指引）以及教师的直接反馈。",
+        "**学生要求把幻灯片做成普通的 PDF 文件以便做笔记**，尽管课程已经提供了嵌入视频和链接的网页演示——作者将此与认知负荷理论联系起来：过于吸引注意力的媒体会把心智资源从内容上转移开。",
+        "**作者建议**减少以记忆为主的测验，增加题型的多样性，测验只用一个平台，并且每讲课约 30 分钟就安排一次实时讨论。",
+      ],
+      soWhat:
+        "对在线教学来说：**频繁测验对记忆有效，但回报递减得很快**——第二次测验几乎没有增加什么，却失去了一半的学生。知识的运用来自交流和真实任务，由教师担任顾问，而不是来自看起来很精巧的媒体。学生要求的工具恰恰是最基本的——一个可以做批注的文件，这提醒我们：“互动”并不自动等于“学得更好”。",
+      caveat:
+        "**只有 23 人的单一组别，没有对照组**，因此无法把分数的提升与学期中的正常学习区分开来。**主要研究者同时也是这门课的授课教师**，文章把这列为局限，并以研究助理来减轻其影响。由于缺席，许多每周测验只有 23 人中的 10–19 人参加。分数不计入成绩，学生的投入可能较低。研究测量的是短期记忆而不是长期保持，并且与一套特定的平台绑定。研究经朱拉隆功大学学习创新中心审查，并由该中心与本中心共同资助。IEEE 保留版权，因此本网站不提供副本下载。",
+    },
   },
   {
     slug: "slow-paced-flight-safety-videos",
@@ -2853,6 +2998,28 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone producing safety or instructional video: **a slow pace, one point at a time and no distractions conveyed the knowledge almost completely, even to people with no background at all**, and no separate versions by gender are needed. But the **entry point** — getting people to look in the first place — has to be designed too, because well-delivered information is worth nothing if no one is watching. The authors connect this to the pandemic shift to online teaching, when every institution came to depend on video.",
       caveat:
         "**Run in a school auditorium, not on an aircraft**, with students told by adults to watch, so attention was far higher than among real passengers. There were no distractions such as cabin noise. Only one format was tested (slow pace plus few stimuli), so nothing can be said about fast or stimulus-rich versions. A single viewing, whereas frequent flyers see the briefing repeatedly. **Knowledge was measured, not whether anyone would act on it in an emergency.** The ceiling effect makes differences among video viewers impossible to see. A convenience sample from one school. **Data collected in 2015, published in 2021**, as a short report.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两根折纸柱并排而立，一张平整的纸像盖子一样搁在较高的那根上，与较矮的那根之间留着明显的空隙",
+    zh: {
+      headline:
+        "一段节奏缓慢、简洁的机上安全视频，让青少年的得分接近满分——无论是否坐过飞机，男生女生都一样",
+      question:
+        "只有 30–40% 的乘客会留意起飞前的安全演示，而关于什么特点能让安全视频有效的研究既少又互相矛盾。这项研究问的是：一段**节奏缓慢、去除了不必要刺激**的视频，能否真正把安全知识传达给第一次坐飞机的青少年？性别会不会改变它的效果？",
+      method:
+        "2015 年 5 月 15 日，在曼谷附近一座没有机场的城镇的一所公立学校进行的两组前测—后测实验。128 名 14–16 岁的学生志愿者，男生占一半——其中 64 人坐过飞机、64 人没有——先完成一份关于紧急撤离、安全带、氧气面罩和救生衣的 20 题判断测验（经三位飞行安全专家审阅），然后按分数和乘机经历配对，分成实验组和对照组各 64 人。实验组观看一段 5 分 36 秒的安全视频，由一男一女两位空乘以每分钟不到 140 个词的语速讲解（共 812 个词），先讲泰语、每个主题之后再讲英语，设计上尽量减少干扰；对照组观看一段长度相同、与飞行无关的英国喜剧片段。两组随后重做测验，再进行简短的焦点小组讨论。研究获得了校长、教师、学生和家长的同意。",
+      findings: [
+        "**每一组第二次的得分都更高（均为 p < 0.001），连看喜剧的那组也是如此**，因为他们重做的是同一份测验——但效应大小相差好几倍：对照组 d = 0.63–0.94，看安全视频的组则为 d = 3.16–3.87。",
+        "**视频组的得分接近满分**：平均分为 19.44（有乘机经历）和 19.53（没有乘机经历）（满分 20 分），对照组为 16.44 和 15.59，而两组的前测得分都在 14–15 分左右。作者指出实验组存在**天花板效应**。",
+        "**是否坐过飞机没有影响**：从未坐过飞机的学生从 14.06 分提高到 19.53 分，与坐过的学生不相上下。",
+        "**性别没有影响**：后测平均分男生 17.81、女生 17.69（p = 0.73），观看前也没有差异（p = 0.09）。",
+        "**在焦点小组中，学生们觉得视频有趣而不枯燥，没有提出改进建议**，并表示想进一步了解飞行安全。",
+        "**作者区分了两个问题：吸引注意力，以及把注意力维持到足以传达知识的时间。**缓慢、简洁的视频能很好地做到后者，却可能在前者上失分；作者提出一个**尚未检验的假设**：先用有吸引力的内容把人拉进来，再用缓慢的节奏进行讲解。",
+      ],
+      soWhat:
+        "对制作安全或教学视频的人来说：**缓慢的节奏、一次只讲一点、没有干扰，几乎能把知识完整地传达出去，即使对方毫无背景知识**，而且不需要按性别制作不同版本。但**切入点**——让人一开始就愿意看——也必须设计好，因为讲得再好的信息，没人看就毫无价值。作者把这一点与疫情期间转向在线教学联系起来，当时每个机构都开始依赖视频。",
+      caveat:
+        "**实验在学校礼堂而不是飞机上进行**，学生是在大人的要求下观看的，因此注意力远高于真实的乘客。没有机舱噪音之类的干扰。只测试了一种形式（慢节奏加少刺激），因此对快节奏或刺激丰富的版本无从判断。只看了一次，而常坐飞机的人会反复看到安全演示。**测量的是知识，而不是紧急情况下是否会付诸行动。**天花板效应使观看视频者之间的差异无法显现。样本是来自一所学校的方便样本。**数据采集于 2015 年，2021 年才发表**，形式为简短报告。",
     },
   },
   {
@@ -3041,6 +3208,27 @@ export const paperSummaries: PaperSummary[] = [
         "If the trial delivers what it is designed for, the result is not simply a verdict on rapid tests but evidence for policymakers that prescribing can be reduced without trading away patient safety — the worry that keeps many services from changing practice. Pairing a clinical-outcome measure with the prescribing measure from the outset is what makes that answer credible.",
       caveat:
         "**This is a protocol, not a result.** The published document is version 1.4, dated 20 December 2019, and no findings existed at publication. **The control arm receives routine care, which the authors state will not be altered during the trial**, and they acknowledge routine procedures may carry risks of their own, such as inappropriate antibiotic use or a missed diagnosis, which will be monitored. The design answers primarily at site level, so pooled results across six countries should be read with their differing contexts in mind.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一条小路一分为二，岔路口立着一块路标，但上面还没有箭头",
+    zh: {
+      headline:
+        "一项试验计划：检验快速检测加上决策算法，能否在不让患者情况变差的前提下减少不必要的抗生素使用",
+      question:
+        "在中低收入国家，来到门诊的急性发热患者，从临床上无法区分是细菌还是病毒引起的。由于缺乏诊断手段，“以防万一”开抗生素已成为普遍做法，而这会助长耐药性。一套包括快速检测、临床算法以及培训和沟通的组合措施，能否在不使临床结局变差的情况下减少不必要的处方？",
+      method:
+        "一项随机对照试验，覆盖六个国家——布基纳法索、加纳、印度、缅甸、尼泊尔和乌干达——的九个临床点位，总共至少招募 21,876 名患者；招募期为 12 个月，以涵盖发热的季节性变化。一份主方案针对各国的伦理申报分别调整，检测项目和算法则根据各国现有的急性发热病因数据来选择。与试验并行的，还有一项关于新诊断手段推广的推动与阻碍因素的定性评估。试验已在 ClinicalTrials.gov 注册，编号 NCT04081051。",
+      findings: [
+        "**主要结局有两个，必须放在一起看**：第 7 天结局良好的患者比例——明确定义为存活、不发热且第 0 天的症状已消退——以及各组的抗生素处方比例。",
+        "**目标事先已经公布：把不必要的处方相对基线减少至少 30%**，而不只是有所减少。",
+        "**三个次要结局**：到第 7 天报告遵照处方用药的患者比例、遵循新算法的医务人员比例，以及发生不良事件的参与者比例。",
+        "**使这项试验成为必要的那个空白被明确指出。**作者指出，这些点位的处方率已经知道，但患者的结局并不清楚，因为患者通常没有得到随访。",
+        "**每个点位的统计效力都足以单独成立**，之后再以点位为分析单位，通过汇总数据的荟萃分析合并结果。",
+      ],
+      soWhat:
+        "如果试验达到了它设计的目标，结果将不只是对快速检测的评判，而是为决策者提供证据，证明可以在不牺牲患者安全的前提下减少处方——正是这种担忧让许多医疗服务迟迟不改变做法。从一开始就把临床结局指标和处方指标配对，才让这个答案可信。",
+      caveat:
+        "**这是一份研究方案，不是结果。**发表的文件是 2019 年 12 月 20 日的 1.4 版，发表时还没有任何研究发现。**对照组接受常规诊疗，作者表示试验期间不会改变**，并承认常规做法本身也可能带来风险，例如不恰当的抗生素使用或漏诊，这些都将被监测。该设计主要在点位层面给出答案，因此解读六国的合并结果时，应考虑各地不同的背景。",
     },
   },
   {
@@ -3936,6 +4124,28 @@ export const paperSummaries: PaperSummary[] = [
         "The lesson still holds for campaigns of every kind: **online engagement and real-world action are different counts.** Likes measure interested people anywhere; votes measure eligible people who reach the booth. Before using social media as a performance indicator, ask whether the followers belong to the group that can act, and use the channel for image and dialogue rather than for headcounts.",
       caveat:
         "**The abstract mentions a survey of voters by demographic profile, but the paper contains no such survey**; there is only the document analysis and four interviews. The social-media figures in the two tables were collected at different times and do not match. It is a conference-proceedings paper with no DOI, so the registry holds no bibliographic record for a citation button. The data are from 2013, before platforms changed how they display counts and before newer election law. **This summary deliberately refers to the candidates by their finishing order and names neither them nor their parties**, in line with the rules of these pages.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一摞几颗鲜粉色的纸爱心，旁边是一个小小的纸投票箱，投票口里插着一张选票",
+    zh: {
+      headline:
+        "2013 年曼谷府尹选举中，Facebook 点赞最多的候选人只得了第三名，而每个竞选团队都认同点赞无法预测选票",
+      question:
+        "2013 年 3 月的曼谷府尹选举，是所有领先候选人都认真在社交媒体上竞选的第一次选举，然而粉丝更多的候选人却输了。这项研究问的是：前四名候选人用了哪些渠道、怎么用的，他们的竞选团队认为哪些渠道有效，以及社交媒体是否真的影响了选票。",
+      method:
+        "定性研究：对自 2013 年 3 月起直接从四位领先候选人的传统和数字渠道收集的所有竞选材料进行文献分析；对四位代表候选人和选举方面的人士进行深度访谈，并作主题分析；再把 Facebook、YouTube、Twitter、Instagram、Google+ 和竞选网站上的粉丝数和互动数，与实际得票进行比较。",
+      findings: [
+        "**获胜者在大多数渠道上的粉丝数并不领先。**第三名的 Facebook 点赞最多（238,138）；第四名的 YouTube 观看次数最多（257 万次，频道自 2007 年开设），Instagram 粉丝也最多。获胜者只在 Facebook 的“正在谈论”数（146,294）和 Twitter 粉丝数（115,328）上领先。",
+        "**实际结果**：获胜者得 1,256,349 票（占有效投票的 47.75%），第二名 1,077,899 票（40.97%），第三名 166,582 票，第四名 78,825 票；4,244,465 名登记选民中有 2,715,640 人投票。",
+        "**所有人都把 Facebook 作为主要渠道**，发布文字、照片和视频；所有人都有 YouTube 频道以及 Twitter 和 Instagram 账号。只有获胜者开发了手机应用和 Google+ 页面；只有第三名使用了增强现实。一家社交聆听服务的数据显示，网上正面评论比例最高（82%）的候选人，正是最终得了第四名的那一位。",
+        "**竞选团队偏爱 Twitter，因为它快速、有对话空间**，Facebook 则是发布信息的入口。所有人都认为，与四年前的上一届选举相比，社交媒体是新事物；尽管预算不多，几乎每位候选人仍然雇了团队来运营网络渠道。",
+        "**大多数受访者坚持认为社交媒体无法决定选票。**点赞数和粉丝数与得票不相符，因为“任何地方的任何人都能点赞”：粉丝可能未到投票年龄、不是曼谷登记选民，或者身在国外。选民仍然通过面对面的接触来做决定，例如巡回拉票和社区走访。",
+        "作者的结论是：社交媒体虽然无法预测选票，却仍然必要，因为它为候选人塑造现代的形象，并开启与选民的直接对话。",
+      ],
+      soWhat:
+        "这个教训至今仍适用于各类运动：**网上的互动和现实中的行动是两个不同的数字。**点赞衡量的是任何地方感兴趣的人；选票衡量的是有资格并且走到投票站的人。在把社交媒体当作绩效指标之前，先问一问粉丝是否属于能够采取行动的群体，并把这个渠道用于塑造形象和对话，而不是用来数人头。",
+      caveat:
+        "**摘要提到了一项按人口特征进行的选民调查，但论文中并没有这项调查**；只有文献分析和四次访谈。两个表中的社交媒体数字是在不同时间收集的，彼此不一致。这是一篇会议论文，没有 DOI，因此登记系统中没有可供引用按钮使用的书目信息。数据来自 2013 年，早于各平台改变计数的显示方式，也早于新的选举法。**本摘要有意以名次来称呼候选人，不提他们的姓名和政党**，这符合本系列摘要页面的规则。",
     },
   },
   {
