@@ -3774,6 +3774,28 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Media literacy is central to the title, abstract and conclusion, but the results and the findings table do not separate out anything about it**, so the recommendation to train media literacy is the authors' interpretation rather than something the data shows directly. Ten interviews, in Qatar only, mostly Generation Y and Z as the authors note themselves. As a qualitative study it does not say how many participants raised each theme. Data are from 2022. The journal reserves copyright, so this site holds no copy.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个珊瑚红色的大对话气泡，以尾尖立在一个高高的深蓝色纸圆锥顶端保持平衡",
+    zh: {
+      headline:
+        "社交媒体让卡塔尔的女性创业者以低成本、轻松地进入市场——但在上面建立的声誉，可能因一次失误而毁掉",
+      question:
+        "在卡塔尔想要创业的女性面临多方面的障碍，从融资、法律要求，到文化规范和由男性主导的商业世界。这项研究问的是：那里的女性创业者为什么用社交媒体做营销传播，得到了什么，又遇到了哪些阻碍，媒介素养在其中处于什么位置。",
+      method:
+        "定性研究：2022 年 9 月至 10 月，对卡塔尔十位经营不同规模企业、且已在使用社交媒体的女性创业者进行深度访谈，依据其专业经验进行目的性抽样。访谈问题经创业与营销传播领域的专家审阅，并先在一个小组中试用；主题分析由一位独立研究者交叉核验。研究获得朱拉隆功大学传播艺术学院战略传播管理项目委员会的批准。",
+      findings: [
+        "**使用它的三个理由**：方便（点一下就能联系到顾客）、是她们能用的最具成本效益的广告方式，以及它打开的商业机会。",
+        "**好处分为两个层面。**个人层面：品牌知名度、即使在营业时间之外也能与顾客交流，以及容易触达。企业层面：建立品牌声誉、管理营销、扩张业务和带动销售。",
+        "**三大挑战**：扩大受众，尤其是对刚起步的企业而言；面对负面评论和投诉时保持专业；以及声誉管理——一位受访者警告说，**一次失误就可能导致企业遭到抵制**。",
+        "**受访者实际采用的应对策略**：通过优质内容、与网红和互补品牌合作、付费广告、话题标签和地理标签来扩大受众；就回复时间、语气以及要回应哪些评论制定准则，并据此培训团队；持续监测、快速回应、承认错误、透明沟通，并分享顾客的正面评价。Instagram 和 Snapchat 是她们的顾客使用最多的平台。",
+        "**受访者把社交媒体看作一个跨越性别界线的空间**，即使在父权社会中也足够安全，可以在其中做生意。",
+        "作者用六个理论框架解释这些结果，其中包括社会交换理论（因为收益大于成本而使用）和资源基础观（社交媒体是建立竞争优势的战略资源）。",
+      ],
+      soWhat:
+        "对支持女性创业者的机构而言，启示是社交媒体确实降低了进入市场的门槛，但**创业者感到最脆弱的不是发帖，而是应对负面评论和维护声誉**。培训应当涵盖这些内容，而不只是增加粉丝的技巧。作者建议把媒介素养——分析、创作和管理数字内容——纳入创业培训项目。",
+      caveat:
+        "**媒介素养是标题、摘要和结论的核心，但研究结果和结果表并未单独呈现任何与之相关的发现**，因此培训媒介素养的建议是作者的解读，而不是数据直接显示的内容。仅有十次访谈，只在卡塔尔一国进行，且如作者自己所说，受访者大多属于 Y 世代和 Z 世代。作为定性研究，它没有说明每个主题由多少位受访者提出。数据采集于 2022 年。期刊保留版权，本网站不保存副本。",
+    },
   },
   {
     slug: "adult-media-literacy-pakistan",
@@ -3818,6 +3840,26 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone running media literacy programmes, the finding is that **using media fluently and evaluating it are different skills**: young people are adept with the tools yet still believe what they read, and losing trust in television is not the same as knowing how to check information. The authors call for reaching adults through non-formal channels, workplaces and communities, not only schools and universities — and any programme meant to reach rural women has to be designed knowing the device may be in someone else's hands.",
       caveat:
         "**The methods describe four domains (access, analysis, evaluation, creation), but the results report three differently named ones** (critical understanding, content creation, ethical awareness). **Multiple regression and ANOVA are described but only two correlations are reported**; the 22% urban–rural difference carries no test statistic, and it is unclear whether it is a relative difference or percentage points. The age correlation is with digital skills, not with the overall media literacy score, so the conclusion that older adults are less media-literate goes beyond the reported figures. The sample is people using media at least an hour a day, not all adults. Some measures are self-reported and the data are cross-sectional, so they show association, not cause. The journal reserves copyright, so this site holds no copy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个直立的深红色放大镜，镜片从底部起被芥末黄色的纸填到略低于一半，上半部分空着",
+    zh: {
+      headline:
+        "在每天使用媒体的巴基斯坦成年人中，只有 41% 能识别有偏向或误导性的新闻——而教育是关联最明显的因素",
+      question:
+        "巴基斯坦有 100 多个私营电视频道和超过 8700 万社交媒体用户，虚假信息和政治极化也随之增长，而迄今为止的媒介素养工作主要面向青少年和学生。这项研究问的是：全国成年人的媒介素养水平如何，教育、年龄、性别和技术获取又与之有什么关系。",
+      method:
+        "采用顺序解释型混合方法设计。首先，于 2025 年 3 月至 4 月按人口比例在四个省份面对面调查 500 名 18 岁及以上的成年人（旁遮普省 200 人、信德省 125 人、开伯尔-普赫图赫瓦省 100 人、俾路支省 75 人），受访者须在该省居住至少五年，且每天使用媒体至少一小时。35 题问卷改编自欧洲媒介素养指数，并先对 50 名成年人进行试测（α = 0.82）。样本中男性占 58%、女性占 42%，52% 居住在农村，62% 至少受过中等教育，每天上网的只有 28%。随后在 2025 年 5 月至 6 月，从同一批受访者中选出 30 人进行深度访谈——城市和农村各 15 人，涵盖高、中、低分组——使用乌尔都语、信德语和普什图语；农村女性由女性调查员访谈。",
+      findings: [
+        "**只有 41% 能正确识别有偏向或误导性的新闻**，而在这一项上，城市受访者的得分比农村受访者高 22%。",
+        "**18% 曾经创作或分享过自己的原创内容**，而**只有 33% 了解社交媒体的隐私设置**。",
+        "**教育与媒介素养呈明显的正相关**（r = 0.62，p < .01）。**年龄与数字技能呈负相关**（r = −0.54，p < .05）：年轻人更会使用工具，但作者指出，他们往往缺乏对内容的批判性判断。",
+        "**访谈中出现三个主题**：不信任主流电视，认为其带有政治偏向且煽情，转而收听 YouTube 评论员和 WhatsApp 群组；代际差距——年长者看电视、听广播，大多不加质疑，年轻人整天待在社交媒体上，却无法判断内容是否可信；以及在农村，**许多女性只能通过男性亲属才能接触到智能手机或互联网**。",
+      ],
+      soWhat:
+        "对开展媒介素养项目的人来说，这项研究的发现是：**熟练使用媒体和评估媒体是两种不同的能力**。年轻人工具用得熟练，却仍然相信自己读到的东西；不再信任电视，也不等于懂得核查信息。作者呼吁通过非正规渠道、工作场所和社区触达成年人，而不只是依靠学校和大学——任何想要触达农村女性的项目，在设计时都必须考虑到设备可能掌握在家中其他人手里。",
+      caveat:
+        "**方法部分描述了四个维度（获取、分析、评估、创作），但结果部分报告的是另外命名的三个维度**（批判性理解、内容创作、伦理意识）。**文中说使用了多元回归和方差分析，却只报告了两个相关系数**；城乡之间 22% 的差距没有附任何检验统计量，也不清楚这是相对差异还是百分点。年龄的相关系数针对的是数字技能，而不是媒介素养总分，因此“年长者媒介素养较低”的结论超出了所报告的数字。样本是每天使用媒体至少一小时的人，而不是全体成年人。部分指标为自我报告，数据为横断面，因此只能说明关联，不能说明因果。期刊保留版权，本网站不保存副本。",
     },
   },
 ];
