@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-26)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-27)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -12,7 +12,7 @@
  *
  * ระดับการตรวจสอบ (field verified):
  *   "doi"   60 รายการ — ทะเบียน DOI ยืนยันชื่อผู้เขียนตรงกัน
- *   "link"  3 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
+ *   "link"  5 รายการ — DOI เปิดได้และชื่อเรื่องตรง แต่ทะเบียนไม่ลงรายชื่อผู้เขียน
  *   "index" 13 รายการ — พบในดัชนีอิสระพร้อมชื่อผู้เขียนตรงกัน
  *   "self"  13 รายการ — มีเฉพาะที่ผู้เขียนแจ้งไว้ใน ORCID
  *           ส่วนใหญ่เป็นวารสารไทย (TCI/ThaiJO) และเวทีประชุมที่ไม่จด DOI
@@ -240,7 +240,8 @@ export const publications: PublicationEntry[] = [
     "verified": "doi",
     "doi": "10.1080/23311983.2026.2675861",
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "ibtesam-mazahir"
     ],
     "citation": {
       "authors": [
@@ -279,7 +280,8 @@ export const publications: PublicationEntry[] = [
     "verified": "doi",
     "doi": "10.1080/23311983.2026.2647143",
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "ibtesam-mazahir"
     ],
     "citation": {
       "authors": [
@@ -409,6 +411,47 @@ export const publications: PublicationEntry[] = [
     }
   },
   {
+    "title": "Empowering Women Entrepreneurs in Qatar: The Role of Social Media and Media Literacy in Marketing Communication",
+    "venue": "Media Education (Mediaobrazovanie)",
+    "year": 2025,
+    "type": "journal-article",
+    "verified": "link",
+    "doi": "10.13187/me.2025.1.3",
+    "citations": 1,
+    "authors": [
+      "smith-boonchutima",
+      "ibtesam-mazahir"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Al-khulaifi",
+          "given": "Aisha Ali A.T.",
+          "literal": ""
+        },
+        {
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
+        },
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "Media Education (Mediaobrazovanie)",
+      "volume": "21",
+      "issue": "1",
+      "page": "3-11",
+      "articleNumber": "",
+      "publisher": "Cherkas Global University Press",
+      "year": 2025,
+      "month": 3,
+      "day": 5
+    }
+  },
+  {
     "title": "From tradition to progressiveness: Analyzing Thailand’s image on youtube amid post-cannabis legalization",
     "venue": "PLOS ONE",
     "year": 2025,
@@ -417,7 +460,8 @@ export const publications: PublicationEntry[] = [
     "doi": "10.1371/journal.pone.0317506",
     "citations": 1,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "ibtesam-mazahir"
     ],
     "citation": {
       "authors": [
@@ -599,6 +643,40 @@ export const publications: PublicationEntry[] = [
       "year": 2025,
       "month": 7,
       "day": 3
+    }
+  },
+  {
+    "title": "Media Literacy in the Age of Misinformation: A Mixed-Methods Analysis of Adult Media Literacy across Urban and Rural Areas of Pakistan",
+    "venue": "International Journal of Media and Information Literacy",
+    "year": 2025,
+    "type": "journal-article",
+    "verified": "link",
+    "doi": "10.13187/ijmil.2025.1.40",
+    "authors": [
+      "ibtesam-mazahir"
+    ],
+    "citation": {
+      "authors": [
+        {
+          "family": "Mazahir",
+          "given": "Ibtesam",
+          "literal": ""
+        },
+        {
+          "family": "Yaseen",
+          "given": "Sidrah",
+          "literal": ""
+        }
+      ],
+      "containerTitle": "International Journal of Media and Information Literacy",
+      "volume": "10",
+      "issue": "1",
+      "page": "40-46",
+      "articleNumber": "",
+      "publisher": "Cherkas Global University Press",
+      "year": 2025,
+      "month": 6,
+      "day": 18
     }
   },
   {
@@ -943,7 +1021,8 @@ export const publications: PublicationEntry[] = [
     "doi": "10.13187/me.2024.2.239",
     "citations": 1,
     "authors": [
-      "smith-boonchutima"
+      "smith-boonchutima",
+      "ibtesam-mazahir"
     ],
     "citation": {
       "authors": [
