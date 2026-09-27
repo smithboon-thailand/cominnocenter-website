@@ -1,4 +1,4 @@
-<!-- สร้างโดย scripts/profile-kit.ts (Academia.edu) เมื่อ 2026-09-26 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run academia:kit -->
+<!-- สร้างโดย scripts/profile-kit.ts (Academia.edu) เมื่อ 2026-09-27 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run academia:kit -->
 
 # บทคัดย่อและพาดหัวภาษาชาวบ้าน — Assoc. Prof. Dr. Smith Boonchutima
 
@@ -276,7 +276,13 @@ Plain-language summary: https://www.cominnocenter.com/en/research/health-officer
 
 _มี DOI — ถ้าอัปโหลดไฟล์ ระบบสกัดบทคัดย่อเอง · ถ้าเพิ่มโดยไม่มีไฟล์ ให้คัดบทคัดย่อจากหน้าบทความที่ต้นทางตามตัวอักษร_
 
-### 29. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
+### 29. Empowering Women Entrepreneurs in Qatar: The Role of Social Media and Media Literacy in Marketing Communication
+
+- DOI: 10.13187/me.2025.1.3 · Media Education (Mediaobrazovanie) (2025)
+
+_มี DOI — ถ้าอัปโหลดไฟล์ ระบบสกัดบทคัดย่อเอง · ถ้าเพิ่มโดยไม่มีไฟล์ ให้คัดบทคัดย่อจากหน้าบทความที่ต้นทางตามตัวอักษร_
+
+### 30. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
 
 - DOI: 10.13187/me.2024.2.239 · Media Education (Mediaobrazovanie) (2024)
 
@@ -286,7 +292,7 @@ _มี DOI — ถ้าอัปโหลดไฟล์ ระบบสกั
 
 Plain-language summary: https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase
 
-### 30. The Requirement and Concern towards Health Form and Content Posted on Social Media for Working Age Women
+### 31. The Requirement and Concern towards Health Form and Content Posted on Social Media for Working Age Women
 
 - ลิงก์: https://so03.tci-thaijo.org/index.php/jprad/article/view/230947 · Journal of Public Relations and Advertising (2020)
 

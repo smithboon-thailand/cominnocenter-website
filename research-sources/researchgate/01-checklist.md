@@ -1,11 +1,11 @@
-<!-- สร้างโดย scripts/profile-kit.ts (ResearchGate) เมื่อ 2026-09-26 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run researchgate:kit -->
+<!-- สร้างโดย scripts/profile-kit.ts (ResearchGate) เมื่อ 2026-09-27 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run researchgate:kit -->
 
 # รายการผลงานสำหรับโปรไฟล์ ResearchGate — Assoc. Prof. Dr. Smith Boonchutima
 
-ผลงาน 30 ชิ้นจากทะเบียนที่ตรวจสอบแล้วของเว็บ (`src/data/publications.ts`) เรียงตามลำดับที่ควรทำก่อน:
+ผลงาน 31 ชิ้นจากทะเบียนที่ตรวจสอบแล้วของเว็บ (`src/data/publications.ts`) เรียงตามลำดับที่ควรทำก่อน:
 ระดับลิขสิทธิ์ที่อัปโหลดได้ → ปีใหม่กว่า → ยอดอ้างอิง
 
-**เลข # เป็นลำดับของรอบสร้างนี้เท่านั้น** (สร้าง 2026-09-26) พอรายการใดถูกจัดระดับใหม่หรือมีผลงานเพิ่ม เลขจะเลื่อน
+**เลข # เป็นลำดับของรอบสร้างนี้เท่านั้น** (สร้าง 2026-09-27) พอรายการใดถูกจัดระดับใหม่หรือมีผลงานเพิ่ม เลขจะเลื่อน
 ใน 06-log จึงต้องเขียนชื่อย่อผลงานกำกับเลขเสมอ ไม่อ้างเลขลอยๆ
 
 | ระดับ | จำนวน |
@@ -13,7 +13,7 @@
 | 1 · CC ตรวจแล้ว — อัปโหลดสาธารณะได้ | 20 |
 | 1? · Unpaywall ว่า CC — ตรวจหน้าวารสารก่อน | 0 |
 | 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย) | 8 |
-| 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์ | 2 |
+| 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์ | 3 |
 
 ## กติกาสำหรับคนหรือเอเจนต์ที่ทำตามรายการนี้
 
@@ -57,8 +57,9 @@
 | 26 | 2 | 2016 | Gays Dating Applications: Information Disclosure and Sexual Behavior | Journal of Health Research | [10.14456/jhr.2016.32](https://doi.org/10.14456/jhr.2016.32) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/dating-apps-disclosure-msm) | ☐ |
 | 27 | 2 | 2015 | Survey Results of Knowledge Sharing Preferences and Practices in Publ… | Journal of Health Research | [10.14456/jhr.2015.30](https://doi.org/10.14456/jhr.2015.30) | สงวนลิขสิทธิ์ | — | [EN](https://www.cominnocenter.com/en/research/health-officers-knowledge-sharing) | ☐ |
 | 28 | 2 | 2014 | Key qualitative and quantitative indicators: towards an integrated ev… | International Journal of Business and S… | [10.1504/ijbsr.2014.060300](https://doi.org/10.1504/ijbsr.2014.060300) | สงวนลิขสิทธิ์ | — | — | ☐ |
-| 29 | 3 | 2024 | Customer-Brand Attitude Congruence and Purchase Intentions Among Thai… | Media Education (Mediaobrazovanie) | [10.13187/me.2024.2.239](https://doi.org/10.13187/me.2024.2.239) | อ่านฟรี ไม่ใช่ CC | — | [EN](https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase) | ☐ |
-| 30 | 3 | 2020 | The Requirement and Concern towards Health Form and Content Posted on… | Journal of Public Relations and Adverti… | [หน้าวารสาร](https://so03.tci-thaijo.org/index.php/jprad/article/view/230947) | อ่านฟรี ไม่ใช่ CC | — | [EN](https://www.cominnocenter.com/en/research/health-content-working-women) | ☐ |
+| 29 | 3 | 2025 | Empowering Women Entrepreneurs in Qatar: The Role of Social Media and… | Media Education (Mediaobrazovanie) | [10.13187/me.2025.1.3](https://doi.org/10.13187/me.2025.1.3) | อ่านฟรี ไม่ใช่ CC | — | — | ☐ |
+| 30 | 3 | 2024 | Customer-Brand Attitude Congruence and Purchase Intentions Among Thai… | Media Education (Mediaobrazovanie) | [10.13187/me.2024.2.239](https://doi.org/10.13187/me.2024.2.239) | อ่านฟรี ไม่ใช่ CC | — | [EN](https://www.cominnocenter.com/en/research/brand-attitude-congruence-purchase) | ☐ |
+| 31 | 3 | 2020 | The Requirement and Concern towards Health Form and Content Posted on… | Journal of Public Relations and Adverti… | [หน้าวารสาร](https://so03.tci-thaijo.org/index.php/jprad/article/view/230947) | อ่านฟรี ไม่ใช่ CC | — | [EN](https://www.cominnocenter.com/en/research/health-content-working-women) | ☐ |
 
 ## การ์ดรายชิ้น
 
@@ -324,7 +325,7 @@
 
 ### 26. Gays Dating Applications: Information Disclosure and Sexual Behavior
 - **ระดับ:** 2 · สงวนลิขสิทธิ์ — ระเบียนเท่านั้น (accepted manuscript ตามนโยบาย)
-- **อ้างอิง (APA 7):** Smith Boonchutima, Sopon Sriwattana, Rungroj Rungvimolsin, & Nattanop Palahan. (2016). Gays dating applications: Information disclosure and sexual behavior. Journal of Health Research, 30(4), 231-239. https://doi.org/10.14456/jhr.2016.32
+- **อ้างอิง (APA 7):** Boonchutima, S., Sriwattana, S., Rungvimolsin, R., & Palahan, N. (2016). Gays dating applications: Information disclosure and sexual behavior. Journal of Health Research, 30(4), 231-239. https://doi.org/10.14456/jhr.2016.32
 - **ลิงก์:** https://doi.org/10.14456/jhr.2016.32
 - **หลักฐานสัญญาอนุญาต:** Unpaywall : ไม่รู้จัก DOI นี้
 - **หน้าบทสรุปบนเว็บ:** [ไทย](https://www.cominnocenter.com/research/dating-apps-disclosure-msm) · [English](https://www.cominnocenter.com/en/research/dating-apps-disclosure-msm)
@@ -349,7 +350,17 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI **เท่านั้น** ห้ามอัปโหลด PDF ของสำนักพิมพ์ · ถ้ามีไฟล์ accepted manuscript ให้ตรวจนโยบายที่ [Open Policy Finder](https://openpolicyfinder.jisc.ac.uk/search?q=International%20Journal%20of%20Business%20and%20Systems%20Research) ก่อน อัปโหลดได้ตามที่นโยบายอนุญาต (เลือก private ถ้าไม่แน่ใจ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 29. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
+### 29. Empowering Women Entrepreneurs in Qatar: The Role of Social Media and Media Literacy in Marketing Communication
+- **ระดับ:** 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์
+- **อ้างอิง (APA 7):** Al-khulaifi, A. A. A. T., Boonchutima, S., & Mazahir, I. (2025). Empowering women entrepreneurs in Qatar: The role of social media and media literacy in marketing communication. Media Education (Mediaobrazovanie), 21(1), 3-11. https://doi.org/10.13187/me.2025.1.3
+- **ลิงก์:** https://doi.org/10.13187/me.2025.1.3
+- **หลักฐานสัญญาอนุญาต:** ตรวจหน้าวารสารด้วยเบราว์เซอร์ 2026-09-27: วารสารเดียวกับ 10.13187/me.2024.2.239 — DOI ชี้ไปไฟล์ PDF โดยตรง (me.cherkasgu.press/journals_n/1742121311.pdf) · หน้าแรกของไฟล์ระบุเพียง Copyright © 2025 by Cherkas Global University ไม่มี CC (Claude Code เปิดไฟล์ตรวจ 27 ก.ย. 2569 ตอนยืนยันสังกัดผู้เขียนสำหรับ PR #71) → อ่านฟรีแต่ไม่ใช่ CC เพิ่มระเบียนด้วย DOI ไม่อัปโหลดไฟล์
+- **หน้าบทสรุปบนเว็บ:** ยังไม่มี
+- **การอ้างอิง (Crossref):** 1
+- **ทำอะไร:** เพิ่มระเบียนด้วย DOI · **ไม่อัปโหลดไฟล์** (เปิดหน้าวารสารแล้วไม่พบสัญญาอนุญาต CC ระดับบทความ)
+- **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
+
+### 30. Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand
 - **ระดับ:** 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์
 - **อ้างอิง (APA 7):** Lamoonpot, K., Boonchutima, S., & Mazahir, I. (2024). Customer-brand attitude congruence and purchase intentions among Thai media students in higher education: A case study of the Sansiri brand. Media Education (Mediaobrazovanie), 20(2), 239-250. https://doi.org/10.13187/me.2024.2.239
 - **ลิงก์:** https://doi.org/10.13187/me.2024.2.239
@@ -359,7 +370,7 @@
 - **ทำอะไร:** เพิ่มระเบียนด้วย DOI · **ไม่อัปโหลดไฟล์** (เปิดหน้าวารสารแล้วไม่พบสัญญาอนุญาต CC ระดับบทความ)
 - **ผล:** _(ให้เอเจนต์เติม: มีอยู่แล้ว / เพิ่มระเบียนแล้ว / อัปโหลดแล้ว / ข้าม เพราะ…)_
 
-### 30. The Requirement and Concern towards Health Form and Content Posted on Social Media for Working Age Women
+### 31. The Requirement and Concern towards Health Form and Content Posted on Social Media for Working Age Women
 - **ระดับ:** 3 · อ่านฟรีแต่ไม่ใช่ CC — ระเบียน + ลิงก์
 - **อ้างอิง (APA 7):** Boonchutima, S., Sthapitanonda, P., Chongkolrattanaporn, T., Kachentawa, K., & Bunchum, A. (2020). The requirement and concern towards health form and content posted on social media for working age women. Journal of Public Relations and Advertising, 13(2), 53-65. https://so03.tci-thaijo.org/index.php/jprad/article/view/230947
 - **ลิงก์:** https://so03.tci-thaijo.org/index.php/jprad/article/view/230947 (ไม่มี DOI — เพิ่มด้วยชื่อเรื่อง)

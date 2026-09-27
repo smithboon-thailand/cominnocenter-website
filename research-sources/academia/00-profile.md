@@ -1,4 +1,4 @@
-<!-- สร้างโดย scripts/profile-kit.ts (Academia.edu) เมื่อ 2026-09-26 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run academia:kit -->
+<!-- สร้างโดย scripts/profile-kit.ts (Academia.edu) เมื่อ 2026-09-27 — อย่าแก้ด้วยมือ ให้แก้ข้อมูลต้นทางแล้วรัน npm run academia:kit -->
 
 # โปรไฟล์ Academia.edu — Assoc. Prof. Dr. Smith Boonchutima
 
