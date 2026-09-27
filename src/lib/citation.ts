@@ -152,6 +152,13 @@ const PROTECTED_WORDS: Record<string, string> = {
   english: "English",
   elephant: "Elephant",
   sansiri: "Sansiri",
+  // เพิ่ม 27 ก.ย. 2569 — Qatar/Pakistan มากับผลงานของ ดร.อิบเตซาม · Philippine เป็นตัวเล็ก
+  // อยู่บนเว็บจริงสองรายการ (อุดมศึกษาฟิลิปปินส์ · แหล่งท่องเที่ยวฟิลิปปินส์) พบจากการไล่
+  // หาคำที่ตัวใหญ่ในชื่อเรื่องเดิมแต่ APA แปลงเป็นตัวเล็ก ทั้งคลังพร้อมกัน
+  qatar: "Qatar",
+  pakistan: "Pakistan",
+  philippine: "Philippine",
+  philippines: "Philippines",
   z: "Z",
 };
 
@@ -168,6 +175,8 @@ const PROTECTED_PHRASES = [
   "Samut Sakhon",
   "Nakhon Ratchasima",
   "JOOX Rooms",
+  // ชื่อเทศกาล (PLOS ONE 2019) — "of Science" เป็นส่วนของชื่อ APA เดิมขึ้นว่า "pint of science"
+  "Pint of Science",
   // ตัวพิมพ์ใหญ่ในวลีนี้เป็นที่มาของอักษรย่อชื่อแบบวัด (RAPID) จึงเป็นความหมาย ไม่ใช่สไตล์
   "(Re)-emerging and ePidemic Infectious Diseases",
 ];
