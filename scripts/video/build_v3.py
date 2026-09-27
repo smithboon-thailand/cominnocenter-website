@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """ประกอบวิดีโอฉบับ 3 — เสียงพากย์ทีละย่อหน้า + ช่องหายใจ + จิงเกิลเปิด/ปิด + เพลงพื้นหลังกดเบาเมื่อพูด + SFX กระดาษตอนเปลี่ยนฉาก + มาสเตอร์เสียง
 
-ใช้: python3 build_v3.py <clipkey> <th|en> out.mp4 [--jingle assets/jingle-A.mp3] [--bed assets/bed-A.mp3|none]
+ใช้: python3 build_v3.py <clipkey> <th|en> out.mp4 [--jingle assets/jingle-A.mp3|none] [--bed assets/bed-A.mp3|none]
+(--jingle none + --bed none = ฉบับเสียงพากย์ล้วนไว้ตรวจการออกเสียงก่อนได้ไฟล์ดนตรี · SFX ที่ไม่มีไฟล์จะถูกข้ามพร้อมแจ้ง)
 ต้องมี audio-v3/<key>-<lang>/p1.mp3 … p8.mp3 (พากย์ทีละย่อหน้า ตามลำดับฉากใน storyboard.json)
 
 ไทม์ไลน์
@@ -32,6 +33,7 @@ JINGLE_DB = -12        # ระดับจิงเกิลเทียบเ�
 OUTRO_DB = -8
 BED_DB = -27           # เพลงพื้นหลัง "เบามาก"
 SFX_DB = -20
+NO_JINGLE_HOLD = 2.5   # --jingle none: ค้างการ์ดปิดหลังเสียงจบเท่านี้ (แทนความยาวจิงเกิลปิด)
 
 
 def run(cmd):
@@ -69,7 +71,8 @@ def main(key, lang, out_path, jingle, bed):
         t += dur
     voice_end = t
     outro_at = voice_end + OUTRO_DELAY
-    jingle_len = V.audio_duration(jingle)
+    # --jingle none: ฉบับตรวจเสียงพากย์ก่อนได้ไฟล์ดนตรี (ชุดที่ 7) — การ์ดปิดค้าง NO_JINGLE_HOLD วิแทนความยาวจิงเกิล
+    jingle_len = V.audio_duration(jingle) if jingle != "none" else NO_JINGLE_HOLD
     total = outro_at + jingle_len + TAIL
 
     # 2) ฉาก: ฉาก i แสดงตั้งแต่ starts[i]-LEAD จนถึง starts[i+1]-LEAD (ฉากแรกจาก 0 · ฉากปิดถึง total)
@@ -125,13 +128,14 @@ def main(key, lang, out_path, jingle, bed):
                  "highpass=f=80,equalizer=f=250:width_type=h:width=200:g=-2.5,equalizer=f=4000:width_type=h:width=2500:g=1.5,"
                  "acompressor=threshold=-18dB:ratio=2.5:attack=15:release=120:makeup=3dB[voice]")
 
-    ji = add_input(jingle)
-    parts.append(f"[{ji}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={JINGLE_DB}dB,afade=t=out:st={max(0.0, jingle_len-2.5):.2f}:d=2.5[jin]")
-    jo = add_input(jingle)
-    oms = int(outro_at * 1000)
-    parts.append(f"[{jo}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={OUTRO_DB}dB,adelay={oms}|{oms}[jout]")
-
-    mix_inputs = ["[voice]", "[jin]", "[jout]"]
+    mix_inputs = ["[voice]"]
+    if jingle != "none":
+        ji = add_input(jingle)
+        parts.append(f"[{ji}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={JINGLE_DB}dB,afade=t=out:st={max(0.0, jingle_len-2.5):.2f}:d=2.5[jin]")
+        jo = add_input(jingle)
+        oms = int(outro_at * 1000)
+        parts.append(f"[{jo}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={OUTRO_DB}dB,adelay={oms}|{oms}[jout]")
+        mix_inputs += ["[jin]", "[jout]"]
     if bed and bed != "none":
         bi = add_input(bed)
         bed_start = 1.5
@@ -141,13 +145,18 @@ def main(key, lang, out_path, jingle, bed):
                      f"afade=t=in:st=0:d=3,afade=t=out:st={max(0.0, bed_end-bed_start-3):.2f}:d=3,volume={BED_DB}dB,adelay={bms}|{bms}[bedraw]")
         parts.append("[voice]asplit=2[voice_a][voice_sc]")
         parts.append("[bedraw][voice_sc]sidechaincompress=threshold=0.015:ratio=5:attack=40:release=500:makeup=1[bed]")
-        mix_inputs = ["[voice_a]", "[jin]", "[jout]", "[bed]"]
+        mix_inputs = ["[voice_a]"] + mix_inputs[1:] + ["[bed]"]
 
     # SFX: วางกล่องตอนการ์ดชื่อเรื่อง (0.2 วิ) และการ์ดปิด · กระดาษเลื่อนตรงรอยต่อฉากอื่น
     sfx_set = os.path.join(HERE, "assets", "sfx-3-setdown.mp3")
     sfx_slide = os.path.join(HERE, "assets", "sfx-2-slide.mp3")
     sfx_times = [(sfx_set, 0.2)] + [(sfx_slide, bounds[i] + XFADE / 2) for i in range(1, n - 1)] + [(sfx_set, bounds[n - 1] + XFADE / 2)]
+    missing_sfx = sorted({p for p, _ in sfx_times if not os.path.exists(p)})
+    if missing_sfx:
+        print("ข้าม SFX ที่ไม่มีไฟล์:", ", ".join(os.path.basename(p) for p in missing_sfx))
     for k, (path, at) in enumerate(sfx_times):
+        if path in missing_sfx:
+            continue
         si = add_input(path)
         ms = int(at * 1000)
         parts.append(f"[{si}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={SFX_DB}dB,adelay={ms}|{ms}[sfx{k}]")

@@ -319,12 +319,14 @@ from storyboard_batch3 import CLIPS3, PALETTE3
 from storyboard_batch4 import CLIPS4, PALETTE4
 from storyboard_batch5 import CLIPS5, PALETTE5
 from storyboard_batch6 import CLIPS6, PALETTE6
-CLIPS += CLIPS2 + CLIPS3 + CLIPS4 + CLIPS5 + CLIPS6
+from storyboard_batch7 import CLIPS7, PALETTE7
+CLIPS += CLIPS2 + CLIPS3 + CLIPS4 + CLIPS5 + CLIPS6 + CLIPS7
 PALETTE.update(PALETTE2)
 PALETTE.update(PALETTE3)
 PALETTE.update(PALETTE4)
 PALETTE.update(PALETTE5)
 PALETTE.update(PALETTE6)
+PALETTE.update(PALETTE7)
 for _c in CLIPS:
     _c.setdefault("batch", 1)
 
@@ -435,9 +437,35 @@ PILOT_HEADER = """<div class="wrap">
 """
 
 
+BATCH7_HEADER = """<div class="wrap">
+<div class="eyebrow">ComInno Center · วิดีโอเล่าสาระหลักของบทความ</div>
+<h1 style="margin-top:6px">สตอรี่บอร์ดชุดที่ 7 — ผลงานของ ดร.อิบเตซาม มาซาฮีร์ 2 เรื่อง × ไทย/อังกฤษ</h1>
+<p class="lead">ต่างจากชุดที่ 2–6 สองข้อ: <b>ไม่เจนภาพใหม่</b> ทุกฉากใช้ภาพประจำบทความที่อยู่บนเว็บแล้ว ค่าใช้จ่ายจึงเหลือแค่เสียงพากย์ · <b>เสียงอาจารย์เอง แต่ศูนย์ฯ เป็นผู้เล่า</b> — บทไม่มีบุรุษที่หนึ่งแทนผู้วิจัยเลย ใช้ "ศูนย์คอมอินโนขอเล่างานของ…" และประธานของกริยาวิจัยคือ "ทีมวิจัย" · ดร.อิบเตซาม ได้เครดิตเป็นนักวิจัยรับเชิญของศูนย์ · เรื่องกาตาร์มีประโยคต่อยอดจากผลงานของนิสิตตามถ้อยคำเดิม · การ์ดปิดมีชื่อผู้เขียนทุกคน · ทุกข้อเท็จจริงตรงกับบทสรุปบนเว็บ</p>
+<div class="params">
+<div><b>ผู้ฟัง</b>นักวิชาการ นักวิจัย แหล่งทุน ผู้สนใจทั่วไป</div>
+<div><b>ความยาว</b>คลิปละราว 2 นาที (ยาวกว่าชุดก่อนเล็กน้อยเพราะมีประโยคเครดิตผู้เขียน) · 8 ฉาก</div>
+<div><b>เสียง</b>ไทย Smith Boon · อังกฤษ Smith Boonbr · eleven_v3</div>
+<div><b>ภาพ</b>ภาพประจำบทความบนเว็บ ใบเดียวทุกฉาก · ไม่เจนใหม่</div>
+<div><b>เลย์เอาต์</b>ข้อความซ้าย ภาพขวา พื้นครีมต่อเนื่อง · ตัดบรรทัดไทยตามวรรค</div>
+<div><b>ปิดท้าย</b>การ์ดปิด + ชื่อผู้เขียนทุกคนตามลำดับในบทความ</div>
+</div>
+<div class="changes">
+<h3>สิ่งที่ขอให้ตรวจก่อนอนุมัติ</h3>
+<ul>
+<li><b>สรรพนาม</b> ทุกประโยคที่พูดถึงผู้ทำวิจัยใช้ "ทีมวิจัย" หรือ "ผู้เขียน" · ไม่มี "ผม" หรือ "เรา" ในฐานะผู้วิจัย · ไม่มีสรรพนามแทน ดร.อิบเตซาม ทั้งสองภาษา</li>
+<li><b>เรื่องกาตาร์</b> เอ่ยชื่อ ไอชา อัลคุไลฟี กับ ดร.อิบเตซาม แล้วตามด้วยประโยคต่อยอดจากผลงานของนิสิต · ไม่เอ่ยชื่ออาจารย์ในเสียง เพราะเสียงพากย์เป็นเสียงอาจารย์เอง ชื่ออยู่บนการ์ดปิดแล้ว</li>
+<li><b>ข้อควรระวัง</b> ทั้งสองเรื่องบอกจุดที่บทความไม่รองรับข้อสรุปของตัวเอง ตามบทสรุปบนเว็บ</li>
+<li><b>ค่าใช้จ่าย</b> ดูตารางท้ายหน้า — คิดเงินเมื่อกดสร้าง จะเริ่มเมื่ออนุมัติเท่านั้น</li>
+</ul>
+</div>
+"""
+
+
 def header_body(batch, data):
     if batch == 1:
         return PILOT_HEADER
+    if batch == 7:
+        return BATCH7_HEADER
     n = len(data)
     return f"""<div class="wrap">
 <div class="eyebrow">ComInno Center · วิดีโอเล่าสาระหลักของบทความ</div>
@@ -471,6 +499,9 @@ def write_html(data, batch=1):
     # ชุดนำร่องประเมินต่อคลิป · ชุดถัดไปประเมินจากใบเสร็จจริงของชุดนำร่อง (48 ท่อน = $1.25 → ≈ $0.026/ท่อน)
     # ชุดที่ 2–3 จ่ายจริง $2.67 และ $3.36 ต่อ 80 ท่อน — ElevenLabs คิดตามอักขระ จึงประเมินจากอักขระจริงของบท (ชุดที่ 3: 20,385 อักขระ = $3.36)
     tts_cost = 3 * (TTS_TH + TTS_EN) if batch == 1 else sum(len(s["narr"][l]) for c in data for s in c["scenes"] for l in ("th", "en")) * (3.36 / 20385)
+    if batch >= 7:
+        # ราคาจาก estimate_only ของ eleven_v3 (27 ก.ย. 2569): 493 อักขระ = 8.1345 เซนต์ · +11 อักขระต่อท่อนสำหรับป้ายอารมณ์หน้าท่อน
+        tts_cost = sum(len(s["narr"][l]) + 11 for c in data for s in c["scenes"] for l in ("th", "en")) * (0.081345 / 493)
 
     def swatches(p):
         return (f'<span class="sw" style="background:{p["obj_hex"]}" title="วัตถุ"></span>'
@@ -606,7 +637,7 @@ a{{color:var(--accent)}}
 <thead><tr><th>รายการ</th><th>จำนวน</th><th class="num">ประเมิน (USD)</th></tr></thead>
 <tbody>
 <tr><td>ภาพ paper-craft ใหม่ (gemini-3-pro-image · ข้อความล้วน $0.20/ใบ)</td><td>{n_new} ใบ ({len(data)} เรื่อง × 6 ใบ)</td><td class="num">{img_cost:.2f}</td></tr>
-<tr><td>อัดเสียงพากย์ทีละย่อหน้า (Smith Boon · Smith Boonbr · eleven_v3)</td><td>{n_seg} ท่อน ({len(data)} เรื่อง × 2 ภาษา × 8 ย่อหน้า) · ประเมินจากใบเสร็จชุดนำร่อง ≈ $0.026/ท่อน</td><td class="num">{tts_cost:.2f}</td></tr>
+<tr><td>อัดเสียงพากย์ทีละย่อหน้า (Smith Boon · Smith Boonbr · eleven_v3)</td><td>{n_seg} ท่อน ({len(data)} เรื่อง × 2 ภาษา × 8 ย่อหน้า) · {"ราคาจาก estimate_only ของ ElevenLabs คิดตามอักขระจริง" if batch >= 7 else "ประเมินจากใบเสร็จชุดนำร่อง ≈ $0.026/ท่อน"}</td><td class="num">{tts_cost:.2f}</td></tr>
 <tr><td>ประกอบวิดีโอ (ffmpeg ในเซสชัน)</td><td>{len(data) * 2} คลิป</td><td class="num">0.00</td></tr>
 </tbody>
 <tfoot><tr><td colspan="2">รวม</td><td class="num">{img_cost + tts_cost:.2f}</td></tr></tfoot>
