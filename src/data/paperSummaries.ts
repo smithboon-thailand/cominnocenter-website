@@ -687,6 +687,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "A single case study drawn from 2013 data, analysed mainly through Twitter, that judges success by the policy outcome that followed rather than by directly measuring any change in audience attitudes.",
     },
+    illustrationAltZh:
+      "纸艺插画：三个形状各异的物体投下同一片影子",
+    zh: {
+      headline:
+        "反对湄旺水坝的运动取得了成效——尽管三方从未以同样的方式框定这个议题",
+      question:
+        "2013 年，Seub Nakhasathien 基金会秘书长 Sasin Chalermlarp 于 9 月 11 日至 22 日从拟建的湄旺水坝坝址徒步 388 公里走到曼谷，号召两万多人到市中心与他会合。社交媒体在这场运动中究竟起了什么作用？运动发起者、新闻媒体和公众对这个议题的框定是否一致？",
+      method:
+        "对 Seub Nakhasathien 基金会（seubfd）和 Sasin 本人（sasin_seub）的 Twitter 推文，以及泰文和英文的 #maewong 话题标签进行框架分析，分为徒步之前、期间和之后三个阶段。随后将运动发起者的框架与新闻报道中和公众自己的推文中出现的框架进行比较，同时回顾这场运动的公共关系策略与战术。",
+      findings: [
+        "出现了三种框架，而且**彼此并不一致**：公众采用议题框架，用科学术语和森林保护来讨论水坝；运动发起者采用个人框架，用充满情感的语言讲述徒步和 Sasin 的故事；新闻则采用政治框架，把议题与政治人物和国家发展政策联系起来。",
+        "运动发起者依靠同情、温情之类的激励性诉求，但公众实际转发、点赞和分享的，却是那些提供事实和证据、说明为何应取消水坝的内容。",
+        "基金会转发次数最多的推文达到 751 次；Sasin 的达到 659 次——那条推文发布于第 9 频道撤下纪录片、团队改将其放到 YouTube 上之后。",
+        "Change.org 上的反水坝请愿获得了 10 万个签名，是当时泰国请愿中最高的，而大多数请愿只能达到一万。",
+        "尽管框架并不一致，这场运动仍可算作有效：自然资源与环境部部长派秘书接收请愿书，并表示该部将仔细审查环境与健康影响评估（EHIA）报告，不会仓促开工。",
+      ],
+      soWhat:
+        "可以借鉴的教训是：框架不一致并不等于运动失败——而且由于公众选择传播的是事实而不是情感，环保运动应当两者都准备好。另一个教训是：纪录片被禁止播出后，转到 YouTube 上反而比电视时段触达了更多观众。社交媒体确实能够绕开封锁。",
+      caveat:
+        "这是一项基于 2013 年数据、主要通过 Twitter 分析的单一案例研究，它以随后的政策结果来判断成功，而不是直接测量受众态度的任何变化。",
+    },
   },
   {
     slug: "health-content-working-women",
@@ -864,6 +885,29 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "One event, three stations, and seven interviewees. The online evidence covers only what was still published during the two-month collection window. This summary does not name the stations: the transferable lesson does not depend on which station it was, and readers who want the station-by-station detail will find it in the original article.",
     },
+    illustrationAltZh:
+      "纸艺插画：三块屏幕都朝外，身后有一个三角形，没有一块屏幕朝向它",
+    zh: {
+      headline:
+        "三家电视台因报道人质危机而被处罚——却没有一家认为这是自己的危机",
+      question:
+        "在泰国广播电视监管机构对报道呵叻府枪手劫持人质事件的数字电视台实施行政处罚之后，这些电视台如何与公众沟通？它们又用了什么机制来管理这场危机？",
+      method:
+        "分两部分的定性研究。文献研究涵盖三家受罚数字电视台的所有网络渠道——网站、Facebook 主页、Instagram 和 Twitter——时间为 2020 年 2 月 8 日至 4 月 8 日，共两个月。同时，对每家电视台的一位决策者，以及四位危机传播与媒体管理专家（两位业界人士、两位学者）进行深度访谈，受访者共七人。",
+      findings: [
+        "三家电视台中，**只有一家在网上就此事作出沟通**：它在 2020 年 2 月 11 日——事件结束约两天后——在 Facebook 主页上发帖，采用道歉策略。另外两家照常宣传节目、发布新闻，仿佛什么都没有发生。",
+        "那条帖子获得 14,947 个回应、3,200 多条评论和 1,200 多次分享。大多数评论是负面的，批评其报道，而**电视台一条也没有回复**。",
+        "访谈揭示，第二家电视台曾在节目中作出回应：一位主持人对造成的不适表示遗憾——并非完整的道歉——而这段视频没有在任何其他地方发布。",
+        "三家电视台都**不认为行政处罚是电视台自身的危机**，也没有准备任何计划、手册、委员会或演练。危机处理由新闻部门负责，而不是企业传播部门。",
+        "一旦意识到公众的批评，电视台就在事发当天立即降低了报道的强度，并停止了用手机进行现场直播。",
+        "专家指出了三个原因：记者缺乏应对泰国前所未有事件的技能；数字频道之间的收视率竞争把它们推向现场直播；而且泰国没有报道大规模枪击事件的手册——现有的危机手册取材于睡美人洞救援，那是一种性质截然不同的危机。",
+        "专家认为这项工作应由企业传播部门而不是新闻部门负责，因为新闻部门本身就是争议的一方，可能带有偏见或采取防御姿态。他们建议设立作战室，事先约定评估形势的标准，并向人质、其家人、观众和社会作出完整的道歉。",
+      ],
+      soWhat:
+        "这项发现可以推广到电视台之外：监管机构视为危机的事，与机构自己视为危机的事，两者之间存在落差。如果机构不把它当作危机，就没有人被指派负责，也没有任何计划，回应就会变成解释自己的工作流程，而不是道歉——而这项研究显示，这样做丝毫没有减少批评。",
+      caveat:
+        "一个事件、三家电视台、七位受访者。网络证据只涵盖在两个月收集期内仍然公开的内容。本摘要不点名这些电视台：可借鉴的教训并不取决于是哪一家电视台，想了解各台详情的读者可以查阅原文。",
+    },
   },
   {
     slug: "retirees-sodium-campaign",
@@ -979,6 +1023,28 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "The content analysis deliberately selected eight episodes that **had already become news stories**, so it cannot tell us how common this content is across Thai entertainment generally. The survey covers 425 Bangkok viewers, 72.24% of them women and 52.24% aged 24 to 34, and measures behaviour by self-report.",
     },
+    illustrationAltZh:
+      "纸艺插画：一张薄纸覆盖在一个边缘锋利的形体上，形体的轮廓仍然透了出来",
+    zh: {
+      headline:
+        "泰国综艺节目用笑声包装性骚扰——观众的回应是撤回支持",
+      question:
+        "不恰当的性骚扰内容在泰国综艺节目中以什么形式出现？观众一旦注意到这些内容，会对制作它的媒体机构持什么态度、采取什么行为？",
+      method:
+        "混合方法。定性部分对 2016 至 2020 年间在新闻中受到公众批评的八集节目进行内容分析，使用经两位传播艺术专家审核的九部分编码表。定量部分于 2021 年 4 月通过在线问卷，调查了 425 名 18 岁及以上、每周至少三天观看综艺节目的曼谷观众（整体信度 0.809），采用单因素方差分析、LSD 两两比较和皮尔逊相关进行分析。",
+      findings: [
+        "言语骚扰是迄今最常见的形式，共 45 次，其次是非言语骚扰 9 次、混合形式 8 次，身体骚扰最少，为 7 次。",
+        "最常见的组合是男性骚扰女性（6 对），其次是女性骚扰男性（5 对），涉及多元性别认同者的组合在两个方向上各有两对。几乎每一种组合背后的原因都相同：这种行为已成习惯，而且是为了在节目形式中制造娱乐效果。",
+        "制作机构把这些内容**与喜剧放在一起呈现，以冲淡其严重性，使之得以播出**。",
+        "不同性别的观众对这些内容的感知有显著差异，多元性别认同的观众感知程度高于男性和女性观众。",
+        "**年龄、教育程度和平均收入对内容的感知没有显著影响。**",
+        "观众对机构的态度是负面的，并且与他们不支持该机构的行为方向一致（r = 0.683，中等程度相关）。",
+      ],
+      soWhat:
+        "这项研究把一个伦理问题转化成了管理层能读懂的语言：观众把节目看作机构的产品，当产品缺乏社会责任时，他们就不再支持这家公司——从长远看会影响知名度和利润。作者的建议是从一开始就让制作遵循媒体伦理标准，而不是等事情曝光后再去补救。",
+      caveat:
+        "内容分析特意选取了**已经成为新闻事件**的八集节目，因此无法告诉我们这类内容在泰国综艺节目中总体上有多普遍。调查涵盖 425 名曼谷观众，其中 72.24% 为女性，52.24% 年龄在 24 至 34 岁，行为以自我报告测量。",
+    },
   },
   {
     slug: "southern-border-narrative",
@@ -1022,6 +1088,26 @@ export const paperSummaries: PaperSummary[] = [
         "The authors propose changing the question from “solving the conflict and violence” to “building our own peace in this place” — starting by communicating everyone's perspective so that those working on the problem, inside and outside the area, genuinely understand it, and then designing a process that goes beyond negotiation and agreements. For media practitioners the most direct recommendation is to report ordinary life in the area as an addition to existing peace-building work.",
       caveat:
         "Qualitative work in Pattani province with 51 informants, aimed at explaining how people understand the problem rather than measuring the scale or frequency of events. It does not evaluate any policy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个物体朝五个不同方向投下五道影子",
+    zh: {
+      headline:
+        "倾听泰国南部边境各府每一方的叙事，问题呈现出的是五个维度，而不是一个",
+      question:
+        "泰国南部边境各府的冲突和暴力，通常是从某一方的角度来解释的。在“自我超越叙事范式”之下——每个群体讲述自己的故事，然后被请去跨越立场，从另一个群体的位置来看同样的事件——问题会呈现出什么样貌？",
+      method:
+        "在北大年府进行的定性田野研究，由熟悉当地的地方协调员协助开展。焦点小组共有 34 名参与者（8 名穆斯林居民和商贩、8 名佛教徒居民和商贩、6 名教师、12 名刚毕业的学生），另有 17 人接受了个人深度访谈，他们的观点不便在群体中表达（3 名伊斯兰宗教领袖、3 名佛教僧侣、3 名地方行政官员、3 名安全人员，以及 5 名其他族裔和宗教人士及外来者）。访谈中辅以绘画、隐喻等投射技术。随后分析了 33 个被讲述的事件。研究由泰国国家研究理事会资助。",
+      findings: [
+        "问题呈现出五个维度，而不是一个：（1）国家维持其治理权威；（2）平民与军方之间、公众与行政部门之间的权力关系；（3）社会问题——教育、毒品、信仰、生活方式和谋生；（4）从当地暴力持续中获益的个人、群体和组织的利益；（5）由媒体塑造的认知。",
+        "第五个维度是新闻画面与日常生活之间的落差：居民认为自己过着正常的生活，而不是媒体所描绘的危险之中；而媒体的画面制造了足够的恐惧，让外地人不敢前往。",
+        "居民们自己希望媒体展示当地的日常生活，以及那里的地方、文化和自然风光，因为这有助于旅游业和地方经济——而这正是暴力报道所遮蔽的那部分问题。",
+        "只报道“看得见的暴力”而不提供任何出路，会助长对伊斯兰教、穆斯林以及这一地区本身的刻板印象，导致恐惧、猜疑和歧视。",
+      ],
+      soWhat:
+        "作者提议把问题从“解决冲突和暴力”改为“在这里建立我们自己的和平”——先传播每一方的视角，让当地内外处理这个问题的人真正理解它，然后设计一个超越谈判和协议的过程。对媒体从业者来说，最直接的建议是报道当地的日常生活，作为对现有和平建设工作的补充。",
+      caveat:
+        "这是在北大年府与 51 名受访者进行的定性研究，目的是解释人们如何理解这个问题，而不是衡量事件的规模或频率。研究没有评估任何政策。",
     },
   },
   {
@@ -1601,6 +1687,28 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**These are correlations, not causes.** Disclosure and unprotected sex move together; this data does not establish that one produces the other. Recruitment was by convenience through particular web boards and groups, and the authors state it cannot stand for the country as a whole. **The data was collected in early 2015, more than a decade ago**; both the apps in use and the available means of HIV prevention have changed substantially since, so the figures are useful for reading the mechanism rather than for describing the present. **The article's abstract states 286 respondents, which does not match the body's 277 respondents and 222 who passed screening** — this summary uses the body's figures, which are the ones every results table reports.",
     },
+    illustrationAltZh:
+      "纸艺插画：两条纸带从两侧相向而来，在它们之间细长的隔板处几乎细到消失",
+    zh: {
+      headline:
+        "分享的个人信息越多，信任就越多——而这也越与不戴安全套的性行为同步",
+      question:
+        "交友应用改变了泰国男男性行为者约见的方式。这项研究问的是：在应用中聊天时透露的个人信息，与见面后发生的性行为有什么关系。",
+      method:
+        "2015 年 2 月中旬至 3 月中旬进行的匿名在线调查。共有 277 人回复，其中 222 人通过筛选，属于使用应用寻找伴侣的人。问卷通过公开论坛和不公开的 Facebook 群组发放，并以相关分析检验各项关系。",
+      findings: [
+        "**应用的使用程度与无保护性行为相关**——使用天数（r = .249）、使用地点数（r = .320）和每次使用时长（r = .360）。",
+        "**透露可识别身份的信息也与之相关**——Facebook 账号（r = .337）、手机号码（r = .306）和住址（r = .240）。",
+        "**88.3% 的人不透露真实姓名，但 80% 分享了自己的真实照片**，超过一半（54.3%）透露了两种以上的信息。",
+        "**在 106 名见过面的受访者中，77 人（72.6%）发生了肛交，其中 27 人没有使用安全套。**",
+        "**安全套的使用集中在肛交上，为 91.5%**，口交降至 13.2%，手淫则为 17.9%。",
+        "**在过去六个月里，37.3% 的人从未做过 HIV 检测，44.6% 的人从未做过其他性传播感染的检测。**",
+      ],
+      soWhat:
+        "研究的建议是把 HIV 传播工作搬到受众已经在的地方——应用内和 Facebook 上——而不是等人自己来找。但真正决定信息该怎么写的，是**机制，而不是渠道**：通过交换信息建立起来的信任，正是防护松懈之前出现的东西，因此有效的信息必须针对“已经认识对方”的感觉，而不是针对以为自己在见陌生人的人。口交中安全套使用率极低，也说明人们对传播途径的认识并不完整。",
+      caveat:
+        "**这些是相关关系，不是因果关系。**信息透露与无保护性行为同步变化；这些数据不能证明其中一个导致另一个。招募采用便利抽样，通过特定的论坛和群组进行，作者说明样本不能代表全国。**数据采集于 2015 年初，距今已超过十年**；此后使用的应用和可用的 HIV 预防手段都有了很大变化，因此这些数字适合用来理解机制，而不是描述现状。**文章摘要称有 286 名受访者，与正文的 277 名受访者和 222 名通过筛选者不符**——本摘要采用正文的数字，也就是所有结果表所报告的数字。",
+    },
   },
   {
     slug: "infectious-disease-stigma-scales",
@@ -1646,6 +1754,26 @@ export const paperSummaries: PaperSummary[] = [
         "If the plan runs to completion, Thailand would have an instrument ready to deploy the moment the next outbreak begins, rather than starting to design a questionnaire once events are already moving — which is the authors' stated reason most stigma instruments arrive too late to inform anything. And because the source scales were built to work across diseases, the Thai and Burmese versions would not be tied to any single one.",
       caveat:
         "**This is a plan, not a result.** No data had been collected at publication, the document states that ethics approval was still pending, and Phase 2 requires a separate approval of its own. **Sampling is by quota rather than random selection**, so the eventual results will speak to the quality of the instrument and not to the level of stigma in the wider population. The published version carries one approving independent peer review.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两把尺子并排平放，一把刻度齐全，另一把只刻了开头几格",
+    zh: {
+      headline:
+        "泰国没有经过验证的工具来测量疫情期间的污名——这是用两种语言建立这种工具的计划",
+      question:
+        "污名会让人不敢就医，并削弱疫情控制，然而泰国没有经过验证的工具来测量弱势群体所经历的污名。这份研究方案提出了一项计划，要把一套工具改编并验证，使之适用于泰国和缅甸的情境。",
+      method:
+        "RAPID 社区污名与自我污名量表——共 16 个题项——将按照 ISPOR 指南，通过正译和回译翻译成泰文和缅甸文。工作分两个阶段进行。第一阶段把译文交给两个各有八名成员的专家小组，进行三轮德尔菲法评议，再与每个社区的 15 至 20 名成员进行认知访谈。第二阶段通过验证性因子分析和信度检验，对 400 名参与者（每个社区 200 人）验证改编后的量表。",
+      findings: [
+        "**两个社区分别是：针对猴痘相关污名的泰国男男性行为者，以及针对 COVID-19 相关污名的缅甸移民。**",
+        "**专家小组从一开始就设计为纳入社区成员，而不只是学者**——每个八人小组包括两名有亲身经历的社区领袖、两名服务于该群体的卫生专家、两名研究人员、一名语言专家和一名文化专家。",
+        "**决策标准事先公布。**题项层面内容效度指数低于 0.78 的题项需返回修改；最后一轮的目标是超过 80% 的专家对表面效度给予高评分，且量表层面的整体指数高于 0.90。",
+        "**第二阶段需要另行获得伦理审批**，并采用配额抽样，覆盖每个社区的五个子群体：康复者、密切接触者、医护人员、疫情支援人员和一般社区成员。",
+      ],
+      soWhat:
+        "如果计划顺利完成，泰国将拥有一套在下一次疫情开始时就能立即使用的工具，而不是等事态已经发展起来才开始设计问卷——作者指出，这正是大多数污名测量工具来得太晚、无法为任何决策提供依据的原因。而且由于原量表本来就是为跨疾病使用而设计的，泰文和缅甸文版本也不会绑定于任何单一疾病。",
+      caveat:
+        "**这是一份计划，不是结果。**发表时尚未收集任何数据，文件说明伦理审批仍在等待中，而第二阶段还需要另行审批。**抽样采用配额而非随机选择**，因此最终结果反映的是工具的质量，而不是更广泛人群中的污名程度。发表版本附有一份表示认可的独立同行评审。",
     },
   },
   {
@@ -2030,6 +2158,28 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Frame analysis reads texts only; it does not show what audiences made of them** — a limitation the authors state themselves in the conclusion. The scope is four outlets across one month, not Russian media as a whole. All quoted material was translated by the authors, so readers cannot check the translations against the originals from the article itself. The work is qualitative and reports neither counts per frame nor inter-coder agreement. **This summary deliberately omits the names of the outlets and of the people quoted in the article**, because the criticism in the study belongs to its authors rather than to the centre, and the names add nothing to the transferable lesson.",
     },
+    illustrationAltZh:
+      "纸艺插画：四个蓝色长方形框架排成一排，形成一条隧道，隧道的尽头被一块实心红色板封住",
+    zh: {
+      headline:
+        "俄罗斯媒体用四层叠加的框架讲述美国国会大厦事件，而四层最终都在谈论俄罗斯",
+      question:
+        "2021 年 1 月 6 日一群人闯入美国国会大厦后，一些西方媒体报道说俄罗斯对此“有不同的看法”。这项研究问的是：俄罗斯媒体为国内读者拼出的画面，是否与对外传播的一样？这幅画面又是如何搭建起来的？",
+      method:
+        "定性框架分析，依循戈夫曼的框架概念和恩特曼的方法，并以纽曼等人提出的五种常见框架（人情影响、无力感、经济、道德价值、冲突）为骨架。凡符合预设关键词列表的文本**全部**纳入，来源为三家全国性日报和一家国家电视台——之所以选择它们，是因为它们与政府关系最近、受众最多。时间范围为 2021 年 1 月 1 日至 2 月 1 日；文本取自俄罗斯国家图书馆和两个媒体数据库，由作者翻译。工作框架先在试读中浮现，然后应用于其余样本。",
+      findings: [
+        "**框架一——如何称呼参与者。**样本中的媒体把他们描述为带着诉求而来的政治抗议者，而不是暴徒，并常说他们是被压迫得疲惫不堪的普通人。反复出现的手法是引用在场“普通人”的话，而不是官员或专家的话。",
+        "**框架二——小人物对抗国家权力。**一旦把参与者定位为普通人，起诉就被叙述为过度的惩罚，并配以一个明确的比较：美国对待抗议者比俄罗斯对待本国抗议者更严厉。",
+        "**框架三——道德价值。**用得最多的主题是新闻自由和压制异见，最终汇聚成一个结论：美国没有践行它所宣扬的价值，因此失去了就民主问题教训其他国家的资格。",
+        "**框架四——竞争。**这些事件被放在两国争夺全球领导地位的背景下解读，因此对方的弱点被叙述为失去主导地位，而不是它的内部事务。",
+        "**作者认为最重要的观察是：四个框架都建立在承认民主是好东西的基础上**，而不是主张某种其他制度更好。每一种批评都采用“你没有做到你自己所说的好”的形式——这种形态比直接否定这一价值更难反驳。",
+        "作者的结论是：鉴于故事中每个角色都被一致地安排来支持一个事先确定的结论，这组框架具有宣传的性质。",
+      ],
+      soWhat:
+        "这个教训远远超出本案：**一个国家对另一国事件的报道，往往并不是针对那个国家的**。在这里，四个框架最终都落在关于讲述者一方正当性的主张上。对阅读外国新闻的人来说，这项研究示范的检查方法是三个问题——选了谁来说话，怎样介绍他们，引语放在故事的哪个位置。这三点能让你在读完之前就看出框架的方向。对传播学教学来说，这是把框架分析应用于国际政治新闻的一个清晰范例。",
+      caveat:
+        "**框架分析只阅读文本，不能说明受众如何理解这些文本**——这是作者在结论中自己指出的局限。范围是一个月内的四家媒体，而不是俄罗斯媒体整体。所有引文都由作者翻译，读者无法仅凭文章本身核对译文与原文。这是定性研究，既没有报告每个框架的数量，也没有报告编码员之间的一致性。**本摘要有意略去文章中的媒体名称和被引用者的姓名**，因为研究中的批评属于作者而不属于本中心，而且这些名字对可借鉴的教训毫无帮助。",
+    },
   },
   {
     slug: "colorism-advertising-free-speech",
@@ -2411,6 +2561,29 @@ export const paperSummaries: PaperSummary[] = [
         "For communication design the usable finding is that **the point of intervention is the moment an invitation arrives, not the moment of use** — the strongest predictor was how someone responded to being asked, not their general attitude to substances. Because the apps serve both to persuade and to distribute, prevention work that waits for people to come looking for information will always arrive after the invitation has. And the very high proportion of substance users who had not tested for HIV suggests that testing messages and substance messages should be designed together rather than run as separate campaigns.",
       caveat:
         "**These are correlations and statistical predictions, not demonstrations of cause.** Recruitment was by convenience through particular websites and social channels; the authors state this limits the diversity of the sample and that it cannot stand for the wider population. All data was collected online with no face-to-face interviews. Protection was asked about only in terms of condom use, not other methods. **The data was collected in early 2016, nearly a decade ago**; both the apps in use and the available means of HIV prevention have changed substantially, so the figures are best read for the mechanism rather than as a description of the present. **This summary deliberately does not name the five apps the article reports**, because the finding is a criticism of behaviour occurring on those platforms and the names add nothing to the lesson that can be applied. Written from the PubMed Central full text, which does not carry the results tables, so only figures stated directly in the text are quoted here.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个折纸漏斗，一块折纸正从宽大的上口落入，窄小的出口下方放着两块形状不同的折纸",
+    zh: {
+      headline:
+        "为结识他人而设计的渠道，也承载着吸毒的邀约",
+      question:
+        "交友应用是泰国男男性行为者寻找伴侣的主要渠道。这项研究问的是：同一个渠道是否也被用来邀请他人尝试非法物质？这些邀约与实际的物质使用有多强的关联？",
+      method:
+        "2016 年 2 月 9 日至 3 月 10 日进行的 21 题在线调查——选择这个时段是为了涵盖应用使用量高的情人节。共有 350 人回复：200 人来自八个网站，150 人来自五个社交媒体渠道，采用便利抽样招募。分析采用描述统计、皮尔逊相关和逐步多元回归。研究获得了研究者所在机构的研究伦理批准，且未收集任何可识别身份的信息。",
+      findings: [
+        "**约四分之三（73.74%）的人在过去六个月中使用过交友应用**，大多数人（80.3%）每周会与一名其他应用用户见面。",
+        "**超过一半（54.6%）的人曾通过应用被怂恿尝试某种物质。**",
+        "**在使用过物质的人中，超过五分之四（82.9%）是通过与在应用上认识的人分享或一起购买而获得的**——应用不仅是劝诱的渠道，也发挥着分销渠道的作用。",
+        "**四分之一的物质使用者（25.7%）每周至少使用一次。**",
+        "**三分之二的物质使用者把物质与性行为结合在一起**——只有 34.3% 在发生性行为时没有同时使用——而在两者结合的人中，31.4% 没有坚持使用安全套。",
+        "**77.1% 的物质使用者在过去六个月中完全没有做过 HIV 检测。**",
+        "**物质使用行为最强的两个预测因素，是接受邀约的决定和收到邀约时感到的满足感**——回归模型解释了约 60% 的行为（R² 0.572–0.591）。**邀约本身的分量比预期更大**，超出了原有的对物质的态度。",
+      ],
+      soWhat:
+        "对传播设计来说，可以使用的发现是：**干预的时机是邀约到来的那一刻，而不是使用的那一刻**——最强的预测因素是一个人对被邀请的反应，而不是他对物质的一般态度。由于应用同时承担劝诱和分销两种功能，等人们自己来找信息的预防工作，总会晚于邀约。而物质使用者中未做 HIV 检测的比例极高，说明检测信息和物质信息应当一起设计，而不是分成两场独立的宣传。",
+      caveat:
+        "**这些是相关关系和统计预测，不是因果证明。**招募采用便利抽样，通过特定的网站和社交渠道进行；作者说明这限制了样本的多样性，不能代表更广泛的人群。所有数据都在线收集，没有面对面访谈。关于防护只问了安全套的使用，没有问其他方式。**数据采集于 2016 年初，距今已近十年**；此后使用的应用和可用的 HIV 预防手段都有了很大变化，因此这些数字最好用来理解机制，而不是描述现状。**本摘要有意不点名文章所报告的五款应用**，因为这项发现是对发生在这些平台上的行为的批评，而这些名字对可以应用的教训毫无帮助。本摘要依据 PubMed Central 的全文写成，该版本不含结果表，因此这里只引用正文中直接陈述的数字。",
     },
   },
   {
@@ -3570,6 +3743,29 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Text analysis cannot show whether audiences followed.** The link between coverage and the popularity poll is the study's hypothesis, not something tested with audience data. Ninety-one texts over five months; the authors coded and translated the material themselves and report no inter-coder agreement. Written before the major post-election events, which the team's next study takes up. **This summary deliberately names no outlets and no political figures other than Trump, who is the study's direct subject**, in line with the rules of these pages.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个立着的深粉色圆盘，被切下一小块楔形平放在前面",
+    zh: {
+      headline:
+        "2016 年竞选期间，俄罗斯媒体在 347 次描述中有 326 次正面描述特朗普，作者认为这一模式符合宣传的所有特征",
+      question:
+        "2016 年 4 月，一项覆盖二十国集团的 YouGov 民调发现，俄罗斯是唯一一个民众更希望特朗普而非其民主党对手当选美国总统的国家，领先 21 个百分点；而在其他 15 个国家，他的对手领先超过 21 个百分点。这项研究提出，这种受欢迎程度并非自然产生，而是直接源于俄罗斯媒体为国内受众塑造特朗普形象的方式。",
+      method:
+        "先进行定量内容分析（计算文本单元并对其语气编码），再进行话语分析，把文本与其社会和政治背景联系起来。样本为 2016 年 3 月 1 日至 7 月 31 日期间，国有或与政府立场一致的电视台、报纸和新闻网站上的 91 篇文本，入选条件是标题或副标题中出现特朗普的名字。分析单位是关于特朗普的文本，其对手和俄罗斯当局作为周边角色。俄文文本由作者自行翻译。",
+      findings: [
+        "**语气几乎完全正面。**在描述特朗普的 347 个单元中，326 个（93.95%）为正面，21 个为负面；他关于俄罗斯的言论 173 比 2；关于俄罗斯外交政策的言论 62 比 0；他与俄罗斯领导人的关系 71 比 3；他对美国现任政府的批评 23 比 0。",
+        "**这些标签在英语里听起来是负面的，在俄语里却不是。**“丑闻缠身”“令人震惊”“挑衅”“古怪”占主导，但作者指出，在俄罗斯语境中它们读作“不是普通人，也不是蠢人”，与诚实、真诚、勇敢和直率并列。动词几乎总是主动的：他批评别人多于被批评，他在说话而不是被谈论。",
+        "**他被塑造为唯一对俄罗斯友好的美国政治人物**，会恢复两国关系、解除制裁、在叙利亚问题上合作并且不插手乌克兰。媒体引用了他对北约集体防御原则的质疑，以及从其政党纲领中删除支持乌克兰的措辞。",
+        "**俄罗斯被放大为美国大选的中心。**媒体暗示俄罗斯领导人的支持为特朗普赢得了选票，并称“俄罗斯总统的名字从未在总统辩论中被如此频繁地提及”。",
+        "**反建制的基调。**特朗普被叙述为媒体原本就持有的议程的意外盟友：把俄罗斯的不幸归咎于美国政治建制派。",
+        "**关键技巧是借引语来赞扬，而不是由媒体自己作出评价。**正面形象大多以特朗普被引用的话语和条件式的“他可以”呈现，这些既无法证实也无法证伪。",
+        "作者的结论是：按照他们的框架，这套话语具备宣传的所有类型特征——意识形态偏向、带有倾向性地安排角色、固定的敌友形象，以及用光明的未来对照黑暗的现在和过去。",
+      ],
+      soWhat:
+        "对阅读外国新闻的人来说，这项研究提供了三点检查：谁总是行动者、谁总是被作用的对象；讲述国是否被挪到了另一国故事的中心；赞扬是否以引语的形式出现——引语不承担评价性句子的任何责任。这篇论文也是同一团队后续三项研究的基线，那三项研究追踪同一形象直至 2024 年大选。",
+      caveat:
+        "**文本分析无法说明受众是否跟随。**报道与民调受欢迎程度之间的联系是本研究的假设，并未用受众数据检验。五个月内的 91 篇文本；作者自行编码和翻译材料，没有报告编码员之间的一致性。写于选举后的重大事件之前，这些事件由该团队的下一项研究处理。**本摘要有意不点名任何媒体，也不点名特朗普以外的任何政治人物——特朗普是研究的直接对象**，这符合本系列摘要页面的规则。",
+    },
   },
   {
     slug: "trump-image-russian-media-2017-2018",
@@ -3620,6 +3816,29 @@ export const paperSummaries: PaperSummary[] = [
         "The study demonstrates a way to read foreign coverage: watch the **names** a person is given, not only the topics, and watch when the tone flips. Here the flips track the narrating country's interests rather than the subject's behaviour in general. For media-literacy teaching it is a clear example of an image built from “who he is not” (the previous administration) and “who is stopping him”.",
       caveat:
         "**Three newspapers, no television or online outlets.** The authors coded tone themselves and report no agreement statistic; monthly tone figures appear only as charts. Several headlines quoted date from November 2016, outside the stated window. The version published is an online-first version without an issue number. Text analysis cannot show whether readers followed. **This summary deliberately names no newspapers and no political figures other than Trump, the study's subject.**",
+    },
+    illustrationAltZh:
+      "纸艺插画：一条长长的青绿色纸带从左向右拱起，下缘切出四个浅浅的缺口",
+    zh: {
+      headline:
+        "在特朗普上任的头十六个月里，三家俄罗斯日报始终保持正面或中立，只有在美国的行动损害俄罗斯利益的四个月里转为负面",
+      question:
+        "在情绪比事实更能左右舆论的时代，媒体塑造的某位知名人物的神话，在重大政治事件之后会如何变化？这项研究追踪俄罗斯报纸自特朗普就职起给他贴上的“称名”（名字和标签），看看竞选期间发现的正面形象是否得以延续。",
+      method:
+        "从三家全国性日报——政府的官方报纸、一份商业大报和一份大众小报——**全部**收集 2017 年 1 月 20 日至 2018 年 5 月 31 日期间标题、副标题或导语中出现特朗普名字的文本，来源为俄罗斯国家图书馆和两个媒体数据库：共 275 篇（2017 年 216 篇，2018 年 59 篇）。分析文本中给对象的称名，按主题和语气编码，并对照五项假设进行检验。",
+      findings: [
+        "**关注度不是恒定的，而是随事件激增。**高峰出现在 2017 年 1 月和 2 月（32 篇和 27 篇）、2017 年 5 月和 6 月（24 篇和 21 篇）以及 2018 年 4 月（20 篇）；低点是 2017 年 10 月和 2018 年 5 月，各 6 篇。",
+        "**报道最多的主题是涉及俄罗斯利益的美国外交政策**（叙利亚、乌克兰、格鲁吉亚、北约），占 23.9%，其次是美国国内政治 20.0%、其他外交政策 17.8%、俄罗斯本身 17.5%、特朗普的个性和家庭 13.9%，以及经济 6.9%。",
+        "**整体语气是正面或中立的。**在俄罗斯主题上，正面文本多于负面文本，35 比 4；在个性主题上，28 比 9。作者报告五项假设全部得到支持。",
+        "**这个神话建立在两个基础上**：特朗普与美国建制派的其他人不同；他想恢复与俄罗斯的关系，但他的敌人不让他这样做。叙事中的关键词是“然而”。",
+        "**语气只在四个月里跌入负面区间**，每一次都对应美国一项损害俄罗斯利益的行动：2017 年 4 月（对叙利亚空军基地的导弹袭击）、2017 年 9 月（对朝鲜的威胁和退出《巴黎协定》）、2017 年 12 月（创纪录的军事预算和把大使馆迁往耶路撒冷）以及 2018 年 4 月（新制裁、贸易战和在叙利亚的行动）。即便如此，媒体也避免直接指责，而是引用美国媒体和反对派政治人物的话，或者把特朗普塑造为迫于形势、身不由己的受害者。",
+        "**每家媒体都讲读者想听的那一面。**政府报纸和商业报纸强调俄美关系；小报则强调私生活、家庭和丑闻。",
+        "作者的结论是：并不存在针对特朗普个人的信息战，但这套话语依然和竞选期间一样具有宣传性质。",
+      ],
+      soWhat:
+        "这项研究示范了一种阅读外国报道的方法：留意一个人被赋予的**称名**，而不只是话题，并留意语气何时翻转。在这里，翻转追随的是讲述国的利益，而不是对象一般的行为。对媒介素养教学来说，这是一个清晰的例子：形象由“他不是谁”（前一届政府）和“谁在阻挠他”搭建而成。",
+      caveat:
+        "**三份报纸，没有电视或网络媒体。**语气由作者自行编码，没有报告一致性统计；每月的语气数据只以图表呈现。所引用的若干标题日期为 2016 年 11 月，超出了所述时间范围。发表的是在线优先版本，没有期号。文本分析无法说明读者是否跟随。**本摘要有意不点名任何报纸，也不点名研究对象特朗普以外的任何政治人物。**",
     },
   },
   {
@@ -3674,6 +3893,30 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**The article does not report the total number of texts in the sample**, so percentages cannot be converted into counts. The authors coded the material themselves with no agreement statistic (the six experts served only to select frames). One sentence in the article says 84.1% of texts “contained” an assessment of Trump, while every table and figure shows 84.1% as the share that contained **none**; this summary follows the tables. Text analysis cannot show what audiences believed. **The study examines how media treated the accusations, not the accusations themselves**; the article's own introduction notes that the Special Counsel report concluded interference did occur in a sweeping and systematic fashion. **This summary deliberately names no outlets and no individuals other than Trump and the investigation that define the study's scope.**",
     },
+    illustrationAltZh:
+      "纸艺插画：三扇灰蓝色的门排成一排，全都关着，一扇比一扇略高",
+    zh: {
+      headline:
+        "俄罗斯媒体报道穆勒调查时，86% 的文本否认干预指控，没有一篇文本承认这些指控，哪怕是假设性地承认",
+      question:
+        "2016 年美国大选之后，出现了俄罗斯政府为帮助特朗普而进行干预的指控，由此引发穆勒领导的特别检察官调查，并于 2019 年发布报告。这项研究问的是：俄罗斯媒体如何向国内受众讲述这个故事——它们对特朗普的立场、对指控的立场、给出的理由，以及拼出的美国形象。这是该系列的第三项研究。",
+      method:
+        "对三家全国性日报和一家国家电视台进行内容分析，**全部**纳入 2017 年 1 月至 2019 年 9 月期间符合关键词列表（美国大选、俄罗斯、俄罗斯干预、穆勒、参议院委员会等）的文本，来源为国家图书馆和两个媒体数据库，由作者翻译。否认框架来自一个单独的程序：选取 200 篇文本，由六位专家（两名记者、两名语文学家、两名政治传播专家）各自挑选最多五个典型框架，合并后再经小组讨论达成一致。编码表中特意加入了一个攻击性框架——“你们永远证明不了，尽管人人都知道是我们干的”——以检验它是否存在。",
+      findings: [
+        "**对特朗普的立场绝大多数是中立的。**84.1% 的文本对他没有作出评价，10.9% 为正面，5.0% 为负面。正面比例逐年上升（2.5 → 11.6 → 17.8），而负面比例上下波动，并未增长（5.0 → 4.5 → 5.9）。",
+        "**各媒体之间有差异。**国家电视台在 91.6% 的文本中保持中立；商业日报没有发表任何正面文本，负面比例最高（8.7%）；政府报纸有 21.7% 为正面；小报则为 26.9%。",
+        "**86% 的文本否认干预指控**（明确或含蓄地），14% 只作报道不加讨论，**承认的比例为 0%**——每一家媒体、每一年都是如此。在否认中，明确否认的比例从 2017 年的 54.9% 升至 2019 年的 85%。",
+        "**三种否认框架。**“没有证据，让美国拿出来”占 44.2%（从 2017 年的 71.5% 降至 2019 年的 21.4%）；“这不关我们的事，我们不会为自己辩解”占 32.7%（从 21.4% 升至 42.9%）；“为给俄罗斯制造麻烦而编造的骗局”占 23.1%（从 7.1% 升至 35.7%）。**作为检验而加入的攻击性框架，在任何文本中都没有出现。**",
+        "**每家媒体倚重不同的框架。**小报在 72% 的文本中使用骗局框架；商业日报在 81% 的文本中使用“没有证据”；政府报纸在 66% 的文本中使用“不关我们的事”；国家电视台在 98.4% 的文本中否认指控。",
+        "**对指控给出的理由**：美国内部冲突和针对特朗普的斗争占 47.2%（从 32.4% 升至 61.2%）；情报机构和政客的无能或私利占 31.9%（从 44.1% 降至 12.2%）；恐俄症 11.8%；其他 9.1%。国家电视台偏向无能之说（55.2%），而三家报纸都偏向美国内部冲突（61% 至 69%）。",
+        "**语言工具**：诸如“毫无根据的指控”之类的直接否定词占 48.5%；诸如“歇斯底里”“偏执狂”之类带有情绪色彩的词占 26.8%；嘲讽和挖苦占 15.0%；讽刺性引号占 9.7%（2019 年跃升至 22.3%）。",
+        "作者的结论是：并不存在由中央统一设定的口径，因为各媒体选择了不同的框架，但每家媒体拼出的美国形象都是一样的：冲突不断、无能、恐俄，并且对世界构成危险。",
+      ],
+      soWhat:
+        "否认并不是单一的东西。这项研究提供了一套三框架的词汇——没有证据、不关我们的事、骗局——可以用来为任何地方的政府立场媒体如何处理指控进行编码。可测量的信号是随时间从“拿出证据来”漂移到“不关我们的事”，这标志着讲述者不再就事实进行争辩的那一刻。",
+      caveat:
+        "**文章没有报告样本中的文本总数**，因此百分比无法换算成篇数。作者自行编码，没有一致性统计（六位专家只用于挑选框架）。文章中有一句话说 84.1% 的文本“包含”对特朗普的评价，而所有表格和图表都显示 84.1% 是**不包含**评价的比例；本摘要以表格为准。文本分析无法说明受众相信了什么。**本研究考察的是媒体如何处理这些指控，而不是指控本身**；文章自己的引言指出，特别检察官报告的结论是干预确实以大规模、系统性的方式发生过。**本摘要有意不点名任何媒体，也不点名特朗普和界定研究范围的该项调查以外的任何个人。**",
+    },
   },
   {
     slug: "trump-2024-russian-media-narratives",
@@ -3720,6 +3963,27 @@ export const paperSummaries: PaperSummary[] = [
         "A simple two-phase design, before and after a result, shows the same outlets rewriting the same person the moment his usefulness changes. Anyone tracking how state-aligned media treat a foreign leader can reuse the seven-frame, five-metaphor code sheet directly: code before and after the event, and the difference is the intended message.",
       caveat:
         "**The text and the tables disagree in several places.** The text says the pragmatic-businessman narrative rose to 63.8% after the election, while Table 1 lists 12% and the 64.2% figure belongs to the deal-maker **metaphor** in Table 2; the text says the victim frame fell to 19%, while the table shows 5%. This summary follows the tables. The authors coded the material themselves. Four newspapers, no television. The article discloses that AI tools assisted with readability and parts of the analysis, with all content reviewed by the authors. Published online first, so no issue number yet. **This summary deliberately names no newspapers and no political figures other than Trump, the study's subject.**",
+    },
+    illustrationAltZh:
+      "纸艺插画：一把橄榄绿的纸剑平放在地上，旁边立着一根纸橄榄枝",
+    zh: {
+      headline:
+        "2024 年大选投票前，俄罗斯报纸把特朗普塑造成受迫害的斗士；他胜选后短短几周，就变成了和平缔造者和救世主",
+      question:
+        "四家亲政府的俄罗斯报纸在 2024 年美国大选期间如何塑造特朗普的形象？它们的叙事和隐喻在竞选期间与选举结果揭晓后的几周之间发生了怎样的变化？这是自 2016 年起追踪同一形象的系列研究中的第四项。",
+      method:
+        "2024 年 9 月 1 日至 2025 年 1 月 20 日期间，四家全国性日报中关于特朗普或大选的全部文章：共 254 篇，选举日前 79 篇，从结果揭晓到就职典礼 175 篇。在对十篇文章试编码之后，每篇文章以俄文原文按“有/无”编码叙事框架（受迫害者、建制颠覆者、和平缔造者、美国优先的民族主义者、务实的商人、有魅力的领袖、救世主）和隐喻（斗士、救世主、交易能手、表演者、无赖）。两组编码的编码员一致性（Cohen's kappa）均高于 .85。",
+      findings: [
+        "**选举前的主导画面是一个遭受攻击却不肯屈服的人。**受害者框架出现在 47.5% 的文章中，颠覆者 49%，有魅力的领袖 35.9%，和平缔造者 29%，民族主义者 27.9%，商人 24%，救世主 19%。隐喻方面，斗士出现在 51.5% 的文章中，交易能手 37.2%，表演者 26.9%，救世主 19%，无赖 5%。",
+        "**结果揭晓后，画面在几周内翻转。**和平缔造者跃升至 63%，救世主升至 36.4%，民族主义者 35.6%，有魅力的领袖 35%，而受害者降至 5%，颠覆者降至 22%。交易能手隐喻升至 64.2%，救世主升至 47%，无赖升至 37.5%，而斗士降至 31%，表演者降至 12%。",
+        "**和平缔造者框架依托于结束乌克兰战争的承诺**，而样本文章并未质疑这些承诺是否可行。作者指出，这个框架搁置了他第一任期内的鹰派记录。",
+        "**四份报纸用不同的语域传达同一个信息。**小报使用民粹和宗教语言（“蒙上帝保全”）；商业日报使用管理语言（“外交的首席执行官”），避免救赎式修辞；侧重政治的报纸大量引用特朗普本人的话；政府报纸则通过专家评论和外交委婉语发声。",
+        "作者把这一转向解读为服务于国内意识形态：特朗普象征着一个从内部分裂的西方，而美国是一个“暂时被劫持的超级大国”，合适的领导人或许能把它引回以利益为基础的外交。",
+      ],
+      soWhat:
+        "一个简单的两阶段设计——结果揭晓前与揭晓后——就显示出同一批媒体在一个人的利用价值改变的那一刻，如何重写同一个人。任何追踪国家立场媒体如何对待外国领导人的人，都可以直接重复使用这套七框架、五隐喻的编码表：在事件前后分别编码，两者之间的差异就是想要传达的信息。",
+      caveat:
+        "**正文和表格有几处不一致。**正文说务实商人叙事在选举后升至 63.8%，而表 1 列出的是 12%，64.2% 这个数字属于表 2 中交易能手的**隐喻**；正文说受害者框架降至 19%，而表格显示为 5%。本摘要以表格为准。材料由作者自行编码。四份报纸，没有电视。文章披露 AI 工具协助改善了可读性并参与了部分分析，所有内容均经作者审阅。在线优先发表，因此尚无期号。**本摘要有意不点名任何报纸，也不点名研究对象特朗普以外的任何政治人物。**",
     },
   },
   {
