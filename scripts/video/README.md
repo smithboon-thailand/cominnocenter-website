@@ -98,6 +98,8 @@ assets/sfx-2-slide.mp3  assets/sfx-3-setdown.mp3    # เสียงกระ�
 · ประกอบ: `python3 build_v3.py <key> <th|en> out.mp4 --jingle assets/jingle-B.mp3 --bed assets/bed-B-long.mp3`
 · **กู้ไฟล์กลับได้จาก ElevenLabs เสมอ** (บทเรียนจากชุด A — อย่าพึ่ง zip ที่ส่งผู้ใช้เป็นสำเนาเดียว): flow `pzjwoo7f9rOpwWiPuo6n` · session ของชุด B: jingle `nXwG5eROxJU5YE1He6EF` · bed `qWmya3DXMlRAfkIiKGQF` · slide `sxdY0cMJC0jfKXcePe0l` · setdown `9ebHb0cDt0DNJrvwEil3` → เรียก `creative_get_flow_run_status(flow_id, session_ids)` แล้วดาวน์โหลด `master_url` · เสียงพากย์ 30 ท่อนของชุดที่ 7 อยู่ใน flow เดียวกัน (แผนที่ `"<key>-<lang>-<n>": session_id` อยู่ใน `tts-sessions-batch7.json` ซึ่ง**ขึ้นคลัง**โดยตั้งใจ — session_id ไม่ใช่ความลับ เปิดดูได้เฉพาะบัญชี ElevenLabs ของผู้ใช้ แต่เป็นกุญแจเดียวที่ใช้กู้ไฟล์ · ท่อนที่ 8 ของ `qatarwe` ใช้ไฟล์เดียวกับ `pkmedia` เพราะประโยคปิดเหมือนกัน)
 
+· **เผยแพร่ขึ้น YouTube**: เซสชัน Claude ไม่มีสิทธิ์เข้าช่อง จึงให้ผู้ใช้ลากไฟล์เข้า YouTube Studio เป็นฉบับร่าง (ชื่อไฟล์ `ComInnoResearch24…`/`25…` = ชื่อคลิปที่สคริปต์ใช้หา) แล้วรัน `ComInnoYouTubeBatch7.gs` ใน Apps Script ด้วยบัญชีที่ดูแลช่อง — ข้อมูลฝังในสคริปต์ ไม่ต้องใช้ CSV (สคริปต์ 5 ก.ย. บังคับ CSV อย่างน้อย 40 แถว) · หาคลิปจากเพลย์ลิสต์อัปโหลดของช่องแทน Search ที่อาจยังไม่เห็นคลิปใหม่ · **อย่าอัปโหลดผ่าน `videos.insert` จาก Apps Script** เพราะโปรเจ็กต์ API ที่ยังไม่ผ่านการตรวจของ YouTube จะถูกล็อกคลิปเป็นส่วนตัว ฝังบนเว็บไม่ได้ — อัปโหลดผ่าน Studio แล้วใช้ API แค่แก้ข้อมูล
+
 ## ขั้นตอนทำเรื่องใหม่
 
 1. เพิ่มเรื่องในไฟล์ชุดใหม่แบบ `storyboard_batch2.py` (หรือ `CLIPS` ของ `storyboard.py`) (บท 8 ย่อหน้า × 2 ภาษา · ข้อความบนจอ**เว้นวรรคตามหน่วยความหมาย** · แนวคิดภาพนับวัตถุไม่เกินสี่ชิ้น) แล้ว `python3 storyboard.py` → ส่ง `storyboard.html` ให้ผู้ใช้อนุมัติ
