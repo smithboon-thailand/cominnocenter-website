@@ -8,6 +8,9 @@
  *   https://www.chula.ac.th/news/58581/
  * - ศ.ดร.ลัญฉกร: ภาควิชาวิศวกรรมไฟฟ้า คณะวิศวกรรมศาสตร์
  *   https://ee.eng.chula.ac.th/lunchakorn-wuttisittikulkij/
+ * - ดร.อิบเตซาม: ภาพถ่ายทางการและ CV ที่ รศ.ดร.สมิทธิ์ ส่งมา 27 ก.ย. 2569
+ *   (ครอป 4:5 จากภาพครึ่งตัว ซูมให้ขนาดใบหน้าใกล้กับอีกสามท่านในแถวตามที่ผู้ใช้ขอ)
+ *   · ตำแหน่ง สังกัด และหัวข้อวิจัยอ่านจาก CV ฉบับนั้น
  */
 
 export type Researcher = {
@@ -138,6 +141,42 @@ export const researchers: Researcher[] = [
       {
         label: "Google Scholar",
         href: "https://scholar.google.com/citations?user=P7aA-6IAAAAJ&hl=en",
+      },
+    ],
+  },
+  {
+    // อดีตนักวิจัยหลังปริญญาเอกทุน C2F ของศูนย์ฯ (2566–2567) ปัจจุบันเป็นนักวิจัยรับเชิญ
+    // (Invited Researcher 2025–2026 ตาม CV) · ผู้ใช้ให้วางเป็นใบที่สี่ของแถว ต่อจาก ศ.ดร.ลัญฉกร
+    // **ไม่มี `slug`** เพราะยังไม่อยู่ในทะเบียน AUTHORS ของ fetch-publications.mjs
+    // ผลงานที่เขียนร่วมกับ รศ.ดร.สมิทธิ์ ขึ้นหน้า /research อยู่แล้วผ่านชื่อของอาจารย์
+    // ถ้าวันหนึ่งเพิ่มเข้าทะเบียน ต้องใส่ slug ตรงนี้ด้วย (ดู src/lib/people.ts)
+    // ชื่อไทยเป็นการถอดเสียงจากชื่อใน CV (Muhammad Ibtesam Mazahir) ยังไม่ได้ยืนยันกับเจ้าตัว
+    name: "ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์",
+    nameEn: "Dr. Muhammad Ibtesam Mazahir",
+    roleZh: "特邀研究员",
+    facultyZh:
+      "巴基斯坦卡拉奇 Mohammad Ali Jinnah University 社会科学系主任 · 印度尼西亚 Universitas Airlangga 兼职教师 · 曾任本中心 C2F 博士后研究员",
+    focusZh: "媒介素养与数字媒体、跨文化传播与国家品牌、体育外交与政治传播、广告与消费者行为、新闻框架与数据新闻",
+    roleTh: "นักวิจัยรับเชิญ",
+    role: "Invited Researcher",
+    faculty:
+      "หัวหน้าภาควิชาสังคมศาสตร์ Mohammad Ali Jinnah University (การาจี ปากีสถาน) · อาจารย์พิเศษ Universitas Airlangga (อินโดนีเซีย) · อดีตนักวิจัยหลังปริญญาเอกทุน C2F ของศูนย์ฯ",
+    facultyEn:
+      "Head of Social Sciences, Mohammad Ali Jinnah University, Karachi · Adjunct Faculty, Universitas Airlangga, Indonesia · Former C2F Postdoctoral Fellow at the Center",
+    focusEn:
+      "Media literacy and digital media, cross-cultural communication and nation branding, sports diplomacy and political communication, advertising and consumer behavior, news framing and data journalism",
+    focus:
+      "การรู้เท่าทันสื่อและสื่อดิจิทัล การสื่อสารข้ามวัฒนธรรมและการสร้างแบรนด์ประเทศ การทูตผ่านกีฬาและการสื่อสารทางการเมือง การโฆษณาและพฤติกรรมผู้บริโภค การวางกรอบข่าวและวารสารศาสตร์ข้อมูล",
+    image: "/images/researchers/ibtesam-mazahir.webp",
+    alt: "ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ นักวิจัยรับเชิญของศูนย์ — ภาพถ่ายทางการของท่าน",
+    links: [
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=Xf_z7NQAAAAJ&hl=en",
+      },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/ibtesam-mazahir-ph-d-208082107/",
       },
     ],
   },
