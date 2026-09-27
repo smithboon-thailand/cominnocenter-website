@@ -347,7 +347,7 @@ export default function ChineseAboutPage() {
             description="来自多个学科的研究人员，共同推动传播创新、可持续发展与新兴技术"
           />
 
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {researchers.map((person) => (
               <div
                 key={person.nameEn}
@@ -360,7 +360,7 @@ export default function ChineseAboutPage() {
                       alt={`${person.nameEn}——${person.roleZh}，朱拉隆功大学`}
                       fill
                       className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
