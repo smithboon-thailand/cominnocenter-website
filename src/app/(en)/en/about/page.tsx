@@ -335,7 +335,7 @@ export default function EnglishAboutPage() {
             description="Researchers from many disciplines driving communication innovation, sustainability, and emerging technology"
           />
 
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {researchers.map((person) => (
               <div
                 key={person.nameEn}
@@ -348,7 +348,7 @@ export default function EnglishAboutPage() {
                       alt={`${person.nameEn} — ${person.role}, Chulalongkorn University`}
                       fill
                       className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">

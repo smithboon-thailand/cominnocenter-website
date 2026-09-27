@@ -329,7 +329,7 @@ export default function AboutPage() {
             description="ทีมนักวิจัยจากหลากหลายสาขา ที่ร่วมขับเคลื่อนนวัตกรรมการสื่อสาร ความยั่งยืน และเทคโนโลยีล้ำสมัย"
           />
 
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {researchers.map((person) => (
               <div
                 key={person.nameEn}
@@ -342,7 +342,7 @@ export default function AboutPage() {
                       alt={person.alt}
                       fill
                       className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -355,7 +355,14 @@ export default function AboutPage() {
                 <div className="p-6">
                   <p className="text-[13px] font-medium text-ink-500">{person.roleTh}</p>
                   <h3 className="mt-1 text-h3-m md:text-h3 leading-snug text-ink-900">
-                    {person.name}
+                    {/* ตัดบรรทัดเฉพาะที่ช่องว่างระหว่างส่วนของชื่อ — ชื่อที่ถอดเสียงจากภาษาอื่น
+                        (มาซาฮีร์) ไม่อยู่ในพจนานุกรมตัดคำของเบราว์เซอร์ จึงเคยขาดกลางคำเป็น "มาซา | ฮีร์" */}
+                    {person.name.split(" ").map((part, i) => (
+                      <span key={i}>
+                        {i > 0 && " "}
+                        <span className="whitespace-nowrap">{part}</span>
+                      </span>
+                    ))}
                   </h3>
                   <p className="mt-2 text-[13px] leading-[1.6] text-ink-500">{person.faculty}</p>
                   <p className="mt-3 text-[15px] leading-[1.6] text-ink-700">{person.focus}</p>
