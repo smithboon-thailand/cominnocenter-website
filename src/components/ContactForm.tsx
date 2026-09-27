@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 import { processSteps } from "@/data/process";
 import { EMAIL } from "@/data/contact";
 import type { Locale } from "@/lib/locale";
+import { trackEvent } from "@/lib/track";
 
 type ContactFormProps = {
   locale?: Locale;
@@ -108,6 +109,8 @@ export default function ContactForm({ locale = "th" }: ContactFormProps) {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    // อ่านก่อน reset — หลัง form.reset() ค่าจะกลายเป็นช่องว่าง
+    const interest = String(data.get("type") ?? "");
 
     try {
       const res = await fetch("https://formspree.io/f/mgawygve", {
@@ -119,6 +122,9 @@ export default function ContactForm({ locale = "th" }: ContactFormProps) {
       if (res.ok) {
         setStatus("success");
         form.reset();
+        // นับเฉพาะที่ส่งถึงจริง ไม่นับตอนกดปุ่ม · ส่งแค่หมวดความสนใจกับภาษา
+        // ไม่ส่งชื่อ อีเมล หรือข้อความ (ดูกติกาใน src/lib/track.ts)
+        trackEvent("contact_submit", { interest, locale });
       } else {
         setStatus("error");
       }

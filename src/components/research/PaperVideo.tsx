@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { youtubeEmbedUrl, youtubeWatchUrl } from "@/data/videos";
 import { formatClock } from "@/data/paperVideos";
+import { trackEvent } from "@/lib/track";
 
 type Locale = "th" | "en";
 
@@ -74,7 +75,11 @@ export default function PaperVideo({
         ) : (
           <button
             type="button"
-            onClick={() => setPlaying(true)}
+            onClick={() => {
+              setPlaying(true);
+              // ผู้อ่านกดเล่นจริง — iframe ของ YouTube ไม่มีทางส่งสถิติกลับมาให้เรา
+              trackEvent("video_play", { youtubeId, locale });
+            }}
             aria-label={t.playAria(title)}
             className="group absolute inset-0 block focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_var(--pink-100)]"
           >
