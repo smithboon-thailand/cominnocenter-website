@@ -734,6 +734,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "A non-probability sample of 400 users in Bangkok, collected in October 2020 when online food ordering behaviour was distorted by the COVID-19 situation, and scoped to two apps: LINE MAN and Grab.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个物体由一根粗绳牵着，周围的细线都没有连着任何东西",
+    zh: {
+      headline:
+        "按需服务应用的用户保持忠诚，是因为服务本身，而不是因为看到了广告",
+      question:
+        "LINE MAN 和 Grab 这类一站式按需服务应用靠广告和折扣竞争。那么，真正能预测用户忠诚的是哪一项——接触应用相关信息、营销组合，还是服务质量？",
+      method:
+        "2020 年 10 月以非概率抽样进行的定量在线调查，对象是 400 名 18 岁及以上、在过去三个月内至少使用过三次此类应用的曼谷居民。数据用 SPSS 以皮尔逊相关和多元回归分析。",
+      findings: [
+        "整体忠诚度为 4.26 分（满分 5 分），属于非常高的水平，其中行为忠诚高于态度忠诚（4.35 对 4.06）。得分最高的单项是打算再次使用该服务（4.43）。",
+        "服务质量是忠诚度最强的预测因素（Beta = 0.491），其次是营销组合（Beta = 0.127）。",
+        "**接触信息和广告完全不能预测忠诚度**（Beta = 0.043，Sig = 0.32），尽管两者之间确实呈正相关。",
+        "三个因素合计解释了约 36% 的忠诚度（R² = 0.364，F = 75.68）；其余部分来自本研究没有测量的因素。",
+        "使用该服务最常见的原因是方便（35.4%），其次是折扣（20.8%）和容易使用（20.6%）。外卖是使用最多的服务（41.7%），其次是网约车（33.3%）。",
+      ],
+      soWhat:
+        "对平台营销人员来说，这项发现表明：花钱让人更常看到自己，买不回忠诚。能买回忠诚的是服务本身的体验——它的可信度与可靠性，以及有足够的人手提供服务。",
+      caveat:
+        "非概率样本，为曼谷的 400 名用户，于 2020 年 10 月采集，当时在线订餐行为受到 COVID-19 疫情的扭曲；研究范围限于 LINE MAN 和 Grab 两款应用。",
+    },
   },
   {
     slug: "tv-crisis-communication-korat",
@@ -1430,6 +1451,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**84.7% of respondents were women, so every figure here principally describes that group.** **The five consumer segments the article proposes were derived by interpreting item means and correlations, not by statistical cluster analysis**, so they should be read as descriptions rather than as groups that separate reliably. Cruelty-free products in the Thai market are mostly cosmetics and personal care, which ties the findings to that category. And these are self-reported intentions, not observed purchases.",
     },
+    illustrationAltZh:
+      "纸艺插画：三级逐步升高的台阶，最上面一级与其余分离，悬浮在稍微够不着的地方",
+    zh: {
+      headline:
+        "泰国 Z 世代出于价值观购买零残忍产品——但最能预测购买的是品牌忠诚，而价格一涨，忠诚就消退",
+      question:
+        "泰国 Z 世代消费者看重零残忍（不做动物实验）产品的哪些方面？他们如何看待这些品牌的营销传播？真正能预测购买意愿的又是什么？",
+      method:
+        "以配额抽样对 400 名知道零残忍品牌、年龄 18 至 26 岁的泰国受访者进行在线调查（女性 84.7%、男性 11.35%、其他性别 4.00%）。以五级李克特量表测量四个构念——价值观、对整合营销传播工具的态度、品牌忠诚和购买意愿——整体信度为 .93。分析采用皮尔逊相关和逐步多元回归。",
+      findings: [
+        "**在各价值维度中，普世主义得分最高，为 4.65 分（满分 5 分）**，高于功能价值的 4.08 和社会价值的 3.36——受访者把关爱动物和自然看得比身边人的认可更重。",
+        "**购买意愿最强的预测因素是品牌忠诚（β = .486）**，其次是态度（β = .300）和价值观（β = .119）；三者合计解释了 62.9% 的变异。忠诚与购买意愿的相关最强，r = .74。",
+        "**忠诚部分得分最低的一项是“即使价格上涨我也会继续购买这个品牌”**，而该部分中推荐类题目得分最高，为 4.40——愿意推荐，却不愿多付钱。",
+        "**最受欢迎的传播工具是促销，得分 4.59**，其次是公共关系 4.46 和户外媒体 4.28，直复营销最低——作者将此解读为对硬性推销的排斥。",
+        "**购买意愿中得分最低的一项是“即使本地买不到我也会购买”，为 3.60。**供货便利仍是前提。",
+      ],
+      soWhat:
+        "这里的落差对品牌和倡导者都可以直接使用：**价值观把人带到货架前，却带不过价格差。**只靠价值观沟通的品牌，会收获热烈的推荐和单薄的销量。同一组数据还显示，起教育作用的公共关系得分第二高，说明它和促销承担的是不同的工作，两者必须同时进行——而铺货，让产品真正触手可及，并不是计划中可有可无的部分。",
+      caveat:
+        "**84.7% 的受访者是女性，因此这里的每个数字主要描述的是这一群体。**另外，**文章提出的五个消费者细分群体，是通过解读各题平均值和相关系数得出的，而不是统计聚类分析的结果**，因此应把它们看作描述，而不是能够可靠区分开的群体。泰国市场上的零残忍产品大多是化妆品和个人护理用品，这使研究结论与该品类绑定。而且这些是自我报告的意愿，不是观察到的购买行为。",
+    },
   },
   {
     slug: "dating-apps-disclosure-msm",
@@ -1814,6 +1856,27 @@ export const paperSummaries: PaperSummary[] = [
         "For a brand weighing whether to take a public position, the data says two things at once. **Shared stance genuinely carries weight with this cohort** — it is the highest-scoring item in the study. But **it works as a supplement, not the main channel**: a mediated effect of .18 against a total of .95 means awareness, image and actually delivering what was advertised remain the base that has to be there first. And the lowest score going to sense of community says that agreeing with a brand's position is not the same as wanting to belong to its community — different goals, needing different design.",
       caveat:
         "**The authors name two limitations themselves**: a modest sample and entirely self-reported measures. **The total path coefficient of .95 is unusually high**, which commonly happens when every variable is measured with the same instrument at the same sitting, so the size of the effect should be read cautiously. It covers one brand in one category — property — with respondents aged 18 to 24 who are mostly not yet buyers in that category. And it measures purchase intention, not purchases.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两道跨梁架在同一对桥墩之间，上面一道宽而厚，另一道较窄，平行架在其下方",
+    zh: {
+      headline:
+        "与品牌立场一致，确实会推动泰国大学生购买——但它只承载了这条路径的一部分，而不是全部",
+      question:
+        "年轻消费者越来越期待品牌就社会议题表明立场。品牌立场与消费者自身立场的一致程度，对购买意愿的影响有多大？这种影响又是通过什么起作用的？",
+      method:
+        "以房地产品牌 Sansiri 为案例，对 434 名 18 至 24 岁的泰国大学生（女性 53%、男性 47%）进行七级量表的自评问卷调查。在对 50 名受访者预试后，测量了态度相似度、品牌价值、品牌知名度、形象、可靠性、情感投入、社群归属感和购买意愿，并以描述统计、内部一致性和检验中介效应的结构方程模型进行分析。",
+      findings: [
+        "**整份问卷中得分最高的单项是“我更可能购买与我立场一致的品牌”**，为 5.74 分（满分 7 分，SD 1.40）；受访者也表示不太会购买立场相反的品牌。",
+        "**态度相似度只起部分中介作用。**间接路径为 β = .18（p < .001），而总路径为 β = .95（p < .001）——也就是说，品牌价值主要仍是通过直接路径影响购买意愿。",
+        "**在各组成部分中，知名度和形象得分最高**——容易想起该品牌 5.42、能在竞争对手中认出它 5.31、对其形象感觉良好 5.62、认为它比其他品牌更有吸引力 5.20。",
+        "**品牌社群归属感是所有组成部分中得分最低的**，尽管仍处于较高水平——受访者认同这个品牌，却不觉得自己是其支持者群体的一员。",
+        "**可靠性建立在兑现广告承诺之上**——兑现广告中的承诺 5.36，品牌声誉值得信赖 5.50。",
+      ],
+      soWhat:
+        "对于正在权衡是否公开表明立场的品牌，这些数据同时说明了两件事。**立场一致对这一代人确实有分量**——它是整项研究中得分最高的单项。但**它是补充，而不是主渠道**：中介效应 .18 对比总效应 .95，意味着知名度、形象以及真正兑现广告承诺，仍是必须先具备的基础。社群归属感得分最低则说明，认同一个品牌的立场并不等于想加入它的社群——这是不同的目标，需要不同的设计。",
+      caveat:
+        "**作者自己指出了两项局限**：样本规模不大，且所有测量均为自我报告。**总路径系数 .95 高得异常**，当所有变量都用同一份问卷在同一时间测量时，常会出现这种情况，因此对效应的大小应审慎解读。研究只涉及一个品牌和一个品类——房地产——受访者为 18 至 24 岁、大多尚未成为该品类买家的年轻人。而且它测量的是购买意愿，不是实际购买。",
     },
   },
   {
@@ -2409,6 +2472,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**A single-time-point correlational study**; it does not show that credibility causes purchase. Followers of **one** influencer, self-selected, cannot stand for gaming audiences in general. Most respondents were men in their early twenties. Purchase intention is self-reported, not observed buying. The expertise measure had low reliability. The YouTuber is named because he is the scope of the study; the article makes no criticism of him. The study is framed by the COVID-19 period, when everyday activity had shifted online to an unusual degree.",
     },
+    illustrationAltZh:
+      "纸艺插画：三条纸带从左边缘汇向右侧的一个折纸立方体：中间一条笔直紧绷，上面一条笔直但斜向下，下面一条松垂成波浪",
+    zh: {
+      headline:
+        "游戏网红的可信度能预测购买意愿——但把它的三个部分分开测量，就只有“可信赖”看起来起作用",
+      question:
+        "理论认为，受众追随网红而不是明星，是因为网红更可信，但实证证据并不一致，而且几乎没有涉及游戏领域的。这项研究问两件事：来源可信度——吸引力、可信赖性和专业性——能否预测购买网红所玩游戏的意愿？以往研究结果不一致，会不会是模型设定方式造成的假象？",
+      method:
+        "对全球最大的游戏 YouTuber 之一（PewDiePie）来自多个国家的粉丝进行在线调查。414 份回复经筛选后得到 238 名合格参与者（男性 77.3%，平均年龄约 21–22 岁）。可信度的三个组成部分用 Ohanian 量表测量，同时测量购买该网红所玩游戏的意愿。分析采用相关分析和两个相互竞争的结构方程模型。数据已在 OSF 公开。",
+      findings: [
+        "**三个组成部分都与购买意愿相关**：可信赖性 r = 0.51、吸引力 0.46、专业性 0.33，整体可信度 0.54。",
+        "**但当三者作为独立预测变量放进同一个模型时，只有可信赖性保持显著**，另外两个消失了（R² = 0.33）。作者认为这是“不当控制”问题：三者是同一构念的不同侧面，高度重叠，让它们在同一个方程里相互竞争，会掩盖彼此的效应。",
+        "**若改为把它们建模为一个包含三个侧面的二阶“可信度”因子，通向购买意愿的路径为 0.54（R² = 0.29），模型拟合良好（CFI 0.955）。**作者认为，以往研究中相互矛盾的结果很可能来自第一种模型。",
+        "**粉丝并没有特别强的购买意愿。**即使在经常观看的人中，购买意愿的平均值也处于中间点附近（5 级量表上为 3.14–3.45）。",
+        "**专业性量表的信度偏低**（α = 0.46），因此对这一侧面的结果应降低信心。",
+      ],
+      soWhat:
+        "对与游戏网红合作的品牌来说：不要把“形象好”和“技术强”当作各自独立的勾选项来挑选合作对象——**起作用的是受众感知到的整体可信度，而其核心是可信赖性**。对研究者来说：看似显示吸引力和专业性“不重要”的结果，可能只是方程设定的副产品，而不是关于受众的事实。而购买意愿停在中间点，也提醒人们：观看和购买是两回事。",
+      caveat:
+        "**这是单一时间点的相关研究**，不能说明可信度导致购买。样本只是**一位**网红的粉丝，而且是自愿参与的，不能代表整体游戏受众。大多数受访者是二十岁出头的男性。购买意愿为自我报告，而非观察到的购买行为。专业性测量的信度偏低。之所以写出这位 YouTuber 的名字，是因为他是研究的范围所在；文章并未对他提出任何批评。研究以 COVID-19 时期为背景，当时日常活动转向线上的程度异乎寻常。",
+    },
   },
   {
     slug: "elephant-tales-sensory-exhibition",
@@ -2584,6 +2668,26 @@ export const paperSummaries: PaperSummary[] = [
         "For a brand facing negative reviews: **answering with “here is why we beat the competitor” may reinforce the negative frame rather than dispel it**. In this setting, an ad that spoke plainly about the product's own attributes performed clearly better. Having an informative ad in front of consumers at all offers an alternative narrative to the review. And before using comparative advertising in any market, check whether people there regard the format as normal or as improper.",
       caveat:
         "**100 students from a single university in Pakistan**, roughly 25 per condition; the results cannot stand for other consumer groups or countries, and the authors themselves note they could differ substantially where comparative advertising is routine. The product was a fictitious hands-free headset brand — a low-involvement product. Participants saw one review and one ad, unlike real life with many conflicting sources. **Comparative messages were naturally longer than non-comparative ones**, and the authors acknowledge that length may be confounded with format. Only cognitive content was studied, not emotional tone. Cultural attitudes to comparative advertising were invoked to explain the results but not measured directly.",
+    },
+    illustrationAltZh:
+      "纸艺插画：四块方形纸片排成二乘二的网格，三块平放，右后方一块被一个小折纸底座明显垫高",
+    zh: {
+      headline:
+        "拿你和竞争对手作比较的差评，杀伤力并不比普通差评大——而用比较式广告回应，效果最差",
+      question:
+        "消费者在网上不断遇到差评；有的把产品直接和竞争对手比较，有的只是抱怨。这项研究问的是：比较式负面口碑是否比非比较式的更损害消费者对产品的态度？以属性为基础的广告——本身是否采用比较式——又如何调节这种影响？",
+      method:
+        "在巴基斯坦对 100 名大学生（17–26 岁，平均 20 岁，男女各半）进行 2×2 组间实验。每人先阅读一条关于某虚构免提耳机品牌的差评（比较式或非比较式），再看一则该品牌的广告（比较式或非比较式），然后用四个七级题项评价对产品的态度（α = 0.90）。信息中使用的属性经过三轮预测试选定，每轮 50–52 名受访者。所有参与者都在操纵检验中正确辨认了信息形式。分析采用双因素方差分析。研究于 2022 年 12 月获得伦理审批。",
+      findings: [
+        "**假设 1 未获支持。**比较式和非比较式差评所产生的态度没有差别（平均值 3.39 对 3.61；F = 0.67，不显著）。作者将此解读为消费者是在对负面性本身作出反应，而不是对信息的结构。",
+        "**广告确实起到了调节作用（报告的 p = 0.00），但方向与预测相反。**在比较式差评之后，带来较好态度的是非比较式广告（3.68 对 3.11），而不是作者预期的比较式反击广告。",
+        "**效果最好的组合是非比较式差评之后接非比较式广告**，平均态度为 5.07 分（满分 7 分）。最差的是非比较式差评之后接比较式广告，为 2.15。",
+        "**作者提出了三种解释**：压倒信息形式的负面偏差；比较式信息更重的处理负担；以及巴基斯坦的文化背景——那里比较式广告并不常见，且常被视为不得体。",
+      ],
+      soWhat:
+        "对面临差评的品牌来说：**用“这就是我们胜过对手的原因”来回应，可能会强化负面框架，而不是化解它**。在这项研究的情境中，平实介绍产品自身属性的广告表现明显更好。只要有一则提供信息的广告出现在消费者面前，就能为差评提供另一种叙事。在任何市场使用比较式广告之前，都应先了解当地人把这种形式看作正常还是不得体。",
+      caveat:
+        "**样本是巴基斯坦一所大学的 100 名学生**，每个条件约 25 人；结果不能代表其他消费群体或国家，作者自己也指出，在比较式广告司空见惯的地方，结果可能大不相同。产品是一个虚构的免提耳机品牌——属于低介入度产品。参与者只看到一条差评和一则广告，不同于现实中面对许多相互矛盾的信息来源。**比较式信息天然比非比较式信息长**，作者承认篇幅可能与形式混淆。研究只考察了认知内容，没有考察情绪语调。对比较式广告的文化态度被用来解释结果，但并未直接测量。",
     },
   },
   {
@@ -2991,6 +3095,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**The sample is 150 students at a single university in one city**, not travellers in general, and what was measured is opinion rather than actual travel behaviour. **The article's abstract discusses economic effects, over-tourism, environmental degradation and sustainability, none of which this questionnaire measured**; this summary therefore follows the results tables only, as the centre does for every summary. **The article reports two overlapping sets of items covering the same ground with differing means, without explaining how the two sets differ**, so we report only the patterns that hold across both and do not treat any individual figure as a conclusion.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个放大镜搁在几张相互重叠的纸片上，其中一张完全位于镜片之下",
+    zh: {
+      headline:
+        "受访者说这个平台让他们看到了从未听说过的地方——却也同时说，夸大其词的内容很常见",
+      question:
+        "短视频已成为查找旅行信息的主要渠道。这项研究询问旅游管理、酒店管理和信息技术专业的学生如何看待这个平台——既作为观众，也作为自己必须制作内容的人。",
+      method:
+        "通过 Google 表单向马尼拉一所私立大学三个专业——旅游管理、酒店管理和信息技术——的 150 名本科生发放在线问卷。意见以评分量表收集，并按题报告平均值及其文字解释。",
+      findings: [
+        "**得分最高的一项与算法有关。**受访者最赞同的是：算法决定了旅行内容能传播多远——曝光度并不只取决于视频本身的质量。",
+        "**受访者对平台既信任又怀疑。**在同一组题目中，“平台提供可靠信息”和“误导或夸大的旅行内容很常见”两项得分都很高。",
+        "**受访者表示难以做到的，是分辨真心推荐和赞助内容**，这是得分最高的题目之一。",
+        "**关于平台把注意力分散到冷门地点的说法并没有得到清晰的支持**：“看到的内容重复且局限于热门目的地”一项的得分，与“平台让人发现隐藏景点”一项同样高。",
+        "**得分最低的一项是创作者的多样性有助于规划行程**，这表明一旦规划变得具体，受访者就会转向其他渠道。",
+      ],
+      soWhat:
+        "对任何考虑用短视频推广目的地的机构或经营者来说，有两点值得注意。曝光在很大程度上受平台机制左右，必须事先规划，而不能假定好内容自然会被看到。而当观众自己都表示无法分辨真心推荐和赞助内容时，清楚标注赞助就不只是为了合规，而是关乎长期的可信度。",
+      caveat:
+        "**样本是一座城市里一所大学的 150 名学生**，不是一般旅行者，而且测量的是看法，不是实际的旅行行为。**文章摘要讨论了经济影响、过度旅游、环境退化和可持续性，但问卷并未测量其中任何一项**；因此，本摘要和本中心的所有摘要一样，只依据结果表。**文章报告了两组内容重叠、平均值却不同的题目，但没有说明两组的区别**，所以我们只报告在两组中都成立的模式，不把任何单个数字当作结论。",
+    },
   },
   {
     slug: "forum-theatre-antibiotics-myanmar",
@@ -3113,6 +3238,28 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**The evaluators were the organisers themselves**, which the authors acknowledge is not independent, proposing external evaluators in future. Respondents were self-selected attendees, and 55 of 180 questionnaires were incomplete. It is a one-off measurement immediately after the event: knowledge people feel they gained is not the same as knowledge gained or behaviour changed, and the authors warn that such events may not build critical scientific literacy. Socio-economic status was not collected, so the point about income groups is the authors' inference.",
     },
+    illustrationAltZh:
+      "纸艺插画：一只高高的品脱杯，杯口升起的不是泡沫，而是一个纸对话气泡",
+    zh: {
+      headline:
+        "曼谷酒吧里的科学讲座吸引的是本来就感兴趣的人，评分很高，听众也说学到了新东西——但唯一一场泰语之夜来的人最少",
+      question:
+        "Pint of Science 是一个让研究者在酒吧和咖啡馆里简短讲述自己研究的节日。它 2013 年始于英国，2017 年在曼谷首次登陆亚洲。这项研究问的是：谁会来、为什么来、听众和讲者各有什么收获、有什么需要改变——这是对这一形式在泰国的首次系统评估。",
+      method:
+        "2018 年，该节日在曼谷市中心的四个场地举办了六天、18 场讲座（2 月一天、5 月四天、8 月一天），其中五天用英语、一天用泰语，每场 12–20 分钟，免费入场，每人提供一份小食和饮料。研究向 5 月和 8 月活动的全部 180 名参加者发放问卷，125 人完成填写，内容包括参加原因、参与情况、知识、兴趣、乐趣，以及对场地、讲者、时间、内容和互动机会的满意度（八个题项各计 0–5 分，满分 40 分）。另进行了 11 次半结构化访谈和一次三人焦点小组。各组之间的中位数得分用非参数检验比较。",
+      findings: [
+        "**六天共有 267 人报名——单独举办的 2 月那一晚人数最多，为 69 人；泰语之夜最少，只有 13 人**，尽管它和其他场次一样采用双语宣传、地点也同样位于市中心。",
+        "**受访者中一半是泰国人（49.6%），一半从事或就读与科学相关的领域（53.6%）**，平均年龄 34 岁。主要信息来源是朋友（43.2%），其次是 Facebook（27.2%）；四分之一的人前一年也参加过。",
+        "**人们来参加是出于对科学的兴趣（68.0%）、为了学习（46.4%）和为了享受（44.8%）。**69.6% 的人表示结识了新朋友，58.4% 交流了科学知识，但只有 28.2% 提过问题。",
+        "**整体得分中位数为 35 分（满分 40 分）**，出于对科学的兴趣（35.2 对 33.6）、为了享受（35.5 对 34.0）或为了学习（35.5 对 34.0）而来的人，对活动的评分显著高于不是出于这些原因的人。**性别、年龄、国籍、职业、得知活动的途径以及此前是否参加过，都没有造成显著差异。**",
+        "**参加者对自己原有主题知识的平均自评为 2.5 分，而对获得的新知识的自评为 4.1 分（满分 5 分）**——这是活动结束后的自我评估，不是知识测试。",
+        "**讲者说，他们提升了传播技巧，在科学界内外建立了人脉，提高了自己研究的能见度，还可能增加获得资助的机会。**听众的建议是：题目集中在医学和一所机构，应与其他机构合作；在大学生中和社交媒体上加强宣传；在轻轨站附近寻找更大的场地；讲座之间留出更长的休息时间。",
+      ],
+      soWhat:
+        "对在泰国策划科学传播活动的人来说，这些数字同时说明了两件事：这种形式对本来就感兴趣的人非常有效，而**它还没有触达这个圈子以外的任何人**。大多数参加者从事科学工作或能自如使用英语，作者自己也指出，这类观众往往属于中高收入、受过高等教育的群体。因此，泰语之夜人少并不能证明泰国人不感兴趣；它更可能反映出这个活动是通过一个说英语的网络来设计和宣传的（前一年，三位泰国讲者中有两位改用英语，因为大家都听得懂），而且举办的时间和城区也与其他场次不同。要扩大受众，就需要重新设计活动，而不是等人自己上门。",
+      caveat:
+        "**评估者就是主办方本身**，作者承认这不够独立，并建议今后由外部评估者进行。受访者是自愿参加的听众，180 份问卷中有 55 份未完成。这是活动结束后立即进行的一次性测量：人们觉得自己学到的知识，不等于真正获得的知识或改变的行为，作者也提醒，这类活动未必能培养批判性的科学素养。研究没有收集社会经济状况，因此关于收入群体的说法是作者的推断。",
+    },
   },
   {
     slug: "indigenous-education-sdgs-philippines",
@@ -3162,6 +3309,27 @@ export const paperSummaries: PaperSummary[] = [
         "For indigenous-education policymakers and development agencies the picture is clear: teachers already do well what lies within their reach — a classroom that respects culture and gives children a voice — while **what they do least is whatever demands resources, networks and time beyond a school's means**: research, training, solar power, links with scientific agencies. If these schools are to be local engines of the Sustainable Development Goals, the place to invest is not the classroom but the channels through which a school can draw outside institutions in — and the teachers' habit of seeking tribal leaders' consent first is a condition of working here, not a step to be skipped.",
       caveat:
         "**Every figure is teachers' self-report** of how often they do things, with no classroom observation and no measure of outcomes for learners, so answers may lean toward what teachers felt they should say. Data come from a single school division with no comparison group, and are reported as means without statistical tests. The authors' conclusion that teachers show “commendable” commitment is an interpretation of the responses, not a measured result. The article has no limitations section of its own; the limitations above are what we read from its methods.",
+    },
+    illustrationAltZh:
+      "纸艺插画：纸环中央有一座小房子：内圈是一道完整的粗环，外面两圈细环则断成几段弧线",
+    zh: {
+      headline:
+        "菲律宾原住民教育学校的教师几乎每天都在课堂上落实可持续发展目标——但工作越往校外延伸，得分就越低，一直降到“中等”",
+      question:
+        "菲律宾实施原住民教育计划，偏远地区的学校据此根据所服务社区的文化调整教学。这项研究问的是：这些学校的教师实际做了什么，让可持续发展目标（SDGs）在地方层面落到实处——通过与社区的合作、宣传以及课堂实践——教师和社区成员的看法是否一致。",
+      method:
+        "聚敛式平行混合方法研究。对南阿古桑省巴尤甘市学区该计划学校的 131 名教师进行问卷调查，采用五级量表（合作与宣传测同意程度，实践测频率），共十二个表、每表五题。另从中按学校位置、学生人数和所受培训挑选 20 名教师，并与 15 名利益相关者——家长、年轻人和部落领袖——进行焦点小组和半结构化访谈，采用主题分析。随后比较两条线索是趋同还是分歧。",
+      findings: [
+        "**课堂内的得分最高。**课堂管理平均 4.36 分（满分 5 分），属于“总是”区间，而整份问卷中得分最高的单项是在管理班级时尊重原住民的权利和治理方式，为 4.41。评估 4.10、教学设计 4.05、教学方法 4.01（“经常”），其中把课程与社会议题和斗争联系起来为 4.22，让学生自己监测学习进度为 4.21。",
+        "**一旦工作延伸到校外，得分就降到 3.4–3.9**——利益相关者协作 3.66、社会公民活动 3.80、社区发展与规划 3.70、机构合作 3.44、信息传播 3.89，其中用社交媒体宣传文化遗产（4.01）是最高的一项。",
+        "**最低的是知识工作和社会动员，处于“中等同意”区间**——知识推进 3.19，全问卷最低的两项是自己就祖传领地资源开展研究（2.86）和为社区举办规划培训（2.93）；社会动员 3.38；邀请部落代表共同授课为 3.52，是教学方法中最低的一项。",
+        "**焦点小组的结果与数字吻合。**教师们说，捐助者和私营部门伙伴是弥补学习材料、营养不良和医疗服务缺口最可行的途径，因为有些村庄没有卫生站。学生中最大的问题是阅读理解，所以阅读干预被列为优先。Facebook 用来传递消息和防灾建议。在任何项目开始之前，教师都会先征得部落领袖和长老的同意，并在学年开始前邀请他们主持仪式。",
+        "**教师们承认自己对可持续发展目标的了解可能并不扎实**，但他们有自己的方法让这些目标落地：用学校菜园缓解饥饿——这是孩子辍学的主要原因之一；用母语编写讲述社区自身故事的教材；让学生自己制定班级纪律守则。",
+      ],
+      soWhat:
+        "对原住民教育的政策制定者和发展机构来说，情况很清楚：教师已经把力所能及的事做得很好——一个尊重文化、让孩子有发言权的课堂——而**他们做得最少的，是需要超出学校能力的资源、网络和时间的工作**：研究、培训、太阳能、与科学机构的联系。如果要让这些学校成为可持续发展目标在地方的推动力，该投资的地方不是课堂，而是学校借以引入外部机构的渠道——而教师先征得部落领袖同意的做法，是在这里开展工作的前提，不是可以省略的步骤。",
+      caveat:
+        "**每个数字都是教师对自己做事频率的自我报告**，没有课堂观察，也没有测量学生的学习结果，因此回答可能偏向教师认为应该说的内容。数据来自单一学区，没有对照组，只报告平均值，未作统计检验。作者关于教师表现出“值得称赞”的投入的结论，是对回答的解读，而不是测量得出的结果。文章本身没有局限性一节；以上局限是我们从其研究方法中读出的。",
     },
   },
   {
@@ -3625,6 +3793,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**The “data” are the authors' own reflections, eight people at four institutions**, not a survey, and no students were heard. The article states nine participants but presents eight essays. Written in early 2023 about tools that have since changed a great deal. The journal classifies it as a column rather than a research article. Closed access, so the site holds no copy. This summary names no institutions and identifies no one in the anecdotes.",
     },
+    illustrationAltZh:
+      "纸艺插画：一支深酒红色的纸铅笔斜靠在一个大纸齿轮上",
+    zh: {
+      headline:
+        "八位菲律宾教师和管理者反思自己使用 AI 的经历：好处相同，对作弊的担忧相同，而且没有一所机构有完整的政策",
+      question:
+        "在 ChatGPT 推出后的最初几个月里，菲律宾的教师和管理者认为生成式 AI（ChatGPT、Bing、Quillbot、Grammarly）在教学、行政和研究上有哪些好处、风险和局限？他们的机构又做了什么？",
+      method:
+        "2023 年 3 月至 5 月进行的集体自我民族志：每位作者就自己的经历写一篇反思，再由小组相互比较。参与者须拥有硕士或博士学位、隶属于菲律宾高等教育机构，并在研究中使用 AI 工具超过八个月。共有来自四所机构的八篇反思；其中一位作者是本中心的研究员。期刊将其作为专栏文章发表。",
+      findings: [
+        "**各篇文章报告的用途**：出测验题和转换题型；产生想法、简化难懂的概念；设计活动和评分标准；列提纲；修改语法和语气——这对母语不是英语的写作者最为重要；综述文献；在大量文本中寻找规律；改写。",
+        "**亲身遇到的局限**：事实错误、编造的参考文献、知识截止日期、缺少背景和个人见解；学生把 AI 写的文章当作自己的作业提交，或不求甚解地照抄答案，结果在口头检查中不及格。",
+        "**共同的担忧**：作弊、编造数据、创造力和批判性思维的衰退、像依赖计算器后不会算数那样的技能退化，以及作者身份和知识产权问题。一位作者讲述了自己拒绝接受同事在合著稿件中用 AI 写成的一节。",
+        "**态度从“乐观但不狂热”到犹豫不等。**本中心的研究员坦白告诉学生，他无法检测出 AI 的使用，所以要求学生对 AI 生成的任何内容都进行编辑、加入个人观点并核实，他也担心把所有工作都交给工具会限制学生的批判性思维。",
+        "**当时四所机构都没有完整的生成式 AI 政策。**已有的措施是现行的学生行为守则、在抄袭检测工具中开启 AI 检测、说明会和网络研讨会，以及正在起草中的政策。作者们一致认为，学生、教师和管理者都需要政策和伦理指引，而一味禁止是徒劳的。",
+      ],
+      soWhat:
+        "这是 ChatGPT 问世后最初几个月里，教师们实际如何使用这些工具的一个快照，对正在起草 AI 政策的泰国院系很有参考价值。作者们提出的实用界线，是区分“辅助性”使用（语法、参考文献管理、改写）和“生成性”使用（直接产出答案），并对使用了什么保持透明。",
+      caveat:
+        "**所谓“数据”是作者们自己的反思，来自四所机构的八个人**，不是调查，也没有听取学生的意见。文章说有九位参与者，但只呈现了八篇文章。写于 2023 年初，所涉及的工具此后已有很大变化。期刊把它归类为专栏，而不是研究论文。文章不开放获取，因此本网站没有副本。本摘要不点名任何机构，也不识别轶事中的任何人。",
+    },
   },
   {
     slug: "sdg-reporting-five-countries",
@@ -3675,6 +3864,29 @@ export const paperSummaries: PaperSummary[] = [
         "For Thai companies and regulators the finding is specific: Thailand already leads in **stating** goals, so the gap is in making them time-bound and measurable, a reporting-quality problem rather than an awareness problem. For corporate communicators, a sustainability report without a measurable target is a story, not a plan.",
       caveat:
         "**One reporting year, around 2015**, before SDG-specific reporting frameworks became common. Yes/no coding flattens the depth of reporting, as the authors note in their own limitations. The 25 largest companies by market capitalisation were chosen, so each country's industry mix shapes its result. Country figures are read from charts in the chapter and may be rounded. The book is closed access, so the site holds no copy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一把没有刻度的金黄色纸尺，旁边是一个没有指针的纸钟面",
+    zh: {
+      headline:
+        "五个国家的大公司在 83% 的报告中提到可持续发展，但只有 25% 设定了有时限的目标，30% 设定了可衡量的目标",
+      question:
+        "泰国、马来西亚、阿联酋和卡塔尔（新兴市场）以及澳大利亚（发达经济体）最大的上市公司如何披露可持续发展目标？这些目标是否可衡量、有无时限，报告的问责程度如何，各项举措如何衡量，公司是否检查了目标是否达成，五个国家之间又如何比较？",
+      method:
+        "分析每个国家市值最大的 25 家公司的年报，以及已有的独立可持续发展报告或企业责任报告：共 125 份报告（72 份年报、38 份可持续发展报告，其余为企业责任报告和财务报告）。银行业占样本的 24.8%，能源业以及房地产与建筑业各占 11.2%，电信业占 9.6%。每份报告按“是/否”对若干项目编码，例如是否陈述目标、有无时限、是否可衡量、举措类型、所用指引、多年记录、目标与结果对照以及独立评估。三名编码员独立编码，一致率为 96.74%。",
+      findings: [
+        "**83.2% 的报告提到可持续发展，但只有 60% 陈述了目标**，而在整个样本中，只有 24.8% 的目标有时限，30.4% 可衡量。",
+        "**报告最多的是社会类举措**，占 80%，其次是环境类 72% 和经济类 61.6%。",
+        "**只有 42.4% 遵循国际报告指引**（主要是 GRI），只有 51.2% 把目标与结果进行对照。",
+        "**澳大利亚在目标质量上领先**：有时限 72%、可衡量 76%、遵循指引 80%、目标与结果对照 84%。**泰国在设定目标上领先**：96% 提到可持续发展，88% 陈述了目标，为五国最高；遵循指引 68%、目标与结果对照 68%，但有时限的只有 24%，可衡量的 40%。",
+        "**马来西亚每份报告都提到可持续发展，72% 设定了目标，但有时限的只有 4%，可衡量的 12%。**卡塔尔 19% 设定了目标，有时限 4%、可衡量 4%、经过评估 15.4%；阿联酋 38% 设定了目标，有时限 21%、可衡量 21%、经过评估 20.8%。",
+        "**作者把泰国的排名归因于泰国证券交易所和证券交易委员会的要求**，即上市公司须说明如何实践公司治理原则并披露其社会责任工作。68% 的泰国公司发布了独立的可持续发展或企业社会责任报告，而卡塔尔只有 8%。",
+        "作者的结论是私营部门缺乏战略：没有时限、没有衡量标准的目标无法评估。推动报告质量提升的是国家的要求和所属行业，资源与公用事业公司的报告比银行更详细。",
+      ],
+      soWhat:
+        "对泰国公司和监管者来说，这项发现很具体：泰国在**陈述**目标上已经领先，差距在于让目标有时限、可衡量——这是报告质量的问题，而不是意识的问题。对企业传播人员来说，没有可衡量目标的可持续发展报告只是一个故事，而不是一份计划。",
+      caveat:
+        "**只涉及一个报告年度，约为 2015 年**，早于针对可持续发展目标的报告框架普及之前。正如作者在局限性中所说，“是/否”编码压缩了报告的深度。样本是按市值选出的最大 25 家公司，因此各国的行业构成会影响其结果。各国数字读自书中章节的图表，可能经过四舍五入。该书不开放获取，因此本网站没有副本。",
     },
   },
   {
