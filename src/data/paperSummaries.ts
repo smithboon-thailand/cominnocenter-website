@@ -3726,6 +3726,142 @@ export const paperSummaries: PaperSummary[] = [
         "**The abstract mentions a survey of voters by demographic profile, but the paper contains no such survey**; there is only the document analysis and four interviews. The social-media figures in the two tables were collected at different times and do not match. It is a conference-proceedings paper with no DOI, so the registry holds no bibliographic record for a citation button. The data are from 2013, before platforms changed how they display counts and before newer election law. **This summary deliberately refers to the candidates by their finishing order and names neither them nor their parties**, in line with the rules of these pages.",
     },
   },
+  {
+    slug: "women-entrepreneurs-qatar-social-media",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ ลูกโป่งคำพูดสีแดงปะการังขนาดใหญ่ ใช้ปลายหางแตะทรงตัวอยู่บนยอดกรวยกระดาษสีน้ำเงินเข้มทรงสูง",
+    illustrationAltEn:
+      "Paper-craft illustration of a large coral-red speech bubble balanced by the point of its tail on the tip of a tall navy-blue paper cone",
+    doi: "10.13187/me.2025.1.3",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "โซเชียลมีเดียเปิดตลาดให้ผู้ประกอบการหญิงในกาตาร์ได้ง่ายและถูก แต่ชื่อเสียงที่สร้างไว้บนนั้นเสียได้จากความผิดพลาดครั้งเดียว",
+      question:
+        "ผู้หญิงในกาตาร์ที่อยากเริ่มธุรกิจเจออุปสรรคหลายด้าน ตั้งแต่แหล่งทุน ข้อกำหนดทางกฎหมาย ไปจนถึงบรรทัดฐานทางวัฒนธรรมและโลกธุรกิจที่ผู้ชายครองพื้นที่ · งานนี้ถามว่าผู้ประกอบการหญิงที่นั่นใช้โซเชียลมีเดียสื่อสารการตลาดเพราะอะไร ได้ประโยชน์อะไร เจออุปสรรคอะไร และการรู้เท่าทันสื่อเกี่ยวข้องกับเรื่องนี้อย่างไร",
+      method:
+        "งานเชิงคุณภาพ — สัมภาษณ์เชิงลึกผู้ประกอบการหญิงในกาตาร์ 10 คน ซึ่งทำธุรกิจหลายขนาดและใช้โซเชียลมีเดียอยู่แล้ว เลือกแบบเจาะจงตามความเชี่ยวชาญ ระหว่างกันยายนถึงตุลาคม 2565 · คำถามสัมภาษณ์ผ่านการตรวจของผู้เชี่ยวชาญด้านการเป็นผู้ประกอบการและการสื่อสารการตลาด และทดลองใช้กับกลุ่มเล็กก่อน · วิเคราะห์แก่นเรื่องโดยมีผู้วิจัยอิสระตรวจทานข้อมูลซ้ำ · ได้รับอนุมัติจากคณะกรรมการหลักสูตรการจัดการการสื่อสารเชิงกลยุทธ์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
+      findings: [
+        "**เหตุผลที่ใช้มีสามข้อ** — สะดวก (ติดต่อลูกค้าได้ในคลิกเดียว) · คุ้มค่าที่สุดเมื่อเทียบกับการโฆษณาแบบอื่น · และเปิดโอกาสทางธุรกิจ",
+        "**ประโยชน์แยกได้สองระดับ** — ระดับตัวผู้ประกอบการคือแบรนด์เป็นที่รู้จัก คุยกับลูกค้าได้แม้นอกเวลาทำการ และเข้าถึงง่าย · ระดับธุรกิจคือสร้างชื่อเสียงแบรนด์ บริหารงานการตลาด ขยายกิจการ และเพิ่มยอดขาย",
+        "**อุปสรรคสามข้อ** — เพิ่มผู้ติดตามได้ยาก โดยเฉพาะธุรกิจที่เพิ่งเริ่ม · รักษาความเป็นมืออาชีพเมื่อเจอความเห็นเชิงลบหรือคำร้องเรียน · และการดูแลชื่อเสียง ซึ่งผู้ให้สัมภาษณ์คนหนึ่งเตือนว่า**ความผิดพลาดครั้งเดียวอาจทำให้ธุรกิจถูกคว่ำบาตร**",
+        "**วิธีรับมือที่ผู้ให้สัมภาษณ์ใช้จริง** — ขยายฐานผู้ติดตามด้วยเนื้อหาคุณภาพ ร่วมงานกับอินฟลูเอนเซอร์และแบรนด์ที่เสริมกัน ซื้อโฆษณา และใช้แฮชแท็กกับการระบุตำแหน่ง · วางแนวทางเรื่องเวลาตอบ น้ำเสียง และความเห็นแบบไหนที่ต้องตอบ แล้วฝึกทีมตามนั้น · เฝ้าดูตลอด ตอบเร็ว ยอมรับผิด สื่อสารอย่างโปร่งใส และนำรีวิวดีๆ ของลูกค้ามาแบ่งปัน · อินสตาแกรมกับสแนปแชตเป็นช่องทางที่กลุ่มลูกค้าของพวกเธอใช้มากที่สุด",
+        "**ผู้ให้สัมภาษณ์มองโซเชียลมีเดียเป็นพื้นที่ที่ข้ามเส้นแบ่งทางเพศ** และให้ความรู้สึกปลอดภัยพอจะทำธุรกิจได้ในสังคมที่ผู้ชายเป็นใหญ่",
+        "ผู้เขียนอธิบายผลด้วยทฤษฎีหกกรอบ เช่น ทฤษฎีการแลกเปลี่ยนทางสังคม (ใช้เพราะได้มากกว่าเสีย) และมุมมองฐานทรัพยากร (โซเชียลมีเดียเป็นทรัพยากรเชิงกลยุทธ์ที่สร้างความได้เปรียบในการแข่งขัน)",
+      ],
+      soWhat:
+        "สำหรับหน่วยงานที่ส่งเสริมผู้ประกอบการหญิง บทเรียนคือโซเชียลมีเดียลดกำแพงเข้าตลาดได้จริง แต่**สิ่งที่ผู้ประกอบการรู้สึกเปราะที่สุดไม่ใช่การโพสต์ — เป็นการรับมือความเห็นเชิงลบและการดูแลชื่อเสียง** การฝึกอบรมจึงควรครอบคลุมเรื่องนี้ด้วย ไม่ใช่แค่เทคนิคเพิ่มยอดผู้ติดตาม · ผู้เขียนเสนอให้ใส่การรู้เท่าทันสื่อไว้ในหลักสูตรฝึกผู้ประกอบการ ทั้งการวิเคราะห์ การสร้าง และการจัดการเนื้อหาดิจิทัล",
+      caveat:
+        "**การรู้เท่าทันสื่อเป็นแกนของชื่อเรื่อง บทคัดย่อ และบทสรุป แต่ส่วนผลการศึกษาและตารางไม่ได้แยกข้อค้นพบเรื่องนี้ออกมา** ข้อเสนอให้ฝึกการรู้เท่าทันสื่อจึงเป็นการตีความของผู้เขียนมากกว่าสิ่งที่ข้อมูลแสดงโดยตรง · สัมภาษณ์ 10 คนในกาตาร์ประเทศเดียว ส่วนใหญ่เป็นคนเจนวายและเจนซีตามที่ผู้เขียนระบุเอง · เป็นงานเชิงคุณภาพที่ไม่ได้บอกว่าแต่ละแก่นเรื่องพบในผู้ให้สัมภาษณ์กี่คน · ข้อมูลเก็บปี 2565 · วารสารสงวนลิขสิทธิ์ เว็บนี้จึงไม่มีสำเนา",
+    },
+    en: {
+      headline:
+        "Social media opens the market to women entrepreneurs in Qatar cheaply and easily — but a reputation built there can be lost to a single mistake",
+      question:
+        "Women in Qatar who want to start a business face barriers on several fronts, from financing and legal requirements to cultural norms and a business world dominated by men. This study asks why women entrepreneurs there use social media for marketing communication, what they gain, what gets in their way, and where media literacy fits in.",
+      method:
+        "A qualitative study: in-depth interviews with ten women entrepreneurs in Qatar running businesses of varying sizes and already using social media, chosen purposively for their expertise, between September and October 2022. The interview questions were reviewed by experts in entrepreneurship and marketing communication and piloted with a small group; the thematic analysis was cross-checked by an independent researcher. Approval came from the Strategic Communication Management Program Board, Faculty of Communication Arts, Chulalongkorn University.",
+      findings: [
+        "**Three reasons for using it**: convenience (reaching customers in one click), being the most cost-effective form of advertising available to them, and the business opportunities it opens.",
+        "**Benefits came at two levels.** Personally: brand awareness, talking to customers even outside business hours, and ease of access. For the business: building brand reputation, managing marketing, expanding, and driving sales.",
+        "**Three challenges**: growing an audience, especially for a new business; staying professional in the face of negative comments and complaints; and reputation management — one participant warned that **a single mistake can lead to a boycott of the business**.",
+        "**The coping strategies participants actually used**: growing the audience through quality content, collaborations with influencers and complementary brands, paid advertising, hashtags and geotags; setting guidelines on response times, tone and which comments to answer, then training the team on them; monitoring constantly, responding quickly, owning mistakes, communicating transparently and sharing positive customer reviews. Instagram and Snapchat were the platforms their customers used most.",
+        "**Participants saw social media as a space that cuts across gender lines**, safe enough to do business in within a patriarchal society.",
+        "The authors interpret the results through six frameworks, among them social exchange theory (it is used because the gains outweigh the costs) and the resource-based view (social media as a strategic resource that builds competitive advantage).",
+      ],
+      soWhat:
+        "For organisations supporting women entrepreneurs, the lesson is that social media genuinely lowers the barrier to entering the market, but **what entrepreneurs felt most exposed on was not posting — it was handling negative comments and protecting their reputation**. Training should cover that, not only techniques for growing a following. The authors recommend building media literacy — analysing, creating and managing digital content — into entrepreneurship programmes.",
+      caveat:
+        "**Media literacy is central to the title, abstract and conclusion, but the results and the findings table do not separate out anything about it**, so the recommendation to train media literacy is the authors' interpretation rather than something the data shows directly. Ten interviews, in Qatar only, mostly Generation Y and Z as the authors note themselves. As a qualitative study it does not say how many participants raised each theme. Data are from 2022. The journal reserves copyright, so this site holds no copy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个珊瑚红色的大对话气泡，以尾尖立在一个高高的深蓝色纸圆锥顶端保持平衡",
+    zh: {
+      headline:
+        "社交媒体让卡塔尔的女性创业者以低成本、轻松地进入市场——但在上面建立的声誉，可能因一次失误而毁掉",
+      question:
+        "在卡塔尔想要创业的女性面临多方面的障碍，从融资、法律要求，到文化规范和由男性主导的商业世界。这项研究问的是：那里的女性创业者为什么用社交媒体做营销传播，得到了什么，又遇到了哪些阻碍，媒介素养在其中处于什么位置。",
+      method:
+        "定性研究：2022 年 9 月至 10 月，对卡塔尔十位经营不同规模企业、且已在使用社交媒体的女性创业者进行深度访谈，依据其专业经验进行目的性抽样。访谈问题经创业与营销传播领域的专家审阅，并先在一个小组中试用；主题分析由一位独立研究者交叉核验。研究获得朱拉隆功大学传播艺术学院战略传播管理项目委员会的批准。",
+      findings: [
+        "**使用它的三个理由**：方便（点一下就能联系到顾客）、是她们能用的最具成本效益的广告方式，以及它打开的商业机会。",
+        "**好处分为两个层面。**个人层面：品牌知名度、即使在营业时间之外也能与顾客交流，以及容易触达。企业层面：建立品牌声誉、管理营销、扩张业务和带动销售。",
+        "**三大挑战**：扩大受众，尤其是对刚起步的企业而言；面对负面评论和投诉时保持专业；以及声誉管理——一位受访者警告说，**一次失误就可能导致企业遭到抵制**。",
+        "**受访者实际采用的应对策略**：通过优质内容、与网红和互补品牌合作、付费广告、话题标签和地理标签来扩大受众；就回复时间、语气以及要回应哪些评论制定准则，并据此培训团队；持续监测、快速回应、承认错误、透明沟通，并分享顾客的正面评价。Instagram 和 Snapchat 是她们的顾客使用最多的平台。",
+        "**受访者把社交媒体看作一个跨越性别界线的空间**，即使在父权社会中也足够安全，可以在其中做生意。",
+        "作者用六个理论框架解释这些结果，其中包括社会交换理论（因为收益大于成本而使用）和资源基础观（社交媒体是建立竞争优势的战略资源）。",
+      ],
+      soWhat:
+        "对支持女性创业者的机构而言，启示是社交媒体确实降低了进入市场的门槛，但**创业者感到最脆弱的不是发帖，而是应对负面评论和维护声誉**。培训应当涵盖这些内容，而不只是增加粉丝的技巧。作者建议把媒介素养——分析、创作和管理数字内容——纳入创业培训项目。",
+      caveat:
+        "**媒介素养是标题、摘要和结论的核心，但研究结果和结果表并未单独呈现任何与之相关的发现**，因此培训媒介素养的建议是作者的解读，而不是数据直接显示的内容。仅有十次访谈，只在卡塔尔一国进行，且如作者自己所说，受访者大多属于 Y 世代和 Z 世代。作为定性研究，它没有说明每个主题由多少位受访者提出。数据采集于 2022 年。期刊保留版权，本网站不保存副本。",
+    },
+  },
+  {
+    slug: "adult-media-literacy-pakistan",
+    illustrationAltTh:
+      "ภาพประกอบกระดาษ แว่นขยายสีแดงเข้มตั้งตรง ในกรอบเลนส์มีกระดาษสีเหลืองมัสตาร์ดเติมจากด้านล่างขึ้นมาเกือบครึ่ง ส่วนบนว่างเปล่า",
+    illustrationAltEn:
+      "Paper-craft illustration of an upright deep-red magnifying glass whose lens is filled with mustard-yellow paper from the bottom to just under halfway, leaving the top empty",
+    doi: "10.13187/ijmil.2025.1.40",
+    articleLanguage: "en",
+    th: {
+      headline:
+        "ผู้ใหญ่ชาวปากีสถานที่ใช้สื่อทุกวัน มีเพียง 41% ที่ชี้ข่าวลำเอียงหรือชี้นำผิดได้ และการศึกษาคือปัจจัยที่สัมพันธ์ชัดที่สุด",
+      question:
+        "ปากีสถานมีช่องโทรทัศน์เอกชนกว่า 100 ช่องและผู้ใช้โซเชียลมีเดียกว่า 87 ล้านคน แต่ข่าวบิดเบือนและการแบ่งขั้วทางการเมืองก็ขยายตัวตาม ขณะที่งานด้านการรู้เท่าทันสื่อที่ผ่านมามุ่งแต่เยาวชนและนักศึกษา · งานนี้ถามว่าผู้ใหญ่ทั่วประเทศรู้เท่าทันสื่อแค่ไหน และการศึกษา อายุ เพศ และการเข้าถึงเทคโนโลยีเกี่ยวข้องอย่างไร",
+      method:
+        "วิธีผสมแบบเก็บเชิงปริมาณก่อนแล้วอธิบายด้วยเชิงคุณภาพ — สำรวจแบบพบหน้าผู้ใหญ่อายุ 18 ปีขึ้นไป 500 คนจากสี่แคว้นตามสัดส่วนประชากร (ปัญจาบ 200 · สินธ์ 125 · ไคเบอร์ปัคตูนควา 100 · บาโลจิสถาน 75) ซึ่งอาศัยในแคว้นนั้นอย่างน้อย 5 ปีและใช้สื่ออย่างน้อยวันละหนึ่งชั่วโมง ระหว่างมีนาคมถึงเมษายน 2568 · แบบสอบถาม 35 ข้อดัดแปลงจากดัชนีการรู้เท่าทันสื่อของยุโรป ทดลองกับผู้ใหญ่ 50 คนก่อน (α = 0.82) · กลุ่มตัวอย่างเป็นชาย 58% หญิง 42% อยู่ชนบท 52% จบมัธยมขึ้นไป 62% และใช้อินเทอร์เน็ตทุกวันเพียง 28% · แล้วสัมภาษณ์เชิงลึก 30 คนจากผู้ตอบชุดเดิม เมือง 15 ชนบท 15 ครอบคลุมทั้งกลุ่มคะแนนสูง กลาง และต่ำ ในพฤษภาคมถึงมิถุนายน 2568 เป็นภาษาอูรดู สินธี และปาชโต · ผู้หญิงในชนบทสัมภาษณ์โดยพนักงานเก็บข้อมูลที่เป็นผู้หญิง",
+      findings: [
+        "**มีเพียง 41% ที่ชี้ข่าวลำเอียงหรือชี้นำผิดได้ถูกต้อง** และผู้ตอบในเมืองได้คะแนนด้านนี้สูงกว่าชนบท 22%",
+        "**18% เคยสร้างหรือแชร์เนื้อหาต้นฉบับของตัวเอง** และ**มีเพียง 33% ที่เข้าใจการตั้งค่าความเป็นส่วนตัว**บนโซเชียลมีเดีย",
+        "**การศึกษาสัมพันธ์กับการรู้เท่าทันสื่อในทางบวกอย่างชัดเจน** (r = 0.62, p < .01) · **อายุสัมพันธ์กับทักษะดิจิทัลในทางลบ** (r = −0.54, p < .05) คือคนอายุน้อยใช้เครื่องมือเก่งกว่า แต่ผู้เขียนระบุว่ามักขาดวิจารณญาณต่อเนื้อหา",
+        "**จากการสัมภาษณ์พบสามแก่นเรื่อง** — ความไม่ไว้วางใจสถานีโทรทัศน์กระแสหลักเพราะเห็นว่าลำเอียงทางการเมืองและเร้าอารมณ์ จนหันไปฟังนักวิจารณ์บนยูทูบและกลุ่มวอตส์แอปแทน · ช่องว่างระหว่างรุ่น คนสูงวัยดูโทรทัศน์และฟังวิทยุโดยไม่ค่อยตั้งคำถาม ขณะที่คนรุ่นใหม่อยู่บนโซเชียลมีเดียทั้งวันแต่ประเมินความน่าเชื่อถือของเนื้อหาไม่เป็น · และในชนบท**ผู้หญิงหลายคนเข้าถึงสมาร์ตโฟนหรืออินเทอร์เน็ตได้ผ่านญาติผู้ชายเท่านั้น**",
+      ],
+      soWhat:
+        "สำหรับคนทำโครงการรู้เท่าทันสื่อ ข้อค้นพบชี้ว่า**การใช้สื่อได้คล่องกับการประเมินสื่อได้ เป็นคนละทักษะ** คนรุ่นใหม่ใช้เครื่องมือเก่งแต่ยังเชื่อสิ่งที่อ่าน และการเลิกไว้ใจโทรทัศน์ก็ไม่ได้แปลว่าตรวจสอบข้อมูลเป็น · ผู้เขียนเสนอให้ขยายการเรียนรู้ไปยังผู้ใหญ่ผ่านช่องทางนอกระบบ ที่ทำงาน และชุมชน ไม่ใช่แค่ในโรงเรียนและมหาวิทยาลัย · และโครงการที่จะไปถึงผู้หญิงในชนบทต้องออกแบบโดยรู้ว่าอุปกรณ์อาจอยู่ในมือคนอื่นในครอบครัว",
+      caveat:
+        "**ส่วนวิธีการบอกว่าวัดสี่ด้าน (การเข้าถึง การวิเคราะห์ การประเมิน การสร้าง) แต่ส่วนผลรายงานสามด้านที่ตั้งชื่อต่างออกไป** (ความเข้าใจเชิงวิพากษ์ การสร้างเนื้อหา ความตระหนักเชิงจริยธรรม) · **บทความบอกว่าใช้การถดถอยพหุคูณและ ANOVA แต่รายงานเพียงค่าสหสัมพันธ์สองค่า** ส่วนความต่างระหว่างเมืองกับชนบท 22% ไม่มีค่าสถิติกำกับ และไม่ชัดว่าเป็นส่วนต่างสัมพัทธ์หรือจุดร้อยละ · ค่าสหสัมพันธ์ของอายุวัดกับทักษะดิจิทัล ไม่ใช่คะแนนการรู้เท่าทันสื่อโดยรวม ข้อสรุปว่าคนสูงวัยรู้เท่าทันสื่อน้อยกว่าจึงไปไกลกว่าตัวเลขที่รายงาน · กลุ่มตัวอย่างคือคนที่ใช้สื่ออย่างน้อยวันละชั่วโมง ไม่ใช่ผู้ใหญ่ทั้งประเทศ · บางข้อเป็นการรายงานตนเอง และเก็บข้อมูลครั้งเดียว จึงบอกความสัมพันธ์ ไม่ใช่เหตุและผล · วารสารสงวนลิขสิทธิ์ เว็บนี้จึงไม่มีสำเนา",
+    },
+    en: {
+      headline:
+        "Among Pakistani adults who use media every day, only 41% could spot biased or misleading news — and education was the clearest correlate",
+      question:
+        "Pakistan has more than 100 private TV channels and over 87 million social media users, and misinformation and political polarisation have grown with them, while media literacy work so far has focused on young people and students. This study asks how media-literate adults across the country are, and how education, age, gender and access to technology relate to it.",
+      method:
+        "A sequential explanatory mixed-methods design. First, a face-to-face survey of 500 adults aged 18 and over across the four provinces in proportion to population (Punjab 200, Sindh 125, Khyber Pakhtunkhwa 100, Balochistan 75), each resident in the province for at least five years and using media at least an hour a day, in March–April 2025. The 35-item questionnaire was adapted from the European Media Literacy Index and piloted with 50 adults (α = 0.82). The sample was 58% men and 42% women, 52% rural, 62% with at least secondary education, and only 28% using the internet daily. Then 30 in-depth interviews drawn from the same respondents — 15 urban and 15 rural, spanning high, middle and low scorers — in May–June 2025, in Urdu, Sindhi and Pashto; rural women were interviewed by female enumerators.",
+      findings: [
+        "**Only 41% could correctly identify biased or misleading news**, and urban respondents scored 22% higher than rural ones on this.",
+        "**18% had ever created or shared original content of their own**, and **only 33% understood privacy settings** on social media.",
+        "**Education correlated clearly and positively with media literacy** (r = 0.62, p < .01). **Age correlated negatively with digital skills** (r = −0.54, p < .05): younger people handled the tools better, though the authors note they often lacked critical discernment about content.",
+        "**The interviews raised three themes**: distrust of mainstream television as politically biased and sensational, with a turn to YouTube commentators and WhatsApp groups instead; a generational gap, with older people watching TV and listening to radio largely without questioning it while younger people spend all day on social media but cannot judge whether content is credible; and, in rural areas, **many women could reach a smartphone or the internet only through male relatives**.",
+      ],
+      soWhat:
+        "For anyone running media literacy programmes, the finding is that **using media fluently and evaluating it are different skills**: young people are adept with the tools yet still believe what they read, and losing trust in television is not the same as knowing how to check information. The authors call for reaching adults through non-formal channels, workplaces and communities, not only schools and universities — and any programme meant to reach rural women has to be designed knowing the device may be in someone else's hands.",
+      caveat:
+        "**The methods describe four domains (access, analysis, evaluation, creation), but the results report three differently named ones** (critical understanding, content creation, ethical awareness). **Multiple regression and ANOVA are described but only two correlations are reported**; the 22% urban–rural difference carries no test statistic, and it is unclear whether it is a relative difference or percentage points. The age correlation is with digital skills, not with the overall media literacy score, so the conclusion that older adults are less media-literate goes beyond the reported figures. The sample is people using media at least an hour a day, not all adults. Some measures are self-reported and the data are cross-sectional, so they show association, not cause. The journal reserves copyright, so this site holds no copy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个直立的深红色放大镜，镜片从底部起被芥末黄色的纸填到略低于一半，上半部分空着",
+    zh: {
+      headline:
+        "在每天使用媒体的巴基斯坦成年人中，只有 41% 能识别有偏向或误导性的新闻——而教育是关联最明显的因素",
+      question:
+        "巴基斯坦有 100 多个私营电视频道和超过 8700 万社交媒体用户，虚假信息和政治极化也随之增长，而迄今为止的媒介素养工作主要面向青少年和学生。这项研究问的是：全国成年人的媒介素养水平如何，教育、年龄、性别和技术获取又与之有什么关系。",
+      method:
+        "采用顺序解释型混合方法设计。首先，于 2025 年 3 月至 4 月按人口比例在四个省份面对面调查 500 名 18 岁及以上的成年人（旁遮普省 200 人、信德省 125 人、开伯尔-普赫图赫瓦省 100 人、俾路支省 75 人），受访者须在该省居住至少五年，且每天使用媒体至少一小时。35 题问卷改编自欧洲媒介素养指数，并先对 50 名成年人进行试测（α = 0.82）。样本中男性占 58%、女性占 42%，52% 居住在农村，62% 至少受过中等教育，每天上网的只有 28%。随后在 2025 年 5 月至 6 月，从同一批受访者中选出 30 人进行深度访谈——城市和农村各 15 人，涵盖高、中、低分组——使用乌尔都语、信德语和普什图语；农村女性由女性调查员访谈。",
+      findings: [
+        "**只有 41% 能正确识别有偏向或误导性的新闻**，而在这一项上，城市受访者的得分比农村受访者高 22%。",
+        "**18% 曾经创作或分享过自己的原创内容**，而**只有 33% 了解社交媒体的隐私设置**。",
+        "**教育与媒介素养呈明显的正相关**（r = 0.62，p < .01）。**年龄与数字技能呈负相关**（r = −0.54，p < .05）：年轻人更会使用工具，但作者指出，他们往往缺乏对内容的批判性判断。",
+        "**访谈中出现三个主题**：不信任主流电视，认为其带有政治偏向且煽情，转而收听 YouTube 评论员和 WhatsApp 群组；代际差距——年长者看电视、听广播，大多不加质疑，年轻人整天待在社交媒体上，却无法判断内容是否可信；以及在农村，**许多女性只能通过男性亲属才能接触到智能手机或互联网**。",
+      ],
+      soWhat:
+        "对开展媒介素养项目的人来说，这项研究的发现是：**熟练使用媒体和评估媒体是两种不同的能力**。年轻人工具用得熟练，却仍然相信自己读到的东西；不再信任电视，也不等于懂得核查信息。作者呼吁通过非正规渠道、工作场所和社区触达成年人，而不只是依靠学校和大学——任何想要触达农村女性的项目，在设计时都必须考虑到设备可能掌握在家中其他人手里。",
+      caveat:
+        "**方法部分描述了四个维度（获取、分析、评估、创作），但结果部分报告的是另外命名的三个维度**（批判性理解、内容创作、伦理意识）。**文中说使用了多元回归和方差分析，却只报告了两个相关系数**；城乡之间 22% 的差距没有附任何检验统计量，也不清楚这是相对差异还是百分点。年龄的相关系数针对的是数字技能，而不是媒介素养总分，因此“年长者媒介素养较低”的结论超出了所报告的数字。样本是每天使用媒体至少一小时的人，而不是全体成年人。部分指标为自我报告，数据为横断面，因此只能说明关联，不能说明因果。期刊保留版权，本网站不保存副本。",
+    },
+  },
 ];
 
 const byDoi = new Map(

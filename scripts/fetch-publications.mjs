@@ -26,11 +26,17 @@
  * - ORCID public API — ผลงานในโปรไฟล์ ORCID (ดู source ของแต่ละรายการประกอบ)
  * - Crossref API — ผู้เขียนที่ยังไม่มี ORCID และใช้ตรวจสอบ/เติมข้อมูลทุกรายการ
  * - Semantic Scholar API — ดัชนีสำรองสำหรับรายการที่ไม่มี DOI
+ * - BYLINE_SOURCES — DOI ที่ยืนยันสังกัด/ผู้เขียนจากหัวบทความ เมื่อทะเบียนไม่ได้ลงไว้
+ *   (ผู้เขียนที่มี affiliationGate นับเฉพาะงานที่ระบุสังกัดจุฬาฯ/ศูนย์ฯ — ดู AUTHORS)
  */
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const UA = {
-  "User-Agent": "cominnocenter-website/1.0 (mailto:comminno@chula.ac.th)",
+  // อีเมลต้องตรงกับ EMAIL ใน src/data/contact.ts (มีจุดคั่น) — ไฟล์นี้เป็น .mjs จึง import
+  // ค่าตรงๆ ไม่ได้ · Crossref ใช้ที่อยู่นี้ติดต่อผู้ดูแลเมื่อมีปัญหา แบบไม่มีจุดเคยค้างอยู่
+  // ตรงนี้ถึง 26 ก.ย. 2569 ทั้งที่แก้บนเว็บไปตั้งแต่ PR #31 เพราะ check:content ตรวจแต่
+  // ผลลัพธ์ที่ build — ตอนนี้ข้อ 1ข ของมันสแกนซอร์สสคริปต์ด้วยแล้ว
+  "User-Agent": "cominnocenter-website/1.0 (mailto:comm.inno@chula.ac.th)",
   Accept: "application/json",
 };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -179,7 +185,89 @@ const AUTHORS = {
   // ยังไม่มี ORCID — ค้นทาง Crossref โดยบังคับชื่อต้น เพราะ Buelo เป็นนามสกุลฟิลิปปินส์
   // ที่มีผู้เขียนคนอื่นใช้ด้วย ระเบียนของท่านลงชื่อต้นเต็มว่า "Robbie Jan Vincent"
   "robbie-buelo": { crossref: { family: "buelo", givenPattern: /robbie/i }, surname: "buelo" },
+  /**
+   * ดร.อิบเตซาม — อดีตนักวิจัยหลังปริญญาเอกทุน C2F (2566–2567) ปัจจุบันนักวิจัยรับเชิญ
+   *
+   * **คนแรกในทะเบียนที่นับผลงานแบบมีเงื่อนไข** (ผู้ใช้กำหนด 27 ก.ย. 2569): นับเฉพาะชิ้นที่
+   * หัวบทความระบุสังกัดของท่านเป็นศูนย์ฯ และ/หรือจุฬาฯ เพราะท่านมีสังกัดหลักอยู่ปากีสถาน
+   * และตีพิมพ์ร่วมกับหลายสถาบัน · ผลงานที่ขึ้นเว็บอยู่แล้วผ่านชื่อ รศ.ดร.สมิทธิ์ แต่หัวบทความ
+   * ระบุท่านเฉพาะ Mohammad Ali Jinnah University (Cogent 2024 คริปโต · Cogent SS 2025
+   * รีวิวลบ) **ยังอยู่บนเว็บ แต่ไม่นับท่านเป็นผู้เขียนของศูนย์ฯ** — ผู้ใช้เห็นด้วยกับเกณฑ์นี้
+   *
+   * ยังไม่มี ORCID จึงค้นทาง Crossref โดยบังคับชื่อต้น — นามสกุล Mazahir มีผู้เขียนสายการแพทย์
+   * เคมี และวิศวกรรมใช้ด้วย (ค้นแล้วได้ 51 รายการ เป็นของท่าน 11) · หลักฐานสังกัดมาจาก
+   * `affiliation` ในระเบียน Crossref ก่อน ถ้าทะเบียนไม่ได้ลงไว้ต้องมีแถวใน BYLINE_SOURCES
+   * (ประกาศแก้ไขของ PLOS 10.1371/journal.pone.0321708 ไม่มีสังกัดและไม่มีแถว จึงไม่ผ่าน
+   *  ตามที่ควร — ประกาศแก้ไขไม่ใช่ผลงาน)
+   */
+  "ibtesam-mazahir": {
+    crossref: { family: "mazahir", givenPattern: /ibtesam/i },
+    surname: "mazahir",
+    affiliationGate: /chulalongkorn|communication innovation/i,
+  },
 };
+
+/**
+ * ผลงานที่ยืนยันสังกัดและ/หรือรายชื่อผู้เขียนจาก **หัวบทความที่ตีพิมพ์** แทนทะเบียน
+ *
+ * ใช้สองกรณี:
+ *  1. ผู้เขียนที่มี `affiliationGate` แต่ระเบียน Crossref ไม่ได้ลงสังกัดไว้ — แถวนี้คือหลักฐาน
+ *     ว่าหัวบทความระบุจุฬาฯ/ศูนย์ฯ
+ *  2. วารสารที่ **ไม่ส่งรายชื่อผู้เขียนเข้า Crossref เลย** (Cherkas Global University —
+ *     Media Education · IJMIL · DOI 10.13187/…) ค้นด้วยชื่อคนไม่มีวันเจอ ต้องชี้ DOI ตรงๆ
+ *     แล้วให้ verifyDoi() ตรวจว่า DOI เปิดได้และชื่อเรื่องตรง (ได้ระดับ "link" เพราะทะเบียน
+ *     ไม่มีชื่อให้เทียบ) · รายชื่อผู้เขียนสำหรับการอ้างอิงเติมใน CITATION_FIXES
+ *
+ * หลักเดียวกับ CITATION_FIXES: **ทุกแถวต้องมีคอมเมนต์บอกว่าดูจากอะไร** ให้คนถัดไปตรวจซ้ำได้
+ * DOI ของ Cherkas ชี้ตรงไปที่ไฟล์ PDF ของวารสาร (ตรวจ 27 ก.ย. 2569)
+ */
+const BYLINE_SOURCES = [
+  // meta citation_author_institution บนหน้าบทความของ PLOS ให้ Ibtesam Mazahir สองสังกัด:
+  // "Department of Social Sciences, Mohammad Ali Jinnah University" และ "Postdoctoral
+  // Research Fellow C2F The Second Century Fund, Faculty of Communication Arts,
+  // Chulalongkorn University" — Crossref ไม่ได้ลงสังกัดไว้
+  {
+    doi: "10.1371/journal.pone.0317506",
+    title: "From tradition to progressiveness: Analyzing Thailand’s image on YouTube post-cannabis legalization",
+    people: ["ibtesam-mazahir"],
+  },
+  // หน้าแรกของ PDF: "Kittiphum Lamoonpot a,b, Smith Boonchutima a,b,*, Ibtesam Mazahir b,c"
+  // · b = Chulalongkorn University, Bangkok, Thailand · c = Muhammad Ali Jinnah University
+  {
+    doi: "10.13187/me.2024.2.239",
+    title: "Customer-Brand Attitude Congruence and Purchase Intentions Among Thai Media Students in Higher Education: A Case Study of the Sansiri Brand",
+    people: ["ibtesam-mazahir"],
+  },
+  // หน้าแรกของ PDF: "Aisha Ali A.T. Al-khulaifi a, Smith Boonchutima a,*, Ibtesam Mazahir a,b"
+  // · a = Chulalongkorn University, Bangkok, Thailand · b = Muhammad Ali Jinnah University
+  // **ผลงานของ รศ.ดร.สมิทธิ์ ที่ไม่เคยขึ้นเว็บ** — ไม่อยู่ใน ORCID ของอาจารย์ และ Crossref
+  // ไม่มีรายชื่อผู้เขียนให้ค้นเจอ (พบตอนไล่ผลงานของ ดร.อิบเตซาม)
+  {
+    doi: "10.13187/me.2025.1.3",
+    title: "Empowering Women Entrepreneurs in Qatar: The Role of Social Media and Media Literacy in Marketing Communication",
+    people: ["smith-boonchutima", "ibtesam-mazahir"],
+  },
+  // หน้าแรกของ PDF: "Ibtesam Mazahir a,b,*, Sidrah Yaseen c" · a = Mohammad Ali Jinnah
+  // University, Pakistan · b = Chulalongkorn University, Thailand
+  {
+    doi: "10.13187/ijmil.2025.1.40",
+    title: "Media Literacy in the Age of Misinformation: A Mixed-Methods Analysis of Adult Media Literacy across Urban and Rural Areas of Pakistan",
+    people: ["ibtesam-mazahir"],
+  },
+];
+for (const s of BYLINE_SOURCES) {
+  for (const p of s.people) {
+    if (!AUTHORS[p]) throw new Error(`BYLINE_SOURCES: ไม่รู้จักผู้เขียน ${p} (${s.doi})`);
+  }
+}
+
+/**
+ * ผ่านเกณฑ์สังกัดไหม — ใช้กับผู้เขียนที่มี `affiliationGate` เท่านั้น
+ * ระเบียน Crossref ลงสังกัดไว้และตรงเกณฑ์ หรือมีแถวยืนยันจากหัวบทความใน BYLINE_SOURCES
+ */
+const passesAffiliationGate = (slug, registryAuthor, doi) =>
+  (registryAuthor.affiliation || []).some((a) => AUTHORS[slug].affiliationGate.test(a.name || "")) ||
+  BYLINE_SOURCES.some((s) => s.doi === doi && s.people.includes(slug));
 
 /**
  * วารสารไทยบน ThaiJO/TCI ไม่จด DOI และไม่อยู่ใน Crossref/Semantic Scholar
@@ -326,6 +414,8 @@ async function fromCrossref() {
     let cursor = "*";
     let seen = 0;
     let mineCount = 0;
+    /** ของผู้เขียนคนนี้จริง แต่หัวบทความไม่ได้ระบุสังกัดที่นับ — พิมพ์ออกมาให้คนตรวจ */
+    const gatedOut = [];
     for (;;) {
       const res = await getJson(
         `https://api.crossref.org/works?query.author=${family}&rows=200` +
@@ -337,11 +427,17 @@ async function fromCrossref() {
       seen += items.length;
       for (const item of items) {
         // Crossref มีผู้เขียนนามสกุลเดียวกันหลายคน — บังคับตรวจชื่อต้น
-        const mine = (item.author || []).some(
+        const mine = (item.author || []).find(
           (a) => (a.family || "").toLowerCase() === family && givenPattern.test(a.given || "")
         );
         if (!mine) continue;
         mineCount++;
+        const itemDoi = (item.DOI || "").toLowerCase();
+        if (cfg.affiliationGate && !passesAffiliationGate(slug, mine, itemDoi)) {
+          const affs = (mine.affiliation || []).map((a) => a.name).join("; ") || "ทะเบียนไม่ได้ลงสังกัด";
+          gatedOut.push(`${item.issued?.["date-parts"]?.[0]?.[0] || "?"} ${itemDoi} — ${affs.slice(0, 70)}`);
+          continue;
+        }
         out.push({
           person: slug,
           title: (item.title || [""])[0].trim(),
@@ -359,6 +455,10 @@ async function fromCrossref() {
       await sleep(300);
     }
     console.log(`  Crossref ${family}: อ่าน ${seen} รายการ เป็นของผู้เขียนคนนี้ ${mineCount}`);
+    if (gatedOut.length) {
+      console.log(`    ไม่นับ ${gatedOut.length} รายการ — ไม่มีหลักฐานว่าหัวบทความระบุสังกัดที่นับ:`);
+      for (const g of gatedOut) console.log(`      ${g}`);
+    }
     await sleep(300);
     }
   }
@@ -507,7 +607,26 @@ const CITATION_FIXES = {
   // ผลคือการอ้างอิงเหลือแค่เลขเล่ม ไม่มีเลขฉบับและเลขหน้า — เติมจากบรรทัด
   // "Cite this article as" ที่วารสารพิมพ์ไว้ในตัวไฟล์เอง ซึ่งเป็นคำของสำนักพิมพ์
   // "J Health Res. 2016; 30(4): 231-9."
-  "10.14456/jhr.2016.32": { issue: "4", page: "231-239" },
+  //
+  // และทะเบียนเก็บผู้เขียน**ทั้งสี่คน**เป็น literal ทั้งก้อน (ไม่แยก given/family)
+  // แบบเดียวกับ jhr.2015.30 ข้างล่าง แต่รอบ PR #53 แก้ให้เฉพาะรายการนั้น รายการนี้จึง
+  // ยังขึ้น APA บนเว็บว่า "Smith Boonchutima, Sopon Sriwattana, … & Nattanop Palahan."
+  // (พบ 26 ก.ย. 2569 ตอนสร้างชุดไฟล์ ResearchGate) — เติมจากหัวบทความหน้า 231 ซึ่งพิมพ์
+  // "Smith Boonchutima*, Sopon Sriwattana, Rungroj Rungvimolsin, Nattanop Palahan" และ
+  // บรรทัด "Cite this article as: Boonchutima S, Sriwattana S, Rungvimolsin R, Palahan N."
+  // ยืนยันว่านามสกุลคือคำหลังของแต่ละชื่อ (ไฟล์บทความจาก ThaiJO
+  // he01.tci-thaijo.org/index.php/jhealthres/article/view/77862 · วารสารสงวนลิขสิทธิ์
+  // จึงไม่เก็บไฟล์ในคลัง)
+  "10.14456/jhr.2016.32": {
+    authors: [
+      { family: "Boonchutima", given: "Smith", literal: "" },
+      { family: "Sriwattana", given: "Sopon", literal: "" },
+      { family: "Rungvimolsin", given: "Rungroj", literal: "" },
+      { family: "Palahan", given: "Nattanop", literal: "" },
+    ],
+    issue: "4",
+    page: "231-239",
+  },
   // "J Health Res. 2015; 29(5): 395-401." — และทะเบียนยังเก็บผู้เขียน 3 ใน 4 คน
   // เป็น literal ทั้งก้อน (ไม่แยก given/family) ซึ่ง citation.ts จงใจไม่แยกให้
   // (ตามความหมายของ CSL) ผลคือ APA ขึ้นเป็น "Achara Bunchum, … & Smith Boonchutima."
@@ -541,6 +660,25 @@ const CITATION_FIXES = {
       { family: "Mazahir", given: "Ibtesam", literal: "" },
     ],
     page: "239-250",
+  },
+  // วารสารของ Cherkas Global University ไม่ส่งรายชื่อผู้เขียนเข้า Crossref (ดู BYLINE_SOURCES)
+  // สองรายการนี้เติมจากหน้าแรกของ PDF ที่ DOI ชี้ไป · ตรวจ 27 ก.ย. 2569
+  // "Aisha Ali A.T. Al-khulaifi, Smith Boonchutima, Ibtesam Mazahir" · "2025. 21(1): 3-11"
+  "10.13187/me.2025.1.3": {
+    authors: [
+      { family: "Al-khulaifi", given: "Aisha Ali A.T.", literal: "" },
+      { family: "Boonchutima", given: "Smith", literal: "" },
+      { family: "Mazahir", given: "Ibtesam", literal: "" },
+    ],
+    page: "3-11",
+  },
+  // "Ibtesam Mazahir, Sidrah Yaseen" · "2025. 10(1): 40-46"
+  "10.13187/ijmil.2025.1.40": {
+    authors: [
+      { family: "Mazahir", given: "Ibtesam", literal: "" },
+      { family: "Yaseen", given: "Sidrah", literal: "" },
+    ],
+    page: "40-46",
   },
   // ทะเบียนลงเลขหน้าไว้ว่างเปล่า ทั้งที่วารสารพิมพ์บรรทัด "Citation:" ไว้บนหน้าแรก
   // ของบทความเอง — "International Journal of Social Sciences, Vol. VI(2), pp. 63-76."
@@ -1072,7 +1210,21 @@ export const publicationStats = {
 }
 
 // ── run ─────────────────────────────────────────────────────────────────────
-const merged = dedupe([...(await fromOrcid()), ...(await fromCrossref())]);
+// แถวจาก BYLINE_SOURCES มาหลังสุด เพื่อให้รายการที่มีอยู่แล้วใช้ชื่อเรื่องจาก ORCID/Crossref
+// ตามเดิม แถวเหล่านี้แค่เติมผู้เขียนเข้าไป (dedupe รวม people ด้วย DOI) ส่วนที่ไม่เคยมีจะ
+// กลายเป็นรายการใหม่ และยังต้องผ่าน verifyDoi() เหมือนทุกรายการ
+const fromBylines = BYLINE_SOURCES.flatMap((s) =>
+  s.people.map((person) => ({
+    person,
+    title: s.title,
+    venue: "",
+    year: 0,
+    type: "journal-article",
+    doi: s.doi.toLowerCase(),
+    orcidSource: "",
+  })),
+);
+const merged = dedupe([...(await fromOrcid()), ...(await fromCrossref()), ...fromBylines]);
 console.log(`fetched ${merged.length} unique records`);
 
 const rejected = [];
