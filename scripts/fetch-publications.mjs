@@ -30,7 +30,11 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const UA = {
-  "User-Agent": "cominnocenter-website/1.0 (mailto:comminno@chula.ac.th)",
+  // อีเมลต้องตรงกับ EMAIL ใน src/data/contact.ts (มีจุดคั่น) — ไฟล์นี้เป็น .mjs จึง import
+  // ค่าตรงๆ ไม่ได้ · Crossref ใช้ที่อยู่นี้ติดต่อผู้ดูแลเมื่อมีปัญหา แบบไม่มีจุดเคยค้างอยู่
+  // ตรงนี้ถึง 26 ก.ย. 2569 ทั้งที่แก้บนเว็บไปตั้งแต่ PR #31 เพราะ check:content ตรวจแต่
+  // ผลลัพธ์ที่ build — ตอนนี้ข้อ 1ข ของมันสแกนซอร์สสคริปต์ด้วยแล้ว
+  "User-Agent": "cominnocenter-website/1.0 (mailto:comm.inno@chula.ac.th)",
   Accept: "application/json",
 };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -507,7 +511,26 @@ const CITATION_FIXES = {
   // ผลคือการอ้างอิงเหลือแค่เลขเล่ม ไม่มีเลขฉบับและเลขหน้า — เติมจากบรรทัด
   // "Cite this article as" ที่วารสารพิมพ์ไว้ในตัวไฟล์เอง ซึ่งเป็นคำของสำนักพิมพ์
   // "J Health Res. 2016; 30(4): 231-9."
-  "10.14456/jhr.2016.32": { issue: "4", page: "231-239" },
+  //
+  // และทะเบียนเก็บผู้เขียน**ทั้งสี่คน**เป็น literal ทั้งก้อน (ไม่แยก given/family)
+  // แบบเดียวกับ jhr.2015.30 ข้างล่าง แต่รอบ PR #53 แก้ให้เฉพาะรายการนั้น รายการนี้จึง
+  // ยังขึ้น APA บนเว็บว่า "Smith Boonchutima, Sopon Sriwattana, … & Nattanop Palahan."
+  // (พบ 26 ก.ย. 2569 ตอนสร้างชุดไฟล์ ResearchGate) — เติมจากหัวบทความหน้า 231 ซึ่งพิมพ์
+  // "Smith Boonchutima*, Sopon Sriwattana, Rungroj Rungvimolsin, Nattanop Palahan" และ
+  // บรรทัด "Cite this article as: Boonchutima S, Sriwattana S, Rungvimolsin R, Palahan N."
+  // ยืนยันว่านามสกุลคือคำหลังของแต่ละชื่อ (ไฟล์บทความจาก ThaiJO
+  // he01.tci-thaijo.org/index.php/jhealthres/article/view/77862 · วารสารสงวนลิขสิทธิ์
+  // จึงไม่เก็บไฟล์ในคลัง)
+  "10.14456/jhr.2016.32": {
+    authors: [
+      { family: "Boonchutima", given: "Smith", literal: "" },
+      { family: "Sriwattana", given: "Sopon", literal: "" },
+      { family: "Rungvimolsin", given: "Rungroj", literal: "" },
+      { family: "Palahan", given: "Nattanop", literal: "" },
+    ],
+    issue: "4",
+    page: "231-239",
+  },
   // "J Health Res. 2015; 29(5): 395-401." — และทะเบียนยังเก็บผู้เขียน 3 ใน 4 คน
   // เป็น literal ทั้งก้อน (ไม่แยก given/family) ซึ่ง citation.ts จงใจไม่แยกให้
   // (ตามความหมายของ CSL) ผลคือ APA ขึ้นเป็น "Achara Bunchum, … & Smith Boonchutima."

@@ -1,5 +1,5 @@
 /**
- * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-24)
+ * ผลงานวิชาการของศูนย์ฯ (generated 2026-09-26)
  *
  * ไฟล์นี้สร้างด้วย scripts/fetch-publications.mjs — อย่าแก้ด้วยมือ ให้รันสคริปต์ใหม่แทน
  *
@@ -3105,24 +3105,24 @@ export const publications: PublicationEntry[] = [
     "citation": {
       "authors": [
         {
-          "family": "",
-          "given": "",
-          "literal": "Smith Boonchutima"
+          "family": "Boonchutima",
+          "given": "Smith",
+          "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Sopon Sriwattana"
+          "family": "Sriwattana",
+          "given": "Sopon",
+          "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Rungroj Rungvimolsin"
+          "family": "Rungvimolsin",
+          "given": "Rungroj",
+          "literal": ""
         },
         {
-          "family": "",
-          "given": "",
-          "literal": "Nattanop Palahan"
+          "family": "Palahan",
+          "given": "Nattanop",
+          "literal": ""
         }
       ],
       "containerTitle": "",
