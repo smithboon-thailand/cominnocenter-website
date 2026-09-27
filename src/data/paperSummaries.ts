@@ -239,6 +239,25 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "This study evaluates the model's appropriateness through the judgement of ten experts. It does not measure health outcomes in the field — that is the 2019 study by the same team.",
     },
+    illustrationAltZh:
+      "纸艺插画：一道拱形跨梁架在一块先行铺好的基石之上",
+    zh: {
+      headline: "让缅甸移民工人了解艾滋病，起点是信任，而不是信息",
+      question:
+        "面向在泰缅甸跨国工人的健康传播总是撞上同样的障碍：语言隔阂、信息与工人真正想知道的内容不匹配、渠道和时机不对、效果难以持久。这项研究问的是：风险传播应当如何设计，才能把这些问题一并解决。",
+      method:
+        "研究者根据自身的田野经验和文献回顾提出一个模型草案，然后交给十位专家组成的焦点小组评审——他们是传播、公共卫生、移民和健康风险降低领域的大学学者与从业者，每人经验均超过十年——请他们按 1 到 5 分对每个组成部分的适当性打分。",
+      findings: [
+        "成果是六步骤的 ENGAGE-A3 模型——赢得信任（Earning trust）、环境扫描（ENvironmental scanning）、争取本地协助（Getting local help）、行动（Action）、游戏化（Gamification）和评估（Evaluating）——通向三个结果：评估（assessment）、意识（awareness）和倡导（advocacy）。",
+        "整体适当性得分 4.26（满分 5 分），落在“非常适当”区间。",
+        "赢得信任和游戏化并列专家评分最高，均为 4.45；其次是争取本地协助和行动，均为 4.36。",
+        "评估在六个组成部分中得分最低，为 4.18——属于“适当”，但未达到“非常适当”。",
+      ],
+      soWhat:
+        "可以立即拿来用的发现是先后顺序。面向弱势群体的健康宣传通常从制作材料开始，而专家给出最高分的却是在任何材料存在**之前**必须发生的事：赢得信任，并让本地人以工作主人的身份参与进来。与移民工人一起设计宣传活动的机构可以把这六个步骤当作框架采用。",
+      caveat:
+        "这项研究通过十位专家的判断来评估模型的适当性，并未在田野中测量健康结果——那是同一团队 2019 年的研究。",
+    },
   },
   {
     slug: "hiv-risk-communication-samut-sakhon",
@@ -284,6 +303,25 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "A single factory in Samut Sakhon, data collected in 2017, with behaviour measured by participants' self-reports.",
     },
+    illustrationAltZh:
+      "纸艺插画：两根升起的柱条旁边，第三根仍然平贴不动",
+    zh: {
+      headline: "工人参与设计的宣传活动提高了知识和信心——却没有改变他们对自身风险的感知",
+      question:
+        "如果移民工人亲自参与设计艾滋病风险传播活动，而不只是被动接收，这是否真的会改变他们的知识、信心、风险感知和预防行为？",
+      method:
+        "活动方案来自龙仔厝府（Samut Sakhon）一家工厂的两场焦点小组（共 16 名工人），以及对十位负责艾滋病预防的政府和非政府组织官员的深度访谈。随后由从工人中招募的健康志愿者在两周内向 400 名工人开展活动，起始日为 2017 年的国际安全套日。活动结合了现场活动、工作坊与培训、媒体宣传，以及定量与定性两种评估。",
+      findings: [
+        "知识得分显著提高。",
+        "安全套使用和艾滋病检测两方面的行为改变阶段都显著推进。",
+        "自我效能，以及对预防的感知益处和感知障碍，都发生了显著变化。",
+        "然而，对自身感染艾滋病的风险感知**没有显著变化**（显著性水平 0.05）。",
+      ],
+      soWhat:
+        "没有变的部分和变了的部分同样重要。这项活动让人们更有知识、更有信心保护自己，却没有先让他们觉得自己身处风险之中——这意味着健康宣传可以在不依赖恐惧的情况下改变行为。研究者把活动的效果归功于工人亲自参与设计。",
+      caveat:
+        "仅涉及龙仔厝府的一家工厂，数据采集于 2017 年，行为由参与者自我报告。",
+    },
   },
   {
     slug: "hiv-knowledge-public-health-officers",
@@ -327,6 +365,25 @@ export const paperSummaries: PaperSummary[] = [
         "The conclusion points at structure rather than at materials: with no mandate naming who is responsible, the work does not happen even where willing staff exist. The authors' practical recommendation is group training in migrants' workplaces alongside posters and flyers — matching the format the workers themselves preferred.",
       caveat:
         "A 2017 survey of officers at a single agency. What it reports about migrants comes from the officers' perspective, not from migrants directly.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一排齿轮组中缺了一枚齿轮",
+    zh: {
+      headline: "差距不在于材料薄弱——而是没有人被指派去做这件事",
+      question:
+        "艾滋病知识从泰国公共卫生系统出发，究竟能走多远才到达缅甸移民工人？这项研究问的是做这项工作的官员，而不是受众。",
+      method:
+        "向疾病控制厅风险传播与健康行为发展局的 106 名公共卫生官员发放问卷，使用 SPSS 22 版进行描述性统计和多重相关分析。",
+      findings: [
+        "106 名官员作答——女性 66 人，男性 40 人。",
+        "**未发现任何政府规定要求公共卫生官员向缅甸移民传递艾滋病知识。**",
+        "相当多的官员从未为传递艾滋病信息而与这些移民有过任何接触。",
+        "大多数缅甸移民在获取艾滋病信息时遇到重大困难，他们偏好的形式是在工作场所进行小组培训。",
+      ],
+      soWhat:
+        "结论指向的是结构而非材料：没有明确责任归属的规定，即使有愿意做事的工作人员，工作也不会发生。作者的实际建议是在移民的工作场所开展小组培训，同时配以海报和传单——这正是工人自己偏好的形式。",
+      caveat:
+        "这是 2017 年对单一机构官员的调查。它关于移民的描述来自官员的视角，而非直接来自移民。",
     },
   },
   {
@@ -372,6 +429,25 @@ export const paperSummaries: PaperSummary[] = [
         "The authors conclude that adequately designed content plus the falling cost of the technology makes VR360 a practically acceptable way of dealing with pain — meaning organisations wanting to make health media of this kind no longer need a lab or a large budget.",
       caveat:
         "This is a study of the attitudes and opinions of 20 viewers. It **does not measure whether pain actually decreased**, and the data was collected in 2017.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个小小的扁平矩形，旁边是一个完整环绕一周的圆环",
+    zh: {
+      headline: "教颈肩拉伸的 360 度视频，比普通视频更能抓住职业女性的注意力",
+      question:
+        "肌筋膜疼痛综合征对锻炼有反应，360 度相机已变得便宜，YouTube 又免费托管这种格式。一段教颈肩疼痛拉伸动作的 VR360 视频，真的会被职业年龄段的女性接受吗？",
+      method:
+        "二十名 25 至 40 岁、被认为有患该综合征风险的职业年龄段女性观看了一段 VR360 视频，随后于 2017 年 3 月至 4 月通过问卷和深度访谈收集数据。",
+      findings: [
+        "参与者对 VR360 视频极为满意。",
+        "她们非常同意：VR360 比普通视频更能让她们专注于眼前的内容。",
+        "她们感到自己置身于所观看的场景之中，并可以自由控制观看方向。",
+        "她们认为视频有趣且编排得当，并认为主持人、场地、情感表达、氛围与语调以及时长都恰当。",
+      ],
+      soWhat:
+        "作者的结论是：设计得当的内容加上不断下降的技术成本，使 VR360 成为处理疼痛的一种切实可接受的方式——这意味着想制作此类健康媒体的机构不再需要实验室或大笔预算。",
+      caveat:
+        "这是一项关于 20 名观众态度和看法的研究。它**没有测量疼痛是否真的减轻**，数据采集于 2017 年。",
     },
   },
   {
@@ -594,6 +670,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "The sample came from ThaiHealth network organisations in Bangkok and its vicinity through purposive, quota and accidental sampling, so it does not represent working-age women nationally. The private-sector group numbered only 134 against 527 in government and 413 in factories, and data was collected in 2019–2020.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个形状旁边是一块开有三个孔洞的面板，它一个也放不进去",
+    zh: {
+      headline: "一套健康内容无法服务所有工作场所——私营企业、政府机关和工厂的职员想要的东西各不相同",
+      question:
+        "职业年龄段女性是最积极寻找健康信息并把它传给身边人的群体——但饮食与保健同时也是泰国社交媒体上流传的假新闻中最大的一类。这些女性想要什么形式的健康内容？她们对此有何担忧？不同类型工作场所的女性想要的东西是否不同？",
+      method:
+        "一项定量调查，使用封闭式问卷，对象是曼谷及周边地区 ThaiHealth（泰国健康促进基金会）网络中十三家机构的 15 岁及以上职业年龄段女性，分为政府机关与国有企业、私营公司、工厂三组。每家机构配额 100 人（两家大型工厂各 50 人），目标 1,200 名受访者，回收问卷 1,074 份。所有变量的信度均超过 0.70。分析采用描述性统计和单因素方差分析。",
+      findings: [
+        "私营公司的女性想要动画视频（均值 4.20）、信息图（4.17）和照片（4.16）的程度显著高于另外两组，而政府机关与国有企业（3.02）和工厂（3.01）的女性比私营部门女性（2.47）更想要**纯文字**。",
+        "每组评分最高的表现手法各不相同：私营部门女性选择前后对比（4.21），政府机关女性选择医学信息佐证（3.99），工厂女性选择实用建议（3.68）。",
+        "三组都把“提供知识”列为内容类型的第一位（政府机关 4.18 · 私营 4.34 · 工厂 3.83）。",
+        "她们最主要的担忧也不同：私营部门女性最担心信息不正确（4.30），而政府机关和工厂女性最担心内容可能侵犯他人权利（分别为 4.20 和 3.81）。",
+        "**有三项在各组之间没有显著差异**：表达情感的手法（F = 2.872）、对信息过多的担忧（F = 2.501）以及对专业术语的担忧（F = 1.666）。",
+      ],
+      soWhat:
+        "对制作职场健康媒体的人来说，这意味着同一内容应按机构类型重新包装，而不是到处一模一样地分发。作者建议更多地使用视觉叙事——动画视频、信息图和照片——并且任何被分享的文章都必须来自可信来源。",
+      caveat:
+        "样本通过目的性、配额和偶遇抽样来自曼谷及周边地区 ThaiHealth 网络中的机构，因此不能代表全国的职业年龄段女性。私营部门组只有 134 人，而政府机关组有 527 人、工厂组有 413 人，数据采集于 2019–2020 年。",
+    },
   },
   {
     slug: "on-demand-app-loyalty",
@@ -731,6 +827,27 @@ export const paperSummaries: PaperSummary[] = [
         "The authors' recommendation follows the result: direct persuasive messaging at people educated to secondary level or below, since that is the group with weaker health beliefs. And since Bangkok retirees encounter these campaigns most on Facebook, a campaign still spending on radio and posters may simply not reach them.",
       caveat:
         "Data was gathered through an online questionnaire and word of mouth, so it reached only retirees already using the internet — which partly explains why Facebook came first. It covers Bangkok alone and measures beliefs and attitudes, not whether sodium intake actually fell.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一排五个漏斗，其中一个远比其余的宽",
+    zh: {
+      headline: "退休人群在 Facebook 上接触减盐宣传——而教育程度是区分他们健康信念的因素",
+      question:
+        "面向退休人群的减盐宣传活动应当如何设计？这项研究考察了媒体接触、对说服性信息的态度与健康信念模型之间的关系，以及哪些人口特征会造成差异。",
+      method:
+        "一项定量调查，通过社交媒体渠道和口口相传发放 Google 表单问卷，对象是居住在曼谷的 400 名 51 至 70 岁退休人士，按年龄段与截至 2019 年 12 月的实际人口（1,255,572 人）成比例分配。分析采用描述性统计和推断统计，显著性水平为 0.05。",
+      findings: [
+        "整体上对宣传媒体的接触程度为中等，Facebook 最高，其次是网站和 YouTube。接触最少的渠道是广播，其次是活动和海报。",
+        "对说服性信息的态度在每一项上都非常高。评分最高的期望是说明疾病有多严重的信息，以及能应用于日常生活的信息——符合“高威胁配高效能”的原则。",
+        "在检验的八项人口特征中，**只有两项在健康信念上产生显著差异**：教育程度和主要收入来源。性别、年龄、婚姻状况、就业状况、月收入和居住安排**均无差异**。",
+        "说服性信息与健康信念模型的四个维度——感知易感性、感知严重性、感知益处和自我效能——呈中等程度的正相关，但与感知障碍仅呈弱相关。",
+        "媒体接触与态度和健康信念均显著相关，但**这些相关性全部处于低到极低的水平**——更常看到宣传并没有让健康信念改变多少。",
+        "受访者认同最强烈的一项是：经常吃咸食患肾病的风险很高，而肾病会严重影响他们的生活。",
+      ],
+      soWhat:
+        "作者的建议顺着结果而来：把说服性信息对准中学及以下学历的人群，因为这是健康信念较弱的群体。而既然曼谷的退休人群主要在 Facebook 上接触这些宣传，一场仍在广播和海报上花钱的活动可能根本触及不到他们。",
+      caveat:
+        "数据通过在线问卷和口口相传收集，因此只触及已在使用互联网的退休人士——这部分解释了为什么 Facebook 排在第一。研究仅覆盖曼谷，测量的是信念和态度，而不是钠摄入量是否真的下降。",
     },
   },
   {
@@ -917,6 +1034,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is a co-design study, not a test of whether the exercises work.** What it demonstrates is that the design process produced something both usable and clinically valid; the health effects belong to a later phase that has not been run. Evidence comes from one factory and 29 people recruited by purposive convenience sampling, so it does not represent migrant workers across the industry.",
     },
+    illustrationAltZh:
+      "纸艺插画：一个小盒子里装着唯一放得进去的形状，一个更大的形状被留在盒外",
+    zh: {
+      headline: "先问工人，你就会得到适合宿舍房间、也适合他们真正拥有的时间的锻炼方案",
+      question:
+        "泰国海产品加工厂的缅甸移民工人因剥虾等重复性工作和长时间站立而受伤，但普通的健康项目因语言和文化障碍从未触及他们。这项研究问的是：如果工人从一开始就参与设计项目，会有什么不同。",
+      method:
+        "一项混合方法的共同设计研究。参与式讨论面向 29 名缅甸工人，按工龄分为三组（2 年以下 10 人、2–5 年 11 人、5 年以上 8 人），全部来自同一家工厂，用缅甸语进行，并围绕 12 小时的轮班安排时间。研究咨询了五位工作场所利益相关者（人力资源经理和生产线主管），四位国际物理治疗师评估了内容效度。知情同意在没有管理层在场的情况下私下征得，给予 48 小时考虑时间，主管不参与推荐参与者。",
+      findings: [
+        "**29 名工人全部报告手部症状**——麻木、刺痛和疼痛。25 人（86%）有晨间手部僵硬，也影响到工作之外的生活。颈痛 79%，下背痛 72%，踝痛 45%。",
+        "**29 人中有 23 人（79%）至少每周购买一次非处方止痛药**，有人手术后直接回到同样的工作岗位——这个群体早已在设法管理自己的健康，只是方式有风险。",
+        "**29 人中有 26 人（89.7%）每天使用 Facebook**，选择它是因为可以在主管看不到的情况下阅读健康信息。他们要的是视频示范而不是书面材料，并且**拒绝在唯一的休息日参加强制性工作坊**。",
+        "工人自己指出的就医障碍：医疗人员不会说缅甸语，公立医院的口译员对他们态度不敬，工作场所保险只覆盖急性伤害而不覆盖慢性病，以及歧视。",
+        "工人设定的限制条件成了设计要求——锻炼必须能在宿舍大小的空间进行、不需要器械、在工作时间之外进行，并且绝不减少收入，因为他们都要寄钱回家。",
+        "成果是一套 12 个动作、为期四周的方案，**在专家内容效度评估中得分很高**（I-CVI 0.95–1.00；S-CVI/Ave 0.94），说明倾听工人并没有牺牲临床质量。",
+      ],
+      soWhat:
+        "对任何健康传播工作而言，可迁移的经验是：一线人员指出的限制条件不是与质量的取舍——它们是项目能否被使用的前提条件。选择受众已在使用、并且能私下使用的渠道，比选择机构自己用得顺手的渠道更重要。",
+      caveat:
+        "**这是一项共同设计研究，不是对锻炼是否有效的检验。**它证明的是设计过程产出了既可用又具有临床效度的方案；健康效果属于尚未开展的后续阶段。证据来自一家工厂、以目的性便利抽样招募的 29 人，因此不能代表整个行业的移民工人。",
+    },
   },
   {
     slug: "thailand-image-cannabis-youtube",
@@ -1031,6 +1169,26 @@ export const paperSummaries: PaperSummary[] = [
         "The staff's own answers cut against the common assumption that knowledge management starts with a new platform. When the top obstacle is unfamiliarity, adding another tool makes the problem worse. What they chose was the channel already in their daily lives plus people to guide them — technology second, relationships first.",
       caveat:
         "**The 100% response rate came from a management requirement, not from willingness**, which may pull answers toward what respondents thought the organisation wanted to hear — consistent with the 25.2% who named forced participation as a problem. These are self-reported preferences, not observed behaviour. **The data is from 2014–2015**: the option list still included Hi5, and Facebook's role in Thai workplaces has changed considerably since. Evidence comes from a single department using one reference topic.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一扇崭新的门紧闭着，旁边一扇用旧了的门被撑开",
+    zh: {
+      headline: "最大的障碍是不熟悉的技术——所以工作人员选择了他们每天已在使用的工具，以及彼此",
+      question:
+        "泰国政府机关被要求开展内部知识管理。这项研究询问真正要做这件事的官员卡在哪里，以及——如果可以选择——他们更愿意以何种方式、在什么地方分享自己所知。",
+      method:
+        "对疾病控制厅全国负责健康传播的 111 名官员（男性 41 人，女性 70 人）进行邮寄问卷调查，因高层管理者要求各区域负责人作答，回收率达 100%。以糖尿病预防传播为参照主题。18 题问卷通过了五位专家的内容效度审查。每题可多选。",
+      findings: [
+        "**首要障碍是不熟悉新技术，占 54.1%（60 人）**，其次是倾向于分享无关内容（43.2%，48 人）和协作不便（40.5%，45 人）。",
+        "**不愿透露信息达 36.9%（41 人），缺乏动力占 32.4%（36 人）**，另有 25.2%（28 人）把强制参与本身列为问题。",
+        "**Facebook 是被选最多的平台，占 53.2%（59 人）**，远高于网络论坛和电子邮件（各 19.8%）、聊天工具（18.9%）、视频会议（18.9%），Twitter 仅 6.3%。",
+        "**他们想要的活动是面对面的**——会议和考察 30.6%（34 人）、讲座和工作坊 29.7%（33 人）、导师指导 27.0%（30 人）。",
+        "**最明确的偏好是有导师带领的混合经验小组，占 55.9%（62 人）**，而只由资深传播者组成的小组为 16.2%，只由新手组成的小组为 6.3%。",
+      ],
+      soWhat:
+        "工作人员自己的回答与“知识管理从新平台开始”这一常见假设相悖。当首要障碍是不熟悉时，再添一个工具只会让问题更糟。他们选择的是已在日常生活中的渠道，加上能引导他们的人——技术在后，关系在先。",
+      caveat:
+        "**100% 的回收率来自管理层的要求，而非自愿**，这可能使回答偏向受访者认为组织想听的内容——与 25.2% 把强制参与列为问题的结果一致。这些是自我报告的偏好，不是观察到的行为。**数据来自 2014–2015 年**：选项里还列着 Hi5，而 Facebook 在泰国职场中的角色此后已有很大变化。证据来自单一部门、单一参照主题。",
     },
   },
   {
@@ -1413,6 +1571,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is a plan, not a result.** The article states plainly that findings are not yet available because it is a protocol; everything under “what the study will do” is intended, not achieved. **The design is a single-group before-and-after measurement with no comparison group**, so any change observed cannot be separated from anything else happening over the same period. It takes place in one factory, and symptoms are self-reported rather than clinically assessed. The published version was awaiting peer review.",
     },
+    illustrationAltZh:
+      "纸艺插画：几支弯曲的箭头围成一个闭环，其中一段仍是未上色的米白色，与其余部分不同",
+    zh: {
+      headline: "一项计划：检验在 Facebook 群组里以游戏形式推送的十二个动作，能否减轻移民工人的工作相关疼痛",
+      question:
+        "泰国海产品行业的缅甸移民工人因重复性工作患上肌肉骨骼疾病，但常规的健康传播很少能跨越语言和文化障碍触及他们。这份研究方案提出一项计划，开发并检验一套为他们的语言、文化和工作实际性质量身打造的健康传播包。",
+      method:
+        "研究分两个阶段。第一阶段通过每组 8 到 10 人、直至饱和的焦点小组讨论、每次 40 到 60 分钟的关键信息人访谈以及专家评审来开发传播包，并以北欧肌肉骨骼问卷为起点改编评估表。第二阶段实施，目标 400 名参与者——预留 10% 的流失率后预计 360 人——用经过验证的评估表进行前后测量。该试验于 2024 年 5 月在泰国临床试验注册中心注册。",
+      findings: [
+        "**传播包是十二个动作**，与健康专家共同选定，针对工作影响最大的身体部位，如颈部和背部。",
+        "**渠道是 Facebook 群组，而不是需要安装的应用程序。**纳入标准要求参与者每周至少登录一次——这是有意为之的选择，去受众已经在的地方。",
+        "**游戏机制事先已经规定**：每周三次信息帖，隔天进行每周三次测验，以及每周一次挑战。参与可获积分（点赞 1 分、评论 2 分、完成测验 1 分、答对 2 分、参加每周挑战 5 分），排行榜只显示最活跃的 10%。",
+        "**将要测量的是知识、意识和自我报告的肌肉骨骼症状**，用 t 检验或方差分析比较前后差异，同时根据群组中的实际行为追踪参与度。",
+        "**标题中的“伦理”一词指的是事先写明的条件**——知情同意、保密，以及不超过 200 泰铢的报酬上限，以免报酬变成参与的压力。",
+      ],
+      soWhat:
+        "这项计划针对的是长期困扰移民工人健康传播的问题：材料从来到不了它面向的人手里。这里有两点可以直接借鉴。第一是渠道决策——不开发应用，而是去受众已经在的地方。第二是在招募开始前就把激励设计和报酬上限写下来，这样事后可以核查参与是否真正出于自愿。已经报告结果的配套研究涵盖了与工人一起设计这些动作的过程。",
+      caveat:
+        "**这是一项计划，不是结果。**文章明确说明，由于这是研究方案，尚无研究发现；“研究将做什么”之下的一切都是意图，而非已完成。**设计是单组前后测量，没有对照组**，因此观察到的任何变化都无法与同一时期发生的其他事情区分开来。研究在一家工厂进行，症状为自我报告而非临床评估。发表的版本尚在等待同行评审。",
+    },
   },
   {
     slug: "vtuber-streamer-purchase-intention",
@@ -1777,6 +1955,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is reasoning from a classical-liberal, property-rights position** — one school among several, not a settled academic conclusion. The founding assumption that all rights reduce to property rights is exactly what many philosophers reject; without it, the conclusion does not follow. Nothing is measured and the argument is not tested against real cases. It was written in 2020, before the newer platform-regulation regimes took effect, so it does not engage the market-power argument about very large platforms that dominates the later debate.",
     },
+    illustrationAltZh:
+      "纸艺插画：一扇绿色门框独自立在空地上，米白色门扇敞开，两侧没有任何围栏延伸出去",
+    zh: {
+      headline: "言论自由是不被阻止的权利，而不是要求别人的平台替你传播的权利",
+      question:
+        "可持续发展目标具体目标 16.10 呼吁保障公众获取信息和保护基本自由，与此同时社交媒体平台因“审查”用户内容而受到批评。平台所有者删除一条帖子或封禁一个账号，真的侵犯了言论自由吗？",
+      method:
+        "一篇政治与法律哲学的逐步论证。它先按罗斯巴德的思路把**自由**与**能力**区分开，并参照洛克的自由概念；然后依照伯林的划分，把**消极权利**（只要求他人不干涉）与**积极权利**（要求他人先行动或付出，权利才成为现实）区分开；再把传播自由与财产权联系起来。文章不收集数据，也不考察实证案例。",
+      findings: [
+        "**自由不等于能力。**一个人不是“没有自由”跳过大海——他是缺乏跳过去的**能力**。缺乏能力不是被剥夺权利，把两者混为一谈正是纠缠不清的论争的起点。",
+        "**消极权利与积极权利对他人的要求不同。**消极权利只要求他人克制，因此不强迫任何人。积极权利意味着必须有人被迫行动或付出，这项权利才在实践中存在。",
+        "**言论自由不是一项独立的权利，而是财产权的延伸。**通常被跳过的问题是**在哪里**——言论总是发生在某个地方，要么在你自己的财产上，要么在所有者同意接待你的财产上。",
+        "**按这一框架，私营平台拒绝传播某些内容不是审查，而是行使财产权。**文章在两者之间划出清晰的界线：私人一方拒绝在自己的财产上传播某人的想法，与政府禁止人们在其合法拥有的财产上发表言论。",
+        "**结论把常见的批评倒转过来。**作者认为，强迫平台放弃其内容政策对言论自由的威胁**大于**删除帖子，因为这是强迫财产所有者去做他们不愿做的事。",
+      ],
+      soWhat:
+        "每当一条有新闻价值的帖子被删除，平台与言论的争论就会重演。无论你是否接受结论，这篇文章提供了一种**拆分问题的方法**：在问“这是审查吗”之前，先问这是谁的平台，以及所提出的要求是让某人克制不作为，还是强迫某人作为。这两个问题能把看起来一模一样的案例区分开来，而且适用于任何媒介，不只是社交媒体。",
+      caveat:
+        "**这是从古典自由主义、财产权立场出发的推理**——是几种学派之一，不是学界的定论。“一切权利都可归结为财产权”这一基础假设，正是许多哲学家所反对的；没有这个假设，结论就不成立。文章没有任何测量，论证也没有在真实案例上检验。它写于 2020 年，早于较新的平台监管制度生效，因此没有讨论后来主导争论的关于超大型平台市场支配力的论点。",
+    },
   },
   {
     slug: "deceptive-pr-responsibility",
@@ -1823,6 +2021,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**This is a thought experiment, not a study of decided cases** — no data and no actual judgments. The framework is liberal legal philosophy, resting responsibility on consent and property rights; other schools answer differently. **It is not legal advice and it is not grounded in Thai law**; anyone needing an answer for a real case must consult the statutes and precedents of that jurisdiction. The company and newspaper in the hypothetical are names the authors invented and refer to no real organisation.",
     },
+    illustrationAltZh:
+      "纸艺插画：三环相扣的链条，中间一环颜色不同且已裂开，却仍把链条连在一起",
+    zh: {
+      headline: "当一份虚假新闻稿经由新闻编辑部传到读者手中，谁该负责",
+      question:
+        "记者经常根据新闻稿、简报和通报来写报道。如果这些材料不实，甚至是蓄意造假，而读者因为相信它而受到损害，谁应当为此负责——发出稿件的公关从业者、过度依赖信源的记者，还是公众？",
+      method:
+        "以**思想实验**的方式进行的法哲学研究：设定一个假想案例，然后逐步改变条件。一家公司直接向买家作出虚假声明；然后改为购买报纸广告；再然后只是发出一份新闻稿，由编辑团队把它写成新闻报道。论证在每一步都追问责任转移到了哪里，并通过手段与目的的框架以及介入其中的自由意志问题加以分析。文章不收集任何真实数据。",
+      findings: [
+        "**前两步很直接。**无论公司是直接欺骗买家，还是通过付费广告欺骗，责任都在公司：它控制了信息，也收了钱。经由媒介传递并不改变什么。",
+        "**第三步有所不同，因为中间站着一个拥有自由意志的行动者。**新闻编辑部没有收钱，并且自行决定是否发表，这一选择“切断”了从公司到受害者的因果链。",
+        "**然而公司仍然把媒介当作达到被禁止目的的手段。**文章把这比作一名邮递员投递一个装有欺诈内容的信封，而他对内容一无所知：邮递员只是手段，没有意图，不承担责任。",
+        "**而这正是论证的核心——新闻编辑部不是那个邮递员。了解内容并决定发表什么恰恰是它的职责**，因此即便它不是收钱的一方，也不能被完全排除在责任之外。",
+        "**结论是没有现成的答案。**作者直言，这个问题无法“在扶手椅上”解决。它要逐案判断，而且**一条欺骗性信息本身并不构成犯罪**：必须有可确认的、寻求赔偿的受害者，还要有裁决者同时权衡抽象原则和当时当地的实践已经形成的预期。",
+      ],
+      soWhat:
+        "对新闻编辑部和公关从业者而言，可以拿来用的要点是：**决定发表什么本身就是一个有分量的行为，而不只是转发**。邮递员与编辑的区别，是关于“为什么事实核查不是可有可无的附加项”最简洁的理由之一。对于媒体伦理教学，这个结构可以直接当作练习使用，因为它让同一个案例经历多种变化，并准确展示责任在哪里转移、为什么转移。",
+      caveat:
+        "**这是一项思想实验，不是对已判决案件的研究**——没有数据，也没有真实判决。其框架是自由主义法哲学，把责任建立在同意与财产权之上；其他学派会给出不同答案。**它不是法律建议，也不以泰国法律为依据**；需要为真实案件寻找答案的人，必须查阅该司法管辖区的法规与判例。假想案例中的公司和报纸名称是作者虚构的，不指向任何真实机构。",
+    },
   },
   {
     slug: "video-art-screen-savers",
@@ -1868,6 +2086,26 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone working with media and display space, the transferable point is that **moving a work changes what the work is**: the same clips carry a different meaning in a living room than in a gallery, without a frame of the footage changing. That frame extends to public screens, lobby displays, and work distributed through platforms never designed as art spaces.",
       caveat:
         "**This is a conceptual article with no audience data and no figures behind it**, so the claims about where things are heading are the author's forecast rather than a measurement. It was written in 2018 around the devices and platform limits of that moment, which have since changed. The working definition of “art” is a broad one; a stricter definition would not yield the same conclusion. The remarks about generational differences cite other people's work, not findings of this one.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一块空白的宽屏面板立在画家的画架上",
+    zh: {
+      headline: "录像艺术花了半个世纪寻找进入大众文化的门路，然后从一扇无人看守的门走进了客厅",
+      question:
+        "2015 年，Apple TV 上出现了一款新的屏幕保护程序：一组来自世界各地的天际线与风景的慢动作航拍片段。这些算不算录像艺术？如果算，这对录像艺术如今在大众文化中的位置意味着什么？",
+      method:
+        "一篇艺术理论与文化研究的论证。它重新审视什么算作视觉艺术，按列维-斯特劳斯的区分把艺术的非功利目的与功利目的分开，检验屏幕保护程序满足其中哪些标准，然后把结果放进录像艺术的历史以及人们在家中实际使用屏幕的方式之中。没有观众调查，也没有量化数据。",
+      findings: [
+        "**纯粹实用的物品也可以是艺术品。**“艺术必须无用”这一主张经过检视被认为过于狭窄：艺术在历史上服务过许多目的，包括传达情绪、娱乐和交流。",
+        "**屏幕保护程序起初纯粹是实用工具**——保护显示器免于烧屏——但如今它也做着艺术品所做的事：传达情绪、营造氛围、面向观看者。",
+        "**真正改变的是位置，而不是作品。**作者的提议是，这项技术把录像艺术变成了一件**室内物件**，从而赋予它新的意义：从一件你要专程去画廊才能看到的东西，变成在无数客厅中央运行、几乎无人留意的东西。",
+        "**让它成长的条件是让观众自己选择。**在写作当时，用户不能提供自己的片段，只能使用制造商的那一套。如果允许第三方屏幕保护程序，作者预期会随之出现一个屏幕保护艺术市场，因为房间里的大屏幕像唱片收藏一样展示着品味。",
+        "**它是作为一个开放的问题提出的，而不是宣告。**文章在结尾问道：我们是否正处在一种新的大众艺术形式的诞生之际，而不是断言我们正是如此。",
+      ],
+      soWhat:
+        "对任何从事媒体与展示空间工作的人来说，可迁移的要点是：**移动一件作品会改变作品本身**——同样的片段，在客厅里与在画廊里承载的意义不同，而画面一帧也没有变。这一框架延伸到公共屏幕、大堂显示屏，以及通过从未被设计为艺术空间的平台传播的作品。",
+      caveat:
+        "**这是一篇没有观众数据、没有数字支撑的概念性文章**，因此关于事态走向的说法是作者的预测而非测量。它写于 2018 年，围绕当时的设备和平台限制展开，而这些此后已经改变。文中采用的“艺术”定义较宽；若采用更严格的定义，不会得出同样的结论。关于代际差异的评论引用的是他人的研究，不是本文的发现。",
     },
   },
   {
@@ -1916,6 +2154,27 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone designing behaviour-change work or working with social norms, the point worth carrying forward is that **norms do not spread because people are told what is right; they spread when people can see that others want the same conditions** — which turns the communication problem from “how do we persuade them” into “how do we make an existing shared preference visible”. Connecting the argument to campaign work is the centre's own reading; the article itself does not discuss campaigns.",
       caveat:
         "**This is philosophical argument alone, with no empirical evidence.** The proposed “universally shared subjective preference” is an assumption the paper does not test, and it is precisely where other schools would push back. Defining wrongdoing through consent is a liberal framework, not the only one in ethics. **The question of why an individual ought to follow a norm is touched on only briefly and left unresolved** — a scope limit the author states at the outset.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两个方块隔着一道缝隙相对而立，一个橙色小立方体悬在缝隙正中",
+    zh: {
+      headline: "人为什么会接受道德规则——文章主张这些规则不是命令，而是人们建造出来用于约束他人的工具",
+      question:
+        "道德哲学中长期存在一道鸿沟：**描述事物如何**的陈述与**规定应当如何做**的陈述之间的鸿沟——同意谋杀是坏的，仍然解释不了我为什么不应该谋杀。这道鸿沟是如何跨越的？传播在跨越它时扮演什么角色？",
+      method:
+        "一篇道德哲学论证，提议**把问题拆成三个而不是两个**——什么是对与错；一个社会为什么会形成并采纳某一特定道德规范；以及个人为什么应当遵守它——因为每个问题都需要不同的方法来回答。论文集中讨论前两个问题之间的关系，对第三个问题只略作触及。不收集数据。",
+      findings: [
+        "**核心的一步是把第二个问题插入“是”与“应当”之间的鸿沟。**两者由不同的方法回答，这正是直接跨越的尝试总是停滞的原因。",
+        "**这样看来，规范伦理学并不告诉任何人该做什么；它告诉你采纳某一规范会带来什么样的社会**——这个问题可以通过考察规范的效果来回答，而不是诉诸权威。",
+        "**伦理问题之所以出现，是因为一个人的行为影响到另一个人**，因此论文把不当行为定义为未经他人同意而对其施加行为。",
+        "**人人共有的不是同一套价值观，而是不愿在未经同意的情况下被施加行为的愿望**——作者称之为一种普遍共有的主观偏好，并提议以此作为通往规定性陈述的桥梁。",
+        "**因此，道德规范是人们创造出来、主要用于施加于他人的工具**，而不是每个人在做决定前查阅的手册。人们想要这些规则，是因为规则带来对自己更安全的条件。",
+        "**传播是使这一步成为可能的东西。**一旦共同的偏好变得可见，规范就通过文化被内化，进入人与人之间的共享空间——而这之所以发生，只是因为人类能够传播，并能建立更良好的合作所需的更复杂的制度。",
+      ],
+      soWhat:
+        "对任何设计行为改变工作或处理社会规范的人来说，值得带走的要点是：**规范的传播不是因为人们被告知什么是对的，而是当人们能看到别人想要同样的条件时**——这把传播问题从“我们如何说服他们”变成了“我们如何让已经存在的共同偏好变得可见”。把这一论证与宣传活动工作联系起来是本中心自己的解读；文章本身并未讨论宣传活动。",
+      caveat:
+        "**这纯粹是哲学论证，没有实证证据。**所提出的“普遍共有的主观偏好”是论文未加检验的假设，也正是其他学派会提出异议之处。通过同意来界定不当行为是一种自由主义框架，而不是伦理学中唯一的框架。**个人为什么应当遵守规范的问题只略作触及，未予解决**——这是作者在开篇就声明的范围限制。",
     },
   },
   {
@@ -2014,6 +2273,27 @@ export const paperSummaries: PaperSummary[] = [
         "What an organisation can use immediately is not the coefficient itself but **the sequence**: settle the measures and assess the difficulty of the story **before** the work begins, rather than arguing about it when the report lands. Most disputes over PR results come from never having set an agreed, measurable target in the first place. And separating “what the agency did” from “how much pull the story had anyway” is a useful way to think even without adopting this formula.",
       caveat:
         "**This is a methodological proposal rather than an empirical finding, and it is the authors' proposal, not a position of the Center.** The coefficients of 0.5 / 1.5 / 2.0 are **illustrative values used to explain the principle**, not calibrated against data. Judging a story as high or low potential remains a matter of judgement, which relocates the point that has to be agreed rather than removing it. The worked examples draw on the Russian media context and would need adapting elsewhere. **This summary deliberately does not name the two agencies whose assumptions the article singles out for criticism**, since those names add nothing to the principle that can be applied.",
+    },
+    illustrationAltZh:
+      "纸艺插画：两个大小相同的折纸立方体，分别放在长短不一的纸坡道的高端，坡道较长的那个立方体位置更高",
+    zh: {
+      headline: "同样的公关结果不等于同样的绩效——要除以这个故事一开始有多容易",
+      question:
+        "衡量公共关系绩效长期存在争议。公关公司把各自的专有公式当作差异化卖点，因而抵制统一标准；客户则退回到熟悉的数字，例如 AVE（广告价值等效）——按同等广告版面的价格给报道定价——这一方法多年来饱受批评，却仍被约一半的行业使用。论文问的是：如何设计一套评估体系，让双方在工作开始之前就达成一致。",
+      method:
+        "一篇概念性、方法论的论文，没有实证数据收集。作者回顾了对 AVE 以及对公关公司自建公式中内置假设的既有批评，然后提出一组指标并附上演算示例。",
+      findings: [
+        "**核心提议是在策划阶段而非报告阶段商定一个“新闻卖点潜力系数”**——评估这个故事本身自带多大的媒体吸引力。",
+        "**这个系数与直觉相反：潜力越高，数值越低。**示例取值为高潜力 = 0.5、中潜力 = 1.5、低潜力 = 2.0，因为强故事自己就能产生报道，而弱故事需要公关公司付出更多工作。",
+        "**它作为乘数应用于量化指标。**论文自己的例子：发出 100 份邀请、20 份被接受，对中等潜力的故事得 20/100 × 1.5 = 0.3，对低潜力的故事则得 0.4。**同样的产出得分不同，因为难度不同。**",
+        "**第二个组成部分是双方共同商定、经过论证、按优先级排序的媒体名单**——对于一场地区性活动，一家本地媒体可能比全国版更重要，而单纯统计刊发数量会忽略这一点。",
+        "**第三是内容质量，而它只能做减法。**如果四条预定关键信息中只有一条出现在报道里，内容质量至多为 0.25。",
+        "**作者直言，这并不会让衡量更准确。**它的目的是让公关公司与客户的预期一致，而不是让评估更客观。",
+      ],
+      soWhat:
+        "一个机构可以立即拿来用的不是系数本身，而是**顺序**：在工作开始**之前**就确定衡量标准并评估故事的难度，而不是等报告出来再争论。大多数关于公关结果的争议，都源于一开始就从未设定一个双方认可、可衡量的目标。而把“公关公司做了什么”与“故事本来就有多大吸引力”分开，即使不采用这个公式，也是一种有用的思考方式。",
+      caveat:
+        "**这是一项方法论提议而非实证发现，并且是作者的提议，不代表本中心的立场。**0.5 / 1.5 / 2.0 这些系数是**用于说明原理的示例值**，没有用数据校准。判断一个故事潜力高低仍然是一种判断，这只是把需要商定的那一点挪了位置，而没有消除它。演算示例取自俄罗斯媒体环境，在其他地方需要调整。**本摘要有意不点出文章特别批评其假设的那两家公关公司的名字**，因为这些名字对可应用的原理没有增益。",
     },
   },
   {
@@ -2519,6 +2799,26 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Thirty-four participants in a single city, with no comparison group**, so the measured change cannot be attributed to the workshop alone. The longest follow-up is one month, leaving durability open. **What was measured is self-reported and assessed practice, not patient outcomes.** Data were collected in 2017–2018. This summary describes working patterns as the study recorded them at that time; it is not a verdict on a profession or a country.",
     },
+    illustrationAltZh:
+      "纸艺插画：一根直立的纸条，顶端展开成许多长短不一的尖叶",
+    zh: {
+      headline: "一本工作手册加一场四天的工作坊改变了治疗师做出临床决策的方式——一个月后这种改变依然存在",
+      question:
+        "缅甸的物理治疗师大多按照医生的处方工作，而不是通过本专业自己的决策过程。这种行为能否改变？如果能，究竟需要修正的是什么？",
+      method:
+        "研究采用 PRECEDE-PROCEED 规划模型，它迫使你先找到原因再设计对策。PRECEDE 阶段通过对 18 名有至少两年经验的治疗师的深度访谈、一场焦点小组和一份问卷描绘了现行做法，内容分析得出十个类别。PROCEED 阶段编写了一本 14 章的临床决策工作手册，并在仰光举办了一场 34 人参加的四天密集工作坊，分三次测量：之前、刚结束时和一个月后。",
+      findings: [
+        "**原因在于人们受教育的方式和工作的环境，而不在于个人。**参与者描述的教育建立在讲授和预设的正确答案之上，而不是权衡各种选项；工作场所也不鼓励基于证据的批判性思维。",
+        "**工作坊之前，检查草率且以处方为主导。**标准化测试很少使用，为了发现变化而重新测试的情况也不常见。经验较少的治疗师最有可能不加修改地照处方执行。",
+        "**工作坊之后，常规检查方式发生改变的参与者比例有显著差异**（科克伦 Q 检验，χ²(2) = 62.312，p < 0.0005），询问个人因素、环境和合并症的频率也是如此（χ² = 251.9，p < 0.001）。",
+        "**这种改变没有随着工作坊结束而消失**——一个月后的随访发现参与者仍在坚持新的方法。",
+        "**最明显的转变在于先做什么。**过去疼痛是最先处理的损伤；之后几乎所有参与者都从患者的整体健康状况、社区参与和周围环境开始。",
+      ],
+      soWhat:
+        "对任何设计专业培训的人来说，教训在于顺序：这项工作不是从编写课程开始，而是先找出让旧行为得以维持的倾向因素和强化因素，再针对它们编排内容。而起作用的是一本事后仍可使用的工作手册加上动手练习，而不是单纯的讲授——作者指出，这一模式可以推广到其他地方以类似方式受训和执业的治疗师。",
+      caveat:
+        "**单一城市的 34 名参与者，没有对照组**，因此测得的改变不能只归因于工作坊。最长随访为一个月，持久性仍是未知数。**测量的是自我报告和评估的执业方式，不是患者结局。**数据采集于 2017–2018 年。本摘要描述的是研究当时记录的工作模式；它不是对一个专业或一个国家的评判。",
+    },
   },
   {
     slug: "health-students-ethical-dilemmas",
@@ -2567,6 +2867,26 @@ export const paperSummaries: PaperSummary[] = [
         "For curriculum designers, teaching the four principles is not sufficient, because what competes with them — feeling, prior experience, an understanding of the law — is already present in the learner whether or not it is taught. Small-group discussion of real cases brings those influences into the open where they can be examined, and having several professions in the same room emerged as one of the six factors on its own rather than being built into the study's design.",
       caveat:
         "**The data are recorded discussions only**, which the authors identify as a limitation, since no in-depth interviews or focus groups were collected alongside. Being qualitative, the study can say which kinds of reasoning appeared but not in what proportion. The setting is students at two universities in one country, so transfer to other education systems should be cautious.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一架双臂天平，两个秤盘各放着不同的物件，横梁仍未平衡",
+    zh: {
+      headline: "当卫生专业的学生面对两种答案都说得通的案例时，决定的不只是伦理原则",
+      question:
+        "伦理教学往往讲授四项原则，但当这些原则相互冲突时，是什么决定了最终的判断？这项研究实时观察学生的推理过程，而不是事后询问他们怎么想。",
+      method:
+        "对一场一小时线上伦理工作坊的六段分组讨论录音进行归纳式定性分析，参与者是阿拉伯联合酋长国两所大学的医学、口腔医学和药学学生。录音逐字转录，导入 MAXQDA 2022，经过审阅、反思、提炼、检索四个阶段归纳编码，由两名编码者对结果进行三角互证。使用了六个案例：从一名拒绝治疗的精神疾病患者、一名疑似患性传播感染并要求不告知父母的青少年，到应要求开具抗生素处方和一名无力付费的患者，再到婚前筛查和新冠疫情期间的研究伦理。",
+      findings: [
+        "**六件事影响了决定**：情绪、个人经历、法律与法律制度、专业背景、对医学研究的了解，以及接触跨专业教育的经历。",
+        "**学生在推理中确实运用了四项原则**——自主、行善、不伤害和公正——而不是仅凭感觉做决定。",
+        "**讨论中出现最频繁的一个词是“伤害”**，最常见的思路是权衡哪个选项造成的伤害较小，或者伤害能否完全避免。",
+        "**面对同一个案例，学生的分歧很大。**对于要求不告知父母的那名青少年，有人坚持应当尊重他的意愿，因为披露有招致惩罚或虐待的风险；另一些人则认为未成年人的父母必须被告知，并认为同理心干扰了法律本应发挥的作用。",
+        "**作者注意到，在婚前筛查案例上女生和男生的倾向不同**，女生对情境中的女性表达了更多关切——这是从阅读讨论内容得出的观察，不是统计检验。",
+      ],
+      soWhat:
+        "对课程设计者而言，讲授四项原则并不足够，因为与之竞争的东西——感受、既往经历、对法律的理解——无论是否被教授，本来就存在于学习者身上。对真实案例的小组讨论把这些影响摆到明处，让它们可以被审视；而让多个专业同处一室，本身就作为六个因素之一浮现出来，并非研究设计中预先安排的。",
+      caveat:
+        "**数据仅为讨论录音**，作者也把这列为局限，因为没有同时收集深度访谈或焦点小组。作为定性研究，它能说明出现了哪些推理类型，但不能说明各占多大比例。研究场景是一个国家两所大学的学生，推广到其他教育体系时应当谨慎。",
     },
   },
   {
@@ -2720,6 +3040,26 @@ export const paperSummaries: PaperSummary[] = [
         "For anyone doing health communication in communities where literacy is limited or lectures do not land, a play the audience can rewrite does two things at once: it sends knowledge out, and it **brings the community's own reasoning back to the organisers** — how people actually decide about medicines, who holds authority in the household, and what stands in the way — none of which a one-way talk ever reveals. The lesson about family hierarchy suggests that messages aimed only at younger people may never reach the person who actually buys the medicine.",
       caveat:
         "**The evaluation happened once, on the same day as the play**, so it captures understanding and impressions immediately afterwards, not retention or any change in behaviour; the authors themselves note that the improvement may not reflect in-depth understanding. Focus groups covered 40 people from four of the ten plays, chosen by availability and willingness. The setting was a peri-urban slum, while most of Myanmar's population is rural. The authors caution that a young, enthusiastic theatre group may have been key to participation, so results could differ with another troupe. The evaluation was conducted by the project team itself.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一个小舞台上放着一粒胶囊，一支箭头从观众席的椅子弯曲向上指向舞台",
+    zh: {
+      headline: "一出观众可以改写的戏，让仰光城郊的一个社区明白抗生素杀的是细菌——但走上舞台的人大多仍说不出为什么在药店自行购买是个问题",
+      question:
+        "在缅甸，抗生素无需处方即可出售，商店还出售把止痛药、抗生素、有时还有类固醇混在一起的“混合药”袋。当地的健康教育大多是单向讲座。这个项目尝试了论坛剧场——一出戏演两遍，第二遍由观众取代角色、把故事引向不同结局——并询问它是否改善了社区对抗生素的理解，以及观众对它有何看法。",
+      method:
+        "研究团队与仰光一个城郊镇区的本地剧团合作，选取五个供水和卫生条件差的拥挤地点，居民大多是工厂工人和体力劳动者。五场各 25–35 人的故事收集工作坊收集了居民的发热病经历，并选定两个主题编写剧本和歌曲：“发热与抗生素”和“混合药”。2018 年 9 月至 10 月共演出十场，每场 45–60 分钟，由七名青年演员出演，以主角自行用药后住院收场；重演时邀请观众上台扮演角色并改变结局，随后传达取自世界卫生组织倡导材料的四条关键信息。评估在十场中的四场当天进行演出前后的焦点小组，共 40 名参与者，以缅甸语转录、翻译并做内容分析，另有关于观众在台上行为的观察记录。",
+      findings: [
+        "**演出触及 1,175 人，其中 36 人走上舞台改写故事**（每场两到四人），而在这样的环境里，公众参与科学此前几乎没有实践过。",
+        "**演出前，大多数人听过“抗生素”这个词，却说不出它是什么**，误解朝各个方向蔓延：用于高烧、用于狗咬或蛇咬、用于预防季节性流感，或只用于肺结核。演出后，大多数焦点小组参与者能说出抗生素是杀细菌的药、不该一打喷嚏或头痛就吃、混合药袋不该自行购买，以及去诊所胜过去药店。",
+        "**人们喜欢这种形式并想要更多**，还自己提出了下一步的主题——肺结核、丙型肝炎、避孕和儿童吸毒——并表示比起正式的健康讲座，他们更喜欢这种方式，因为它更有趣、信息量更大。",
+        "**台上发生的事比焦点小组说出的更多。**大多数上台干预的观众只是劝生病的角色去看医生，似乎并不知道为什么无处方购买抗生素不妥。扮演家中晚辈的人几乎无法说服长辈，因为家庭等级确实有分量。扮演邻居的人通常会拿出钱来，好让病人看得起医生。",
+        "**社区提出了实用建议**——搭一个更逼真的药店布景，并在周日演出，因为人们周六要上班。在组织方这边，季风雨和排水不畅迫使数次延期，而当局提供的场地大多是佛教宗教建筑，这可能让其他信仰的居民却步。",
+      ],
+      soWhat:
+        "对于在识字率有限或讲座不起作用的社区做健康传播的人来说，一出观众可以改写的戏同时做了两件事：把知识送出去，并**把社区自己的推理带回给组织者**——人们究竟如何做出用药决定、家里谁说了算、什么在挡路——这些是单向讲座永远揭示不了的。关于家庭等级的教训表明，只针对年轻人的信息可能永远到不了真正买药的那个人手里。",
+      caveat:
+        "**评估只进行了一次，且与演出在同一天**，因此它捕捉的是演出后即时的理解和印象，而不是记忆保持或任何行为改变；作者自己也指出，这种改善可能并不反映深入的理解。焦点小组覆盖十场中四场的 40 人，按可得性和意愿选取。场景是城郊贫民区，而缅甸大多数人口居住在农村。作者提醒，一个年轻而热情的剧团可能是参与的关键，换一个剧团结果可能不同。评估由项目团队自己实施。",
     },
   },
   {
@@ -3075,6 +3415,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**Purely conceptual reasoning, no data.** It rests on Misesian praxeology, a school with little following in philosophy of language; reject the premise that action is always goal-directed and the conclusion does not follow. The externalists the article itself cites (Alston, Harnish, Witek, Navarro-Reyes) hold that external conditions suffice. **The proposal is the author's, not a position of the centre.** Single-author article.",
     },
+    illustrationAltZh:
+      "纸艺插画：三块珊瑚色纸质多米诺骨牌排成一行，第一块被一片落下的纸叶推倒",
+    zh: {
+      headline: "作者主张，无意的话语不是言语行为，但它的后果仍然要有人负责",
+      question:
+        "言语行为（用言语做事：承诺、命令、请求）必须总是有意的吗？如果有人伸展手臂而老师把它读作举手，或者无意接受却说了“好”，言语行为发生了吗？它有多大约束力？这是内在论者与外在论者之间的争论：前者把说话者的意图视为必要条件，后者则不然。",
+      method:
+        "纯粹的哲学论证，没有实证数据。它从米塞斯的人类行动学出发——该理论把“行动”定义为有目的的行为，并把它与打喷嚏、眨眼之类的单纯行为区分开——再把它叠加在奥斯汀、塞尔、格赖斯、巴赫与哈尼什的言语行为理论以及莱纳赫的社会行为理论之上。疑难案例被分为四组逐一论证，并与纳瓦罗-雷耶斯直接对话。",
+      findings: [
+        "**言语行为是有意地使用既有惯例（语言、手势、仪式）来达到所选定的社会目的。**它要求知道惯例并愿意遵循它。没有意图就没有行动，因而也没有言语行为。作者否定了广为传授的“人不可能不传播”这一格言：没有意图就没有传播，只有一个误以为发现了信息的读者。",
+        "**第一组：意外。**惯例被无意中唤起（伸展的手臂被读作举手）。作者认为这不是言语行为，而是碰巧带有规范性后果的“言语举动”，就像擦枪走火打坏了朋友的电视。责任来自因果联系（疏忽、笨拙），而不是意图。这正是他与纳瓦罗-雷耶斯分道扬镳之处——后者把无意的言语行为视为一种正当的言语行为类型。",
+        "**第二组：滥用。**撒谎、无意履行的承诺、为钱结婚。这些**是**言语行为：意图存在，并指向目标（欺骗）。决定效力的是惯例而非诚意；一份签署时无意履行的合同仍然有约束力。",
+        "**第三组：失败。**意图和惯例都在，但受话者没有接受（一块被无视的“禁止入内”牌子）。这仍然是言语行为，因为行动是**努力争取**而非成功，这与奥斯汀要求必须获得领会的主张相反。",
+        "**第四组：不作为。**产生效果的意图存在，但没有有意使用任何惯例（把空牛奶瓶留在桌上好让伴侣去买）。只有当那个共同体——哪怕只是一对伴侣——共享一种公认的惯例，即空瓶意味着“请买牛奶”，它才算言语行为；否则伴侣只是在对一种情境作出反应，就像绕开一个水坑。这类案例必须逐一判断。",
+        "**结论有两条腿。**要实施言语行为，说话者必须有意遵循使传播成为可能的惯例；然而无意使用惯例仍然可以产生有效的效果，就像食客点错了菜但程序做得正确，仍然必须付钱。即使意图缺席，惯例也会让效果发生。",
+      ],
+      soWhat:
+        "任何必须应对“我不是故意的”的人——教师、网络版主、律师、公关人员——都得到一件工具，可以把三个问题分开：是否有产生效果的意图，是否有使用惯例的意图，惯例是否已经生效。这篇文章也是对传播学入门课程所教的“人不可能不传播”格言的一个简洁反驳。",
+      caveat:
+        "**纯粹的概念推理，没有数据。**它建立在米塞斯的人类行动学之上，而这一学派在语言哲学中追随者甚少；一旦否定“行动总是目标导向的”这一前提，结论就不成立。文章自己引用的外在论者（奥尔斯顿、哈尼什、维泰克、纳瓦罗-雷耶斯）认为外部条件就足够了。**该主张属于作者本人，不代表本中心的立场。**单一作者的文章。",
+    },
   },
   {
     slug: "bayesian-probability-communication",
@@ -3128,6 +3489,27 @@ export const paperSummaries: PaperSummary[] = [
       caveat:
         "**A conceptual paper with no data.** It rests on the Austrian-school premise that human action is explained by purposes rather than statistical causes; readers who reject that premise will reject the conclusion. The paper itself says in one place that the mind “does not process messages” by reducing uncertainty and elsewhere that the brain uses context to compute probabilities while reading, which the author resolves by relocating probability to the sender's belief. **The proposal is the author's, not a position of the centre.**",
     },
+    illustrationAltZh:
+      "纸艺插画：一架淡蓝色纸飞机飞向一个立着的纸环，纸环略微偏离它的航线",
+    zh: {
+      headline: "作者主张，人类传播中的概率属于发送者对接收者的信念，而不属于信息出现的频率",
+      question:
+        "香农的信息论用信息有多出人意料来衡量信息量：越不可能出现，信息量越大，所用的是频率主义概率（反复观察，统计比例）。这篇论文问的是：能否真的给一个人有意创造一次的信息赋予一个数值概率？如果不能，哪种概率概念才适合人类传播？",
+      method:
+        "一项没有实证数据的理性主义理论分析：回顾关于信息论、频率主义概率与贝叶斯概率（作为信念程度的概率）以及米塞斯人类行动学的文献，并整合为一个提议的模型。",
+      findings: [
+        "**频率主义概率只适用于可重复事件的类别。**一次话语是单一事件，而可能话语的集合是无界的，因此相对频率从一开始就无法计算。",
+        "**人类行动不同于自然事件。**我们不知道硬币为什么正面朝上，所以只能统计频率；对于人，我们通过与自己心灵的类比来推断意图，而一个人随时可以改变主意，因此任何基于过去频率的预测总是可能被证伪。",
+        "**贝叶斯概率更合适**，因为它被定义为作出估计的人的信念程度：传播中的不确定性来自我们对他人心灵的无知，而不是来自他人内部的随机性。",
+        "**接收者本来就通过语境来解读。**那封单词内部字母被打乱的连锁邮件之所以仍然可读，是因为单词短、发音得以保留、首尾字母不动，最重要的是语境让单词可以预测；而一个孤立的乱序单词立刻就变得难以辨认。",
+        "**核心提议是把概率移到发送者一方。**发送者基于对接收者知道什么、是否共享一套编码的先验信念而行动，从反馈中收集证据，然后更新为新的信念。每一次交流都是发送者关于接收者的假设的一次“检验”，是一种结果不确定的企业家式行动。",
+        "作者呼吁传播理论从以接收者为中心的不确定性降低模型，转向建立在意图与信念之上的以发送者为导向的模型。",
+      ],
+      soWhat:
+        "对传播理论教学而言，这是对香农–韦弗模型的一种具体的替代解读，把信息设计放在从业者本已工作的地方：猜测受众知道什么，并根据反馈调整。对宣传活动设计者而言，可用的教训是把关于受众的先验信念明确写下来，并把每一次发布都当作一次更新它的检验。",
+      caveat:
+        "**一篇没有数据的概念性论文。**它建立在奥地利学派的前提之上，即人类行动由目的而非统计原因来解释；不接受这一前提的读者也不会接受结论。论文本身在一处说心灵“不是通过降低不确定性来处理信息”，在另一处又说大脑在阅读时利用语境计算概率，作者通过把概率移到发送者的信念上来化解这一矛盾。**该主张属于作者本人，不代表本中心的立场。**",
+    },
   },
   {
     slug: "thai-universities-environmental-communication",
@@ -3175,6 +3557,26 @@ export const paperSummaries: PaperSummary[] = [
         "A map for a communication faculty deciding where to place its environmental work: choose the role, name the standpoint (the chapter notes that most Thai work sits at the conservationist end, so reformist and radical questions remain open), and pick a method with its evaluation built in. For students, the reference list is a reading list of Thai theses across all three standpoints.",
       caveat:
         "**An overview by a single author.** Most examples come from one university and the theses of one faculty; it is not a systematic review and reports no counts. Figures such as the dust product's effectiveness are taken from the university's own announcement. **The thesis that academics cannot be neutral is the author's position, not the centre's.** The book is closed access, so the site holds no copy.",
+    },
+    illustrationAltZh:
+      "纸艺插画：一棵鼠尾草绿色的纸树，树干分成三根主枝，根部露在底端",
+    zh: {
+      headline: "泰国大学以六种角色开展环境传播，作者主张学者不能保持中立",
+      question:
+        "泰国的大学及其研究者在环境传播中扮演哪些角色？哪些立场塑造了他们的研究？他们使用哪些渠道？又需要在哪些方面取得平衡？这是一部关于亚洲环境传播的论文集中的一章。",
+      method:
+        "一篇没有系统数据收集的概念性综述。它采用环太平洋大学联盟（2017）的大学六角色分类、Kanjana Kaewthep 关于泰国环境传播的框架，以及考克斯与佩祖洛提出的环境传播的两种功能，并以泰国大学和泰国研究生论文中的例子加以说明。",
+      findings: [
+        "**六种角色及泰国实例**：教育者（包含传播课程的环境专业）、知识创造者（1974 年成立的环境研究所）、社会问题解决者（面向 2050 年的净零碳战略）、创新者（一款减少细颗粒物的产品）、连接者（与一个联合国机构、一个市政府和多个村庄合作的项目）以及变革推动者（五年内减少 30% 废弃物的校园计划）。",
+        "**泰国的研究反映三种立场。**其一是**保护主义者**，他们把个人行为视为原因，研究认知、态度和宣传活动的效果；这是泰国研究中最大的一群。其二是**改革主义者**，他们在政策层面工作，分析媒体如何为环境新闻设置框架；他们大约从 1987 年起出现。其三是**激进主义者**，他们运用批判理论和文化理论，关注边缘群体和地方仪式，例如一个泰阮（Thai-Yuan）社区的护河仪式。",
+        "**两种功能与三种方法。**一种是务实功能（教育、警示、帮助解决问题），另一种是构成功能（大学的立场界定了“环境”意味着什么）。三种方法是大众媒体（教师担任发言人）、公共关系（研究议题、设定目标、选择媒体、从产出到影响分四个层次评估）以及环境运动（教师与学生一起反对某所大学威胁社区和历史神龛的开发计划）。",
+        "**三种平衡**：指导者与促进者之间（泰国文化把教授置于顶端，但传播必须从倾听开始）；受众中热爱环境议题者与厌恶者之间；以及“更好的环境”话语与把责任归于社会结构的“从来不是环境问题”话语之间。",
+        "**作者的结论是中立不可能**：“我们要么是问题的制造者，要么是解决方案的提供者”，大学必须引领而不是旁观。",
+      ],
+      soWhat:
+        "这是一张地图，供传播学院决定把环境工作放在哪里：选择角色，说明立场（本章指出泰国的研究大多处于保护主义一端，因此改革主义和激进主义的问题仍然敞开），并选择一种自带评估的方法。对学生而言，参考文献列表就是一份横跨三种立场的泰国学位论文阅读清单。",
+      caveat:
+        "**单一作者的综述。**大多数例子来自一所大学和一个学院的学位论文；它不是系统综述，也没有报告数量。诸如除尘产品效果之类的数字取自该大学自己的公告。**学者不能中立这一论点是作者的立场，不代表本中心的立场。**该书为封闭获取，本网站不保存副本。",
     },
   },
   {
