@@ -194,13 +194,22 @@ const AUTHORS = {
    * ระบุท่านเฉพาะ Mohammad Ali Jinnah University (Cogent 2024 คริปโต · Cogent SS 2025
    * รีวิวลบ) **ยังอยู่บนเว็บ แต่ไม่นับท่านเป็นผู้เขียนของศูนย์ฯ** — ผู้ใช้เห็นด้วยกับเกณฑ์นี้
    *
-   * ยังไม่มี ORCID จึงค้นทาง Crossref โดยบังคับชื่อต้น — นามสกุล Mazahir มีผู้เขียนสายการแพทย์
-   * เคมี และวิศวกรรมใช้ด้วย (ค้นแล้วได้ 51 รายการ เป็นของท่าน 11) · หลักฐานสังกัดมาจาก
+   * ค้นทาง Crossref โดยบังคับชื่อต้น — นามสกุล Mazahir มีผู้เขียนสายการแพทย์ เคมี และ
+   * วิศวกรรมใช้ด้วย (ค้นแล้วได้ 51 รายการ เป็นของท่าน 11) · หลักฐานสังกัดมาจาก
    * `affiliation` ในระเบียน Crossref ก่อน ถ้าทะเบียนไม่ได้ลงไว้ต้องมีแถวใน BYLINE_SOURCES
    * (ประกาศแก้ไขของ PLOS 10.1371/journal.pone.0321708 ไม่มีสังกัดและไม่มีแถว จึงไม่ผ่าน
    *  ตามที่ควร — ประกาศแก้ไขไม่ใช่ผลงาน)
+   *
+   * **ORCID 0000-0003-3982-2231** เจ้าตัวส่งมา 28 ก.ย. 2569 — ตรวจกับ pub.orcid.org แล้วว่า
+   * เป็นชื่อท่าน และระเบียนผูก Scopus Author ID 57222627712 ไว้เอง (ตรงกับเลขที่ท่านส่งมา)
+   * **ORCID ไม่มีสังกัดรายบทความ** งานจากช่องทางนี้จึงต้องผ่านเกณฑ์สังกัดทางอื่นก่อน
+   * (ดู `gateOrcidRows` ช่วงรัน) ไม่งั้นทั้ง 13 ชิ้นใน ORCID จะถูกนับหมด · ORCID มีงาน IJMIL
+   * 2564–2566 ห้าชิ้นที่ Crossref หาไม่เจอ (Cherkas ไม่ส่งรายชื่อผู้เขียน) เปิดหน้าแรกของ PDF
+   * แล้วทั้งห้าระบุสังกัดของท่านเป็น Bahria University / Universitas Airlangga จึงไม่นับ
+   * · คงช่องทาง Crossref ไว้ เพราะ ORCID ของท่านไม่มี Media Education 2024/2025 และ IJMIL 2025
    */
   "ibtesam-mazahir": {
+    orcid: "0000-0003-3982-2231",
     crossref: { family: "mazahir", givenPattern: /ibtesam/i },
     surname: "mazahir",
     affiliationGate: /chulalongkorn|communication innovation/i,
@@ -1224,7 +1233,40 @@ const fromBylines = BYLINE_SOURCES.flatMap((s) =>
     orcidSource: "",
   })),
 );
-const merged = dedupe([...(await fromOrcid()), ...(await fromCrossref()), ...fromBylines]);
+const orcidRows = await fromOrcid();
+const crossrefRows = await fromCrossref();
+
+/**
+ * เกณฑ์สังกัดของงานที่มาจาก ORCID — ORCID ไม่มีสังกัดรายบทความให้ตรวจ
+ *
+ * ทำไมต้องมี (29 ก.ย. 2569): เดิม `fromOrcid()` ไม่รู้จัก `affiliationGate` เลย เพราะตอนเพิ่ม
+ * เกณฑ์นี้ ดร.อิบเตซาม ยังไม่มี ORCID ในทะเบียน พอใส่ ORCID ของท่าน ผลงานทั้ง 13 ชิ้นใน
+ * ORCID จะถูกนับเป็นของศูนย์ฯ ทั้งหมด รวมงานที่หัวบทความระบุแต่สังกัดในปากีสถาน
+ * ซึ่งขัดกับเกณฑ์ที่ผู้ใช้กำหนด และ build ไม่พัง — เป็นบั๊กเงียบชนิดที่ผู้อ่านเห็นก่อนเรา
+ *
+ * งาน ORCID ของผู้เขียนที่มีเกณฑ์จะนับได้ต่อเมื่อ DOI เดียวกันผ่านเกณฑ์ทางอื่นแล้ว
+ * (สังกัดในระเบียน Crossref หรือแถวใน BYLINE_SOURCES) ที่ไม่ผ่านพิมพ์ออกมาให้คนตรวจ
+ * เหมือนฝั่ง Crossref — ถ้าเจองานที่ควรนับ ให้เพิ่มแถวใน BYLINE_SOURCES พร้อมที่มา
+ */
+const gatePassed = new Set([...crossrefRows, ...fromBylines].map((r) => `${r.person}::${r.doi}`));
+const gateOrcidRows = (rows) => {
+  const out = [];
+  const gatedOut = {};
+  for (const r of rows) {
+    if (!AUTHORS[r.person].affiliationGate || (r.doi && gatePassed.has(`${r.person}::${r.doi}`))) {
+      out.push(r);
+      continue;
+    }
+    (gatedOut[r.person] ||= []).push(`${r.year || "?"} ${r.doi || "(ไม่มี DOI)"} — ${r.title.slice(0, 60)}`);
+  }
+  for (const [person, list] of Object.entries(gatedOut)) {
+    console.log(`  ORCID ${person}: ไม่นับ ${list.length} รายการ — ไม่มีหลักฐานว่าหัวบทความระบุสังกัดที่นับ:`);
+    for (const g of list) console.log(`      ${g}`);
+  }
+  return out;
+};
+
+const merged = dedupe([...gateOrcidRows(orcidRows), ...crossrefRows, ...fromBylines]);
 console.log(`fetched ${merged.length} unique records`);
 
 const rejected = [];

@@ -174,6 +174,16 @@ export const researchers: Researcher[] = [
         label: "Google Scholar",
         href: "https://scholar.google.com/citations?user=Xf_z7NQAAAAJ&hl=en",
       },
+      // สองลิงก์นี้เจ้าตัวส่งมา 28 ก.ย. 2569 · ORCID ตรวจกับ pub.orcid.org แล้วว่าเป็นชื่อท่าน
+      // และระเบียน ORCID ผูก Scopus Author ID เลขเดียวกันไว้เอง (หน้า Scopus กันบอต เปิดตรวจตรงไม่ได้)
+      {
+        label: "Scopus",
+        href: "https://www.scopus.com/authid/detail.uri?authorId=57222627712",
+      },
+      {
+        label: "ORCID",
+        href: "https://orcid.org/0000-0003-3982-2231",
+      },
       {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/ibtesam-mazahir-ph-d-208082107/",
