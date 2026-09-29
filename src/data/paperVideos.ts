@@ -151,6 +151,19 @@ export const paperVideos: PaperVideo[] = [
     th: { youtubeId: "mARMv6j1O2g", seconds: 193, uploadDate: "2026-09-05" },
     en: { youtubeId: "pSAzvKwLCDo", seconds: 201, uploadDate: "2026-09-05" },
   },
+  // ── ชุดที่ 7 — ผลงานของ ดร.อิบเตซาม มาซาฮีร์ นักวิจัยรับเชิญ (เผยแพร่ 29 ก.ย. 2569) ──
+  // ไม่เจนภาพใหม่ · เสียงโคลนของผู้ใช้ ศูนย์ฯ เป็นผู้เล่า · id อ่านจาก YouTube Studio ด้วย Claude in Chrome
+  // (ช่องยังเป็นฉบับร่าง ฟีด RSS ของช่องตอบ 404) · ความยาวจากไฟล์ที่ประกอบ ปัดเศษ
+  {
+    slug: "adult-media-literacy-pakistan",
+    th: { youtubeId: "bdLMwAP5FuU", seconds: 189, uploadDate: "2026-09-29" },
+    en: { youtubeId: "KY-DB0titTw", seconds: 178, uploadDate: "2026-09-29" },
+  },
+  {
+    slug: "women-entrepreneurs-qatar-social-media",
+    th: { youtubeId: "zXoaeRRU-RA", seconds: 180, uploadDate: "2026-09-29" },
+    en: { youtubeId: "6nfUKZEuC_Q", seconds: 165, uploadDate: "2026-09-29" },
+  },
 ];
 
 for (const v of paperVideos) {

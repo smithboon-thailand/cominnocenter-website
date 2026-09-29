@@ -1,21 +1,21 @@
 /**
  * ComInno Center — วิดีโอชุดที่ 7 (ผลงานของ ดร.อิบเตซาม มาซาฮีร์): ใส่ชื่อ คำอธิบาย แท็ก แล้วเผยแพร่ 4 คลิป
  * ต่อยอดจาก ComInnoYouTubeMetadata.gs (5 ก.ย. 2569) — ต่างกันตรงที่ข้อมูลฝังอยู่ในสคริปต์นี้ ไม่ต้องวางไฟล์ CSV
- * และหาคลิปจากเพลย์ลิสต์ "อัปโหลด" ของช่อง (เห็นฉบับร่างทันที) แทน Search ซึ่งอาจยังไม่เห็นคลิปที่เพิ่งอัปโหลด
+ * และระบุคลิปด้วย id ตรงๆ (ตรวจว่าเป็นคลิปของช่องนี้ก่อนแก้)
  *
  * วิธีใช้ (ทำครั้งเดียว)
- *  1. เปิด YouTube Studio ของช่อง Communication Innovation → สร้าง → อัปโหลดวิดีโอ → ลาก 4 ไฟล์เข้าไปพร้อมกัน
- *     ไม่ต้องกรอกอะไร รอจนอัปโหลดเสร็จแล้วปิดหน้าต่างได้เลย (คลิปจะเป็นฉบับร่าง ชื่อคลิป = ชื่อไฟล์
- *     เช่น ComInnoResearch24PakistanMediaLiteracyTH — สคริปต์ใช้ชื่อนี้หาคลิป อย่าเปลี่ยนชื่อไฟล์หรือชื่อคลิป)
+ *  1. อัปโหลด 4 คลิปเป็นฉบับร่างใน YouTube Studio ของช่อง Communication Innovation (ทำแล้ว 27–29 ก.ย. — id อยู่ใน META ด้านล่าง
+ *     ได้มาจาก Claude in Chrome อ่านจาก Studio · รุ่นแรกหาคลิปจากชื่อไฟล์ แต่ไฟล์ที่อัปโหลดจริงชื่อ pkmedia-th ฯลฯ
+ *     จึงหาไม่เจอ รุ่นนี้ใช้ id ตรงๆ ไม่ขึ้นกับชื่อคลิปแล้ว)
  *  2. เปิด https://script.google.com ด้วยบัญชีที่ดูแลช่อง → โปรเจ็กต์ใหม่ → วางโค้ดนี้ทับ Code.gs ทั้งหมด
  *  3. แถบซ้าย "Services" กด + → เลือก "YouTube Data API v3" → Add
  *  4. เลือกฟังก์ชัน run แล้วกด Run → อนุญาตสิทธิ์ (ถ้าช่องเป็น Brand Account ให้เลือกช่อง Communication Innovation
  *     ตอนเลือกบัญชี ไม่ใช่บัญชีส่วนตัว — สคริปต์ตรวจ id ช่องและหยุดทันทีถ้าไม่ใช่ช่องนี้)
- *     รอบแรก DRY_RUN = true → ดู Execution log ว่าเจอครบ 4 คลิป ยังไม่แก้อะไร
+ *     รอบแรก DRY_RUN = true → ดู Execution log ว่าเจอครบ 4 คลิปและเป็นของช่องนี้ ยังไม่แก้อะไร
  *  5. เปลี่ยน DRY_RUN เป็น false แล้ว Run อีกครั้ง → คลิปได้ชื่อ/คำอธิบาย/แท็ก และเปลี่ยนเป็นสาธารณะ
  *     บรรทัดท้ายของ log คือ id ของทั้ง 4 คลิป คัดลอกส่งให้ Claude เพื่อฝังบนหน้าบทสรุปของเว็บ
  *
- * โควตา YouTube Data API: 10,000 หน่วย/วัน · รอบนี้ใช้ราว 250 หน่วย
+ * โควตา YouTube Data API: 10,000 หน่วย/วัน · รอบนี้ใช้ราว 210 หน่วย (แก้คลิปละ 50)
  */
 
 const CHANNEL_ID = 'UCHSgYLtnzQSsy3CZh8beDow';   // ช่อง Communication Innovation (ตัวเดียวกับสคริปต์ 5 ก.ย.)
@@ -30,9 +30,9 @@ const ORG_EN = 'Center of Excellence in Communication Innovation for the Develop
 const CITE_PK = 'Mazahir, I., & Yaseen, S. (2025). Media literacy in the age of misinformation: A mixed-methods analysis of adult media literacy across urban and rural areas of Pakistan. International Journal of Media and Information Literacy, 10(1), 40-46. https://doi.org/10.13187/ijmil.2025.1.40';
 const CITE_QA = 'Al-khulaifi, A. A. A. T., Boonchutima, S., & Mazahir, I. (2025). Empowering women entrepreneurs in Qatar: The role of social media and media literacy in marketing communication. Media Education (Mediaobrazovanie), 21(1), 3-11. https://doi.org/10.13187/me.2025.1.3';
 
-/** ชื่อคลิปใน Studio (= ชื่อไฟล์ที่อัปโหลด) → ข้อมูลที่จะใส่ */
+/** id ของคลิปบน YouTube → ข้อมูลที่จะใส่ */
 const META = {
-  ComInnoResearch24PakistanMediaLiteracyTH: {
+  bdLMwAP5FuU: {
     key: 'pkmedia th', lang: 'th',
     title: 'ผู้ใหญ่ปากีสถานที่ใช้สื่อทุกวัน ดูข่าวลำเอียงออกแค่ 41% | ComInno Center',
     description: [
@@ -45,7 +45,7 @@ const META = {
     ].join('\n\n'),
     tags: ['ComInno Center', 'ศูนย์คอมอินโน', 'นิเทศศาสตร์ จุฬาฯ', 'งานวิจัย', 'การรู้เท่าทันสื่อ', 'ข่าวลำเอียง', 'ข่าวปลอม', 'ปากีสถาน', 'media literacy', 'Pakistan'],
   },
-  ComInnoResearch24PakistanMediaLiteracyEN: {
+  'KY-DB0titTw': {
     key: 'pkmedia en', lang: 'en',
     title: 'Only 41% of Pakistani adults who use media daily could spot biased news | ComInno Center',
     description: [
@@ -58,7 +58,7 @@ const META = {
     ].join('\n\n'),
     tags: ['ComInno Center', 'Chulalongkorn University', 'communication research', 'media literacy', 'misinformation', 'Pakistan', 'adult education', 'digital skills', 'rural women'],
   },
-  ComInnoResearch25QatarWomenEntrepreneursTH: {
+  'zXoaeRRU-RA': {
     key: 'qatarwe th', lang: 'th',
     title: 'โซเชียลมีเดียเปิดตลาดให้ผู้ประกอบการหญิงในกาตาร์ แต่พลาดครั้งเดียวอาจโดนคว่ำบาตร | ComInno Center',
     description: [
@@ -71,7 +71,7 @@ const META = {
     ].join('\n\n'),
     tags: ['ComInno Center', 'ศูนย์คอมอินโน', 'นิเทศศาสตร์ จุฬาฯ', 'งานวิจัย', 'ผู้ประกอบการหญิง', 'กาตาร์', 'โซเชียลมีเดีย', 'การตลาดออนไลน์', 'ชื่อเสียงแบรนด์', 'women entrepreneurs'],
   },
-  ComInnoResearch25QatarWomenEntrepreneursEN: {
+  '6nfUKZEuC_Q': {
     key: 'qatarwe en', lang: 'en',
     title: "Qatar's women entrepreneurs: an easy way in, but one mistake can mean a boycott | ComInno Center",
     description: [
@@ -89,26 +89,26 @@ const META = {
 function run() {
   checkMeta_();
   const channel = assertChannel_();
-  const found = findUploads_();
+  const found = findVideos_();
   Logger.log('ช่อง: %s (%s) · %s', channel.snippet.title, channel.id, DRY_RUN ? 'ทดลอง (ไม่แก้)' : 'แก้จริง');
 
   const results = [];
-  Object.keys(META).forEach(studio => {
-    const v = found[studio];
-    const m = META[studio];
-    if (!v) { Logger.log('✗ ไม่เจอคลิปชื่อ %s — อัปโหลดแล้วหรือยัง หรือชื่อคลิปถูกแก้ใน Studio', studio); return; }
-    if (v.dupes > 1) Logger.log('⚠ %s มี %s คลิปชื่อนี้ — ใช้ตัวล่าสุด (%s) ลบตัวที่เหลือใน Studio ได้', studio, v.dupes, v.id);
-    Logger.log('%s %s (%s · %s) → "%s"', DRY_RUN ? '[ทดลอง]' : '[แก้]', studio, v.id, v.privacy, m.title);
+  Object.keys(META).forEach(id => {
+    const v = found[id];
+    const m = META[id];
+    if (!v) { Logger.log('✗ %s (%s): ไม่เจอคลิปนี้ — id ผิด หรือบัญชีที่รันไม่มีสิทธิ์เห็นคลิป', m.key, id); return; }
+    if (v.channelId !== CHANNEL_ID) { Logger.log('✗ %s (%s): เป็นคลิปของช่องอื่น (%s) — ข้าม', m.key, id, v.channelId); return; }
+    Logger.log('%s %s (%s · %s · ชื่อเดิม "%s") → "%s"', DRY_RUN ? '[ทดลอง]' : '[แก้]', m.key, id, v.privacy, v.title, m.title);
     if (!DRY_RUN) {
       YouTube.Videos.update({
-        id: v.id,
+        id: id,
         snippet: { title: m.title, description: m.description, tags: m.tags, categoryId: CATEGORY_EDUCATION,
                    defaultLanguage: m.lang, defaultAudioLanguage: m.lang },
         status: { privacyStatus: 'public', selfDeclaredMadeForKids: false, embeddable: true },
       }, 'snippet,status');
       Utilities.sleep(300);
     }
-    results.push(m.key + ' ' + v.id);
+    results.push(m.key + ' ' + id);
   });
 
   Logger.log('เจอ %s จาก 4 คลิป%s', results.length, DRY_RUN ? ' — ถ้าครบ เปลี่ยน DRY_RUN เป็น false แล้ว Run อีกครั้ง' : ' — เผยแพร่แล้ว');
@@ -128,7 +128,7 @@ function checkMeta_() {
 }
 
 function assertChannel_() {
-  const res = YouTube.Channels.list('id,snippet,contentDetails', { mine: true });
+  const res = YouTube.Channels.list('id,snippet', { mine: true });
   const ch = res.items && res.items[0];
   if (!ch || ch.id !== CHANNEL_ID) {
     throw new Error('บัญชีที่รันอยู่ไม่ใช่ช่อง ' + CHANNEL_ID +
@@ -138,26 +138,12 @@ function assertChannel_() {
   return ch;
 }
 
-/** คลิปล่าสุด 100 ตัวในเพลย์ลิสต์ "อัปโหลด" ของช่อง (รวมฉบับร่าง/ส่วนตัว) → { ชื่อคลิป: { id, privacy, dupes } } */
-function findUploads_() {
-  const uploads = assertChannel_().contentDetails.relatedPlaylists.uploads;
-  const ids = [];
-  let pageToken;
-  do {
-    const res = YouTube.PlaylistItems.list('contentDetails', { playlistId: uploads, maxResults: 50, pageToken: pageToken });
-    (res.items || []).forEach(it => ids.push(it.contentDetails.videoId));
-    pageToken = res.nextPageToken;
-  } while (pageToken && ids.length < 100);
+/** อ่านคลิปตาม id ใน META (รวมฉบับร่าง/ส่วนตัว — เจ้าของช่องเห็นได้) → { id: { title, privacy, channelId } } */
+function findVideos_() {
+  const res = YouTube.Videos.list('snippet,status', { id: Object.keys(META).join(',') });
   const out = {};
-  for (let i = 0; i < ids.length; i += 50) {
-    const res = YouTube.Videos.list('snippet,status', { id: ids.slice(i, i + 50).join(',') });
-    (res.items || []).forEach(v => {
-      const t = v.snippet.title.trim();
-      if (!META[t]) return;
-      if (!out[t]) out[t] = { id: v.id, privacy: v.status.privacyStatus, dupes: 0, at: v.snippet.publishedAt };
-      out[t].dupes++;
-      if (v.snippet.publishedAt > out[t].at) { out[t].id = v.id; out[t].privacy = v.status.privacyStatus; out[t].at = v.snippet.publishedAt; }
-    });
-  }
+  (res.items || []).forEach(v => {
+    out[v.id] = { title: v.snippet.title, privacy: v.status.privacyStatus, channelId: v.snippet.channelId };
+  });
   return out;
 }
