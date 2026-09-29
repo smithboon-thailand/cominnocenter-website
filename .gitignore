@@ -38,3 +38,15 @@ next-env.d.ts
 # Python bytecode (scripts/video)
 __pycache__/
 *.pyc
+
+# ไฟล์ทำงานของวิดีโอ (scripts/video) — เสียงพากย์เป็นเสียงโคลนของผู้ใช้ และคลังนี้เป็นสาธารณะ จึงห้ามขึ้นคลังเด็ดขาด
+/scripts/video/audio-v2/
+/scripts/video/audio-v3/
+/scripts/video/assets/
+/scripts/video/images-v2/
+/scripts/video/fonts/
+/scripts/video/frames/
+/scripts/video/out/
+/scripts/video/storyboard.json
+/scripts/video/storyboard*.html
+/scripts/video/scripts-batch*.md
