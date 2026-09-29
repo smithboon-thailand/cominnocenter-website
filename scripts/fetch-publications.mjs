@@ -213,6 +213,21 @@ const AUTHORS = {
     crossref: { family: "mazahir", givenPattern: /ibtesam/i },
     surname: "mazahir",
     affiliationGate: /chulalongkorn|communication innovation/i,
+    /**
+     * ผ่านเกณฑ์สังกัดตามตัวอักษร แต่ **ผู้ใช้ตัดสินไม่นับ** (29 ก.ย. 2569 · PR #78)
+     *
+     * บทความ Natural Resources for Human Health 2026 สองชิ้นในไฟล์ที่ท่านส่งมา หัวบทความ
+     * ระบุสังกัดของท่านว่า "Faculty of Communication Arts, Chulalongkorn University"
+     * (ตรวจกับ PDF บนเว็บของวารสารเองแล้ว) แต่เป็นงานสายการแพทย์ที่ท่านเป็นผู้ประพันธ์
+     * บรรณกิจ · 6(8s) มี DOI 10.53365/nrfhh.1487 · 6(10s) ยังไม่มี DOI จดทะเบียน
+     *
+     * วันนี้ Crossref ลงชื่อผู้เขียนคนแรกคนเดียว การค้นด้วยชื่อท่านจึงไม่เจออยู่แล้ว
+     * รายการนี้กันวันที่สำนักพิมพ์ส่งระเบียนเต็มพร้อมสังกัด ซึ่งจะผ่านเกณฑ์และขึ้นเว็บ
+     * เองโดยไม่มีใครตัดสิน · **จับด้วยชื่อเรื่อง** เพราะชิ้นหลังยังไม่มี DOI ให้จับ
+     * · งานจาก ORCID ตามมาเอง เพราะนับได้ต่อเมื่อผ่านทาง Crossref/BYLINE_SOURCES แล้ว
+     * · ถ้าผู้ใช้เปลี่ยนใจ ให้ลบแถวออกแล้วรันใหม่
+     */
+    excludeTitles: [/^Improving Patient Care in Modern Medicine/i, /^National Reperfusion Capacity/i],
   },
 };
 
@@ -425,6 +440,8 @@ async function fromCrossref() {
     let mineCount = 0;
     /** ของผู้เขียนคนนี้จริง แต่หัวบทความไม่ได้ระบุสังกัดที่นับ — พิมพ์ออกมาให้คนตรวจ */
     const gatedOut = [];
+    /** ผ่านเกณฑ์แล้ว แต่ผู้ใช้ตัดสินไม่นับ (`excludeTitles`) — พิมพ์แยก ไม่ปนกับข้างบน */
+    const userExcluded = [];
     for (;;) {
       const res = await getJson(
         `https://api.crossref.org/works?query.author=${family}&rows=200` +
@@ -447,9 +464,14 @@ async function fromCrossref() {
           gatedOut.push(`${item.issued?.["date-parts"]?.[0]?.[0] || "?"} ${itemDoi} — ${affs.slice(0, 70)}`);
           continue;
         }
+        const title = (item.title || [""])[0].trim();
+        if ((cfg.excludeTitles || []).some((re) => re.test(title))) {
+          userExcluded.push(`${item.issued?.["date-parts"]?.[0]?.[0] || "?"} ${itemDoi} — ${title.slice(0, 60)}`);
+          continue;
+        }
         out.push({
           person: slug,
-          title: (item.title || [""])[0].trim(),
+          title,
           venue: (item["container-title"] || [""])[0] || item.publisher || "",
           year: item.issued?.["date-parts"]?.[0]?.[0] || 0,
           type: item.type,
@@ -467,6 +489,10 @@ async function fromCrossref() {
     if (gatedOut.length) {
       console.log(`    ไม่นับ ${gatedOut.length} รายการ — ไม่มีหลักฐานว่าหัวบทความระบุสังกัดที่นับ:`);
       for (const g of gatedOut) console.log(`      ${g}`);
+    }
+    if (userExcluded.length) {
+      console.log(`    ไม่นับ ${userExcluded.length} รายการ — ผู้ใช้ตัดสินไม่นับ (excludeTitles):`);
+      for (const g of userExcluded) console.log(`      ${g}`);
     }
     await sleep(300);
     }
