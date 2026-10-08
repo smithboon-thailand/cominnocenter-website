@@ -52,8 +52,8 @@ export const leadership: Leader[] = [
     metricsNoteZh: "Google Scholar：引用 269 次 · h 指数 9 · i10 指数 9 | Scopus（ID 56167805200）：24 篇文献 · 引用 107 次 · h 指数 6",
     name: "รศ.ดร.สมิทธิ์ บุญชุติมา",
     nameEn: "Assoc. Prof. Dr. Smith Boonchutima",
-    role: "Head of Research Operations Unit",
-    roleTh: "หัวหน้าศูนย์ / Head of Research Operations Unit",
+    role: "Director",
+    roleTh: "หัวหน้าศูนย์ / Director",
     image: media("8e0d14_ecc50ab1da21439b9bc9043a1e5c9b6b"),
     alt: "รศ.ดร.สมิทธิ์ บุญชุติมา หัวหน้าศูนย์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     education: [
@@ -128,8 +128,8 @@ export const leadership: Leader[] = [
     metricsNoteZh: "依据 ORCID 0000-0003-2785-8595 及朱拉隆功大学传播艺术学院公共关系系师资页面",
     name: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์",
     nameEn: "Asst. Prof. Dr. Teerada (Ne) Chongkolrattanaporn",
-    role: "Deputy Head of Research Operations Unit",
-    roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
+    role: "Deputy Director",
+    roleTh: "รองหัวหน้าศูนย์ / Deputy Director",
     image: media("25218b_89b42fbbe4814a6482683b96cc6f59e7"),
     alt: "ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ รองหัวหน้าศูนย์ หัวหน้าภาควิชาการประชาสัมพันธ์ คณะนิเทศศาสตร์ จุฬาฯ",
     education: [
@@ -183,8 +183,8 @@ export const leadership: Leader[] = [
     metricsNoteZh: "依据 ResearchGate 与 Google Scholar（user=1v6dmxQAAAAJ）",
     name: "รศ.ดร. Pavel Slutskiy",
     nameEn: "Assoc. Prof. Dr. Pavel Slutskiy",
-    role: "Deputy Head of Research Operations Unit",
-    roleTh: "รองหัวหน้าศูนย์ / Deputy Head of Research Operations Unit",
+    role: "Deputy Director",
+    roleTh: "รองหัวหน้าศูนย์ / Deputy Director",
     image: media("8e0d14_bb83dfe119da43c19b9ba2cc2480023f"),
     alt: "Assoc. Prof. Dr. Pavel Slutskiy รองหัวหน้าศูนย์ คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     education: [
