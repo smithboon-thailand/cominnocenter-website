@@ -12,6 +12,7 @@ type PageKey =
   | "expertise"
   | "impact"
   | "research"
+  | "insights"
   | "sdg"
   | "media"
   | "collaborate";
@@ -43,6 +44,7 @@ const NAV = {
     expertise: "ความเชี่ยวชาญ",
     impact: "ผลงาน",
     research: "งานวิจัย",
+    insights: "บทความ",
     sdg: "SDG",
     media: "สื่อถึงเรา",
     collaborate: "ร่วมงานกับเรา",
@@ -59,6 +61,7 @@ const NAV = {
     expertise: "Expertise",
     impact: "Impact",
     research: "Research",
+    insights: "Insights",
     sdg: "SDG",
     media: "Media",
     collaborate: "Collaborate",
@@ -75,6 +78,7 @@ const NAV = {
     expertise: "专业服务",
     impact: "项目成果",
     research: "研究成果",
+    insights: "文章",
     sdg: "SDG",
     media: "媒体报道",
     collaborate: "合作洽谈",
@@ -98,8 +102,8 @@ const LOCALES: Locale[] = ["th", "en", "zh"];
  * ว่าไม่แปล) เมนูจึงต้องไม่ลิงก์ไปหน้าที่ไม่มี · `check:routes` ดักลิงก์เสียไว้อีกชั้น
  */
 const NAV_ITEMS: Record<Locale, readonly PageKey[]> = {
-  th: ["home", "about", "expertise", "impact", "research", "sdg", "media", "collaborate"],
-  en: ["home", "about", "expertise", "impact", "research", "sdg", "media", "collaborate"],
+  th: ["home", "about", "expertise", "impact", "research", "insights", "sdg", "media", "collaborate"],
+  en: ["home", "about", "expertise", "impact", "research", "insights", "sdg", "media", "collaborate"],
   zh: ["home", "about", "expertise", "impact", "research", "sdg", "collaborate"],
 };
 
@@ -157,14 +161,22 @@ export default function Header({ active, locale = "th", switchHrefs }: HeaderPro
           />
         </Link>
 
-        {/* ที่ md เมนูมี 8 รายการและชื่ออังกฤษยาวกว่าไทย — บีบทั้ง gap และโลโก้
-            ให้พอดี 768px (เมนูอังกฤษเคยล้น 6px ตั้งแต่เพิ่มรายการ "Research") */}
+        {/* เมนูเดสก์ท็อปไม่มี "หน้าแรก" (โลโก้คือลิงก์หน้าแรกอยู่แล้ว) และซ่อน "ร่วมงานกับเรา"
+            ตั้งแต่ lg เพราะปุ่ม CTA ข้างขวาคือลิงก์เดียวกัน — เพิ่มรายการ "บทความ" 20 ต.ค. 2569
+            แล้วเมนูอังกฤษ 9 รายการล้นจอ 42px ที่ 768 และ 68px ที่ 1024 (วัดด้วยเบราว์เซอร์จริง)
+            เมนูมือถือยังมีครบทุกรายการ */}
         <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-sm font-medium">
-          {items.map((page) => (
-            <Link key={page} href={pathFor(locale, page)} className={linkClass(page)}>
-              {t[page]}
-            </Link>
-          ))}
+          {items
+            .filter((page) => page !== "home")
+            .map((page) => (
+              <Link
+                key={page}
+                href={pathFor(locale, page)}
+                className={`${linkClass(page)}${page === "collaborate" ? " lg:hidden" : ""}`}
+              >
+                {t[page]}
+              </Link>
+            ))}
         </nav>
 
         <div className="flex items-center gap-3">

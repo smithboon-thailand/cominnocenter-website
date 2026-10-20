@@ -1,0 +1,1164 @@
+/**
+ * บทความ (Insights) — งานเขียนของศูนย์ฯ ที่เล่าข้อค้นพบจากงานวิจัยให้คนทำงานสื่อสารอ่าน
+ *
+ * ต่างจาก `news.ts` (ข่าวกิจกรรมที่เก็บจากเว็บเดิม) และ `paperSummaries.ts` (บทสรุปทีละบทความ)
+ * ตรงที่หนึ่งบทความเรียบเรียงหลักฐานจากหลายงานเข้าด้วยกันเพื่อตอบคำถามเดียวของผู้อ่าน
+ * กลุ่มเป้าหมายคือหน่วยงานที่อาจมาร่วมงานกับศูนย์ฯ (หน่วยงานรัฐ องค์กรระหว่างประเทศ เอเจนซี)
+ *
+ * กติกาที่ใช้กับทุกบทความ (ตกลงกับผู้ใช้ 20 ต.ค. 2569 · คู่มือเสียงอยู่ในชุดไฟล์ ComInno Content Studio)
+ * 1. **ตัวเลขทุกตัวต้องมาจากแหล่งที่ตรวจแล้ว และผู้อ่านตามไปดูต้นทางได้** — งานวิจัยของศูนย์ฯ
+ *    ใส่ slug ของบทสรุปไว้ใน `evidence` (หน้าบทความโยน error ถ้า slug ไม่มีอยู่จริง) · สถิติจากภายนอก
+ *    ใส่ใน `references` พร้อม URL และวันที่เข้าถึง · ข้อมูลจาก Statista (21 ต.ค. 2569) ผู้ใช้เปิดดูเอง
+ *    ผ่านบัญชีที่ล็อกอิน แล้วตรวจตัวเลขกับหน้าต้นทาง — **ห้ามคัดลอกภาพกราฟของ Statista** สร้างกราฟใหม่
+ *    จากตัวเลขด้วย block `chart` และเครดิต "<แหล่งต้นทาง> via Statista" ใต้กราฟทุกครั้ง
+ * 2. ตัวละครในย่อหน้าเปิดเป็นตัวละครสมมติ และต้องเขียนกำกับว่าสมมติ
+ * 3. ศูนย์ฯ เป็นผู้เล่า ประธานของกริยาวิจัยคือทีมวิจัย · งานที่ทำก่อนตั้งศูนย์ฯ ห้ามเขียนว่าศูนย์ฯ ทำ
+ * 4. ชื่อหน่วยงานที่เคยร่วมงานใช้ได้เฉพาะที่อยู่บนหน้า Impact แล้ว
+ * 5. ไม่มีฉบับจีน (แนวเดียวกับข่าวและสื่อ) · ไม่ใช้ `**` เพราะหน้านี้ไม่แปลงมาร์กดาวน์
+ */
+
+export type InsightBlock =
+  /** `links` = ลิงก์ภายในบนคำในย่อหน้า (`match` ต้องปรากฏใน `text` ตรงตัวอักษร ไม่งั้น build พัง) */
+  | { kind: "p"; text: string; links?: { match: string; href: string }[] }
+  | { kind: "h2"; text: string }
+  | { kind: "ul"; items: string[] }
+  | { kind: "note"; text: string }
+  | { kind: "chart"; chart: InsightChartData }
+  /** ข้อแนะนำเป็นข้อๆ ที่มีหัวข้อสั้นนำหน้า แสดงเป็นการ์ดมีเลขกำกับ */
+  | { kind: "tips"; items: { title: string; text: string }[] };
+
+/** กราฟที่วาดจากตัวเลขบนหน้าเว็บเอง (ดู `InsightChart`) — ค่าเป็นเปอร์เซ็นต์ */
+export type InsightChartData = {
+  /** bar · line · dial (แถบเลื่อนทีละขั้น) · pick (ให้ผู้อ่านเลือกก่อนแล้วเทียบ) — ดู InsightChart/InsightChartChoice */
+  type: "bar" | "line" | "dial" | "pick" | "waffle" | "coverage";
+  title: string;
+  subtitle: string;
+  /** คำบรรยายสำหรับโปรแกรมอ่านหน้าจอ ต้องบอกตัวเลขครบทุกค่า */
+  alt: string;
+  /** บรรทัดเครดิตใต้กราฟ */
+  source: string;
+  /** `detail` = ป้ายเต็มที่ dial แสดงเหนือแถบ · `aiShare` = สัดส่วนบล็อก AI ของขั้นนั้นใน dial (0–1) */
+  data: { label: string; value: number; highlight?: boolean; detail?: string; aiShare?: number; total?: number }[];
+  /** waffle: ชื่อกลุ่ม (กลุ่มแรก = กลุ่มที่ให้ทาย) และค่าต่อปีเป็นพันคน เรียงตาม `groups` · coverage ใช้ `total` ใน data */
+  groups?: string[];
+  series?: { label: string; values: number[] }[];
+  /** pick: ลำดับที่แสดงตัวเลือก (index ของ data) สลับไว้ไม่ให้ลำดับเผยคำตอบ */
+  order?: number[];
+  /** กราฟแท่ง: label ของแท่งที่ให้ผู้อ่านทายก่อนเฉลย (ค่าแท่งนั้นซ่อนจนกดเฉลย · ไม่มี JS ก็เห็นครบ) */
+  guess?: string;
+};
+
+export type InsightReference = { text: string; url: string };
+
+export type InsightCopy = {
+  title: string;
+  dek: string;
+  body: InsightBlock[];
+  /** ต้องมีเมื่อบทความมี `cover` */
+  coverAlt?: string;
+  /** คำบรรยายใต้ภาพปก — ภาพที่เจนด้วย AI ต้องบอกผู้อ่าน (คู่มือภาพของ Content Studio) */
+  coverCaption?: string;
+  references?: InsightReference[];
+  /** หัวข้อของรายการอ้างอิง — ไม่ใส่ = "อ้างอิง" / "References" */
+  referencesTitle?: string;
+  /** ภาพตอนแชร์ (path เต็มพร้อมนามสกุล) — ถ้าไม่มีใช้ภาพปก แล้วค่อยใช้ภาพกลางของเว็บ */
+  ogImage?: string;
+};
+
+export type InsightPost = {
+  slug: string;
+  /** YYYY-MM-DD วันที่เผยแพร่บนเว็บ */
+  date: string;
+  /** path ภาพปกไม่มีนามสกุล — ต้องมีสามขนาดตามกติกาของ ResponsiveArtwork · ไม่มี = หน้าไม่มีภาพหัว */
+  cover?: string;
+  /** slug ของหน้าบทสรุปงานวิจัยที่เป็นหลักฐานของบทความนี้ เรียงตามลำดับที่เล่า */
+  evidence?: string[];
+  /** slug ของโครงการบนหน้า Impact ที่บทความอ้างถึง */
+  relatedProjects?: string[];
+  th: InsightCopy;
+  en: InsightCopy;
+};
+
+export const insights: InsightPost[] = [
+  {
+    slug: "co-designed-campaigns-migrant-workers",
+    date: "2026-10-20",
+    cover: "/images/research/summaries/migrant-worker-exercise-codesign",
+    evidence: [
+      "migrant-worker-exercise-codesign",
+      "hiv-risk-communication-samut-sakhon",
+      "engage-a3-model",
+    ],
+    relatedProjects: ["department-of-disease-control"],
+    th: {
+      title: "แคมเปญที่ได้ผลที่สุด อาจไม่ได้เขียนโดยเรา",
+      dek: "งานวิจัยสามชิ้นกับแรงงานข้ามชาติชาวเมียนมาชี้ไปทางเดียวกัน เมื่อให้ผู้รับสารร่วมออกแบบตั้งแต่ต้น ข้อความจะไปถึงคนที่หน่วยงานเคยเข้าไม่ถึง",
+      coverAlt:
+        "ภาพประกอบกระดาษ กล่องใบเล็กที่มีรูปทรงพอดีวางอยู่ข้างใน ขณะที่รูปทรงใหญ่กว่าวางค้างอยู่ข้างนอก",
+      body: [
+        {
+          kind: "p",
+          text: "มิน (ตัวละครสมมติ) ทำงานแกะกุ้งในโรงงานอาหารทะเลมาสามปี กะละสิบสองชั่วโมง หยุดสัปดาห์ละวัน ทุกเช้ามือของเขาแข็งจนกำแก้วกาแฟแทบไม่ได้ ที่ห้องพักพนักงานมีโปสเตอร์ท่ายืดเหยียดติดอยู่ เขียนเป็นภาษาไทยทั้งแผ่น มินเดินผ่านมันทุกวัน แล้วซื้อยาแก้ปวดที่ร้านหน้าโรงงานแทน",
+        },
+        {
+          kind: "p",
+          text: "โปสเตอร์แผ่นนั้นไม่ผิด ข้อมูลอาจถูกต้องทุกบรรทัด แต่มันถูกออกแบบโดยคนที่ไม่เคยถามมินเลยสักคำ",
+        },
+        { kind: "h2", text: "มินไม่ได้อยู่คนเดียว" },
+        {
+          kind: "p",
+          text: "มินเป็นหนึ่งในแรงงานชาวเมียนมาราว 1.71 ล้านคนที่ทำงานในไทยเมื่อปี 2566 [1] เมื่อเทียบกับแรงงานจากกัมพูชา (ราว 4 แสนคน) ลาว (ราว 2.3 แสนคน) และเวียดนาม (ราว 1,400 คน) ในปีเดียวกัน แรงงานเมียนมาคิดเป็นราวสามในสี่ของแรงงานจากสี่ประเทศนี้รวมกัน [1–4] การออกแบบการสื่อสารที่ไม่ได้คิดถึงคนกลุ่มนี้ จึงเท่ากับมองข้ามแรงงานข้ามชาติส่วนใหญ่ของประเทศ",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "waffle",
+            title: "ถ้ามีแรงงานข้ามชาติ 100 คน จะเป็นชาวเมียนมากี่คน",
+            subtitle: "นับเฉพาะแรงงานจากเมียนมา กัมพูชา ลาว และเวียดนามในไทย · ปี 2562–2566",
+            alt: "กราฟ 100 ช่อง ปี 2566: เมียนมา 73 กัมพูชา 17 ลาว 10 และเวียดนามน้อยกว่า 1 จาก 100 คน (เมียนมา 1.71 ล้านคน กัมพูชา 401,350 คน ลาว 232,640 คน เวียดนาม 1,387 คน)",
+            source: "ที่มา: ILO, Thailand: Migration Report 2024 via Statista, 2025 · สัดส่วนคำนวณโดย ComInnoCenter",
+            groups: ["เมียนมา", "กัมพูชา", "ลาว", "เวียดนาม"],
+            series: [{"label": "2562", "values": [1820, 686.43, 280.96, 0.096]}, {"label": "2563", "values": [1440, 454.38, 207.29, 0.248]}, {"label": "2564", "values": [1460, 455.48, 213.2, 0.137]}, {"label": "2565", "values": [1980, 519.76, 234.99, 1.704]}, {"label": "2566", "values": [1710, 401.35, 232.64, 1.387]}],
+            data: [],
+          },
+        },
+        {
+          kind: "p",
+          text: "ในงานวิจัยปี 2569 ที่ทีมวิจัยซึ่งมีนักวิจัยของศูนย์ฯ ร่วมอยู่ด้วย ร่วมออกแบบโปรแกรมบริหารร่างกายกับแรงงานชาวเมียนมาในโรงงานอาหารทะเลแห่งหนึ่ง แรงงานทั้ง 29 คนที่ร่วมวงคุยมีอาการที่มือทุกคน 25 คน (86%) มือแข็งตอนเช้าจนกระทบชีวิตนอกงาน และ 23 คน (79%) ซื้อยาแก้ปวดกินเองอย่างน้อยสัปดาห์ละครั้ง",
+        },
+        {
+          kind: "p",
+          text: "ตัวเลขชุดนี้บอกอะไรมากกว่าความเจ็บป่วย มันบอกว่าคนกลุ่มนี้พยายามดูแลตัวเองอยู่แล้ว เพียงแต่ไม่มีใครออกแบบทางเลือกที่เข้ากับชีวิตจริงของเขา",
+        },
+        {
+          kind: "p",
+          text: "ภาพเดียวกันนี้เห็นได้ในระดับประเทศ ข้อมูลจากรายงานการย้ายถิ่นของ ILO ระบุว่า ณ กุมภาพันธ์ 2567 มีแรงงานข้ามชาติราว 2.54 ล้านคนที่มีสิทธิ์เข้ากองทุนประกันสังคม แต่ลงทะเบียนจริงราว 1.30 ล้านคน และในระบบประกันสุขภาพแรงงานต่างด้าว มีผู้มีสิทธิ์ราว 4.8 แสนคน ลงทะเบียนราว 2.5 แสนคน [5] คิดเป็นราวครึ่งเดียวในทั้งสองระบบ ช่องว่างนี้มีหลายสาเหตุ ไม่ใช่เรื่องการสื่อสารเพียงอย่างเดียว แต่ก็สะท้อนว่าสิทธิ์ที่มีอยู่บนกระดาษ ยังเดินทางไปไม่ถึงชีวิตจริงของคนจำนวนมาก",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "coverage",
+            title: "มีสิทธิ์ แต่ลงทะเบียนจริงราวครึ่งเดียว",
+            subtitle: "แรงงานข้ามชาติที่มีสิทธิ์เทียบกับที่ลงทะเบียนจริง · ก.พ. 2567 · กรอบเส้นประ = ผู้มีสิทธิ์ แถบสี = ลงทะเบียนแล้ว · แต่ละแถบเทียบกับผู้มีสิทธิ์ของระบบนั้น",
+            alt: "กองทุนประกันสังคม มีสิทธิ์ 2.54 ล้านคน ลงทะเบียน 1.30 ล้านคน (51%) · ประกันสุขภาพแรงงานต่างด้าว มีสิทธิ์ 476,470 คน ลงทะเบียน 250,880 คน (53%)",
+            source: "ที่มา: ILO, Thailand: Migration Report 2024 via Statista, 2025 · ร้อยละคำนวณโดย ComInnoCenter",
+            data: [{"label": "กองทุนประกันสังคม (SSF)", "value": 1301.57, "total": 2544.67}, {"label": "ประกันสุขภาพแรงงานต่างด้าว (MHIS)", "value": 250.88, "total": 476.47}],
+          },
+        },
+        { kind: "h2", text: "ข้อจำกัดที่คนหน้างานบอก คือโจทย์ออกแบบ ไม่ใช่อุปสรรค" },
+        {
+          kind: "p",
+          text: "สิ่งที่ทีมวิจัยทำต่างไปจากโปสเตอร์แผ่นนั้น คือคุยกับแรงงานด้วยภาษาเมียนมา นัดเวลาให้เข้ากับกะสิบสองชั่วโมง และแยกการขอความยินยอมออกจากฝ่ายบริหาร แล้วฟังว่าเขาต้องการอะไร",
+        },
+        {
+          kind: "p",
+          text: "คำตอบที่ได้ไม่ได้มาในรูปความต้องการลอยๆ แต่มาเป็นเงื่อนไขที่ชัดมาก ท่าบริหารต้องทำได้ในพื้นที่แคบขนาดห้องพัก ไม่ใช้อุปกรณ์ ทำนอกเวลางาน และต้องไม่ทำให้รายได้ลดลง เพราะทุกคนมีเงินที่ต้องส่งกลับบ้าน แรงงาน 26 จาก 29 คนใช้เฟซบุ๊กทุกวัน และอยากได้วิดีโอสาธิตมากกว่าเอกสาร เพราะเปิดดูได้โดยหัวหน้าไม่เห็น พวกเขายังปฏิเสธการอบรมแบบบังคับในวันหยุดวันเดียวของสัปดาห์ด้วย",
+        },
+        {
+          kind: "p",
+          text: "เงื่อนไขเหล่านี้กลายเป็นโจทย์ออกแบบชุดท่าบริหาร 12 ท่าใน 4 สัปดาห์ และเมื่อส่งให้นักกายภาพบำบัดต่างประเทศ 4 คนตรวจ ชุดท่าผ่านเกณฑ์ความตรงเชิงเนื้อหาในระดับสูง การฟังคนทำงานจึงไม่ได้แลกมากับคุณภาพทางคลินิก",
+        },
+        {
+          kind: "p",
+          text: "สำหรับคนทำงานสื่อสาร บทเรียนข้อนี้ตรงไปตรงมา ช่องทางที่ผู้รับสารใช้อยู่แล้วและใช้ได้อย่างเป็นส่วนตัว สำคัญกว่าช่องทางที่องค์กรถนัด",
+        },
+        { kind: "h2", text: "ให้คนในกลุ่มเป็นคนพาข้อความไป" },
+        {
+          kind: "p",
+          text: "งานที่เก่ากว่านั้นของ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2562 เก็บข้อมูลปี 2560 ก่อนตั้งศูนย์ฯ) ทดลองเรื่องนี้กับการสื่อสารความเสี่ยงเอชไอวีในโรงงานแห่งหนึ่งที่สมุทรสาคร ทีมวิจัยออกแบบแคมเปญจากวงสนทนากับแรงงาน 16 คน และการสัมภาษณ์เจ้าหน้าที่รัฐกับองค์กรพัฒนาเอกชน 10 คน แล้วให้อาสาสมัครสาธารณสุขที่คัดจากตัวแรงงานเองเป็นผู้เดินงานกับแรงงาน 400 คนเป็นเวลาสองสัปดาห์",
+        },
+        {
+          kind: "p",
+          text: "หลังแคมเปญ ความรู้เรื่องเอชไอวีเพิ่มขึ้นอย่างมีนัยสำคัญ ความมั่นใจว่าตัวเองป้องกันได้ก็เพิ่มขึ้น และขั้นของการเปลี่ยนพฤติกรรมเรื่องการใช้ถุงยางอนามัยกับการไปตรวจเลือดก็ขยับขึ้น สิ่งเดียวที่ไม่ขยับคือความรู้สึกว่าตัวเองเสี่ยง",
+        },
+        {
+          kind: "p",
+          text: "ผลข้อสุดท้ายนี้น่าสนใจที่สุด แคมเปญสุขภาพจำนวนมากเริ่มจากการทำให้คนกลัวก่อน แต่ในงานนี้คนเปลี่ยนพฤติกรรมได้โดยไม่ต้องรู้สึกกลัวมากขึ้น ผู้วิจัยสรุปว่าการที่แรงงานได้ร่วมออกแบบเองคือสิ่งที่ทำให้แคมเปญได้ผล",
+        },
+        { kind: "h2", text: "ลำดับสำคัญ เริ่มที่ความไว้วางใจก่อนผลิตสื่อ" },
+        {
+          kind: "p",
+          text: "งานชิ้นที่สามของคณะผู้วิจัยชุดเดียวกับงานเอชไอวี (ปี 2565) รวบบทเรียนจากภาคสนามเป็นแบบจำลองหกขั้นชื่อ ENGAGE-A3 แล้วให้ผู้เชี่ยวชาญด้านการสื่อสาร สาธารณสุข และแรงงานข้ามชาติ 10 คนให้คะแนน ภาพรวมได้ 4.26 จาก 5 สองขั้นที่ได้คะแนนสูงสุดเท่ากันที่ 4.45 คือการสร้างความไว้วางใจ และการทำให้เป็นเกม ส่วนการหาคนในพื้นที่มาช่วยได้ 4.36",
+        },
+        {
+          kind: "p",
+          text: "ข้อสังเกตที่ใช้ได้ทันทีคือลำดับ งานสื่อสารกับกลุ่มเปราะบางมักเริ่มจากการผลิตสื่อ แต่ขั้นที่ผู้เชี่ยวชาญให้น้ำหนักสูงสุดเป็นสิ่งที่ต้องเกิดก่อนจะมีสื่อชิ้นแรก อีกข้อที่ควรบอกตรงๆ คือขั้นประเมินผลได้คะแนนต่ำสุดในหกขั้น (4.18) แปลว่าแม้แต่ผู้เชี่ยวชาญเองก็ยังให้น้ำหนักกับการวัดผลน้อยกว่าขั้นอื่น",
+        },
+        { kind: "h2", text: "ข้อมูลชุดนี้มีขอบเขตอะไรบ้าง" },
+        {
+          kind: "p",
+          text: "งานทั้งสามชิ้นเป็นงานขนาดเล็ก งานเรื่องท่าบริหารเป็นการออกแบบร่วมกับคนในโรงงานเดียว ยังไม่ได้ทดสอบว่าท่าบริหารช่วยลดอาการได้จริง งานเรื่องเอชไอวีมาจากโรงงานเดียวและวัดพฤติกรรมจากคำบอกเล่าของผู้เข้าร่วม ส่วนแบบจำลองหกขั้นประเมินด้วยความเห็นผู้เชี่ยวชาญ ไม่ใช่ผลลัพธ์สุขภาพ สิ่งที่ทั้งสามชิ้นบอกได้ตรงกันจึงเป็นเรื่องของวิธีออกแบบ มากกว่าจะเป็นคำรับรองผลลัพธ์",
+        },
+        {
+          kind: "p",
+          text: "ตัวเลขระดับประเทศที่ใช้ประกอบมาจากรายงานของ ILO ผ่าน Statista ซึ่งเป็นข้อมูลแรงงานที่อยู่ในระบบทางการ จำนวนจริงอาจสูงกว่านี้ และช่องว่างการลงทะเบียนประกันมีหลายสาเหตุ เช่น ประเภทการจ้างงานและภาระค่าใช้จ่าย จึงไม่ควรตีความว่าเป็นผลจากการสื่อสารเพียงอย่างเดียว สัดส่วนที่อ้างถึงคำนวณโดยศูนย์ฯ จากตัวเลขในรายงาน",
+        },
+        { kind: "h2", text: "ลองเริ่มจากโครงการถัดไปของคุณ" },
+        {
+          kind: "ul",
+          items: [
+            "ก่อนเขียนบรีฟ จัดวงคุยกับผู้รับสารสักหนึ่งรอบ ใช้ภาษาของเขา และนัดเวลาที่เขาว่างจริง ไม่ใช่เวลาที่สำนักงานสะดวก",
+            "เขียนเงื่อนไขที่ผู้รับสารบอกลงในบรีฟเป็นข้อกำหนด เช่น ต้องดูได้ในโทรศัพท์ ต้องจบในสามนาที หรือต้องไม่ใช้วันหยุดของเขา",
+            "หาคนจากในกลุ่มที่คนอื่นไว้ใจ ให้เขาเป็นคนพาข้อความไป และวางแผนวัดผลไว้ตั้งแต่วันแรก ไม่ใช่หลังแคมเปญจบ",
+          ],
+        },
+        {
+          kind: "p",
+          text: "ศูนย์ฯ ทำงานแบบนี้กับหน่วยงานด้วย เช่น เวิร์กช็อปการออกแบบกระบวนการให้บริการกับกรมควบคุมโรค ซึ่งเน้นการสื่อสารเจาะกลุ่มเป้าหมาย",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังออกแบบการสื่อสารกับกลุ่มที่เข้าถึงยาก ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "ILO via Statista. (2025, February 5). Number of migrant workers from Myanmar in Thailand from 2019 to 2023 (Thailand: Migration Report 2024, p. 46). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551849/thailand-number-of-burmese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Cambodia in Thailand from 2019 to 2023. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551843/thailand-number-of-cambodian-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Lao PDR in Thailand from 2019 to 2023. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551845/thailand-number-of-lao-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Vietnam in Thailand from 2019 to 2023. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551850/thailand-number-of-vietnamese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Eligibility of migrant workers to enroll in the healthcare scheme in Thailand as of February 2024, by status (Thailand: Migration Report 2024, p. 233). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551893/thailand-eligibility-of-migrant-workers-for-the-healthcare-scheme-by-status/",
+        },
+      ],
+    },
+    en: {
+      title: "Our best campaigns may not be written by us",
+      dek: "Three studies with Myanmar migrant workers point the same way: when the audience helps design the message from the start, it reaches people the organisation could not reach before.",
+      coverAlt:
+        "Paper-craft illustration of a small box holding the one shape that fits, with a larger shape left outside it",
+      body: [
+        {
+          kind: "p",
+          text: "Min (a composite character) has peeled shrimp in a seafood plant for three years. His shifts run twelve hours, with one day off a week. Every morning his hands are so stiff he can barely hold a coffee cup. In the staff room there is a poster of stretching exercises, written entirely in Thai. Min walks past it every day, then buys painkillers from the shop outside the gate.",
+        },
+        {
+          kind: "p",
+          text: "Nothing on that poster is wrong. Every line may be accurate. But it was designed by people who never asked Min a single question.",
+        },
+        { kind: "h2", text: "Min is not alone" },
+        {
+          kind: "p",
+          text: "Min is one of about 1.71 million workers from Myanmar employed in Thailand in 2023 [1]. Compared with workers from Cambodia (about 400,000), Laos (about 230,000) and Vietnam (about 1,400) in the same year, workers from Myanmar made up roughly three in four of those from the four countries combined [1–4]. Communication designed without this group in mind overlooks most of the country's migrant workforce.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "waffle",
+            title: "If there were 100 migrant workers, how many would be from Myanmar?",
+            subtitle: "Counting only workers from Myanmar, Cambodia, Laos and Vietnam in Thailand · 2019–2023",
+            alt: "100-square chart for 2023: Myanmar 73, Cambodia 17, Laos 10 and Vietnam fewer than 1 out of 100 (Myanmar 1.71 million, Cambodia 401,350, Laos 232,640, Vietnam 1,387)",
+            source: "Source: ILO, Thailand: Migration Report 2024 via Statista, 2025 · shares calculated by ComInnoCenter",
+            groups: ["Myanmar", "Cambodia", "Laos", "Vietnam"],
+            series: [{"label": "2019", "values": [1820, 686.43, 280.96, 0.096]}, {"label": "2020", "values": [1440, 454.38, 207.29, 0.248]}, {"label": "2021", "values": [1460, 455.48, 213.2, 0.137]}, {"label": "2022", "values": [1980, 519.76, 234.99, 1.704]}, {"label": "2023", "values": [1710, 401.35, 232.64, 1.387]}],
+            data: [],
+          },
+        },
+        {
+          kind: "p",
+          text: "In a 2026 study in which a research team including researchers from our centre co-designed an exercise programme with Myanmar workers at a seafood plant, all 29 workers in the sessions reported hand symptoms. Twenty-five of them (86%) had morning stiffness that affected life outside work, and 23 (79%) bought painkillers at least once a week.",
+        },
+        {
+          kind: "p",
+          text: "Those figures say more than that people are in pain. They say this group is already trying to look after itself. Nobody had designed an option that fits the life they actually live.",
+        },
+        {
+          kind: "p",
+          text: "The same picture shows up nationally. The ILO's migration report states that in February 2024 about 2.54 million migrant workers were eligible for the Social Security Fund, but only about 1.30 million were enrolled. In the Migrant Health Insurance Scheme, about 480,000 were eligible and about 250,000 enrolled [5]. That is roughly half in both schemes. The gap has many causes, not communication alone, but it shows that rights that exist on paper have yet to reach the daily lives of many people.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "coverage",
+            title: "Eligible, but only about half enrolled",
+            subtitle: "Eligible migrant workers compared with those actually enrolled · February 2024 · dashed outline = eligible, coloured bar = enrolled · each bar is scaled to its own scheme",
+            alt: "Social Security Fund: 2.54 million eligible, 1.30 million enrolled (51%) · Migrant Health Insurance Scheme: 476,470 eligible, 250,880 enrolled (53%)",
+            source: "Source: ILO, Thailand: Migration Report 2024 via Statista, 2025 · percentages calculated by ComInnoCenter",
+            data: [{"label": "Social Security Fund (SSF)", "value": 1301.57, "total": 2544.67}, {"label": "Migrant Health Insurance Scheme (MHIS)", "value": 250.88, "total": 476.47}],
+          },
+        },
+        { kind: "h2", text: "The constraints people name are the design brief, not obstacles" },
+        {
+          kind: "p",
+          text: "What the research team did differently from that poster was simple: they talked with workers in Myanmar language, scheduled sessions around twelve-hour shifts, took consent away from management, and listened to what the workers wanted.",
+        },
+        {
+          kind: "p",
+          text: "The answers came back as very specific conditions. The exercises had to fit a dormitory-sized space, need no equipment, happen outside working hours, and never cost earnings, because everyone sends money home. Twenty-six of the 29 used Facebook every day and wanted video demonstrations rather than handouts, because they could watch them without supervisors seeing. They also turned down compulsory workshops on their one day off.",
+        },
+        {
+          kind: "p",
+          text: "Those conditions became the brief for a 12-exercise, four-week programme. When four international physical therapists reviewed it, the programme scored highly on content validity. Listening to the workers did not cost clinical quality.",
+        },
+        {
+          kind: "p",
+          text: "For communicators the lesson is direct. A channel your audience already uses, and can use privately, matters more than the channel your organisation is comfortable with.",
+        },
+        { kind: "h2", text: "Let people inside the group carry the message" },
+        {
+          kind: "p",
+          text: "An earlier study by Smith Boonchutima and colleagues (published in 2019, with data collected in 2017, before the centre was founded) tested this with HIV risk communication at a factory in Samut Sakhon. The team designed the campaign from focus groups with 16 workers and interviews with ten government and NGO officers, then had health volunteers recruited from among the workers deliver it to 400 workers over two weeks.",
+        },
+        {
+          kind: "p",
+          text: "After the campaign, knowledge of HIV rose significantly, so did workers' confidence that they could protect themselves, and their stage of change for condom use and HIV testing moved forward. The one thing that did not move was their sense of personal risk.",
+        },
+        {
+          kind: "p",
+          text: "That last result is the most interesting. Many health campaigns start by making people afraid. Here, behaviour changed without anyone feeling more at risk. The researchers concluded that the workers' part in designing the campaign was what made it work.",
+        },
+        { kind: "h2", text: "Order matters: trust comes before materials" },
+        {
+          kind: "p",
+          text: "The third study, by the same team as the HIV study (2022), turned these field lessons into a six-step model called ENGAGE-A3 and asked ten experts in communication, public health and migration to rate it. It scored 4.26 out of 5 overall. The two steps tied for the highest score, 4.45, were earning trust and gamification; getting local help scored 4.36.",
+        },
+        {
+          kind: "p",
+          text: "The usable point is the order. Communication with vulnerable groups usually starts by producing materials, yet the steps the experts valued most happen before the first material exists. It is also worth saying plainly that evaluation scored lowest of the six steps (4.18), which suggests that even experts weigh measurement less than the other steps.",
+        },
+        { kind: "h2", text: "What this evidence can and cannot tell you" },
+        {
+          kind: "p",
+          text: "All three studies are small. The exercise study is a co-design with people from one factory; it has not yet tested whether the exercises reduce symptoms. The HIV study comes from one factory and measures behaviour through self-reports. The six-step model was rated by experts rather than tested against health outcomes. What the three agree on is a way of designing, not a guarantee of results.",
+        },
+        {
+          kind: "p",
+          text: "The national figures come from an ILO report via Statista and cover workers in the official system, so the real numbers may be higher. The enrolment gap has many causes, such as type of employment and cost, and should not be read as the result of communication alone. The shares quoted were calculated by our centre from the figures in the report.",
+        },
+        { kind: "h2", text: "Try it on your next project" },
+        {
+          kind: "ul",
+          items: [
+            "Before you write the brief, hold one session with your audience, in their language, at a time they are actually free, not when the office finds it convenient.",
+            "Write the conditions they give you into the brief as requirements: it must work on a phone, it must finish in three minutes, it must not take their day off.",
+            "Find people inside the group whom others trust, let them carry the message, and plan how you will measure results from day one, not after the campaign ends.",
+          ],
+        },
+        {
+          kind: "p",
+          text: "Our centre works this way with organisations too, for example in a service-design workshop with Thailand's Department of Disease Control that focused on targeted communication.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is designing communication for hard-to-reach groups, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "ILO via Statista. (2025, February 5). Number of migrant workers from Myanmar in Thailand from 2019 to 2023 (Thailand: Migration Report 2024, p. 46). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551849/thailand-number-of-burmese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Cambodia in Thailand from 2019 to 2023. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551843/thailand-number-of-cambodian-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Lao PDR in Thailand from 2019 to 2023. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551845/thailand-number-of-lao-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Vietnam in Thailand from 2019 to 2023. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551850/thailand-number-of-vietnamese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Eligibility of migrant workers to enroll in the healthcare scheme in Thailand as of February 2024, by status (Thailand: Migration Report 2024, p. 233). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551893/thailand-eligibility-of-migrant-workers-for-the-healthcare-scheme-by-status/",
+        },
+      ],
+    },
+  },
+  {
+    slug: "line-news-trust-2026",
+    date: "2026-10-21",
+    cover: "/images/insights/line-news-trust-2026-hero",
+    th: {
+      coverAlt:
+        "ภาพประกอบกระดาษ โทรโข่งสีดำปล่อยแถบกระดาษสีเทาหลายเส้นที่ลอยจางหายไปกลางทาง มีเพียงแถบสีชมพูเส้นเดียวที่คดเคี้ยวลงไปถึงบ้านหลังเล็ก",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      title: "ช่องทางมีแล้ว แต่ความเชื่อใจหายไป: บทเรียนจากข้อมูลข่าวสารของคนไทยปี 2026",
+      dek: "ข้อมูลปี 2026 ชี้ว่าคนไทยรับข่าวผ่านเฟซบุ๊กและ LINE แต่ความเชื่อมั่นต่อข่าวลดเหลือ 47% หน่วยงานรัฐควรสื่อสารอย่างไรให้คนเชื่อและลงมือทำ",
+      ogImage: "/images/insights/line-news-trust-2026-social.png",
+      body: [
+        {
+          kind: "p",
+          text: "ทุกครั้งที่มีประกาศสำคัญ หน่วยงานรัฐจำนวนมากทำสิ่งเดียวกัน คือโพสต์ลงเพจเฟซบุ๊กแล้วถือว่าภารกิจจบ ในแง่ช่องทาง นี่ไม่ใช่การตัดสินใจที่ผิดเลย เพราะเฟซบุ๊กคือที่ที่คนไทยรับข่าวมากที่สุดจริงๆ",
+        },
+        {
+          kind: "p",
+          text: "แต่ข้อมูลล่าสุดบอกเราอีกเรื่องหนึ่งที่สำคัญกว่า คนไทยอยู่บนช่องทางเหล่านั้นครบ แต่เชื่อสิ่งที่เห็นน้อยลง",
+        },
+        { kind: "h2", text: "คนไทยอยู่บนโซเชียลครบทุกช่องทาง" },
+        {
+          kind: "p",
+          text: "ผลสำรวจของ Reuters Institute ร่วมกับ YouGov ช่วงมกราคมถึงกุมภาพันธ์ 2026 พบว่า ผู้ใช้อินเทอร์เน็ตไทย 69% ใช้เฟซบุ๊กเป็นช่องทางรับข่าว ตามมาด้วย TikTok 55% และ YouTube 54% [1] แล้วแอปแชตที่เราใช้คุยกันทุกวันล่ะ ลองทายดูก่อน",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "bar",
+            title: "แพลตฟอร์มที่คนไทยใช้รับข่าว",
+            subtitle: "ร้อยละของผู้ตอบที่ใช้แต่ละแพลตฟอร์มรับข่าว ปี 2026",
+            alt: "กราฟแท่งแพลตฟอร์มที่คนไทยใช้รับข่าว ปี 2026: Facebook 69% TikTok 55% YouTube 54% LINE 45% Facebook Messenger 27% Instagram 20%",
+            source:
+              "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · สำรวจออนไลน์ อายุ 18 ปีขึ้นไป n = 2,043",
+            data: [
+              { label: "Facebook", value: 69 },
+              { label: "TikTok", value: 55 },
+              { label: "YouTube", value: 54 },
+              { label: "LINE", value: 45, highlight: true },
+              { label: "Facebook Messenger", value: 27 },
+              { label: "Instagram", value: 20 },
+            ],
+            guess: "LINE",
+          },
+        },
+        {
+          kind: "p",
+          text: "LINE ซึ่งเราคุ้นเคยในฐานะแอปแชต มีคนใช้รับข่าวถึง 45% ตัวเลขนี้ยืนยันสิ่งที่นักสื่อสารภาครัฐรู้อยู่แล้ว คือประชาชนไม่ได้รอข่าวจากหน้าเว็บไซต์หน่วยงาน พวกเขารับข่าวในพื้นที่เดียวกับที่คุยกับครอบครัวและดูคลิปบันเทิง",
+        },
+        { kind: "h2", text: "แต่ความเชื่อมั่นต่อข่าวกำลังลดลง" },
+        {
+          kind: "p",
+          text: "ในการสำรวจชุดเดียวกัน ระดับความเชื่อมั่นต่อข่าวโดยรวมของคนไทยในปี 2026 อยู่ที่ 47% ลดลงจาก 55% ในปีก่อนหน้า และเป็นตัวเลขต่ำสุดในช่วงหกปีที่มีข้อมูล (2021–2026) [2]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "line",
+            title: "ความเชื่อมั่นต่อข่าวของคนไทย 2021–2026",
+            subtitle: "ร้อยละของผู้ตอบที่บอกว่าเชื่อถือข่าวส่วนใหญ่ได้เกือบตลอดเวลา",
+            alt: "กราฟเส้นความเชื่อมั่นต่อข่าวของคนไทย: 2021 50% 2022 53% 2023 51% 2024 54% 2025 55% 2026 47% ซึ่งต่ำสุดในหกปี",
+            source:
+              "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · สำรวจออนไลน์ อายุ 18 ปีขึ้นไป n = 2,043 (ปี 2026)",
+            data: [
+              { label: "2021", value: 50 },
+              { label: "2022", value: 53 },
+              { label: "2023", value: 51 },
+              { label: "2024", value: 54 },
+              { label: "2025", value: 55 },
+              { label: "2026", value: 47, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "พูดง่ายๆ คือ ในวันที่ข้อมูลไหลถึงมือประชาชนได้เร็วที่สุด กลับมีคนเกินครึ่งที่ไม่ได้บอกว่าตนเชื่อถือข่าวส่วนใหญ่ที่ได้รับ สำหรับหน่วยงานรัฐ นี่หมายความว่า “ได้โพสต์แล้ว” ยังห่างไกลจาก “ประชาชนเชื่อและลงมือทำแล้ว”",
+        },
+        { kind: "h2", text: "ความเชื่อใจไม่ได้อยู่ที่แพลตฟอร์มอย่างเดียว" },
+        {
+          kind: "p",
+          text: "มีข้อมูลอีกชุดที่ชวนคิด การสำรวจของ Rakuten Insight เมื่อพฤษภาคม 2025 ถามคนไทยว่าเชื่อถือข้อมูลข่าวสารจากแหล่งใด ผลคือโทรทัศน์ได้รับความเชื่อถือ 74% แพลตฟอร์มโซเชียลมีเดีย 64% แต่แพลตฟอร์มส่งข้อความได้เพียง 17% [3]",
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลนี้มาจากคนละการสำรวจ จึงเทียบกับตัวเลขข้างต้นโดยตรงไม่ได้ แต่ก็ชี้ให้เห็นภาพที่น่าสนใจ คนจำนวนมากรับข่าวผ่านแอปแชต แต่ไม่ได้เชื่อถือแอปแชตในฐานะแหล่งข่าว",
+        },
+        {
+          kind: "p",
+          text: "ในมุมของเรา คำอธิบายที่เป็นไปได้คือ ความเชื่อใจในพื้นที่แบบนี้ไม่ได้ผูกกับแพลตฟอร์ม แต่ผูกกับ “คน” ที่ส่งข้อความมา ข้อความจากผู้ใหญ่บ้านที่ทุกคนรู้จัก กับภาพประกาศที่ถูกส่งต่อมาโดยไม่รู้ที่มา อยู่ในแอปเดียวกัน แต่ได้รับความเชื่อถือไม่เท่ากัน",
+        },
+        {
+          kind: "p",
+          text: "เราเคยเห็นข้าราชการที่ทำงานป้องกันน้ำท่วม เมื่อได้รับประกาศทางการจากหน่วยเหนือ ก็นำประกาศฉบับนั้นไปแปะลงเฟซบุ๊กทั้งหน้า แล้วถือว่าได้เผยแพร่ข้อมูลแล้ว ช่องทางถูกต้อง ข้อมูลถูกต้อง แต่ไม่มีใครพูดกับชาวบ้านจริงๆ ว่าคืนนี้ต้องทำอะไร",
+        },
+        { kind: "h2", text: "สามสิ่งที่หน่วยงานรัฐทำได้ทันที" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ให้มีผู้พูดที่จับต้องได้",
+              text: "ในช่วงที่ความเชื่อมั่นต่อข่าวลดลง เสียงที่เป็นทางการล้วนๆ ยิ่งต้องทำงานหนักขึ้น ให้เจ้าหน้าที่ที่ดูแลเรื่องนั้นจริงเป็นคนพูด มีชื่อ มีหน้า และใช้ภาษาที่คุยกับคนในพื้นที่",
+            },
+            {
+              title: "เตรียมข้อความให้คนกลางส่งต่อได้ง่าย",
+              text: "เมื่อเกือบครึ่งของคนไทยรับข่าวผ่าน LINE ข้อความที่ผู้ใหญ่บ้าน อสม. หรือครูคัดลอกไปวางในกลุ่มได้ทันที คือช่องทางที่พาข้อมูลไปพร้อมความเชื่อใจของคนที่ส่ง",
+            },
+            {
+              title: "บอกขั้นต่อไปให้ชัดในประโยคแรก",
+              text: "“ต้องทำอะไร ที่ไหน เมื่อไร” ควรอ่านเจอได้ก่อนที่ผู้อ่านจะเลื่อนผ่าน ภาพเอกสารทั้งหน้าไม่ใช่คำตอบ",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "ข้อมูลของ Reuters Institute และ Rakuten Insight มาจากการสำรวจออนไลน์ จึงสะท้อนกลุ่มคนที่ใช้อินเทอร์เน็ตเป็นหลัก และอาจไม่ครอบคลุมผู้สูงอายุหรือคนในพื้นที่ห่างไกลที่เข้าถึงอินเทอร์เน็ตน้อย ซึ่งมักเป็นกลุ่มที่หน่วยงานรัฐต้องการเข้าถึงมากที่สุด การสื่อสารผ่านคนกลางในชุมชนจึงยิ่งสำคัญสำหรับกลุ่มนี้",
+        },
+        { kind: "h2", text: "ช่องทางพร้อมแล้ว สิ่งที่ขาดคือคน" },
+        {
+          kind: "p",
+          text: "ข้อมูลปี 2026 ไม่ได้บอกให้หน่วยงานรัฐเลิกใช้โซเชียลมีเดีย ตรงกันข้าม ประชาชนอยู่ที่นั่นแล้ว แต่ในวันที่ความเชื่อมั่นต่อข่าวลดลง การปรากฏบนช่องทางที่ถูกต้องไม่พออีกต่อไป ข้อมูลจะเดินทางได้ก็ต่อเมื่อมีคนที่ประชาชนเชื่อใจพามันไป",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังมองหาวิธีให้ข้อความไปถึงประชาชนได้ไกลขึ้นและน่าเชื่อถือยิ่งขึ้น ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Leading social media platforms for news in Thailand as of February 2026 (online survey, 18+, n = 2,043). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1291398/thailand-leading-social-media-platforms-for-news/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043 in 2026). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/",
+        },
+        {
+          text: "Rakuten Insight via Statista. (2025, October 6). Sources of information and news considered trustworthy in Thailand as of May 2025 (online survey, 16+, n = 9,865, among those who consumed each media type). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1624705/thailand-trusted-information-and-news-sources/",
+        },
+      ],
+    },
+    en: {
+      title: "The channels are there, the trust is not: what Thailand's 2026 news data tells public communicators",
+      coverAlt:
+        "Paper-craft illustration: a black megaphone sends out several grey paper strips that drift and fade, while a single pink strip winds all the way down to a small house",
+      coverCaption: "Illustration generated with AI",
+      dek: "Data from 2026 shows Thais get their news on Facebook and LINE, yet trust in news has fallen to 47%. How should government agencies communicate so that people believe the message and act on it?",
+      body: [
+        {
+          kind: "p",
+          text: "Whenever there is an important announcement, many government agencies do the same thing: they post it on their Facebook page and consider the job done. As a choice of channel, that is not wrong. Facebook really is where most Thais get their news.",
+        },
+        {
+          kind: "p",
+          text: "But the latest data tells us something more important. Thais are on all of those channels, and they believe less of what they see there.",
+        },
+        { kind: "h2", text: "Thais are on every social channel" },
+        {
+          kind: "p",
+          text: "A Reuters Institute and YouGov survey from January to February 2026 found that 69% of Thai internet users get news on Facebook, followed by TikTok at 55% and YouTube at 54%. [1] What about the chat app most of us use every day? Take a guess first.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "bar",
+            title: "Platforms Thais use for news",
+            subtitle: "Share of respondents who use each platform for news, 2026",
+            alt: "Bar chart of platforms Thais use for news in 2026: Facebook 69%, TikTok 55%, YouTube 54%, LINE 45%, Facebook Messenger 27%, Instagram 20%",
+            source:
+              "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · online survey, aged 18+, n = 2,043",
+            data: [
+              { label: "Facebook", value: 69 },
+              { label: "TikTok", value: 55 },
+              { label: "YouTube", value: 54 },
+              { label: "LINE", value: 45, highlight: true },
+              { label: "Facebook Messenger", value: 27 },
+              { label: "Instagram", value: 20 },
+            ],
+            guess: "LINE",
+          },
+        },
+        {
+          kind: "p",
+          text: "LINE, which most of us think of as a chat app, is used for news by 45%. These figures confirm what public communicators already know. People are not waiting for news on an agency's website. They get it in the same place where they talk to their families and watch entertainment clips.",
+        },
+        { kind: "h2", text: "But trust in news is falling" },
+        {
+          kind: "p",
+          text: "In the same survey, overall trust in news among Thais stood at 47% in 2026, down from 55% the year before and the lowest figure in the six years of data (2021–2026) [2].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "line",
+            title: "Trust in news in Thailand, 2021–2026",
+            subtitle: "Share of respondents who say they can trust most news most of the time",
+            alt: "Line chart of trust in news in Thailand: 2021 50%, 2022 53%, 2023 51%, 2024 54%, 2025 55%, 2026 47%, the lowest in six years",
+            source:
+              "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · online survey, aged 18+, n = 2,043 (2026)",
+            data: [
+              { label: "2021", value: 50 },
+              { label: "2022", value: 53 },
+              { label: "2023", value: 51 },
+              { label: "2024", value: 54 },
+              { label: "2025", value: 55 },
+              { label: "2026", value: 47, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Put simply, at the moment information reaches people faster than ever, more than half of them do not say they trust most of the news they get. For a government agency, that means “we posted it” is still a long way from “people believed it and acted”.",
+        },
+        { kind: "h2", text: "Trust is not only about the platform" },
+        {
+          kind: "p",
+          text: "Another dataset is worth thinking about. A Rakuten Insight survey in May 2025 asked Thais which sources of information and news they trust. Television was trusted by 74% and social media platforms by 64%, but messaging platforms by only 17% [3].",
+        },
+        {
+          kind: "p",
+          text: "This comes from a different survey, so it cannot be compared directly with the figures above. It still points to something interesting: many people get news through chat apps without trusting chat apps as a source of news.",
+        },
+        {
+          kind: "p",
+          text: "As we see it, one possible explanation is that trust in these spaces is tied not to the platform but to the person who sends the message. A message from a village head everyone knows and a forwarded image of an announcement with no known origin sit in the same app, yet they are not trusted equally.",
+        },
+        {
+          kind: "p",
+          text: "We have seen officials working on flood prevention receive an official notice from a higher office, post an image of the whole page on Facebook, and consider the information published. The channel was right and the information was right, but no one actually told residents what they needed to do that night.",
+        },
+        { kind: "h2", text: "Three things agencies can do right away" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Give the message a real speaker",
+              text: "When trust in news is falling, a purely official voice has to work even harder. Let the officer who actually handles the issue speak, with a name and a face, in the language people use locally.",
+            },
+            {
+              title: "Prepare messages that intermediaries can pass on easily",
+              text: "With nearly half of Thais getting news on LINE, a message that a village head, a village health volunteer or a teacher can copy straight into a group chat is a channel that carries the sender's trust along with the information.",
+            },
+            {
+              title: "State the next step in the first sentence",
+              text: "“What to do, where and when” should be readable before people scroll past. An image of a full-page document is not the answer.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this data with care" },
+        {
+          kind: "p",
+          text: "The Reuters Institute and Rakuten Insight data both come from online surveys, so they mainly reflect people who use the internet. They may not cover older people or those in remote areas with little internet access, who are often the very groups government agencies most need to reach. For them, communicating through trusted people in the community matters even more.",
+        },
+        { kind: "h2", text: "The channels are ready. What is missing is people" },
+        {
+          kind: "p",
+          text: "The 2026 data does not tell government agencies to stop using social media. On the contrary, the public is already there. But when trust in news is falling, appearing on the right channel is no longer enough. Information travels only when someone people trust carries it.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is looking for ways to make its messages reach further and be more trusted, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Leading social media platforms for news in Thailand as of February 2026 (online survey, 18+, n = 2,043). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1291398/thailand-leading-social-media-platforms-for-news/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043 in 2026). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/",
+        },
+        {
+          text: "Rakuten Insight via Statista. (2025, October 6). Sources of information and news considered trustworthy in Thailand as of May 2025 (online survey, 16+, n = 9,865, among those who consumed each media type). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1624705/thailand-trusted-information-and-news-sources/",
+        },
+      ],
+    },
+  },
+  {
+    slug: "ai-news-comfort-2025",
+    date: "2026-10-21",
+    cover: "/images/insights/ai-news-comfort-2025-hero",
+    th: {
+      coverAlt:
+        "ภาพประกอบกระดาษ เวทีเล็กที่มีม่านสีดำ ไมโครโฟนสีชมพูตั้งอยู่หน้าม่าน ส่วนเฟืองสีเทาซ่อนอยู่หลังม่านที่แง้มไว้",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      title: "ให้ AI ช่วยได้ แต่อย่าให้ AI เป็นคนเล่า",
+      dek: "ผลสำรวจ 6 ประเทศพบว่าคนสบายใจกับข่าวที่คนเขียน 62% แต่เหลือ 12% ถ้า AI เขียนทั้งหมด องค์กรไทยควรใช้ AI ในงานสื่อสารอย่างไรให้ไม่เสียความเชื่อใจ",
+      body: [
+        {
+          kind: "p",
+          text: "ทุกวันนี้หลายองค์กรเริ่มใช้ AI ร่างข่าวประชาสัมพันธ์ สรุปรายงาน หรือทำภาพประกอบ คำถามที่เราได้ยินบ่อยในห้องอบรมคือ “ใช้ได้ไหม แล้วต้องบอกผู้อ่านหรือเปล่า”"
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลล่าสุดไม่ได้ตอบว่าใช้ได้หรือไม่ได้ แต่ชี้ให้เห็นเส้นแบ่งที่ชัดเจนกว่านั้น ผู้คนไม่ได้กังวลว่า AI อยู่ในกระบวนการ พวกเขากังวลว่า AI กำลังจะมาแทน “คน” ที่เล่าเรื่องให้พวกเขาฟัง"
+        },
+        {
+          kind: "h2",
+          text: "ยิ่ง AI ทำมาก ความสบายใจยิ่งลด"
+        },
+        {
+          kind: "p",
+          text: "รายงาน Generative AI and News 2025 ของ Reuters Institute ร่วมกับ YouGov สำรวจผู้ใช้อินเทอร์เน็ต 12,000 คนใน 6 ประเทศ ได้แก่ สหรัฐอเมริกา สหราชอาณาจักร ญี่ปุ่น ฝรั่งเศส เดนมาร์ก และอาร์เจนตินา ถามว่าสบายใจแค่ไหนกับข่าวที่ผลิตด้วยระดับการใช้ AI ต่างกัน [1]"
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "dial",
+            title: "ถ้า AI เป็นคนเขียนข่าวมากขึ้น คนจะสบายใจแค่ไหน",
+            subtitle: "เลื่อนแถบจาก \"คนเขียน\" ไป \"AI เขียน\" · ร้อยละของผู้ตอบที่สบายใจ",
+            alt: "ความสบายใจต่อข่าวตามระดับการใช้ AI: คนเขียนทั้งหมด 62% คนเขียนเป็นหลักมี AI ช่วย 43% AI เขียนเป็นหลักมีคนตรวจ 21% AI เขียนทั้งหมด 12% (สำรวจ 6 ประเทศ ไม่รวมไทย)",
+            source: "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · สำรวจออนไลน์ n = 12,000 ใน 6 ประเทศ (สหรัฐฯ สหราชอาณาจักร ญี่ปุ่น ฝรั่งเศส เดนมาร์ก อาร์เจนตินา) ไม่รวมไทย",
+            data: [
+              {
+                label: "คนเขียนทั้งหมด",
+                detail: "นักข่าวเขียนเองทั้งหมด",
+                value: 62,
+                aiShare: 0
+              },
+              {
+                label: "คนเป็นหลัก มี AI ช่วย",
+                detail: "นักข่าวเขียนเป็นหลัก มี AI ช่วยบ้าง",
+                value: 43,
+                aiShare: 0.25
+              },
+              {
+                label: "AI เป็นหลัก มีคนตรวจ",
+                detail: "AI เขียนเป็นหลัก มีคนตรวจ",
+                value: 21,
+                aiShare: 0.75
+              },
+              {
+                label: "AI ทั้งหมด",
+                detail: "AI เขียนทั้งหมด",
+                value: 12,
+                aiShare: 1
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "ข่าวที่นักข่าวเขียนเองทั้งหมด มีคนสบายใจ 62% เมื่อคนเขียนเป็นหลักแต่มี AI ช่วยบ้าง ตัวเลขลดเหลือ 43% ถ้า AI เขียนเป็นหลักโดยมีคนตรวจ เหลือ 21% และถ้า AI เขียนทั้งหมด เหลือเพียง 12% [1]"
+        },
+        {
+          kind: "p",
+          text: "สังเกตว่าแม้มีคนเป็นผู้เขียนหลัก แค่เพิ่ม AI เข้าไปช่วย ความสบายใจก็ลดลงไปเกือบหนึ่งในสามแล้ว"
+        },
+        {
+          kind: "h2",
+          text: "งานหลังบ้านโอเค งานที่เป็น “หน้าตา” ไม่โอเค"
+        },
+        {
+          kind: "p",
+          text: "เมื่อแยกเป็นงานย่อย ภาพยิ่งชัดขึ้น ก่อนดูคำตอบ ลองเลือกดูว่าคุณโอเคให้ AI ทำงานไหนบ้าง แล้วเทียบกับคนใน 6 ประเทศ [2]"
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "pick",
+            title: "คุณโอเคให้ AI ทำงานไหนในการทำข่าวบ้าง",
+            subtitle: "ร้อยละของผู้ตอบที่สบายใจให้ AI ทำงานแต่ละประเภท",
+            alt: "ความสบายใจให้ AI ทำงานข่าว 12 ประเภท: แก้คำผิด 55% แปลภาษา 53% ทำกราฟ 47% วิเคราะห์ข้อมูล 45% เขียนพาดหัว 41% แปลงเป็นเสียง/วิดีโอ 39% ค้นคว้า 38% ภาพประกอบทั่วไป 35% เขียนเนื้อข่าว 33% เขียนใหม่ให้คนต่างกลุ่ม 30% ภาพเสมือนจริงแทนภาพถ่าย 26% ผู้ประกาศหรือผู้เขียนที่เป็น AI 19%",
+            source: "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · สำรวจออนไลน์ n = 12,000 ใน 6 ประเทศ (สหรัฐฯ สหราชอาณาจักร ญี่ปุ่น ฝรั่งเศส เดนมาร์ก อาร์เจนตินา) ไม่รวมไทย",
+            order: [
+              3,
+              10,
+              0,
+              8,
+              5,
+              11,
+              1,
+              7,
+              4,
+              9,
+              2,
+              6
+            ],
+            data: [
+              {
+                label: "แก้คำผิดและไวยากรณ์",
+                value: 55
+              },
+              {
+                label: "แปลภาษา",
+                value: 53
+              },
+              {
+                label: "ทำกราฟและอินโฟกราฟิก",
+                value: 47
+              },
+              {
+                label: "วิเคราะห์ข้อมูล",
+                value: 45
+              },
+              {
+                label: "เขียนพาดหัว",
+                value: 41
+              },
+              {
+                label: "แปลงบทความเป็นเสียง/วิดีโอ",
+                value: 39
+              },
+              {
+                label: "ค้นคว้าทำข่าว",
+                value: 38
+              },
+              {
+                label: "ภาพประกอบทั่วไป",
+                value: 35
+              },
+              {
+                label: "เขียนเนื้อข่าว",
+                value: 33
+              },
+              {
+                label: "เขียนข่าวเดิมใหม่ให้คนต่างกลุ่ม",
+                value: 30
+              },
+              {
+                label: "ภาพเสมือนจริงแทนภาพถ่าย",
+                value: 26
+              },
+              {
+                label: "ผู้ประกาศหรือผู้เขียนที่เป็น AI",
+                value: 19
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "คนส่วนใหญ่สบายใจที่สุดเมื่อ AI ช่วยแก้คำผิดและไวยากรณ์ (55%) และแปลภาษา (53%) แต่ความสบายใจต่ำที่สุดกับการสร้างภาพเสมือนจริงแทนภาพถ่าย (26%) และการใช้ผู้ประกาศหรือผู้เขียนที่เป็น AI (19%) [2]"
+        },
+        {
+          kind: "p",
+          text: "รูปแบบนี้สอดคล้องกับสิ่งที่เราเห็นในบทความก่อนหน้า ผู้คนเชื่อใจ “คน” มากกว่าช่องทาง เมื่อ AI ทำงานที่มองไม่เห็น เช่น ตรวจคำผิดหรือวิเคราะห์ข้อมูล ผู้อ่านไม่ค่อยติดใจ แต่เมื่อ AI กลายเป็นใบหน้าหรือเสียงที่พูดกับเขาโดยตรง ความเชื่อใจหายไปอย่างรวดเร็ว",
+          links: [
+            {
+              match: "บทความก่อนหน้า",
+              href: "/insights/line-news-trust-2026"
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "ทำไมเรื่องนี้สำคัญกับองค์กรไทยเป็นพิเศษ"
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลชุดนี้ไม่ได้สำรวจคนไทย เราจึงสรุปตรงๆ ไม่ได้ว่าคนไทยจะคิดเหมือนกัน แต่มีเหตุผลที่องค์กรไทยควรระวังเรื่องนี้มากกว่าเดิม"
+        },
+        {
+          kind: "p",
+          text: "ปี 2026 ความเชื่อมั่นต่อข่าวโดยรวมของคนไทยลดลงเหลือ 47% ต่ำสุดในช่วงหกปีที่มีข้อมูล [3] เมื่อฐานความเชื่อใจบางอยู่แล้ว การใช้ AI ในจุดที่ผู้อ่านรู้สึกว่าถูกแทนที่ด้วยเครื่อง อาจทำให้ความเชื่อใจที่เหลือน้อยอยู่แล้วลดลงไปอีก"
+        },
+        {
+          kind: "p",
+          text: "อีกด้านหนึ่ง ใน 6 ประเทศที่สำรวจ มีคน 37% เชื่อว่าสื่อใช้ AI บ่อยอยู่แล้ว และมีเพียง 4% ที่คิดว่าไม่ใช้เลย [4] ผู้อ่านจึงไม่ได้ไร้เดียงสา หลายคนสันนิษฐานไว้ก่อนแล้วว่ามี AI อยู่เบื้องหลัง การปิดบังจึงมีความเสี่ยงมากกว่าการบอกตรงๆ"
+        },
+        {
+          kind: "h2",
+          text: "สามหลักการใช้ AI ในงานสื่อสารโดยไม่เสียความเชื่อใจ"
+        },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ใช้ AI หลังบ้านให้เต็มที่",
+              text: "ตรวจคำผิด แปลภาษา สรุปเอกสาร วิเคราะห์ข้อมูล ทำร่างแรก งานเหล่านี้ประหยัดเวลาได้มากและผู้อ่านยอมรับได้ค่อนข้างดี"
+            },
+            {
+              title: "ให้หน้าตาและเสียงเป็นของคนจริง",
+              text: "ผู้พูด ผู้ลงนาม และภาพที่อ้างว่าเป็นเหตุการณ์จริง ควรเป็นคนจริงและภาพจริง หากจำเป็นต้องใช้ภาพที่สร้างด้วย AI ให้ใช้เป็นภาพประกอบเชิงแนวคิด ไม่ใช่ภาพที่ดูเหมือนภาพถ่ายเหตุการณ์"
+            },
+            {
+              title: "บอกผู้อ่านอย่างตรงไปตรงมา",
+              text: "เขียนสั้นๆ ว่า AI ช่วยทำส่วนไหน และใครเป็นผู้ตรวจรับผิดชอบ เช่น “ร่างแรกจัดทำโดยใช้ AI ตรวจทานและรับรองโดยฝ่ายสื่อสารองค์กร” การบอกแบบนี้ทำให้ผู้อ่านรู้ว่ายังมีคนรับผิดชอบอยู่"
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "ข้อควรระวังในการอ่านข้อมูล"
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลหลักของบทความนี้มาจากการสำรวจออนไลน์ใน 6 ประเทศเมื่อกลางปี 2025 ซึ่งไม่รวมประเทศไทย ทัศนคติต่อ AI อาจต่างกันตามวัฒนธรรมและความคุ้นเคยกับเทคโนโลยี ตัวเลขจึงควรใช้เป็นสัญญาณทิศทาง ไม่ใช่ค่าที่ใช้แทนคนไทยได้โดยตรง หากองค์กรต้องการตัดสินใจเชิงนโยบาย การสำรวจกลุ่มเป้าหมายของตนเองจะให้คำตอบที่แม่นกว่า"
+        },
+        {
+          kind: "h2",
+          text: "AI ช่วยได้ แต่ความเชื่อใจยังต้องมาจากคน"
+        },
+        {
+          kind: "p",
+          text: "AI ทำให้งานสื่อสารเร็วขึ้นและทำได้มากขึ้นจริง แต่ข้อมูลบอกเราว่าผู้คนยังอยากรู้ว่ามี “ใคร” อยู่เบื้องหลังเรื่องที่ได้ยิน องค์กรที่ใช้ AI อย่างฉลาดคือองค์กรที่ให้ AI ทำงานหนักอยู่ข้างหลัง และให้คนที่น่าเชื่อถือยืนอยู่ข้างหน้า"
+        },
+        {
+          kind: "note",
+          text: "หากองค์กรของคุณกำลังวางแนวทางการใช้ AI ในงานสื่อสาร ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ"
+        }
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Public comfort with AI-generated news in selected countries as of July 2025, by level of human input (online survey, n = 12,000, US, UK, Japan, France, Denmark, Argentina; Generative AI and News Report 2025, p. 44). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1662348/comfort-ai-generated-news-worldwide-by-level-human-input/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people comfortable with AI in journalism in selected countries as of July 2025, by task (Generative AI and News Report 2025, p. 46). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1662352/comfortable-ai-use-journalism-worldwide-by-task/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people who believe generative AI is frequently used in the news media sector in selected countries as of July 2025. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1662347/generative-ai-use-in-news-media-sector-perception-worldwide/"
+        }
+      ]
+    },
+    en: {
+      title: "Let AI help, but don't let AI tell the story",
+      coverAlt:
+        "Paper-craft illustration: a small stage with a black curtain, a pink microphone standing in front, and a grey gear half-hidden behind the parted curtain",
+      coverCaption: "Illustration generated with AI",
+      dek: "A six-country survey finds 62% are comfortable with news written by people, but only 12% when AI writes it all. How should organisations use AI in communication without losing trust?",
+      body: [
+        {
+          kind: "p",
+          text: "Many organisations now use AI to draft press releases, summarise reports or make illustrations. The question we hear most often in training sessions is: “Can we use it, and do we have to tell readers?”"
+        },
+        {
+          kind: "p",
+          text: "The latest data does not answer yes or no. It points to a clearer line. People are not worried that AI is part of the process. They are worried that AI is about to replace the person who tells them the story."
+        },
+        {
+          kind: "h2",
+          text: "The more AI does, the less comfortable people are"
+        },
+        {
+          kind: "p",
+          text: "The Reuters Institute's Generative AI and News Report 2025, with YouGov, surveyed 12,000 internet users in six countries: the United States, the United Kingdom, Japan, France, Denmark and Argentina. It asked how comfortable they were with news produced with different levels of AI involvement [1]."
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "dial",
+            title: "As AI writes more of the news, how comfortable are people?",
+            subtitle: "Slide from \"human\" to \"AI\" · share of respondents who are comfortable",
+            alt: "Comfort with news by level of AI involvement: entirely human 62%, mostly human with some AI help 43%, mostly AI with human oversight 21%, entirely AI 12% (6 countries, not Thailand)",
+            source: "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · online survey, n = 12,000 in 6 countries (US, UK, Japan, France, Denmark, Argentina), not including Thailand",
+            data: [
+              {
+                label: "Entirely human",
+                detail: "Written entirely by journalists",
+                value: 62,
+                aiShare: 0
+              },
+              {
+                label: "Mostly human, some AI",
+                detail: "Mostly written by journalists, with some AI help",
+                value: 43,
+                aiShare: 0.25
+              },
+              {
+                label: "Mostly AI, human check",
+                detail: "Mostly written by AI, with some human oversight",
+                value: 21,
+                aiShare: 0.75
+              },
+              {
+                label: "Entirely AI",
+                detail: "Written entirely by AI",
+                value: 12,
+                aiShare: 1
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "For news written entirely by journalists, 62% were comfortable. When journalists did most of the writing with some AI help, that fell to 43%. When AI did most of the writing with a human checking, it was 21%, and for news written entirely by AI, only 12% [1]."
+        },
+        {
+          kind: "p",
+          text: "Notice that even with a human as the main writer, simply adding AI help cut comfort by nearly a third."
+        },
+        {
+          kind: "h2",
+          text: "Backstage work is fine; the public face is not"
+        },
+        {
+          kind: "p",
+          text: "Broken down by task, the picture gets sharper. Before you look at the answers, pick the tasks you would be happy for AI to do, then compare with people in the six countries [2]."
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "pick",
+            title: "Which newsroom tasks would you let AI do?",
+            subtitle: "Share of respondents comfortable with AI doing each task",
+            alt: "Comfort with AI doing 12 newsroom tasks: spelling and grammar 55%, translation 53%, charts 47%, data analysis 45%, headlines 41%, audio or video versions 39%, research 38%, generic illustrations 35%, article text 33%, rewriting for different audiences 30%, realistic images with no photo 26%, AI presenter or author 19%",
+            source: "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · online survey, n = 12,000 in 6 countries (US, UK, Japan, France, Denmark, Argentina), not including Thailand",
+            order: [
+              3,
+              10,
+              0,
+              8,
+              5,
+              11,
+              1,
+              7,
+              4,
+              9,
+              2,
+              6
+            ],
+            data: [
+              {
+                label: "Fixing spelling and grammar",
+                value: 55
+              },
+              {
+                label: "Translation",
+                value: 53
+              },
+              {
+                label: "Charts and infographics",
+                value: 47
+              },
+              {
+                label: "Data analysis",
+                value: 45
+              },
+              {
+                label: "Writing headlines",
+                value: 41
+              },
+              {
+                label: "Turning articles into audio or video",
+                value: 39
+              },
+              {
+                label: "Research for stories",
+                value: 38
+              },
+              {
+                label: "Generic illustrations",
+                value: 35
+              },
+              {
+                label: "Writing the article text",
+                value: 33
+              },
+              {
+                label: "Rewriting stories for different audiences",
+                value: 30
+              },
+              {
+                label: "Realistic images when there is no photo",
+                value: 26
+              },
+              {
+                label: "An AI presenter or author",
+                value: 19
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "Most people were most comfortable with AI fixing spelling and grammar (55%) and translating (53%), and least comfortable with realistic images used in place of photos (26%) and with AI presenters or authors (19%) [2]."
+        },
+        {
+          kind: "p",
+          text: "This fits what we saw in our previous article: people trust people more than channels. When AI does work readers cannot see, such as checking spelling or analysing data, they hardly mind. When AI becomes the face or the voice speaking to them directly, trust drains away quickly.",
+          links: [
+            {
+              match: "our previous article",
+              href: "/en/insights/line-news-trust-2026"
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "Why this matters especially for Thai organisations"
+        },
+        {
+          kind: "p",
+          text: "This survey did not include Thailand, so we cannot say that Thais think the same way. There are still reasons for Thai organisations to be more careful than before."
+        },
+        {
+          kind: "p",
+          text: "In 2026, overall trust in news in Thailand fell to 47%, the lowest in six years of data [3]. When trust is already thin, using AI where readers feel a machine has replaced a person could wear away what little is left."
+        },
+        {
+          kind: "p",
+          text: "On the other hand, across the six countries surveyed, 37% believe the news media already use AI often, and only 4% think they never do [4]. Readers are not naive. Many already assume AI is at work behind the scenes, so hiding it is riskier than saying so plainly."
+        },
+        {
+          kind: "h2",
+          text: "Three principles for using AI in communication without losing trust"
+        },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Use AI fully behind the scenes",
+              text: "Checking spelling, translating, summarising documents, analysing data and producing first drafts save a great deal of time, and readers accept them fairly well."
+            },
+            {
+              title: "Keep the face and the voice human",
+              text: "Speakers, signatories and images presented as real events should be real people and real photographs. If you need an AI-generated image, use it as a conceptual illustration, not as something that looks like a news photo."
+            },
+            {
+              title: "Tell readers plainly",
+              text: "Say briefly which part AI helped with and who checked it and takes responsibility, for example “First draft prepared with AI; reviewed and approved by the corporate communications team.” This tells readers that a person is still accountable."
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "Reading this data with care"
+        },
+        {
+          kind: "p",
+          text: "The main data in this article come from an online survey in six countries in mid-2025, which did not include Thailand. Attitudes to AI may differ with culture and familiarity with technology, so treat the figures as a signal of direction, not as a stand-in for Thai audiences. If your organisation needs to make a policy decision, surveying your own audience will give a more accurate answer."
+        },
+        {
+          kind: "h2",
+          text: "AI can help, but trust still has to come from people"
+        },
+        {
+          kind: "p",
+          text: "AI really does make communication work faster and broader. But the data tells us that people still want to know who is behind the stories they hear. Organisations that use AI wisely let it do the heavy lifting backstage and put trusted people out front."
+        },
+        {
+          kind: "note",
+          text: "If your organisation is drawing up guidelines for using AI in communication, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned."
+        }
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Public comfort with AI-generated news in selected countries as of July 2025, by level of human input (online survey, n = 12,000, US, UK, Japan, France, Denmark, Argentina; Generative AI and News Report 2025, p. 44). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1662348/comfort-ai-generated-news-worldwide-by-level-human-input/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people comfortable with AI in journalism in selected countries as of July 2025, by task (Generative AI and News Report 2025, p. 46). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1662352/comfortable-ai-use-journalism-worldwide-by-task/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people who believe generative AI is frequently used in the news media sector in selected countries as of July 2025. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1662347/generative-ai-use-in-news-media-sector-perception-worldwide/"
+        }
+      ]
+    }
+  },
+];
+
+export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
+
+export const getInsightBySlug = (slug: string) => insights.find((p) => p.slug === slug);
+
+/** ภาพตอนแชร์และใน JSON-LD — ภาพเฉพาะของบทความ → ภาพปก → ภาพกลางของเว็บ */
+export function insightImage(post: InsightPost, locale: "th" | "en"): string {
+  return post[locale].ogImage ?? (post.cover ? `${post.cover}.webp` : "/images/og/og-default.jpg");
+}
+
+// ภาพปกที่ไม่มี alt คือภาพที่โปรแกรมอ่านหน้าจออ่านไม่ออก — ให้ build พังดีกว่าขึ้นเว็บเงียบๆ
+for (const p of insights) {
+  if (p.cover && (!p.th.coverAlt || !p.en.coverAlt))
+    throw new Error(`insights: บทความ "${p.slug}" มีภาพปกแต่ไม่มี coverAlt ครบสองภาษา`);
+}

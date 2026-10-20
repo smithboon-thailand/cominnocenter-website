@@ -104,8 +104,7 @@ const nextConfig: NextConfig = {
       { source: "/post/dr-teerada-of-chulalongkorn-university-leads-workshop-preparing-thai-students-in-t%C3%BCrkiye-for-the-wo", destination: "/news/turkiye-students-workshop", permanent: true },
       { source: "/post/center-of-excellence-head-invited-to-lead-executive-crisis-communication-training", destination: "/news/executive-crisis-communication-training", permanent: true },
       // — หน้า/เส้นทางมาตรฐานของ Wix —
-      { source: "/insights", destination: "/news", permanent: true },
-      { source: "/insights/categories/:category*", destination: "/news", permanent: true },
+      { source: "/insights/categories/:category*", destination: "/insights", permanent: true },
       { source: "/blog", destination: "/news", permanent: true },
       { source: "/blog-feed.xml", destination: "/news", permanent: true },
       { source: "/about/teerada-ne", destination: "/about", permanent: true },

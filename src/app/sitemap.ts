@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { newsPosts } from "@/data/news";
+import { insights } from "@/data/insights";
 import { paperSummaries } from "@/data/paperSummaries";
 
 const baseUrl = "https://www.cominnocenter.com";
@@ -27,6 +28,7 @@ const staticEntries: Entry[] = [
   { path: "/impact", changeFrequency: "weekly", priority: 0.9, zh: true },
   { path: "/collaborate", changeFrequency: "monthly", priority: 0.9, zh: true },
   { path: "/news", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/insights", changeFrequency: "weekly", priority: 0.8 },
   { path: "/research", changeFrequency: "monthly", priority: 0.8, zh: true },
   { path: "/sdg", changeFrequency: "monthly", priority: 0.8, zh: true },
   { path: "/media", changeFrequency: "weekly", priority: 0.8 },
@@ -81,6 +83,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         path: `/news/${p.slug}`,
         changeFrequency: "yearly",
         priority: 0.6,
+        lastModified: new Date(p.date),
+      }),
+    ),
+    // บทความ — ไม่มีฉบับจีน (แนวเดียวกับข่าว)
+    ...insights.map(
+      (p): Entry => ({
+        path: `/insights/${p.slug}`,
+        changeFrequency: "monthly",
+        priority: 0.7,
         lastModified: new Date(p.date),
       }),
     ),
