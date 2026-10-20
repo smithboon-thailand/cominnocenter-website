@@ -1,8 +1,9 @@
 import type { InsightBlock } from "@/data/insights";
 import InsightChart from "@/components/insights/InsightChart";
+import type { FullLocale } from "@/lib/locale";
 
 /** เนื้อหาบทความ — ข้อความล้วน ไม่แปลงมาร์กดาวน์ (ดูกติกาข้อ 5 ใน src/data/insights.ts) */
-export default function InsightBody({ blocks }: { blocks: InsightBlock[] }) {
+export default function InsightBody({ blocks, locale }: { blocks: InsightBlock[]; locale: FullLocale }) {
   return (
     <div className="space-y-6">
       {blocks.map((b, i) => {
@@ -20,7 +21,7 @@ export default function InsightBody({ blocks }: { blocks: InsightBlock[] }) {
               ))}
             </ul>
           );
-        if (b.kind === "chart") return <InsightChart key={i} chart={b.chart} />;
+        if (b.kind === "chart") return <InsightChart key={i} chart={b.chart} locale={locale} />;
         if (b.kind === "tips")
           return (
             <ol key={i} className="space-y-4">

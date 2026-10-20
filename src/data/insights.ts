@@ -36,6 +36,8 @@ export type InsightChartData = {
   /** บรรทัดเครดิตใต้กราฟ */
   source: string;
   data: { label: string; value: number; highlight?: boolean }[];
+  /** กราฟแท่ง: label ของแท่งที่ให้ผู้อ่านทายก่อนเฉลย (ค่าแท่งนั้นซ่อนจนกดเฉลย · ไม่มี JS ก็เห็นครบ) */
+  guess?: string;
 };
 
 export type InsightReference = { text: string; url: string };
@@ -268,7 +270,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "คนไทยอยู่บนโซเชียลครบทุกช่องทาง" },
         {
           kind: "p",
-          text: "ผลสำรวจของ Reuters Institute ร่วมกับ YouGov ช่วงมกราคมถึงกุมภาพันธ์ 2026 พบว่า ผู้ใช้อินเทอร์เน็ตไทย 69% ใช้เฟซบุ๊กเป็นช่องทางรับข่าว ตามมาด้วย TikTok 55% และ YouTube 54% ส่วน LINE ซึ่งเราคุ้นเคยในฐานะแอปแชต มีคนใช้รับข่าวถึง 45% [1]",
+          text: "ผลสำรวจของ Reuters Institute ร่วมกับ YouGov ช่วงมกราคมถึงกุมภาพันธ์ 2026 พบว่า ผู้ใช้อินเทอร์เน็ตไทย 69% ใช้เฟซบุ๊กเป็นช่องทางรับข่าว ตามมาด้วย TikTok 55% และ YouTube 54% [1] แล้วแอปแชตที่เราใช้คุยกันทุกวันล่ะ ลองทายดูก่อน",
         },
         {
           kind: "chart",
@@ -287,11 +289,12 @@ export const insights: InsightPost[] = [
               { label: "Facebook Messenger", value: 27 },
               { label: "Instagram", value: 20 },
             ],
+            guess: "LINE",
           },
         },
         {
           kind: "p",
-          text: "ตัวเลขนี้ยืนยันสิ่งที่นักสื่อสารภาครัฐรู้อยู่แล้ว คือประชาชนไม่ได้รอข่าวจากหน้าเว็บไซต์หน่วยงาน พวกเขารับข่าวในพื้นที่เดียวกับที่คุยกับครอบครัวและดูคลิปบันเทิง",
+          text: "LINE ซึ่งเราคุ้นเคยในฐานะแอปแชต มีคนใช้รับข่าวถึง 45% ตัวเลขนี้ยืนยันสิ่งที่นักสื่อสารภาครัฐรู้อยู่แล้ว คือประชาชนไม่ได้รอข่าวจากหน้าเว็บไซต์หน่วยงาน พวกเขารับข่าวในพื้นที่เดียวกับที่คุยกับครอบครัวและดูคลิปบันเทิง",
         },
         { kind: "h2", text: "แต่ความเชื่อมั่นต่อข่าวกำลังลดลง" },
         {
@@ -401,7 +404,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "Thais are on every social channel" },
         {
           kind: "p",
-          text: "A Reuters Institute and YouGov survey from January to February 2026 found that 69% of Thai internet users get news on Facebook, followed by TikTok at 55% and YouTube at 54%. LINE, which most of us think of as a chat app, is used for news by 45% [1].",
+          text: "A Reuters Institute and YouGov survey from January to February 2026 found that 69% of Thai internet users get news on Facebook, followed by TikTok at 55% and YouTube at 54%. [1] What about the chat app most of us use every day? Take a guess first.",
         },
         {
           kind: "chart",
@@ -420,11 +423,12 @@ export const insights: InsightPost[] = [
               { label: "Facebook Messenger", value: 27 },
               { label: "Instagram", value: 20 },
             ],
+            guess: "LINE",
           },
         },
         {
           kind: "p",
-          text: "These figures confirm what public communicators already know. People are not waiting for news on an agency's website. They get it in the same place where they talk to their families and watch entertainment clips.",
+          text: "LINE, which most of us think of as a chat app, is used for news by 45%. These figures confirm what public communicators already know. People are not waiting for news on an agency's website. They get it in the same place where they talk to their families and watch entertainment clips.",
         },
         { kind: "h2", text: "But trust in news is falling" },
         {

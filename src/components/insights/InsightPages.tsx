@@ -169,7 +169,7 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
           )}
 
           <section className="max-w-3xl mx-auto px-6 pb-12">
-            <InsightBody blocks={c.body} />
+            <InsightBody blocks={c.body} locale={locale} />
 
             {c.references && c.references.length > 0 && (
               <div className="mt-12">
