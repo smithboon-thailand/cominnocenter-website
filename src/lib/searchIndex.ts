@@ -42,6 +42,7 @@ const PAGES: Record<Locale, readonly { title: string; meta: string; href: string
     { title: "SDG", meta: "เป้าหมายการพัฒนาที่ยั่งยืน", href: "/sdg" },
     { title: "สื่อถึงเรา", meta: "ศูนย์ฯ บนสื่อภายนอก", href: "/media" },
     { title: "ข่าวและกิจกรรม", meta: "ข่าวของศูนย์ฯ", href: "/news" },
+    { title: "บทความ", meta: "ข้อค้นพบจากงานวิจัยสำหรับคนทำงานสื่อสาร", href: "/insights" },
     { title: "ร่วมงานกับเรา", meta: "ติดต่อและความร่วมมือ", href: "/collaborate" },
   ],
   en: [
@@ -53,6 +54,7 @@ const PAGES: Record<Locale, readonly { title: string; meta: string; href: string
     { title: "SDG", meta: "Sustainable Development Goals", href: "/en/sdg" },
     { title: "Media", meta: "The center in the press", href: "/en/media" },
     { title: "News & events", meta: "Center news", href: "/en/news" },
+    { title: "Insights", meta: "Research findings for communicators", href: "/en/insights" },
     { title: "Collaborate", meta: "Contact and partnership", href: "/en/collaborate" },
   ],
   zh: [

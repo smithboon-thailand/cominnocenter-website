@@ -8,6 +8,7 @@
 import type { Leader } from "@/data/leadership";
 import type { PublicationEntry } from "@/data/publications";
 import type { NewsPost } from "@/data/news";
+import type { InsightPost } from "@/data/insights";
 import { EMAIL, PHONE_SCHEMA } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 import type { FullLocale, Locale } from "@/lib/locale";
@@ -270,6 +271,22 @@ export function newsArticleSchema(post: NewsPost, locale: FullLocale, coverUrl: 
     datePublished: post.date,
     inLanguage: locale,
     image: `${SITE_URL}${coverUrl}`,
+    mainEntityOfPage: `${SITE_URL}${path}`,
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+  };
+}
+
+export function insightArticleSchema(post: InsightPost, locale: FullLocale) {
+  const path = locale === "th" ? `/insights/${post.slug}` : `/en/insights/${post.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post[locale].title,
+    description: post[locale].dek,
+    datePublished: post.date,
+    inLanguage: locale,
+    image: `${SITE_URL}${post.cover}.webp`,
     mainEntityOfPage: `${SITE_URL}${path}`,
     author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
