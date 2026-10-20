@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { InsightArticlePage } from "@/components/insights/InsightPages";
-import { insights, getInsightBySlug } from "@/data/insights";
+import { insights, getInsightBySlug, insightImage } from "@/data/insights";
 import { truncate } from "@/lib/text";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
       canonical: `/en/insights/${slug}`,
       languages: { th: `/insights/${slug}`, en: `/en/insights/${slug}`, "x-default": `/insights/${slug}` },
     },
-    openGraph: { type: "article", title: c.title, description, images: [`${post.cover}.webp`] },
+    openGraph: { type: "article", title: c.title, description, images: [insightImage(post, "en")] },
   };
 }
 

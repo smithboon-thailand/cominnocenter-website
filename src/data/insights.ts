@@ -6,8 +6,11 @@
  * กลุ่มเป้าหมายคือหน่วยงานที่อาจมาร่วมงานกับศูนย์ฯ (หน่วยงานรัฐ องค์กรระหว่างประเทศ เอเจนซี)
  *
  * กติกาที่ใช้กับทุกบทความ (ตกลงกับผู้ใช้ 20 ต.ค. 2569 · คู่มือเสียงอยู่ในชุดไฟล์ ComInno Content Studio)
- * 1. **ตัวเลขทุกตัวต้องมาจากงานที่ตรวจแล้วและมีหน้าบทสรุปบนเว็บ** ใส่ slug ของบทสรุปไว้ใน
- *    `evidence` ให้ผู้อ่านตามไปดูต้นทางได้ · `check:content` ตรวจว่า slug มีอยู่จริง
+ * 1. **ตัวเลขทุกตัวต้องมาจากแหล่งที่ตรวจแล้ว และผู้อ่านตามไปดูต้นทางได้** — งานวิจัยของศูนย์ฯ
+ *    ใส่ slug ของบทสรุปไว้ใน `evidence` (หน้าบทความโยน error ถ้า slug ไม่มีอยู่จริง) · สถิติจากภายนอก
+ *    ใส่ใน `references` พร้อม URL และวันที่เข้าถึง · ข้อมูลจาก Statista (21 ต.ค. 2569) ผู้ใช้เปิดดูเอง
+ *    ผ่านบัญชีที่ล็อกอิน แล้วตรวจตัวเลขกับหน้าต้นทาง — **ห้ามคัดลอกภาพกราฟของ Statista** สร้างกราฟใหม่
+ *    จากตัวเลขด้วย block `chart` และเครดิต "<แหล่งต้นทาง> via Statista" ใต้กราฟทุกครั้ง
  * 2. ตัวละครในย่อหน้าเปิดเป็นตัวละครสมมติ และต้องเขียนกำกับว่าสมมติ
  * 3. ศูนย์ฯ เป็นผู้เล่า ประธานของกริยาวิจัยคือทีมวิจัย · งานที่ทำก่อนตั้งศูนย์ฯ ห้ามเขียนว่าศูนย์ฯ ทำ
  * 4. ชื่อหน่วยงานที่เคยร่วมงานใช้ได้เฉพาะที่อยู่บนหน้า Impact แล้ว
@@ -18,23 +21,44 @@ export type InsightBlock =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string }
   | { kind: "ul"; items: string[] }
-  | { kind: "note"; text: string };
+  | { kind: "note"; text: string }
+  | { kind: "chart"; chart: InsightChartData }
+  /** ข้อแนะนำเป็นข้อๆ ที่มีหัวข้อสั้นนำหน้า แสดงเป็นการ์ดมีเลขกำกับ */
+  | { kind: "tips"; items: { title: string; text: string }[] };
+
+/** กราฟที่วาดจากตัวเลขบนหน้าเว็บเอง (ดู `InsightChart`) — ค่าเป็นเปอร์เซ็นต์ */
+export type InsightChartData = {
+  type: "bar" | "line";
+  title: string;
+  subtitle: string;
+  /** คำบรรยายสำหรับโปรแกรมอ่านหน้าจอ ต้องบอกตัวเลขครบทุกค่า */
+  alt: string;
+  /** บรรทัดเครดิตใต้กราฟ */
+  source: string;
+  data: { label: string; value: number; highlight?: boolean }[];
+};
+
+export type InsightReference = { text: string; url: string };
 
 export type InsightCopy = {
   title: string;
   dek: string;
   body: InsightBlock[];
-  coverAlt: string;
+  /** ต้องมีเมื่อบทความมี `cover` */
+  coverAlt?: string;
+  references?: InsightReference[];
+  /** ภาพตอนแชร์ (path เต็มพร้อมนามสกุล) — ถ้าไม่มีใช้ภาพปก แล้วค่อยใช้ภาพกลางของเว็บ */
+  ogImage?: string;
 };
 
 export type InsightPost = {
   slug: string;
   /** YYYY-MM-DD วันที่เผยแพร่บนเว็บ */
   date: string;
-  /** path ภาพปกไม่มีนามสกุล — ต้องมีสามขนาดตามกติกาของ ResponsiveArtwork */
-  cover: string;
+  /** path ภาพปกไม่มีนามสกุล — ต้องมีสามขนาดตามกติกาของ ResponsiveArtwork · ไม่มี = หน้าไม่มีภาพหัว */
+  cover?: string;
   /** slug ของหน้าบทสรุปงานวิจัยที่เป็นหลักฐานของบทความนี้ เรียงตามลำดับที่เล่า */
-  evidence: string[];
+  evidence?: string[];
   /** slug ของโครงการบนหน้า Impact ที่บทความอ้างถึง */
   relatedProjects?: string[];
   th: InsightCopy;
@@ -225,8 +249,290 @@ export const insights: InsightPost[] = [
       ],
     },
   },
+  {
+    slug: "line-news-trust-2026",
+    date: "2026-10-21",
+    th: {
+      title: "ช่องทางมีแล้ว แต่ความเชื่อใจหายไป: บทเรียนจากข้อมูลข่าวสารของคนไทยปี 2026",
+      dek: "ข้อมูลปี 2026 ชี้ว่าคนไทยรับข่าวผ่านเฟซบุ๊กและ LINE แต่ความเชื่อมั่นต่อข่าวลดเหลือ 47% หน่วยงานรัฐควรสื่อสารอย่างไรให้คนเชื่อและลงมือทำ",
+      ogImage: "/images/insights/line-news-trust-2026-social.png",
+      body: [
+        {
+          kind: "p",
+          text: "ทุกครั้งที่มีประกาศสำคัญ หน่วยงานรัฐจำนวนมากทำสิ่งเดียวกัน คือโพสต์ลงเพจเฟซบุ๊กแล้วถือว่าภารกิจจบ ในแง่ช่องทาง นี่ไม่ใช่การตัดสินใจที่ผิดเลย เพราะเฟซบุ๊กคือที่ที่คนไทยรับข่าวมากที่สุดจริงๆ",
+        },
+        {
+          kind: "p",
+          text: "แต่ข้อมูลล่าสุดบอกเราอีกเรื่องหนึ่งที่สำคัญกว่า คนไทยอยู่บนช่องทางเหล่านั้นครบ แต่เชื่อสิ่งที่เห็นน้อยลง",
+        },
+        { kind: "h2", text: "คนไทยอยู่บนโซเชียลครบทุกช่องทาง" },
+        {
+          kind: "p",
+          text: "ผลสำรวจของ Reuters Institute ร่วมกับ YouGov ช่วงมกราคมถึงกุมภาพันธ์ 2026 พบว่า ผู้ใช้อินเทอร์เน็ตไทย 69% ใช้เฟซบุ๊กเป็นช่องทางรับข่าว ตามมาด้วย TikTok 55% และ YouTube 54% ส่วน LINE ซึ่งเราคุ้นเคยในฐานะแอปแชต มีคนใช้รับข่าวถึง 45% [1]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "bar",
+            title: "แพลตฟอร์มที่คนไทยใช้รับข่าว",
+            subtitle: "ร้อยละของผู้ตอบที่ใช้แต่ละแพลตฟอร์มรับข่าว ปี 2026",
+            alt: "กราฟแท่งแพลตฟอร์มที่คนไทยใช้รับข่าว ปี 2026: Facebook 69% TikTok 55% YouTube 54% LINE 45% Facebook Messenger 27% Instagram 20%",
+            source:
+              "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · สำรวจออนไลน์ อายุ 18 ปีขึ้นไป n = 2,043",
+            data: [
+              { label: "Facebook", value: 69 },
+              { label: "TikTok", value: 55 },
+              { label: "YouTube", value: 54 },
+              { label: "LINE", value: 45, highlight: true },
+              { label: "Facebook Messenger", value: 27 },
+              { label: "Instagram", value: 20 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ตัวเลขนี้ยืนยันสิ่งที่นักสื่อสารภาครัฐรู้อยู่แล้ว คือประชาชนไม่ได้รอข่าวจากหน้าเว็บไซต์หน่วยงาน พวกเขารับข่าวในพื้นที่เดียวกับที่คุยกับครอบครัวและดูคลิปบันเทิง",
+        },
+        { kind: "h2", text: "แต่ความเชื่อมั่นต่อข่าวกำลังลดลง" },
+        {
+          kind: "p",
+          text: "ในการสำรวจชุดเดียวกัน ระดับความเชื่อมั่นต่อข่าวโดยรวมของคนไทยในปี 2026 อยู่ที่ 47% ลดลงจาก 55% ในปีก่อนหน้า และเป็นตัวเลขต่ำสุดในช่วงหกปีที่มีข้อมูล (2021–2026) [2]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "line",
+            title: "ความเชื่อมั่นต่อข่าวของคนไทย 2021–2026",
+            subtitle: "ร้อยละของผู้ตอบที่บอกว่าเชื่อถือข่าวส่วนใหญ่ได้เกือบตลอดเวลา",
+            alt: "กราฟเส้นความเชื่อมั่นต่อข่าวของคนไทย: 2021 50% 2022 53% 2023 51% 2024 54% 2025 55% 2026 47% ซึ่งต่ำสุดในหกปี",
+            source:
+              "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · สำรวจออนไลน์ อายุ 18 ปีขึ้นไป n = 2,043 (ปี 2026)",
+            data: [
+              { label: "2021", value: 50 },
+              { label: "2022", value: 53 },
+              { label: "2023", value: 51 },
+              { label: "2024", value: 54 },
+              { label: "2025", value: 55 },
+              { label: "2026", value: 47, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "พูดง่ายๆ คือ ในวันที่ข้อมูลไหลถึงมือประชาชนได้เร็วที่สุด กลับมีคนเกินครึ่งที่ไม่ได้บอกว่าตนเชื่อถือข่าวส่วนใหญ่ที่ได้รับ สำหรับหน่วยงานรัฐ นี่หมายความว่า “ได้โพสต์แล้ว” ยังห่างไกลจาก “ประชาชนเชื่อและลงมือทำแล้ว”",
+        },
+        { kind: "h2", text: "ความเชื่อใจไม่ได้อยู่ที่แพลตฟอร์มอย่างเดียว" },
+        {
+          kind: "p",
+          text: "มีข้อมูลอีกชุดที่ชวนคิด การสำรวจของ Rakuten Insight เมื่อพฤษภาคม 2025 ถามคนไทยว่าเชื่อถือข้อมูลข่าวสารจากแหล่งใด ผลคือโทรทัศน์ได้รับความเชื่อถือ 74% แพลตฟอร์มโซเชียลมีเดีย 64% แต่แพลตฟอร์มส่งข้อความได้เพียง 17% [3]",
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลนี้มาจากคนละการสำรวจ จึงเทียบกับตัวเลขข้างต้นโดยตรงไม่ได้ แต่ก็ชี้ให้เห็นภาพที่น่าสนใจ คนจำนวนมากรับข่าวผ่านแอปแชต แต่ไม่ได้เชื่อถือแอปแชตในฐานะแหล่งข่าว",
+        },
+        {
+          kind: "p",
+          text: "ในมุมของเรา คำอธิบายที่เป็นไปได้คือ ความเชื่อใจในพื้นที่แบบนี้ไม่ได้ผูกกับแพลตฟอร์ม แต่ผูกกับ “คน” ที่ส่งข้อความมา ข้อความจากผู้ใหญ่บ้านที่ทุกคนรู้จัก กับภาพประกาศที่ถูกส่งต่อมาโดยไม่รู้ที่มา อยู่ในแอปเดียวกัน แต่ได้รับความเชื่อถือไม่เท่ากัน",
+        },
+        {
+          kind: "p",
+          text: "เราเคยเห็นข้าราชการที่ทำงานป้องกันน้ำท่วม เมื่อได้รับประกาศทางการจากหน่วยเหนือ ก็นำประกาศฉบับนั้นไปแปะลงเฟซบุ๊กทั้งหน้า แล้วถือว่าได้เผยแพร่ข้อมูลแล้ว ช่องทางถูกต้อง ข้อมูลถูกต้อง แต่ไม่มีใครพูดกับชาวบ้านจริงๆ ว่าคืนนี้ต้องทำอะไร",
+        },
+        { kind: "h2", text: "สามสิ่งที่หน่วยงานรัฐทำได้ทันที" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ให้มีผู้พูดที่จับต้องได้",
+              text: "ในช่วงที่ความเชื่อมั่นต่อข่าวลดลง เสียงที่เป็นทางการล้วนๆ ยิ่งต้องทำงานหนักขึ้น ให้เจ้าหน้าที่ที่ดูแลเรื่องนั้นจริงเป็นคนพูด มีชื่อ มีหน้า และใช้ภาษาที่คุยกับคนในพื้นที่",
+            },
+            {
+              title: "เตรียมข้อความให้คนกลางส่งต่อได้ง่าย",
+              text: "เมื่อเกือบครึ่งของคนไทยรับข่าวผ่าน LINE ข้อความที่ผู้ใหญ่บ้าน อสม. หรือครูคัดลอกไปวางในกลุ่มได้ทันที คือช่องทางที่พาข้อมูลไปพร้อมความเชื่อใจของคนที่ส่ง",
+            },
+            {
+              title: "บอกขั้นต่อไปให้ชัดในประโยคแรก",
+              text: "“ต้องทำอะไร ที่ไหน เมื่อไร” ควรอ่านเจอได้ก่อนที่ผู้อ่านจะเลื่อนผ่าน ภาพเอกสารทั้งหน้าไม่ใช่คำตอบ",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "ข้อมูลของ Reuters Institute และ Rakuten Insight มาจากการสำรวจออนไลน์ จึงสะท้อนกลุ่มคนที่ใช้อินเทอร์เน็ตเป็นหลัก และอาจไม่ครอบคลุมผู้สูงอายุหรือคนในพื้นที่ห่างไกลที่เข้าถึงอินเทอร์เน็ตน้อย ซึ่งมักเป็นกลุ่มที่หน่วยงานรัฐต้องการเข้าถึงมากที่สุด การสื่อสารผ่านคนกลางในชุมชนจึงยิ่งสำคัญสำหรับกลุ่มนี้",
+        },
+        { kind: "h2", text: "ช่องทางพร้อมแล้ว สิ่งที่ขาดคือคน" },
+        {
+          kind: "p",
+          text: "ข้อมูลปี 2026 ไม่ได้บอกให้หน่วยงานรัฐเลิกใช้โซเชียลมีเดีย ตรงกันข้าม ประชาชนอยู่ที่นั่นแล้ว แต่ในวันที่ความเชื่อมั่นต่อข่าวลดลง การปรากฏบนช่องทางที่ถูกต้องไม่พออีกต่อไป ข้อมูลจะเดินทางได้ก็ต่อเมื่อมีคนที่ประชาชนเชื่อใจพามันไป",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังมองหาวิธีให้ข้อความไปถึงประชาชนได้ไกลขึ้นและน่าเชื่อถือยิ่งขึ้น ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Leading social media platforms for news in Thailand as of February 2026 (online survey, 18+, n = 2,043). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1291398/thailand-leading-social-media-platforms-for-news/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043 in 2026). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/",
+        },
+        {
+          text: "Rakuten Insight via Statista. (2025, October 6). Sources of information and news considered trustworthy in Thailand as of May 2025 (online survey, 16+, n = 9,865, among those who consumed each media type). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1624705/thailand-trusted-information-and-news-sources/",
+        },
+      ],
+    },
+    en: {
+      title: "The channels are there, the trust is not: what Thailand's 2026 news data tells public communicators",
+      dek: "Data from 2026 shows Thais get their news on Facebook and LINE, yet trust in news has fallen to 47%. How should government agencies communicate so that people believe the message and act on it?",
+      body: [
+        {
+          kind: "p",
+          text: "Whenever there is an important announcement, many government agencies do the same thing: they post it on their Facebook page and consider the job done. As a choice of channel, that is not wrong. Facebook really is where most Thais get their news.",
+        },
+        {
+          kind: "p",
+          text: "But the latest data tells us something more important. Thais are on all of those channels, and they believe less of what they see there.",
+        },
+        { kind: "h2", text: "Thais are on every social channel" },
+        {
+          kind: "p",
+          text: "A Reuters Institute and YouGov survey from January to February 2026 found that 69% of Thai internet users get news on Facebook, followed by TikTok at 55% and YouTube at 54%. LINE, which most of us think of as a chat app, is used for news by 45% [1].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "bar",
+            title: "Platforms Thais use for news",
+            subtitle: "Share of respondents who use each platform for news, 2026",
+            alt: "Bar chart of platforms Thais use for news in 2026: Facebook 69%, TikTok 55%, YouTube 54%, LINE 45%, Facebook Messenger 27%, Instagram 20%",
+            source:
+              "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · online survey, aged 18+, n = 2,043",
+            data: [
+              { label: "Facebook", value: 69 },
+              { label: "TikTok", value: 55 },
+              { label: "YouTube", value: 54 },
+              { label: "LINE", value: 45, highlight: true },
+              { label: "Facebook Messenger", value: 27 },
+              { label: "Instagram", value: 20 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "These figures confirm what public communicators already know. People are not waiting for news on an agency's website. They get it in the same place where they talk to their families and watch entertainment clips.",
+        },
+        { kind: "h2", text: "But trust in news is falling" },
+        {
+          kind: "p",
+          text: "In the same survey, overall trust in news among Thais stood at 47% in 2026, down from 55% the year before and the lowest figure in the six years of data (2021–2026) [2].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "line",
+            title: "Trust in news in Thailand, 2021–2026",
+            subtitle: "Share of respondents who say they can trust most news most of the time",
+            alt: "Line chart of trust in news in Thailand: 2021 50%, 2022 53%, 2023 51%, 2024 54%, 2025 55%, 2026 47%, the lowest in six years",
+            source:
+              "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · online survey, aged 18+, n = 2,043 (2026)",
+            data: [
+              { label: "2021", value: 50 },
+              { label: "2022", value: 53 },
+              { label: "2023", value: 51 },
+              { label: "2024", value: 54 },
+              { label: "2025", value: 55 },
+              { label: "2026", value: 47, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Put simply, at the moment information reaches people faster than ever, more than half of them do not say they trust most of the news they get. For a government agency, that means “we posted it” is still a long way from “people believed it and acted”.",
+        },
+        { kind: "h2", text: "Trust is not only about the platform" },
+        {
+          kind: "p",
+          text: "Another dataset is worth thinking about. A Rakuten Insight survey in May 2025 asked Thais which sources of information and news they trust. Television was trusted by 74% and social media platforms by 64%, but messaging platforms by only 17% [3].",
+        },
+        {
+          kind: "p",
+          text: "This comes from a different survey, so it cannot be compared directly with the figures above. It still points to something interesting: many people get news through chat apps without trusting chat apps as a source of news.",
+        },
+        {
+          kind: "p",
+          text: "As we see it, one possible explanation is that trust in these spaces is tied not to the platform but to the person who sends the message. A message from a village head everyone knows and a forwarded image of an announcement with no known origin sit in the same app, yet they are not trusted equally.",
+        },
+        {
+          kind: "p",
+          text: "We have seen officials working on flood prevention receive an official notice from a higher office, post an image of the whole page on Facebook, and consider the information published. The channel was right and the information was right, but no one actually told residents what they needed to do that night.",
+        },
+        { kind: "h2", text: "Three things agencies can do right away" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Give the message a real speaker",
+              text: "When trust in news is falling, a purely official voice has to work even harder. Let the officer who actually handles the issue speak, with a name and a face, in the language people use locally.",
+            },
+            {
+              title: "Prepare messages that intermediaries can pass on easily",
+              text: "With nearly half of Thais getting news on LINE, a message that a village head, a village health volunteer or a teacher can copy straight into a group chat is a channel that carries the sender's trust along with the information.",
+            },
+            {
+              title: "State the next step in the first sentence",
+              text: "“What to do, where and when” should be readable before people scroll past. An image of a full-page document is not the answer.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this data with care" },
+        {
+          kind: "p",
+          text: "The Reuters Institute and Rakuten Insight data both come from online surveys, so they mainly reflect people who use the internet. They may not cover older people or those in remote areas with little internet access, who are often the very groups government agencies most need to reach. For them, communicating through trusted people in the community matters even more.",
+        },
+        { kind: "h2", text: "The channels are ready. What is missing is people" },
+        {
+          kind: "p",
+          text: "The 2026 data does not tell government agencies to stop using social media. On the contrary, the public is already there. But when trust in news is falling, appearing on the right channel is no longer enough. Information travels only when someone people trust carries it.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is looking for ways to make its messages reach further and be more trusted, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Leading social media platforms for news in Thailand as of February 2026 (online survey, 18+, n = 2,043). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1291398/thailand-leading-social-media-platforms-for-news/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043 in 2026). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/",
+        },
+        {
+          text: "Rakuten Insight via Statista. (2025, October 6). Sources of information and news considered trustworthy in Thailand as of May 2025 (online survey, 16+, n = 9,865, among those who consumed each media type). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1624705/thailand-trusted-information-and-news-sources/",
+        },
+      ],
+    },
+  },
 ];
 
 export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
 
 export const getInsightBySlug = (slug: string) => insights.find((p) => p.slug === slug);
+
+/** ภาพตอนแชร์และใน JSON-LD — ภาพเฉพาะของบทความ → ภาพปก → ภาพกลางของเว็บ */
+export function insightImage(post: InsightPost, locale: "th" | "en"): string {
+  return post[locale].ogImage ?? (post.cover ? `${post.cover}.webp` : "/images/og/og-default.jpg");
+}
+
+// ภาพปกที่ไม่มี alt คือภาพที่โปรแกรมอ่านหน้าจออ่านไม่ออก — ให้ build พังดีกว่าขึ้นเว็บเงียบๆ
+for (const p of insights) {
+  if (p.cover && (!p.th.coverAlt || !p.en.coverAlt))
+    throw new Error(`insights: บทความ "${p.slug}" มีภาพปกแต่ไม่มี coverAlt ครบสองภาษา`);
+}

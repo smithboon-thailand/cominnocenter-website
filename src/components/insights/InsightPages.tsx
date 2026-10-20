@@ -35,6 +35,7 @@ const T = {
     home: "← กลับหน้าหลัก",
     all: "บทความทั้งหมด",
     evidence: "งานวิจัยที่บทความนี้อ้างถึง",
+    references: "อ้างอิง",
     project: "โครงการที่เกี่ยวข้อง",
     collaborate: "ร่วมงานกับเรา",
     collaborateHref: "/collaborate",
@@ -50,6 +51,7 @@ const T = {
     home: "← Back to home",
     all: "All insights",
     evidence: "Research cited in this article",
+    references: "References",
     project: "Related project",
     collaborate: "Collaborate with us",
     collaborateHref: "/en/collaborate",
@@ -79,13 +81,15 @@ export function InsightListPage({ locale }: { locale: FullLocale }) {
                   href={`${t.base}/${post.slug}`}
                   className="group rounded-2xl border border-neutral-200 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
                 >
-                  <ResponsiveArtwork
-                    base={post.cover}
-                    alt={c.coverAlt}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    aspect="aspect-[16/9]"
-                    height={900}
-                  />
+                  {post.cover && (
+                    <ResponsiveArtwork
+                      base={post.cover}
+                      alt={c.coverAlt ?? ""}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      aspect="aspect-[16/9]"
+                      height={900}
+                    />
+                  )}
                   <div className="p-6">
                     <p className="text-xs font-medium text-neutral-500 mb-2">{formatDate(post.date, locale)}</p>
                     <h2 className="text-h3-m md:text-h3 text-ink-900 group-hover:text-pink-500 transition-colors">
@@ -108,7 +112,7 @@ export function InsightListPage({ locale }: { locale: FullLocale }) {
 export function InsightArticlePage({ post, locale }: { post: InsightPost; locale: FullLocale }) {
   const t = T[locale];
   const c = post[locale];
-  const evidence = post.evidence.map((slug) => {
+  const evidence = (post.evidence ?? []).map((slug) => {
     const s = paperSummaryBySlug(slug);
     if (!s) throw new Error(`insights: บทความ "${post.slug}" อ้างบทสรุป "${slug}" ที่ไม่มีอยู่`);
     return { slug, headline: s[locale].headline };
@@ -150,23 +154,47 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
             </div>
           </section>
 
-          <section className="max-w-5xl mx-auto px-6 pb-10">
-            <ResponsiveArtwork
-              base={post.cover}
-              alt={c.coverAlt}
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              aspect="aspect-[16/9]"
-              height={900}
-              className="rounded-2xl"
-              priority
-            />
-          </section>
+          {post.cover && (
+            <section className="max-w-5xl mx-auto px-6 pb-10">
+              <ResponsiveArtwork
+                base={post.cover}
+                alt={c.coverAlt ?? ""}
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                aspect="aspect-[16/9]"
+                height={900}
+                className="rounded-2xl"
+                priority
+              />
+            </section>
+          )}
 
           <section className="max-w-3xl mx-auto px-6 pb-12">
             <InsightBody blocks={c.body} />
 
+            {c.references && c.references.length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-h3-m md:text-h3 text-ink-900 mb-4">{t.references}</h2>
+                <ol className="list-decimal pl-6 space-y-3 text-sm text-neutral-700 leading-relaxed">
+                  {c.references.map((r) => (
+                    <li key={r.url}>
+                      {r.text}{" "}
+                      <a
+                        href={r.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="break-all text-blue-700 hover:text-pink-500"
+                      >
+                        {r.url}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
+            {(evidence.length > 0 || projects.length > 0) && (
             <div className="mt-12 p-6 rounded-2xl border border-neutral-200">
-              <h2 className="text-h3-m md:text-h3 text-ink-900 mb-4">{t.evidence}</h2>
+              {evidence.length > 0 && <h2 className="text-h3-m md:text-h3 text-ink-900 mb-4">{t.evidence}</h2>}
               <ul className="space-y-3">
                 {evidence.map((e) => (
                   <li key={e.slug}>
@@ -191,6 +219,7 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
                 </>
               )}
             </div>
+            )}
 
             <div className="mt-8">
               <Link

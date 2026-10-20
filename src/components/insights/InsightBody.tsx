@@ -1,4 +1,5 @@
 import type { InsightBlock } from "@/data/insights";
+import InsightChart from "@/components/insights/InsightChart";
 
 /** เนื้อหาบทความ — ข้อความล้วน ไม่แปลงมาร์กดาวน์ (ดูกติกาข้อ 5 ใน src/data/insights.ts) */
 export default function InsightBody({ blocks }: { blocks: InsightBlock[] }) {
@@ -18,6 +19,26 @@ export default function InsightBody({ blocks }: { blocks: InsightBlock[] }) {
                 <li key={j}>{item}</li>
               ))}
             </ul>
+          );
+        if (b.kind === "chart") return <InsightChart key={i} chart={b.chart} />;
+        if (b.kind === "tips")
+          return (
+            <ol key={i} className="space-y-4">
+              {b.items.map((item, j) => (
+                <li key={j} className="flex gap-4 rounded-2xl border border-neutral-200 bg-white p-5">
+                  <span
+                    aria-hidden
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-pink-700 text-white font-medium"
+                  >
+                    {j + 1}
+                  </span>
+                  <div>
+                    <p className="text-lg font-medium text-ink-900">{item.title}</p>
+                    <p className="mt-1 text-neutral-700 leading-relaxed">{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           );
         if (b.kind === "note")
           return (

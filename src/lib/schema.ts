@@ -8,7 +8,7 @@
 import type { Leader } from "@/data/leadership";
 import type { PublicationEntry } from "@/data/publications";
 import type { NewsPost } from "@/data/news";
-import type { InsightPost } from "@/data/insights";
+import { insightImage, type InsightPost } from "@/data/insights";
 import { EMAIL, PHONE_SCHEMA } from "@/data/contact";
 import { orgChannels } from "@/data/social";
 import type { FullLocale, Locale } from "@/lib/locale";
@@ -286,7 +286,7 @@ export function insightArticleSchema(post: InsightPost, locale: FullLocale) {
     description: post[locale].dek,
     datePublished: post.date,
     inLanguage: locale,
-    image: `${SITE_URL}${post.cover}.webp`,
+    image: `${SITE_URL}${insightImage(post, locale)}`,
     mainEntityOfPage: `${SITE_URL}${path}`,
     author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
