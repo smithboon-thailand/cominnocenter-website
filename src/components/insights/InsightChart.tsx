@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { InsightChartData } from "@/data/insights";
 import type { FullLocale } from "@/lib/locale";
+import { Dial, Pick } from "@/components/insights/InsightChartChoice";
+import { Coverage, Waffle } from "@/components/insights/InsightChartShare";
 
 /**
  * กราฟของบทความ วาดจากตัวเลขตรงๆ — ไม่ใช้ภาพกราฟสำเร็จรูป
@@ -69,7 +71,12 @@ export default function InsightChart({ chart, locale }: { chart: InsightChartDat
           {chart.type === "line" && <> · {T[locale].hint}</>}
         </p>
       </figcaption>
-      {chart.type === "bar" ? <Bars chart={chart} locale={locale} /> : <Line chart={chart} locale={locale} />}
+      {chart.type === "bar" && <Bars chart={chart} locale={locale} />}
+      {chart.type === "line" && <Line chart={chart} locale={locale} />}
+      {chart.type === "dial" && <Dial chart={chart} locale={locale} />}
+      {chart.type === "pick" && <Pick chart={chart} locale={locale} />}
+      {chart.type === "waffle" && <Waffle chart={chart} locale={locale} />}
+      {chart.type === "coverage" && <Coverage chart={chart} locale={locale} />}
       <p className="mt-4 text-xs text-ink-500">{chart.source}</p>
     </figure>
   );

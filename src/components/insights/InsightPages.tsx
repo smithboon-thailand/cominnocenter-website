@@ -165,32 +165,12 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
                 className="rounded-2xl"
                 priority
               />
+              {c.coverCaption && <p className="mt-2 text-xs text-ink-500">{c.coverCaption}</p>}
             </section>
           )}
 
           <section className="max-w-3xl mx-auto px-6 pb-12">
             <InsightBody blocks={c.body} locale={locale} />
-
-            {c.references && c.references.length > 0 && (
-              <div className="mt-12">
-                <h2 className="text-h3-m md:text-h3 text-ink-900 mb-4">{t.references}</h2>
-                <ol className="list-decimal pl-6 space-y-3 text-sm text-neutral-700 leading-relaxed">
-                  {c.references.map((r) => (
-                    <li key={r.url}>
-                      {r.text}{" "}
-                      <a
-                        href={r.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="break-all text-blue-700 hover:text-pink-500"
-                      >
-                        {r.url}
-                      </a>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
 
             {(evidence.length > 0 || projects.length > 0) && (
             <div className="mt-12 p-6 rounded-2xl border border-neutral-200">
@@ -219,6 +199,27 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
                 </>
               )}
             </div>
+            )}
+
+            {c.references && c.references.length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-h3-m md:text-h3 text-ink-900 mb-4">{c.referencesTitle ?? t.references}</h2>
+                <ol className="list-decimal pl-6 space-y-3 text-sm text-neutral-700 leading-relaxed">
+                  {c.references.map((r) => (
+                    <li key={r.url}>
+                      {r.text}{" "}
+                      <a
+                        href={r.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="break-all text-blue-700 hover:text-pink-500"
+                      >
+                        {r.url}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             )}
 
             <div className="mt-8">

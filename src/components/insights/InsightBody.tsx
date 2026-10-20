@@ -1,6 +1,26 @@
 import type { InsightBlock } from "@/data/insights";
 import InsightChart from "@/components/insights/InsightChart";
+import Link from "next/link";
 import type { FullLocale } from "@/lib/locale";
+
+function withLinks(text: string, links?: { match: string; href: string }[]) {
+  if (!links?.length) return text;
+  const out: React.ReactNode[] = [];
+  let rest = text;
+  links.forEach((l, k) => {
+    const at = rest.indexOf(l.match);
+    if (at < 0) throw new Error(`insights: ไม่พบข้อความ "${l.match}" ในย่อหน้าที่จะใส่ลิงก์`);
+    out.push(rest.slice(0, at));
+    out.push(
+      <Link key={k} href={l.href} className="text-blue-700 underline underline-offset-2 hover:text-pink-500">
+        {l.match}
+      </Link>,
+    );
+    rest = rest.slice(at + l.match.length);
+  });
+  out.push(rest);
+  return out;
+}
 
 /** เนื้อหาบทความ — ข้อความล้วน ไม่แปลงมาร์กดาวน์ (ดูกติกาข้อ 5 ใน src/data/insights.ts) */
 export default function InsightBody({ blocks, locale }: { blocks: InsightBlock[]; locale: FullLocale }) {
@@ -52,7 +72,7 @@ export default function InsightBody({ blocks, locale }: { blocks: InsightBlock[]
           );
         return (
           <p key={i} className="text-neutral-700 leading-relaxed text-lg">
-            {b.text}
+            {withLinks(b.text, b.links)}
           </p>
         );
       })}

@@ -18,7 +18,8 @@
  */
 
 export type InsightBlock =
-  | { kind: "p"; text: string }
+  /** `links` = ลิงก์ภายในบนคำในย่อหน้า (`match` ต้องปรากฏใน `text` ตรงตัวอักษร ไม่งั้น build พัง) */
+  | { kind: "p"; text: string; links?: { match: string; href: string }[] }
   | { kind: "h2"; text: string }
   | { kind: "ul"; items: string[] }
   | { kind: "note"; text: string }
@@ -28,14 +29,21 @@ export type InsightBlock =
 
 /** กราฟที่วาดจากตัวเลขบนหน้าเว็บเอง (ดู `InsightChart`) — ค่าเป็นเปอร์เซ็นต์ */
 export type InsightChartData = {
-  type: "bar" | "line";
+  /** bar · line · dial (แถบเลื่อนทีละขั้น) · pick (ให้ผู้อ่านเลือกก่อนแล้วเทียบ) — ดู InsightChart/InsightChartChoice */
+  type: "bar" | "line" | "dial" | "pick" | "waffle" | "coverage";
   title: string;
   subtitle: string;
   /** คำบรรยายสำหรับโปรแกรมอ่านหน้าจอ ต้องบอกตัวเลขครบทุกค่า */
   alt: string;
   /** บรรทัดเครดิตใต้กราฟ */
   source: string;
-  data: { label: string; value: number; highlight?: boolean }[];
+  /** `detail` = ป้ายเต็มที่ dial แสดงเหนือแถบ · `aiShare` = สัดส่วนบล็อก AI ของขั้นนั้นใน dial (0–1) */
+  data: { label: string; value: number; highlight?: boolean; detail?: string; aiShare?: number; total?: number }[];
+  /** waffle: ชื่อกลุ่ม (กลุ่มแรก = กลุ่มที่ให้ทาย) และค่าต่อปีเป็นพันคน เรียงตาม `groups` · coverage ใช้ `total` ใน data */
+  groups?: string[];
+  series?: { label: string; values: number[] }[];
+  /** pick: ลำดับที่แสดงตัวเลือก (index ของ data) สลับไว้ไม่ให้ลำดับเผยคำตอบ */
+  order?: number[];
   /** กราฟแท่ง: label ของแท่งที่ให้ผู้อ่านทายก่อนเฉลย (ค่าแท่งนั้นซ่อนจนกดเฉลย · ไม่มี JS ก็เห็นครบ) */
   guess?: string;
 };
@@ -48,7 +56,11 @@ export type InsightCopy = {
   body: InsightBlock[];
   /** ต้องมีเมื่อบทความมี `cover` */
   coverAlt?: string;
+  /** คำบรรยายใต้ภาพปก — ภาพที่เจนด้วย AI ต้องบอกผู้อ่าน (คู่มือภาพของ Content Studio) */
+  coverCaption?: string;
   references?: InsightReference[];
+  /** หัวข้อของรายการอ้างอิง — ไม่ใส่ = "อ้างอิง" / "References" */
+  referencesTitle?: string;
   /** ภาพตอนแชร์ (path เต็มพร้อมนามสกุล) — ถ้าไม่มีใช้ภาพปก แล้วค่อยใช้ภาพกลางของเว็บ */
   ogImage?: string;
 };
@@ -95,11 +107,43 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "มินไม่ได้อยู่คนเดียว" },
         {
           kind: "p",
+          text: "มินเป็นหนึ่งในแรงงานชาวเมียนมาราว 1.71 ล้านคนที่ทำงานในไทยเมื่อปี 2566 [1] เมื่อเทียบกับแรงงานจากกัมพูชา (ราว 4 แสนคน) ลาว (ราว 2.3 แสนคน) และเวียดนาม (ราว 1,400 คน) ในปีเดียวกัน แรงงานเมียนมาคิดเป็นราวสามในสี่ของแรงงานจากสี่ประเทศนี้รวมกัน [1–4] การออกแบบการสื่อสารที่ไม่ได้คิดถึงคนกลุ่มนี้ จึงเท่ากับมองข้ามแรงงานข้ามชาติส่วนใหญ่ของประเทศ",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "waffle",
+            title: "ถ้ามีแรงงานข้ามชาติ 100 คน จะเป็นชาวเมียนมากี่คน",
+            subtitle: "นับเฉพาะแรงงานจากเมียนมา กัมพูชา ลาว และเวียดนามในไทย · ปี 2562–2566",
+            alt: "กราฟ 100 ช่อง ปี 2566: เมียนมา 73 กัมพูชา 17 ลาว 10 และเวียดนามน้อยกว่า 1 จาก 100 คน (เมียนมา 1.71 ล้านคน กัมพูชา 401,350 คน ลาว 232,640 คน เวียดนาม 1,387 คน)",
+            source: "ที่มา: ILO, Thailand: Migration Report 2024 via Statista, 2025 · สัดส่วนคำนวณโดย ComInnoCenter",
+            groups: ["เมียนมา", "กัมพูชา", "ลาว", "เวียดนาม"],
+            series: [{"label": "2562", "values": [1820, 686.43, 280.96, 0.096]}, {"label": "2563", "values": [1440, 454.38, 207.29, 0.248]}, {"label": "2564", "values": [1460, 455.48, 213.2, 0.137]}, {"label": "2565", "values": [1980, 519.76, 234.99, 1.704]}, {"label": "2566", "values": [1710, 401.35, 232.64, 1.387]}],
+            data: [],
+          },
+        },
+        {
+          kind: "p",
           text: "ในงานวิจัยปี 2569 ที่ทีมวิจัยซึ่งมีนักวิจัยของศูนย์ฯ ร่วมอยู่ด้วย ร่วมออกแบบโปรแกรมบริหารร่างกายกับแรงงานชาวเมียนมาในโรงงานอาหารทะเลแห่งหนึ่ง แรงงานทั้ง 29 คนที่ร่วมวงคุยมีอาการที่มือทุกคน 25 คน (86%) มือแข็งตอนเช้าจนกระทบชีวิตนอกงาน และ 23 คน (79%) ซื้อยาแก้ปวดกินเองอย่างน้อยสัปดาห์ละครั้ง",
         },
         {
           kind: "p",
           text: "ตัวเลขชุดนี้บอกอะไรมากกว่าความเจ็บป่วย มันบอกว่าคนกลุ่มนี้พยายามดูแลตัวเองอยู่แล้ว เพียงแต่ไม่มีใครออกแบบทางเลือกที่เข้ากับชีวิตจริงของเขา",
+        },
+        {
+          kind: "p",
+          text: "ภาพเดียวกันนี้เห็นได้ในระดับประเทศ ข้อมูลจากรายงานการย้ายถิ่นของ ILO ระบุว่า ณ กุมภาพันธ์ 2567 มีแรงงานข้ามชาติราว 2.54 ล้านคนที่มีสิทธิ์เข้ากองทุนประกันสังคม แต่ลงทะเบียนจริงราว 1.30 ล้านคน และในระบบประกันสุขภาพแรงงานต่างด้าว มีผู้มีสิทธิ์ราว 4.8 แสนคน ลงทะเบียนราว 2.5 แสนคน [5] คิดเป็นราวครึ่งเดียวในทั้งสองระบบ ช่องว่างนี้มีหลายสาเหตุ ไม่ใช่เรื่องการสื่อสารเพียงอย่างเดียว แต่ก็สะท้อนว่าสิทธิ์ที่มีอยู่บนกระดาษ ยังเดินทางไปไม่ถึงชีวิตจริงของคนจำนวนมาก",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "coverage",
+            title: "มีสิทธิ์ แต่ลงทะเบียนจริงราวครึ่งเดียว",
+            subtitle: "แรงงานข้ามชาติที่มีสิทธิ์เทียบกับที่ลงทะเบียนจริง · ก.พ. 2567 · กรอบเส้นประ = ผู้มีสิทธิ์ แถบสี = ลงทะเบียนแล้ว · แต่ละแถบเทียบกับผู้มีสิทธิ์ของระบบนั้น",
+            alt: "กองทุนประกันสังคม มีสิทธิ์ 2.54 ล้านคน ลงทะเบียน 1.30 ล้านคน (51%) · ประกันสุขภาพแรงงานต่างด้าว มีสิทธิ์ 476,470 คน ลงทะเบียน 250,880 คน (53%)",
+            source: "ที่มา: ILO, Thailand: Migration Report 2024 via Statista, 2025 · ร้อยละคำนวณโดย ComInnoCenter",
+            data: [{"label": "กองทุนประกันสังคม (SSF)", "value": 1301.57, "total": 2544.67}, {"label": "ประกันสุขภาพแรงงานต่างด้าว (MHIS)", "value": 250.88, "total": 476.47}],
+          },
         },
         { kind: "h2", text: "ข้อจำกัดที่คนหน้างานบอก คือโจทย์ออกแบบ ไม่ใช่อุปสรรค" },
         {
@@ -145,6 +189,10 @@ export const insights: InsightPost[] = [
           kind: "p",
           text: "งานทั้งสามชิ้นเป็นงานขนาดเล็ก งานเรื่องท่าบริหารเป็นการออกแบบร่วมกับคนในโรงงานเดียว ยังไม่ได้ทดสอบว่าท่าบริหารช่วยลดอาการได้จริง งานเรื่องเอชไอวีมาจากโรงงานเดียวและวัดพฤติกรรมจากคำบอกเล่าของผู้เข้าร่วม ส่วนแบบจำลองหกขั้นประเมินด้วยความเห็นผู้เชี่ยวชาญ ไม่ใช่ผลลัพธ์สุขภาพ สิ่งที่ทั้งสามชิ้นบอกได้ตรงกันจึงเป็นเรื่องของวิธีออกแบบ มากกว่าจะเป็นคำรับรองผลลัพธ์",
         },
+        {
+          kind: "p",
+          text: "ตัวเลขระดับประเทศที่ใช้ประกอบมาจากรายงานของ ILO ผ่าน Statista ซึ่งเป็นข้อมูลแรงงานที่อยู่ในระบบทางการ จำนวนจริงอาจสูงกว่านี้ และช่องว่างการลงทะเบียนประกันมีหลายสาเหตุ เช่น ประเภทการจ้างงานและภาระค่าใช้จ่าย จึงไม่ควรตีความว่าเป็นผลจากการสื่อสารเพียงอย่างเดียว สัดส่วนที่อ้างถึงคำนวณโดยศูนย์ฯ จากตัวเลขในรายงาน",
+        },
         { kind: "h2", text: "ลองเริ่มจากโครงการถัดไปของคุณ" },
         {
           kind: "ul",
@@ -161,6 +209,29 @@ export const insights: InsightPost[] = [
         {
           kind: "note",
           text: "หากหน่วยงานของคุณกำลังออกแบบการสื่อสารกับกลุ่มที่เข้าถึงยาก ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "ILO via Statista. (2025, February 5). Number of migrant workers from Myanmar in Thailand from 2019 to 2023 (Thailand: Migration Report 2024, p. 46). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551849/thailand-number-of-burmese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Cambodia in Thailand from 2019 to 2023. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551843/thailand-number-of-cambodian-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Lao PDR in Thailand from 2019 to 2023. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551845/thailand-number-of-lao-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Vietnam in Thailand from 2019 to 2023. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551850/thailand-number-of-vietnamese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Eligibility of migrant workers to enroll in the healthcare scheme in Thailand as of February 2024, by status (Thailand: Migration Report 2024, p. 233). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1551893/thailand-eligibility-of-migrant-workers-for-the-healthcare-scheme-by-status/",
         },
       ],
     },
@@ -181,11 +252,43 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "Min is not alone" },
         {
           kind: "p",
+          text: "Min is one of about 1.71 million workers from Myanmar employed in Thailand in 2023 [1]. Compared with workers from Cambodia (about 400,000), Laos (about 230,000) and Vietnam (about 1,400) in the same year, workers from Myanmar made up roughly three in four of those from the four countries combined [1–4]. Communication designed without this group in mind overlooks most of the country's migrant workforce.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "waffle",
+            title: "If there were 100 migrant workers, how many would be from Myanmar?",
+            subtitle: "Counting only workers from Myanmar, Cambodia, Laos and Vietnam in Thailand · 2019–2023",
+            alt: "100-square chart for 2023: Myanmar 73, Cambodia 17, Laos 10 and Vietnam fewer than 1 out of 100 (Myanmar 1.71 million, Cambodia 401,350, Laos 232,640, Vietnam 1,387)",
+            source: "Source: ILO, Thailand: Migration Report 2024 via Statista, 2025 · shares calculated by ComInnoCenter",
+            groups: ["Myanmar", "Cambodia", "Laos", "Vietnam"],
+            series: [{"label": "2019", "values": [1820, 686.43, 280.96, 0.096]}, {"label": "2020", "values": [1440, 454.38, 207.29, 0.248]}, {"label": "2021", "values": [1460, 455.48, 213.2, 0.137]}, {"label": "2022", "values": [1980, 519.76, 234.99, 1.704]}, {"label": "2023", "values": [1710, 401.35, 232.64, 1.387]}],
+            data: [],
+          },
+        },
+        {
+          kind: "p",
           text: "In a 2026 study in which a research team including researchers from our centre co-designed an exercise programme with Myanmar workers at a seafood plant, all 29 workers in the sessions reported hand symptoms. Twenty-five of them (86%) had morning stiffness that affected life outside work, and 23 (79%) bought painkillers at least once a week.",
         },
         {
           kind: "p",
           text: "Those figures say more than that people are in pain. They say this group is already trying to look after itself. Nobody had designed an option that fits the life they actually live.",
+        },
+        {
+          kind: "p",
+          text: "The same picture shows up nationally. The ILO's migration report states that in February 2024 about 2.54 million migrant workers were eligible for the Social Security Fund, but only about 1.30 million were enrolled. In the Migrant Health Insurance Scheme, about 480,000 were eligible and about 250,000 enrolled [5]. That is roughly half in both schemes. The gap has many causes, not communication alone, but it shows that rights that exist on paper have yet to reach the daily lives of many people.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "coverage",
+            title: "Eligible, but only about half enrolled",
+            subtitle: "Eligible migrant workers compared with those actually enrolled · February 2024 · dashed outline = eligible, coloured bar = enrolled · each bar is scaled to its own scheme",
+            alt: "Social Security Fund: 2.54 million eligible, 1.30 million enrolled (51%) · Migrant Health Insurance Scheme: 476,470 eligible, 250,880 enrolled (53%)",
+            source: "Source: ILO, Thailand: Migration Report 2024 via Statista, 2025 · percentages calculated by ComInnoCenter",
+            data: [{"label": "Social Security Fund (SSF)", "value": 1301.57, "total": 2544.67}, {"label": "Migrant Health Insurance Scheme (MHIS)", "value": 250.88, "total": 476.47}],
+          },
         },
         { kind: "h2", text: "The constraints people name are the design brief, not obstacles" },
         {
@@ -231,6 +334,10 @@ export const insights: InsightPost[] = [
           kind: "p",
           text: "All three studies are small. The exercise study is a co-design with people from one factory; it has not yet tested whether the exercises reduce symptoms. The HIV study comes from one factory and measures behaviour through self-reports. The six-step model was rated by experts rather than tested against health outcomes. What the three agree on is a way of designing, not a guarantee of results.",
         },
+        {
+          kind: "p",
+          text: "The national figures come from an ILO report via Statista and cover workers in the official system, so the real numbers may be higher. The enrolment gap has many causes, such as type of employment and cost, and should not be read as the result of communication alone. The shares quoted were calculated by our centre from the figures in the report.",
+        },
         { kind: "h2", text: "Try it on your next project" },
         {
           kind: "ul",
@@ -249,12 +356,39 @@ export const insights: InsightPost[] = [
           text: "If your organisation is designing communication for hard-to-reach groups, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
         },
       ],
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "ILO via Statista. (2025, February 5). Number of migrant workers from Myanmar in Thailand from 2019 to 2023 (Thailand: Migration Report 2024, p. 46). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551849/thailand-number-of-burmese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Cambodia in Thailand from 2019 to 2023. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551843/thailand-number-of-cambodian-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Lao PDR in Thailand from 2019 to 2023. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551845/thailand-number-of-lao-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Number of migrant workers from Vietnam in Thailand from 2019 to 2023. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551850/thailand-number-of-vietnamese-migrant-workers/",
+        },
+        {
+          text: "ILO via Statista. Eligibility of migrant workers to enroll in the healthcare scheme in Thailand as of February 2024, by status (Thailand: Migration Report 2024, p. 233). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1551893/thailand-eligibility-of-migrant-workers-for-the-healthcare-scheme-by-status/",
+        },
+      ],
     },
   },
   {
     slug: "line-news-trust-2026",
     date: "2026-10-21",
+    cover: "/images/insights/line-news-trust-2026-hero",
     th: {
+      coverAlt:
+        "ภาพประกอบกระดาษ โทรโข่งสีดำปล่อยแถบกระดาษสีเทาหลายเส้นที่ลอยจางหายไปกลางทาง มีเพียงแถบสีชมพูเส้นเดียวที่คดเคี้ยวลงไปถึงบ้านหลังเล็ก",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       title: "ช่องทางมีแล้ว แต่ความเชื่อใจหายไป: บทเรียนจากข้อมูลข่าวสารของคนไทยปี 2026",
       dek: "ข้อมูลปี 2026 ชี้ว่าคนไทยรับข่าวผ่านเฟซบุ๊กและ LINE แต่ความเชื่อมั่นต่อข่าวลดเหลือ 47% หน่วยงานรัฐควรสื่อสารอย่างไรให้คนเชื่อและลงมือทำ",
       ogImage: "/images/insights/line-news-trust-2026-social.png",
@@ -391,6 +525,9 @@ export const insights: InsightPost[] = [
     },
     en: {
       title: "The channels are there, the trust is not: what Thailand's 2026 news data tells public communicators",
+      coverAlt:
+        "Paper-craft illustration: a black megaphone sends out several grey paper strips that drift and fade, while a single pink strip winds all the way down to a small house",
+      coverCaption: "Illustration generated with AI",
       dek: "Data from 2026 shows Thais get their news on Facebook and LINE, yet trust in news has fallen to 47%. How should government agencies communicate so that people believe the message and act on it?",
       body: [
         {
@@ -523,6 +660,491 @@ export const insights: InsightPost[] = [
         },
       ],
     },
+  },
+  {
+    slug: "ai-news-comfort-2025",
+    date: "2026-10-21",
+    cover: "/images/insights/ai-news-comfort-2025-hero",
+    th: {
+      coverAlt:
+        "ภาพประกอบกระดาษ เวทีเล็กที่มีม่านสีดำ ไมโครโฟนสีชมพูตั้งอยู่หน้าม่าน ส่วนเฟืองสีเทาซ่อนอยู่หลังม่านที่แง้มไว้",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      title: "ให้ AI ช่วยได้ แต่อย่าให้ AI เป็นคนเล่า",
+      dek: "ผลสำรวจ 6 ประเทศพบว่าคนสบายใจกับข่าวที่คนเขียน 62% แต่เหลือ 12% ถ้า AI เขียนทั้งหมด องค์กรไทยควรใช้ AI ในงานสื่อสารอย่างไรให้ไม่เสียความเชื่อใจ",
+      body: [
+        {
+          kind: "p",
+          text: "ทุกวันนี้หลายองค์กรเริ่มใช้ AI ร่างข่าวประชาสัมพันธ์ สรุปรายงาน หรือทำภาพประกอบ คำถามที่เราได้ยินบ่อยในห้องอบรมคือ “ใช้ได้ไหม แล้วต้องบอกผู้อ่านหรือเปล่า”"
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลล่าสุดไม่ได้ตอบว่าใช้ได้หรือไม่ได้ แต่ชี้ให้เห็นเส้นแบ่งที่ชัดเจนกว่านั้น ผู้คนไม่ได้กังวลว่า AI อยู่ในกระบวนการ พวกเขากังวลว่า AI กำลังจะมาแทน “คน” ที่เล่าเรื่องให้พวกเขาฟัง"
+        },
+        {
+          kind: "h2",
+          text: "ยิ่ง AI ทำมาก ความสบายใจยิ่งลด"
+        },
+        {
+          kind: "p",
+          text: "รายงาน Generative AI and News 2025 ของ Reuters Institute ร่วมกับ YouGov สำรวจผู้ใช้อินเทอร์เน็ต 12,000 คนใน 6 ประเทศ ได้แก่ สหรัฐอเมริกา สหราชอาณาจักร ญี่ปุ่น ฝรั่งเศส เดนมาร์ก และอาร์เจนตินา ถามว่าสบายใจแค่ไหนกับข่าวที่ผลิตด้วยระดับการใช้ AI ต่างกัน [1]"
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "dial",
+            title: "ถ้า AI เป็นคนเขียนข่าวมากขึ้น คนจะสบายใจแค่ไหน",
+            subtitle: "เลื่อนแถบจาก \"คนเขียน\" ไป \"AI เขียน\" · ร้อยละของผู้ตอบที่สบายใจ",
+            alt: "ความสบายใจต่อข่าวตามระดับการใช้ AI: คนเขียนทั้งหมด 62% คนเขียนเป็นหลักมี AI ช่วย 43% AI เขียนเป็นหลักมีคนตรวจ 21% AI เขียนทั้งหมด 12% (สำรวจ 6 ประเทศ ไม่รวมไทย)",
+            source: "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · สำรวจออนไลน์ n = 12,000 ใน 6 ประเทศ (สหรัฐฯ สหราชอาณาจักร ญี่ปุ่น ฝรั่งเศส เดนมาร์ก อาร์เจนตินา) ไม่รวมไทย",
+            data: [
+              {
+                label: "คนเขียนทั้งหมด",
+                detail: "นักข่าวเขียนเองทั้งหมด",
+                value: 62,
+                aiShare: 0
+              },
+              {
+                label: "คนเป็นหลัก มี AI ช่วย",
+                detail: "นักข่าวเขียนเป็นหลัก มี AI ช่วยบ้าง",
+                value: 43,
+                aiShare: 0.25
+              },
+              {
+                label: "AI เป็นหลัก มีคนตรวจ",
+                detail: "AI เขียนเป็นหลัก มีคนตรวจ",
+                value: 21,
+                aiShare: 0.75
+              },
+              {
+                label: "AI ทั้งหมด",
+                detail: "AI เขียนทั้งหมด",
+                value: 12,
+                aiShare: 1
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "ข่าวที่นักข่าวเขียนเองทั้งหมด มีคนสบายใจ 62% เมื่อคนเขียนเป็นหลักแต่มี AI ช่วยบ้าง ตัวเลขลดเหลือ 43% ถ้า AI เขียนเป็นหลักโดยมีคนตรวจ เหลือ 21% และถ้า AI เขียนทั้งหมด เหลือเพียง 12% [1]"
+        },
+        {
+          kind: "p",
+          text: "สังเกตว่าแม้มีคนเป็นผู้เขียนหลัก แค่เพิ่ม AI เข้าไปช่วย ความสบายใจก็ลดลงไปเกือบหนึ่งในสามแล้ว"
+        },
+        {
+          kind: "h2",
+          text: "งานหลังบ้านโอเค งานที่เป็น “หน้าตา” ไม่โอเค"
+        },
+        {
+          kind: "p",
+          text: "เมื่อแยกเป็นงานย่อย ภาพยิ่งชัดขึ้น ก่อนดูคำตอบ ลองเลือกดูว่าคุณโอเคให้ AI ทำงานไหนบ้าง แล้วเทียบกับคนใน 6 ประเทศ [2]"
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "pick",
+            title: "คุณโอเคให้ AI ทำงานไหนในการทำข่าวบ้าง",
+            subtitle: "ร้อยละของผู้ตอบที่สบายใจให้ AI ทำงานแต่ละประเภท",
+            alt: "ความสบายใจให้ AI ทำงานข่าว 12 ประเภท: แก้คำผิด 55% แปลภาษา 53% ทำกราฟ 47% วิเคราะห์ข้อมูล 45% เขียนพาดหัว 41% แปลงเป็นเสียง/วิดีโอ 39% ค้นคว้า 38% ภาพประกอบทั่วไป 35% เขียนเนื้อข่าว 33% เขียนใหม่ให้คนต่างกลุ่ม 30% ภาพเสมือนจริงแทนภาพถ่าย 26% ผู้ประกาศหรือผู้เขียนที่เป็น AI 19%",
+            source: "ที่มา: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · สำรวจออนไลน์ n = 12,000 ใน 6 ประเทศ (สหรัฐฯ สหราชอาณาจักร ญี่ปุ่น ฝรั่งเศส เดนมาร์ก อาร์เจนตินา) ไม่รวมไทย",
+            order: [
+              3,
+              10,
+              0,
+              8,
+              5,
+              11,
+              1,
+              7,
+              4,
+              9,
+              2,
+              6
+            ],
+            data: [
+              {
+                label: "แก้คำผิดและไวยากรณ์",
+                value: 55
+              },
+              {
+                label: "แปลภาษา",
+                value: 53
+              },
+              {
+                label: "ทำกราฟและอินโฟกราฟิก",
+                value: 47
+              },
+              {
+                label: "วิเคราะห์ข้อมูล",
+                value: 45
+              },
+              {
+                label: "เขียนพาดหัว",
+                value: 41
+              },
+              {
+                label: "แปลงบทความเป็นเสียง/วิดีโอ",
+                value: 39
+              },
+              {
+                label: "ค้นคว้าทำข่าว",
+                value: 38
+              },
+              {
+                label: "ภาพประกอบทั่วไป",
+                value: 35
+              },
+              {
+                label: "เขียนเนื้อข่าว",
+                value: 33
+              },
+              {
+                label: "เขียนข่าวเดิมใหม่ให้คนต่างกลุ่ม",
+                value: 30
+              },
+              {
+                label: "ภาพเสมือนจริงแทนภาพถ่าย",
+                value: 26
+              },
+              {
+                label: "ผู้ประกาศหรือผู้เขียนที่เป็น AI",
+                value: 19
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "คนส่วนใหญ่สบายใจที่สุดเมื่อ AI ช่วยแก้คำผิดและไวยากรณ์ (55%) และแปลภาษา (53%) แต่ความสบายใจต่ำที่สุดกับการสร้างภาพเสมือนจริงแทนภาพถ่าย (26%) และการใช้ผู้ประกาศหรือผู้เขียนที่เป็น AI (19%) [2]"
+        },
+        {
+          kind: "p",
+          text: "รูปแบบนี้สอดคล้องกับสิ่งที่เราเห็นในบทความก่อนหน้า ผู้คนเชื่อใจ “คน” มากกว่าช่องทาง เมื่อ AI ทำงานที่มองไม่เห็น เช่น ตรวจคำผิดหรือวิเคราะห์ข้อมูล ผู้อ่านไม่ค่อยติดใจ แต่เมื่อ AI กลายเป็นใบหน้าหรือเสียงที่พูดกับเขาโดยตรง ความเชื่อใจหายไปอย่างรวดเร็ว",
+          links: [
+            {
+              match: "บทความก่อนหน้า",
+              href: "/insights/line-news-trust-2026"
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "ทำไมเรื่องนี้สำคัญกับองค์กรไทยเป็นพิเศษ"
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลชุดนี้ไม่ได้สำรวจคนไทย เราจึงสรุปตรงๆ ไม่ได้ว่าคนไทยจะคิดเหมือนกัน แต่มีเหตุผลที่องค์กรไทยควรระวังเรื่องนี้มากกว่าเดิม"
+        },
+        {
+          kind: "p",
+          text: "ปี 2026 ความเชื่อมั่นต่อข่าวโดยรวมของคนไทยลดลงเหลือ 47% ต่ำสุดในช่วงหกปีที่มีข้อมูล [3] เมื่อฐานความเชื่อใจบางอยู่แล้ว การใช้ AI ในจุดที่ผู้อ่านรู้สึกว่าถูกแทนที่ด้วยเครื่อง อาจทำให้ความเชื่อใจที่เหลือน้อยอยู่แล้วลดลงไปอีก"
+        },
+        {
+          kind: "p",
+          text: "อีกด้านหนึ่ง ใน 6 ประเทศที่สำรวจ มีคน 37% เชื่อว่าสื่อใช้ AI บ่อยอยู่แล้ว และมีเพียง 4% ที่คิดว่าไม่ใช้เลย [4] ผู้อ่านจึงไม่ได้ไร้เดียงสา หลายคนสันนิษฐานไว้ก่อนแล้วว่ามี AI อยู่เบื้องหลัง การปิดบังจึงมีความเสี่ยงมากกว่าการบอกตรงๆ"
+        },
+        {
+          kind: "h2",
+          text: "สามหลักการใช้ AI ในงานสื่อสารโดยไม่เสียความเชื่อใจ"
+        },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ใช้ AI หลังบ้านให้เต็มที่",
+              text: "ตรวจคำผิด แปลภาษา สรุปเอกสาร วิเคราะห์ข้อมูล ทำร่างแรก งานเหล่านี้ประหยัดเวลาได้มากและผู้อ่านยอมรับได้ค่อนข้างดี"
+            },
+            {
+              title: "ให้หน้าตาและเสียงเป็นของคนจริง",
+              text: "ผู้พูด ผู้ลงนาม และภาพที่อ้างว่าเป็นเหตุการณ์จริง ควรเป็นคนจริงและภาพจริง หากจำเป็นต้องใช้ภาพที่สร้างด้วย AI ให้ใช้เป็นภาพประกอบเชิงแนวคิด ไม่ใช่ภาพที่ดูเหมือนภาพถ่ายเหตุการณ์"
+            },
+            {
+              title: "บอกผู้อ่านอย่างตรงไปตรงมา",
+              text: "เขียนสั้นๆ ว่า AI ช่วยทำส่วนไหน และใครเป็นผู้ตรวจรับผิดชอบ เช่น “ร่างแรกจัดทำโดยใช้ AI ตรวจทานและรับรองโดยฝ่ายสื่อสารองค์กร” การบอกแบบนี้ทำให้ผู้อ่านรู้ว่ายังมีคนรับผิดชอบอยู่"
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "ข้อควรระวังในการอ่านข้อมูล"
+        },
+        {
+          kind: "p",
+          text: "ข้อมูลหลักของบทความนี้มาจากการสำรวจออนไลน์ใน 6 ประเทศเมื่อกลางปี 2025 ซึ่งไม่รวมประเทศไทย ทัศนคติต่อ AI อาจต่างกันตามวัฒนธรรมและความคุ้นเคยกับเทคโนโลยี ตัวเลขจึงควรใช้เป็นสัญญาณทิศทาง ไม่ใช่ค่าที่ใช้แทนคนไทยได้โดยตรง หากองค์กรต้องการตัดสินใจเชิงนโยบาย การสำรวจกลุ่มเป้าหมายของตนเองจะให้คำตอบที่แม่นกว่า"
+        },
+        {
+          kind: "h2",
+          text: "AI ช่วยได้ แต่ความเชื่อใจยังต้องมาจากคน"
+        },
+        {
+          kind: "p",
+          text: "AI ทำให้งานสื่อสารเร็วขึ้นและทำได้มากขึ้นจริง แต่ข้อมูลบอกเราว่าผู้คนยังอยากรู้ว่ามี “ใคร” อยู่เบื้องหลังเรื่องที่ได้ยิน องค์กรที่ใช้ AI อย่างฉลาดคือองค์กรที่ให้ AI ทำงานหนักอยู่ข้างหลัง และให้คนที่น่าเชื่อถือยืนอยู่ข้างหน้า"
+        },
+        {
+          kind: "note",
+          text: "หากองค์กรของคุณกำลังวางแนวทางการใช้ AI ในงานสื่อสาร ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ"
+        }
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Public comfort with AI-generated news in selected countries as of July 2025, by level of human input (online survey, n = 12,000, US, UK, Japan, France, Denmark, Argentina; Generative AI and News Report 2025, p. 44). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1662348/comfort-ai-generated-news-worldwide-by-level-human-input/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people comfortable with AI in journalism in selected countries as of July 2025, by task (Generative AI and News Report 2025, p. 46). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1662352/comfortable-ai-use-journalism-worldwide-by-task/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043). เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people who believe generative AI is frequently used in the news media sector in selected countries as of July 2025. เข้าถึงเมื่อ 21 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1662347/generative-ai-use-in-news-media-sector-perception-worldwide/"
+        }
+      ]
+    },
+    en: {
+      title: "Let AI help, but don't let AI tell the story",
+      coverAlt:
+        "Paper-craft illustration: a small stage with a black curtain, a pink microphone standing in front, and a grey gear half-hidden behind the parted curtain",
+      coverCaption: "Illustration generated with AI",
+      dek: "A six-country survey finds 62% are comfortable with news written by people, but only 12% when AI writes it all. How should organisations use AI in communication without losing trust?",
+      body: [
+        {
+          kind: "p",
+          text: "Many organisations now use AI to draft press releases, summarise reports or make illustrations. The question we hear most often in training sessions is: “Can we use it, and do we have to tell readers?”"
+        },
+        {
+          kind: "p",
+          text: "The latest data does not answer yes or no. It points to a clearer line. People are not worried that AI is part of the process. They are worried that AI is about to replace the person who tells them the story."
+        },
+        {
+          kind: "h2",
+          text: "The more AI does, the less comfortable people are"
+        },
+        {
+          kind: "p",
+          text: "The Reuters Institute's Generative AI and News Report 2025, with YouGov, surveyed 12,000 internet users in six countries: the United States, the United Kingdom, Japan, France, Denmark and Argentina. It asked how comfortable they were with news produced with different levels of AI involvement [1]."
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "dial",
+            title: "As AI writes more of the news, how comfortable are people?",
+            subtitle: "Slide from \"human\" to \"AI\" · share of respondents who are comfortable",
+            alt: "Comfort with news by level of AI involvement: entirely human 62%, mostly human with some AI help 43%, mostly AI with human oversight 21%, entirely AI 12% (6 countries, not Thailand)",
+            source: "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · online survey, n = 12,000 in 6 countries (US, UK, Japan, France, Denmark, Argentina), not including Thailand",
+            data: [
+              {
+                label: "Entirely human",
+                detail: "Written entirely by journalists",
+                value: 62,
+                aiShare: 0
+              },
+              {
+                label: "Mostly human, some AI",
+                detail: "Mostly written by journalists, with some AI help",
+                value: 43,
+                aiShare: 0.25
+              },
+              {
+                label: "Mostly AI, human check",
+                detail: "Mostly written by AI, with some human oversight",
+                value: 21,
+                aiShare: 0.75
+              },
+              {
+                label: "Entirely AI",
+                detail: "Written entirely by AI",
+                value: 12,
+                aiShare: 1
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "For news written entirely by journalists, 62% were comfortable. When journalists did most of the writing with some AI help, that fell to 43%. When AI did most of the writing with a human checking, it was 21%, and for news written entirely by AI, only 12% [1]."
+        },
+        {
+          kind: "p",
+          text: "Notice that even with a human as the main writer, simply adding AI help cut comfort by nearly a third."
+        },
+        {
+          kind: "h2",
+          text: "Backstage work is fine; the public face is not"
+        },
+        {
+          kind: "p",
+          text: "Broken down by task, the picture gets sharper. Before you look at the answers, pick the tasks you would be happy for AI to do, then compare with people in the six countries [2]."
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "pick",
+            title: "Which newsroom tasks would you let AI do?",
+            subtitle: "Share of respondents comfortable with AI doing each task",
+            alt: "Comfort with AI doing 12 newsroom tasks: spelling and grammar 55%, translation 53%, charts 47%, data analysis 45%, headlines 41%, audio or video versions 39%, research 38%, generic illustrations 35%, article text 33%, rewriting for different audiences 30%, realistic images with no photo 26%, AI presenter or author 19%",
+            source: "Source: Reuters Institute for the Study of Journalism / YouGov via Statista, 2026 · Generative AI and News Report 2025 · online survey, n = 12,000 in 6 countries (US, UK, Japan, France, Denmark, Argentina), not including Thailand",
+            order: [
+              3,
+              10,
+              0,
+              8,
+              5,
+              11,
+              1,
+              7,
+              4,
+              9,
+              2,
+              6
+            ],
+            data: [
+              {
+                label: "Fixing spelling and grammar",
+                value: 55
+              },
+              {
+                label: "Translation",
+                value: 53
+              },
+              {
+                label: "Charts and infographics",
+                value: 47
+              },
+              {
+                label: "Data analysis",
+                value: 45
+              },
+              {
+                label: "Writing headlines",
+                value: 41
+              },
+              {
+                label: "Turning articles into audio or video",
+                value: 39
+              },
+              {
+                label: "Research for stories",
+                value: 38
+              },
+              {
+                label: "Generic illustrations",
+                value: 35
+              },
+              {
+                label: "Writing the article text",
+                value: 33
+              },
+              {
+                label: "Rewriting stories for different audiences",
+                value: 30
+              },
+              {
+                label: "Realistic images when there is no photo",
+                value: 26
+              },
+              {
+                label: "An AI presenter or author",
+                value: 19
+              }
+            ]
+          }
+        },
+        {
+          kind: "p",
+          text: "Most people were most comfortable with AI fixing spelling and grammar (55%) and translating (53%), and least comfortable with realistic images used in place of photos (26%) and with AI presenters or authors (19%) [2]."
+        },
+        {
+          kind: "p",
+          text: "This fits what we saw in our previous article: people trust people more than channels. When AI does work readers cannot see, such as checking spelling or analysing data, they hardly mind. When AI becomes the face or the voice speaking to them directly, trust drains away quickly.",
+          links: [
+            {
+              match: "our previous article",
+              href: "/en/insights/line-news-trust-2026"
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "Why this matters especially for Thai organisations"
+        },
+        {
+          kind: "p",
+          text: "This survey did not include Thailand, so we cannot say that Thais think the same way. There are still reasons for Thai organisations to be more careful than before."
+        },
+        {
+          kind: "p",
+          text: "In 2026, overall trust in news in Thailand fell to 47%, the lowest in six years of data [3]. When trust is already thin, using AI where readers feel a machine has replaced a person could wear away what little is left."
+        },
+        {
+          kind: "p",
+          text: "On the other hand, across the six countries surveyed, 37% believe the news media already use AI often, and only 4% think they never do [4]. Readers are not naive. Many already assume AI is at work behind the scenes, so hiding it is riskier than saying so plainly."
+        },
+        {
+          kind: "h2",
+          text: "Three principles for using AI in communication without losing trust"
+        },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Use AI fully behind the scenes",
+              text: "Checking spelling, translating, summarising documents, analysing data and producing first drafts save a great deal of time, and readers accept them fairly well."
+            },
+            {
+              title: "Keep the face and the voice human",
+              text: "Speakers, signatories and images presented as real events should be real people and real photographs. If you need an AI-generated image, use it as a conceptual illustration, not as something that looks like a news photo."
+            },
+            {
+              title: "Tell readers plainly",
+              text: "Say briefly which part AI helped with and who checked it and takes responsibility, for example “First draft prepared with AI; reviewed and approved by the corporate communications team.” This tells readers that a person is still accountable."
+            }
+          ]
+        },
+        {
+          kind: "h2",
+          text: "Reading this data with care"
+        },
+        {
+          kind: "p",
+          text: "The main data in this article come from an online survey in six countries in mid-2025, which did not include Thailand. Attitudes to AI may differ with culture and familiarity with technology, so treat the figures as a signal of direction, not as a stand-in for Thai audiences. If your organisation needs to make a policy decision, surveying your own audience will give a more accurate answer."
+        },
+        {
+          kind: "h2",
+          text: "AI can help, but trust still has to come from people"
+        },
+        {
+          kind: "p",
+          text: "AI really does make communication work faster and broader. But the data tells us that people still want to know who is behind the stories they hear. Organisations that use AI wisely let it do the heavy lifting backstage and put trusted people out front."
+        },
+        {
+          kind: "note",
+          text: "If your organisation is drawing up guidelines for using AI in communication, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned."
+        }
+      ],
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Public comfort with AI-generated news in selected countries as of July 2025, by level of human input (online survey, n = 12,000, US, UK, Japan, France, Denmark, Argentina; Generative AI and News Report 2025, p. 44). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1662348/comfort-ai-generated-news-worldwide-by-level-human-input/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people comfortable with AI in journalism in selected countries as of July 2025, by task (Generative AI and News Report 2025, p. 46). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1662352/comfortable-ai-use-journalism-worldwide-by-task/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026 (online survey, 18+, n = 2,043). Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/"
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism & YouGov via Statista. (2026, July 2). Share of people who believe generative AI is frequently used in the news media sector in selected countries as of July 2025. Accessed 21 October 2026.",
+          url: "https://www.statista.com/statistics/1662347/generative-ai-use-in-news-media-sector-perception-worldwide/"
+        }
+      ]
+    }
   },
 ];
 
