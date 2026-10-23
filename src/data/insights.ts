@@ -401,7 +401,7 @@ export const insights: InsightPost[] = [
     cover: "/images/insights/line-news-trust-2026-hero",
     th: {
       coverAlt:
-        "ภาพประกอบกระดาษ โทรโข่งสีดำปล่อยแถบกระดาษสีเทาหลายเส้นที่ลอยจางหายไปกลางทาง มีเพียงแถบสีชมพูเส้นเดียวที่คดเคี้ยวลงไปถึงบ้านหลังเล็ก",
+        "ภาพประกอบกระดาษ โทรโข่งสีน้ำเงินบนพื้นกระดาษสีครีม เสียงที่ออกจากปากโทรโข่งกลายเป็นบับเบิลแชตสีส้มกลมๆ อันเดียว",
       coverCaption: "ภาพประกอบสร้างด้วย AI",
       title: "ช่องทางมีแล้ว แต่ความเชื่อใจหายไป: บทเรียนจากข้อมูลข่าวสารของคนไทยปี 2026",
       dek: "ข้อมูลปี 2026 ชี้ว่าคนไทยรับข่าวผ่านเฟซบุ๊กและ LINE แต่ความเชื่อมั่นต่อข่าวลดเหลือ 47% หน่วยงานรัฐควรสื่อสารอย่างไรให้คนเชื่อและลงมือทำ",
@@ -540,7 +540,7 @@ export const insights: InsightPost[] = [
     en: {
       title: "The channels are there, the trust is not: what Thailand's 2026 news data tells public communicators",
       coverAlt:
-        "Paper-craft illustration: a black megaphone sends out several grey paper strips that drift and fade, while a single pink strip winds all the way down to a small house",
+        "Paper-craft illustration on cream paper: a blue megaphone whose sound turns into a single round orange chat bubble",
       coverCaption: "Illustration generated with AI",
       dek: "Data from 2026 shows Thais get their news on Facebook and LINE, yet trust in news has fallen to 47%. How should government agencies communicate so that people believe the message and act on it?",
       body: [
@@ -682,7 +682,7 @@ export const insights: InsightPost[] = [
     cover: "/images/insights/ai-news-comfort-2025-hero",
     th: {
       coverAlt:
-        "ภาพประกอบกระดาษ เวทีเล็กที่มีม่านสีดำ ไมโครโฟนสีชมพูตั้งอยู่หน้าม่าน ส่วนเฟืองสีเทาซ่อนอยู่หลังม่านที่แง้มไว้",
+        "ภาพประกอบกระดาษ ไมโครโฟนตั้งโต๊ะสีส้มบนพื้นกระดาษสีครีม ฐานของไมโครโฟนเป็นเฟืองสีน้ำเงิน",
       coverCaption: "ภาพประกอบสร้างด้วย AI",
       title: "ให้ AI ช่วยได้ แต่อย่าให้ AI เป็นคนเล่า",
       dek: "ผลสำรวจ 6 ประเทศพบว่าคนสบายใจกับข่าวที่คนเขียน 62% แต่เหลือ 12% ถ้า AI เขียนทั้งหมด องค์กรไทยควรใช้ AI ในงานสื่อสารอย่างไรให้ไม่เสียความเชื่อใจ",
@@ -923,7 +923,7 @@ export const insights: InsightPost[] = [
     en: {
       title: "Let AI help, but don't let AI tell the story",
       coverAlt:
-        "Paper-craft illustration: a small stage with a black curtain, a pink microphone standing in front, and a grey gear half-hidden behind the parted curtain",
+        "Paper-craft illustration on cream paper: an orange desk microphone standing on a blue gear as its base",
       coverCaption: "Illustration generated with AI",
       dek: "A six-country survey finds 62% are comfortable with news written by people, but only 12% when AI writes it all. How should organisations use AI in communication without losing trust?",
       body: [
