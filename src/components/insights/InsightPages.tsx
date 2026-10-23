@@ -25,6 +25,19 @@ function formatDate(iso: string, locale: FullLocale): string {
   return locale === "th" ? `${d} ${THAI_MONTHS[m - 1]} ${y + 543}` : `${d} ${EN_MONTHS[m - 1]} ${y}`;
 }
 
+/**
+ * รายการอ้างอิงที่แนะนำ — APA 7 สำหรับบทความบนเว็บไซต์ (ผู้เขียน · วันที่ · ชื่อเรื่อง · ผู้เผยแพร่ · URL)
+ * ฉบับไทยใช้ชื่อเต็มและปี พ.ศ. ตามธรรมเนียมการอ้างอิงภาษาไทย
+ */
+function suggestedCitation(post: InsightPost, locale: FullLocale): string {
+  const [y, m, d] = post.date.split("-").map(Number);
+  const url = `https://www.cominnocenter.com${locale === "th" ? "" : "/en"}/insights/${post.slug}`;
+  const t = T[locale];
+  return locale === "th"
+    ? `${post.author.th}. (${y + 543}, ${d} ${THAI_MONTHS[m - 1]}). ${post.th.title}. ${t.publisher}. ${url}`
+    : `${post.author.apa} (${y}, ${EN_MONTHS[m - 1]} ${d}). ${post.en.title}. ${t.publisher}. ${url}`;
+}
+
 const T = {
   th: {
     base: "/insights",
@@ -35,6 +48,12 @@ const T = {
     home: "← กลับหน้าหลัก",
     all: "บทความทั้งหมด",
     evidence: "งานวิจัยที่บทความนี้อ้างถึง",
+    by: "โดย",
+    about: "เกี่ยวกับบทความนี้",
+    opinion: "บทความนี้เป็นความคิดเห็นของผู้เขียน ไม่ได้สะท้อนความคิดเห็นของศูนย์ฯ",
+    aiNote: "บทความได้รับการปรับปรุงภาษาและแปลภาษาโดยใช้ AI ช่วย และผู้เขียนได้ตรวจทานแล้ว",
+    citeTitle: "หากต้องการอ้างอิงบทความนี้",
+    publisher: "ศูนย์เชี่ยวชาญเฉพาะทางด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
     references: "อ้างอิง",
     project: "โครงการที่เกี่ยวข้อง",
     collaborate: "ร่วมงานกับเรา",
@@ -51,6 +70,12 @@ const T = {
     home: "← Back to home",
     all: "All insights",
     evidence: "Research cited in this article",
+    by: "By",
+    about: "About this article",
+    opinion: "This article reflects the views of the author and does not necessarily reflect those of the Center.",
+    aiNote: "The language of this article was refined and translated with the help of AI, and the author has reviewed it.",
+    citeTitle: "To cite this article",
+    publisher: "Center of Excellence in Communication Innovation, Faculty of Communication Arts, Chulalongkorn University",
     references: "References",
     project: "Related project",
     collaborate: "Collaborate with us",
@@ -148,7 +173,9 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
               </Link>
             </nav>
             <div className="mt-6 max-w-3xl">
-              <p className="text-sm font-medium text-neutral-500 mb-3">{formatDate(post.date, locale)}</p>
+              <p className="text-sm font-medium text-neutral-500 mb-3">
+                {t.by} {post.author[locale]} · {formatDate(post.date, locale)}
+              </p>
               <h1 className="text-h1-m md:text-h1 text-ink-900">{c.title}</h1>
               <p className="mt-4 text-lg text-neutral-600 leading-relaxed">{c.dek}</p>
             </div>
@@ -200,6 +227,14 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
               )}
             </div>
             )}
+
+            <div className="mt-12 rounded-2xl border border-neutral-200 bg-neutral-100 p-6 text-sm leading-relaxed text-neutral-700">
+              <h2 className="text-h3-m md:text-h3 text-ink-900 mb-3">{t.about}</h2>
+              <p>{t.opinion}</p>
+              <p className="mt-2">{t.aiNote}</p>
+              <p className="mt-4 font-medium text-ink-900">{t.citeTitle}</p>
+              <p className="mt-1 break-words select-all">{suggestedCitation(post, locale)}</p>
+            </div>
 
             {c.references && c.references.length > 0 && (
               <div className="mt-12">

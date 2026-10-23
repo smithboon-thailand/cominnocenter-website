@@ -65,6 +65,16 @@ export type InsightCopy = {
   ogImage?: string;
 };
 
+export type InsightAuthor = {
+  th: string;
+  en: string;
+  /** สำหรับรายการอ้างอิงแบบ APA: นามสกุล, อักษรย่อชื่อ */
+  apa: string;
+};
+
+/** บทความทุกชิ้นในชุดแรกเขียนโดยคนเดียวกัน — ประกาศครั้งเดียว ไม่พิมพ์ชื่อซ้ำสามที่ */
+const SMITH: InsightAuthor = { th: "สมิทธิ์ บุญชุติมา", en: "Smith Boonchutima", apa: "Boonchutima, S." };
+
 export type InsightPost = {
   slug: string;
   /** YYYY-MM-DD วันที่เผยแพร่บนเว็บ */
@@ -75,6 +85,8 @@ export type InsightPost = {
   evidence?: string[];
   /** slug ของโครงการบนหน้า Impact ที่บทความอ้างถึง */
   relatedProjects?: string[];
+  /** ผู้เขียน — แสดงใต้หัวเรื่อง ในรายการอ้างอิงที่แนะนำ และใน JSON-LD (ผู้ใช้กำหนด 23 ต.ค. 2569) */
+  author: InsightAuthor;
   th: InsightCopy;
   en: InsightCopy;
 };
@@ -83,6 +95,7 @@ export const insights: InsightPost[] = [
   {
     slug: "co-designed-campaigns-migrant-workers",
     date: "2026-10-20",
+    author: SMITH,
     cover: "/images/research/summaries/migrant-worker-exercise-codesign",
     evidence: [
       "migrant-worker-exercise-codesign",
@@ -384,6 +397,7 @@ export const insights: InsightPost[] = [
   {
     slug: "line-news-trust-2026",
     date: "2026-10-21",
+    author: SMITH,
     cover: "/images/insights/line-news-trust-2026-hero",
     th: {
       coverAlt:
@@ -664,6 +678,7 @@ export const insights: InsightPost[] = [
   {
     slug: "ai-news-comfort-2025",
     date: "2026-10-21",
+    author: SMITH,
     cover: "/images/insights/ai-news-comfort-2025-hero",
     th: {
       coverAlt:
