@@ -288,7 +288,7 @@ export function insightArticleSchema(post: InsightPost, locale: FullLocale) {
     inLanguage: locale,
     image: `${SITE_URL}${insightImage(post, locale)}`,
     mainEntityOfPage: `${SITE_URL}${path}`,
-    author: { "@id": ORG_ID },
+    author: { "@type": "Person", name: post.author[locale] },
     publisher: { "@id": ORG_ID },
   };
 }
