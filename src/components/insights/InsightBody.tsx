@@ -2,6 +2,7 @@ import type { InsightBlock } from "@/data/insights";
 import InsightChart from "@/components/insights/InsightChart";
 import Link from "next/link";
 import type { FullLocale } from "@/lib/locale";
+import type { Palette } from "@/components/insights/InsightChartColor";
 
 function withLinks(text: string, links?: { match: string; href: string }[]) {
   if (!links?.length) return text;
@@ -23,7 +24,16 @@ function withLinks(text: string, links?: { match: string; href: string }[]) {
 }
 
 /** เนื้อหาบทความ — ข้อความล้วน ไม่แปลงมาร์กดาวน์ (ดูกติกาข้อ 5 ใน src/data/insights.ts) */
-export default function InsightBody({ blocks, locale }: { blocks: InsightBlock[]; locale: FullLocale }) {
+export default function InsightBody({
+  blocks,
+  locale,
+  palette,
+}: {
+  blocks: InsightBlock[];
+  locale: FullLocale;
+  /** คู่สี SDG ของบทความ (ถ้ามี) — กราฟชุดสีและเลขกำกับข้อแนะนำใช้ */
+  palette?: Palette;
+}) {
   return (
     <div className="space-y-6">
       {blocks.map((b, i) => {
@@ -41,7 +51,7 @@ export default function InsightBody({ blocks, locale }: { blocks: InsightBlock[]
               ))}
             </ul>
           );
-        if (b.kind === "chart") return <InsightChart key={i} chart={b.chart} locale={locale} />;
+        if (b.kind === "chart") return <InsightChart key={i} chart={b.chart} locale={locale} palette={palette} />;
         if (b.kind === "tips")
           return (
             <ol key={i} className="space-y-4">
@@ -49,7 +59,8 @@ export default function InsightBody({ blocks, locale }: { blocks: InsightBlock[]
                 <li key={j} className="flex gap-4 rounded-2xl border border-neutral-200 bg-white p-5">
                   <span
                     aria-hidden
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-pink-700 text-white font-medium"
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white font-medium ${palette ? "" : "bg-pink-700"}`}
+                    style={palette ? { background: palette.a.deep } : undefined}
                   >
                     {j + 1}
                   </span>
