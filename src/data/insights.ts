@@ -1182,9 +1182,13 @@ export const insights: InsightPost[] = [
     date: "2026-10-27",
     author: SMITH,
     palette: [3, 7],
+    cover: "/images/insights/ageing-digital-gap-2026-hero",
     th: {
       title: "ออนไลน์แล้ว แต่ยังอ่านไม่ออก: สื่อสารสุขภาพกับผู้สูงวัยในวันที่ทุกอย่างย้ายขึ้นมือถือ",
       dek: "ผู้สูงวัยไทยที่ใช้อินเทอร์เน็ตเพิ่มจากราว 4% เป็นเกือบ 58% ในเวลาแปดปี แต่ 69% บอกว่าติดที่หน้าจอภาษาอังกฤษ บทเรียนสำหรับหน่วยงานที่กำลังย้ายบริการสุขภาพขึ้นออนไลน์",
+      coverAlt:
+        "ภาพประกอบกระดาษ สมาร์ตโฟนสีเขียวบนพื้นกระดาษสีครีม มีแว่นสายตาสีเหลืองวางพาดบนหน้าจอ",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       body: [
         {
           kind: "p",
@@ -1331,6 +1335,9 @@ export const insights: InsightPost[] = [
     en: {
       title: "Online, but still locked out: health communication for older Thais as services move to the phone",
       dek: "The share of older Thais using the internet rose from about 4% to nearly 58% in eight years. Yet 69% say English on the screen is what stops them. Lessons for agencies moving health services online.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: a green smartphone with a pair of yellow reading glasses resting across its screen",
+      coverCaption: "Illustration generated with AI",
       body: [
         {
           kind: "p",
@@ -1480,9 +1487,13 @@ export const insights: InsightPost[] = [
     date: "2026-10-27",
     author: SMITH,
     palette: [9, 17],
+    cover: "/images/insights/beyond-likes-2026-hero",
     th: {
       title: "ยอดไลก์บอกว่าคนเห็น ไม่ได้บอกว่าคนเปลี่ยน",
       dek: "งบโฆษณาออนไลน์ของไทยโตขึ้นกว่า 13 เท่าในสิบสามปี แต่การดูคอนเทนต์ของแบรนด์กลับเป็นเหตุผลอันดับท้ายสุดที่คนไทยเปิดโซเชียลมีเดีย ถึงเวลาวัดผลให้ลึกกว่ายอดไลก์",
+      coverAlt:
+        "ภาพประกอบกระดาษ หัวใจสีส้มบนพื้นกระดาษสีครีม มีสายวัดสีน้ำเงินเข้มพันรอบกลางหัวใจ",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       body: [
         {
           kind: "p",
@@ -1614,6 +1625,9 @@ export const insights: InsightPost[] = [
     en: {
       title: "Likes show that people saw it, not that they changed",
       dek: "Thailand's online ad spend grew more than 13-fold in thirteen years, yet seeing content from brands is the last of all the reasons Thais open social media. Time to measure deeper than likes.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: an orange heart with a dark navy tape measure wrapped around its middle",
+      coverCaption: "Illustration generated with AI",
       body: [
         {
           kind: "p",
@@ -1748,9 +1762,13 @@ export const insights: InsightPost[] = [
     date: "2026-10-27",
     author: SMITH,
     palette: [4, 6],
+    cover: "/images/insights/watch-read-listen-news-hero",
     th: {
       title: "คนไทยดูข่าวมากกว่าอ่านข่าว แต่ห่างกันแค่นิดเดียว",
       dek: "ข่าวคือสิ่งที่คนไทยดูบนแพลตฟอร์มออนไลน์ฟรีมากที่สุด และโทรทัศน์ยังเป็นแหล่งข่าวอันดับหนึ่ง แต่คนที่ชอบอ่านข่าวก็มีเกือบเท่าคนที่ชอบดู หน่วยงานควรเล่าเรื่องในรูปแบบไหน",
+      coverAlt:
+        "ภาพประกอบกระดาษ โทรทัศน์ทรงเก่าสีแดงบนพื้นกระดาษสีครีม หน้าจอเป็นแผ่นกระดาษสีฟ้าที่มุมบนพับขึ้นเหมือนหน้าหนังสือ",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       body: [
         {
           kind: "p",
@@ -1889,6 +1907,9 @@ export const insights: InsightPost[] = [
     en: {
       title: "Thais would rather watch the news than read it, but only just",
       dek: "News is what Thais watch most on free online platforms, and television is still the top news source. Yet almost as many prefer to read news as to watch it. Which format should agencies tell their stories in?",
+      coverAlt:
+        "Paper-craft illustration on cream paper: a red retro television whose screen is a light blue sheet of paper with its top corner curling up like a page",
+      coverCaption: "Illustration generated with AI",
       body: [
         {
           kind: "p",
