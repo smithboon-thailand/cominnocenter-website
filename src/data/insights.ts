@@ -1559,7 +1559,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "ยอดไลก์วัดอะไร และไม่ได้วัดอะไร" },
         {
           kind: "p",
-          text: "ยอดเข้าถึงและยอดไลก์มีประโยชน์ มันบอกว่าข้อความไปถึงคนแล้วและคนมีปฏิกิริยา แต่เป้าหมายของงานสื่อสารส่วนใหญ่อยู่ไกลกว่านั้น คือให้คนเข้าใจ เชื่อ และลงมือทำ งานวิจัยของทีมเราเรื่องการประเมินงานประชาสัมพันธ์ชี้ด้วยว่า ผลงานที่ตัวเลขเท่ากันไม่ได้แปลว่าทำงานได้ดีเท่ากัน ต้องดูด้วยว่าเรื่องนั้นยากหรือง่ายแค่ไหนตั้งแต่ต้น",
+          text: "ยอดเข้าถึงและยอดไลก์มีประโยชน์ มันบอกว่าข้อความไปถึงคนแล้วและคนมีปฏิกิริยา แต่เป้าหมายของงานสื่อสารส่วนใหญ่อยู่ไกลกว่านั้น คือให้คนเข้าใจ เชื่อ และลงมือทำ งานวิจัยเรื่องการประเมินงานประชาสัมพันธ์ของ รศ.ดร. Pavel Slutskiy และคณะ (ตีพิมพ์ปี 2560 ก่อนตั้งศูนย์ฯ) ชี้ด้วยว่า ผลงานที่ตัวเลขเท่ากันไม่ได้แปลว่าทำงานได้ดีเท่ากัน ต้องดูด้วยว่าเรื่องนั้นยากหรือง่ายแค่ไหนตั้งแต่ต้น",
           links: [{ match: "ผลงานที่ตัวเลขเท่ากันไม่ได้แปลว่าทำงานได้ดีเท่ากัน", href: "/research/pr-evaluation-coefficient" }],
         },
         { kind: "h2", text: "สามขั้นของการวัดผลที่ลึกกว่ายอดไลก์" },
@@ -1690,7 +1690,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "What likes measure, and what they do not" },
         {
           kind: "p",
-          text: "Reach and likes are useful. They show that a message reached people and that people reacted. But the goal of most communication lies further on: that people understand, believe and act. Our team's research on PR evaluation adds that the same results do not mean the same performance; you also have to ask how easy the story was to begin with.",
+          text: "Reach and likes are useful. They show that a message reached people and that people reacted. But the goal of most communication lies further on: that people understand, believe and act. Research on PR evaluation by Pavel Slutskiy and colleagues (published in 2017, before the centre was founded) adds that the same results do not mean the same performance; you also have to ask how easy the story was to begin with.",
           links: [{ match: "the same results do not mean the same performance", href: "/en/research/pr-evaluation-coefficient" }],
         },
         { kind: "h2", text: "Three steps to measure deeper than likes" },
