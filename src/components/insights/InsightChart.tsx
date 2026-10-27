@@ -5,6 +5,7 @@ import type { InsightChartData } from "@/data/insights";
 import type { FullLocale } from "@/lib/locale";
 import { Dial, Pick } from "@/components/insights/InsightChartChoice";
 import { Coverage, Waffle } from "@/components/insights/InsightChartShare";
+import InsightChartColor, { type Palette } from "@/components/insights/InsightChartColor";
 
 /**
  * กราฟของบทความ วาดจากตัวเลขตรงๆ — ไม่ใช้ภาพกราฟสำเร็จรูป
@@ -61,7 +62,19 @@ function useReducedMotion() {
   return reduce;
 }
 
-export default function InsightChart({ chart, locale }: { chart: InsightChartData; locale: FullLocale }) {
+export default function InsightChart({
+  chart,
+  locale,
+  palette,
+}: {
+  chart: InsightChartData;
+  locale: FullLocale;
+  palette?: Palette;
+}) {
+  if (chart.type === "race" || chart.type === "area" || chart.type === "split") {
+    if (!palette) throw new Error(`InsightChart: กราฟ ${chart.type} ต้องมี palette`);
+    return <InsightChartColor chart={chart} locale={locale} palette={palette} />;
+  }
   return (
     <figure className="my-10 rounded-2xl border border-ink-300 bg-white p-5 md:p-6">
       <figcaption className="mb-4">

@@ -10,6 +10,15 @@ import { getProjectBySlug } from "@/data/projects";
 import { projectTitle } from "@/lib/projectCopy";
 import { breadcrumbSchema, insightArticleSchema } from "@/lib/schema";
 import type { FullLocale } from "@/lib/locale";
+import { SDG, SDG_WHITE_TEXT_OK, type SdgId } from "@/data/sdg";
+import type { Palette } from "@/components/insights/InsightChartColor";
+
+/** คู่สี SDG ของบทความ → สามโทนตาม BRAND.md B3 ที่กราฟชุดสีใช้ */
+function postPalette(ids?: [SdgId, SdgId]): Palette | undefined {
+  if (!ids) return undefined;
+  const sw = (id: SdgId) => ({ ...SDG[id], whiteOk: SDG_WHITE_TEXT_OK.includes(id) });
+  return { a: sw(ids[0]), b: sw(ids[1]) };
+}
 
 const THAI_MONTHS = [
   "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
@@ -197,7 +206,7 @@ export function InsightArticlePage({ post, locale }: { post: InsightPost; locale
           )}
 
           <section className="max-w-3xl mx-auto px-6 pb-12">
-            <InsightBody blocks={c.body} locale={locale} />
+            <InsightBody blocks={c.body} locale={locale} palette={postPalette(post.palette)} />
 
             {(evidence.length > 0 || projects.length > 0) && (
             <div className="mt-12 p-6 rounded-2xl border border-neutral-200">

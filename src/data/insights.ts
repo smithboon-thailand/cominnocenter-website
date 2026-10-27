@@ -1,3 +1,5 @@
+import type { SdgId } from "@/data/sdg";
+
 /**
  * บทความ (Insights) — งานเขียนของศูนย์ฯ ที่เล่าข้อค้นพบจากงานวิจัยให้คนทำงานสื่อสารอ่าน
  *
@@ -30,7 +32,7 @@ export type InsightBlock =
 /** กราฟที่วาดจากตัวเลขบนหน้าเว็บเอง (ดู `InsightChart`) — ค่าเป็นเปอร์เซ็นต์ */
 export type InsightChartData = {
   /** bar · line · dial (แถบเลื่อนทีละขั้น) · pick (ให้ผู้อ่านเลือกก่อนแล้วเทียบ) — ดู InsightChart/InsightChartChoice */
-  type: "bar" | "line" | "dial" | "pick" | "waffle" | "coverage";
+  type: "bar" | "line" | "dial" | "pick" | "waffle" | "coverage" | "race" | "area" | "split";
   title: string;
   subtitle: string;
   /** คำบรรยายสำหรับโปรแกรมอ่านหน้าจอ ต้องบอกตัวเลขครบทุกค่า */
@@ -46,6 +48,14 @@ export type InsightChartData = {
   order?: number[];
   /** กราฟแท่ง: label ของแท่งที่ให้ผู้อ่านทายก่อนเฉลย (ค่าแท่งนั้นซ่อนจนกดเฉลย · ไม่มี JS ก็เห็นครบ) */
   guess?: string;
+  /** race/split: คำถามที่ให้ผู้อ่านตอบก่อนเฉลย (race ต้องมีเมื่อมี `guess`) */
+  prompt?: string;
+  /** race: ค่าสูงสุดของแถบเลื่อนทาย (ไม่ใส่ = 100) */
+  guessMax?: number;
+  /** race/split: ประโยคสั้นที่ต่อท้ายคำเฉลย */
+  answerNote?: string;
+  /** race/area/split: หน่วยต่อท้ายตัวเลข (ไม่ใส่ = "%") เช่น " พันล้านบาท" */
+  unit?: string;
 };
 
 export type InsightReference = { text: string; url: string };
@@ -77,6 +87,12 @@ const SMITH: InsightAuthor = { th: "สมิทธิ์ บุญชุติ�
 
 export type InsightPost = {
   slug: string;
+  /**
+   * คู่สี SDG ของบทความ (27 ต.ค. 2569) — ใช้คู่เดียวกับภาพ hero ทั้งกราฟชุดสี (`race` `area` `split`)
+   * และเลขกำกับข้อแนะนำ ตาม BRAND.md B3 · บทความที่ไม่มี field นี้แสดงแบบเดิมทุกอย่าง
+   * กราฟชุดสีบังคับให้มี palette (build พังถ้าบทความใช้ race/area/split แต่ไม่ได้ประกาศ)
+   */
+  palette?: [SdgId, SdgId];
   /** YYYY-MM-DD วันที่เผยแพร่บนเว็บ */
   date: string;
   /** path ภาพปกไม่มีนามสกุล — ต้องมีสามขนาดตามกติกาของ ResponsiveArtwork · ไม่มี = หน้าไม่มีภาพหัว */
@@ -1161,6 +1177,875 @@ export const insights: InsightPost[] = [
       ]
     }
   },
+  {
+    slug: "ageing-digital-gap-2026",
+    date: "2026-10-27",
+    author: SMITH,
+    palette: [3, 7],
+    cover: "/images/insights/ageing-digital-gap-2026-hero",
+    th: {
+      title: "ออนไลน์แล้ว แต่ยังอ่านไม่ออก: สื่อสารสุขภาพกับผู้สูงวัยในวันที่ทุกอย่างย้ายขึ้นมือถือ",
+      dek: "ผู้สูงวัยไทยที่ใช้อินเทอร์เน็ตเพิ่มจากราว 4% เป็นเกือบ 58% ในเวลาแปดปี แต่ 69% บอกว่าติดที่หน้าจอภาษาอังกฤษ บทเรียนสำหรับหน่วยงานที่กำลังย้ายบริการสุขภาพขึ้นออนไลน์",
+      coverAlt:
+        "ภาพประกอบกระดาษ สมาร์ตโฟนสีเขียวบนพื้นกระดาษสีครีม มีแว่นสายตาสีเหลืองวางพาดบนหน้าจอ",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "ป้าจำเนียร (ตัวละครสมมติ) อายุ 67 ปี ลูกสาวลงแอปนัดหมอไว้ให้ในมือถือตั้งแต่ปีที่แล้ว ป้าเปิดดูข่าวและคุยไลน์กับหลานได้คล่อง แต่ทุกครั้งที่ต้องยืนยันนัด ป้าต้องรอหลานกลับจากโรงเรียน เพราะปุ่มที่ต้องกดเขียนว่า Confirm และป้าไม่แน่ใจว่ากดแล้วจะเสียเงินหรือเปล่า",
+        },
+        {
+          kind: "p",
+          text: "ปัญหาของป้าไม่ใช่ไม่มีมือถือ ไม่ใช่ไม่มีอินเทอร์เน็ต และไม่ใช่ไม่อยากดูแลตัวเอง ป้าอยู่บนช่องทางเดียวกับคนรุ่นลูกแล้ว แต่ข้อความที่หน่วยงานส่งมายังเขียนสำหรับคนอีกกลุ่มหนึ่ง",
+        },
+        { kind: "h2", text: "ผู้สูงวัยขึ้นมาออนไลน์เร็วกว่าที่หลายคนคิด" },
+        {
+          kind: "p",
+          text: "ข้อมูลจากสำนักงานสถิติแห่งชาติที่วิจัยกรุงศรีรวบรวมไว้ ชี้ว่าสัดส่วนผู้สูงวัยไทยที่ใช้อินเทอร์เน็ตเพิ่มจาก 3.9% ในปี 2558 เป็น 57.8% ในปี 2566 [1] ช่วงที่โตเร็วที่สุดคือ 2562 ถึง 2564 ซึ่งตัวเลขขยับจาก 18.6% เป็น 48.8% ในเวลาเพียงสองปี",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "ผู้สูงวัยไทยที่ใช้อินเทอร์เน็ต เพิ่มขึ้นเกือบ 15 เท่าในแปดปี",
+            subtitle: "ร้อยละของผู้สูงวัยที่ใช้อินเทอร์เน็ต · พ.ศ. 2558–2566",
+            alt: "กราฟเส้นแสดงร้อยละของผู้สูงวัยไทยที่ใช้อินเทอร์เน็ต ปี 2558 3.9% 2559 6% 2560 8.6% 2561 10.3% 2562 18.6% 2563 33.3% 2564 48.8% 2565 52.4% และ 2566 57.8%",
+            source: "ที่มา: Krungsri Research, National Statistical Office (Thailand), NESDC via Statista, 2024 · Aged Society: Embracing Challenges and Unlocking Opportunities, p. 17",
+            data: [
+              { label: "2558", value: 3.9 },
+              { label: "2559", value: 6 },
+              { label: "2560", value: 8.6 },
+              { label: "2561", value: 10.3 },
+              { label: "2562", value: 18.6 },
+              { label: "2563", value: 33.3 },
+              { label: "2564", value: 48.8, highlight: true },
+              { label: "2565", value: 52.4 },
+              { label: "2566", value: 57.8, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "การสำรวจการใช้เทคโนโลยีสารสนเทศในครัวเรือนปี 2568 ให้ภาพที่ใหม่กว่า คนอายุ 60 ปีขึ้นไปใช้อินเทอร์เน็ต 70.1% ขณะที่คนอายุ 15 ถึง 24 ปีใช้ 99.2% [2] ช่องว่างราว 29 จุดนี้คือคนหลายล้านคน และกลุ่มนี้กำลังโตขึ้นเรื่อยๆ ผู้สูงวัยคิดเป็น 20.17% ของประชากรในปี 2566 และคาดว่าจะเป็น 31.37% ในปี 2583 [3] หรือเกือบหนึ่งในสามของคนทั้งประเทศ",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "ทุกช่วงวัยออนไลน์เกือบครบ ยกเว้นวัย 60 ขึ้นไป",
+            subtitle: "ร้อยละของคนในแต่ละช่วงอายุที่ใช้อินเทอร์เน็ต · พ.ศ. 2568",
+            alt: "กราฟแท่งแสดงร้อยละของคนที่ใช้อินเทอร์เน็ตในปี 2568 อายุ 6–14 ปี 97.2% อายุ 15–24 ปี 99.2% อายุ 25–39 ปี 98.9% อายุ 40–59 ปี 96.4% และอายุ 60 ปีขึ้นไป 70.1%",
+            source: "ที่มา: สำนักงานสถิติแห่งชาติ และกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม via Statista, 2026 · การสำรวจการมีการใช้เทคโนโลยีสารสนเทศและการสื่อสารในครัวเรือน 2568, หน้า 22",
+            guess: "60 ปีขึ้นไป",
+            prompt: "ลองทายก่อน: คนอายุ 60 ปีขึ้นไปใช้อินเทอร์เน็ตกี่เปอร์เซ็นต์?",
+            answerNote: "ต่ำกว่าวัยรุ่นราว 29 จุด",
+            data: [
+              { label: "6–14 ปี", value: 97.2 },
+              { label: "15–24 ปี", value: 99.2 },
+              { label: "25–39 ปี", value: 98.9 },
+              { label: "40–59 ปี", value: 96.4 },
+              { label: "60 ปีขึ้นไป", value: 70.1 },
+            ],
+          },
+        },
+        { kind: "h2", text: "ติดที่อ่านไม่ออก มากกว่าไม่มีเครื่อง" },
+        {
+          kind: "p",
+          text: "เมื่อถามผู้สูงวัยว่าใช้อุปกรณ์ดิจิทัลแล้วติดขัดตรงไหน คำตอบอันดับหนึ่งคือไม่เข้าใจหน้าจอที่เป็นภาษาอังกฤษ 69% รองลงมาคือไม่รู้วิธีใช้ 55% และไม่มั่นใจเรื่องความปลอดภัยออนไลน์ 47% อีก 29% บอกว่าเวลาสงสัยไม่มีใครให้ถาม มีเพียง 21% ที่บอกว่าไม่มีปัญหาเลย [4]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "อุปสรรคอันดับหนึ่งของผู้สูงวัย คือหน้าจอภาษาอังกฤษ",
+            subtitle: "ร้อยละของผู้สูงวัยที่ระบุปัญหาแต่ละข้อเมื่อใช้อุปกรณ์ดิจิทัล · พ.ศ. 2565 · ตอบได้หลายข้อ",
+            alt: "กราฟแท่งแสดงปัญหาของผู้สูงวัยเมื่อใช้อุปกรณ์ดิจิทัลในปี 2565 ไม่เข้าใจหน้าจอภาษาอังกฤษ 69% ไม่รู้วิธีใช้ 55% ไม่มั่นใจความปลอดภัยออนไลน์ 47% ไม่รู้ประโยชน์ 35% ไม่รู้มารยาทออนไลน์ 33% ค่าใช้จ่ายสูง 31% ไม่มีใครให้ถาม 29% ใช้เวลาออนไลน์มากเกินไป 9% และไม่มีปัญหา 21%",
+            source: "ที่มา: Krungsri Research, National Statistical Office (Thailand) via Statista, 2024 · Aged Society: Embracing Challenges and Unlocking Opportunities, p. 18",
+            data: [
+              { label: "อ่านหน้าจอภาษาอังกฤษไม่เข้าใจ", value: 69, highlight: true },
+              { label: "ไม่รู้วิธีใช้", value: 55 },
+              { label: "กังวลความปลอดภัยออนไลน์", value: 47 },
+              { label: "ไม่รู้ว่าใช้แล้วได้อะไร", value: 35 },
+              { label: "ไม่รู้มารยาทออนไลน์", value: 33 },
+              { label: "ค่าใช้จ่ายสูง", value: 31 },
+              { label: "ไม่มีใครให้ถาม", value: 29 },
+              { label: "ใช้เวลาออนไลน์มากไป", value: 9 },
+              { label: "ไม่มีปัญหา", value: 21 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ในมุมของเรา ตัวเลขชุดนี้บอกว่าโจทย์ส่วนใหญ่อยู่ที่ฝั่งผู้ส่งสาร ภาษา ปุ่ม และขั้นตอนเป็นสิ่งที่หน่วยงานออกแบบได้เองทั้งหมด ข้อนี้สอดคล้องกับงานวิจัยที่พบว่าคนวัยเกษียณเห็นแคมเปญลดเค็มบนเฟซบุ๊กมากที่สุด ช่องทางจึงไม่ใช่ปัญหา สิ่งที่ต้องคิดต่อคือข้อความที่อยู่บนช่องทางนั้นอ่านง่ายพอหรือยัง",
+          links: [{ match: "คนวัยเกษียณเห็นแคมเปญลดเค็มบนเฟซบุ๊กมากที่สุด", href: "/research/retirees-sodium-campaign" }],
+        },
+        { kind: "h2", text: "สามสิ่งที่หน่วยงานสุขภาพทำได้ทันที" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ภาษาไทยก่อนทุกปุ่ม",
+              text: "ปุ่ม ข้อความแจ้งเตือน และขั้นตอนยืนยันตัวตนเขียนเป็นภาษาไทยที่คนทั่วไปพูดจริง ก่อนเปิดใช้ให้ผู้สูงวัยตัวจริงสามถึงห้าคนลองกดดู แล้วจดว่าติดตรงไหน",
+            },
+            {
+              title: "ให้มีคนให้ถามเสมอ",
+              text: "ผู้สูงวัยเกือบหนึ่งในสามบอกว่าสงสัยแล้วไม่มีใครให้ถาม ทุกหน้าจอสำคัญควรมีทางไปหาคนจริง เช่น เบอร์โทรที่มีคนรับ หรือ อสม. ในพื้นที่ที่ช่วยกดให้ได้",
+            },
+            {
+              title: "บอกให้ชัดว่าปลอดภัยอย่างไร",
+              text: "ความกังวลเรื่องมิจฉาชีพทำให้หลายคนไม่กล้ากด บอกตรงๆ ว่าหน่วยงานจะไม่ขอรหัสผ่านหรือเลขบัญชีผ่านแชต และใช้ช่องทางทางการช่องทางเดียวกันทุกครั้ง",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "ตัวเลข 57.8% (ปี 2566) และ 70.1% (ปี 2568) มาจากการรวบรวมคนละชุดและคนละปี จึงไม่ควรนำมาต่อเป็นเส้นแนวโน้มเดียวกัน ข้อมูลปัญหาการใช้อุปกรณ์เป็นของปี 2565 และตอบได้หลายข้อ ส่วนสัดส่วนผู้สูงวัยหลังปี 2566 เป็นค่าคาดการณ์ ไม่ใช่ค่าที่วัดได้จริง",
+        },
+        { kind: "h2", text: "ผู้สูงวัยมาถึงแล้ว เหลือให้ข้อความไปให้ถึง" },
+        {
+          kind: "p",
+          text: "ผู้สูงวัยไทยข้ามเส้นมาอยู่บนโลกออนไลน์แล้วจำนวนมาก และกำลังจะเป็นเกือบหนึ่งในสามของประเทศ บริการสุขภาพที่ออกแบบโดยนึกถึงพวกเขาตั้งแต่ปุ่มแรก จะไม่ต้องรอให้หลานกลับบ้านก่อนจึงจะใช้ได้",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังออกแบบบริการหรือการสื่อสารสุขภาพสำหรับผู้สูงวัย ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "Krungsri Research, National Statistical Office (Thailand) & NESDC via Statista. (2024, June 21). Share of elderly people who use the internet in Thailand from 2015 to 2023 (Aged Society: Embracing Challenges and Unlocking Opportunities, p. 17). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1472650/thailand-share-of-elderly-people-who-use-the-internet/",
+        },
+        {
+          text: "National Statistical Office (Thailand) & Ministry of Digital Economy and Society via Statista. (2026, October 23). Share of internet users in Thailand by age group, 2025 (Household survey on the use of information and communication technology 2025, p. 22). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1294833/thailand-share-of-internet-users-by-age-group/",
+        },
+        {
+          text: "NESDC via Statista. (2024, July 29). Share of total population older than 60 years old in Thailand between 2022 and 2023, with a forecast to 2040. เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/713667/thailand-forecast-aging-population/",
+        },
+        {
+          text: "Krungsri Research & National Statistical Office (Thailand) via Statista. (2024, June 21). Issues that the elderly encounter when using digital devices in Thailand in 2022 (Aged Society: Embracing Challenges and Unlocking Opportunities, p. 18). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1472625/thailand-digital-device-issues-of-elderly-people/",
+        },
+      ],
+    },
+    en: {
+      title: "Online, but still locked out: health communication for older Thais as services move to the phone",
+      dek: "The share of older Thais using the internet rose from about 4% to nearly 58% in eight years. Yet 69% say English on the screen is what stops them. Lessons for agencies moving health services online.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: a green smartphone with a pair of yellow reading glasses resting across its screen",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Auntie Chamnian (a fictional character) is 67. Her daughter installed a hospital booking app on her phone last year. She reads the news and chats with her grandchildren on LINE with ease, but every time she has to confirm an appointment she waits for her grandson to come home from school. The button says Confirm, and she is never sure whether pressing it will cost her money.",
+        },
+        {
+          kind: "p",
+          text: "Her problem is not a missing phone, a missing connection or a lack of interest in her own health. She is already on the same channels as her children. The messages agencies send there are still written for someone else.",
+        },
+        { kind: "h2", text: "Older Thais came online faster than many think" },
+        {
+          kind: "p",
+          text: "National Statistical Office data compiled by Krungsri Research show that the share of older Thais using the internet rose from 3.9% in 2015 to 57.8% in 2023 [1]. The fastest growth came between 2019 and 2021, when the figure jumped from 18.6% to 48.8% in just two years.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "Older Thais online: almost 15 times as many in eight years",
+            subtitle: "Share of older people in Thailand who use the internet · 2015–2023",
+            alt: "Line chart of the share of older Thais using the internet: 2015 3.9%, 2016 6%, 2017 8.6%, 2018 10.3%, 2019 18.6%, 2020 33.3%, 2021 48.8%, 2022 52.4%, 2023 57.8%",
+            source: "Source: Krungsri Research, National Statistical Office (Thailand), NESDC via Statista, 2024 · Aged Society: Embracing Challenges and Unlocking Opportunities, p. 17",
+            data: [
+              { label: "2015", value: 3.9 },
+              { label: "2016", value: 6 },
+              { label: "2017", value: 8.6 },
+              { label: "2018", value: 10.3 },
+              { label: "2019", value: 18.6 },
+              { label: "2020", value: 33.3 },
+              { label: "2021", value: 48.8, highlight: true },
+              { label: "2022", value: 52.4 },
+              { label: "2023", value: 57.8, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The 2025 household ICT survey gives a more recent picture: 70.1% of people aged 60 and over use the internet, compared with 99.2% of those aged 15 to 24 [2]. That gap of about 29 points is millions of people, and the group keeps growing. People aged 60 and over were 20.17% of the population in 2023 and are projected to reach 31.37% by 2040 [3], almost one in three Thais.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Almost every age group is online, except people aged 60 and over",
+            subtitle: "Share of each age group in Thailand that uses the internet · 2025",
+            alt: "Bar chart of internet use in Thailand in 2025: aged 6–14 97.2%, 15–24 99.2%, 25–39 98.9%, 40–59 96.4%, 60 and over 70.1%",
+            source: "Source: National Statistical Office (Thailand) and Ministry of Digital Economy and Society via Statista, 2026 · Household survey on the use of ICT 2025, p. 22",
+            guess: "60 and over",
+            prompt: "Guess first: what share of people aged 60 and over use the internet?",
+            answerNote: "About 29 points below young people.",
+            data: [
+              { label: "6–14", value: 97.2 },
+              { label: "15–24", value: 99.2 },
+              { label: "25–39", value: 98.9 },
+              { label: "40–59", value: 96.4 },
+              { label: "60 and over", value: 70.1 },
+            ],
+          },
+        },
+        { kind: "h2", text: "The barrier is reading the screen, not owning one" },
+        {
+          kind: "p",
+          text: "Asked what gets in the way when they use digital devices, older Thais put English on the screen first, at 69%. Next came not knowing how to use the device (55%) and not feeling safe online (47%). Another 29% said there was no one to ask when they were unsure. Only 21% reported no problems at all [4].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "The top barrier for older Thais is a screen in English",
+            subtitle: "Share of older people citing each problem when using digital devices · 2022 · multiple answers allowed",
+            alt: "Bar chart of problems older Thais face with digital devices in 2022: English display 69%, do not know how to use it 55%, not confident in online security 47%, do not know the benefits 35%, do not know online etiquette 33%, high costs 31%, no one to ask 29%, spending too much time online 9%, no problems 21%",
+            source: "Source: Krungsri Research, National Statistical Office (Thailand) via Statista, 2024 · Aged Society: Embracing Challenges and Unlocking Opportunities, p. 18",
+            data: [
+              { label: "Do not understand English on screen", value: 69, highlight: true },
+              { label: "Do not know how to use it", value: 55 },
+              { label: "Not confident about online security", value: 47 },
+              { label: "Do not know the benefits", value: 35 },
+              { label: "Do not know online etiquette", value: 33 },
+              { label: "High device and service costs", value: 31 },
+              { label: "No one to ask when unsure", value: 29 },
+              { label: "Spending too much time online", value: 9 },
+              { label: "No problems", value: 21 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "As we read it, most of the work sits with the sender. Language, buttons and steps are all things an agency designs itself. This matches research finding that retirees saw salt-reduction campaigns on Facebook more than anywhere else. The channel is not the problem. The question is whether the message on that channel is easy enough to read.",
+          links: [{ match: "retirees saw salt-reduction campaigns on Facebook more than anywhere else", href: "/en/research/retirees-sodium-campaign" }],
+        },
+        { kind: "h2", text: "Three things health agencies can do now" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Thai first, on every button",
+              text: "Write buttons, notifications and verification steps in the Thai people actually speak. Before launch, ask three to five real older users to try it and note where they get stuck.",
+            },
+            {
+              title: "Always offer someone to ask",
+              text: "Almost a third of older users say there is no one to ask when they are unsure. Every important screen should lead to a real person, such as a phone line that someone answers or a local village health volunteer who can help.",
+            },
+            {
+              title: "Say clearly how it stays safe",
+              text: "Fear of scams stops many people from pressing anything. State plainly that the agency will never ask for a password or bank details in a chat, and use the same official channel every time.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this data with care" },
+        {
+          kind: "p",
+          text: "The 57.8% (2023) and 70.1% (2025) figures come from different compilations and years, so they should not be joined into one trend line. The data on device problems is from 2022 and allowed multiple answers. Population shares after 2023 are projections, not measurements.",
+        },
+        { kind: "h2", text: "Older Thais have arrived. Now the message has to reach them" },
+        {
+          kind: "p",
+          text: "Many older Thais have already crossed into the online world, and they will soon be almost a third of the country. Health services designed with them in mind from the first button will not need a grandchild at home before they can be used.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is designing health services or communication for older people, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "Krungsri Research, National Statistical Office (Thailand) & NESDC via Statista. (2024, June 21). Share of elderly people who use the internet in Thailand from 2015 to 2023 (Aged Society: Embracing Challenges and Unlocking Opportunities, p. 17). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1472650/thailand-share-of-elderly-people-who-use-the-internet/",
+        },
+        {
+          text: "National Statistical Office (Thailand) & Ministry of Digital Economy and Society via Statista. (2026, October 23). Share of internet users in Thailand by age group, 2025 (Household survey on the use of information and communication technology 2025, p. 22). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1294833/thailand-share-of-internet-users-by-age-group/",
+        },
+        {
+          text: "NESDC via Statista. (2024, July 29). Share of total population older than 60 years old in Thailand between 2022 and 2023, with a forecast to 2040. Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/713667/thailand-forecast-aging-population/",
+        },
+        {
+          text: "Krungsri Research & National Statistical Office (Thailand) via Statista. (2024, June 21). Issues that the elderly encounter when using digital devices in Thailand in 2022 (Aged Society: Embracing Challenges and Unlocking Opportunities, p. 18). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1472625/thailand-digital-device-issues-of-elderly-people/",
+        },
+      ],
+    },
+  },
+  {
+    slug: "beyond-likes-2026",
+    date: "2026-10-27",
+    author: SMITH,
+    palette: [9, 17],
+    cover: "/images/insights/beyond-likes-2026-hero",
+    th: {
+      title: "ยอดไลก์บอกว่าคนเห็น ไม่ได้บอกว่าคนเปลี่ยน",
+      dek: "งบโฆษณาออนไลน์ของไทยโตขึ้นกว่า 13 เท่าในสิบสามปี แต่การดูคอนเทนต์ของแบรนด์กลับเป็นเหตุผลอันดับท้ายสุดที่คนไทยเปิดโซเชียลมีเดีย ถึงเวลาวัดผลให้ลึกกว่ายอดไลก์",
+      coverAlt:
+        "ภาพประกอบกระดาษ หัวใจสีส้มบนพื้นกระดาษสีครีม มีสายวัดสีน้ำเงินเข้มพันรอบกลางหัวใจ",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "คุณธนา (ตัวละครสมมติ) ผู้จัดการฝ่ายสื่อสารของหน่วยงานแห่งหนึ่ง นำรายงานประจำเดือนเข้าที่ประชุม กราฟยอดเข้าถึงพุ่งขึ้น ยอดไลก์และยอดแชร์ทำสถิติใหม่ ผู้บริหารพยักหน้า แล้วถามคำถามเดียวว่า \"แล้วคนมาลงทะเบียนเพิ่มขึ้นไหม\" คุณธนาเปิดรายงานทุกหน้าแล้วก็ไม่พบคำตอบ",
+        },
+        {
+          kind: "p",
+          text: "ไม่ใช่เพราะเธอทำงานไม่ดี แต่เพราะตัวเลขที่เก็บมาทั้งหมดตอบคำถามว่า \"มีคนเห็นกี่คน\" ไม่มีตัวไหนตอบว่า \"มีคนทำอะไรต่อกี่คน\"",
+        },
+        { kind: "h2", text: "เงินไหลไปออนไลน์ไม่หยุด" },
+        {
+          kind: "p",
+          text: "ข้อมูลของ Nielsen และสมาคมมีเดียเอเยนซีแห่งประเทศไทยชี้ว่างบโฆษณาทางอินเทอร์เน็ตของไทยเพิ่มจาก 2.78 พันล้านบาทในปี 2555 เป็น 36.82 พันล้านบาทในปี 2568 [1] หรือราว 13 เท่า ช่วงหลังเริ่มโตช้าลง ปี 2568 เพิ่มจากปีก่อนไม่ถึง 3% เงินก้อนใหญ่นี้จึงไม่ได้ถามแล้วว่าจะไปออนไลน์ไหม แต่ถามว่าไปแล้วได้อะไรกลับมา",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "งบโฆษณาออนไลน์ของไทยโตขึ้นราว 13 เท่าในสิบสามปี",
+            subtitle: "งบโฆษณาทางอินเทอร์เน็ตของอุตสาหกรรมสื่อ (พันล้านบาท) · พ.ศ. 2555–2568",
+            alt: "กราฟเส้นแสดงงบโฆษณาทางอินเทอร์เน็ตของไทย หน่วยพันล้านบาท ปี 2555 2.78 2556 4.25 2557 6.12 2558 8.08 2559 9.48 2560 12.4 2561 16.93 2562 19.56 2563 21.06 2564 24.77 2565 29.16 2566 32.8 2567 35.77 และ 2568 36.82",
+            source: "ที่มา: Nielsen, Media Agency Association of Thailand via Statista, 2026 · 2026 media industry update, p. 5",
+            unit: " พันล้านบาท",
+            data: [
+              { label: "2555", value: 2.78 },
+              { label: "2556", value: 4.25 },
+              { label: "2557", value: 6.12 },
+              { label: "2558", value: 8.08 },
+              { label: "2559", value: 9.48 },
+              { label: "2560", value: 12.4 },
+              { label: "2561", value: 16.93 },
+              { label: "2562", value: 19.56 },
+              { label: "2563", value: 21.06 },
+              { label: "2564", value: 24.77 },
+              { label: "2565", value: 29.16 },
+              { label: "2566", value: 32.8 },
+              { label: "2567", value: 35.77 },
+              { label: "2568", value: 36.82, highlight: true },
+            ],
+          },
+        },
+        { kind: "h2", text: "แต่คนไม่ได้เปิดโซเชียลมาเพื่อดูแบรนด์" },
+        {
+          kind: "p",
+          text: "ผลสำรวจของ GWI ไตรมาสสองปี 2568 ถามผู้ใช้อินเทอร์เน็ตไทยอายุ 16 ถึง 64 ปีว่าใช้โซเชียลมีเดียเพื่ออะไร เหตุผลอันดับหนึ่งคือติดต่อกับเพื่อนและครอบครัว 58% ตามด้วยอ่านข่าว 41.5% และฆ่าเวลา 39.7% ส่วนการดูคอนเทนต์จากแบรนด์ที่ชอบอยู่อันดับท้ายสุดจาก 15 เหตุผล ที่ 26.6% [2]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คนไทยเปิดโซเชียลเพื่อคน ไม่ใช่เพื่อแบรนด์",
+            subtitle: "ร้อยละของผู้ตอบที่ระบุเหตุผลหลักในการใช้โซเชียลมีเดีย · ไตรมาส 2 ปี 2568 · แสดง 8 จาก 15 เหตุผล ตอบได้หลายข้อ",
+            alt: "กราฟแท่งแสดงเหตุผลหลักในการใช้โซเชียลมีเดียของคนไทยในไตรมาส 2 ปี 2568 ติดต่อเพื่อนและครอบครัว 58% อ่านข่าว 41.5% ฆ่าเวลา 39.7% หาแรงบันดาลใจว่าจะทำหรือซื้ออะไร 35.3% หาสินค้า 34.6% ติดตามคนดังหรืออินฟลูเอนเซอร์ 31.6% ดูไลฟ์สด 27.6% และดูคอนเทนต์จากแบรนด์ที่ชอบ 26.6% ซึ่งเป็นอันดับท้ายสุดจาก 15 เหตุผล",
+            source: "ที่มา: GWI, DataReportal via Statista, 2025 · Digital 2026: Thailand, p. 85 · ผู้ใช้อินเทอร์เน็ตอายุ 16–64 ปี",
+            guess: "ดูคอนเทนต์จากแบรนด์ที่ชอบ",
+            prompt: "ลองทายก่อน: คนไทยกี่เปอร์เซ็นต์เปิดโซเชียลเพื่อดูคอนเทนต์จากแบรนด์ที่ชอบ?",
+            answerNote: "อันดับท้ายสุดจาก 15 เหตุผล",
+            data: [
+              { label: "ติดต่อเพื่อนและครอบครัว", value: 58 },
+              { label: "อ่านข่าว", value: 41.5 },
+              { label: "ฆ่าเวลา", value: 39.7 },
+              { label: "หาไอเดียว่าจะทำหรือซื้ออะไร", value: 35.3 },
+              { label: "หาสินค้า", value: 34.6 },
+              { label: "ติดตามคนดังหรืออินฟลูเอนเซอร์", value: 31.6 },
+              { label: "ดูไลฟ์สด", value: 27.6 },
+              { label: "ดูคอนเทนต์จากแบรนด์ที่ชอบ", value: 26.6 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "คนไทยใช้อินเทอร์เน็ตเฉลี่ยวันละ 7 ชั่วโมง 54 นาที และอยู่บนโซเชียลมีเดียวันละ 2 ชั่วโมง 32 นาที [3] ความสนใจมีอยู่จริง แต่ถูกแบ่งไปให้เพื่อน ครอบครัว ข่าว และความบันเทิงก่อน ไลก์หนึ่งครั้งจากคนที่กำลังเลื่อนผ่านจึงบอกได้แค่ว่าเราได้ส่วนแบ่งเล็กๆ ของความสนใจนั้นมาชั่วครู่",
+        },
+        { kind: "h2", text: "ยอดไลก์วัดอะไร และไม่ได้วัดอะไร" },
+        {
+          kind: "p",
+          text: "ยอดเข้าถึงและยอดไลก์มีประโยชน์ มันบอกว่าข้อความไปถึงคนแล้วและคนมีปฏิกิริยา แต่เป้าหมายของงานสื่อสารส่วนใหญ่อยู่ไกลกว่านั้น คือให้คนเข้าใจ เชื่อ และลงมือทำ งานวิจัยเรื่องการประเมินงานประชาสัมพันธ์ของ รศ.ดร. Pavel Slutskiy และคณะ (ตีพิมพ์ปี 2560 ก่อนตั้งศูนย์ฯ) ชี้ด้วยว่า ผลงานที่ตัวเลขเท่ากันไม่ได้แปลว่าทำงานได้ดีเท่ากัน ต้องดูด้วยว่าเรื่องนั้นยากหรือง่ายแค่ไหนตั้งแต่ต้น",
+          links: [{ match: "ผลงานที่ตัวเลขเท่ากันไม่ได้แปลว่าทำงานได้ดีเท่ากัน", href: "/research/pr-evaluation-coefficient" }],
+        },
+        { kind: "h2", text: "สามขั้นของการวัดผลที่ลึกกว่ายอดไลก์" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "เริ่มจากพฤติกรรมที่อยากเห็น",
+              text: "ก่อนเลือกตัวชี้วัด เขียนให้ได้ในประโยคเดียวว่าอยากให้ใครทำอะไรต่อ เช่น ลงทะเบียน มาตรวจ หรือโทรสอบถาม แล้วค่อยถอยกลับมาหาว่าต้องวัดอะไร",
+            },
+            {
+              title: "วัดให้ครบสามชั้น",
+              text: "ชั้นแรกคือเห็น (ยอดเข้าถึง) ชั้นที่สองคือเข้าใจและเชื่อ (ถามคำถามสั้นๆ กับกลุ่มเป้าหมาย) ชั้นที่สามคือทำ (จำนวนลงทะเบียน สายโทรเข้า หรือคนที่มาใช้บริการจริง)",
+            },
+            {
+              title: "วางแผนวัดตั้งแต่วันแรก",
+              text: "ข้อมูลชั้นที่สามส่วนใหญ่มีอยู่แล้วในระบบของหน่วยงาน แต่ต้องตกลงตั้งแต่ก่อนเริ่มแคมเปญว่าจะดึงตัวเลขไหน จากระบบไหน และเทียบกับช่วงเวลาใด ไม่ใช่มาหาหลังแคมเปญจบ",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งบโฆษณาเป็นค่าประมาณการของอุตสาหกรรมสื่อชุดของ Nielsen และสมาคมมีเดียเอเยนซีแห่งประเทศไทย ไม่ใช่ยอดใช้จ่ายจริงของทุกองค์กร ชุดของสมาคมโฆษณาดิจิทัล (DAAT) วัดด้วยวิธีต่างกันจึงได้ตัวเลขไม่เท่ากัน ข้อมูลเหตุผลการใช้โซเชียลมีเดียมาจากการสำรวจออนไลน์ของผู้ใช้อินเทอร์เน็ตอายุ 16 ถึง 64 ปี ตอบได้หลายข้อ จึงไม่ครอบคลุมผู้สูงวัยและคนที่ไม่ได้ใช้อินเทอร์เน็ต และไม่ได้บอกว่าคอนเทนต์ของแบรนด์ไม่ได้ผล บอกเพียงว่ามันไม่ใช่เหตุผลที่คนเปิดแอปขึ้นมา",
+        },
+        { kind: "h2", text: "นับสิ่งที่สำคัญ ไม่ใช่นับสิ่งที่นับง่าย" },
+        {
+          kind: "p",
+          text: "ยอดไลก์นับง่ายเพราะแพลตฟอร์มนับให้ แต่สิ่งที่ผู้บริหารถามในห้องประชุมคือสิ่งที่องค์กรต้องนับเอง งานสื่อสารที่วางแผนวัดผลตั้งแต่วันแรก จะตอบคำถามนั้นได้โดยไม่ต้องเปิดรายงานหาทุกหน้า",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางกรอบวัดผลงานสื่อสารที่ลึกกว่ายอดไลก์ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "Nielsen & Media Agency Association of Thailand via Statista. (2026, April 7). Internet advertising spending of media industry in Thailand from 2012 to 2025 (2026 media industry update, p. 5). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/993664/thailand-media-industry-digital-advertising-expenditure/",
+        },
+        {
+          text: "GWI & DataReportal via Statista. (2025, December 8). Main reasons for using social media in Thailand in 2025 (Digital 2026: Thailand, p. 85). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1316931/thailand-main-reasons-to-use-social-media/",
+        },
+        {
+          text: "We Are Social, DataReportal, GWI & Meltwater via Statista. (2025, July 1). Average time spent using online media in Thailand as of 3rd quarter 2024, by activity (Digital 2025: Thailand, p. 24). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/804035/daily-time-spent-using-online-media-by-activity-thailand/",
+        },
+      ],
+    },
+    en: {
+      title: "Likes show that people saw it, not that they changed",
+      dek: "Thailand's online ad spend grew more than 13-fold in thirteen years, yet seeing content from brands is the last of all the reasons Thais open social media. Time to measure deeper than likes.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: an orange heart with a dark navy tape measure wrapped around its middle",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Tana (a fictional character) manages communication for a public agency. She brings the monthly report to the meeting: reach is climbing, likes and shares have hit new records. The director nods, then asks a single question: \"So are more people signing up?\" Tana leafs through every page and cannot find the answer.",
+        },
+        {
+          kind: "p",
+          text: "That is not because she did poor work. Every number she collected answers \"how many people saw it\". None of them answers \"how many people did something next\".",
+        },
+        { kind: "h2", text: "Money keeps flowing online" },
+        {
+          kind: "p",
+          text: "Nielsen and Media Agency Association of Thailand data show that internet advertising spend in Thailand rose from 2.78 billion baht in 2012 to 36.82 billion baht in 2025 [1], about 13 times as much. Growth has slowed lately: 2025 was up less than 3% on the year before. For all that money, the question is no longer whether to go online, but what comes back once you are there.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "Thailand's online ad spend grew about 13-fold in thirteen years",
+            subtitle: "Internet advertising spend of the media industry (billion baht) · 2012–2025",
+            alt: "Line chart of internet advertising spend in Thailand in billion baht: 2012 2.78, 2013 4.25, 2014 6.12, 2015 8.08, 2016 9.48, 2017 12.4, 2018 16.93, 2019 19.56, 2020 21.06, 2021 24.77, 2022 29.16, 2023 32.8, 2024 35.77, 2025 36.82",
+            source: "Source: Nielsen, Media Agency Association of Thailand via Statista, 2026 · 2026 media industry update, p. 5",
+            unit: " bn baht",
+            data: [
+              { label: "2012", value: 2.78 },
+              { label: "2013", value: 4.25 },
+              { label: "2014", value: 6.12 },
+              { label: "2015", value: 8.08 },
+              { label: "2016", value: 9.48 },
+              { label: "2017", value: 12.4 },
+              { label: "2018", value: 16.93 },
+              { label: "2019", value: 19.56 },
+              { label: "2020", value: 21.06 },
+              { label: "2021", value: 24.77 },
+              { label: "2022", value: 29.16 },
+              { label: "2023", value: 32.8 },
+              { label: "2024", value: 35.77 },
+              { label: "2025", value: 36.82, highlight: true },
+            ],
+          },
+        },
+        { kind: "h2", text: "But people do not open social media to see brands" },
+        {
+          kind: "p",
+          text: "A GWI survey in the second quarter of 2025 asked Thai internet users aged 16 to 64 why they use social media. Keeping in touch with friends and family came first at 58%, followed by reading the news (41.5%) and filling spare time (39.7%). Seeing content from favourite brands came last of 15 reasons, at 26.6% [2].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Thais open social media for people, not for brands",
+            subtitle: "Share of respondents citing each main reason for using social media · Q2 2025 · 8 of 15 reasons shown, multiple answers allowed",
+            alt: "Bar chart of main reasons Thais use social media in Q2 2025: keeping in touch with friends and family 58%, reading news 41.5%, filling spare time 39.7%, finding inspiration for things to do and buy 35.3%, finding products 34.6%, following celebrities or influencers 31.6%, watching live streams 27.6%, seeing content from favourite brands 26.6%, the last of 15 reasons",
+            source: "Source: GWI, DataReportal via Statista, 2025 · Digital 2026: Thailand, p. 85 · internet users aged 16–64",
+            guess: "Content from favourite brands",
+            prompt: "Guess first: what share of Thais open social media to see content from brands they like?",
+            answerNote: "Last of 15 reasons.",
+            data: [
+              { label: "Keeping in touch with friends and family", value: 58 },
+              { label: "Reading news", value: 41.5 },
+              { label: "Filling spare time", value: 39.7 },
+              { label: "Ideas for things to do or buy", value: 35.3 },
+              { label: "Finding products", value: 34.6 },
+              { label: "Following celebrities or influencers", value: 31.6 },
+              { label: "Watching live streams", value: 27.6 },
+              { label: "Content from favourite brands", value: 26.6 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Thais spend an average of 7 hours 54 minutes online a day, 2 hours 32 minutes of it on social media [3]. The attention is real, but friends, family, news and entertainment get it first. A like from someone scrolling past tells you only that you held a small slice of that attention for a moment.",
+        },
+        { kind: "h2", text: "What likes measure, and what they do not" },
+        {
+          kind: "p",
+          text: "Reach and likes are useful. They show that a message reached people and that people reacted. But the goal of most communication lies further on: that people understand, believe and act. Research on PR evaluation by Pavel Slutskiy and colleagues (published in 2017, before the centre was founded) adds that the same results do not mean the same performance; you also have to ask how easy the story was to begin with.",
+          links: [{ match: "the same results do not mean the same performance", href: "/en/research/pr-evaluation-coefficient" }],
+        },
+        { kind: "h2", text: "Three steps to measure deeper than likes" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Start from the behaviour you want",
+              text: "Before choosing metrics, write in one sentence who you want to do what next, such as register, come for a check-up or call for advice. Then work back to what you need to measure.",
+            },
+            {
+              title: "Measure all three layers",
+              text: "Layer one is seeing (reach). Layer two is understanding and believing (a few short questions to your audience). Layer three is acting (registrations, incoming calls, or people who actually use the service).",
+            },
+            {
+              title: "Plan the measurement on day one",
+              text: "Most layer-three data already sits in the organisation's own systems. Agree before the campaign starts which numbers you will pull, from which system, and against which period, rather than looking for them after it ends.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this data with care" },
+        {
+          kind: "p",
+          text: "Ad spend figures are media-industry estimates from Nielsen and the Media Agency Association of Thailand, not every organisation's actual spending. The Digital Advertising Association of Thailand (DAAT) measures differently and reports different figures. The data on reasons for using social media comes from an online survey of internet users aged 16 to 64, with multiple answers allowed, so it does not cover older people or those offline. Nor does it say that brand content does not work; it says only that it is not why people open the app.",
+        },
+        { kind: "h2", text: "Count what matters, not what is easy to count" },
+        {
+          kind: "p",
+          text: "Likes are easy to count because the platform counts them for you. What the director asks in the meeting is something the organisation has to count for itself. Communication that plans its measurement from day one can answer that question without searching through every page of the report.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is building a way to measure communication beyond likes, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "Nielsen & Media Agency Association of Thailand via Statista. (2026, April 7). Internet advertising spending of media industry in Thailand from 2012 to 2025 (2026 media industry update, p. 5). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/993664/thailand-media-industry-digital-advertising-expenditure/",
+        },
+        {
+          text: "GWI & DataReportal via Statista. (2025, December 8). Main reasons for using social media in Thailand in 2025 (Digital 2026: Thailand, p. 85). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1316931/thailand-main-reasons-to-use-social-media/",
+        },
+        {
+          text: "We Are Social, DataReportal, GWI & Meltwater via Statista. (2025, July 1). Average time spent using online media in Thailand as of 3rd quarter 2024, by activity (Digital 2025: Thailand, p. 24). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/804035/daily-time-spent-using-online-media-by-activity-thailand/",
+        },
+      ],
+    },
+  },
+  {
+    slug: "watch-read-listen-news",
+    date: "2026-10-27",
+    author: SMITH,
+    palette: [4, 6],
+    cover: "/images/insights/watch-read-listen-news-hero",
+    th: {
+      title: "คนไทยดูข่าวมากกว่าอ่านข่าว แต่ห่างกันแค่นิดเดียว",
+      dek: "ข่าวคือสิ่งที่คนไทยดูบนแพลตฟอร์มออนไลน์ฟรีมากที่สุด และโทรทัศน์ยังเป็นแหล่งข่าวอันดับหนึ่ง แต่คนที่ชอบอ่านข่าวก็มีเกือบเท่าคนที่ชอบดู หน่วยงานควรเล่าเรื่องในรูปแบบไหน",
+      coverAlt:
+        "ภาพประกอบกระดาษ โทรทัศน์ทรงเก่าสีแดงบนพื้นกระดาษสีครีม หน้าจอเป็นแผ่นกระดาษสีฟ้าที่มุมบนพับขึ้นเหมือนหน้าหนังสือ",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "เช้าวันหนึ่งในบ้านหลังเดียวกัน (ครอบครัวสมมติ) ลุงเปิดโทรทัศน์ฟังข่าวเช้าระหว่างกินกาแฟ ลูกสาวดูคลิปข่าวสั้นบนมือถือระหว่างรอรถ ส่วนหลานอ่านสรุปข่าวที่เพื่อนส่งมาในกลุ่มไลน์ ทั้งสามคนรู้เรื่องเดียวกัน แต่ไม่มีใครรับข่าวจากที่เดียวกันเลย",
+        },
+        {
+          kind: "p",
+          text: "สำหรับหน่วยงานที่ต้องสื่อสารกับประชาชน ภาพนี้ตั้งคำถามที่ตอบยาก ถ้างบมีจำกัด ควรทำคลิป เขียนบทความ หรือทำเสียง",
+        },
+        { kind: "h2", text: "โทรทัศน์ยังไม่หายไป และข่าวคือสิ่งที่คนดูออนไลน์มากที่สุด" },
+        {
+          kind: "p",
+          text: "การสำรวจของสำนักงานสถิติแห่งชาติกับ กสทช. เมื่อเมษายน 2567 ถามคนไทยอายุ 15 ปีขึ้นไป 9,000 คนว่ารับข่าวจากไหน โทรทัศน์ยังนำที่ 74.7% ตามด้วยเฟซบุ๊ก 57.5% LINE 30.4% เว็บไซต์ 25.8% และ TikTok 20.3% [1]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "โทรทัศน์ยังเป็นแหล่งข่าวอันดับหนึ่งของคนไทย",
+            subtitle: "ร้อยละของผู้ตอบที่รับข่าวจากแต่ละช่องทาง · เมษายน 2567 · อายุ 15 ปีขึ้นไป ตอบได้หลายข้อ",
+            alt: "กราฟแท่งแสดงแหล่งข่าวของคนไทยในเดือนเมษายน 2567 โทรทัศน์ 74.7% เฟซบุ๊ก 57.5% LINE 30.4% เว็บไซต์ 25.8% และ TikTok 20.3%",
+            source: "ที่มา: สำนักงานสถิติแห่งชาติ และ กสทช. via Statista, 2024 · การสำรวจพฤติกรรมการรับชมรายการ 2567 · สำรวจแบบ omnibus n = 9,000",
+            data: [
+              { label: "โทรทัศน์", value: 74.7, highlight: true },
+              { label: "เฟซบุ๊ก", value: 57.5 },
+              { label: "LINE", value: 30.4 },
+              { label: "เว็บไซต์", value: 25.8 },
+              { label: "TikTok", value: 20.3 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "อีกการสำรวจหนึ่งเมื่อตุลาคม 2567 ซึ่งถามคนไทยทั่วประเทศ 31,500 คน พบว่าบนแพลตฟอร์มออนไลน์ที่ดูได้ฟรี ข่าวคือสิ่งที่คนดูมากที่สุดที่ 64.2% นำหน้าละครและซีรีส์ 62.4% และรายการวาไรตี้ 57.3% [2]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "บนออนไลน์ ข่าวแซงละครขึ้นเป็นอันดับหนึ่ง",
+            subtitle: "ร้อยละของผู้ตอบที่ดูคอนเทนต์แต่ละประเภทบนแพลตฟอร์มออนไลน์ที่ดูได้ฟรี · ตุลาคม 2567 · ตอบได้หลายข้อ",
+            alt: "กราฟแท่งแสดงคอนเทนต์ที่คนไทยดูบนแพลตฟอร์มออนไลน์ฟรีในเดือนตุลาคม 2567 ข่าว 64.2% ละครและซีรีส์ 62.4% รายการวาไรตี้ 57.3% ภาพยนตร์ 28.8% และกีฬา 21.4%",
+            source: "ที่มา: กสทช. และสำนักงานสถิติแห่งชาติ via Statista, 2025 · การสำรวจการเข้าถึงสื่อวิทยุและโทรทัศน์ 2567, หน้า 44 · อายุ 18–76 ปี n = 31,500",
+            guess: "ข่าว",
+            prompt: "ลองทายก่อน: คนไทยกี่เปอร์เซ็นต์ดูข่าวบนแพลตฟอร์มออนไลน์ที่ดูได้ฟรี?",
+            answerNote: "มากกว่าละครและซีรีส์",
+            data: [
+              { label: "ข่าว", value: 64.2 },
+              { label: "ละครและซีรีส์", value: 62.4 },
+              { label: "รายการวาไรตี้", value: 57.3 },
+              { label: "ภาพยนตร์", value: 28.8 },
+              { label: "กีฬา", value: 21.4 },
+            ],
+          },
+        },
+        { kind: "h2", text: "ดู อ่าน หรือฟัง" },
+        {
+          kind: "p",
+          text: "เมื่อถามเจาะว่าชอบรับข่าวออนไลน์แบบไหน รายงาน Digital News Report ปี 2566 ของ Reuters Institute พบว่าคนไทยชอบดู 40% ชอบอ่าน 38% และชอบฟัง 22% [3] ในปีเดียวกัน 64% บอกว่าช่องทางหลักที่พาไปเจอข่าวออนไลน์คือโซเชียลมีเดีย ขณะที่มีเพียง 7% ที่เข้าเว็บไซต์ข่าวโดยตรง [4]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "split",
+            title: "คนไทยชอบดูข่าวมากที่สุด แต่ชนะการอ่านแค่ 2 จุด",
+            subtitle: "ร้อยละของผู้ตอบตามวิธีรับข่าวออนไลน์ที่ชอบ · มกราคม–กุมภาพันธ์ 2566 · ไม่รวมคนที่ตอบว่าไม่ทราบ",
+            alt: "แถบแบ่งสัดส่วนวิธีรับข่าวออนไลน์ที่คนไทยชอบในปี 2566 ชอบดู 40% ชอบอ่าน 38% และชอบฟัง 22%",
+            source: "ที่มา: Reuters Institute for the Study of Journalism via Statista, 2024 · Digital News Report 2023, p. 27 · สำรวจออนไลน์ n = 2,028",
+            prompt: "คิดว่าคนไทยชอบรับข่าวออนไลน์แบบไหนมากที่สุด? เลือกหนึ่งข้อ",
+            answerNote: "แต่ห่างจากการอ่านเพียง 2 จุด",
+            data: [
+              { label: "ดู", value: 40 },
+              { label: "อ่าน", value: 38 },
+              { label: "ฟัง", value: 22 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ในมุมของเรา ตัวเลขที่ใกล้กันมากระหว่างการดูกับการอ่านคือข้อมูลสำคัญที่สุดในชุดนี้ มันบอกว่าการทิ้งข้อความไปทำแต่คลิปเสี่ยงพอๆ กับการทำแต่ข้อความ และเมื่อคนส่วนใหญ่เจอข่าวผ่านโซเชียลมีเดีย สิ่งที่ถูกส่งต่อได้ง่ายที่สุดมักชนะ ข้อความสั้นถูกคัดลอกไปวางในกลุ่มไลน์ได้ คลิปสั้นถูกแชร์ต่อได้ ส่วนเอกสารยาวมักหยุดอยู่ที่หน้าเพจ",
+          links: [{ match: "เอกสารยาวมักหยุดอยู่ที่หน้าเพจ", href: "/insights/line-news-trust-2026" }],
+        },
+        { kind: "h2", text: "สามวิธีเล่าเรื่องเดียวให้ถึงคนหลายแบบ" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "หนึ่งเรื่อง สองรูปแบบ",
+              text: "ทุกประกาศสำคัญควรมีคลิปสั้นไม่เกินหนึ่งนาทีสำหรับคนที่ชอบดู และข้อความสั้นไม่เกินสามบรรทัดสำหรับคนที่ชอบอ่านและส่งต่อ ใช้ข้อมูลชุดเดียวกัน",
+            },
+            {
+              title: "คิดเผื่อจอโทรทัศน์",
+              text: "โทรทัศน์ยังเป็นแหล่งข่าวของคนสามในสี่ คลิปที่ทำไว้ควรใช้ต่อในรายการข่าวท้องถิ่นหรือช่องของหน่วยงานได้ คือมีภาพนิ่งชัด ตัวอักษรใหญ่ และเล่าจบในตัว",
+            },
+            {
+              title: "ให้เสียงเป็นของคนที่ผู้ชมเชื่อ",
+              text: "ไม่ว่าจะเป็นคลิปหรือเสียง ให้คนที่ดูแลเรื่องนั้นจริงเป็นคนพูด ความใกล้ชิดของเสียงคนจริงคือสิ่งที่ทำให้คนดูจนจบและส่งต่อ",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "ข้อมูลในบทความนี้มาจากการสำรวจคนละชุด ข้อมูลของสำนักงานสถิติแห่งชาติกับ กสทช. ปี 2567 เป็นการสำรวจทั่วประเทศที่รวมคนที่ไม่ได้ใช้อินเทอร์เน็ต ส่วนข้อมูลของ Reuters Institute ปี 2566 เป็นการสำรวจออนไลน์ซึ่งสะท้อนผู้ใช้อินเทอร์เน็ตเป็นหลัก และมีอายุมากกว่าสามปีแล้ว (ณ วันที่เขียน Statista ยังไม่มีชุดที่ใหม่กว่าสำหรับคำถามเรื่องวิธีรับข่าว) จึงควรใช้เป็นสัญญาณทิศทาง ทุกชุดตอบได้หลายข้อ ยกเว้นวิธีรับข่าวที่ชอบซึ่งให้เลือกหนึ่งแบบ",
+        },
+        { kind: "h2", text: "อย่าเลือก ให้เล่าให้ครบ" },
+        {
+          kind: "p",
+          text: "คำตอบของคำถามว่าควรทำคลิป เขียน หรือทำเสียง คือทำเรื่องเดียวให้ส่งต่อได้หลายแบบ คนในบ้านเดียวกันยังรับข่าวต่างกันได้ ผู้ชมของหน่วยงานก็เช่นเดียวกัน",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนว่าจะเล่าเรื่องสำคัญผ่านรูปแบบไหนบ้าง ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "National Statistical Office (Thailand) & NBTC via Statista. (2024, June 17). Leading news sources in Thailand as of April 2024 (National Broadcasting Services Thailand: Program Consumption Survey 2024). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1291322/thailand-leading-news-sources/",
+        },
+        {
+          text: "NBTC & National Statistical Office (Thailand) via Statista. (2025, January 16). Leading free online content watched by Thai consumers as of October 2024, by type (Survey of access to radio and television media 2024, p. 44). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1550951/thailand-leading-free-online-content-by-type/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism via Statista. (2024, March 22). Preferred ways to consume online news in Thailand in 2023 (Digital News Report 2023, p. 27). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1457108/thailand-preferred-ways-to-consume-online-news/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism via Statista. (2024, March 22). Main way of getting news online in Thailand in 2023 (Digital News Report 2023, p. 12). เข้าถึง 27 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/1457100/thailand-main-way-of-getting-news-online/",
+        },
+      ],
+    },
+    en: {
+      title: "Thais would rather watch the news than read it, but only just",
+      dek: "News is what Thais watch most on free online platforms, and television is still the top news source. Yet almost as many prefer to read news as to watch it. Which format should agencies tell their stories in?",
+      coverAlt:
+        "Paper-craft illustration on cream paper: a red retro television whose screen is a light blue sheet of paper with its top corner curling up like a page",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "One morning in one household (a fictional family), the grandfather listens to the morning news on television over coffee. His daughter watches short news clips on her phone while waiting for the bus. His grandson reads a news summary a friend posted in a LINE group. All three learn the same story, and none of them gets it from the same place.",
+        },
+        {
+          kind: "p",
+          text: "For any agency that has to communicate with the public, this picture raises a hard question. With a limited budget, should you make a video, write an article or record audio?",
+        },
+        { kind: "h2", text: "Television has not gone away, and news is what people watch most online" },
+        {
+          kind: "p",
+          text: "In April 2024 the National Statistical Office and the NBTC asked 9,000 Thais aged 15 and over where they get their news. Television still led at 74.7%, followed by Facebook (57.5%), LINE (30.4%), websites (25.8%) and TikTok (20.3%) [1].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Television is still Thailand's top news source",
+            subtitle: "Share of respondents who get news from each source · April 2024 · aged 15 and over, multiple answers allowed",
+            alt: "Bar chart of news sources in Thailand in April 2024: television 74.7%, Facebook 57.5%, LINE 30.4%, websites 25.8%, TikTok 20.3%",
+            source: "Source: National Statistical Office (Thailand), NBTC via Statista, 2024 · Program Consumption Survey 2024 · omnibus survey n = 9,000",
+            data: [
+              { label: "Television", value: 74.7, highlight: true },
+              { label: "Facebook", value: 57.5 },
+              { label: "LINE", value: 30.4 },
+              { label: "Websites", value: 25.8 },
+              { label: "TikTok", value: 20.3 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "A separate nationwide survey of 31,500 people in October 2024 found that on free online platforms, news is what people watch most, at 64.2%, ahead of drama series (62.4%) and variety shows (57.3%) [2].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Online, news overtakes drama as the most watched",
+            subtitle: "Share of respondents who watch each type of content on free online platforms · October 2024 · multiple answers allowed",
+            alt: "Bar chart of content watched on free online platforms in Thailand in October 2024: news 64.2%, drama series 62.4%, variety shows 57.3%, movies 28.8%, sport 21.4%",
+            source: "Source: NBTC, National Statistical Office (Thailand) via Statista, 2025 · Survey of access to radio and television media 2024, p. 44 · aged 18–76, n = 31,500",
+            guess: "News",
+            prompt: "Guess first: what share of Thais watch news on free online platforms?",
+            answerNote: "Ahead of drama series.",
+            data: [
+              { label: "News", value: 64.2 },
+              { label: "Drama series", value: 62.4 },
+              { label: "Variety shows", value: 57.3 },
+              { label: "Movies", value: 28.8 },
+              { label: "Sport", value: 21.4 },
+            ],
+          },
+        },
+        { kind: "h2", text: "Watch, read or listen" },
+        {
+          kind: "p",
+          text: "Asked how they prefer to get news online, Thais in the Reuters Institute's 2023 Digital News Report said watch (40%), read (38%) and listen (22%) [3]. In the same year, 64% said social media was their main gateway to online news, while only 7% went to news websites directly [4].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "split",
+            title: "Thais prefer watching news, but only 2 points ahead of reading",
+            subtitle: "Share of respondents by preferred way to get online news · January–February 2023 · excluding \"don't know\"",
+            alt: "Stacked bar of how Thais prefer to get online news in 2023: watch 40%, read 38%, listen 22%",
+            source: "Source: Reuters Institute for the Study of Journalism via Statista, 2024 · Digital News Report 2023, p. 27 · online survey n = 2,028",
+            prompt: "Which way do you think Thais most prefer to get news online? Pick one.",
+            answerNote: "Only 2 points ahead of reading.",
+            data: [
+              { label: "Watch", value: 40 },
+              { label: "Read", value: 38 },
+              { label: "Listen", value: 22 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "As we see it, how close watching and reading are is the most important finding here. Dropping text to make only videos is about as risky as making only text. And since most people find news through social media, what is easiest to pass on tends to win: a short message can be pasted into a LINE group, a short clip can be shared, and a long document usually stops at the page where it was posted.",
+          links: [{ match: "a long document usually stops at the page where it was posted", href: "/en/insights/line-news-trust-2026" }],
+        },
+        { kind: "h2", text: "Three ways to tell one story to many kinds of audience" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "One story, two formats",
+              text: "Every important announcement should come as a clip of under a minute for people who prefer to watch, and a message of no more than three lines for people who prefer to read and pass it on, both built on the same facts.",
+            },
+            {
+              title: "Plan for the television screen",
+              text: "Television is still a news source for three in four people. Make clips that local news programmes or the agency's own channel can reuse: clear stills, large text, and a story that stands on its own.",
+            },
+            {
+              title: "Let a trusted person do the talking",
+              text: "Whether video or audio, have the person who actually handles the issue speak. The closeness of a real voice is what makes people watch to the end and share.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this data with care" },
+        {
+          kind: "p",
+          text: "The data here come from different surveys. The 2024 National Statistical Office and NBTC surveys are nationwide and include people who are not online. The 2023 Reuters Institute data come from an online survey that mainly reflects internet users and are now more than three years old (at the time of writing Statista had no newer data for the question on preferred format), so treat them as a signal of direction. All sets allowed multiple answers except preferred format, where respondents chose one.",
+        },
+        { kind: "h2", text: "Do not choose; tell it in full" },
+        {
+          kind: "p",
+          text: "The answer to whether to make a video, write or record audio is to make one story that can travel in several forms. People in the same household take in news differently, and so does an agency's audience.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is deciding which formats to use for an important story, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "National Statistical Office (Thailand) & NBTC via Statista. (2024, June 17). Leading news sources in Thailand as of April 2024 (National Broadcasting Services Thailand: Program Consumption Survey 2024). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1291322/thailand-leading-news-sources/",
+        },
+        {
+          text: "NBTC & National Statistical Office (Thailand) via Statista. (2025, January 16). Leading free online content watched by Thai consumers as of October 2024, by type (Survey of access to radio and television media 2024, p. 44). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1550951/thailand-leading-free-online-content-by-type/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism via Statista. (2024, March 22). Preferred ways to consume online news in Thailand in 2023 (Digital News Report 2023, p. 27). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1457108/thailand-preferred-ways-to-consume-online-news/",
+        },
+        {
+          text: "Reuters Institute for the Study of Journalism via Statista. (2024, March 22). Main way of getting news online in Thailand in 2023 (Digital News Report 2023, p. 12). Accessed 27 October 2026.",
+          url: "https://www.statista.com/statistics/1457100/thailand-main-way-of-getting-news-online/",
+        },
+      ],
+    },
+  },
 ];
 
 export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
@@ -1170,6 +2055,20 @@ export const getInsightBySlug = (slug: string) => insights.find((p) => p.slug ==
 /** ภาพตอนแชร์และใน JSON-LD — ภาพเฉพาะของบทความ → ภาพปก → ภาพกลางของเว็บ */
 export function insightImage(post: InsightPost, locale: "th" | "en"): string {
   return post[locale].ogImage ?? (post.cover ? `${post.cover}.webp` : "/images/og/og-default.jpg");
+}
+
+// กราฟชุดสีต้องรู้คู่สีของบทความ ไม่งั้นจะไม่มีสีให้วาด
+const COLOR_CHARTS = new Set(["race", "area", "split"]);
+for (const p of insights) {
+  for (const lang of ["th", "en"] as const)
+    for (const b of p[lang].body)
+      if (b.kind === "chart" && COLOR_CHARTS.has(b.chart.type)) {
+        if (!p.palette) throw new Error(`insights: บทความ "${p.slug}" ใช้กราฟ ${b.chart.type} แต่ไม่มี palette`);
+        if (b.chart.guess && !b.chart.prompt)
+          throw new Error(`insights: กราฟ "${b.chart.title}" มี guess แต่ไม่มี prompt`);
+        if (b.chart.type === "split" && !b.chart.prompt)
+          throw new Error(`insights: กราฟ split "${b.chart.title}" ไม่มี prompt`);
+      }
 }
 
 // ภาพปกที่ไม่มี alt คือภาพที่โปรแกรมอ่านหน้าจออ่านไม่ออก — ให้ build พังดีกว่าขึ้นเว็บเงียบๆ
