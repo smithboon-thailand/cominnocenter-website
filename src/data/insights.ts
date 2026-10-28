@@ -2068,6 +2068,57 @@ export const insights: InsightPost[] = [
           kind: "p",
           text: "สำหรับหน่วยงานที่ดูแลภาพลักษณ์ประเทศหรือการท่องเที่ยว เรื่องนี้ชวนให้ถามว่า เราวัดความสำเร็จของการสื่อสารกับโลกจากอะไร จากจำนวนข่าว จากน้ำเสียงของข่าว หรือจากสิ่งที่ผู้ชมตัดสินใจหลังอ่านจบ",
         },
+        { kind: "h2", text: "นักท่องเที่ยวยังไม่กลับมาเท่าเดิม" },
+        {
+          kind: "p",
+          text: "คำถามนี้มีน้ำหนักเพราะการท่องเที่ยวยังฟื้นไม่เต็มที่ ข้อมูลของธนาคารแห่งประเทศไทยแสดงว่านักท่องเที่ยวต่างชาติลดจาก 39.8 ล้านคนในปี 2562 เหลือเพียง 0.43 ล้านคนในปี 2564 ฟื้นขึ้นมาที่ 35.55 ล้านคนในปี 2567 แล้วลดลงเป็น 32.97 ล้านคนในปี 2568 [1]",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "นักท่องเที่ยวต่างชาติยังไม่กลับไปถึงระดับก่อนโควิด",
+            subtitle: "จำนวนนักท่องเที่ยวต่างชาติที่เดินทางเข้าไทย (ล้านคน) · 2558–2568",
+            alt: "กราฟเส้นแสดงจำนวนนักท่องเที่ยวต่างชาติในไทย ปี 2558 29.9 ล้านคน 2559 32.5 2560 35.59 2561 38.18 2562 39.8 2563 6.7 2564 0.43 2565 11.07 2566 28.15 2567 35.55 และ 2568 32.97 ล้านคน",
+            source: "ที่มา: ธนาคารแห่งประเทศไทย via Statista, 2026",
+            unit: " ล้านคน",
+            data: [
+              { label: "2558", value: 29.9 },
+              { label: "2559", value: 32.5 },
+              { label: "2560", value: 35.59 },
+              { label: "2561", value: 38.18 },
+              { label: "2562", value: 39.8 },
+              { label: "2563", value: 6.7 },
+              { label: "2564", value: 0.43 },
+              { label: "2565", value: 11.07 },
+              { label: "2566", value: 28.15 },
+              { label: "2567", value: 35.55 },
+              { label: "2568", value: 32.97 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "และคนจีนยังเป็นกลุ่มใหญ่ ในไตรมาสที่ 3 ของปี 2566 ซึ่งเป็นข้อมูลรายประเทศล่าสุดที่ Statista มี นักท่องเที่ยวจีนมี 1.05 ล้านคน มากเป็นอันดับสองรองจากมาเลเซีย [2] สิ่งที่ผู้อ่านภาษาจีนคิดเกี่ยวกับไทยจึงไม่ใช่เรื่องไกลตัว",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "จีนเป็นตลาดนักท่องเที่ยวอันดับสองของไทย",
+            subtitle: "จำนวนนักท่องเที่ยวในไทยจำแนกตามประเทศ (พันคน) · ไตรมาส 3 ปี 2566 · ห้าอันดับแรก",
+            alt: "กราฟแท่งแสดงนักท่องเที่ยวในไทยไตรมาส 3 ปี 2566 มาเลเซีย 1,200 พันคน จีน 1,050 เกาหลีใต้ 430 อินเดีย 401 และเวียดนาม 317 พันคน",
+            source: "ที่มา: กระทรวงการท่องเที่ยวและกีฬา via Statista, 2024 · Tourism economic review 2024, หน้า 23",
+            unit: " พันคน",
+            data: [
+              { label: "มาเลเซีย", value: 1200 },
+              { label: "จีน", value: 1050, highlight: true },
+              { label: "เกาหลีใต้", value: 430 },
+              { label: "อินเดีย", value: 401 },
+              { label: "เวียดนาม", value: 317 },
+            ],
+          },
+        },
         { kind: "h2", text: "บน YouTube โลกเห็นไทยในแง่ดี แต่เห็นแค่ด้านเดียว" },
         {
           kind: "p",
@@ -2149,7 +2200,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
         {
           kind: "p",
-          text: "งานบน YouTube ศึกษาคลิปเพียง 57 คลิปจากแพลตฟอร์มเดียวในหกเดือน จึงเป็นภาพช่วงเวลาหนึ่ง ไม่ใช่ภาพของสื่อทั้งหมด งานสื่อจีนต้องจำกัดอยู่ที่เวยป๋อเพราะการเซ็นเซอร์ทำให้ค้นคำบางคำไม่ได้ ข้อมูลจึงไม่ครบ ความเห็นที่มองเห็นอาจไม่ใช่ความเห็นจริงทั้งหมด และงานไม่ได้วัดว่าความเห็นเหล่านั้นทำให้คนเดินทางน้อยลงจริงหรือไม่ ทั้งสองงานเก็บข้อมูลก่อนที่ทิศทางนโยบายกัญชาของไทยจะเปลี่ยนอีกครั้ง",
+          text: "งานบน YouTube ศึกษาคลิปเพียง 57 คลิปจากแพลตฟอร์มเดียวในหกเดือน จึงเป็นภาพช่วงเวลาหนึ่ง ไม่ใช่ภาพของสื่อทั้งหมด งานสื่อจีนต้องจำกัดอยู่ที่เวยป๋อเพราะการเซ็นเซอร์ทำให้ค้นคำบางคำไม่ได้ ข้อมูลจึงไม่ครบ ความเห็นที่มองเห็นอาจไม่ใช่ความเห็นจริงทั้งหมด และงานไม่ได้วัดว่าความเห็นเหล่านั้นทำให้คนเดินทางน้อยลงจริงหรือไม่ ทั้งสองงานเก็บข้อมูลก่อนที่ทิศทางนโยบายกัญชาของไทยจะเปลี่ยนอีกครั้ง ส่วนตัวเลขนักท่องเที่ยวจาก Statista ใส่ไว้ให้เห็นขนาดของตลาด ไม่ได้บอกว่าภาพในสื่อหรือนโยบายกัญชาทำให้จำนวนนักท่องเที่ยวขึ้นหรือลง และข้อมูลรายประเทศเป็นของไตรมาสเดียว",
         },
         { kind: "h2", text: "ภาพลักษณ์ที่ดีคือภาพที่ตอบคำถามได้" },
         {
@@ -2159,6 +2210,17 @@ export const insights: InsightPost[] = [
         {
           kind: "note",
           text: "หากหน่วยงานของคุณกำลังวางแผนสื่อสารนโยบายหรือภาพลักษณ์ประเทศกับผู้ชมต่างชาติ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "Bank of Thailand via Statista. (2026, February 23). Number of international tourist arrivals in Thailand from 2015 to 2025 (in millions). เข้าถึง 29 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/994693/thailand-number-international-tourist-arrivals/",
+        },
+        {
+          text: "Ministry of Tourism and Sports (Thailand) via Statista. (2024, March 21). Number of tourists in Thailand in 3rd quarter 2023, by country (Tourism economic review 2024, p. 23). เข้าถึง 29 ตุลาคม 2569.",
+          url: "https://www.statista.com/statistics/672055/tourists-to-thailand-by-country-of-origin/",
         },
       ],
     },
@@ -2176,6 +2238,57 @@ export const insights: InsightPost[] = [
         {
           kind: "p",
           text: "For agencies responsible for a country's image or its tourism, this raises a question: what do we measure the success of communicating with the world by? The amount of coverage, its tone, or what the audience decides after reading?",
+        },
+        { kind: "h2", text: "Visitors have not fully come back" },
+        {
+          kind: "p",
+          text: "The question matters because tourism has not fully recovered. Bank of Thailand figures show international arrivals fell from 39.8 million in 2019 to just 0.43 million in 2021, recovered to 35.55 million in 2024, then dropped to 32.97 million in 2025 [1].",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "International arrivals are still below pre-COVID levels",
+            subtitle: "International tourist arrivals in Thailand (millions) · 2015–2025",
+            alt: "Line chart of international tourist arrivals in Thailand: 29.9 million in 2015, 32.5 in 2016, 35.59 in 2017, 38.18 in 2018, 39.8 in 2019, 6.7 in 2020, 0.43 in 2021, 11.07 in 2022, 28.15 in 2023, 35.55 in 2024 and 32.97 million in 2025",
+            source: "Source: Bank of Thailand via Statista, 2026",
+            unit: " million",
+            data: [
+              { label: "2015", value: 29.9 },
+              { label: "2016", value: 32.5 },
+              { label: "2017", value: 35.59 },
+              { label: "2018", value: 38.18 },
+              { label: "2019", value: 39.8 },
+              { label: "2020", value: 6.7 },
+              { label: "2021", value: 0.43 },
+              { label: "2022", value: 11.07 },
+              { label: "2023", value: 28.15 },
+              { label: "2024", value: 35.55 },
+              { label: "2025", value: 32.97 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "And Chinese visitors remain a large group. In the third quarter of 2023, the latest country breakdown on Statista, 1.05 million came from China, second only to Malaysia [2]. What Chinese-language readers think about Thailand is not a distant concern.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "China is Thailand's second-largest visitor market",
+            subtitle: "Tourists in Thailand by country (thousands) · Q3 2023 · top five",
+            alt: "Bar chart of tourists in Thailand in Q3 2023: Malaysia 1,200 thousand, China 1,050, South Korea 430, India 401 and Vietnam 317 thousand",
+            source: "Source: Ministry of Tourism and Sports (Thailand) via Statista, 2024 · Tourism economic review 2024, p. 23",
+            unit: " thousand",
+            data: [
+              { label: "Malaysia", value: 1200 },
+              { label: "China", value: 1050, highlight: true },
+              { label: "South Korea", value: 430 },
+              { label: "India", value: 401 },
+              { label: "Vietnam", value: 317 },
+            ],
+          },
         },
         { kind: "h2", text: "On YouTube the world saw Thailand positively, but from one side only" },
         {
@@ -2258,7 +2371,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "Reading this evidence with care" },
         {
           kind: "p",
-          text: "The YouTube study covers only 57 clips from one platform over six months, so it is a snapshot, not a picture of all media. The Chinese-media study had to be confined to Weibo because censorship makes some terms unsearchable, so the data are incomplete, visible comments may not be everyone's real opinion, and the study did not measure whether those comments actually reduced travel. Both studies collected data before the direction of Thailand's cannabis policy shifted again.",
+          text: "The YouTube study covers only 57 clips from one platform over six months, so it is a snapshot, not a picture of all media. The Chinese-media study had to be confined to Weibo because censorship makes some terms unsearchable, so the data are incomplete, visible comments may not be everyone's real opinion, and the study did not measure whether those comments actually reduced travel. Both studies collected data before the direction of Thailand's cannabis policy shifted again. The Statista visitor figures are included to show the size of the market; they do not show that media coverage or cannabis policy raised or lowered visitor numbers, and the country breakdown covers a single quarter.",
         },
         { kind: "h2", text: "A good image is one that answers questions" },
         {
@@ -2268,6 +2381,17 @@ export const insights: InsightPost[] = [
         {
           kind: "note",
           text: "If your organisation is planning how to communicate a policy or the country's image to foreign audiences, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "Bank of Thailand via Statista. (2026, February 23). Number of international tourist arrivals in Thailand from 2015 to 2025 (in millions). Accessed 29 October 2026.",
+          url: "https://www.statista.com/statistics/994693/thailand-number-international-tourist-arrivals/",
+        },
+        {
+          text: "Ministry of Tourism and Sports (Thailand) via Statista. (2024, March 21). Number of tourists in Thailand in 3rd quarter 2023, by country (Tourism economic review 2024, p. 23). Accessed 29 October 2026.",
+          url: "https://www.statista.com/statistics/672055/tourists-to-thailand-by-country-of-origin/",
         },
       ],
     },
