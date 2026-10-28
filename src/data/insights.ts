@@ -2046,6 +2046,673 @@ export const insights: InsightPost[] = [
       ],
     },
   },
+  {
+    slug: "thailand-image-foreign-media",
+    date: "2026-10-28",
+    author: SMITH,
+    palette: [8, 11],
+    cover: "/images/insights/thailand-image-foreign-media-hero",
+    evidence: ["thailand-image-cannabis-youtube", "chinese-media-thailand-cannabis"],
+    th: {
+      title: "ข่าวดีเรื่องไทยไปถึงโลกแล้ว แต่คำถามของนักท่องเที่ยวยังไม่มีใครตอบ",
+      dek: "งานวิจัยสองชิ้นตามดูภาพประเทศไทยในสื่อต่างประเทศหลังปลดล็อกกัญชา บน YouTube ภาพส่วนใหญ่เป็นบวก ส่วนในสื่อจีนข่าวเป็นกลาง แต่ความเห็นของผู้อ่านจบที่ \"ไม่ไปดีกว่า\" บทเรียนคือภาพลักษณ์ประเทศไม่ได้ตัดสินกันที่น้ำเสียงของข่าว",
+      coverAlt:
+        "ภาพประกอบกระดาษ กระเป๋าเดินทางใบเล็กสีแดงเลือดหมูบนพื้นกระดาษสีครีม มีป้ายรูปบับเบิลคำพูดสีส้มที่ยังว่างเปล่าติดอยู่ที่หูหิ้ว",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "หลิน (ตัวละครสมมติ) กำลังวางแผนพาพ่อแม่มาเที่ยวกรุงเทพฯ ช่วงตรุษจีน เธอเลื่อนอ่านข่าวบนเวยป๋อว่าไทยปลดล็อกกัญชาแล้ว ข่าวเขียนเรียบๆ ไม่ได้เชียร์ไม่ได้ด่า แต่ใต้โพสต์มีคนถามซ้ำกันว่า ถ้ากินก๋วยเตี๋ยวข้างทางแล้วมีกัญชาปนโดยไม่รู้ตัวจะทำอย่างไร กลับบ้านแล้วจะมีปัญหาไหม ไม่มีใครตอบ เธอปิดแอปแล้วเปิดดูตั๋วไปที่อื่นแทน",
+        },
+        {
+          kind: "p",
+          text: "สำหรับหน่วยงานที่ดูแลภาพลักษณ์ประเทศหรือการท่องเที่ยว เรื่องนี้ชวนให้ถามว่า เราวัดความสำเร็จของการสื่อสารกับโลกจากอะไร จากจำนวนข่าว จากน้ำเสียงของข่าว หรือจากสิ่งที่ผู้ชมตัดสินใจหลังอ่านจบ",
+        },
+        { kind: "h2", text: "บน YouTube โลกเห็นไทยในแง่ดี แต่เห็นแค่ด้านเดียว" },
+        {
+          kind: "p",
+          text: "ทีมวิจัยของ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2568) วิเคราะห์คลิป YouTube 57 คลิปที่เผยแพร่ช่วงสามเดือนก่อนและหลังไทยปลดล็อกกัญชาเมื่อ 9 มิถุนายน 2565 ทั้งข่าวและวล็อก พบว่าน้ำเสียงโดยรวมเป็นบวกถึง 43 คลิป หรือ 75.4% เป็นลบเพียง 7.0%",
+          links: [{ match: "วิเคราะห์คลิป YouTube 57 คลิป", href: "/research/thailand-image-cannabis-youtube" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "สามในสี่ของคลิปเล่าเรื่องไทยในแง่บวก",
+            subtitle: "ร้อยละของคลิป YouTube 57 คลิป จำแนกตามน้ำเสียงโดยรวม · มีนาคม–กันยายน 2565",
+            alt: "กราฟแท่งแสดงน้ำเสียงของคลิป YouTube 57 คลิปเรื่องไทยหลังปลดล็อกกัญชา บวก 75.4% ก้ำกึ่ง 15.8% ลบ 7.0% และเป็นกลาง 1.8%",
+            source: "ที่มา: Mazahir, Boonchutima และคณะ (2025) PLOS ONE · วิเคราะห์เนื้อหาคลิป YouTube 57 คลิป",
+            guess: "บวก",
+            prompt: "ลองทายก่อน: คลิปที่เล่าเรื่องไทยในแง่บวกมีกี่เปอร์เซ็นต์?",
+            answerNote: "ส่วนคลิปที่เป็นลบมีเพียง 7%",
+            data: [
+              { label: "บวก", value: 75.4 },
+              { label: "ก้ำกึ่ง", value: 15.8 },
+              { label: "ลบ", value: 7.0 },
+              { label: "เป็นกลาง", value: 1.8 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "แต่ภาพที่ดีนั้นมีสองข้อที่ต้องระวัง ข้อแรก ความสนใจมาเร็วไปเร็ว 81% ของคลิปเกิดหลังประกาศ กระจุกอยู่ในเดือนมิถุนายน แล้วเหลือเพียง 2 คลิปในเดือนกันยายน ข้อที่สอง คลิปจำนวนมากมีเสียงเดียว 28.1% ไม่ได้อ้างผู้พูดคนที่สองเลย และแทบไม่มีคลิปใดเตือนนักท่องเที่ยวเรื่องกฎหมายเมื่อกลับประเทศของตัวเอง ซึ่งเป็นข้อมูลที่คนกลุ่มนี้ต้องการที่สุด",
+        },
+        { kind: "h2", text: "ในสื่อจีน ข่าวเป็นกลาง แต่ผู้อ่านไม่ได้เป็นกลางตาม" },
+        {
+          kind: "p",
+          text: "อีกงานหนึ่งของ Deng, รศ.ดร. Pavel Slutskiy และ รศ.ดร.สมิทธิ์ บุญชุติมา (ตีพิมพ์ปี 2566) อ่านโพสต์บนเวยป๋อ 128 โพสต์ของสื่อภาษาจีนสี่แห่งระหว่างปี 2562–2565 ผู้ลงรหัสทั้งสามคนจัดโพสต์ส่วนใหญ่เป็นการรายงานแบบเป็นกลาง 82.8–94.5% มีโพสต์เชิงสนับสนุนเพียง 0.8–2.3% แต่ความเห็นใต้โพสต์กลับไปอีกทาง กลุ่มความเห็นที่เด่นคือการปฏิเสธไทยเป็นจุดหมาย ด้วยเหตุผลว่าอาจกินอาหารที่มีกัญชาโดยไม่รู้ตัว ไม่เชื่อว่าจะมีการกำกับดูแลที่ดี และมองว่าเป็นนโยบายเลียนแบบตะวันตก",
+          links: [{ match: "อ่านโพสต์บนเวยป๋อ 128 โพสต์", href: "/research/chinese-media-thailand-cannabis" }],
+        },
+        {
+          kind: "p",
+          text: "ที่น่าคิดต่อคือแหล่งที่มาของข่าว โพสต์ 58.6% อ้างสื่อไทย อีก 7.8% เป็นงานเรียบเรียงของสื่อเอง แต่อีก 33.6% ไม่ระบุแหล่งที่มาเลย",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "split",
+            title: "หนึ่งในสามของข่าวเรื่องไทยในสื่อจีนไม่บอกว่ามาจากไหน",
+            subtitle: "ร้อยละของโพสต์บนเวยป๋อ 128 โพสต์ จำแนกตามแหล่งที่มาที่อ้าง · 2562–2565",
+            alt: "แถบแบ่งสัดส่วนแหล่งที่มาของโพสต์ 128 โพสต์ในสื่อภาษาจีน อ้างสื่อไทย 58.6% ไม่ระบุแหล่งที่มา 33.6% และสื่อเรียบเรียงเอง 7.8%",
+            source: "ที่มา: Deng, Slutskiy และ Boonchutima (2023) Heliyon · วิเคราะห์เนื้อหาโพสต์บนเวยป๋อ 128 โพสต์",
+            prompt: "คิดว่าข่าวเรื่องไทยในสื่อจีนส่วนใหญ่อ้างข้อมูลจากที่ไหน? เลือกหนึ่งข้อ",
+            answerNote: "แต่อีกหนึ่งในสามไม่ระบุที่มาเลย",
+            data: [
+              { label: "อ้างสื่อไทย", value: 58.6 },
+              { label: "ไม่ระบุที่มา", value: 33.6 },
+              { label: "สื่อเรียบเรียงเอง", value: 7.8 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ตัวเลขนี้บอกว่าสิ่งที่หน่วยงานไทยปล่อยออกไปมีโอกาสถูกนำไปเล่าต่อในอีกภาษาหนึ่ง ข้อความที่ชัด ตอบคำถามจริง และอ้างอิงได้ จึงมีโอกาสไปถึงผู้อ่านต่างประเทศมากกว่าที่เราคิด ในทางกลับกัน ถ้าข้อความนั้นไม่ตอบคำถามของนักท่องเที่ยว ช่องว่างจะถูกเติมด้วยความกังวลแทน",
+        },
+        { kind: "h2", text: "สามเรื่องที่ควรทำก่อนประกาศนโยบายที่โลกจะสนใจ" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ตอบคำถามระดับวันของนักท่องเที่ยว",
+              text: "นอกจากประกาศว่านโยบายคืออะไร ให้เตรียมคำตอบสั้นๆ ของคำถามที่คนจะถามจริง เช่น จะรู้ได้อย่างไรว่าอาหารมีส่วนผสมนี้ และกลับประเทศแล้วต้องระวังอะไร แปลเป็นภาษาของประเทศที่นักท่องเที่ยวมามาก",
+            },
+            {
+              title: "อ่านช่องความเห็น ไม่ใช่นับแค่ข่าว",
+              text: "สัดส่วนข่าวที่เป็นกลางหรือเป็นบวกบอกได้ไม่หมดว่าผู้อ่านรู้สึกอย่างไร ให้ติดตามความเห็นของผู้อ่านในตลาดหลัก เพราะที่นั่นคือที่ที่ความหมายถูกตัดสิน",
+            },
+            {
+              title: "วางแผนหลังกระแส",
+              text: "ความสนใจของสื่อต่างประเทศกระจุกอยู่ในเดือนแรกแล้วหายไป ข้อมูลที่ช่วยการตัดสินใจเดินทางจึงควรอยู่ในที่ที่ค้นเจอได้ต่อเนื่อง ไม่ใช่อยู่แค่ในข่าววันประกาศ",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานบน YouTube ศึกษาคลิปเพียง 57 คลิปจากแพลตฟอร์มเดียวในหกเดือน จึงเป็นภาพช่วงเวลาหนึ่ง ไม่ใช่ภาพของสื่อทั้งหมด งานสื่อจีนต้องจำกัดอยู่ที่เวยป๋อเพราะการเซ็นเซอร์ทำให้ค้นคำบางคำไม่ได้ ข้อมูลจึงไม่ครบ ความเห็นที่มองเห็นอาจไม่ใช่ความเห็นจริงทั้งหมด และงานไม่ได้วัดว่าความเห็นเหล่านั้นทำให้คนเดินทางน้อยลงจริงหรือไม่ ทั้งสองงานเก็บข้อมูลก่อนที่ทิศทางนโยบายกัญชาของไทยจะเปลี่ยนอีกครั้ง",
+        },
+        { kind: "h2", text: "ภาพลักษณ์ที่ดีคือภาพที่ตอบคำถามได้" },
+        {
+          kind: "p",
+          text: "ข่าวดีไปถึงโลกได้เร็ว แต่สิ่งที่ทำให้คนตัดสินใจมาจริงคือคำตอบของคำถามเล็กๆ ที่เขากังวล หน่วยงานที่สื่อสารกับโลกจึงควรวัดผลจากคำถามที่ตอบได้ ไม่ใช่จากจำนวนข่าวที่ออกไป",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนสื่อสารนโยบายหรือภาพลักษณ์ประเทศกับผู้ชมต่างชาติ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "The good news about Thailand reached the world. The travellers' questions are still unanswered",
+      dek: "Two studies followed Thailand's image in foreign media after cannabis was legalised. On YouTube the picture was mostly positive; in Chinese-language media the coverage was neutral but the readers' comments ended at \"I'm not going.\" The lesson: a country's image is not settled by the tone of its news.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: a small burgundy suitcase with a blank orange speech-bubble tag attached to its handle",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Lin (a fictional character) is planning to bring her parents to Bangkok over Chinese New Year. On Weibo she reads that Thailand has legalised cannabis. The report is flat, neither cheering nor condemning. But under the post, people keep asking the same thing: what if a street-side noodle soup has cannabis in it and I don't know? Will I be in trouble when I get home? Nobody answers. She closes the app and starts looking at flights somewhere else.",
+        },
+        {
+          kind: "p",
+          text: "For agencies responsible for a country's image or its tourism, this raises a question: what do we measure the success of communicating with the world by? The amount of coverage, its tone, or what the audience decides after reading?",
+        },
+        { kind: "h2", text: "On YouTube the world saw Thailand positively, but from one side only" },
+        {
+          kind: "p",
+          text: "A team led by Dr Muhammad Ibtesam Mazahir, Assoc. Prof. Dr Smith Boonchutima and colleagues (published in 2025) analysed 57 YouTube clips, both news and vlogs, posted in the three months either side of legalisation on 9 June 2022. The overall tone was positive in 43 clips, or 75.4%, and negative in only 7.0%.",
+          links: [{ match: "analysed 57 YouTube clips", href: "/en/research/thailand-image-cannabis-youtube" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Three in four clips told Thailand's story positively",
+            subtitle: "Share of 57 YouTube clips by overall tone · March–September 2022",
+            alt: "Bar chart of the tone of 57 YouTube clips about Thailand after cannabis legalisation: positive 75.4%, ambivalent 15.8%, negative 7.0%, neutral 1.8%",
+            source: "Source: Mazahir, Boonchutima et al. (2025), PLOS ONE · content analysis of 57 YouTube clips",
+            guess: "Positive",
+            prompt: "Guess first: what share of clips told Thailand's story positively?",
+            answerNote: "Only 7% were negative.",
+            data: [
+              { label: "Positive", value: 75.4 },
+              { label: "Ambivalent", value: 15.8 },
+              { label: "Negative", value: 7.0 },
+              { label: "Neutral", value: 1.8 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "That favourable picture comes with two warnings. First, the attention came and went quickly: 81% of the clips appeared after the announcement, clustered in June, falling to just 2 clips by September. Second, many clips carried a single voice. 28.1% quoted no second speaker at all, and very few warned travellers about the law when returning to their own countries, the information this audience needed most.",
+        },
+        { kind: "h2", text: "In Chinese media the coverage was neutral, but readers did not stay neutral" },
+        {
+          kind: "p",
+          text: "A second study by Deng, Assoc. Prof. Dr Pavel Slutskiy and Assoc. Prof. Dr Smith Boonchutima (published in 2023) read 128 Weibo posts by four Chinese-language outlets from 2019 to 2022. The three coders classified 82.8–94.5% of posts as neutral reporting, and only 0.8–2.3% as encouraging. The comments went the other way. A prominent cluster rejected Thailand as a destination, reasoning that they might eat cannabis-laced food without knowing, that oversight could not be trusted, and that the policy imitated the West.",
+          links: [{ match: "read 128 Weibo posts", href: "/en/research/chinese-media-thailand-cannabis" }],
+        },
+        {
+          kind: "p",
+          text: "The sources are worth a second look. 58.6% of posts cited Thai media and 7.8% were compiled by the outlets themselves, but 33.6% gave no source at all.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "split",
+            title: "A third of Chinese-media posts about Thailand did not say where the news came from",
+            subtitle: "Share of 128 Weibo posts by source cited · 2019–2022",
+            alt: "Stacked bar of the sources cited in 128 Chinese-language posts: Thai media 58.6%, no source 33.6%, compiled by the outlet 7.8%",
+            source: "Source: Deng, Slutskiy and Boonchutima (2023), Heliyon · content analysis of 128 Weibo posts",
+            prompt: "Where do you think most Chinese-media posts about Thailand got their information? Pick one.",
+            answerNote: "But another third cited no source at all.",
+            data: [
+              { label: "Thai media", value: 58.6 },
+              { label: "No source", value: 33.6 },
+              { label: "Compiled by outlet", value: 7.8 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "This says that what Thai agencies put out has a good chance of being retold in another language. Clear messages that answer real questions and can be cited are more likely to reach foreign readers than we might assume. Conversely, if the message does not answer the traveller's question, the gap gets filled with worry.",
+        },
+        { kind: "h2", text: "Three things to do before announcing a policy the world will notice" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Answer the traveller's everyday questions",
+              text: "Beyond announcing what the policy is, prepare short answers to the questions people will actually ask, such as how to tell whether food contains the ingredient and what to watch out for on returning home, translated into the languages of the main visitor markets.",
+            },
+            {
+              title: "Read the comments, not just the coverage",
+              text: "The share of neutral or positive coverage does not tell you how readers feel. Follow reader comments in key markets, because that is where meaning gets settled.",
+            },
+            {
+              title: "Plan for after the spike",
+              text: "Foreign media attention clustered in the first month and then vanished. Information that helps people decide whether to travel should stay findable over time, not live only in announcement-day news.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The YouTube study covers only 57 clips from one platform over six months, so it is a snapshot, not a picture of all media. The Chinese-media study had to be confined to Weibo because censorship makes some terms unsearchable, so the data are incomplete, visible comments may not be everyone's real opinion, and the study did not measure whether those comments actually reduced travel. Both studies collected data before the direction of Thailand's cannabis policy shifted again.",
+        },
+        { kind: "h2", text: "A good image is one that answers questions" },
+        {
+          kind: "p",
+          text: "Good news reaches the world fast. What makes people actually come is an answer to the small questions they worry about. Agencies that communicate with the world should measure success by the questions they answer, not by the volume of coverage.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is planning how to communicate a policy or the country's image to foreign audiences, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "health-messages-hard-to-reach",
+    date: "2026-10-28",
+    author: SMITH,
+    palette: [3, 14],
+    cover: "/images/insights/health-messages-hard-to-reach-hero",
+    evidence: [
+      "dengue-media-exposure-longitudinal",
+      "health-content-working-women",
+      "retirees-sodium-campaign",
+      "forum-theatre-antibiotics-myanmar",
+    ],
+    relatedProjects: ["department-of-disease-control", "care-d-plus"],
+    th: {
+      title: "ข้อความสุขภาพที่ไปถึงทุกคน อาจไม่ได้เปลี่ยนใครเลย",
+      dek: "งานวิจัยสี่ชิ้นตั้งแต่ไข้เลือดออกถึงการลดเค็ม ชี้ว่าการเข้าถึงมากขึ้นไม่ได้แปลว่าคนจะทำตาม สิ่งที่ได้ผลกว่าคือรู้ก่อนว่ากลุ่มเป้าหมายเข้าใจผิดตรงไหน แล้วเล่าในรูปแบบที่กลุ่มนั้นต้องการ",
+      coverAlt:
+        "ภาพประกอบกระดาษ ซองจดหมายสีเขียวที่เปิดอยู่บนพื้นกระดาษสีครีม มีหยดน้ำกระดาษสีฟ้าซ้อนหลายชั้นโผล่ขึ้นมาจากฝาซอง",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "พี่นก (ตัวละครสมมติ) เป็นเจ้าหน้าที่สาธารณสุขอำเภอ ทุกปีเมื่อเข้าหน้าฝน เธอติดโปสเตอร์ไข้เลือดออก ส่งข้อความในกลุ่มไลน์หมู่บ้าน และขึ้นเวทีประชุมประจำเดือน ปีนี้ยอดคนเห็นข้อความมากกว่าทุกปี แต่เมื่อเดินสำรวจบ้าน ลูกน้ำในโอ่งยังมีเท่าเดิม",
+        },
+        {
+          kind: "p",
+          text: "คำถามที่คนทำงานสื่อสารสุขภาพหลายคนเจอคือ ถ้าข้อความไปถึงคนมากขึ้นแล้ว ทำไมพฤติกรรมยังไม่เปลี่ยน งานวิจัยสี่ชิ้นที่บทความนี้เรียบเรียงตอบคำถามนี้จากหลายมุม",
+        },
+        { kind: "h2", text: "สื่อเข้าถึงมากขึ้นทุกปี แต่ความรู้และการลงมือไม่ขยับตาม" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2560 เก็บข้อมูลปี 2556–2558) สำรวจคนไทย 7,772 คนใน 25 จังหวัดสามปีติดกัน พบว่าความถี่ที่คนเห็นข้อมูลไข้เลือดออกในสื่อเพิ่มขึ้นทุกปี แต่สัดส่วนคำตอบที่ถูกเรื่องยุงลายขึ้นเพียงปีเดียวแล้วกลับลง จาก 73.6% เป็น 81.5% แล้วเหลือ 73.3%",
+          links: [{ match: "สำรวจคนไทย 7,772 คนใน 25 จังหวัดสามปีติดกัน", href: "/research/dengue-media-exposure-longitudinal" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "ความรู้เรื่องยุงลายขึ้นหนึ่งปี แล้วกลับที่เดิม",
+            subtitle: "ร้อยละคำตอบที่ถูกเฉลี่ยของข้อคำถามความรู้เรื่องไข้เลือดออก · 2556–2558 · ผู้ตอบแต่ละปีเป็นคนละกลุ่ม",
+            alt: "กราฟเส้นแสดงร้อยละคำตอบที่ถูกเรื่องไข้เลือดออก ปี 2556 73.6% ปี 2557 81.5% และปี 2558 73.3%",
+            source: "ที่มา: Boonchutima และคณะ (2017) Journal of Infection and Public Health · สำรวจ 7,772 คน 25 จังหวัด",
+            data: [
+              { label: "2556", value: 73.6 },
+              { label: "2557", value: 81.5 },
+              { label: "2558", value: 73.3 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ที่หนักกว่าคือการลงมือ สัดส่วนคนที่กำจัดแหล่งเพาะพันธุ์ยุงทุกสัปดาห์ตามคำแนะนำลดลงจาก 61.2% ในปี 2557 เหลือ 48.3% ในปี 2558 และความเข้าใจผิดที่ฝังแน่นที่สุดคือเรื่องน้ำ มีเพียงราวหนึ่งในสามที่รู้ว่ายุงลายไม่วางไข่ในน้ำสกปรก ความเข้าใจผิดข้อนี้รอดมาได้สองปีทั้งที่สื่อเข้าถึงมากขึ้น ซึ่งบอกว่าข้อความที่ส่งออกไปไม่ได้แก้ความเข้าใจผิดข้อนี้ตรงๆ",
+        },
+        { kind: "h2", text: "กลุ่มต่างกัน ต้องการข้อความต่างกัน" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ และคณะ (ตีพิมพ์ปี 2563) สำรวจผู้หญิงวัยทำงาน 1,074 คนใน 13 องค์กร พบว่าคนในบริษัทเอกชนอยากได้วิดีโอแอนิเมชันและอินโฟกราฟิกมากกว่ากลุ่มอื่นชัดเจน ขณะที่คนในหน่วยงานรัฐและโรงงานอยากได้ข้อความล้วนมากกว่าคนในบริษัทเอกชน",
+          links: [{ match: "สำรวจผู้หญิงวัยทำงาน 1,074 คนใน 13 องค์กร", href: "/research/health-content-working-women" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "ข้อความล้วนยังเป็นที่ต้องการในหน่วยงานรัฐและโรงงาน",
+            subtitle: "ค่าเฉลี่ยความต้องการเนื้อหาสุขภาพแบบข้อความล้วน (เต็ม 5) จำแนกตามประเภทองค์กร · 2562–2563",
+            alt: "กราฟแท่งแสดงค่าเฉลี่ยความต้องการเนื้อหาแบบข้อความล้วน หน่วยงานรัฐและรัฐวิสาหกิจ 3.02 โรงงาน 3.01 และบริษัทเอกชน 2.47 จากเต็ม 5",
+            source: "ที่มา: Boonchutima, Sthapitanonda, Chongkolrattanaporn และคณะ (2020) วารสารประชาสัมพันธ์และโฆษณา · สำรวจ 1,074 คน",
+            unit: " จาก 5",
+            data: [
+              { label: "หน่วยงานรัฐและรัฐวิสาหกิจ", value: 3.02 },
+              { label: "โรงงาน", value: 3.01 },
+              { label: "บริษัทเอกชน", value: 2.47 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "งานของ Wechprasith และ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2565) กับผู้เกษียณ 400 คนในกรุงเทพฯ ก็ชี้ทางเดียวกัน ผู้เกษียณเจอแคมเปญลดเค็มบนเฟซบุ๊กมากที่สุด เจอทางวิทยุและโปสเตอร์น้อยที่สุด ในบรรดาลักษณะประชากรแปดด้าน มีเพียงระดับการศึกษาและแหล่งรายได้หลักที่ทำให้ความเชื่อด้านสุขภาพต่างกัน และการเห็นแคมเปญบ่อยขึ้นสัมพันธ์กับความเชื่อในระดับต่ำถึงต่ำมาก",
+          links: [{ match: "กับผู้เกษียณ 400 คนในกรุงเทพฯ", href: "/research/retirees-sodium-campaign" }],
+        },
+        { kind: "h2", text: "รู้ว่าต้องทำอะไร ยังไม่เท่ากับรู้ว่าทำไม" },
+        {
+          kind: "p",
+          text: "งานละครเวทีแบบฟอรัมเรื่องยาปฏิชีวนะในชุมชนรอบย่างกุ้ง (ตีพิมพ์ปี 2563) ที่ ดร.พยู ฮนิน ไหล่ ร่วมเขียน ให้ภาพที่ชัดที่สุด ละครสิบรอบเข้าถึงผู้ชม 1,175 คน และมี 36 คนขึ้นเวทีเปลี่ยนเรื่อง หลังชมคนส่วนใหญ่ตอบได้ว่ายาปฏิชีวนะฆ่าแบคทีเรีย แต่สิ่งที่เกิดบนเวทีบอกมากกว่านั้น คนที่ขึ้นไปส่วนใหญ่แค่แนะนำให้ตัวละครไปหาหมอ โดยยังอธิบายไม่ได้ว่าทำไมการซื้อยาเองจึงเป็นปัญหา และคนที่รับบทลูกหลานแทบโน้มน้าวผู้ใหญ่ในบ้านไม่ได้เลย",
+          links: [{ match: "งานละครเวทีแบบฟอรัมเรื่องยาปฏิชีวนะ", href: "/research/forum-theatre-antibiotics-myanmar" }],
+        },
+        { kind: "h2", text: "สี่ข้อสำหรับแคมเปญสุขภาพครั้งต่อไป" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "สำรวจความเข้าใจผิดก่อนผลิตสื่อ",
+              text: "ถามกลุ่มเป้าหมายสั้นๆ ก่อนว่าเข้าใจผิดเรื่องไหน แล้วเขียนข้อความแก้ข้อนั้นตรงๆ อย่างเรื่องยุงลายกับน้ำสกปรก แทนการส่งข้อความความรู้ทั่วไปซ้ำทุกปี",
+            },
+            {
+              title: "แยกรูปแบบตามกลุ่ม",
+              text: "เนื้อหาชุดเดียวกันควรมีหลายรูปแบบ ภาพเคลื่อนไหวสำหรับคนที่ชอบภาพ ข้อความสั้นที่อ่านง่ายสำหรับคนที่ยังชอบอ่าน และไปอยู่ในช่องทางที่กลุ่มนั้นใช้จริง",
+            },
+            {
+              title: "ให้คนได้ลองพูดเอง",
+              text: "กิจกรรมที่ให้ผู้รับสารลองโน้มน้าวคนอื่น เช่น ละครหรือการจำลองสถานการณ์ จะเผยให้เห็นว่าเขายังขาดเหตุผลข้อไหน ซึ่งแบบสอบถามมักมองไม่เห็น",
+            },
+            {
+              title: "วัดการลงมือ ไม่ใช่แค่การเห็น",
+              text: "ตั้งตัวชี้วัดที่พฤติกรรม เช่น การกำจัดลูกน้ำทุกสัปดาห์ ควบคู่กับยอดการเข้าถึง เพราะสองตัวเลขนี้อาจไปคนละทาง",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานไข้เลือดออกเก็บข้อมูลเมื่อปี 2556–2558 ซึ่งเก่ากว่าที่ศูนย์ฯ จะก่อตั้ง ผู้ตอบแต่ละปีเป็นคนละกลุ่ม และข้อคำถามความรู้ไม่เหมือนกันทุกปี การเทียบข้ามปีจึงเป็นทิศทางคร่าวๆ งานผู้หญิงวัยทำงานและงานผู้เกษียณเก็บข้อมูลในกรุงเทพฯ และปริมณฑล ไม่ได้เป็นตัวแทนระดับประเทศ งานผู้เกษียณใช้แบบสอบถามออนไลน์จึงเข้าถึงเฉพาะคนที่ใช้อินเทอร์เน็ต ส่วนงานละครประเมินผลจากกลุ่มสนทนา 40 คนในวันเดียวกับที่ชม ไม่ได้ติดตามพฤติกรรมระยะยาว",
+        },
+        { kind: "h2", text: "ไปถึงคนให้ได้ แล้วค่อยถามว่าเขาเปลี่ยนไหม" },
+        {
+          kind: "p",
+          text: "การเข้าถึงคือเงื่อนไขแรก ไม่ใช่ปลายทาง แคมเปญสุขภาพที่ได้ผลเริ่มจากการรู้ว่ากลุ่มเป้าหมายคิดอะไรอยู่ เล่าในรูปแบบที่เขาต้องการ และวัดผลที่สิ่งที่เขาทำ",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนการสื่อสารสุขภาพกับกลุ่มที่เข้าถึงยาก ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "A health message that reaches everyone may change no one",
+      dek: "Four studies, from dengue to salt reduction, show that wider reach does not mean people act. What works better is knowing first where the audience gets it wrong, then telling the story in the form that group wants.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: an open green envelope with a layered blue paper water droplet rising from its flap",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Nok (a fictional character) is a district public health officer. Every rainy season she puts up dengue posters, sends messages to the village LINE group and speaks at the monthly meeting. This year more people saw her messages than ever. But when she walks round the houses, there are as many larvae in the water jars as before.",
+        },
+        {
+          kind: "p",
+          text: "Many health communicators face the same question: if messages reach more people, why does behaviour not change? The four studies brought together here answer it from several angles.",
+        },
+        { kind: "h2", text: "Media reach rose every year, but knowledge and action did not follow" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and colleagues (published in 2017, data collected 2013–2015) surveyed 7,772 people in 25 provinces over three years. How often people saw dengue information in the media rose every year, but the share of correct answers about the mosquito went up for one year and then fell back, from 73.6% to 81.5% and then 73.3%.",
+          links: [{ match: "surveyed 7,772 people in 25 provinces over three years", href: "/en/research/dengue-media-exposure-longitudinal" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "Knowledge about the dengue mosquito rose for a year, then fell back",
+            subtitle: "Average share of correct answers to dengue knowledge questions · 2013–2015 · a different group of respondents each year",
+            alt: "Line chart of the share of correct answers about dengue: 73.6% in 2013, 81.5% in 2014 and 73.3% in 2015",
+            source: "Source: Boonchutima et al. (2017), Journal of Infection and Public Health · survey of 7,772 people in 25 provinces",
+            data: [
+              { label: "2013", value: 73.6 },
+              { label: "2014", value: 81.5 },
+              { label: "2015", value: 73.3 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Action fared worse. The share eliminating breeding sites every week, as recommended, fell from 61.2% in 2014 to 48.3% in 2015. And the most stubborn misconception was about water: only about a third knew that the dengue mosquito does not lay eggs in dirty water. It survived two years of rising exposure, which suggests the messages sent out never confronted it directly.",
+        },
+        { kind: "h2", text: "Different groups want different messages" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima, Asst. Prof. Dr Teerada Chongkolrattanaporn and colleagues (published in 2020) surveyed 1,074 working women in 13 organisations. Women in private companies wanted animated video and infographics clearly more than the other groups, while women in government agencies and factories wanted plain text more than private-sector women did.",
+          links: [{ match: "surveyed 1,074 working women in 13 organisations", href: "/en/research/health-content-working-women" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Plain text is still wanted in government offices and factories",
+            subtitle: "Mean preference for plain-text health content (out of 5) by type of organisation · 2019–2020",
+            alt: "Bar chart of mean preference for plain-text content: government and state enterprises 3.02, factories 3.01, private companies 2.47, out of 5",
+            source: "Source: Boonchutima, Sthapitanonda, Chongkolrattanaporn et al. (2020), Journal of Public Relations and Advertising · survey of 1,074 women",
+            unit: " of 5",
+            data: [
+              { label: "Government and state enterprises", value: 3.02 },
+              { label: "Factories", value: 3.01 },
+              { label: "Private companies", value: 2.47 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "A study by Wechprasith and Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2022) of 400 retirees in Bangkok points the same way. Retirees met salt-reduction campaigns most on Facebook and least on radio and posters. Of eight demographic characteristics, only education and main source of income made a difference to health beliefs, and seeing the campaign more often was associated with beliefs only weakly or very weakly.",
+          links: [{ match: "of 400 retirees in Bangkok", href: "/en/research/retirees-sodium-campaign" }],
+        },
+        { kind: "h2", text: "Knowing what to do is not the same as knowing why" },
+        {
+          kind: "p",
+          text: "A forum-theatre project on antibiotics in a peri-urban Yangon community (published in 2020), co-authored by Dr Phyu Hnin Hlaing, gives the clearest picture. Ten performances reached 1,175 people, and 36 of them stepped on stage to change the story. Afterwards most could say that antibiotics kill bacteria. But what happened on stage said more: most who stepped up simply told the sick character to see a doctor, without being able to explain why buying antibiotics over the counter is a problem, and those playing younger family members could barely persuade the elders.",
+          links: [{ match: "A forum-theatre project on antibiotics", href: "/en/research/forum-theatre-antibiotics-myanmar" }],
+        },
+        { kind: "h2", text: "Four points for the next health campaign" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Find the misconception before making materials",
+              text: "Ask the audience briefly what they get wrong, then write messages that correct that point directly, such as dengue mosquitoes and dirty water, instead of repeating general information every year.",
+            },
+            {
+              title: "Vary the format by group",
+              text: "The same content should come in several forms: animation for people who prefer visuals, short readable text for those who still prefer to read, placed in the channels that group actually uses.",
+            },
+            {
+              title: "Let people try saying it themselves",
+              text: "Activities in which the audience tries to persuade someone else, such as theatre or role play, reveal which reasons they still lack, something questionnaires rarely see.",
+            },
+            {
+              title: "Measure action, not just exposure",
+              text: "Set indicators on behaviour, such as weekly larva control, alongside reach, because the two numbers can move in opposite directions.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The dengue data were collected in 2013–2015, before the centre was founded. Each year's respondents were a different group and the knowledge questions were not identical, so year-to-year comparisons show only rough direction. The working-women and retiree studies were conducted in Bangkok and its vicinity and are not nationally representative; the retiree study used an online questionnaire and so reached only internet users. The theatre project was evaluated through focus groups of 40 people on the day of the performance and did not follow behaviour over time.",
+        },
+        { kind: "h2", text: "Reach people first, then ask whether they changed" },
+        {
+          kind: "p",
+          text: "Reach is the first condition, not the destination. Health campaigns that work start by knowing what the audience thinks, tell the story in the form they want, and measure what they do.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is planning health communication with hard-to-reach groups, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "working-with-university-research-centre",
+    date: "2026-10-28",
+    author: SMITH,
+    palette: [17, 4],
+    cover: "/images/insights/working-with-university-research-centre-hero",
+    evidence: ["engage-a3-model", "thai-universities-environmental-communication", "pint-of-science-thailand"],
+    relatedProjects: ["care-d-plus", "international-labour-organization", "nia-satisfaction-survey-2020"],
+    th: {
+      title: "ทำงานกับศูนย์วิจัยในมหาวิทยาลัย ได้อะไรมากกว่าชิ้นงาน",
+      dek: "หน่วยงานจำนวนมากมาหาศูนย์วิจัยเพื่อขอชิ้นงาน แต่สิ่งที่ศูนย์วิจัยให้ได้มากที่สุดมักเกิดก่อนและหลังชิ้นงานนั้น คือคำถามที่ถูกตั้งให้ชัดตั้งแต่ต้น และการวัดผลที่ยอมบอกด้วยว่าอะไรไม่ได้ผล",
+      coverAlt:
+        "ภาพประกอบกระดาษ สะพานโค้งที่ต่อจากก้อนกระดาษสีน้ำเงินเข้มบนพื้นกระดาษสีครีม มีหินหัวโค้งสีแดงหนึ่งก้อนอยู่ตรงยอด",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "คุณต้น (ตัวละครสมมติ) เป็นผู้จัดการโครงการของหน่วยงานแห่งหนึ่ง เขามีงบสามเดือนและต้องการคลิปรณรงค์สองคลิปกับรายงานผลหนึ่งเล่ม เขาโทรหาศูนย์วิจัยในมหาวิทยาลัยพร้อมรายการชิ้นงาน แต่คำถามแรกที่ได้กลับมาคือ \"อยากให้ใครทำอะไรต่างไปจากเดิม และจะรู้ได้อย่างไรว่าเขาทำแล้ว\"",
+        },
+        {
+          kind: "p",
+          text: "คำถามนั้นอาจฟังดูช้า แต่มันคือสิ่งที่ศูนย์วิจัยในมหาวิทยาลัยให้ได้ต่างจากผู้ผลิตสื่อทั่วไป บทความนี้เล่าจากงานวิจัยและงานที่ผ่านมาว่าความต่างนั้นอยู่ตรงไหน",
+        },
+        { kind: "h2", text: "สิ่งที่สำคัญที่สุดเกิดก่อนมีชิ้นงาน" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2565) เสนอแบบจำลอง ENGAGE-A3 สำหรับการสื่อสารความเสี่ยงเรื่องเอชไอวีกับแรงงานข้ามชาติ แล้วให้ผู้เชี่ยวชาญสิบคนให้คะแนนความเหมาะสมของแต่ละขั้น ขั้นที่ได้คะแนนสูงสุดคือการสร้างความไว้วางใจและการใช้เกมที่ 4.45 จาก 5 ตามด้วยการดึงคนในพื้นที่เข้ามาร่วมที่ 4.36 ส่วนการประเมินผลได้คะแนนต่ำสุดที่ 4.18",
+          links: [{ match: "เสนอแบบจำลอง ENGAGE-A3", href: "/research/engage-a3-model" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "ผู้เชี่ยวชาญให้คะแนนการสร้างความไว้วางใจสูงสุด และการประเมินผลต่ำสุด",
+            subtitle: "คะแนนความเหมาะสมเฉลี่ยจากผู้เชี่ยวชาญ 10 คน (เต็ม 5) · บางองค์ประกอบของแบบจำลอง ENGAGE-A3",
+            alt: "กราฟแท่งแสดงคะแนนความเหมาะสมขององค์ประกอบในแบบจำลอง ENGAGE-A3 การสร้างความไว้วางใจ 4.45 การใช้เกม 4.45 การดึงคนในพื้นที่เข้าร่วม 4.36 ภาพรวม 4.26 และการประเมินผล 4.18 จากเต็ม 5",
+            source: "ที่มา: Boonchutima, Sukonthasab และ Sthapitanonda (2022) HIV & AIDS Review · กลุ่มสนทนาผู้เชี่ยวชาญ 10 คน",
+            unit: " จาก 5",
+            data: [
+              { label: "สร้างความไว้วางใจ", value: 4.45, highlight: true },
+              { label: "ใช้เกม", value: 4.45 },
+              { label: "ดึงคนในพื้นที่เข้าร่วม", value: 4.36 },
+              { label: "ภาพรวม", value: 4.26 },
+              { label: "ประเมินผล", value: 4.18 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ลำดับนี้บอกสองเรื่อง เรื่องแรก สิ่งที่ผู้เชี่ยวชาญให้ความสำคัญสูงสุดเกิดขึ้นก่อนจะมีสื่อชิ้นแรก เรื่องที่สอง แม้แต่ในหมู่ผู้เชี่ยวชาญ การประเมินผลก็ยังเป็นขั้นที่ได้คะแนนน้อยที่สุด ซึ่งตรงกับสิ่งที่เราเห็นบ่อยในการทำงาน คือการวัดผลมักถูกวางไว้ท้ายสุดและได้งบน้อยที่สุด",
+        },
+        { kind: "h2", text: "มหาวิทยาลัยทำได้หลายบทบาท ต้องเลือกให้ชัด" },
+        {
+          kind: "p",
+          text: "บทในหนังสือของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2567) เรื่องบทบาทของมหาวิทยาลัยไทยในการสื่อสารสิ่งแวดล้อม แบ่งบทบาทไว้หกแบบ คือผู้สอน ผู้สร้างความรู้ ผู้แก้ปัญหาสังคม ผู้สร้างนวัตกรรม ผู้เชื่อมเครือข่าย และผู้ขับเคลื่อนการเปลี่ยนแปลง และวางการประเมินผลงานประชาสัมพันธ์ไว้สี่ระดับ ตั้งแต่ชิ้นงานที่ส่งออกไปจนถึงผลกระทบปลายทาง บทนี้เป็นบทความเชิงแนวคิด ข้อเสนอเป็นของผู้เขียน แต่ให้กรอบที่หน่วยงานใช้คุยกับศูนย์วิจัยได้ว่าโครงการนี้ต้องการบทบาทไหน",
+          links: [{ match: "เรื่องบทบาทของมหาวิทยาลัยไทยในการสื่อสารสิ่งแวดล้อม", href: "/research/thai-universities-environmental-communication" }],
+        },
+        {
+          kind: "p",
+          text: "ในงานจริงของศูนย์ฯ บทบาทเหล่านี้ปรากฏต่างกันไปตามโจทย์ เช่น การอบรมบุคลากรสาธารณสุขทั่วประเทศกว่า 10,000 คนในโครงการ Care D Plus เวิร์กช็อปการสื่อสารเพื่อการพัฒนาที่ยั่งยืนร่วมกับองค์การแรงงานระหว่างประเทศ และการสำรวจความพึงพอใจด้วยระเบียบวิธีแบบผสมผสานให้สำนักงานนวัตกรรมแห่งชาติ",
+          links: [{ match: "โครงการ Care D Plus", href: "/impact/care-d-plus" }],
+        },
+        { kind: "h2", text: "ศูนย์วิจัยที่ดีบอกด้วยว่าอะไรไม่ได้ผล" },
+        {
+          kind: "p",
+          text: "งานประเมินเทศกาล Pint of Science ในกรุงเทพฯ (ตีพิมพ์ปี 2562 เก็บข้อมูลปี 2561) ที่ ดร.พยู ฮนิน ไหล่ ร่วมเขียน เป็นตัวอย่างที่ดีของการรายงานตรงไปตรงมา ผู้ร่วมงานให้คะแนนรวมสูงถึง 35 จาก 40 แต่งานเดียวกันก็บอกว่ารูปแบบนี้ยังเข้าไม่ถึงคนนอกวงคนสนใจวิทยาศาสตร์ คืนที่จัดเป็นภาษาไทยมีผู้ลงทะเบียนน้อยที่สุดเพียง 13 คน จาก 267 คนตลอดหกวัน การรู้ข้อนี้มีค่ากับผู้จัดมากกว่าคะแนนความพึงพอใจที่สูง",
+          links: [{ match: "งานประเมินเทศกาล Pint of Science ในกรุงเทพฯ", href: "/research/pint-of-science-thailand" }],
+        },
+        { kind: "h2", text: "เริ่มทำงานกับศูนย์วิจัยอย่างไรให้คุ้ม" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "มาพร้อมคำถาม ไม่ใช่รายการชิ้นงาน",
+              text: "เล่าว่าอยากให้ใครเปลี่ยนอะไร และตอนนี้รู้อะไรเกี่ยวกับกลุ่มนั้นแล้วบ้าง ชิ้นงานที่เหมาะจะตามมาจากคำตอบ",
+            },
+            {
+              title: "กันงบสำหรับการวัดผลตั้งแต่วันแรก",
+              text: "ตกลงตัวชี้วัดก่อนเริ่มงาน ทั้งยอดการเข้าถึงและสิ่งที่คนทำจริง และยอมรับล่วงหน้าว่าผลอาจออกมาไม่เป็นอย่างที่หวัง",
+            },
+            {
+              title: "ให้กลุ่มเป้าหมายมีที่นั่งในโครงการ",
+              text: "เวลาที่ใช้สร้างความไว้วางใจและดึงคนในพื้นที่เข้าร่วมไม่ใช่ความล่าช้า แต่เป็นขั้นที่ผู้เชี่ยวชาญให้คะแนนสูงสุด",
+            },
+            {
+              title: "ตกลงเรื่องการเผยแพร่ผล",
+              text: "คุยตั้งแต่ต้นว่าข้อค้นพบจะเผยแพร่ในรูปแบบไหน เพื่อให้บทเรียนของโครงการไปถึงหน่วยงานอื่นที่ทำเรื่องเดียวกัน",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "แบบจำลอง ENGAGE-A3 ประเมินจากความเห็นของผู้เชี่ยวชาญสิบคน ไม่ได้วัดผลด้านสุขภาพในพื้นที่ บทเรื่องบทบาทของมหาวิทยาลัยเป็นภาพรวมจากผู้เขียนคนเดียว ไม่ใช่การทบทวนอย่างเป็นระบบ ส่วนงาน Pint of Science เก็บข้อมูลปี 2561 จากผู้ร่วมงาน 125 คน และความรู้ที่ได้เป็นการประเมินตนเองหลังงาน ไม่ใช่การทดสอบ",
+        },
+        { kind: "h2", text: "ชิ้นงานจบในสามเดือน บทเรียนอยู่ได้นานกว่านั้น" },
+        {
+          kind: "p",
+          text: "ศูนย์วิจัยในมหาวิทยาลัยผลิตชิ้นงานได้ แต่คุณค่าที่หาจากที่อื่นยากกว่าคือคำถามที่ตั้งให้ชัด หลักฐานที่ใช้ออกแบบ และการวัดผลที่ซื่อสัตย์ หน่วยงานที่ได้สามอย่างนี้กลับไปจะทำโครงการถัดไปได้ดีขึ้นแม้ไม่มีเราอยู่ด้วย",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังมองหาคู่ทำงานด้านการวิจัยและการสื่อสาร ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "What you get from working with a university research centre, beyond the deliverables",
+      dek: "Many organisations come to a research centre for deliverables. But what a research centre offers most often happens before and after them: a question framed clearly from the start, and evaluation honest enough to say what did not work.",
+      coverAlt:
+        "Paper-craft illustration on cream paper: an arch of navy paper blocks with a single red keystone at the top",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Ton (a fictional character) is a project manager at an agency. He has a three-month budget and needs two campaign videos and an evaluation report. He calls a university research centre with his list of deliverables, but the first question he gets back is: \"Who do you want to do something differently, and how will you know they have?\"",
+        },
+        {
+          kind: "p",
+          text: "That question can sound slow, but it is what a university research centre offers that a typical media producer does not. This article draws on research and past work to show where the difference lies.",
+        },
+        { kind: "h2", text: "What matters most happens before the first deliverable" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and colleagues (published in 2022) proposed the ENGAGE-A3 model for HIV risk communication with migrant workers and asked ten experts to rate each step. Earning trust and gamification scored highest at 4.45 out of 5, followed by getting local help at 4.36. Evaluation scored lowest, at 4.18.",
+          links: [{ match: "proposed the ENGAGE-A3 model", href: "/en/research/engage-a3-model" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Experts rated earning trust highest and evaluation lowest",
+            subtitle: "Mean appropriateness rating from 10 experts (out of 5) · selected components of the ENGAGE-A3 model",
+            alt: "Bar chart of appropriateness ratings in the ENGAGE-A3 model: earning trust 4.45, gamification 4.45, getting local help 4.36, overall 4.26, evaluation 4.18, out of 5",
+            source: "Source: Boonchutima, Sukonthasab and Sthapitanonda (2022), HIV & AIDS Review · expert focus group, n = 10",
+            unit: " of 5",
+            data: [
+              { label: "Earning trust", value: 4.45, highlight: true },
+              { label: "Gamification", value: 4.45 },
+              { label: "Getting local help", value: 4.36 },
+              { label: "Overall", value: 4.26 },
+              { label: "Evaluation", value: 4.18 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The ordering says two things. First, what the experts valued most happens before any material exists. Second, even among experts, evaluation was the lowest-rated step, which matches what we often see in practice: evaluation is left to the end and gets the smallest share of the budget.",
+        },
+        { kind: "h2", text: "Universities can play many roles; choose one clearly" },
+        {
+          kind: "p",
+          text: "A book chapter by Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2024) on the role of Thai universities in environmental communication sets out six roles: educator, knowledge creator, societal problem-solver, innovator, connector and agent of change. It places PR evaluation at four levels, from outputs to final impact. It is a conceptual chapter and the proposals are the author's, but it gives agencies a framework for agreeing with a research centre which role a project needs.",
+          links: [{ match: "on the role of Thai universities in environmental communication", href: "/en/research/thai-universities-environmental-communication" }],
+        },
+        {
+          kind: "p",
+          text: "In the centre's own work these roles show up differently depending on the brief: training more than 10,000 health workers nationwide in the Care D Plus project, a workshop on communication for sustainable development with the International Labour Organization, and a mixed-methods satisfaction survey for the National Innovation Agency.",
+          links: [{ match: "the Care D Plus project", href: "/en/impact/care-d-plus" }],
+        },
+        { kind: "h2", text: "A good research centre also tells you what did not work" },
+        {
+          kind: "p",
+          text: "An evaluation of the Pint of Science festival in Bangkok (published in 2019, data collected in 2018), co-authored by Dr Phyu Hnin Hlaing, is a good example of candid reporting. Attendees gave it a high overall score of 35 out of 40, yet the same study says the format had not reached anyone outside the circle of people already interested in science. The Thai-language night drew the fewest registrations, just 13 of 267 across six days. Knowing that is worth more to organisers than a high satisfaction score.",
+          links: [{ match: "An evaluation of the Pint of Science festival in Bangkok", href: "/en/research/pint-of-science-thailand" }],
+        },
+        { kind: "h2", text: "How to start working with a research centre and get the most from it" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Bring a question, not a list of deliverables",
+              text: "Explain who you want to change what, and what you already know about that group. The right deliverables follow from the answer.",
+            },
+            {
+              title: "Budget for evaluation from day one",
+              text: "Agree indicators before work begins, covering both reach and what people actually do, and accept in advance that the results may not be what you hoped.",
+            },
+            {
+              title: "Give the audience a seat in the project",
+              text: "Time spent earning trust and bringing local people in is not a delay; it is the step experts rated highest.",
+            },
+            {
+              title: "Agree how results will be shared",
+              text: "Discuss early how findings will be published, so the project's lessons reach other organisations working on the same issue.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The ENGAGE-A3 model was rated by ten experts and does not measure health outcomes in the field. The chapter on universities' roles is one author's overview, not a systematic review. The Pint of Science study collected data in 2018 from 125 attendees, and knowledge gained was self-assessed after the event, not tested.",
+        },
+        { kind: "h2", text: "Deliverables end in three months; the lessons last longer" },
+        {
+          kind: "p",
+          text: "A university research centre can produce deliverables, but what is harder to find elsewhere is a clearly framed question, evidence to design from and honest evaluation. Organisations that take those three things away will run their next project better, even without us.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is looking for a partner in research and communication, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+    },
+  },
 ];
 
 export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
