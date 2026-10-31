@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectVideos from "@/components/impact/ProjectVideos";
 import SdgBadge from "@/components/ui/SdgBadge";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Button from "@/components/ui/Button";
@@ -181,6 +182,15 @@ export default async function ChineseCaseStudyPage({ params }: Props) {
           )}
         </div>
       </section>
+
+      {project.videos && project.videos.length > 0 && (
+        <section className="mx-auto max-w-5xl px-6 py-16">
+          <div className="mb-6">
+            <SectionHeader locale="zh" title="项目视频" icon="story" description="点击图片播放视频" />
+          </div>
+          <ProjectVideos videos={project.videos} locale="zh" />
+        </section>
+      )}
 
       {gallery.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-16">
