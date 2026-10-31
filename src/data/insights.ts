@@ -2837,6 +2837,846 @@ export const insights: InsightPost[] = [
       ],
     },
   },
+  {
+    slug: "creator-credibility-purchase",
+    date: "2026-10-31",
+    author: SMITH,
+    palette: [8, 12],
+    cover: "/images/insights/creator-credibility-purchase-hero",
+    evidence: [
+      "vtuber-streamer-purchase-intention",
+      "game-influencer-credibility",
+      "fansub-viewers-sponsorship",
+      "genz-cruelty-free-purchase",
+      "brand-attitude-congruence-purchase",
+    ],
+    th: {
+      title: "คนดูเยอะ ไม่ได้แปลว่าคนจะซื้อ: ทำงานกับครีเอเตอร์ให้คนเชื่อจริง",
+      dek: "งานวิจัยห้าชิ้นเรื่องครีเอเตอร์ ผู้สนับสนุน และจุดยืนของแบรนด์ ชี้ไปทางเดียวกันว่า ยอดผู้ติดตามบอกได้แค่ว่าคนเห็น สิ่งที่ทำให้คนเชื่อและอยากซื้อคือความเข้ากันระหว่างครีเอเตอร์ สินค้า และคนดูกลุ่มนั้น",
+      coverAlt: "ภาพประกอบกระดาษ ถุงช้อปปิ้งสีแดงเลือดหมูบนพื้นกระดาษสีครีม มีป้ายรูปหัวใจสีทองห้อยอยู่ที่หูถุง",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "แพร (ตัวละครสมมติ) ดูแลการตลาดของแบรนด์หูฟังเกมมิ่ง เธอจ้างสตรีมเมอร์ที่มีผู้ติดตามมากที่สุดในงบที่มี คลิปรีวิวมียอดดูสูงกว่าที่ตั้งเป้าไว้ แต่ยอดขายในเดือนนั้นแทบไม่ขยับ เธอเริ่มสงสัยว่าเลือกคนผิด หรือวัดผิดตั้งแต่แรก",
+        },
+        {
+          kind: "p",
+          text: "คำถามของแพรเป็นคำถามที่คนทำแบรนด์เจอกันบ่อย งานวิจัยห้าชิ้นในบทความนี้ศึกษาคนดูเกม ผู้ชมคอร์สออนไลน์ และผู้บริโภครุ่นใหม่ แล้วได้คำตอบที่ตรงกันอย่างน่าสนใจ",
+        },
+        { kind: "h2", text: "คนดูแต่ละกลุ่มเชื่อครีเอเตอร์ด้วยเหตุผลต่างกัน" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และ Surakanon (ตีพิมพ์ปี 2566) สำรวจผู้เล่นเกมหญิงชาวไทย 686 คน แล้วเทียบครีเอเตอร์สายเกมสองแบบ คือวีทูปเบอร์ซึ่งเป็นตัวละครเสมือน กับสตรีมเมอร์ซึ่งเป็นคนจริง ผลออกมาตรงข้ามกัน คนดูอยากซื้อของที่วีทูปเบอร์แนะนำเพราะเห็นว่าเขารู้จริง ส่วนกับสตรีมเมอร์ ความรู้กลับไม่มีผลเลย สิ่งที่ได้ผลคือความไว้ใจและเสน่ห์ของตัวคน",
+          links: [{ match: "สำรวจผู้เล่นเกมหญิงชาวไทย 686 คน", href: "/research/vtuber-streamer-purchase-intention" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "วีทูปเบอร์ขายได้เพราะรู้จริง สตรีมเมอร์ขายได้เพราะคนไว้ใจ",
+            subtitle: "น้ำหนักของแต่ละปัจจัยในการบอกว่าคนดูจะอยากซื้อ (ค่า β ยิ่งสูงยิ่งบอกได้มาก) · ผู้เล่นเกมหญิงชาวไทย 686 คน",
+            alt: "กราฟแท่งแสดงค่าน้ำหนักของปัจจัยความน่าเชื่อถือต่อความตั้งใจซื้อ วีทูปเบอร์: ความรู้ความเชี่ยวชาญ 0.42 ความไว้ใจ 0.26 หน้าตาและเสน่ห์ 0.11 ซึ่งไม่มีผล สตรีมเมอร์: ความไว้ใจ 0.44 หน้าตาและเสน่ห์ 0.23 ความรู้ความเชี่ยวชาญ 0.04 ซึ่งไม่มีผล",
+            source: "ที่มา: Boonchutima และ Surakanon (2023) Basic and Applied Social Psychology · สำรวจ 686 คน",
+            unit: "",
+            data: [
+              { label: "วีทูปเบอร์ · ความรู้ความเชี่ยวชาญ", value: 0.42, highlight: true },
+              { label: "วีทูปเบอร์ · ความไว้ใจ", value: 0.26 },
+              { label: "วีทูปเบอร์ · หน้าตาและเสน่ห์ (ไม่มีผล)", value: 0.11 },
+              { label: "สตรีมเมอร์ · ความไว้ใจ", value: 0.44, highlight: true },
+              { label: "สตรีมเมอร์ · หน้าตาและเสน่ห์", value: 0.23 },
+              { label: "สตรีมเมอร์ · ความรู้ความเชี่ยวชาญ (ไม่มีผล)", value: 0.04 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "งานเดียวกันยังพบว่าคนดูที่เป็นแฟนตัวจริงของวงการให้น้ำหนักกับความรู้มากที่สุด ส่วนคนดูทั่วไปให้น้ำหนักกับเสน่ห์ของตัวคนมากกว่า ก่อนเลือกครีเอเตอร์จึงต้องรู้ก่อนว่าคนดูของแคมเปญนี้เป็นใคร",
+        },
+        { kind: "h2", text: "ชอบดู ไม่ได้แปลว่าจะซื้อ" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และ Sankosik (ตีพิมพ์ปี 2565) สำรวจผู้ติดตามยูทูบเบอร์สายเกมรายใหญ่ระดับโลกคนหนึ่ง 238 คน พบว่าแม้จะตามดูเป็นประจำ ความตั้งใจซื้อเกมที่ยูทูบเบอร์คนนั้นเล่นก็อยู่แค่ระดับกลางๆ ราว 3.1 ถึง 3.5 จาก 5 และเมื่อดูความน่าเชื่อถือแบบรวมทุกด้าน ความไว้ใจคือแกนที่สำคัญที่สุด",
+          links: [{ match: "สำรวจผู้ติดตามยูทูบเบอร์สายเกมรายใหญ่ระดับโลกคนหนึ่ง 238 คน", href: "/research/game-influencer-credibility" }],
+        },
+        { kind: "h2", text: "ความชอบในเนื้อหาส่งต่อถึงแบรนด์ได้ แต่ไม่ครบทั้งหมด" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และ Lou (ตีพิมพ์ปี 2565) ศึกษาผู้ชมชาวจีน 216 คนที่ดูคอร์สเรียนออนไลน์ซึ่งกลุ่มแฟนคลับแปลซับให้ฟรีและมีแบรนด์เป็นผู้สนับสนุน ผู้ชมไม่ได้มองว่าการมีผู้สนับสนุนเป็นการยัดเยียดโฆษณา และรู้สึกดีกับแบรนด์ผู้สนับสนุนจริง แต่ความรู้สึกดีนั้นน้อยกว่าที่มีต่อตัวคอร์สอยู่พอสมควร",
+          links: [{ match: "ศึกษาผู้ชมชาวจีน 216 คน", href: "/research/fansub-viewers-sponsorship" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คนดูชอบคอร์สมาก และชอบแบรนด์ผู้สนับสนุนรองลงมา",
+            subtitle: "คะแนนเฉลี่ย (เต็ม 5) ของผู้ชมคอร์สออนไลน์ที่แฟนคลับแปลซับ · ผู้ชมชาวจีน 216 คน",
+            alt: "กราฟแท่งแสดงคะแนนเฉลี่ยจากเต็ม 5 คอร์สมีคุณค่า 4.35 แบรนด์มาสนับสนุนอย่างจริงใจ 4.01 แบรนด์เข้ากับเนื้อหา 3.84 ภาพลักษณ์แบรนด์ดีขึ้น 3.78 และชอบแบรนด์มากขึ้นกว่าเดิม 3.69",
+            source: "ที่มา: Boonchutima และ Lou (2022) Cogent Education · สำรวจ 216 คน",
+            unit: " จาก 5",
+            guess: "ชอบแบรนด์มากขึ้นกว่าเดิม",
+            prompt: "ลองทายก่อน: หลังดูคอร์ส คนดูชอบแบรนด์ผู้สนับสนุนมากขึ้นแค่ไหน (เต็ม 5)",
+            guessMax: 5,
+            answerNote: "ต่ำที่สุดในห้าข้อ แต่ก็ยังเกินครึ่ง",
+            data: [
+              { label: "คอร์สมีคุณค่า", value: 4.35 },
+              { label: "แบรนด์มาสนับสนุนอย่างจริงใจ", value: 4.01 },
+              { label: "แบรนด์เข้ากับเนื้อหา", value: 3.84 },
+              { label: "ภาพลักษณ์แบรนด์ดีขึ้น", value: 3.78 },
+              { label: "ชอบแบรนด์มากขึ้นกว่าเดิม", value: 3.69 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ข้อที่ผู้ชมให้คะแนนสูงคือความจริงใจและความเข้ากันกับเนื้อหา ทั้งสองอย่างนี้ตัดสินกันตั้งแต่ตอนเลือกว่าจะไปสนับสนุนอะไร ซื้อสื่อเพิ่มทีหลังก็แก้ไม่ได้",
+        },
+        { kind: "h2", text: "ค่านิยมพาคนมาถึงหน้าร้าน แต่ยังไม่พอให้จ่ายเงิน" },
+        {
+          kind: "p",
+          text: "งานของ Lounporn และ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2566) สำรวจคนไทยเจนซี 400 คนเรื่องสินค้าที่ไม่ทดลองกับสัตว์ ผู้ตอบให้คะแนนการดูแลสัตว์และธรรมชาติสูงถึง 4.65 จาก 5 แต่สิ่งที่บอกได้ดีที่สุดว่าใครจะซื้อคือความภักดีต่อแบรนด์ และข้อที่ได้คะแนนต่ำที่สุดในเรื่องความภักดีคือจะซื้อต่อแม้ราคาขึ้น คนพร้อมบอกต่อ แต่ไม่พร้อมจ่ายแพงขึ้นเอง",
+          links: [{ match: "สำรวจคนไทยเจนซี 400 คนเรื่องสินค้าที่ไม่ทดลองกับสัตว์", href: "/research/genz-cruelty-free-purchase" }],
+        },
+        {
+          kind: "p",
+          text: "งานของ Lamoonpot รศ.ดร.สมิทธิ์ บุญชุติมา และ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ (ตีพิมพ์ปี 2567) กับนิสิตนักศึกษา 434 คนก็ชี้ไปทางเดียวกัน ข้อที่ได้คะแนนสูงที่สุดคือจะซื้อจากแบรนด์ที่มีจุดยืนตรงกับตัวเอง 5.74 จาก 7 แต่เมื่อวิเคราะห์ทั้งเส้นทาง จุดยืนที่ตรงกันเป็นแค่ส่วนเสริม ฐานที่ต้องมีก่อนคือคนรู้จักแบรนด์ ภาพลักษณ์ดี และแบรนด์ทำได้ตามที่โฆษณาไว้",
+          links: [{ match: "กับนิสิตนักศึกษา 434 คน", href: "/research/brand-attitude-congruence-purchase" }],
+        },
+        { kind: "h2", text: "สี่ข้อก่อนเลือกครีเอเตอร์ครั้งหน้า" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "รู้ก่อนว่าคนดูเป็นแฟนตัวจริงหรือคนทั่วไป",
+              text: "ถ้าคนดูเป็นแฟนตัวจริงของวงการ ให้เลือกคนที่รู้เรื่องสินค้าจริงและให้เขาได้โชว์ความรู้ ถ้าเป็นคนทั่วไป ความคุ้นเคยและเสน่ห์ของตัวคนจะทำงานได้มากกว่า",
+            },
+            {
+              title: "เลือกจากความเข้ากัน ไม่ใช่จากยอดผู้ติดตาม",
+              text: "ถามก่อนว่าสินค้าเข้ากับเนื้อหาที่คนนั้นทำอยู่แล้วหรือไม่ และคนดูจะเชื่อว่าเขาแนะนำด้วยความจริงใจหรือเปล่า สองข้อนี้ตัดสินกันตั้งแต่ตอนเลือก",
+            },
+            {
+              title: "ใช้ค่านิยมคู่กับเหตุผลที่จับต้องได้",
+              text: "เรื่องคุณค่าช่วยให้คนเชียร์ แต่ถ้าสินค้าแพงกว่าหรือหาซื้อยาก คนจำนวนมากจะไม่ไปถึงขั้นจ่ายเงิน ต้องมีโปรโมชันและช่องทางขายที่สะดวกมาด้วย",
+            },
+            {
+              title: "วัดยอดขายหรือการคลิกซื้อ ไม่ใช่แค่ยอดดู",
+              text: "ตั้งตัวชี้วัดที่ใกล้การซื้อจริง เช่น การใช้โค้ดส่วนลดหรือการคลิกไปหน้าร้าน เพราะงานวิจัยทั้งห้าชิ้นวัดความตั้งใจซื้อ ซึ่งยังไม่ใช่การซื้อจริง",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานทั้งห้าชิ้นวัดความตั้งใจซื้อที่ผู้ตอบบอกเอง ไม่ได้วัดยอดขายจริง และเป็นข้อมูลจากจุดเวลาเดียว จึงบอกได้ว่าปัจจัยไหนไปด้วยกัน แต่บอกไม่ได้ว่าอะไรเป็นสาเหตุ งานวีทูปเบอร์เก็บข้อมูลจากผู้เล่นเกมหญิงเท่านั้นและใช้ครีเอเตอร์เพียงสองคน งานยูทูบเบอร์สายเกมศึกษาผู้ติดตามคนเดียว และผู้ตอบส่วนใหญ่เป็นผู้ชาย งานแปลซับมาจากกลุ่มแฟนคลับกลุ่มเดียวซึ่งเป็นคนที่ยังติดตามอยู่ งานเจนซีมีผู้ตอบเป็นผู้หญิง 84.7% ส่วนงานจุดยืนของแบรนด์ศึกษาแบรนด์อสังหาริมทรัพย์แบรนด์เดียว กับนิสิตที่ส่วนใหญ่ยังไม่ได้เป็นผู้ซื้อสินค้าประเภทนี้",
+        },
+        { kind: "h2", text: "เลือกคนที่คนดูเชื่อ แล้ววัดจากสิ่งที่คนดูทำ" },
+        {
+          kind: "p",
+          text: "ยอดผู้ติดตามบอกได้ว่ามีคนเห็นมากแค่ไหน แต่ความเชื่อมาจากความเข้ากันระหว่างครีเอเตอร์ สินค้า และคนดูกลุ่มนั้น แคมเปญที่ได้ผลจึงเริ่มจากการรู้จักคนดู เลือกคนที่เขาเชื่อด้วยเหตุผลที่ถูกกลุ่ม แล้ววัดผลให้ใกล้การซื้อจริงที่สุด",
+        },
+        {
+          kind: "note",
+          text: "หากแบรนด์หรือเอเจนซีของคุณกำลังวางแผนทำงานกับครีเอเตอร์ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "A big audience is not a buying audience: working with creators people actually believe",
+      dek: "Five studies of creators, sponsorship and brand stance point the same way. Follower counts tell you how many people saw something. What makes people believe and want to buy is the fit between the creator, the product and that particular audience.",
+      coverAlt: "Paper-craft illustration on cream paper: a burgundy shopping bag with a gold heart-shaped tag hanging from its handle",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Prae (a fictional character) runs marketing for a gaming headset brand. She hired the streamer with the biggest following her budget allowed. The review clip beat its view target, but sales that month barely moved. She began to wonder whether she had picked the wrong person, or measured the wrong thing from the start.",
+        },
+        {
+          kind: "p",
+          text: "Brand teams ask Prae's question all the time. The five studies brought together here look at gaming audiences, viewers of online courses and young consumers, and their answers line up in an interesting way.",
+        },
+        { kind: "h2", text: "Different audiences trust creators for different reasons" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and Surakanon (published in 2023) surveyed 686 Thai female gamers and compared two kinds of gaming creator: a VTuber, who is a virtual character, and a streamer, who is a real person. The results ran in opposite directions. Viewers wanted to buy what the VTuber recommended because they saw real knowledge. For the streamer, knowledge made no difference at all; what worked was trust and personal appeal.",
+          links: [{ match: "surveyed 686 Thai female gamers", href: "/en/research/vtuber-streamer-purchase-intention" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "VTubers sell on knowledge, streamers sell on trust",
+            subtitle: "Weight of each factor in predicting whether viewers want to buy (β — higher means it predicts more) · 686 Thai female gamers",
+            alt: "Bar chart of how strongly each credibility factor predicts purchase intention. VTuber: expertise 0.42, trust 0.26, appeal 0.11 (no effect). Streamer: trust 0.44, appeal 0.23, expertise 0.04 (no effect)",
+            source: "Source: Boonchutima and Surakanon (2023), Basic and Applied Social Psychology · survey of 686 people",
+            unit: "",
+            data: [
+              { label: "VTuber · expertise", value: 0.42, highlight: true },
+              { label: "VTuber · trust", value: 0.26 },
+              { label: "VTuber · appeal (no effect)", value: 0.11 },
+              { label: "Streamer · trust", value: 0.44, highlight: true },
+              { label: "Streamer · appeal", value: 0.23 },
+              { label: "Streamer · expertise (no effect)", value: 0.04 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The same study found that committed fans of the scene weighted knowledge most, while general viewers weighted personal appeal more. Before choosing a creator, you need to know who the campaign's audience actually is.",
+        },
+        { kind: "h2", text: "Watching is not buying" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and Sankosik (published in 2022) surveyed 238 followers of one of the world's largest gaming YouTubers. Even among regular viewers, intention to buy the games he played sat around the middle of the scale, roughly 3.1 to 3.5 out of 5. Taking credibility as a whole, trust was its core.",
+          links: [{ match: "surveyed 238 followers of one of the world's largest gaming YouTubers", href: "/en/research/game-influencer-credibility" }],
+        },
+        { kind: "h2", text: "Goodwill passes from content to sponsor, but not all of it" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and Lou (published in 2022) surveyed 216 Chinese viewers of online courses that a fan group subtitles for free, with brand sponsorship. Viewers did not see the sponsorship as intrusive advertising and did feel warmly toward the sponsors, but noticeably less warmly than toward the courses themselves.",
+          links: [{ match: "surveyed 216 Chinese viewers", href: "/en/research/fansub-viewers-sponsorship" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Viewers loved the courses, and liked the sponsors a step less",
+            subtitle: "Mean scores (out of 5) from viewers of fan-subtitled online courses · 216 Chinese viewers",
+            alt: "Bar chart of mean scores out of 5: the course is valuable 4.35, the sponsorship is sincere 4.01, the brand fits the content 3.84, the brand's image improved 3.78, I like the brand more than before 3.69",
+            source: "Source: Boonchutima and Lou (2022), Cogent Education · survey of 216 people",
+            unit: " of 5",
+            guess: "I like the brand more than before",
+            prompt: "Guess first: after watching, how much more did viewers like the sponsoring brand (out of 5)?",
+            guessMax: 5,
+            answerNote: "The lowest of the five, but still above the midpoint.",
+            data: [
+              { label: "The course is valuable", value: 4.35 },
+              { label: "The sponsorship is sincere", value: 4.01 },
+              { label: "The brand fits the content", value: 3.84 },
+              { label: "The brand's image improved", value: 3.78 },
+              { label: "I like the brand more than before", value: 3.69 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "What viewers rated highly was sincerity and fit with the content. Both are settled when you choose what to sponsor. Buying more media afterwards cannot fix them.",
+        },
+        { kind: "h2", text: "Values bring people to the shelf, but not to the till" },
+        {
+          kind: "p",
+          text: "A study by Lounporn and Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2023) surveyed 400 Thai Gen Z consumers about cruelty-free products. Care for animals and nature scored as high as 4.65 out of 5, yet the best predictor of who would buy was brand loyalty, and the lowest-scoring loyalty item was buying again after a price rise. People were ready to recommend, but not to pay more themselves.",
+          links: [{ match: "surveyed 400 Thai Gen Z consumers about cruelty-free products", href: "/en/research/genz-cruelty-free-purchase" }],
+        },
+        {
+          kind: "p",
+          text: "A study by Lamoonpot, Assoc. Prof. Dr Smith Boonchutima and Dr Muhammad Ibtesam Mazahir (published in 2024) with 434 university students points the same way. The highest-scoring item was buying from brands whose stance matches one's own, at 5.74 out of 7. But across the whole path, a shared stance was only a supplement. The base that has to come first is awareness, a good image and a brand that delivers what it advertises.",
+          links: [{ match: "with 434 university students", href: "/en/research/brand-attitude-congruence-purchase" }],
+        },
+        { kind: "h2", text: "Four points before you choose your next creator" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Know whether the audience is committed or general",
+              text: "For committed fans of the scene, choose someone who genuinely knows the product and let them show it. For a general audience, familiarity and personal appeal do more of the work.",
+            },
+            {
+              title: "Choose on fit, not on follower count",
+              text: "Ask whether the product fits what this person already makes, and whether viewers will believe the recommendation is sincere. Both are decided at the point of choosing.",
+            },
+            {
+              title: "Pair values with practical reasons",
+              text: "Values earn applause, but if the product costs more or is hard to find, many people will not get as far as paying. Promotions and convenient places to buy have to come with it.",
+            },
+            {
+              title: "Measure sales or clicks to buy, not just views",
+              text: "Set indicators close to real purchase, such as discount-code use or clicks through to the shop. All five studies measured intention to buy, which is not the same as buying.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "All five studies measure self-reported intention to buy, not actual sales, and each is a single snapshot, so they show which factors go together, not what causes what. The VTuber study surveyed female gamers only and used just two creators. The gaming YouTuber study looked at one creator's followers, most of them men. The fansub study drew on a single fan group of people who were still following it. The Gen Z study's respondents were 84.7% women. The brand-stance study covered one property brand, with students most of whom are not yet buyers in that category.",
+        },
+        { kind: "h2", text: "Choose who the audience believes, then measure what the audience does" },
+        {
+          kind: "p",
+          text: "Follower counts tell you how many people saw something. Belief comes from the fit between creator, product and audience. Campaigns that work start by knowing the audience, choose someone that audience trusts for the right reasons, and measure as close to the real purchase as possible.",
+        },
+        {
+          kind: "note",
+          text: "If your brand or agency is planning to work with creators, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "crisis-communication-trust",
+    date: "2026-10-31",
+    author: SMITH,
+    palette: [16, 3],
+    cover: "/images/insights/crisis-communication-trust-hero",
+    evidence: ["covid-official-communication-credibility", "tv-crisis-communication-korat", "nodam-maewong-framing"],
+    th: {
+      title: "ยามวิกฤต คนเชื่อสิ่งที่เห็น มากกว่าสิ่งที่ได้ยิน",
+      dek: "งานวิจัยสามชิ้นตั้งแต่โควิด-19 เหตุจับตัวประกัน จนถึงการรณรงค์ค้านเขื่อน ชี้ว่าความน่าเชื่อถือในภาวะวิกฤตไม่ได้มาจากตำแหน่งของผู้พูด แต่มาจากผลที่คนมองเห็น การยอมรับความผิดพลาด และข้อเท็จจริงที่คนส่งต่อได้",
+      coverAlt: "ภาพประกอบกระดาษ ประภาคารสีน้ำเงินที่ซ้อนจากแถบกระดาษหลายชั้น มีห้องโคมสีเขียวอยู่บนยอด บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "คุณต้น (ตัวละครสมมติ) เป็นหัวหน้าฝ่ายสื่อสารของหน่วยงานแห่งหนึ่ง ช่วงที่เกิดเหตุฉุกเฉิน ทีมของเขาออกแถลงการณ์ทุกวัน ข้อมูลถูกต้องทุกบรรทัด แต่ยิ่งออกแถลงการณ์ คนในโซเชียลมีเดียก็ยิ่งตั้งคำถาม เขาไม่แน่ใจว่าปัญหาอยู่ที่ถ้อยคำ หรืออยู่ที่อย่างอื่น",
+        },
+        {
+          kind: "p",
+          text: "งานวิจัยสามชิ้นในบทความนี้ศึกษาการสื่อสารในสถานการณ์ที่ต่างกันมาก แต่ได้บทเรียนที่ตรงกัน คนในภาวะวิกฤตตัดสินจากสิ่งที่เขาเห็นเกิดขึ้นจริง มากกว่าจากสิ่งที่ถูกบอกให้เชื่อ",
+        },
+        { kind: "h2", text: "ความเชื่อขึ้นลงตามผลงานที่คนเห็น" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร. Pavel Slutskiy และ รศ.ดร.สมิทธิ์ บุญชุติมา (ตีพิมพ์ปี 2565) วิเคราะห์โพสต์และความเห็นบนเฟซบุ๊กและทวิตเตอร์ตั้งแต่ต้นปี 2563 ถึงต้นปี 2565 ควบคู่กับการสัมภาษณ์ผู้เชี่ยวชาญ 50 คน ช่วงที่ควบคุมโรคได้ดี คนแทบไม่ตั้งคำถามกับข้อมูลของรัฐ และใส่หน้ากากเกือบ 95% ตั้งแต่ก่อนที่องค์การอนามัยโลกจะแนะนำ แต่พอถึงระลอกที่สามในปี 2564 ซึ่งมีผู้ติดเชื้อใหม่ในเดือนเมษายนเดือนเดียวมากกว่ายอดสะสมทั้งหมดก่อนหน้า ความเชื่อก็หายไปพร้อมกับผลงาน",
+          links: [{ match: "วิเคราะห์โพสต์และความเห็นบนเฟซบุ๊กและทวิตเตอร์", href: "/research/covid-official-communication-credibility" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คะแนนนิยมผู้นำรัฐบาลร่วงเหลือไม่ถึงหนึ่งในห้า",
+            subtitle: "คะแนนนิยมผู้นำรัฐบาลจากโพลที่งานวิจัยอ้างถึง ก่อนและระหว่างช่วงวิกฤตวัคซีน (เมษายน–มิถุนายน 2564)",
+            alt: "กราฟแท่งแสดงคะแนนนิยมผู้นำรัฐบาล ก่อนหน้า 93.3% และช่วงวิกฤตวัคซีนปี 2564 19%",
+            source: "ที่มา: Slutskiy และ Boonchutima (2022) American Behavioral Scientist · ตัวเลขจากโพลและรายงานข่าวที่บทความอ้างถึง",
+            guess: "ช่วงวิกฤตวัคซีน 2564",
+            prompt: "ลองทายก่อน: ช่วงวิกฤตวัคซีน คะแนนนิยมผู้นำรัฐบาลเหลือเท่าไร",
+            answerNote: "จาก 93.3% เหลือ 19%",
+            data: [
+              { label: "ก่อนหน้า", value: 93.3 },
+              { label: "ช่วงวิกฤตวัคซีน 2564", value: 19, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ผู้วิจัยสรุปว่าความน่าเชื่อถือในช่วงนั้นขึ้นอยู่กับว่ารัฐดูเหมือนกำลังชนะหรือไม่ มากกว่าความจริงหรือความโปร่งใสของข้อความ เมื่อคนเลิกเชื่อ เขาไม่ได้เลิกหาข้อมูล แต่หันไปหาองค์การระหว่างประเทศแทน และการออกกฎคุมข้อมูลที่ทำให้ประชาชนตื่นกลัวแม้จะเป็นเรื่องจริง ก็ถูกมองว่าเป็นการปิดปากมากกว่าการแก้ปัญหา",
+        },
+        { kind: "h2", text: "ถ้าองค์กรไม่ยอมรับว่าเป็นวิกฤต ก็ไม่มีใครรับผิดชอบ" },
+        {
+          kind: "p",
+          text: "งานของ Theekakul และ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2564) ศึกษาสถานีโทรทัศน์ดิจิทัลสามช่องที่ถูกลงโทษทางปกครองจากการรายงานข่าวเหตุคนร้ายจับตัวประกันที่นครราชสีมาในปี 2563 พบว่ามีเพียงช่องเดียวที่ออกมาสื่อสารทางออนไลน์ ด้วยการโพสต์ขอโทษบนเฟซบุ๊กราวสองวันหลังเหตุการณ์จบ โพสต์นั้นมีคนแสดงความเห็นกว่า 3,200 ครั้ง ส่วนใหญ่เป็นคำวิจารณ์ แต่สถานีไม่ได้ตอบกลับเลยแม้แต่ความเห็นเดียว",
+          links: [{ match: "ศึกษาสถานีโทรทัศน์ดิจิทัลสามช่องที่ถูกลงโทษทางปกครอง", href: "/research/tv-crisis-communication-korat" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คนแสดงความเห็นหลายพันครั้ง สถานีตอบกลับศูนย์",
+            subtitle: "การตอบสนองต่อโพสต์ขอโทษบนเฟซบุ๊กของสถานีโทรทัศน์ช่องหนึ่ง · ความเห็นและการแชร์เป็นตัวเลขขั้นต่ำตามที่บทความรายงาน",
+            alt: "กราฟแท่งแสดงการตอบสนองต่อโพสต์ขอโทษ กดแสดงความรู้สึก 14,947 ครั้ง ความเห็นกว่า 3,200 ครั้ง แชร์กว่า 1,200 ครั้ง และสถานีตอบกลับความเห็น 0 ครั้ง",
+            source: "ที่มา: Theekakul และ Chongkolrattanaporn (2021) วารสารประชาสัมพันธ์และโฆษณา",
+            unit: " ครั้ง",
+            data: [
+              { label: "กดแสดงความรู้สึก", value: 14947 },
+              { label: "ความเห็น (กว่า)", value: 3200 },
+              { label: "แชร์ (กว่า)", value: 1200 },
+              { label: "สถานีตอบกลับความเห็น", value: 0, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ข้อค้นพบที่ใช้ได้กับทุกองค์กรคือ ทั้งสามสถานีไม่ได้มองว่าการถูกลงโทษเป็นวิกฤตขององค์กรตัวเอง จึงไม่มีแผน ไม่มีคู่มือ และไม่มีคนรับผิดชอบที่กำหนดไว้ล่วงหน้า งานถูกปล่อยให้ฝ่ายข่าวจัดการเอง ทั้งที่ฝ่ายข่าวเป็นคู่กรณีโดยตรง ผู้เชี่ยวชาญที่ให้สัมภาษณ์เสนอให้ฝ่ายสื่อสารองค์กรเป็นผู้ดูแล ตั้งห้องบัญชาการพร้อมเกณฑ์ประเมินสถานการณ์ที่ตกลงกันไว้ก่อน และขอโทษอย่างเต็มที่",
+        },
+        { kind: "h2", text: "คนส่งต่อข้อเท็จจริง มากกว่าส่งต่ออารมณ์" },
+        {
+          kind: "p",
+          text: "งานของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2561) วิเคราะห์การรณรงค์ค้านเขื่อนแม่วงก์บนทวิตเตอร์ในปี 2556 ผู้รณรงค์เล่าเรื่องการเดินเท้า 388 กิโลเมตรด้วยภาษาที่กระตุ้นอารมณ์ แต่ข้อความที่คนส่งต่อจริงคือข้อความที่มีข้อเท็จจริงและหลักฐานว่าทำไมควรยกเลิกเขื่อน เมื่อสารคดีถูกถอดจากการออกอากาศ ทีมก็นำไปเผยแพร่บน YouTube แทน และรายชื่อค้านเขื่อนบน Change.org ก็สูงที่สุดในไทยขณะนั้น",
+          links: [{ match: "วิเคราะห์การรณรงค์ค้านเขื่อนแม่วงก์บนทวิตเตอร์", href: "/research/nodam-maewong-framing" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "รายชื่อค้านเขื่อนมากกว่าการรณรงค์ทั่วไปสิบเท่า",
+            subtitle: "จำนวนรายชื่อบน Change.org · ประเทศไทย ปี 2556",
+            alt: "กราฟแท่งแสดงจำนวนรายชื่อ การรณรงค์ค้านเขื่อนแม่วงก์ 100,000 รายชื่อ และการรณรงค์ส่วนใหญ่ในไทยขณะนั้นราว 10,000 รายชื่อ",
+            source: "ที่มา: Chongkolrattanaporn (2018) วารสารประชาสัมพันธ์และโฆษณา",
+            unit: " รายชื่อ",
+            data: [
+              { label: "ค้านเขื่อนแม่วงก์", value: 100000, highlight: true },
+              { label: "การรณรงค์ส่วนใหญ่ขณะนั้น", value: 10000 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ผู้รณรงค์ สื่อมวลชน และประชาชนเล่าเรื่องนี้คนละกรอบ แต่การรณรงค์ก็ได้ผล รัฐมนตรีที่รับผิดชอบส่งตัวแทนมารับรายชื่อ และระบุว่าจะพิจารณารายงานผลกระทบอย่างรอบคอบและไม่เร่งก่อสร้าง",
+        },
+        { kind: "h2", text: "สี่ข้อเพื่อเตรียมรับวิกฤตครั้งหน้า" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ตกลงกันไว้ก่อนว่าอะไรนับเป็นวิกฤต",
+              text: "เขียนเกณฑ์ไว้ล่วงหน้า และให้รวมถึงเรื่องที่หน่วยงานกำกับดูแลมองว่าเป็นปัญหาด้วย ถ้าองค์กรไม่นับว่าเป็นวิกฤต ก็จะไม่มีใครถูกมอบหมายให้รับผิดชอบ",
+            },
+            {
+              title: "ให้คนที่ไม่ใช่คู่กรณีเป็นผู้ดูแล",
+              text: "มอบงานให้ฝ่ายสื่อสารองค์กรหรือทีมกลาง ไม่ใช่หน่วยที่เป็นต้นเรื่อง เพราะหน่วยนั้นมักอธิบายขั้นตอนการทำงานของตัวเองแทนที่จะขอโทษ",
+            },
+            {
+              title: "บอกตรงๆ เมื่อผลยังไม่ดี",
+              text: "เมื่อสิ่งที่คนเห็นสวนทางกับสิ่งที่พูด การอธิบายเพิ่มไม่ช่วย ให้บอกว่ากำลังแก้อะไรอยู่ และอ้างอิงแหล่งที่คนเชื่อถือ เช่น องค์การระหว่างประเทศ แทนการแข่งกับแหล่งเหล่านั้น",
+            },
+            {
+              title: "เตรียมทั้งข้อเท็จจริงและเรื่องเล่า",
+              text: "เรื่องเล่าดึงความสนใจ แต่สิ่งที่คนส่งต่อมักเป็นข้อเท็จจริงที่ตรวจสอบได้ ทำข้อความสั้นที่มีตัวเลขและหลักฐานไว้ให้คนแชร์ต่อได้ง่าย",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานโควิดเป็นการวิเคราะห์เชิงคุณภาพ ไม่ได้นับจำนวนโพสต์หรือสัดส่วนความเห็น ความสัมพันธ์ระหว่างคะแนนนิยมกับความเชื่อถือจึงอ่านจากลำดับเหตุการณ์ ไม่ได้วัดทางสถิติ และคะแนนนิยมมาจากโพลกับรายงานข่าว ไม่ใช่ข้อมูลที่ผู้วิจัยเก็บเอง งานสถานีโทรทัศน์ศึกษาเหตุการณ์เดียว สามสถานี และผู้ให้สัมภาษณ์เจ็ดคน ส่วนงานแม่วงก์เป็นกรณีศึกษาเดียวจากข้อมูลปี 2556 บนทวิตเตอร์เป็นหลัก และตัดสินความสำเร็จจากผลทางนโยบาย ไม่ได้วัดการเปลี่ยนทัศนคติของคนโดยตรง บทความนี้ตั้งใจไม่ระบุชื่อบุคคล สถานีโทรทัศน์ และบริษัทที่ถูกวิจารณ์ในงานต้นฉบับ เพราะบทเรียนอยู่ที่กลไก ไม่ได้อยู่ที่ว่าใครเกี่ยวข้อง",
+        },
+        { kind: "h2", text: "ความน่าเชื่อถือสร้างก่อนวิกฤต และพิสูจน์ระหว่างวิกฤต" },
+        {
+          kind: "p",
+          text: "ในภาวะวิกฤต ถ้อยคำที่ดีช่วยได้ไม่มากถ้าสิ่งที่คนเห็นสวนทาง องค์กรที่ผ่านวิกฤตได้คือองค์กรที่เตรียมคนและเกณฑ์ไว้ก่อน ยอมรับเมื่อพลาด และให้ข้อเท็จจริงที่คนตรวจสอบและส่งต่อได้",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนรับมือการสื่อสารในภาวะวิกฤต ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "In a crisis, people believe what they see more than what they are told",
+      dek: "Three studies, from COVID-19 to a hostage crisis to a campaign against a dam, show that credibility in a crisis does not come from the speaker's position. It comes from results people can see, from admitting mistakes, and from facts people can pass on.",
+      coverAlt: "Paper-craft illustration on cream paper: a blue lighthouse built from layered paper bands, with a green lantern room at the top",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Ton (a fictional character) heads communications at a public agency. During an emergency his team issued a statement every day, accurate in every line. Yet the more statements they put out, the more people on social media questioned them. He was not sure whether the problem was the wording or something else.",
+        },
+        {
+          kind: "p",
+          text: "The three studies brought together here look at communication in very different situations, but they reach the same lesson: in a crisis, people judge by what they see happening, more than by what they are asked to believe.",
+        },
+        { kind: "h2", text: "Belief rose and fell with visible results" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Pavel Slutskiy and Assoc. Prof. Dr Smith Boonchutima (published in 2022) analysed Facebook and Twitter posts and comments from early 2020 to early 2022, alongside interviews with 50 experts. While the outbreak was under control, people barely questioned official information, and mask-wearing reached almost 95% before the World Health Organization was even recommending it. But in the third wave of 2021, when April alone brought more new cases than the country's entire previous total, belief went the way of performance.",
+          links: [{ match: "analysed Facebook and Twitter posts and comments", href: "/en/research/covid-official-communication-credibility" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "The government leader's approval fell to under one in five",
+            subtitle: "Approval of the government leader from polls cited in the study, before and during the vaccine crisis (April–June 2021)",
+            alt: "Bar chart of the government leader's approval: 93.3% before, 19% during the 2021 vaccine crisis",
+            source: "Source: Slutskiy and Boonchutima (2022), American Behavioral Scientist · figures from polls and news reports cited in the article",
+            guess: "During the 2021 vaccine crisis",
+            prompt: "Guess first: what was the government leader's approval during the vaccine crisis?",
+            answerNote: "From 93.3% down to 19%.",
+            data: [
+              { label: "Before", value: 93.3 },
+              { label: "During the 2021 vaccine crisis", value: 19, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The researchers conclude that credibility in that period depended on whether the government seemed to be winning, more than on how true or transparent its messages were. When people stopped believing, they did not stop looking for information; they turned to international bodies instead. And a rule restricting information that caused public fear, even when it was true, read as silencing rather than solving.",
+        },
+        { kind: "h2", text: "If the organisation does not call it a crisis, no one owns it" },
+        {
+          kind: "p",
+          text: "A study by Theekakul and Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2021) looked at three digital TV stations penalised by the regulator over their coverage of the 2020 hostage-taking in Nakhon Ratchasima. Only one communicated online, with an apology on Facebook about two days after the incident ended. The post drew more than 3,200 comments, mostly critical, and the station replied to none of them.",
+          links: [{ match: "looked at three digital TV stations penalised by the regulator", href: "/en/research/tv-crisis-communication-korat" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Thousands of comments, zero replies",
+            subtitle: "Responses to one TV station's Facebook apology · comments and shares are minimum figures as reported in the article",
+            alt: "Bar chart of responses to the apology post: 14,947 reactions, more than 3,200 comments, more than 1,200 shares and 0 replies from the station",
+            source: "Source: Theekakul and Chongkolrattanaporn (2021), Journal of Public Relations and Advertising",
+            unit: "",
+            data: [
+              { label: "Reactions", value: 14947 },
+              { label: "Comments (over)", value: 3200 },
+              { label: "Shares (over)", value: 1200 },
+              { label: "Replies from the station", value: 0, highlight: true },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The finding that applies to any organisation is that none of the three stations saw the penalty as a crisis for itself, so there was no plan, no manual and no one assigned in advance. The newsroom was left to handle it, even though the newsroom was a direct party to the dispute. The specialists interviewed recommended putting corporate communications in charge, setting up a war room with thresholds agreed beforehand, and apologising in full.",
+        },
+        { kind: "h2", text: "People pass on facts more than feelings" },
+        {
+          kind: "p",
+          text: "A study by Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2018) analysed the 2013 Twitter campaign against the Mae Wong dam. The campaigners told the story of a 388-kilometre walk in emotional language, but the messages people actually passed on were the ones with facts and evidence for cancelling the dam. When a documentary was pulled from broadcast, the team put it on YouTube instead, and the petition on Change.org became the largest in Thailand at the time.",
+          links: [{ match: "analysed the 2013 Twitter campaign against the Mae Wong dam", href: "/en/research/nodam-maewong-framing" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Ten times the signatures of a typical campaign",
+            subtitle: "Signatures on Change.org · Thailand, 2013",
+            alt: "Bar chart of petition signatures: the campaign against the Mae Wong dam 100,000, most Thai petitions at the time around 10,000",
+            source: "Source: Chongkolrattanaporn (2018), Journal of Public Relations and Advertising",
+            unit: " signatures",
+            data: [
+              { label: "Against the Mae Wong dam", value: 100000, highlight: true },
+              { label: "Most petitions at the time", value: 10000 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Campaigners, the news media and the public each framed the issue differently, yet the campaign worked. The responsible minister sent a representative to receive the petition and said the impact report would be examined carefully and construction would not be rushed.",
+        },
+        { kind: "h2", text: "Four points to prepare for the next crisis" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Agree in advance what counts as a crisis",
+              text: "Write the thresholds down beforehand, including issues a regulator treats as a problem. If the organisation does not count it as a crisis, no one will be assigned to it.",
+            },
+            {
+              title: "Put someone who is not a party in charge",
+              text: "Give the work to corporate communications or a central team, not the unit at the centre of the story, which tends to explain its own procedures instead of apologising.",
+            },
+            {
+              title: "Say plainly when results are not good yet",
+              text: "When what people see contradicts what you say, more explanation does not help. Say what is being fixed, and cite sources people trust, such as international bodies, rather than competing with them.",
+            },
+            {
+              title: "Prepare both facts and story",
+              text: "Stories draw attention, but what people pass on tends to be checkable fact. Prepare short messages with figures and evidence that are easy to share.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The COVID study is a qualitative analysis. It reports no post counts or proportions of opinion, so the link between approval and credibility is read from the sequence of events rather than measured, and the approval figures come from polls and news reports rather than the researchers' own data. The TV study covers one event, three stations and seven interviewees. The Mae Wong study is a single case from 2013 data, mainly from Twitter, and judges success by the policy outcome rather than by measuring attitude change directly. This article deliberately does not name the individuals, TV stations or companies criticised in the original studies, because the lesson lies in the mechanism, not in who was involved.",
+        },
+        { kind: "h2", text: "Credibility is built before a crisis and proved during one" },
+        {
+          kind: "p",
+          text: "In a crisis, good wording does little when what people see points the other way. The organisations that come through are the ones that prepared people and thresholds in advance, admit it when they get things wrong, and give facts people can check and pass on.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is planning how to communicate in a crisis, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "ai-learning-skills",
+    date: "2026-10-31",
+    author: SMITH,
+    palette: [4, 9],
+    cover: "/images/insights/ai-learning-skills-hero",
+    evidence: [
+      "ai-generated-citations-students",
+      "first-year-online-learning-technostress",
+      "online-class-cognitive-load-interactive-media",
+      "ai-philippine-higher-education-reflections",
+      "adult-media-literacy-pakistan",
+    ],
+    th: {
+      title: "ก่อนสอนให้ใช้ AI ต้องสอนให้ตรวจสอบเป็น",
+      dek: "งานวิจัยห้าชิ้นเรื่องนิสิต ห้องเรียนออนไลน์ อาจารย์ และผู้ใหญ่ที่ใช้สื่อทุกวัน ชี้ว่าปัญหาไม่ได้อยู่ที่ตัวเครื่องมือ แต่อยู่ที่ทักษะตรวจสอบข้อมูลและภาระที่ผู้เรียนต้องรับในคราวเดียว",
+      coverAlt: "ภาพประกอบกระดาษ หนังสือสีส้มเปิดอยู่ หน้ากระดาษว่างเปล่า มีแว่นขยายสีแดงวางทับกลางหน้า บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "อาจารย์มิ้นท์ (ตัวละครสมมติ) สอนวิชาพื้นฐานให้นิสิตปีหนึ่ง เทอมนี้รายงานที่ส่งมาดูดีขึ้นมาก ภาษาเรียบร้อย มีคำพูดของนักคิดพร้อมชื่อหนังสือและปีที่พิมพ์ครบ แต่พอเธอลองเปิดหนังสือที่อ้างถึง กลับหาคำพูดเหล่านั้นไม่เจอเลย",
+        },
+        {
+          kind: "p",
+          text: "เรื่องแบบนี้เกิดขึ้นจริงในห้องเรียนหลายแห่ง งานวิจัยห้าชิ้นในบทความนี้ช่วยอธิบายว่าทำไม และชี้ว่าสิ่งที่ต้องสอนเพิ่มอาจไม่ใช่วิธีใช้เครื่องมือ",
+        },
+        { kind: "h2", text: "คำตอบที่ดูน่าเชื่อ อาจไม่มีอยู่จริง" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร. Pavel Slutskiy (ตีพิมพ์ปี 2568) ให้นิสิตจุฬาฯ 240 คนทำงานชิ้นเดียวกัน คือหาว่านักปรัชญาคนหนึ่งคิดอย่างไรในเรื่องหนึ่ง พร้อมยกคำพูดจากงานของเขามาประกอบ โดยจะใช้แหล่งออนไลน์ไหนก็ได้ นิสิตราวหนึ่งในห้าเลือกแชตบอตเป็นแหล่งหลัก",
+          links: [{ match: "ให้นิสิตจุฬาฯ 240 คนทำงานชิ้นเดียวกัน", href: "/research/ai-generated-citations-students" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "split",
+            title: "นิสิตหนึ่งในห้าหาคำตอบเชิงวิชาการจากแชตบอต",
+            subtitle: "แหล่งข้อมูลหลักที่นิสิตใช้ทำงานชิ้นเดียวกัน · นิสิต 240 คน",
+            alt: "แถบสัดส่วนแหล่งข้อมูลหลักของนิสิต 240 คน Google 57% แชตบอต 22% และวิกิพีเดีย 21%",
+            source: "ที่มา: Slutskiy (2025) Manusya: Journal of Humanities · นิสิต 240 คน",
+            prompt: "ลองเลือกก่อน: นิสิตใช้แหล่งไหนมากที่สุด",
+            answerNote: "แต่แชตบอตตามมาเป็นอันดับสอง",
+            data: [
+              { label: "Google", value: 57 },
+              { label: "แชตบอต", value: 22 },
+              { label: "วิกิพีเดีย", value: 21 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "งานที่ส่งมา 37 ชิ้นมีคำพูดที่อ้างว่าเป็นของนักปรัชญาคนนั้น พร้อมชื่อผลงานและปีที่พิมพ์ครบเหมือนการอ้างอิงจริง แต่ไม่มีคำพูดไหนอยู่ในงานที่อ้างถึงเลย และนิสิตทั้ง 37 คนมั่นใจว่ายกคำพูดมาจากต้นฉบับจริง ปัญหาจึงไม่ใช่แค่ว่าเครื่องมือผิด แต่คือคำตอบมาในรูปแบบที่ดูเหมือนผ่านการตรวจสอบแล้ว",
+        },
+        { kind: "h2", text: "สิ่งที่ทำให้เครียดคือปริมาณ ไม่ใช่ความยาก" },
+        {
+          kind: "p",
+          text: "งานของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2566) สำรวจนิสิตปีหนึ่ง 803 คนช่วงที่ต้องเรียนออนไลน์ทั้งหมด พบว่าความเครียดจากเทคโนโลยีที่สูงชัดกว่าด้านอื่นคือความรู้สึกว่ามีเครื่องมือและงานเข้ามาพร้อมกันมากเกินไป ส่วนความรู้สึกว่าเทคโนโลยีใช้ยากอยู่ในระดับค่อนข้างต่ำ",
+          links: [{ match: "สำรวจนิสิตปีหนึ่ง 803 คน", href: "/research/first-year-online-learning-technostress" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "เครื่องมือมากเกินไป เครียดกว่าเครื่องมือใช้ยาก",
+            subtitle: "คะแนนเฉลี่ยความเครียดจากเทคโนโลยีสี่ด้าน (เต็ม 5) · นิสิตปีหนึ่งสายที่ไม่ใช่วิทยาศาสตร์ ปีการศึกษา 2563",
+            alt: "กราฟแท่งแสดงคะแนนเฉลี่ยความเครียดจากเทคโนโลยีของนิสิตสายที่ไม่ใช่วิทยาศาสตร์ จากเต็ม 5 ปริมาณมากเกินไป 3.64 ความไม่มั่นคง 2.96 ความไม่แน่นอน 2.95 และความซับซ้อน 2.88",
+            source: "ที่มา: Chongkolrattanaporn (2023) PASAA · สำรวจนิสิตปีหนึ่ง 803 คน",
+            unit: " จาก 5",
+            data: [
+              { label: "เครื่องมือและงานมากเกินไป", value: 3.64, highlight: true },
+              { label: "กลัวตามไม่ทัน", value: 2.96 },
+              { label: "เทคโนโลยีเปลี่ยนบ่อย", value: 2.95 },
+              { label: "ใช้งานยาก", value: 2.88 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "นิสิตสายวิทยาศาสตร์ก็ได้ภาพเดียวกัน ความรู้สึกว่ามีมากเกินไปอยู่ที่ 3.52 จาก 5 สูงกว่าด้านอื่นทั้งหมด ทางแก้จึงไม่ใช่การอบรมให้ใช้เครื่องมือเก่งขึ้น แต่คือการลดจำนวนระบบที่หลักสูตรหนึ่งใช้ และจัดกำหนดส่งงานของแต่ละวิชาไม่ให้ชนกัน",
+        },
+        { kind: "h2", text: "แบบทดสอบช่วยจำ แต่การนำไปใช้ต้องมาจากการคุยกัน" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ และ ดร.วรรษยุต คงจันทร์ (ตีพิมพ์ปี 2566) ทดลองใช้สื่อโต้ตอบในวิชาออนไลน์ระดับปริญญาโทกับนิสิต 23 คน คะแนนเฉลี่ยหลังใช้สื่อสูงขึ้นจาก 6.77 เป็น 8.20 แต่พอให้ทำแบบทดสอบเดิมซ้ำ คะแนนก็ไม่ได้เพิ่ม และคนที่ร่วมทำลดลงเหลือราวครึ่งหนึ่ง นิสิตบอกเองว่าแบบทดสอบช่วยให้จำได้ในระยะสั้น ส่วนสิ่งที่ช่วยให้นำไปใช้ในงานจริงคือการได้คุยกับอาจารย์และเพื่อน และได้คำแนะนำโดยตรง นิสิตยังขอสไลด์เป็นไฟล์ PDF ธรรมดาไว้จดโน้ต ทั้งที่มีเว็บนำเสนอพร้อมวิดีโอให้ใช้อยู่แล้ว",
+          links: [{ match: "ทดลองใช้สื่อโต้ตอบในวิชาออนไลน์ระดับปริญญาโท", href: "/research/online-class-cognitive-load-interactive-media" }],
+        },
+        { kind: "h2", text: "ใช้คล่อง ไม่ได้แปลว่าแยกแยะเป็น" },
+        {
+          kind: "p",
+          text: "งานของ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ และ Yaseen (ตีพิมพ์ปี 2568) สำรวจผู้ใหญ่ในปากีสถาน 500 คนที่ใช้สื่อทุกวันอย่างน้อยวันละชั่วโมง พบว่ามีเพียง 41% ที่แยกข่าวลำเอียงหรือข่าวชวนเข้าใจผิดได้ถูกต้อง คนอายุน้อยใช้เครื่องมือดิจิทัลคล่องกว่า แต่ผู้วิจัยพบจากการสัมภาษณ์ว่าหลายคนยังแยกไม่ออกว่าเนื้อหาไหนน่าเชื่อถือ",
+          links: [{ match: "สำรวจผู้ใหญ่ในปากีสถาน 500 คน", href: "/research/adult-media-literacy-pakistan" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "ใช้สื่อทุกวัน แต่ไม่ถึงครึ่งที่แยกข่าวลำเอียงได้",
+            subtitle: "สัดส่วนผู้ตอบที่ทำได้ในแต่ละเรื่อง · ผู้ใหญ่ในปากีสถาน 500 คน มีนาคม–เมษายน 2568",
+            alt: "กราฟแท่งแสดงสัดส่วนผู้ตอบ แยกข่าวลำเอียงหรือชวนเข้าใจผิดได้ 41% เข้าใจการตั้งค่าความเป็นส่วนตัว 33% และเคยสร้างหรือแชร์เนื้อหาของตัวเอง 18%",
+            source: "ที่มา: Mazahir และ Yaseen (2025) International Journal of Media and Information Literacy · สำรวจ 500 คน",
+            guess: "แยกข่าวลำเอียงหรือชวนเข้าใจผิดได้",
+            prompt: "ลองทายก่อน: ผู้ใหญ่ที่ใช้สื่อทุกวันกี่เปอร์เซ็นต์แยกข่าวลำเอียงได้",
+            answerNote: "ไม่ถึงครึ่ง ทั้งที่ใช้สื่อทุกวัน",
+            data: [
+              { label: "แยกข่าวลำเอียงหรือชวนเข้าใจผิดได้", value: 41 },
+              { label: "เข้าใจการตั้งค่าความเป็นส่วนตัว", value: 33 },
+              { label: "เคยสร้างหรือแชร์เนื้อหาของตัวเอง", value: 18 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "งานของ Giray และคณะ (ตีพิมพ์ปี 2567) ซึ่ง ดร.ร็อบบี้ แจน วินเซนต์ ที. บูเอโล ร่วมเขียน รวบรวมบันทึกของอาจารย์และผู้บริหารมหาวิทยาลัยในฟิลิปปินส์แปดคนช่วงแรกที่ ChatGPT เปิดตัว ทุกคนใช้ AI ช่วยงานจริง แต่ก็เจออ้างอิงที่ถูกแต่งขึ้นและนิสิตที่ส่งงานที่ AI เขียนเป็นงานของตัวเอง ขณะนั้นยังไม่มีสถาบันไหนในสี่แห่งมีนโยบาย AI ที่ครบถ้วน ผู้เขียนเห็นตรงกันว่าการห้ามใช้ไม่ได้ผล และเสนอให้แยกการใช้ AI ช่วยเกลาภาษาหรือจัดการอ้างอิง ออกจากการให้ AI ผลิตคำตอบแทน",
+          links: [{ match: "รวบรวมบันทึกของอาจารย์และผู้บริหารมหาวิทยาลัยในฟิลิปปินส์แปดคน", href: "/research/ai-philippine-higher-education-reflections" }],
+        },
+        { kind: "h2", text: "สี่ข้อสำหรับผู้สอนและผู้จัดอบรม" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "สอนให้ตามกลับไปหาต้นฉบับ",
+              text: "ให้ผู้เรียนเปิดแหล่งต้นฉบับยืนยันทุกคำพูดและตัวเลขที่ได้จาก AI และนับการตรวจสอบเป็นส่วนหนึ่งของคะแนน เพราะชื่อหนังสือกับปีที่พิมพ์ไม่ได้แปลว่ามีอยู่จริง",
+            },
+            {
+              title: "บอกให้ชัดว่าใช้ AI แบบไหนได้",
+              text: "แยกการใช้ช่วยเกลาภาษาหรือจัดรูปแบบอ้างอิง ออกจากการให้ AI เขียนคำตอบแทน แล้วให้ผู้เรียนบอกว่าใช้อะไรไปบ้าง แทนการห้ามทั้งหมด",
+            },
+            {
+              title: "ลดจำนวนเครื่องมือก่อนเพิ่มการอบรม",
+              text: "ถ้าผู้เรียนเครียดเพราะปริมาณ การสอนใช้เครื่องมือเพิ่มไม่ช่วย ให้ใช้ระบบให้น้อยลงและจัดกำหนดส่งงานข้ามวิชาไม่ให้ชนกัน",
+            },
+            {
+              title: "ใช้แบบทดสอบให้พอดี แล้วเพิ่มเวลาคุย",
+              text: "แบบทดสอบช่วยให้จำ แต่ทำซ้ำแล้วได้ผลน้อยลงเร็ว ควรเปิดให้คุยกันสดเป็นระยะ เพราะการนำความรู้ไปใช้มาจากการถกและคำแนะนำของผู้สอน",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานแชตบอตใช้โจทย์เดียวในมหาวิทยาลัยเดียว และเก็บข้อมูลช่วงที่นิสิตใช้ ChatGPT รุ่น 3.5 เครื่องมือรุ่นที่ค้นเว็บและแนบลิงก์ได้อาจให้ผลต่างออกไป สัดส่วนแหล่งข้อมูลจึงเป็นภาพของช่วงเวลานั้น งานความเครียดเก็บข้อมูลในช่วงที่ต้องเรียนออนไลน์ทั้งหมด ซึ่งไม่ใช่สภาพปกติ งานสื่อโต้ตอบมีนิสิตกลุ่มเดียว 23 คน ไม่มีกลุ่มเปรียบเทียบ และผู้วิจัยหลักเป็นผู้สอนวิชานั้นเอง งานในฟิลิปปินส์เป็นบันทึกของผู้เขียนแปดคน ไม่ใช่การสำรวจ ส่วนงานในปากีสถานศึกษาเฉพาะผู้ที่ใช้สื่ออย่างน้อยวันละชั่วโมง และตัวเลขความต่างระหว่างเมืองกับชนบทในบทความไม่มีค่าทางสถิติกำกับ",
+        },
+        { kind: "h2", text: "เครื่องมือเปลี่ยนเร็ว ทักษะตรวจสอบอยู่ได้นานกว่า" },
+        {
+          kind: "p",
+          text: "AI และเครื่องมือออนไลน์จะเปลี่ยนไปอีกหลายรอบ สิ่งที่ผู้สอนลงทุนได้คุ้มกว่าคือทักษะตามกลับไปหาต้นฉบับ การบอกตรงๆ ว่าใช้เครื่องมืออะไร และการจัดการเรียนที่ไม่ทับถมผู้เรียนจนไม่มีเวลาคิด",
+        },
+        {
+          kind: "note",
+          text: "หากสถาบันหรือองค์กรของคุณกำลังวางแนวทางการใช้ AI ในการเรียนรู้ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและแลกเปลี่ยนประสบการณ์กับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "Before teaching people to use AI, teach them to check",
+      dek: "Five studies of students, online classes, lecturers and adults who use media every day show that the problem is not the tool itself. It is the skill of checking information, and how much learners are asked to carry at once.",
+      coverAlt: "Paper-craft illustration on cream paper: an open orange book with blank pages and a red magnifying glass resting across the middle",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Mint (a fictional character) teaches a first-year foundation course. This term the reports look much better: tidy language, quotations from thinkers, each with a book title and year. But when she opened the books cited, she could not find the quotations anywhere.",
+        },
+        {
+          kind: "p",
+          text: "This happens in real classrooms. The five studies brought together here help explain why, and suggest that what needs teaching may not be how to use the tools.",
+        },
+        { kind: "h2", text: "An answer that looks credible may not exist" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Pavel Slutskiy (published in 2025) gave 240 Chulalongkorn undergraduates the same task: find out what a particular philosopher thought on a topic and support it with a quotation from his work, using any online source. About one student in five chose a chatbot as the main source.",
+          links: [{ match: "gave 240 Chulalongkorn undergraduates the same task", href: "/en/research/ai-generated-citations-students" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "split",
+            title: "One student in five went to a chatbot for an academic answer",
+            subtitle: "Main source students used for the same task · 240 students",
+            alt: "Stacked bar of 240 students' main source: Google 57%, chatbot 22%, Wikipedia 21%",
+            source: "Source: Slutskiy (2025), Manusya: Journal of Humanities · 240 students",
+            prompt: "Pick first: which source did students use most?",
+            answerNote: "But chatbots came second.",
+            data: [
+              { label: "Google", value: 57 },
+              { label: "Chatbot", value: 22 },
+              { label: "Wikipedia", value: 21 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Thirty-seven submissions included a quotation attributed to the philosopher, with the title of the work and the year, just like a real citation. Not one of the quotations appears in the work cited, and all 37 students were confident they had quoted the original. The problem is not only that the tool was wrong. It is that the answer arrived looking as if it had already been checked.",
+        },
+        { kind: "h2", text: "What causes stress is quantity, not difficulty" },
+        {
+          kind: "p",
+          text: "A study by Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2023) surveyed 803 first-year students during fully online teaching. The form of technology stress that stood clearly above the rest was the sense of too many tools and tasks arriving at once. The sense that the technology was hard to use was fairly low.",
+          links: [{ match: "surveyed 803 first-year students", href: "/en/research/first-year-online-learning-technostress" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Too many tools is more stressful than hard tools",
+            subtitle: "Mean technostress scores on four dimensions (out of 5) · first-year non-science students, 2020 academic year",
+            alt: "Bar chart of mean technostress scores for non-science students out of 5: overload 3.64, insecurity 2.96, uncertainty 2.95, complexity 2.88",
+            source: "Source: Chongkolrattanaporn (2023), PASAA · survey of 803 first-year students",
+            unit: " of 5",
+            data: [
+              { label: "Too many tools and tasks", value: 3.64, highlight: true },
+              { label: "Fear of falling behind", value: 2.96 },
+              { label: "Technology keeps changing", value: 2.95 },
+              { label: "Hard to use", value: 2.88 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Science students showed the same picture, with overload at 3.52 out of 5, above every other dimension. The remedy is therefore not more training in the tools, but fewer systems per programme and deadlines across courses that do not pile up together.",
+        },
+        { kind: "h2", text: "Quizzes help recall; applying knowledge comes from conversation" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima, Asst. Prof. Dr Teerada Chongkolrattanaporn and Dr Wassayut Kongjan (published in 2023) tried interactive media in an online master's course with 23 students. Mean scores rose from 6.77 to 8.20 after using the media, but repeating the same quiz added nothing and participation fell by about half. Students said the quizzes helped short-term memory, while applying the material to real work came from talking with the lecturer and classmates and getting direct feedback. They also asked for the slides as a plain PDF to annotate, even though a web presentation with videos was already provided.",
+          links: [{ match: "tried interactive media in an online master's course", href: "/en/research/online-class-cognitive-load-interactive-media" }],
+        },
+        { kind: "h2", text: "Fluent use is not the same as discernment" },
+        {
+          kind: "p",
+          text: "A study by Dr Muhammad Ibtesam Mazahir and Yaseen (published in 2025) surveyed 500 adults in Pakistan who use media at least an hour a day. Only 41% could correctly identify biased or misleading news. Younger people handled digital tools more easily, but the interviews showed that many still could not tell which content was credible.",
+          links: [{ match: "surveyed 500 adults in Pakistan", href: "/en/research/adult-media-literacy-pakistan" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Daily media users, but under half could spot biased news",
+            subtitle: "Share of respondents able to do each · 500 adults in Pakistan, March–April 2025",
+            alt: "Bar chart of the share of respondents: could identify biased or misleading news 41%, understood privacy settings 33%, had ever created or shared original content 18%",
+            source: "Source: Mazahir and Yaseen (2025), International Journal of Media and Information Literacy · survey of 500 people",
+            guess: "Could spot biased or misleading news",
+            prompt: "Guess first: what share of daily media users could spot biased news?",
+            answerNote: "Under half, despite using media every day.",
+            data: [
+              { label: "Could spot biased or misleading news", value: 41 },
+              { label: "Understood privacy settings", value: 33 },
+              { label: "Had created or shared own content", value: 18 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "A collection by Giray and colleagues (published in 2024), co-written by Dr Robbie Jan Vincent T. Buelo, brought together the reflections of eight lecturers and administrators in the Philippines in the first months after ChatGPT launched. All of them used AI in real work, but they also met fabricated references and students submitting AI-written work as their own. At the time, none of the four institutions had a full AI policy. The authors agreed that prohibition would not work, and proposed separating AI that helps polish language or manage references from AI that produces the answer.",
+          links: [{ match: "brought together the reflections of eight lecturers and administrators in the Philippines", href: "/en/research/ai-philippine-higher-education-reflections" }],
+        },
+        { kind: "h2", text: "Four points for teachers and trainers" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Teach people to go back to the source",
+              text: "Have learners confirm every quotation and figure from AI against the original, and count the checking towards the grade. A book title and a year do not prove a quotation exists.",
+            },
+            {
+              title: "Say clearly which kinds of AI use are allowed",
+              text: "Separate help with language or citation formatting from having AI write the answer, and ask learners to say what they used, rather than banning everything.",
+            },
+            {
+              title: "Cut the number of tools before adding training",
+              text: "If learners are stressed by quantity, teaching more tools does not help. Use fewer systems and schedule deadlines across courses so they do not collide.",
+            },
+            {
+              title: "Use quizzes in moderation and add time to talk",
+              text: "Quizzes help recall, but repeats lose value fast. Open live discussion at regular intervals, because applying knowledge comes from debate and the teacher's feedback.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The chatbot study used one task at one university, collected when students were using ChatGPT 3.5; tools that search the web and attach links may behave differently, so the source split is a snapshot of that time. The technostress study was conducted during fully online teaching, which is not a normal condition. The interactive media study had a single group of 23 students, no comparison group, and the lead researcher taught the course. The Philippine study is eight authors' own reflections, not a survey. The Pakistan study covers only people using media at least an hour a day, and its urban–rural difference carries no test statistic.",
+        },
+        { kind: "h2", text: "Tools change fast; the habit of checking lasts" },
+        {
+          kind: "p",
+          text: "AI and online tools will change many more times. What repays a teacher's investment is the habit of going back to the source, being open about which tools were used, and organising learning so it does not bury learners under so much that they have no time to think.",
+        },
+        {
+          kind: "note",
+          text: "If your institution or organisation is setting guidelines for AI in learning, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and share what we have learned.",
+        },
+      ],
+    },
+  },
 ];
 
 export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
