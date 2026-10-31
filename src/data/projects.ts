@@ -375,7 +375,8 @@ export const projects: Project[] = [
       { value: "6", unit: "เดือน", label: "ระยะเวลาหลักสูตรออนไลน์" },
       { value: "30+", unit: "สัญชาติ", label: "ผู้เรียนจากทั่วโลก" },
     ],
-    // ตรวจด้วย oEmbed 31 ต.ค. 2569 ทั้งสามคลิปตอบ 200 · ช่อง YouTube ของ Talk Thai Today
+    // ตรวจด้วย oEmbed 31 ต.ค. 2569 ตอบ 200 · ช่อง YouTube ของ Talk Thai Today
+    // คลิปสั้นแนวตั้งสองคลิป (7uky4SuwEkA · bt6Z2cN4rRU) ถอดออกแล้ว ผู้ใช้เห็นว่าเสียงไม่ตรงปากและจังหวะไม่ดี
     videos: [
       {
         youtubeId: "y676MxEwZhM",
@@ -384,26 +385,6 @@ export const projects: Project[] = [
           th: "Talk Thai Today: สื่อสารในชีวิตประจำวันได้ตั้งแต่วันแรก",
           en: "Talk Thai Today: communicate in daily life in Thailand from day one",
           zh: "Talk Thai Today：从第一天起就能用泰语进行日常沟通",
-        },
-        aiGenerated: true,
-      },
-      {
-        youtubeId: "7uky4SuwEkA",
-        orientation: "portrait",
-        title: {
-          th: "คลิปสั้น: คุยภาษาไทยในร้านกาแฟ",
-          en: "Short: speaking Thai in a café",
-          zh: "短片：在咖啡馆说泰语",
-        },
-        aiGenerated: true,
-      },
-      {
-        youtubeId: "bt6Z2cN4rRU",
-        orientation: "portrait",
-        title: {
-          th: "คลิปสั้น: คุยภาษาไทยกับแม่ค้าร้านอาหาร",
-          en: "Short: chatting in Thai at a food stall",
-          zh: "短片：在小吃摊用泰语聊天",
         },
         aiGenerated: true,
       },
