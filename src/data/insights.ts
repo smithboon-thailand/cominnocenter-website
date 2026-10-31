@@ -2855,6 +2855,17 @@ export const insights: InsightPost[] = [
       dek: "งานวิจัยห้าชิ้นเรื่องครีเอเตอร์ ผู้สนับสนุน และจุดยืนของแบรนด์ ชี้ไปทางเดียวกันว่า ยอดผู้ติดตามบอกได้แค่ว่าคนเห็น สิ่งที่ทำให้คนเชื่อและอยากซื้อคือความเข้ากันระหว่างครีเอเตอร์ สินค้า และคนดูกลุ่มนั้น",
       coverAlt: "ภาพประกอบกระดาษ ถุงช้อปปิ้งสีแดงเลือดหมูบนพื้นกระดาษสีครีม มีป้ายรูปหัวใจสีทองห้อยอยู่ที่หูถุง",
       coverCaption: "ภาพประกอบสร้างด้วย AI",
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "Rakuten Insight via Statista. (2023, June 12). Share of people who followed influencers on social media in Thailand as of May 2023. เข้าถึงเมื่อ 31 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1202049/thailand-share-of-people-following-influencers/",
+        },
+        {
+          text: "Rakuten Insight via Statista. (2023, June 12). Share of people who have purchased a product endorsed by an influencer in Thailand as of May 2023. เข้าถึงเมื่อ 31 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1202107/thailand-influencers-impact-on-purchasing/",
+        },
+      ],
       body: [
         {
           kind: "p",
@@ -2863,6 +2874,27 @@ export const insights: InsightPost[] = [
         {
           kind: "p",
           text: "คำถามของแพรเป็นคำถามที่คนทำแบรนด์เจอกันบ่อย งานวิจัยห้าชิ้นในบทความนี้ศึกษาคนดูเกม ผู้ชมคอร์สออนไลน์ และผู้บริโภครุ่นใหม่ แล้วได้คำตอบที่ตรงกันอย่างน่าสนใจ",
+        },
+        {
+          kind: "p",
+          text: "ครีเอเตอร์มีอิทธิพลกับคนไทยจริง ผลสำรวจออนไลน์ของ Rakuten Insight เมื่อเดือนพฤษภาคม 2566 ที่เผยแพร่ผ่าน Statista พบว่าคนไทยราว 82% ติดตามอินฟลูเอนเซอร์อย่างน้อยหนึ่งคน และราว 81% บอกว่าเคยซื้อสินค้าเพราะอินฟลูเอนเซอร์แนะนำ คำถามจึงไม่ใช่ว่าควรใช้ครีเอเตอร์หรือไม่ แต่คือควรเลือกใคร และวัดผลอย่างไร",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คนไทยแปดในสิบตามอินฟลูเอนเซอร์ และเคยซื้อตาม",
+            subtitle: "สัดส่วนผู้ตอบแบบสำรวจออนไลน์อายุ 16 ปีขึ้นไป · ประเทศไทย 11–31 พฤษภาคม 2566 · สองคำถามมีจำนวนผู้ตอบต่างกัน",
+            alt: "กราฟแท่งแสดงสัดส่วนคนไทยที่ติดตามอินฟลูเอนเซอร์อย่างน้อยหนึ่งคน 81.93% จากผู้ตอบ 21,494 คน และเคยซื้อสินค้าเพราะอินฟลูเอนเซอร์แนะนำ 80.94% จากผู้ตอบ 17,621 คน",
+            source: "ที่มา: Rakuten Insight via Statista, 2023 · สำรวจออนไลน์ 21,494 และ 17,621 คน",
+            guess: "เคยซื้อสินค้าเพราะอินฟลูเอนเซอร์แนะนำ",
+            prompt: "ลองทายก่อน: คนไทยกี่เปอร์เซ็นต์บอกว่าเคยซื้อสินค้าเพราะอินฟลูเอนเซอร์แนะนำ",
+            answerNote: "เกือบเท่ากับสัดส่วนคนที่ติดตามอินฟลูเอนเซอร์",
+            data: [
+              { label: "ติดตามอินฟลูเอนเซอร์อย่างน้อยหนึ่งคน", value: 81.93 },
+              { label: "เคยซื้อสินค้าเพราะอินฟลูเอนเซอร์แนะนำ", value: 80.94 },
+            ],
+          },
         },
         { kind: "h2", text: "คนดูแต่ละกลุ่มเชื่อครีเอเตอร์ด้วยเหตุผลต่างกัน" },
         {
@@ -2967,7 +2999,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
         {
           kind: "p",
-          text: "งานทั้งห้าชิ้นวัดความตั้งใจซื้อที่ผู้ตอบบอกเอง ไม่ได้วัดยอดขายจริง และเป็นข้อมูลจากจุดเวลาเดียว จึงบอกได้ว่าปัจจัยไหนไปด้วยกัน แต่บอกไม่ได้ว่าอะไรเป็นสาเหตุ งานวีทูปเบอร์เก็บข้อมูลจากผู้เล่นเกมหญิงเท่านั้นและใช้ครีเอเตอร์เพียงสองคน งานยูทูบเบอร์สายเกมศึกษาผู้ติดตามคนเดียว และผู้ตอบส่วนใหญ่เป็นผู้ชาย งานแปลซับมาจากกลุ่มแฟนคลับกลุ่มเดียวซึ่งเป็นคนที่ยังติดตามอยู่ งานเจนซีมีผู้ตอบเป็นผู้หญิง 84.7% ส่วนงานจุดยืนของแบรนด์ศึกษาแบรนด์อสังหาริมทรัพย์แบรนด์เดียว กับนิสิตที่ส่วนใหญ่ยังไม่ได้เป็นผู้ซื้อสินค้าประเภทนี้",
+          text: "งานทั้งห้าชิ้นวัดความตั้งใจซื้อที่ผู้ตอบบอกเอง ไม่ได้วัดยอดขายจริง และเป็นข้อมูลจากจุดเวลาเดียว จึงบอกได้ว่าปัจจัยไหนไปด้วยกัน แต่บอกไม่ได้ว่าอะไรเป็นสาเหตุ งานวีทูปเบอร์เก็บข้อมูลจากผู้เล่นเกมหญิงเท่านั้นและใช้ครีเอเตอร์เพียงสองคน งานยูทูบเบอร์สายเกมศึกษาผู้ติดตามคนเดียว และผู้ตอบส่วนใหญ่เป็นผู้ชาย งานแปลซับมาจากกลุ่มแฟนคลับกลุ่มเดียวซึ่งเป็นคนที่ยังติดตามอยู่ งานเจนซีมีผู้ตอบเป็นผู้หญิง 84.7% ส่วนงานจุดยืนของแบรนด์ศึกษาแบรนด์อสังหาริมทรัพย์แบรนด์เดียว กับนิสิตที่ส่วนใหญ่ยังไม่ได้เป็นผู้ซื้อสินค้าประเภทนี้ สถิติจาก Rakuten Insight เป็นการสำรวจออนไลน์ปี 2566 และการเคยซื้อตามคำแนะนำเป็นสิ่งที่ผู้ตอบบอกเอง",
         },
         { kind: "h2", text: "เลือกคนที่คนดูเชื่อ แล้ววัดจากสิ่งที่คนดูทำ" },
         {
@@ -2985,6 +3017,17 @@ export const insights: InsightPost[] = [
       dek: "Five studies of creators, sponsorship and brand stance point the same way. Follower counts tell you how many people saw something. What makes people believe and want to buy is the fit between the creator, the product and that particular audience.",
       coverAlt: "Paper-craft illustration on cream paper: a burgundy shopping bag with a gold heart-shaped tag hanging from its handle",
       coverCaption: "Illustration generated with AI",
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "Rakuten Insight via Statista. (2023, June 12). Share of people who followed influencers on social media in Thailand as of May 2023. Accessed 31 October 2026.",
+          url: "https://www.statista.com/statistics/1202049/thailand-share-of-people-following-influencers/",
+        },
+        {
+          text: "Rakuten Insight via Statista. (2023, June 12). Share of people who have purchased a product endorsed by an influencer in Thailand as of May 2023. Accessed 31 October 2026.",
+          url: "https://www.statista.com/statistics/1202107/thailand-influencers-impact-on-purchasing/",
+        },
+      ],
       body: [
         {
           kind: "p",
@@ -2993,6 +3036,27 @@ export const insights: InsightPost[] = [
         {
           kind: "p",
           text: "Brand teams ask Prae's question all the time. The five studies brought together here look at gaming audiences, viewers of online courses and young consumers, and their answers line up in an interesting way.",
+        },
+        {
+          kind: "p",
+          text: "Creators clearly matter to Thai consumers. An online survey by Rakuten Insight in May 2023, published via Statista, found that about 82% of Thais follow at least one influencer, and about 81% say they have bought a product because an influencer recommended it. So the question is not whether to work with creators, but whom to choose and how to measure the result.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Eight in ten Thais follow influencers, and have bought on their word",
+            subtitle: "Share of online survey respondents aged 16 and over · Thailand, 11–31 May 2023 · the two questions had different numbers of respondents",
+            alt: "Bar chart: 81.93% of Thais follow at least one influencer (21,494 respondents) and 80.94% have bought a product an influencer recommended (17,621 respondents)",
+            source: "Source: Rakuten Insight via Statista, 2023 · online surveys of 21,494 and 17,621 people",
+            guess: "Have bought on an influencer's recommendation",
+            prompt: "Guess first: what share of Thais say they have bought a product because an influencer recommended it?",
+            answerNote: "Almost the same as the share who follow influencers.",
+            data: [
+              { label: "Follow at least one influencer", value: 81.93 },
+              { label: "Have bought on an influencer's recommendation", value: 80.94 },
+            ],
+          },
         },
         { kind: "h2", text: "Different audiences trust creators for different reasons" },
         {
@@ -3097,7 +3161,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "Reading this evidence with care" },
         {
           kind: "p",
-          text: "All five studies measure self-reported intention to buy, not actual sales, and each is a single snapshot, so they show which factors go together, not what causes what. The VTuber study surveyed female gamers only and used just two creators. The gaming YouTuber study looked at one creator's followers, most of them men. The fansub study drew on a single fan group of people who were still following it. The Gen Z study's respondents were 84.7% women. The brand-stance study covered one property brand, with students most of whom are not yet buyers in that category.",
+          text: "All five studies measure self-reported intention to buy, not actual sales, and each is a single snapshot, so they show which factors go together, not what causes what. The VTuber study surveyed female gamers only and used just two creators. The gaming YouTuber study looked at one creator's followers, most of them men. The fansub study drew on a single fan group of people who were still following it. The Gen Z study's respondents were 84.7% women. The brand-stance study covered one property brand, with students most of whom are not yet buyers in that category. The Rakuten Insight figures come from a 2023 online survey, and having bought on a recommendation is what respondents said themselves.",
         },
         { kind: "h2", text: "Choose who the audience believes, then measure what the audience does" },
         {
@@ -3123,6 +3187,13 @@ export const insights: InsightPost[] = [
       dek: "งานวิจัยสามชิ้นตั้งแต่โควิด-19 เหตุจับตัวประกัน จนถึงการรณรงค์ค้านเขื่อน ชี้ว่าความน่าเชื่อถือในภาวะวิกฤตไม่ได้มาจากตำแหน่งของผู้พูด แต่มาจากผลที่คนมองเห็น การยอมรับความผิดพลาด และข้อเท็จจริงที่คนส่งต่อได้",
       coverAlt: "ภาพประกอบกระดาษ ประภาคารสีน้ำเงินที่ซ้อนจากแถบกระดาษหลายชั้น มีห้องโคมสีเขียวอยู่บนยอด บนพื้นกระดาษสีครีม",
       coverCaption: "ภาพประกอบสร้างด้วย AI",
+      referencesTitle: "ข้อมูลประกอบจาก Statista",
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism, YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026. เข้าถึงเมื่อ 31 ตุลาคม 2569",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/",
+        },
+      ],
       body: [
         {
           kind: "p",
@@ -3158,6 +3229,28 @@ export const insights: InsightPost[] = [
         {
           kind: "p",
           text: "ผู้วิจัยสรุปว่าความน่าเชื่อถือในช่วงนั้นขึ้นอยู่กับว่ารัฐดูเหมือนกำลังชนะหรือไม่ มากกว่าความจริงหรือความโปร่งใสของข้อความ เมื่อคนเลิกเชื่อ เขาไม่ได้เลิกหาข้อมูล แต่หันไปหาองค์การระหว่างประเทศแทน และการออกกฎคุมข้อมูลที่ทำให้ประชาชนตื่นกลัวแม้จะเป็นเรื่องจริง ก็ถูกมองว่าเป็นการปิดปากมากกว่าการแก้ปัญหา",
+        },
+        {
+          kind: "p",
+          text: "ความเชื่อถือเปลี่ยนได้เร็วกว่าที่คิด ไม่ใช่แค่ความเชื่อต่อรัฐ ผลสำรวจออนไลน์ของ Reuters Institute ที่เผยแพร่ผ่าน Statista พบว่าความเชื่อถือข่าวโดยรวมของคนไทยอยู่ที่ราวครึ่งหนึ่งมาตลอด แล้วลดจาก 55% ในปี 2568 เหลือ 47% ในปี 2569 ต่ำที่สุดในหกปีที่มีข้อมูล",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "ความเชื่อถือข่าวของคนไทยลดลงต่ำสุดในหกปี",
+            subtitle: "สัดส่วนผู้ตอบที่บอกว่าเชื่อถือข่าวส่วนใหญ่ได้เกือบตลอดเวลา · ประเทศไทย 2564–2569 · สำรวจออนไลน์",
+            alt: "กราฟเส้นแสดงความเชื่อถือข่าวโดยรวมของคนไทย ปี 2564 50% ปี 2565 53% ปี 2566 51% ปี 2567 54% ปี 2568 55% และปี 2569 47%",
+            source: "ที่มา: Reuters Institute for the Study of Journalism, YouGov via Statista, 2026 · ปี 2569 สำรวจออนไลน์ 2,043 คน",
+            data: [
+              { label: "2564", value: 50 },
+              { label: "2565", value: 53 },
+              { label: "2566", value: 51 },
+              { label: "2567", value: 54 },
+              { label: "2568", value: 55 },
+              { label: "2569", value: 47, highlight: true },
+            ],
+          },
         },
         { kind: "h2", text: "ถ้าองค์กรไม่ยอมรับว่าเป็นวิกฤต ก็ไม่มีใครรับผิดชอบ" },
         {
@@ -3236,7 +3329,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
         {
           kind: "p",
-          text: "งานโควิดเป็นการวิเคราะห์เชิงคุณภาพ ไม่ได้นับจำนวนโพสต์หรือสัดส่วนความเห็น ความสัมพันธ์ระหว่างคะแนนนิยมกับความเชื่อถือจึงอ่านจากลำดับเหตุการณ์ ไม่ได้วัดทางสถิติ และคะแนนนิยมมาจากโพลกับรายงานข่าว ไม่ใช่ข้อมูลที่ผู้วิจัยเก็บเอง งานสถานีโทรทัศน์ศึกษาเหตุการณ์เดียว สามสถานี และผู้ให้สัมภาษณ์เจ็ดคน ส่วนงานแม่วงก์เป็นกรณีศึกษาเดียวจากข้อมูลปี 2556 บนทวิตเตอร์เป็นหลัก และตัดสินความสำเร็จจากผลทางนโยบาย ไม่ได้วัดการเปลี่ยนทัศนคติของคนโดยตรง บทความนี้ตั้งใจไม่ระบุชื่อบุคคล สถานีโทรทัศน์ และบริษัทที่ถูกวิจารณ์ในงานต้นฉบับ เพราะบทเรียนอยู่ที่กลไก ไม่ได้อยู่ที่ว่าใครเกี่ยวข้อง",
+          text: "งานโควิดเป็นการวิเคราะห์เชิงคุณภาพ ไม่ได้นับจำนวนโพสต์หรือสัดส่วนความเห็น ความสัมพันธ์ระหว่างคะแนนนิยมกับความเชื่อถือจึงอ่านจากลำดับเหตุการณ์ ไม่ได้วัดทางสถิติ และคะแนนนิยมมาจากโพลกับรายงานข่าว ไม่ใช่ข้อมูลที่ผู้วิจัยเก็บเอง งานสถานีโทรทัศน์ศึกษาเหตุการณ์เดียว สามสถานี และผู้ให้สัมภาษณ์เจ็ดคน ส่วนงานแม่วงก์เป็นกรณีศึกษาเดียวจากข้อมูลปี 2556 บนทวิตเตอร์เป็นหลัก และตัดสินความสำเร็จจากผลทางนโยบาย ไม่ได้วัดการเปลี่ยนทัศนคติของคนโดยตรง ตัวเลขความเชื่อถือข่าวจาก Reuters Institute เป็นการสำรวจออนไลน์ จึงสะท้อนคนที่ใช้อินเทอร์เน็ตเป็นหลัก และวัดความเชื่อถือข่าวโดยรวม ไม่ได้วัดความเชื่อต่อหน่วยงานรัฐ บทความนี้ตั้งใจไม่ระบุชื่อบุคคล สถานีโทรทัศน์ และบริษัทที่ถูกวิจารณ์ในงานต้นฉบับ เพราะบทเรียนอยู่ที่กลไก ไม่ได้อยู่ที่ว่าใครเกี่ยวข้อง",
         },
         { kind: "h2", text: "ความน่าเชื่อถือสร้างก่อนวิกฤต และพิสูจน์ระหว่างวิกฤต" },
         {
@@ -3254,6 +3347,13 @@ export const insights: InsightPost[] = [
       dek: "Three studies, from COVID-19 to a hostage crisis to a campaign against a dam, show that credibility in a crisis does not come from the speaker's position. It comes from results people can see, from admitting mistakes, and from facts people can pass on.",
       coverAlt: "Paper-craft illustration on cream paper: a blue lighthouse built from layered paper bands, with a green lantern room at the top",
       coverCaption: "Illustration generated with AI",
+      referencesTitle: "Supporting data from Statista",
+      references: [
+        {
+          text: "Reuters Institute for the Study of Journalism, YouGov via Statista. (2026, July 14). Level of trust in the news in Thailand from 2021 to 2026. Accessed 31 October 2026.",
+          url: "https://www.statista.com/statistics/1457023/thailand-level-of-trust-in-the-news/",
+        },
+      ],
       body: [
         {
           kind: "p",
@@ -3289,6 +3389,28 @@ export const insights: InsightPost[] = [
         {
           kind: "p",
           text: "The researchers conclude that credibility in that period depended on whether the government seemed to be winning, more than on how true or transparent its messages were. When people stopped believing, they did not stop looking for information; they turned to international bodies instead. And a rule restricting information that caused public fear, even when it was true, read as silencing rather than solving.",
+        },
+        {
+          kind: "p",
+          text: "Trust can shift faster than we expect, and not only trust in government. An online survey by the Reuters Institute, published via Statista, shows overall trust in news among Thais hovering around half for years, then falling from 55% in 2025 to 47% in 2026, the lowest in the six years of data.",
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "area",
+            title: "Thai trust in news fell to a six-year low",
+            subtitle: "Share of respondents who say they trust most news most of the time · Thailand, 2021–2026 · online survey",
+            alt: "Line chart of overall trust in news in Thailand: 50% in 2021, 53% in 2022, 51% in 2023, 54% in 2024, 55% in 2025 and 47% in 2026",
+            source: "Source: Reuters Institute for the Study of Journalism, YouGov via Statista, 2026 · 2026 online survey of 2,043 people",
+            data: [
+              { label: "2021", value: 50 },
+              { label: "2022", value: 53 },
+              { label: "2023", value: 51 },
+              { label: "2024", value: 54 },
+              { label: "2025", value: 55 },
+              { label: "2026", value: 47, highlight: true },
+            ],
+          },
         },
         { kind: "h2", text: "If the organisation does not call it a crisis, no one owns it" },
         {
@@ -3367,7 +3489,7 @@ export const insights: InsightPost[] = [
         { kind: "h2", text: "Reading this evidence with care" },
         {
           kind: "p",
-          text: "The COVID study is a qualitative analysis. It reports no post counts or proportions of opinion, so the link between approval and credibility is read from the sequence of events rather than measured, and the approval figures come from polls and news reports rather than the researchers' own data. The TV study covers one event, three stations and seven interviewees. The Mae Wong study is a single case from 2013 data, mainly from Twitter, and judges success by the policy outcome rather than by measuring attitude change directly. This article deliberately does not name the individuals, TV stations or companies criticised in the original studies, because the lesson lies in the mechanism, not in who was involved.",
+          text: "The COVID study is a qualitative analysis. It reports no post counts or proportions of opinion, so the link between approval and credibility is read from the sequence of events rather than measured, and the approval figures come from polls and news reports rather than the researchers' own data. The TV study covers one event, three stations and seven interviewees. The Mae Wong study is a single case from 2013 data, mainly from Twitter, and judges success by the policy outcome rather than by measuring attitude change directly. The Reuters Institute news-trust figures come from an online survey, so they mainly reflect internet users, and they measure trust in news overall rather than trust in government. This article deliberately does not name the individuals, TV stations or companies criticised in the original studies, because the lesson lies in the mechanism, not in who was involved.",
         },
         { kind: "h2", text: "Credibility is built before a crisis and proved during one" },
         {
