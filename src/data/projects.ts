@@ -30,6 +30,20 @@ export type ProjectTestimonial = {
   org: string;
 };
 
+/**
+ * คลิปบน YouTube ของโครงการ (31 ต.ค. 2569) — แสดงก่อนแกลเลอรีภาพบนหน้ารายละเอียดทั้งสามภาษา
+ * ผ่าน `ProjectVideos` (facade โหลด iframe ตอนกดเล่นเหมือน `PaperVideo`)
+ * · `portrait` = คลิปแนวตั้ง 9:16 (YouTube ส่ง thumbnail เป็น 16:9 ที่มีแถบข้าง หน้าเว็บจึงครอปกลางภาพ)
+ * · `aiGenerated` = ภาพหรือเสียงในคลิปสร้างด้วย AI ต้องบอกผู้ชมใต้คลิป
+ * · คลิปต้องเป็นสาธารณะหรือไม่เป็นสาธารณะ (ส่วนตัวฝังไม่ได้) — ตรวจด้วย oEmbed ก่อนใส่ทุกครั้ง
+ */
+export type ProjectVideo = {
+  youtubeId: string;
+  orientation: "landscape" | "portrait";
+  title: { th: string; en: string; zh: string };
+  aiGenerated?: boolean;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -50,6 +64,7 @@ export type Project = {
   /** ตัวเลขผลลัพธ์ — มีเฉพาะโครงการที่ยืนยันตัวเลขได้ (ดู ProjectResult) */
   results?: ProjectResult[];
   testimonial?: ProjectTestimonial;
+  videos?: ProjectVideo[];
   sourceUrl: string;
 };
 
@@ -359,6 +374,39 @@ export const projects: Project[] = [
     results: [
       { value: "6", unit: "เดือน", label: "ระยะเวลาหลักสูตรออนไลน์" },
       { value: "30+", unit: "สัญชาติ", label: "ผู้เรียนจากทั่วโลก" },
+    ],
+    // ตรวจด้วย oEmbed 31 ต.ค. 2569 ทั้งสามคลิปตอบ 200 · ช่อง YouTube ของ Talk Thai Today
+    videos: [
+      {
+        youtubeId: "y676MxEwZhM",
+        orientation: "landscape",
+        title: {
+          th: "Talk Thai Today: สื่อสารในชีวิตประจำวันได้ตั้งแต่วันแรก",
+          en: "Talk Thai Today: communicate in daily life in Thailand from day one",
+          zh: "Talk Thai Today：从第一天起就能用泰语进行日常沟通",
+        },
+        aiGenerated: true,
+      },
+      {
+        youtubeId: "7uky4SuwEkA",
+        orientation: "portrait",
+        title: {
+          th: "คลิปสั้น: คุยภาษาไทยในร้านกาแฟ",
+          en: "Short: speaking Thai in a café",
+          zh: "短片：在咖啡馆说泰语",
+        },
+        aiGenerated: true,
+      },
+      {
+        youtubeId: "bt6Z2cN4rRU",
+        orientation: "portrait",
+        title: {
+          th: "คลิปสั้น: คุยภาษาไทยกับแม่ค้าร้านอาหาร",
+          en: "Short: chatting in Thai at a food stall",
+          zh: "短片：在小吃摊用泰语聊天",
+        },
+        aiGenerated: true,
+      },
     ],
     sourceUrl: "https://talkthaitoday.com/",
   },
