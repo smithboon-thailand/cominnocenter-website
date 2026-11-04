@@ -173,7 +173,8 @@ function Race({ chart, locale, palette }: { chart: InsightChartData; locale: Ful
 
   const hiding = armed && !revealed;
   const diff = target ? guess - target.value : 0;
-  const near = target ? Math.max(3, target.value * 0.08) : 0;
+  // ระยะ "ใกล้แล้ว" อิงสเกลของแถบเลื่อน ไม่ใช่ 3 ตายตัว — แถบเต็ม 20 จะให้ทายห่าง 3 คะแนนแล้วยังนับว่าใกล้ไม่ได้
+  const near = target ? Math.max(guessMax * 0.03, target.value * 0.08) : 0;
   const verdict = Math.abs(diff) <= near ? t.close : diff < 0 ? t.higher : t.lower;
   const motion = reduce ? "" : "transition-[width,left] duration-1000 ease-out";
 
