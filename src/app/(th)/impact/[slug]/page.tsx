@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectVideos from "@/components/impact/ProjectVideos";
 import SdgBadge from "@/components/ui/SdgBadge";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Button from "@/components/ui/Button";
@@ -209,6 +210,15 @@ export default async function CaseStudyPage({ params }: Props) {
       {project.testimonial && (
         <section className="mx-auto max-w-3xl px-6 py-16">
           <ProjectTestimonial testimonial={project.testimonial} accent={goal.deep} />
+        </section>
+      )}
+
+      {project.videos && project.videos.length > 0 && (
+        <section className="mx-auto max-w-5xl px-6 py-16">
+          <div className="mb-6">
+            <SectionHeader title="วิดีโอจากโครงการ" icon="story" description="กดที่ภาพเพื่อเล่นคลิป" />
+          </div>
+          <ProjectVideos videos={project.videos} locale="th" />
         </section>
       )}
 

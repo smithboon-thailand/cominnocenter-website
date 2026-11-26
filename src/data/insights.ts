@@ -3799,6 +3799,794 @@ export const insights: InsightPost[] = [
       ],
     },
   },
+  {
+    slug: "entertainment-that-teaches",
+    date: "2026-11-04",
+    author: SMITH,
+    palette: [4, 15],
+    cover: "/images/insights/entertainment-that-teaches-hero",
+    evidence: [
+      "slow-paced-flight-safety-videos",
+      "elephant-tales-sensory-exhibition",
+      "horror-storytelling-engagement",
+      "anime-thai-gen-z",
+    ],
+    th: {
+      title: "สนุกอย่างเดียวไม่พอ ต้องให้คนจำสาระกลับไปได้ด้วย",
+      dek: "งานวิจัยสี่ชิ้นเรื่องวิดีโอความปลอดภัย นิทรรศการช้าง รายการเล่าเรื่องผี และแฟนอนิเมะ ชี้ว่าการดึงคนให้หันมาดูกับการทำให้คนจำได้เป็นงานสองชิ้นที่ต้องออกแบบแยกกัน",
+      coverAlt: "ภาพประกอบกระดาษ สเลตถ่ายภาพยนตร์สีแดงเปิดแขนลายทางขึ้น มีใบไม้สีเขียวสามใบงอกออกมากลางแผ่นสเลต บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "คุณฝน (ตัวละครสมมติ) ดูแลงานประชาสัมพันธ์ของหน่วยงานรัฐแห่งหนึ่ง ปีนี้ได้งบทำคลิปรณรงค์หนึ่งชิ้น ทีมเสนอให้ใส่มุกเยอะๆ จะได้มีคนแชร์ แต่เธอยังตอบตัวเองไม่ได้ว่า ถ้าคนดูขำแล้วเลื่อนผ่านไป สาระที่อยากบอกจะติดอยู่ในหัวใครบ้าง",
+        },
+        {
+          kind: "p",
+          text: "งานวิจัยสี่ชิ้นในบทความนี้ตอบคำถามนี้จากคนละมุม ทั้งวิดีโอที่ต้องสอนให้ได้ นิทรรศการที่ต้องให้คนรู้สึก รายการที่มีแฟนเหนียวแน่น และวัฒนธรรมที่คนรุ่นใหม่ส่งต่อกันเอง",
+        },
+        { kind: "h2", text: "ช้า ชัด ทีละเรื่อง แล้วคนจะจำได้เกือบครบ" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และ Panusak Noonpakdee (ตีพิมพ์ปี 2564 เก็บข้อมูลปี 2558) ทดลองกับนักเรียนอายุ 14–16 ปี 128 คน ในอำเภอที่ไม่มีสนามบิน ครึ่งหนึ่งเคยขึ้นเครื่องบิน อีกครึ่งไม่เคย กลุ่มหนึ่งดูวิดีโอความปลอดภัยบนเครื่องบินที่พูดช้า ทีละเรื่อง ไม่มีอะไรมาดึงความสนใจ อีกกลุ่มดูคลิปตลกที่ยาวเท่ากัน แล้วทั้งสองกลุ่มทำแบบทดสอบ 20 ข้อชุดเดิมซ้ำ",
+          links: [{ match: "ทดลองกับนักเรียนอายุ 14–16 ปี 128 คน", href: "/research/slow-paced-flight-safety-videos" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "วิดีโอที่พูดช้าและเรียบง่าย ทำให้คะแนนเกือบเต็ม",
+            subtitle: "คะแนนเฉลี่ยหลังดู (เต็ม 20) · นักเรียน 128 คน ก่อนดูได้ราว 14–15 คะแนนทุกกลุ่ม",
+            alt: "กราฟแท่งแสดงคะแนนเฉลี่ยหลังดูจากเต็ม 20 กลุ่มที่ดูวิดีโอความปลอดภัยและไม่เคยขึ้นเครื่องบิน 19.53 กลุ่มที่ดูวิดีโอความปลอดภัยและเคยขึ้นเครื่องบิน 19.44 กลุ่มที่ดูคลิปตลกและเคยขึ้นเครื่องบิน 16.44 และกลุ่มที่ดูคลิปตลกและไม่เคยขึ้นเครื่องบิน 15.59",
+            source: "ที่มา: Boonchutima และ Noonpakdee (2021) Journal of Public Health and Development · นักเรียน 128 คน",
+            unit: " จาก 20",
+            guess: "ดูวิดีโอความปลอดภัย · ไม่เคยขึ้นเครื่องบิน",
+            guessMax: 20,
+            prompt: "ลองทายก่อน: นักเรียนที่ไม่เคยขึ้นเครื่องบินเลย ดูวิดีโอแล้วได้กี่คะแนนจาก 20",
+            answerNote: "เท่ากับคนที่เคยบิน ทั้งที่ก่อนดูได้แค่ 14.06",
+            data: [
+              { label: "ดูวิดีโอความปลอดภัย · ไม่เคยขึ้นเครื่องบิน", value: 19.53, highlight: true },
+              { label: "ดูวิดีโอความปลอดภัย · เคยขึ้นเครื่องบิน", value: 19.44 },
+              { label: "ดูคลิปตลก · เคยขึ้นเครื่องบิน", value: 16.44 },
+              { label: "ดูคลิปตลก · ไม่เคยขึ้นเครื่องบิน", value: 15.59 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "นักเรียนที่ไม่เคยขึ้นเครื่องบินเลยได้คะแนนขึ้นจาก 14.06 เป็น 19.53 เท่ากับคนที่เคยบิน และคะแนนของนักเรียนชายกับหญิงก็ไม่ต่างกัน แต่ผู้วิจัยเตือนไว้เองว่า วิดีโอแบบนี้ทำงานได้ดีเมื่อคนตั้งใจดูอยู่แล้ว การทำให้คนหันมาดูตั้งแต่แรกเป็นอีกโจทย์หนึ่ง ผู้วิจัยจึงเสนอให้เปิดด้วยเรื่องที่ดึงความสนใจก่อน แล้วค่อยสอนอย่างช้าๆ ซึ่งยังเป็นข้อเสนอที่ยังไม่ได้ทดสอบ",
+        },
+        { kind: "h2", text: "ให้ร่างกายได้มีส่วนร่วม ความทรงจำจะอยู่ได้นาน" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2565) จัดนิทรรศการเรื่องช้างไทยสองวันในศูนย์การค้าชุมชน นอกจากภาพแล้วยังมีประติมากรรมให้จับ กลิ่นป่า เสียงช้าง และไอศกรีมรสผลไม้ที่ช้างชอบ ผู้ชม 231 คนให้คะแนนว่าได้มีส่วนร่วมกับงาน 4.68 และรู้สึกตระหนักเรื่องช้างมากขึ้น 4.66 จากเต็ม 5 และสองเรื่องนี้ไปด้วยกันค่อนข้างชัด (r = 0.64)",
+          links: [{ match: "จัดนิทรรศการเรื่องช้างไทยสองวันในศูนย์การค้าชุมชน", href: "/research/elephant-tales-sensory-exhibition" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "หนึ่งปีครึ่งผ่านไป ภาพกับรสชาติยังอยู่ แต่กลิ่นหายไปแล้ว",
+            subtitle: "จำนวนผู้ชมที่ยังจำแต่ละอย่างได้ · สัมภาษณ์ผู้ชม 6 คน พฤศจิกายน 2564",
+            alt: "กราฟแท่งแสดงจำนวนผู้ชมจาก 6 คนที่ยังจำได้หลังหนึ่งปีครึ่ง ภาพ 6 คน รสชาติไอศกรีม 6 คน เสียงช้าง 5 คน และกลิ่นป่า 1 คน",
+            source: "ที่มา: Boonchutima และคณะ (2022) Thinking Skills and Creativity · สัมภาษณ์ผู้ชม 6 คน",
+            unit: " จาก 6 คน",
+            data: [
+              { label: "ภาพ", value: 6 },
+              { label: "รสชาติไอศกรีม", value: 6, highlight: true },
+              { label: "เสียงช้าง", value: 5 },
+              { label: "กลิ่นป่า", value: 1 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "สิ่งที่ผู้ให้สัมภาษณ์พูดถึงเองโดยไม่ต้องถาม คือไอศกรีมกับประติมากรรมที่ได้จับ ซึ่งเป็นสิ่งที่ไม่มีในนิทรรศการทั่วไป ผู้วิจัยอธิบายว่าของที่แตกต่างจากสิ่งรอบตัวมักถูกจำได้ดีกว่า ส่วนกลิ่นแทบไม่มีใครจำได้ ถ้าจะลงทุนกับกลิ่นก็ต้องทำให้เด่นกว่านี้มาก",
+        },
+        { kind: "h2", text: "แฟนเชื่อใจรายการมาก แต่ไม่ได้แปลว่าจะช่วยจ่าย" },
+        {
+          kind: "p",
+          text: "งานของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ และ Krisada Thongmee (ตีพิมพ์ปี 2569) สำรวจคนที่ติดตามรายการเล่าเรื่องผี 400 คน ข้อที่ได้คะแนนสูงสุดคือเชื่อว่ารายการให้ข้อมูลจริงและน่าเชื่อถือ (3.81 จาก 5) แต่เมื่อถามว่าทำอะไรให้รายการบ้าง คะแนนกลับต่ำ โดยเฉพาะเรื่องที่ต้องเสียเงิน",
+          links: [{ match: "สำรวจคนที่ติดตามรายการเล่าเรื่องผี 400 คน", href: "/research/horror-storytelling-engagement" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คอมเมนต์และแชร์ให้ได้ แต่ควักเงินน้อยมาก",
+            subtitle: "คะแนนเฉลี่ยของสิ่งที่แฟนทำให้รายการ (เต็ม 5) · ผู้ติดตามรายการเล่าเรื่องผี 400 คน",
+            alt: "กราฟแท่งแสดงคะแนนเฉลี่ยจากเต็ม 5 คอมเมนต์ใต้คลิปหรือระหว่างไลฟ์ 3.28 แชร์คลิป 3.25 บริจาคเงิน 1.75 และร่วมทริปกับรายการ 1.41",
+            source: "ที่มา: Chongkolrattanaporn และ Thongmee (2026) Journal of Communication and Management NIDA · สำรวจ 400 คน",
+            unit: " จาก 5",
+            data: [
+              { label: "คอมเมนต์ใต้คลิปหรือระหว่างไลฟ์", value: 3.28 },
+              { label: "แชร์คลิป", value: 3.25 },
+              { label: "บริจาคเงิน", value: 1.75, highlight: true },
+              { label: "ร่วมทริปกับรายการ", value: 1.41 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ความเห็นที่ดีต่อรายการกับสิ่งที่ทำจริงสัมพันธ์กันน้อยมาก (r = 0.167) ชอบมากจึงไม่ได้แปลว่าจะสนับสนุนมาก สิ่งที่ผลการศึกษาชี้คือ ควรค่อยๆ พาคนจากสิ่งที่ทำอยู่แล้วอย่างคอมเมนต์และแชร์ ไปสู่การสนับสนุนที่จับต้องได้ทีละขั้น ไม่ใช่ขอเงินตั้งแต่แรก",
+        },
+        { kind: "h2", text: "ฟีดทำให้เห็น แต่เพื่อนสนิทเป็นคนตัดสินใจ" },
+        {
+          kind: "p",
+          text: "งานของ Chayanon Krongbooncho รศ.ดร.สมิทธิ์ บุญชุติมา และ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ (ตีพิมพ์ปี 2569) สัมภาษณ์คนในวงการอนิเมะในกรุงเทพฯ 23 คน ทั้งผู้จัดงาน ครีเอเตอร์ และแฟนหลายระดับ 20 คนบอกว่ารู้จักเรื่องใหม่ครั้งแรกจากติ๊กต็อก แต่ 21 คนบอกว่าที่ทำให้ลงมือดูจริงคือเพื่อนสนิทแนะนำ คนที่รู้ลึกในแนวเฉพาะได้รับความเชื่อถือ ส่วนเนื้อหาที่ดูเหมือนขายของถูกมองว่าไม่จริงใจ",
+          links: [{ match: "สัมภาษณ์คนในวงการอนิเมะในกรุงเทพฯ 23 คน", href: "/research/anime-thai-gen-z" }],
+        },
+        { kind: "h2", text: "ห้าข้อสำหรับคนทำสื่อสาระบันเทิง" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ออกแบบทางเข้ากับเนื้อหาแยกกัน",
+              text: "ช่วงเปิดมีหน้าที่ดึงให้คนหันมาดู ส่วนเนื้อหามีหน้าที่สอน วางแผนทั้งสองอย่างแยกกัน แล้วทดสอบว่าช่วงเปิดดึงคนได้จริงหรือไม่",
+            },
+            {
+              title: "พูดช้า ทีละเรื่อง ตัดสิ่งที่ไม่จำเป็นออก",
+              text: "ถ้าต้องการให้คนจำได้ อย่าอัดหลายประเด็นไว้ในฉากเดียว วิดีโอที่ช้าและเรียบง่ายสอนได้แม้กับคนที่ไม่มีพื้นฐานเลย และไม่ต้องทำแยกตามเพศ",
+            },
+            {
+              title: "ให้คนได้จับ ชิม หรือฟัง",
+              text: "สิ่งที่ผิดไปจากที่คนคาดไว้ และสิ่งที่ร่างกายได้มีส่วนร่วม ถูกจำได้นานกว่าการดูภาพแล้วอ่านคำบรรยาย",
+            },
+            {
+              title: "วางขั้นบันไดการสนับสนุน",
+              text: "เริ่มจากสิ่งที่แฟนทำอยู่แล้ว เช่น คอมเมนต์และแชร์ แล้วค่อยเพิ่มสิ่งที่ต้องลงแรงหรือลงเงินทีละขั้น",
+            },
+            {
+              title: "ให้คนที่รู้จริงในกลุ่มเป็นคนเล่า",
+              text: "ซื้อพื้นที่ในฟีดทำให้คนเห็นได้ แต่การตัดสินใจเกิดขึ้นในกลุ่มเพื่อน สนับสนุนคนที่รู้ลึกในเรื่องนั้นดีกว่าจ้างคนดังทั่วไป",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานวิดีโอความปลอดภัยทดลองในหอประชุมของโรงเรียน ไม่ใช่บนเครื่องบินจริง นักเรียนถูกบอกให้ตั้งใจดู วัดความรู้ ไม่ได้วัดว่าจะทำตามได้ในเหตุฉุกเฉินหรือไม่ และคะแนนชนเพดานจนเทียบกันในกลุ่มที่ดูวิดีโอได้ยาก งานนิทรรศการวัดหลังชมอย่างเดียว ความตระหนักที่เพิ่มขึ้นจึงเป็นการประเมินของผู้ชมเอง และสัมภาษณ์ติดตามผลเพียงหกคน งานรายการเล่าเรื่องผีวัดพฤติกรรมจากคำตอบในแบบสอบถาม ส่วนงานอนิเมะเป็นงานเชิงคุณภาพ ตัวเลขอย่าง 20 จาก 23 จึงบอกว่าประเด็นนั้นถูกพูดถึงบ่อยแค่ไหนในกลุ่มนี้ ไม่ได้บอกสัดส่วนของคนเจนซีทั้งประเทศ",
+        },
+        { kind: "h2", text: "ความสนุกพาคนเข้ามา สาระต้องออกแบบให้อยู่ต่อ" },
+        {
+          kind: "p",
+          text: "สื่อบันเทิงพาสาระไปถึงคนได้จริง แต่ไม่ได้เกิดเอง คลิปที่คนหัวเราะแล้วเลื่อนผ่านอาจไม่เหลืออะไรไว้เลย ถ้าไม่ได้คิดไว้ตั้งแต่ต้นว่าคนดูจะจำอะไรกลับไป และจะไปถึงพวกเขาผ่านใคร",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนสื่อรณรงค์หรือสื่อการเรียนรู้ที่ต้องทั้งสนุกและได้สาระ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและออกแบบร่วมกับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "Entertaining is not enough: people have to remember the message",
+      dek: "Four studies of a safety video, an elephant exhibition, a horror storytelling programme and anime fans show that getting people to look and getting them to remember are two separate jobs that need separate design.",
+      coverAlt: "Paper-craft illustration on cream paper: a red film clapperboard with its striped arm raised and three green leaves sprouting from the middle of the slate",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Fon (a fictional character) runs public relations for a government agency. This year she has a budget for one campaign clip. Her team wants to pack it with jokes so people will share it, but she cannot yet answer her own question: if viewers laugh and scroll on, who will still have the message in their head?",
+        },
+        {
+          kind: "p",
+          text: "The four studies in this article answer that question from different angles: a video that had to teach, an exhibition that had to make people feel, a programme with devoted fans, and a culture young people pass on among themselves.",
+        },
+        { kind: "h2", text: "Slow, clear, one point at a time, and people remember almost everything" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and Panusak Noonpakdee (published in 2021, data collected in 2015) worked with 128 students aged 14 to 16 in a district without an airport. Half had flown before and half had not. One group watched an in-flight safety video delivered slowly, one point at a time, with nothing to distract; the other watched a comedy clip of the same length. Both groups then retook the same 20-item test.",
+          links: [{ match: "worked with 128 students aged 14 to 16", href: "/en/research/slow-paced-flight-safety-videos" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "A slow, simple video brought scores close to perfect",
+            subtitle: "Mean score after viewing (out of 20) · 128 students, all groups scored about 14–15 before viewing",
+            alt: "Bar chart of mean post-test scores out of 20: safety video, never flown 19.53; safety video, flown before 19.44; comedy clip, flown before 16.44; comedy clip, never flown 15.59",
+            source: "Source: Boonchutima and Noonpakdee (2021), Journal of Public Health and Development · 128 students",
+            unit: " of 20",
+            guess: "Safety video · never flown",
+            guessMax: 20,
+            prompt: "Guess first: after the video, what did students who had never flown score out of 20?",
+            answerNote: "Level with those who had flown, up from 14.06 before viewing.",
+            data: [
+              { label: "Safety video · never flown", value: 19.53, highlight: true },
+              { label: "Safety video · flown before", value: 19.44 },
+              { label: "Comedy clip · flown before", value: 16.44 },
+              { label: "Comedy clip · never flown", value: 15.59 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Students who had never been on a plane rose from 14.06 to 19.53, level with those who had flown, and boys and girls scored the same. The authors themselves caution that this kind of video works when people are already paying attention; getting them to look in the first place is a separate problem. They suggest opening with something engaging and then teaching slowly, a proposal that has not yet been tested.",
+        },
+        { kind: "h2", text: "Involve the body, and the memory lasts" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and colleagues (published in 2022) staged a two-day exhibition on Thai elephants in a community mall. Alongside the pictures there were sculptures to touch, a forest scent, elephant sounds and ice cream flavoured with fruits elephants like. The 231 visitors rated how much they had interacted with the work at 4.68 and their raised awareness at 4.66 out of 5, and the two moved together quite clearly (r = 0.64).",
+          links: [{ match: "staged a two-day exhibition on Thai elephants in a community mall", href: "/en/research/elephant-tales-sensory-exhibition" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "A year and a half later, images and taste remained; the scent did not",
+            subtitle: "Number of visitors who still remembered each element · interviews with 6 visitors, November 2021",
+            alt: "Bar chart of how many of 6 visitors still remembered each element after a year and a half: images 6, ice cream taste 6, elephant sounds 5, forest scent 1",
+            source: "Source: Boonchutima et al. (2022), Thinking Skills and Creativity · interviews with 6 visitors",
+            unit: " of 6",
+            data: [
+              { label: "Images", value: 6 },
+              { label: "Ice cream taste", value: 6, highlight: true },
+              { label: "Elephant sounds", value: 5 },
+              { label: "Forest scent", value: 1 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "What interviewees raised unprompted was the ice cream and the sculptures they could touch, things an ordinary exhibition does not have. The authors explain that what stands out from its surroundings tends to be remembered better. Hardly anyone remembered the scent, so if you invest in smell it has to be far more prominent.",
+        },
+        { kind: "h2", text: "Fans trust the programme, but that does not mean they will pay" },
+        {
+          kind: "p",
+          text: "A study by Asst. Prof. Dr Teerada Chongkolrattanaporn and Krisada Thongmee (published in 2026) surveyed 400 followers of horror storytelling programmes. The highest-scoring item was believing the programme gives truthful, credible information (3.81 out of 5). But asked what they actually do for the programme, scores were low, especially for anything that costs money.",
+          links: [{ match: "surveyed 400 followers of horror storytelling programmes", href: "/en/research/horror-storytelling-engagement" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Fans comment and share, but rarely pay",
+            subtitle: "Mean score for what fans do for the programme (out of 5) · 400 followers of horror storytelling programmes",
+            alt: "Bar chart of mean scores out of 5: commenting under clips or during live streams 3.28, sharing clips 3.25, donating money 1.75, joining a trip with the programme 1.41",
+            source: "Source: Chongkolrattanaporn and Thongmee (2026), Journal of Communication and Management NIDA · survey of 400 people",
+            unit: " of 5",
+            data: [
+              { label: "Comment under clips or during live streams", value: 3.28 },
+              { label: "Share clips", value: 3.25 },
+              { label: "Donate money", value: 1.75, highlight: true },
+              { label: "Join a trip with the programme", value: 1.41 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "A favourable opinion of the programme and what people actually do were only very weakly related (r = 0.167): liking a programme a lot does not mean supporting it a lot. What the results point to is moving people step by step from what they already do, commenting and sharing, towards tangible support, rather than asking for money at the start.",
+        },
+        { kind: "h2", text: "The feed gets you seen; close friends make the decision" },
+        {
+          kind: "p",
+          text: "A study by Chayanon Krongbooncho, Assoc. Prof. Dr Smith Boonchutima and Dr Muhammad Ibtesam Mazahir (published in 2026) interviewed 23 people in Bangkok's anime scene, from event organisers and creators to fans at several levels. Twenty said they first came across new titles on TikTok, but 21 said what actually got them to watch was a close friend's recommendation. People with deep knowledge of a niche were trusted; content that looked like selling was seen as insincere.",
+          links: [{ match: "interviewed 23 people in Bangkok's anime scene", href: "/en/research/anime-thai-gen-z" }],
+        },
+        { kind: "h2", text: "Five points for people making edutainment" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Design the way in separately from the content",
+              text: "The opening's job is to make people look; the content's job is to teach. Plan the two separately, and test whether the opening really draws people in.",
+            },
+            {
+              title: "Go slowly, one point at a time, and cut the extras",
+              text: "If you want people to remember, do not pack several points into one scene. A slow, simple video taught even people with no background, and needed no separate versions by gender.",
+            },
+            {
+              title: "Let people touch, taste or hear",
+              text: "What breaks expectations and what involves the body is remembered far longer than looking at pictures and reading captions.",
+            },
+            {
+              title: "Build a ladder of support",
+              text: "Start from what fans already do, such as commenting and sharing, then add steps that ask for more effort or money one at a time.",
+            },
+            {
+              title: "Let the people who really know do the telling",
+              text: "Buying space on the feed gets you seen, but decisions happen among friends. Back people with deep knowledge of the topic rather than hiring general celebrities.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The safety video experiment ran in a school hall, not on an aircraft, with students told to pay attention; it measured knowledge, not whether anyone would act in an emergency, and scores hit a ceiling that hides differences among viewers. The exhibition study measured only after the visit, so the rise in awareness is the visitors' own estimate, and only six people were interviewed later. The horror programme study measured behaviour through questionnaire answers. The anime study is qualitative, so a figure like 20 of 23 shows how often a theme came up in this group, not the share of Thai Gen Z as a whole.",
+        },
+        { kind: "h2", text: "Fun brings people in; the message has to be designed to stay" },
+        {
+          kind: "p",
+          text: "Entertainment can carry a message to people, but it does not happen by itself. A clip people laugh at and scroll past may leave nothing behind unless you decide from the start what viewers should remember, and through whom it will reach them.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is planning a campaign or learning media that has to be both enjoyable and informative, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and design it with you.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "health-workforce-learning",
+    date: "2026-11-04",
+    author: SMITH,
+    palette: [3, 8],
+    cover: "/images/insights/health-workforce-learning-hero",
+    evidence: [
+      "health-officers-knowledge-sharing",
+      "hiv-knowledge-public-health-officers",
+      "vr360-neck-shoulder-pain",
+      "gamified-wmsds-prevention",
+      "health-students-ethical-dilemmas",
+    ],
+    relatedProjects: ["department-of-disease-control"],
+    th: {
+      title: "อยากให้บุคลากรสุขภาพเรียนรู้ เริ่มจากช่องทางที่เขาใช้อยู่แล้ว",
+      dek: "งานวิจัยห้าชิ้นเรื่องเจ้าหน้าที่สาธารณสุข นักศึกษาวิชาชีพสุขภาพ และแรงงานข้ามชาติ ชี้ว่าการเรียนรู้ในองค์กรสุขภาพติดที่คนรับผิดชอบ ความคุ้นเคย และความสัมพันธ์ มากกว่าตัวเทคโนโลยี",
+      coverAlt: "ภาพประกอบกระดาษ หูฟังแพทย์สีเขียววางข้างกรอบคำพูดสีแดงเลือดหมู บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "คุณหมอเก่ง (ตัวละครสมมติ) หัวหน้ากลุ่มงานสุขศึกษาของโรงพยาบาลจังหวัด ได้รับนโยบายให้ทำการจัดการความรู้ในหน่วยงาน พร้อมระบบออนไลน์ใหม่ที่ทุกคนต้องเข้าไปใช้ สามเดือนผ่านไป ระบบยังแทบไม่มีใครเปิด ขณะที่เรื่องงานยังคุยกันในกลุ่มแชตเหมือนเดิม",
+        },
+        {
+          kind: "p",
+          text: "งานวิจัยห้าชิ้นในบทความนี้ช่วยอธิบายว่าทำไม และชี้ว่าก่อนจะเพิ่มเครื่องมือ ควรดูก่อนว่าคนทำงานใช้อะไรอยู่ ใครรับผิดชอบ และเรียนรู้จากใคร",
+        },
+        { kind: "h2", text: "อุปสรรคอันดับแรกคือเทคโนโลยีที่ไม่คุ้นมือ" },
+        {
+          kind: "p",
+          text: "งานของ Achara Bunchum และคณะ ซึ่ง รศ.ดร.สมิทธิ์ บุญชุติมา ร่วมเขียน (ตีพิมพ์ปี 2558) สำรวจเจ้าหน้าที่ด้านการสื่อสารสุขภาพของกรมควบคุมโรคทั่วประเทศ 111 คน ว่าการแลกเปลี่ยนความรู้ในหน่วยงานติดตรงไหน อุปสรรคที่ถูกเลือกมากที่สุดคือไม่คุ้นกับเทคโนโลยีใหม่ (54.1%) รองลงมาคือมีคนแชร์เรื่องที่ไม่เกี่ยวข้อง (43.2%) และทำงานร่วมกันไม่สะดวก (40.5%)",
+          links: [{ match: "สำรวจเจ้าหน้าที่ด้านการสื่อสารสุขภาพของกรมควบคุมโรคทั่วประเทศ 111 คน", href: "/research/health-officers-knowledge-sharing" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "เจ้าหน้าที่เลือกช่องทางที่ใช้อยู่ทุกวัน",
+            subtitle: "ช่องทางที่อยากใช้แลกเปลี่ยนความรู้ (เลือกได้มากกว่าหนึ่งข้อ) · เจ้าหน้าที่ 111 คน ปี 2557–2558",
+            alt: "กราฟแท่งแสดงสัดส่วนเจ้าหน้าที่ที่เลือกแต่ละช่องทาง Facebook 53.2% เว็บบอร์ด 19.8% อีเมล 19.8% แชต 18.9% ประชุมทางวิดีโอ 18.9% และ Twitter 6.3%",
+            source: "ที่มา: Bunchum และคณะ (2015) Journal of Health Research · สำรวจเจ้าหน้าที่ 111 คน",
+            guess: "Facebook",
+            prompt: "ลองทายก่อน: เจ้าหน้าที่กี่เปอร์เซ็นต์เลือก Facebook",
+            answerNote: "มากกว่าช่องทางอื่นเกินสองเท่า",
+            data: [
+              { label: "Facebook", value: 53.2 },
+              { label: "เว็บบอร์ด", value: 19.8 },
+              { label: "อีเมล", value: 19.8 },
+              { label: "แชต", value: 18.9 },
+              { label: "ประชุมทางวิดีโอ", value: 18.9 },
+              { label: "Twitter", value: 6.3 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "รูปแบบที่อยากได้มากที่สุดก็ไม่ใช่ระบบออนไลน์ แต่เป็นกลุ่มที่คละคนมีประสบการณ์มากและน้อย โดยมีพี่เลี้ยงคอยแนะนำ (55.9%) สูงกว่ากลุ่มที่มีแต่คนเก่า (16.2%) หรือคนใหม่ล้วน (6.3%) หลายเท่า ข้อมูลชุดนี้เก็บเมื่อสิบปีก่อน ตัวเลือกช่องทางจึงต่างจากวันนี้ แต่ข้อสรุปยังใช้ได้ คือคนเลือกช่องทางที่อยู่ในชีวิตประจำวันแล้ว และอยากเรียนจากคน",
+        },
+        { kind: "h2", text: "ถ้าไม่มีใครถูกมอบหมาย งานก็ไม่เกิด" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2560) ถามเจ้าหน้าที่สาธารณสุขของกรมควบคุมโรค 106 คน ว่าความรู้เรื่องเอชไอวีส่งต่อไปถึงแรงงานชาวเมียนมาได้แค่ไหน ไม่พบคำสั่งที่กำหนดให้เจ้าหน้าที่ต้องทำงานกับแรงงานกลุ่มนี้เลย เจ้าหน้าที่จำนวนมากจึงไม่เคยได้สื่อสารเรื่องนี้กับแรงงานโดยตรง ส่วนรูปแบบที่แรงงานต้องการคือการอบรมเป็นกลุ่มในที่ทำงาน",
+          links: [{ match: "ถามเจ้าหน้าที่สาธารณสุขของกรมควบคุมโรค 106 คน", href: "/research/hiv-knowledge-public-health-officers" }],
+        },
+        {
+          kind: "p",
+          text: "ข้อสรุปของงานนี้ชี้ไปที่โครงสร้าง ไม่ใช่สื่อ แม้มีเจ้าหน้าที่ที่เต็มใจ ถ้าไม่มีใครถูกมอบหมายให้รับผิดชอบ งานก็ไม่เกิดขึ้น",
+        },
+        { kind: "h2", text: "สื่อที่ทำให้คนตั้งใจดู ไม่ต้องใช้งบมาก" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา และคณะ (ตีพิมพ์ปี 2565 เก็บข้อมูลปี 2560) ให้ผู้หญิงวัยทำงาน 20 คนที่เสี่ยงปวดคอบ่าดูวิดีโอ 360 องศาสอนท่ายืดกล้ามเนื้อ ทุกคนพอใจมาก และเห็นตรงกันว่าวิดีโอแบบนี้ทำให้ตั้งใจดูมากกว่าวิดีโอธรรมดา เพราะรู้สึกเหมือนอยู่ในเหตุการณ์และหันมองได้เอง ผู้วิจัยสรุปว่ากล้อง 360 องศาที่ราคาถูกลงทำให้หน่วยงานทำสื่อสุขภาพแบบนี้ได้โดยไม่ต้องมีห้องแล็บหรืองบก้อนใหญ่ แต่งานนี้ไม่ได้วัดว่าอาการปวดลดลงจริงหรือไม่",
+          links: [{ match: "ให้ผู้หญิงวัยทำงาน 20 คนที่เสี่ยงปวดคอบ่าดูวิดีโอ 360 องศา", href: "/research/vr360-neck-shoulder-pain" }],
+        },
+        { kind: "h2", text: "ไปหาคนในที่ที่เขาอยู่ และเขียนกติกาไว้ก่อน" },
+        {
+          kind: "p",
+          text: "งานของ ดร.พยู ฮนิน ไหล่ และคณะ (ตีพิมพ์ปี 2567) เป็นแผนวิจัยที่ยังไม่มีผล วางแผนสอนท่าบริหาร 12 ท่าให้แรงงานชาวเมียนมาในโรงงานอาหารทะเล ผ่านกลุ่ม Facebook แทนแอปที่ต้องติดตั้งใหม่ มีโพสต์ความรู้และคำถามสัปดาห์ละสามครั้ง มีภารกิจประจำสัปดาห์และคะแนนสะสม และเขียนเพดานค่าตอบแทนไว้ไม่เกิน 200 บาทตั้งแต่ก่อนรับสมัคร เพื่อไม่ให้เงินกลายเป็นแรงกดดันให้ต้องเข้าร่วม",
+          links: [{ match: "เป็นแผนวิจัยที่ยังไม่มีผล", href: "/research/gamified-wmsds-prevention" }],
+        },
+        { kind: "h2", text: "การตัดสินใจไม่ได้มาจากหลักการอย่างเดียว" },
+        {
+          kind: "p",
+          text: "งานของ ดร.พยู ฮนิน ไหล่ และคณะ (ตีพิมพ์ปี 2566) ฟังนักศึกษาแพทย์ ทันตแพทย์ และเภสัชกรรม ในสหรัฐอาหรับเอมิเรตส์ ถกกันในกลุ่มย่อยเรื่องกรณีจริยธรรมที่ตอบได้ทั้งสองทาง นักศึกษาใช้หลักจริยธรรมสี่ข้อที่เรียนมาจริง แต่สิ่งที่มีผลต่อการตัดสินใจยังมีอีกหกเรื่อง คืออารมณ์ ประสบการณ์ส่วนตัว กฎหมาย พื้นฐานวิชาชีพ ความรู้ด้านการวิจัย และการได้เรียนร่วมกับวิชาชีพอื่น คำที่พูดถึงบ่อยที่สุดคือ \"อันตราย\" และในกรณีเดียวกัน นักศึกษาก็เห็นต่างกันมาก",
+          links: [{ match: "ฟังนักศึกษาแพทย์ ทันตแพทย์ และเภสัชกรรม ในสหรัฐอาหรับเอมิเรตส์", href: "/research/health-students-ethical-dilemmas" }],
+        },
+        { kind: "h2", text: "ห้าข้อสำหรับผู้บริหารและผู้จัดอบรมในองค์กรสุขภาพ" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ระบุให้ชัดว่าใครรับผิดชอบ",
+              text: "นโยบายที่ไม่บอกว่าใครต้องทำ จะไม่มีใครทำ แม้มีคนที่เต็มใจอยู่แล้ว เขียนบทบาทและกลุ่มเป้าหมายลงในงานของคนให้ชัด",
+            },
+            {
+              title: "ใช้ช่องทางที่คนใช้อยู่แล้วก่อนสร้างระบบใหม่",
+              text: "เมื่ออุปสรรคอันดับแรกคือเทคโนโลยีไม่คุ้นมือ การเพิ่มเครื่องมือใหม่ยิ่งทำให้ยากขึ้น เริ่มจากช่องทางที่อยู่ในชีวิตประจำวันของคนทำงาน",
+            },
+            {
+              title: "จับคู่พี่เลี้ยงกับคนใหม่",
+              text: "กลุ่มที่คละคนมีประสบการณ์มากและน้อยโดยมีพี่เลี้ยง คือรูปแบบที่เจ้าหน้าที่เลือกเองมากที่สุด และการพบหน้ากันยังสำคัญกว่าระบบออนไลน์",
+            },
+            {
+              title: "ฝึกจากกรณีจริงในกลุ่มเล็ก หลายวิชาชีพ",
+              text: "หลักการอย่างเดียวไม่พอ การถกกรณีจริงทำให้อารมณ์ ประสบการณ์ และความเข้าใจกฎหมายที่มีอยู่แล้วถูกพูดออกมาและทบทวนได้",
+            },
+            {
+              title: "เขียนเงื่อนไขค่าตอบแทนไว้ก่อนรับสมัคร",
+              text: "กำหนดเพดานค่าตอบแทนและกติกาการให้คะแนนไว้ล่วงหน้า จะตรวจย้อนได้ว่าคนเข้าร่วมด้วยความสมัครใจจริง",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานแลกเปลี่ยนความรู้ได้คำตอบครบทุกคนเพราะผู้บริหารสั่งให้ตอบ คำตอบจึงอาจเอนไปทางที่คิดว่าองค์กรอยากได้ยิน และข้อมูลเก็บปี 2557–2558 งานเอชไอวีเป็นมุมมองของเจ้าหน้าที่ในหน่วยงานเดียว ข้อมูลเรื่องแรงงานจึงไม่ได้มาจากแรงงานโดยตรง งานวิดีโอ 360 องศาวัดความพอใจของคน 20 คน ไม่ได้วัดอาการปวด งานเกมบน Facebook เป็นแผนวิจัย ยังไม่มีผล และวัดก่อนกับหลังในกลุ่มเดียวโดยไม่มีกลุ่มเปรียบเทียบ ส่วนงานจริยธรรมบอกได้ว่ามีเหตุผลแบบไหนปรากฏ แต่บอกสัดส่วนไม่ได้ และศึกษาในประเทศเดียว",
+        },
+        { kind: "h2", text: "คนเรียนรู้จากคน ในที่ที่เขาอยู่" },
+        {
+          kind: "p",
+          text: "หลักฐานทั้งห้าชิ้นชี้ไปทางเดียวกัน การเรียนรู้ในองค์กรสุขภาพเกิดได้เมื่อมีคนรับผิดชอบชัดเจน ใช้ช่องทางที่คนคุ้นเคย และมีพื้นที่ให้คนต่างประสบการณ์ต่างวิชาชีพได้คุยกัน เทคโนโลยีช่วยได้ แต่ควรมาทีหลัง",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังออกแบบการอบรมหรือการสื่อสารภายในสำหรับบุคลากรสุขภาพ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและออกแบบร่วมกับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "To help health workers learn, start with the channels they already use",
+      dek: "Five studies of public health officers, health professions students and migrant workers show that learning in health organisations depends on who is responsible, what feels familiar and who people learn from, more than on technology.",
+      coverAlt: "Paper-craft illustration on cream paper: a green stethoscope lying beside a maroon speech bubble",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "Dr Keng (a fictional character) heads the health education unit of a provincial hospital. He has been told to run knowledge management in his unit, with a new online system everyone must use. Three months on, almost nobody opens it, while work is still discussed in the same chat group as before.",
+        },
+        {
+          kind: "p",
+          text: "The five studies in this article help explain why, and suggest that before adding a tool, it is worth looking at what staff already use, who is responsible and whom they learn from.",
+        },
+        { kind: "h2", text: "The first obstacle is unfamiliar technology" },
+        {
+          kind: "p",
+          text: "A study by Achara Bunchum and colleagues, co-written by Assoc. Prof. Dr Smith Boonchutima (published in 2015), surveyed 111 health communication officers of the Department of Disease Control nationwide about where knowledge sharing gets stuck. The most chosen obstacle was unfamiliarity with new technology (54.1%), followed by people sharing irrelevant material (43.2%) and inconvenient collaboration (40.5%).",
+          links: [{ match: "surveyed 111 health communication officers of the Department of Disease Control nationwide", href: "/en/research/health-officers-knowledge-sharing" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Officers chose the channel they already used every day",
+            subtitle: "Preferred channels for sharing knowledge (more than one answer allowed) · 111 officers, 2014–2015",
+            alt: "Bar chart of the share of officers choosing each channel: Facebook 53.2%, web board 19.8%, email 19.8%, chat 18.9%, videoconference 18.9%, Twitter 6.3%",
+            source: "Source: Bunchum et al. (2015), Journal of Health Research · survey of 111 officers",
+            guess: "Facebook",
+            prompt: "Guess first: what share of officers chose Facebook?",
+            answerNote: "More than twice any other channel.",
+            data: [
+              { label: "Facebook", value: 53.2 },
+              { label: "Web board", value: 19.8 },
+              { label: "Email", value: 19.8 },
+              { label: "Chat", value: 18.9 },
+              { label: "Videoconference", value: 18.9 },
+              { label: "Twitter", value: 6.3 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The format they wanted most was not an online system either, but mixed groups of experienced and less experienced staff with a mentor (55.9%), several times more than groups of experienced staff only (16.2%) or beginners only (6.3%). The data is ten years old, so the channel options differ from today's, but the conclusion holds: people chose a channel already in their daily lives, and wanted to learn from people.",
+        },
+        { kind: "h2", text: "If nobody is assigned, the work does not happen" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and colleagues (published in 2017) asked 106 public health officers of the Department of Disease Control how far HIV knowledge reached Myanmar migrant workers. No mandate was found requiring officers to work with this group at all, so many officers had never communicated about it with workers directly. The format the workers wanted was group training at the workplace.",
+          links: [{ match: "asked 106 public health officers of the Department of Disease Control", href: "/en/research/hiv-knowledge-public-health-officers" }],
+        },
+        {
+          kind: "p",
+          text: "The conclusion points to structure, not materials. Even with willing staff, if nobody is assigned responsibility, the work does not happen.",
+        },
+        { kind: "h2", text: "Media that holds attention does not need a big budget" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima and colleagues (published in 2022, data collected in 2017) showed 20 working women at risk of neck and shoulder pain a 360-degree video teaching stretches. All were very satisfied and agreed that it held their attention better than ordinary video, because they felt part of the scene and could choose where to look. The authors conclude that cheaper 360-degree cameras let organisations make health media like this without a lab or a large budget. The study did not measure whether the pain actually went down.",
+          links: [{ match: "showed 20 working women at risk of neck and shoulder pain a 360-degree video", href: "/en/research/vr360-neck-shoulder-pain" }],
+        },
+        { kind: "h2", text: "Go where people already are, and write the rules down first" },
+        {
+          kind: "p",
+          text: "A study by Dr Phyu Hnin Hlaing and colleagues (published in 2024) is a research protocol with no results yet. It plans to teach twelve exercises to Myanmar workers in a seafood factory through a Facebook group rather than an app that has to be installed, with information posts and quizzes three times a week, a weekly challenge and points. It also sets a ceiling on compensation of 200 baht before recruitment, so that payment does not become pressure to take part.",
+          links: [{ match: "is a research protocol with no results yet", href: "/en/research/gamified-wmsds-prevention" }],
+        },
+        { kind: "h2", text: "Decisions do not come from principles alone" },
+        {
+          kind: "p",
+          text: "A study by Dr Phyu Hnin Hlaing and colleagues (published in 2023) listened to medicine, dentistry and pharmacy students in the United Arab Emirates discuss, in small groups, ethics cases with defensible answers on both sides. Students did apply the four ethical principles they had learned, but six other things also shaped their decisions: emotions, personal experience, the law, professional background, research knowledge and learning alongside other professions. The most frequent word was \"harm\", and on the same case students split sharply.",
+          links: [{ match: "listened to medicine, dentistry and pharmacy students in the United Arab Emirates", href: "/en/research/health-students-ethical-dilemmas" }],
+        },
+        { kind: "h2", text: "Five points for managers and trainers in health organisations" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Name who is responsible",
+              text: "A policy that does not say who must act will not be acted on, even when willing staff exist. Write the role and the audience into someone's job.",
+            },
+            {
+              title: "Use the channels people already use before building new ones",
+              text: "When the top obstacle is unfamiliar technology, adding another tool makes things harder. Start with the channels already in staff's daily lives.",
+            },
+            {
+              title: "Pair mentors with newcomers",
+              text: "Mixed-experience groups with a mentor were the format officers chose most, and meeting in person still mattered more than online systems.",
+            },
+            {
+              title: "Practise on real cases in small, mixed-profession groups",
+              text: "Principles alone are not enough. Discussing real cases brings the emotions, experience and legal understanding people already carry into the open, where they can be examined.",
+            },
+            {
+              title: "Write compensation rules down before recruiting",
+              text: "Set the payment ceiling and the points system in advance, so you can show afterwards that participation was genuinely voluntary.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The knowledge-sharing study had a full response rate because managers required it, so answers may lean towards what staff thought the organisation wanted to hear, and the data is from 2014–2015. The HIV study reflects officers at one agency, so what it says about workers does not come from workers directly. The 360-degree video study measured satisfaction among 20 people, not pain. The Facebook game study is a protocol with no results yet, and compares one group before and after with no comparison group. The ethics study shows which kinds of reasoning appeared but not in what proportion, and was conducted in one country.",
+        },
+        { kind: "h2", text: "People learn from people, where they already are" },
+        {
+          kind: "p",
+          text: "The five pieces of evidence point the same way. Learning in health organisations happens when someone is clearly responsible, the channel is familiar, and there is room for people of different experience and professions to talk. Technology helps, but it should come second.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is designing training or internal communication for health workers, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and design it with you.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "loyalty-beyond-advertising",
+    date: "2026-11-04",
+    author: SMITH,
+    palette: [9, 8],
+    cover: "/images/insights/loyalty-beyond-advertising-hero",
+    evidence: [
+      "on-demand-app-loyalty",
+      "joox-rooms-relational-bonds",
+      "tiktok-philippine-destinations",
+    ],
+    th: {
+      title: "ความภักดีที่ซื้อด้วยโฆษณาไม่ได้",
+      dek: "งานวิจัยสามชิ้นเรื่องแอปเรียกบริการ ห้องไลฟ์คุยกับศิลปิน และคลิปท่องเที่ยว ชี้ว่าโฆษณาทำให้คนเห็น แต่สิ่งที่ทำให้คนอยู่ต่อคือบริการที่ไว้ใจได้และความรู้สึกผูกพัน",
+      coverAlt: "ภาพประกอบกระดาษ แม่เหล็กเกือกม้าสีส้มดึงหัวใจสีแดงเลือดหมูสามดวงเข้ามาหา บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "ทีมการตลาดของแอปแห่งหนึ่ง (สถานการณ์สมมติ) เพิ่มงบโฆษณาเป็นสองเท่า ยอดดาวน์โหลดขึ้นตามคาด แต่ผ่านไปหนึ่งเดือน ผู้ใช้ใหม่ส่วนใหญ่หายไป ทีมจึงเริ่มสงสัยว่าเงินที่จ่ายไปซื้ออะไรมาได้จริง",
+        },
+        {
+          kind: "p",
+          text: "งานวิจัยสามชิ้นในบทความนี้ศึกษาบริการดิจิทัลคนละแบบ แต่ให้คำตอบไปในทางเดียวกัน",
+        },
+        { kind: "h2", text: "โฆษณาทำให้เห็น แต่ไม่ได้ทำให้อยู่ต่อ" },
+        {
+          kind: "p",
+          text: "งานของ Sirawan Panswad และ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2564) สำรวจคนกรุงเทพฯ 400 คนที่ใช้แอปเรียกบริการแบบครบวงจรอย่างน้อยสามครั้งในสามเดือน ความภักดีโดยรวมสูงมาก (4.26 จาก 5) แต่เมื่อดูว่าอะไรบอกความภักดีได้ คุณภาพบริการมาเป็นอันดับแรกแบบห่างไกล ส่วนการเห็นโฆษณาและข้อมูลของแอปไม่ได้บอกความภักดีเลย",
+          links: [{ match: "สำรวจคนกรุงเทพฯ 400 คนที่ใช้แอปเรียกบริการแบบครบวงจร", href: "/research/on-demand-app-loyalty" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คุณภาพบริการบอกความภักดีได้มากที่สุด โฆษณาแทบไม่มีผล",
+            subtitle: "ค่าเบตาของแต่ละปัจจัยในการทำนายความภักดี · ผู้ใช้ในกรุงเทพฯ 400 คน ตุลาคม 2563",
+            alt: "กราฟแท่งแสดงค่าเบตาในการทำนายความภักดี คุณภาพบริการ 0.491 ส่วนประสมทางการตลาด 0.127 และการเปิดรับโฆษณาและข้อมูล 0.043 ซึ่งไม่มีนัยสำคัญ",
+            source: "ที่มา: Panswad และ Chongkolrattanaporn (2021) วารสารประชาสัมพันธ์และการโฆษณา · สำรวจ 400 คน",
+            unit: "",
+            data: [
+              { label: "คุณภาพบริการ", value: 0.491, highlight: true },
+              { label: "ราคา ส่วนลด และโปรโมชัน", value: 0.127 },
+              { label: "การเห็นโฆษณาและข้อมูลของแอป (ไม่มีผล)", value: 0.043 },
+            ],
+          },
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "คนใช้แอปเพราะสะดวก มากกว่าเพราะส่วนลด",
+            subtitle: "เหตุผลหลักที่ใช้บริการ · ผู้ใช้ในกรุงเทพฯ 400 คน ตุลาคม 2563",
+            alt: "กราฟแท่งแสดงเหตุผลหลักที่ใช้บริการ ความสะดวก 35.4% ส่วนลด 20.8% และใช้งานง่าย 20.6%",
+            source: "ที่มา: Panswad และ Chongkolrattanaporn (2021) วารสารประชาสัมพันธ์และการโฆษณา · สำรวจ 400 คน",
+            guess: "ส่วนลด",
+            prompt: "ลองทายก่อน: กี่เปอร์เซ็นต์ใช้แอปเพราะส่วนลดเป็นหลัก",
+            answerNote: "ไม่ถึงหนึ่งในสี่ ความสะดวกมาก่อน",
+            data: [
+              { label: "ความสะดวก", value: 35.4 },
+              { label: "ส่วนลด", value: 20.8 },
+              { label: "ใช้งานง่าย", value: 20.6 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "สามปัจจัยรวมกันอธิบายความภักดีได้ราว 36% ที่เหลือมาจากเรื่องที่งานนี้ไม่ได้วัด สำหรับนักการตลาด ข้อค้นพบนี้บอกว่าเงินที่จ่ายเพื่อให้คนเห็นบ่อยขึ้นไม่ได้ซื้อความภักดีกลับมา สิ่งที่ซื้อได้คือประสบการณ์ที่ไว้ใจได้ทุกครั้งที่ใช้",
+        },
+        { kind: "h2", text: "ความผูกพันเกิดจากสายสัมพันธ์สามแบบ" },
+        {
+          kind: "p",
+          text: "งานของ รศ.ดร.สมิทธิ์ บุญชุติมา Nattawee Chanapun และ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ (ตีพิมพ์ปี 2569) สำรวจผู้ใช้ห้องไลฟ์ JOOX Rooms ที่ให้ผู้ฟังคุยกับศิลปินแบบทันที 175 คน แยกสายสัมพันธ์ออกเป็นสามแบบ ได้แก่ ด้านเงิน เช่น ส่วนลดและเหรียญในแอป ด้านสังคม เช่น แชตสดและศิลปินที่ตอบกลับ และด้านโครงสร้าง เช่น บริการที่ไว้ใจได้ ทั้งสามแบบทำให้ผู้ใช้รู้สึกผูกพันกับแพลตฟอร์มมากขึ้น และความผูกพันนั้นบอกได้ว่าจะใช้ต่อและบอกต่อหรือไม่",
+          links: [{ match: "สำรวจผู้ใช้ห้องไลฟ์ JOOX Rooms ที่ให้ผู้ฟังคุยกับศิลปินแบบทันที 175 คน", href: "/research/joox-rooms-relational-bonds" }],
+        },
+        {
+          kind: "p",
+          text: "จุดที่น่าสนใจคือ ไม่มีสายสัมพันธ์แบบไหนผลักให้คนใช้ต่อได้โดยตรง ทุกแบบต้องผ่านความรู้สึกก่อน และผู้ใช้แยกความรักศิลปินกับความรักแพลตฟอร์มออกจากกันไม่ได้เลย สองเรื่องนี้สัมพันธ์กันสูงถึง .89 ถ้าคนแยกสองความรู้สึกนี้ไม่ออก การย้ายไปแอปอื่นก็มีต้นทุนทางใจ ไม่ใช่แค่ต้องติดตั้งแอปใหม่",
+        },
+        { kind: "h2", text: "ใช้ทุกวันไม่ได้แปลว่าเชื่อทุกคลิป" },
+        {
+          kind: "p",
+          text: "งานของ Datu และคณะ (ตีพิมพ์ปี 2568) ซึ่ง ดร.ร็อบบี้ แจน วินเซนต์ ที. บูเอโล ร่วมเขียน ถามนักศึกษาสายการท่องเที่ยว การโรงแรม และไอทีในมะนิลา 150 คน ว่ามองติ๊กต็อกในฐานะแหล่งข้อมูลท่องเที่ยวอย่างไร ข้อที่เห็นด้วยมากที่สุดคือ อัลกอริทึมเป็นตัวกำหนดว่าคลิปจะไปถึงคนได้แค่ไหน คนกลุ่มเดียวกันบอกทั้งว่าแพลตฟอร์มให้ข้อมูลที่เชื่อถือได้ และว่าคลิปที่เกินจริงมีอยู่ทั่วไป และบอกว่าแยกคำแนะนำจริงกับคอนเทนต์ที่ได้รับการสนับสนุนได้ยาก",
+          links: [{ match: "ถามนักศึกษาสายการท่องเที่ยว การโรงแรม และไอทีในมะนิลา 150 คน", href: "/research/tiktok-philippine-destinations" }],
+        },
+        { kind: "h2", text: "สี่ข้อสำหรับแบรนด์และแพลตฟอร์ม" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ลงทุนกับบริการก่อนเพิ่มงบโฆษณา",
+              text: "โฆษณาพาคนมาลองได้ แต่คนจะอยู่ต่อเพราะบริการที่ไว้ใจได้ทุกครั้ง ความน่าเชื่อถือและคนที่พร้อมให้บริการคือสิ่งที่ควรได้งบก่อน",
+            },
+            {
+              title: "สร้างสายสัมพันธ์ครบทั้งสามด้าน",
+              text: "ส่วนลดสร้างความผูกพันแบบแลกเปลี่ยน การได้คุยกันสร้างความใกล้ชิด บริการที่ไว้ใจได้สร้างความเชื่อใจ ใช้แต่ราคาจะได้ยอดใช้งานระยะสั้นที่ไม่มีความลึก",
+            },
+            {
+              title: "บอกให้ชัดว่าคลิปไหนได้รับการสนับสนุน",
+              text: "เมื่อคนดูบอกเองว่าแยกไม่ออก การบอกให้ชัดจึงเป็นเรื่องของความน่าเชื่อถือในระยะยาว ไม่ใช่แค่การทำตามระเบียบ",
+            },
+            {
+              title: "วัดความผูกพัน ไม่ใช่แค่ยอดดาวน์โหลด",
+              text: "ยอดที่ขึ้นจากโฆษณาบอกว่ามีคนเห็น แต่ไม่ได้บอกว่าจะมีคนอยู่ต่อ ติดตามการใช้ซ้ำและความรู้สึกที่ผู้ใช้มีต่อบริการไปด้วย",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานแอปเรียกบริการเก็บข้อมูลเดือนตุลาคม 2563 ช่วงโควิดที่พฤติกรรมสั่งอาหารออนไลน์ไม่ปกติ เป็นตัวอย่างที่ไม่ได้สุ่ม และครอบคลุมเพียงสองแอปในกรุงเทพฯ งานห้องไลฟ์เก็บตัวอย่างแบบบอกต่อ จึงเอนไปทางผู้ใช้ที่ผูกพันอยู่แล้ว และเป็นการวัดครั้งเดียว ไม่ได้บอกลำดับก่อนหลัง งานติ๊กต็อกถามนักศึกษามหาวิทยาลัยเดียว วัดความคิดเห็น ไม่ใช่การเดินทางจริง และบทความรายงานคำถามสองชุดที่ค่าเฉลี่ยไม่ตรงกัน เราจึงใช้เฉพาะรูปแบบที่เห็นตรงกันทั้งสองชุด",
+        },
+        { kind: "h2", text: "ความภักดีถูกสร้างทีละครั้งที่ใช้" },
+        {
+          kind: "p",
+          text: "โฆษณาซื้อความสนใจได้ แต่ความภักดีถูกสร้างขึ้นทุกครั้งที่ผู้ใช้ได้รับบริการที่ดี ได้คุยกับคนที่เขาสนใจ และเชื่อได้ว่าสิ่งที่เห็นไม่ได้ถูกจ่ายเงินมาโดยไม่บอก",
+        },
+        {
+          kind: "note",
+          text: "หากแบรนด์หรือแพลตฟอร์มของคุณอยากเข้าใจว่าอะไรทำให้ผู้ใช้อยู่ต่อ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและออกแบบการศึกษาร่วมกับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "Loyalty that advertising cannot buy",
+      dek: "Three studies of on-demand service apps, live rooms for talking with artists and travel clips show that advertising gets you seen, but what keeps people is a service they can trust and a feeling of attachment.",
+      coverAlt: "Paper-craft illustration on cream paper: an orange horseshoe magnet drawing three small maroon hearts towards it",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "An app's marketing team (a fictional scenario) doubles its advertising budget. Downloads rise as expected, but a month later most new users have gone, and the team starts to wonder what the money actually bought.",
+        },
+        {
+          kind: "p",
+          text: "The three studies in this article look at different kinds of digital service, but their answers point the same way.",
+        },
+        { kind: "h2", text: "Advertising gets you seen, not kept" },
+        {
+          kind: "p",
+          text: "A study by Sirawan Panswad and Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2021) surveyed 400 Bangkok residents who had used a one-stop on-demand service app at least three times in three months. Overall loyalty was very high (4.26 out of 5), but when it came to what predicted loyalty, service quality came first by a wide margin, and exposure to the app's advertising and information did not predict loyalty at all.",
+          links: [{ match: "surveyed 400 Bangkok residents who had used a one-stop on-demand service app", href: "/en/research/on-demand-app-loyalty" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Service quality predicts loyalty most; advertising barely at all",
+            subtitle: "Beta coefficients of each factor predicting loyalty · 400 users in Bangkok, October 2020",
+            alt: "Bar chart of beta coefficients predicting loyalty: service quality 0.491, marketing mix 0.127, exposure to advertising and information 0.043, not significant",
+            source: "Source: Panswad and Chongkolrattanaporn (2021), Journal of Public Relations and Advertising · survey of 400 people",
+            unit: "",
+            data: [
+              { label: "Service quality", value: 0.491, highlight: true },
+              { label: "Price, discounts and promotions", value: 0.127 },
+              { label: "Seeing the app's ads and information (no effect)", value: 0.043 },
+            ],
+          },
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "People use the apps for convenience more than for discounts",
+            subtitle: "Main reason for using the service · 400 users in Bangkok, October 2020",
+            alt: "Bar chart of main reasons for using the service: convenience 35.4%, discounts 20.8%, ease of use 20.6%",
+            source: "Source: Panswad and Chongkolrattanaporn (2021), Journal of Public Relations and Advertising · survey of 400 people",
+            guess: "Discounts",
+            prompt: "Guess first: what share use the app mainly for discounts?",
+            answerNote: "Under a quarter; convenience comes first.",
+            data: [
+              { label: "Convenience", value: 35.4 },
+              { label: "Discounts", value: 20.8 },
+              { label: "Ease of use", value: 20.6 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The three factors together explained about 36% of loyalty; the rest lies in things the study did not measure. For marketers, the finding says that money spent on being seen more often does not buy loyalty back. What does is an experience people can rely on every time.",
+        },
+        { kind: "h2", text: "Attachment comes from three kinds of bond" },
+        {
+          kind: "p",
+          text: "A study by Assoc. Prof. Dr Smith Boonchutima, Nattawee Chanapun and Dr Muhammad Ibtesam Mazahir (published in 2026) surveyed 175 users of JOOX Rooms, live rooms where listeners talk with artists in real time. It separated three kinds of bond: financial, such as discounts and in-app coins; social, such as live chat and artists who reply; and structural, such as a reliable service. All three made users feel more attached to the platform, and that attachment predicted whether they would keep using it and recommend it.",
+          links: [{ match: "surveyed 175 users of JOOX Rooms", href: "/en/research/joox-rooms-relational-bonds" }],
+        },
+        {
+          kind: "p",
+          text: "What stands out is that no bond pushed people to stay directly; every one worked through feeling first. And users could not separate their attachment to the artist from their attachment to the platform at all, with the two correlating at .89. If people cannot tell those feelings apart, moving to another app carries an emotional cost, not merely the effort of installing something new.",
+        },
+        { kind: "h2", text: "Using it every day does not mean believing every clip" },
+        {
+          kind: "p",
+          text: "A study by Datu and colleagues (published in 2025), co-written by Dr Robbie Jan Vincent T. Buelo, asked 150 tourism, hospitality and IT students in Manila how they see TikTok as a source of travel information. The statement they agreed with most was that the algorithm decides how far a clip travels. The same students said both that the platform gives reliable information and that exaggerated clips are common, and that it is hard to tell genuine recommendations from sponsored content.",
+          links: [{ match: "asked 150 tourism, hospitality and IT students in Manila", href: "/en/research/tiktok-philippine-destinations" }],
+        },
+        { kind: "h2", text: "Four points for brands and platforms" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Invest in the service before the ad budget",
+              text: "Advertising brings people to try; they stay because the service is reliable every time. Credibility and enough staff to serve should get the budget first.",
+            },
+            {
+              title: "Build all three kinds of bond",
+              text: "Discounts create transactional attachment, conversation creates closeness, a reliable service creates trust. Relying on price alone yields short-term activity with no depth.",
+            },
+            {
+              title: "Label sponsored content clearly",
+              text: "When viewers themselves say they cannot tell the difference, clear labelling becomes a matter of long-term credibility, not just compliance.",
+            },
+            {
+              title: "Measure attachment, not just downloads",
+              text: "A spike from advertising shows that people saw you, not that they will stay. Track repeat use and how users feel about the service as well.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The on-demand app study was collected in October 2020, when COVID-19 distorted online food ordering; the sample was not random and covered two apps in Bangkok. The live rooms study used snowball sampling, which leans towards users who were already attached, and measured once, so it cannot show sequence. The TikTok study surveyed students at one university about their opinions, not their actual travel, and the article reports two overlapping sets of questions with differing means, so we use only the patterns that hold across both.",
+        },
+        { kind: "h2", text: "Loyalty is built one use at a time" },
+        {
+          kind: "p",
+          text: "Advertising can buy attention, but loyalty is built each time a user gets good service, gets to talk with someone they care about, and can trust that what they see has not been paid for without saying so.",
+        },
+        {
+          kind: "note",
+          text: "If your brand or platform wants to understand what keeps users coming back, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and design a study with you.",
+        },
+      ],
+    },
+  },
 ];
 
 export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
