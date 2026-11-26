@@ -3804,6 +3804,7 @@ export const insights: InsightPost[] = [
     date: "2026-11-04",
     author: SMITH,
     palette: [4, 15],
+    cover: "/images/insights/entertainment-that-teaches-hero",
     evidence: [
       "slow-paced-flight-safety-videos",
       "elephant-tales-sensory-exhibition",
@@ -3813,6 +3814,8 @@ export const insights: InsightPost[] = [
     th: {
       title: "สนุกอย่างเดียวไม่พอ ต้องให้คนจำสาระกลับไปได้ด้วย",
       dek: "งานวิจัยสี่ชิ้นเรื่องวิดีโอความปลอดภัย นิทรรศการช้าง รายการเล่าเรื่องผี และแฟนอนิเมะ ชี้ว่าการดึงคนให้หันมาดูกับการทำให้คนจำได้เป็นงานสองชิ้นที่ต้องออกแบบแยกกัน",
+      coverAlt: "ภาพประกอบกระดาษ สเลตถ่ายภาพยนตร์สีแดงเปิดแขนลายทางขึ้น มีใบไม้สีเขียวสามใบงอกออกมากลางแผ่นสเลต บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       body: [
         {
           kind: "p",
@@ -3958,6 +3961,8 @@ export const insights: InsightPost[] = [
     en: {
       title: "Entertaining is not enough: people have to remember the message",
       dek: "Four studies of a safety video, an elephant exhibition, a horror storytelling programme and anime fans show that getting people to look and getting them to remember are two separate jobs that need separate design.",
+      coverAlt: "Paper-craft illustration on cream paper: a red film clapperboard with its striped arm raised and three green leaves sprouting from the middle of the slate",
+      coverCaption: "Illustration generated with AI",
       body: [
         {
           kind: "p",
@@ -4106,6 +4111,7 @@ export const insights: InsightPost[] = [
     date: "2026-11-04",
     author: SMITH,
     palette: [3, 8],
+    cover: "/images/insights/health-workforce-learning-hero",
     evidence: [
       "health-officers-knowledge-sharing",
       "hiv-knowledge-public-health-officers",
@@ -4117,6 +4123,8 @@ export const insights: InsightPost[] = [
     th: {
       title: "อยากให้บุคลากรสุขภาพเรียนรู้ เริ่มจากช่องทางที่เขาใช้อยู่แล้ว",
       dek: "งานวิจัยห้าชิ้นเรื่องเจ้าหน้าที่สาธารณสุข นักศึกษาวิชาชีพสุขภาพ และแรงงานข้ามชาติ ชี้ว่าการเรียนรู้ในองค์กรสุขภาพติดที่คนรับผิดชอบ ความคุ้นเคย และความสัมพันธ์ มากกว่าตัวเทคโนโลยี",
+      coverAlt: "ภาพประกอบกระดาษ หูฟังแพทย์สีเขียววางข้างกรอบคำพูดสีแดงเลือดหมู บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       body: [
         {
           kind: "p",
@@ -4230,6 +4238,8 @@ export const insights: InsightPost[] = [
     en: {
       title: "To help health workers learn, start with the channels they already use",
       dek: "Five studies of public health officers, health professions students and migrant workers show that learning in health organisations depends on who is responsible, what feels familiar and who people learn from, more than on technology.",
+      coverAlt: "Paper-craft illustration on cream paper: a green stethoscope lying beside a maroon speech bubble",
+      coverCaption: "Illustration generated with AI",
       body: [
         {
           kind: "p",
@@ -4346,6 +4356,7 @@ export const insights: InsightPost[] = [
     date: "2026-11-04",
     author: SMITH,
     palette: [9, 8],
+    cover: "/images/insights/loyalty-beyond-advertising-hero",
     evidence: [
       "on-demand-app-loyalty",
       "joox-rooms-relational-bonds",
@@ -4354,6 +4365,8 @@ export const insights: InsightPost[] = [
     th: {
       title: "ความภักดีที่ซื้อด้วยโฆษณาไม่ได้",
       dek: "งานวิจัยสามชิ้นเรื่องแอปเรียกบริการ ห้องไลฟ์คุยกับศิลปิน และคลิปท่องเที่ยว ชี้ว่าโฆษณาทำให้คนเห็น แต่สิ่งที่ทำให้คนอยู่ต่อคือบริการที่ไว้ใจได้และความรู้สึกผูกพัน",
+      coverAlt: "ภาพประกอบกระดาษ แม่เหล็กเกือกม้าสีส้มดึงหัวใจสีแดงเลือดหมูสามดวงเข้ามาหา บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
       body: [
         {
           kind: "p",
@@ -4464,6 +4477,8 @@ export const insights: InsightPost[] = [
     en: {
       title: "Loyalty that advertising cannot buy",
       dek: "Three studies of on-demand service apps, live rooms for talking with artists and travel clips show that advertising gets you seen, but what keeps people is a service they can trust and a feeling of attachment.",
+      coverAlt: "Paper-craft illustration on cream paper: an orange horseshoe magnet drawing three small maroon hearts towards it",
+      coverCaption: "Illustration generated with AI",
       body: [
         {
           kind: "p",
