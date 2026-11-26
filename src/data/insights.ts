@@ -4587,6 +4587,616 @@ export const insights: InsightPost[] = [
       ],
     },
   },
+  {
+    slug: "value-over-risk-warnings",
+    date: "2026-11-26",
+    author: SMITH,
+    palette: [12, 8],
+    cover: "/images/insights/value-over-risk-warnings-hero",
+    evidence: ["cryptocurrency-adoption-reddit", "negative-wom-advertising-moderation"],
+    th: {
+      title: "เตือนอย่างเดียวไม่พอ คนตัดสินใจจากสิ่งที่เขาเห็นว่าคุ้ม",
+      dek: "งานวิจัยสองชิ้นเรื่องนักลงทุนคริปโตและรีวิวด้านลบ ชี้ว่าคนไม่ได้ตอบสนองต่อข้อความแบบที่ผู้ส่งตั้งใจไว้ คำเตือนความเสี่ยงแทบไม่เปลี่ยนการตัดสินใจ และการตอบโต้คู่แข่งอาจยิ่งทำให้แย่ลง",
+      coverAlt: "ภาพประกอบกระดาษ ตาชั่งสองแขนสีทองหม่น จานซ้ายมีเหรียญสีแดงเลือดหมูซ้อนกัน จานขวามีรูปสามเหลี่ยมสีแดงเลือดหมู บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "ทีมสื่อสารของหน่วยงานกำกับดูแลแห่งหนึ่ง (สถานการณ์สมมติ) ทำคลิปเตือนเรื่องความเสี่ยงของการลงทุนในเหรียญดิจิทัลออกมาหลายชิ้น ยอดดูดีมาก แต่จำนวนคนที่เปิดบัญชีลงทุนใหม่ก็ยังเพิ่มขึ้นทุกเดือน ทีมจึงเริ่มถามตัวเองว่า ข้อความที่ส่งออกไปถูกเข้าใจอย่างที่ตั้งใจหรือไม่",
+        },
+        {
+          kind: "p",
+          text: "งานวิจัยสองชิ้นในบทความนี้ศึกษาคนละเรื่อง ชิ้นหนึ่งเป็นนักลงทุนคริปโต อีกชิ้นเป็นผู้บริโภคที่อ่านรีวิวด้านลบ แต่ได้ข้อสรุปคล้ายกัน คือคนตอบสนองต่อสิ่งที่เขาเห็นว่าคุ้มหรือไม่คุ้ม มากกว่ารูปแบบของข้อความที่ส่งไปถึง",
+        },
+        { kind: "h2", text: "เห็นว่าคุ้ม จนความเสี่ยงไม่มีผล" },
+        {
+          kind: "p",
+          text: "งานของ Athit Rodpangtiam รศ.ดร.สมิทธิ์ บุญชุติมา และ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ (ตีพิมพ์ปี 2567) สำรวจสมาชิกชุมชนคริปโตบน Reddit 200 คนที่ลงทุนอยู่แล้ว ว่าอะไรทำให้ยอมรับการลงทุนแบบนี้ ผลชัดมาก ยิ่งเห็นว่าคุ้ม ยิ่งยอมรับการลงทุน ส่วนความเสี่ยงที่รับรู้ไม่มีผลต่อการตัดสินใจเลย",
+          links: [{ match: "สำรวจสมาชิกชุมชนคริปโตบน Reddit 200 คน", href: "/research/cryptocurrency-adoption-reddit" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "นักลงทุนส่วนใหญ่บอกว่ารู้เรื่องคริปโตแค่ระดับพื้นฐาน",
+            subtitle: "ความรู้เรื่องคริปโตที่ประเมินตัวเอง · สมาชิกชุมชนคริปโตบน Reddit 200 คน ตุลาคม–พฤศจิกายน 2565",
+            alt: "กราฟแท่งแสดงความรู้เรื่องคริปโตที่ผู้ตอบประเมินตัวเอง รู้นิดหน่อย 37% ปานกลาง 35.5% และเป็นผู้เชี่ยวชาญ 2.5%",
+            source: "ที่มา: Rodpangtiam และคณะ (2024) Cogent Business & Management · สำรวจ 200 คน",
+            guess: "ผู้เชี่ยวชาญ",
+            prompt: "ลองทายก่อน: นักลงทุนกลุ่มนี้กี่เปอร์เซ็นต์บอกว่าตัวเองเป็นผู้เชี่ยวชาญ",
+            answerNote: "ทั้งที่ทุกคนลงทุนอยู่แล้ว",
+            data: [
+              { label: "รู้นิดหน่อย", value: 37 },
+              { label: "ปานกลาง", value: 35.5 },
+              { label: "ผู้เชี่ยวชาญ", value: 2.5 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ในห้าปัจจัยส่วนตัวที่ตรวจ มีแค่ระดับการศึกษาที่มีผล คนเรียนสูงกว่ายอมรับการลงทุนง่ายกว่า ส่วนเพศ อายุ รายได้ และประสบการณ์ลงทุนไม่มีผล ผู้เขียนเสนอว่าถ้าอยากให้คนลงทุนอย่างรู้เท่าทัน ต้องพูดเรื่องความเสี่ยงด้วยภาษาเดียวกับที่คนใช้คิดเรื่องความคุ้มค่า และลงทุนกับความรู้ทางการเงินในชุมชนออนไลน์ที่คนกลุ่มนี้อยู่จริง",
+        },
+        { kind: "h2", text: "ตอบโต้คู่แข่ง อาจยิ่งตอกย้ำรีวิวด้านลบ" },
+        {
+          kind: "p",
+          text: "งานของ Safeena Yaseen รศ.ดร.สมิทธิ์ บุญชุติมา และ ดร.มุฮัมมัด อิบเตซาม มาซาฮีร์ (ตีพิมพ์ปี 2568) ทดลองกับนักศึกษาในปากีสถาน 100 คน ให้อ่านรีวิวด้านลบของหูฟังยี่ห้อสมมติ แล้วดูโฆษณาของยี่ห้อนั้น รีวิวที่เปรียบเทียบกับคู่แข่งไม่ได้ทำให้ทัศนคติแย่กว่ารีวิวที่บ่นเฉยๆ คนตอบสนองต่อความเป็นลบ ไม่ใช่รูปแบบของข้อความ",
+          links: [{ match: "ทดลองกับนักศึกษาในปากีสถาน 100 คน", href: "/research/negative-wom-advertising-moderation" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "โฆษณาที่พูดถึงสินค้าตัวเอง ได้ผลกว่าโฆษณาที่เทียบกับคู่แข่ง",
+            subtitle: "ทัศนคติต่อสินค้าหลังอ่านรีวิวด้านลบและดูโฆษณา (เต็ม 7) · นักศึกษา 100 คน กลุ่มละราว 25 คน",
+            alt: "กราฟแท่งแสดงทัศนคติต่อสินค้าจากเต็ม 7 รีวิวไม่เปรียบเทียบตามด้วยโฆษณาไม่เปรียบเทียบ 5.07 รีวิวเปรียบเทียบตามด้วยโฆษณาไม่เปรียบเทียบ 3.68 รีวิวเปรียบเทียบตามด้วยโฆษณาเปรียบเทียบ 3.11 และรีวิวไม่เปรียบเทียบตามด้วยโฆษณาเปรียบเทียบ 2.15",
+            source: "ที่มา: Yaseen และคณะ (2025) Cogent Social Sciences · การทดลองกับนักศึกษา 100 คน",
+            unit: " จาก 7",
+            data: [
+              { label: "รีวิวบ่นเฉยๆ → โฆษณาพูดถึงสินค้าตัวเอง", value: 5.07, highlight: true },
+              { label: "รีวิวเทียบคู่แข่ง → โฆษณาพูดถึงสินค้าตัวเอง", value: 3.68 },
+              { label: "รีวิวเทียบคู่แข่ง → โฆษณาเทียบคู่แข่ง", value: 3.11 },
+              { label: "รีวิวบ่นเฉยๆ → โฆษณาเทียบคู่แข่ง", value: 2.15 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ผลกลับกันกับที่ผู้วิจัยคาดไว้ การตอบรีวิวด้วยโฆษณาที่บอกว่าเราดีกว่าคู่แข่งให้ผลแย่ที่สุด ส่วนโฆษณาที่พูดถึงคุณสมบัติของสินค้าตัวเองตรงๆ ให้ผลดีที่สุด ผู้เขียนอธิบายว่าข้อความเปรียบเทียบต้องใช้แรงคิดมากกว่า และในปากีสถานโฆษณาเปรียบเทียบยังไม่ค่อยเป็นที่ยอมรับ",
+        },
+        { kind: "h2", text: "สี่ข้อสำหรับคนทำสื่อสารการเงินและแบรนด์" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "พูดเรื่องความเสี่ยงด้วยภาษาของความคุ้มค่า",
+              text: "คำเตือนที่แยกออกมาเฉยๆ แทบไม่เปลี่ยนการตัดสินใจของคนที่เห็นว่าคุ้มอยู่แล้ว ให้วางความเสี่ยงไว้ข้างผลตอบแทนที่คนคาดหวัง แล้วเทียบให้เห็นในหน่วยเดียวกัน",
+            },
+            {
+              title: "ไปให้ความรู้ในที่ที่คนกลุ่มนั้นอยู่",
+              text: "การศึกษาเป็นปัจจัยเดียวที่มีผล ความรู้ทางการเงินจึงควรไปถึงชุมชนออนไลน์ที่คนคุยเรื่องการลงทุนกันจริง ไม่ใช่รอให้คนมาหาเอง",
+            },
+            {
+              title: "ตอบรีวิวด้านลบด้วยข้อมูลของตัวเอง",
+              text: "ในงานนี้ การตอบโต้ด้วยการเทียบคู่แข่งตอกย้ำกรอบด้านลบ โฆษณาที่บอกคุณสมบัติของสินค้าตรงๆ ได้ผลดีกว่าชัดเจน",
+            },
+            {
+              title: "ดูวัฒนธรรมของตลาดก่อนใช้โฆษณาเปรียบเทียบ",
+              text: "ในบางตลาด คนมองโฆษณาเปรียบเทียบว่าไม่เหมาะสม ตรวจก่อนว่าคนในตลาดนั้นมองรูปแบบนี้อย่างไร",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "งานคริปโตสำรวจคนจากชุมชนเดียวบน Reddit ที่ลงทุนอยู่แล้ว ไม่ได้เป็นตัวแทนนักลงทุนทั่วไปหรือคนไทย และบทคัดย่อของบทความเขียนว่าความเสี่ยงมีผลทางลบ ซึ่งขัดกับตารางผลและบทสรุปของบทความเอง เราจึงยึดตารางผล งานรีวิวด้านลบทดลองกับนักศึกษามหาวิทยาลัยเดียว กลุ่มละราว 25 คน ใช้สินค้าสมมติราคาไม่สูง และข้อความเปรียบเทียบยาวกว่าข้อความทั่วไป ความยาวจึงอาจปนกับรูปแบบของข้อความ",
+        },
+        { kind: "h2", text: "ข้อความที่ส่งไป กับข้อความที่คนรับจริง" },
+        {
+          kind: "p",
+          text: "คนไม่ได้รับข้อความทีละชิ้นแบบที่ผู้ส่งวางไว้ เขารับผ่านสิ่งที่เขาให้คุณค่าอยู่แล้ว การสื่อสารที่ได้ผลจึงเริ่มจากเข้าใจว่าคนกลุ่มนั้นชั่งน้ำหนักอะไร ก่อนจะคิดว่าจะพูดอะไรกับเขา",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนสื่อสารเรื่องการเงิน การลงทุน หรือการรับมือรีวิวด้านลบ ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและออกแบบร่วมกับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "Warnings are not enough: people decide by what they think is worth it",
+      dek: "Two studies of crypto investors and negative reviews show that people do not respond to messages the way senders intend. Risk warnings barely change the decision, and hitting back at a competitor can make things worse.",
+      coverAlt: "Paper-craft illustration on cream paper: a muted gold balance scale with a stack of maroon coins on the left pan and a maroon triangle on the right",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "The communication team at a regulator (a fictional scenario) has released several clips warning about the risks of investing in digital coins. Views are excellent, yet the number of new investment accounts keeps rising every month. The team starts to ask whether their message is being understood as intended.",
+        },
+        {
+          kind: "p",
+          text: "The two studies in this article look at different things, crypto investors and consumers reading negative reviews, but reach a similar conclusion: people respond to whether something looks worth it, more than to the form of the message that reaches them.",
+        },
+        { kind: "h2", text: "When it looks worth it, risk stops mattering" },
+        {
+          kind: "p",
+          text: "A study by Athit Rodpangtiam, Assoc. Prof. Dr Smith Boonchutima and Dr Muhammad Ibtesam Mazahir (published in 2024) surveyed 200 members of a crypto community on Reddit who were already investing, asking what made them accept this kind of investment. The result was clear: the more value people saw, the more they accepted it, while the risk they perceived had no effect on the decision at all.",
+          links: [{ match: "surveyed 200 members of a crypto community on Reddit", href: "/en/research/cryptocurrency-adoption-reddit" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Most investors said they knew only the basics of crypto",
+            subtitle: "Self-rated crypto knowledge · 200 members of a crypto community on Reddit, October–November 2022",
+            alt: "Bar chart of self-rated crypto knowledge: a little 37%, moderate 35.5%, expert 2.5%",
+            source: "Source: Rodpangtiam et al. (2024), Cogent Business & Management · survey of 200 people",
+            guess: "Expert",
+            prompt: "Guess first: what share of these investors called themselves experts?",
+            answerNote: "Even though all of them were already investing.",
+            data: [
+              { label: "A little", value: 37 },
+              { label: "Moderate", value: 35.5 },
+              { label: "Expert", value: 2.5 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "Of the five personal factors tested, only education mattered: people with more schooling accepted the investment more readily, while gender, age, income and investing experience made no difference. The authors suggest that if people are to invest with their eyes open, risk has to be discussed in the same language people use to think about value, and financial literacy has to reach the online communities where these investors actually are.",
+        },
+        { kind: "h2", text: "Hitting back at a rival can reinforce the negative review" },
+        {
+          kind: "p",
+          text: "A study by Safeena Yaseen, Assoc. Prof. Dr Smith Boonchutima and Dr Muhammad Ibtesam Mazahir (published in 2025) ran an experiment with 100 students in Pakistan, who read a negative review of a fictitious headset brand and then saw an advert for it. A review comparing the product with a rival did no more damage than a plain complaint: people reacted to the negativity, not to the form of the message.",
+          links: [{ match: "ran an experiment with 100 students in Pakistan", href: "/en/research/negative-wom-advertising-moderation" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "An ad about the product itself beat an ad that compared it with a rival",
+            subtitle: "Attitude to the product after a negative review and an ad (out of 7) · 100 students, about 25 per group",
+            alt: "Bar chart of attitude to the product out of 7: plain review then plain ad 5.07, comparative review then plain ad 3.68, comparative review then comparative ad 3.11, plain review then comparative ad 2.15",
+            source: "Source: Yaseen et al. (2025), Cogent Social Sciences · experiment with 100 students",
+            unit: " of 7",
+            data: [
+              { label: "Plain review → ad about own product", value: 5.07, highlight: true },
+              { label: "Comparative review → ad about own product", value: 3.68 },
+              { label: "Comparative review → comparative ad", value: 3.11 },
+              { label: "Plain review → comparative ad", value: 2.15 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The result ran against the researchers' prediction. Answering a review with an ad saying we are better than the competitor did worst, while an ad describing the product's own features did best. The authors explain that comparative messages take more effort to process, and that comparative advertising is still not widely accepted in Pakistan.",
+        },
+        { kind: "h2", text: "Four points for financial communicators and brands" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Talk about risk in the language of value",
+              text: "A standalone warning barely shifts people who already think something is worth it. Put risk next to the return people expect, and compare the two in the same terms.",
+            },
+            {
+              title: "Teach where the audience already is",
+              text: "Education was the only factor that mattered, so financial literacy should reach the online communities where people actually discuss investing, not wait for people to come looking.",
+            },
+            {
+              title: "Answer negative reviews with your own information",
+              text: "In this study, comparing yourself with a rival reinforced the negative frame. An ad that stated the product's own features plainly did clearly better.",
+            },
+            {
+              title: "Check the market's culture before comparative ads",
+              text: "In some markets people see comparative advertising as improper. Find out how people there regard the format before using it.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "The crypto study surveyed people from one Reddit community who were already investing; it does not represent investors in general or people in Thailand, and the article's abstract says risk had a negative effect, which contradicts its own results table and conclusion, so we follow the results table. The negative-review experiment used students from one university, about 25 per condition, and a fictitious low-cost product, and the comparative messages were longer than the plain ones, so length may be confounded with format.",
+        },
+        { kind: "h2", text: "The message sent and the message received" },
+        {
+          kind: "p",
+          text: "People do not take in messages one by one as the sender planned; they take them in through what they already value. Effective communication starts with understanding what an audience is weighing, before deciding what to say to it.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is planning communication about finance, investment or handling negative reviews, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and design it with you.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "pr-measurement-accountability",
+    date: "2026-11-26",
+    author: SMITH,
+    palette: [16, 9],
+    cover: "/images/insights/pr-measurement-accountability-hero",
+    evidence: ["pr-evaluation-coefficient", "deceptive-pr-responsibility"],
+    th: {
+      title: "งานประชาสัมพันธ์ที่ตรวจสอบได้ ตกลงตัววัดก่อน และรับผิดชอบสิ่งที่ส่งออกไป",
+      dek: "บทความเชิงแนวคิดสองชิ้นเสนอวิธีคิดสองเรื่องที่องค์กรใช้ได้ทันที คือวัดผลงาน PR โดยคำนึงว่าเรื่องนั้นดึงดูดสื่อเองได้แค่ไหน และใครต้องรับผิดชอบเมื่อข่าวแจกที่ไม่จริงไปถึงผู้อ่านผ่านกองบรรณาธิการ",
+      coverAlt: "ภาพประกอบกระดาษ ไม้บรรทัดสีส้มวางพาดแนวทแยงบนกระดาษข่าวแจกสีน้ำเงินเข้มที่มีรอยพับ บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "เอเจนซี่แห่งหนึ่ง (สถานการณ์สมมติ) ส่งรายงานปิดโครงการให้ลูกค้า มีข่าวลงสื่อ 40 ชิ้น คิดเป็นมูลค่าเทียบค่าโฆษณาหลายล้านบาท ลูกค้ากลับไม่พอใจ เพราะข่าวส่วนใหญ่ลงในสื่อที่กลุ่มเป้าหมายไม่ได้อ่าน และสาระที่อยากสื่อแทบไม่ปรากฏ ทั้งสองฝ่ายไม่เคยตกลงกันตั้งแต่แรกว่าจะวัดอะไร",
+        },
+        {
+          kind: "p",
+          text: "บทความนี้เล่าข้อเสนอจากบทความเชิงแนวคิดสองชิ้นที่ รศ.ดร. Pavel Slutskiy ร่วมเขียน ทั้งสองชิ้นไม่ได้เก็บข้อมูลเชิงประจักษ์ และข้อเสนอเป็นของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ แต่ให้กรอบคิดที่องค์กรนำไปใช้ได้จริง",
+        },
+        { kind: "h2", text: "ผลงานเท่ากัน ไม่ได้แปลว่าทำงานเท่ากัน" },
+        {
+          kind: "p",
+          text: "บทความของ Bykova, Gavra และ รศ.ดร. Pavel Slutskiy (ตีพิมพ์ปี 2560) ชี้ว่าการวัดผล PR ด้วยมูลค่าเทียบค่าโฆษณายังใช้กันอยู่ราวครึ่งวงการ ทั้งที่ถูกวิจารณ์มานาน ผู้เขียนเสนอให้ตกลงตั้งแต่ขั้นวางแผนว่าเรื่องนี้ดึงดูดสื่อได้เองแค่ไหน แล้วใช้เป็นตัวคูณ เรื่องที่ดึงดูดสื่อเองได้มากได้ตัวคูณต่ำ เพราะเอเจนซี่ออกแรงน้อยกว่า",
+          links: [{ match: "บทความของ Bykova, Gavra และ รศ.ดร. Pavel Slutskiy", href: "/research/pr-evaluation-coefficient" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "ส่งคำเชิญ 100 ฉบับ ตอบรับ 20 เท่ากัน แต่คะแนนต่างกัน",
+            subtitle: "คะแนนหลังถ่วงด้วยความยากของเรื่อง (คูณ 100 ให้อ่านง่าย) · ตัวอย่างในบทความ ตัวคูณเป็นค่าสาธิต",
+            alt: "กราฟแท่งแสดงคะแนนหลังถ่วงเมื่อตอบรับ 20 จาก 100 เรื่องที่ดึงดูดสื่อเองได้น้อย 40 ปานกลาง 30 และมาก 10",
+            source: "ที่มา: Bykova, Gavra และ Slutskiy (2017) Vestnik of Saint Petersburg University · ตัวคูณ 0.5 / 1.5 / 2.0 เป็นค่าสาธิตของผู้เขียน",
+            unit: " คะแนน",
+            guess: "เรื่องที่ดึงดูดสื่อเองได้น้อย",
+            prompt: "ลองทายก่อน: ถ้าเรื่องดึงดูดสื่อได้น้อย ผลงานเดียวกันได้กี่คะแนน",
+            answerNote: "สี่เท่าของเรื่องที่ดึงดูดสื่อได้มาก",
+            data: [
+              { label: "เรื่องที่ดึงดูดสื่อเองได้น้อย", value: 40 },
+              { label: "เรื่องที่ดึงดูดสื่อเองได้ปานกลาง", value: 30 },
+              { label: "เรื่องที่ดึงดูดสื่อเองได้มาก", value: 10 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ข้อเสนออีกสองส่วนคือรายชื่อสื่อที่ตกลงกันก่อนว่าสื่อไหนสำคัญกว่า เพราะสื่อท้องถิ่นอาจสำคัญกว่าสื่อระดับประเทศสำหรับงานในภูมิภาค และคุณภาพเนื้อหาที่หักคะแนนได้อย่างเดียว ถ้าสาระสำคัญสี่ข้อปรากฏในข่าวแค่ข้อเดียว คุณภาพเนื้อหาจะไม่เกิน 0.25 ผู้เขียนบอกเองว่าวิธีนี้ไม่ได้ทำให้การวัดแม่นยำขึ้น แต่ทำให้เอเจนซี่กับลูกค้าคาดหวังตรงกัน",
+        },
+        { kind: "h2", text: "ข่าวแจกที่ไม่จริง ใครต้องรับผิดชอบ" },
+        {
+          kind: "p",
+          text: "บทความของ รศ.ดร. Pavel Slutskiy และ Enric Ordeix (ตีพิมพ์ปี 2561) เป็นการทดลองทางความคิด สมมติบริษัทหนึ่งให้ข้อมูลเท็จ ถ้าบอกผู้ซื้อตรงๆ หรือซื้อพื้นที่โฆษณา บริษัทต้องรับผิดชอบเต็มที่ แต่ถ้าส่งข่าวแจกแล้วกองบรรณาธิการเลือกนำไปเขียนเป็นข่าวเอง กองบรรณาธิการก็ไม่ได้เป็นแค่บุรุษไปรษณีย์ที่ส่งซองโดยไม่รู้ว่าข้างในมีอะไร เพราะการรู้เนื้อหาและเลือกว่าจะลงอะไรคืองานของกองบรรณาธิการโดยตรง",
+          links: [{ match: "บทความของ รศ.ดร. Pavel Slutskiy และ Enric Ordeix", href: "/research/deceptive-pr-responsibility" }],
+        },
+        {
+          kind: "p",
+          text: "ผู้เขียนสรุปว่าคำถามนี้ไม่มีคำตอบสำเร็จรูป ต้องดูเป็นกรณีไป ต้องมีผู้เสียหายที่ระบุตัวได้ และต้องดูทั้งหลักการและแนวปฏิบัติของแต่ละที่ แต่ประเด็นที่ใช้ได้ทันทีคือ การเลือกลงข่าวเป็นการตัดสินใจที่มีน้ำหนักในตัวเอง ไม่ใช่แค่การส่งต่อ",
+        },
+        { kind: "h2", text: "สี่ข้อสำหรับองค์กร เอเจนซี่ และกองบรรณาธิการ" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ตกลงตัววัดก่อนเริ่มงาน",
+              text: "ข้อพิพาทเรื่องผลงาน PR ส่วนใหญ่เกิดจากไม่เคยตั้งเป้าที่วัดได้ร่วมกันตั้งแต่แรก กำหนดตัวชี้วัดและประเมินความยากของเรื่องตั้งแต่ขั้นวางแผน",
+            },
+            {
+              title: "แยกแรงของเรื่องออกจากแรงของทีม",
+              text: "เรื่องที่สื่ออยากเล่าอยู่แล้วได้ข่าวง่าย เรื่องที่ยากต้องใช้แรงมากกว่า คิดเรื่องนี้ไว้ก่อนอ่านตัวเลข แม้ไม่ได้ใช้สูตรของบทความ",
+            },
+            {
+              title: "วัดว่าสาระที่ต้องการไปถึงหรือไม่",
+              text: "จำนวนข่าวและมูลค่าเทียบโฆษณาไม่ได้บอกว่าคนได้รับสาระที่ตั้งใจหรือไม่ ตรวจว่าประเด็นสำคัญปรากฏในข่าวกี่ข้อ",
+            },
+            {
+              title: "ตรวจข่าวแจกก่อนลง",
+              text: "สำหรับกองบรรณาธิการ การเลือกลงข่าวเป็นการตัดสินใจของตัวเอง การตรวจสอบข้อเท็จจริงจึงไม่ใช่สิ่งที่ทำหรือไม่ทำก็ได้",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "ทั้งสองชิ้นเป็นบทความเชิงแนวคิด ไม่มีข้อมูลเชิงประจักษ์ ข้อเสนอเป็นของผู้เขียน ไม่ใช่จุดยืนของศูนย์ฯ ตัวคูณ 0.5, 1.5 และ 2.0 เป็นค่าสาธิตหลักการ ไม่ได้ปรับเทียบกับข้อมูลจริง และการตัดสินว่าเรื่องดึงดูดสื่อมากหรือน้อยยังต้องใช้วิจารณญาณ ตัวอย่างมาจากบริบทสื่อของรัสเซีย ส่วนบทความเรื่องความรับผิดชอบเป็นปรัชญากฎหมายสายเสรีนิยม ไม่ใช่คำแนะนำทางกฎหมายและไม่ได้อิงกฎหมายไทย",
+        },
+        { kind: "h2", text: "ความน่าเชื่อถือเริ่มจากตกลงกันก่อน" },
+        {
+          kind: "p",
+          text: "งานประชาสัมพันธ์ที่ตรวจสอบได้ ไม่ได้เริ่มจากรายงานปิดโครงการ แต่เริ่มจากการตกลงกันว่าจะวัดอะไรและแต่ละฝ่ายรับผิดชอบอะไร ตั้งแต่ก่อนส่งข่าวชิ้นแรก",
+        },
+        {
+          kind: "note",
+          text: "หากองค์กรของคุณกำลังวางระบบวัดผลงานประชาสัมพันธ์ หรือทบทวนแนวปฏิบัติด้านข่าวแจก ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและออกแบบร่วมกับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "Accountable PR: agree the measures first, and own what you send out",
+      dek: "Two conceptual articles offer two ways of thinking organisations can use straight away: measure PR results against how much pull the story had on its own, and work out who answers when a false press release reaches readers through a newsroom.",
+      coverAlt: "Paper-craft illustration on cream paper: an orange ruler lying diagonally across a creased dark blue press release sheet",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "An agency (a fictional scenario) sends a client its end-of-project report: 40 pieces of coverage, worth millions of baht in advertising equivalent. The client is unhappy, because most of the coverage appeared in outlets the target audience does not read, and the key messages barely appear. The two sides never agreed at the start on what would be measured.",
+        },
+        {
+          kind: "p",
+          text: "This article presents proposals from two conceptual articles co-written by Assoc. Prof. Dr Pavel Slutskiy. Neither collects empirical data, and the proposals are the authors' own, not a position of the Center, but they offer frameworks organisations can put to use.",
+        },
+        { kind: "h2", text: "The same results do not mean the same effort" },
+        {
+          kind: "p",
+          text: "An article by Bykova, Gavra and Assoc. Prof. Dr Pavel Slutskiy (published in 2017) notes that measuring PR by advertising value equivalent is still used by about half the industry despite years of criticism. The authors propose agreeing at the planning stage how much pull a story has on its own, and using that as a multiplier: a story with strong pull gets a low multiplier, because the agency has to work less for it.",
+          links: [{ match: "An article by Bykova, Gavra and Assoc. Prof. Dr Pavel Slutskiy", href: "/en/research/pr-evaluation-coefficient" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "100 invitations, 20 acceptances each time, but different scores",
+            subtitle: "Score after weighting for how hard the story was (×100 for readability) · the article's worked example; multipliers are illustrative",
+            alt: "Bar chart of weighted scores when 20 of 100 accept: story with low pull 40, medium pull 30, high pull 10",
+            source: "Source: Bykova, Gavra and Slutskiy (2017), Vestnik of Saint Petersburg University · multipliers of 0.5 / 1.5 / 2.0 are the authors' illustrative values",
+            unit: " points",
+            guess: "Story with low pull",
+            prompt: "Guess first: if the story has little pull, how many points does the same result earn?",
+            answerNote: "Four times a story with strong pull.",
+            data: [
+              { label: "Story with low pull", value: 40 },
+              { label: "Story with medium pull", value: 30 },
+              { label: "Story with high pull", value: 10 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The other two parts are a media list agreed in advance, ranking which outlets matter most, since a local title may matter more than a national one for a regional event, and a content-quality score that can only reduce: if one of four key messages appears in the coverage, content quality is no more than 0.25. The authors say plainly that this does not make measurement more accurate; it makes agency and client expect the same thing.",
+        },
+        { kind: "h2", text: "A false press release: who answers?" },
+        {
+          kind: "p",
+          text: "An article by Assoc. Prof. Dr Pavel Slutskiy and Enric Ordeix (published in 2018) is a thought experiment. Suppose a company gives false information. If it tells the buyer directly, or buys advertising space, the company answers in full. But if it sends a press release and a newsroom chooses to write it up as news, the newsroom is not like a postman delivering an envelope without knowing what is inside, because knowing the content and choosing what to publish is exactly the newsroom's job.",
+          links: [{ match: "An article by Assoc. Prof. Dr Pavel Slutskiy and Enric Ordeix", href: "/en/research/deceptive-pr-responsibility" }],
+        },
+        {
+          kind: "p",
+          text: "The authors conclude that there is no ready-made answer: it goes case by case, requires an identifiable victim, and must weigh both principle and the practice of each place. The point usable today is that choosing to publish is a decision with weight of its own, not mere relaying.",
+        },
+        { kind: "h2", text: "Four points for organisations, agencies and newsrooms" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Agree the measures before the work starts",
+              text: "Most disputes over PR results come from never setting a shared, measurable target. Set the indicators and assess how hard the story is at the planning stage.",
+            },
+            {
+              title: "Separate the story's pull from the team's effort",
+              text: "A story the media already want is easy to place; a hard one takes more work. Think about this before reading the numbers, even without adopting the article's formula.",
+            },
+            {
+              title: "Measure whether the key messages got through",
+              text: "Counts and advertising equivalents do not show whether people received the intended message. Check how many key points actually appear in the coverage.",
+            },
+            {
+              title: "Check press releases before publishing",
+              text: "For newsrooms, choosing to publish is your own decision, so fact-checking is not an optional extra.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "Both pieces are conceptual articles with no empirical data, and the proposals are the authors', not a position of the Center. The multipliers of 0.5, 1.5 and 2.0 illustrate the principle and are not calibrated against data, and judging a story's pull still requires judgement. The examples come from the Russian media context. The responsibility article is liberal legal philosophy; it is not legal advice and is not grounded in Thai law.",
+        },
+        { kind: "h2", text: "Credibility starts with agreeing first" },
+        {
+          kind: "p",
+          text: "Accountable public relations does not start with the end-of-project report. It starts with agreeing what will be measured and what each party is responsible for, before the first release goes out.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is setting up a system to evaluate public relations, or reviewing its press release practice, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and design it with you.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "likes-are-not-votes",
+    date: "2026-11-26",
+    author: SMITH,
+    palette: [16, 10],
+    cover: "/images/insights/likes-are-not-votes-hero",
+    evidence: ["bangkok-election-social-media", "bangkok-governor-2013-social-media"],
+    th: {
+      title: "ไลก์ไม่ใช่คะแนนเสียง บทเรียนจากเลือกตั้งผู้ว่าฯ กรุงเทพฯ",
+      dek: "งานวิจัยสองชิ้นเรื่องการเลือกตั้งผู้ว่าฯ กทม. ปี 2556 ซึ่งเป็นครั้งแรกที่ผู้สมัครทุกคนหาเสียงบนโซเชียลมีเดียจริงจัง ชี้ว่าตัวเลขบนออนไลน์กับคนที่ไปเข้าคูหาเป็นคนละกลุ่มกัน",
+      coverAlt: "ภาพประกอบกระดาษ หีบบัตรเลือกตั้งสีน้ำเงินเข้มมีบัตรสีชมพูเสียบอยู่ครึ่งใบ และมีหัวใจสีชมพูดวงเล็กแปะอยู่ข้างหีบ บนพื้นกระดาษสีครีม",
+      coverCaption: "ภาพประกอบสร้างด้วย AI",
+      body: [
+        {
+          kind: "p",
+          text: "ทีมหาเสียงของผู้สมัครคนหนึ่ง (สถานการณ์สมมติ) ดีใจมากที่เพจของผู้สมัครมีคนกดถูกใจมากที่สุดในบรรดาคู่แข่ง แต่พอนับคะแนนจริง ผู้สมัครของพวกเขากลับได้อันดับสาม",
+        },
+        {
+          kind: "p",
+          text: "เรื่องนี้ไม่ได้สมมติทั้งหมด การเลือกตั้งผู้ว่าฯ กรุงเทพฯ ปี 2556 เกิดขึ้นแบบนี้จริง งานวิจัยสองชิ้นของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ ศึกษาการเลือกตั้งครั้งนั้น และยังใช้ได้กับการรณรงค์ทุกแบบในวันนี้ เราตั้งใจไม่ระบุชื่อผู้สมัครและพรรค และเรียกตามอันดับที่ได้",
+        },
+        { kind: "h2", text: "คนกดถูกใจมากที่สุด ได้อันดับสาม" },
+        {
+          kind: "p",
+          text: "งานของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2557) เทียบตัวเลขบนโซเชียลของผู้สมัครสี่คนกับผลเลือกตั้งจริง ผู้ที่ได้อันดับสามมีคนกดถูกใจบน Facebook มากที่สุด 238,138 ราย ผู้ที่ได้อันดับสี่มียอดดู YouTube และผู้ติดตาม Instagram มากที่สุด ส่วนผู้ชนะนำแค่ยอดคนพูดถึงบน Facebook และผู้ติดตาม Twitter และได้ 1,256,349 คะแนน คิดเป็น 47.75% ของผู้มาใช้สิทธิ",
+          links: [{ match: "เทียบตัวเลขบนโซเชียลของผู้สมัครสี่คนกับผลเลือกตั้งจริง", href: "/research/bangkok-governor-2013-social-media" }],
+        },
+        {
+          kind: "p",
+          text: "ทีมหาเสียงที่ให้สัมภาษณ์เกือบทุกคนเห็นตรงกันว่าโซเชียลมีเดียทำนายคะแนนไม่ได้ เพราะใครที่ไหนก็กดถูกใจได้ ผู้ติดตามอาจอายุยังไม่ถึงเกณฑ์ ไม่ได้มีสิทธิเลือกตั้งในกรุงเทพฯ หรืออยู่ต่างประเทศ",
+        },
+        { kind: "h2", text: "คนกรุงเทพฯ ตัดสินใจจากโทรทัศน์มากกว่าออนไลน์" },
+        {
+          kind: "p",
+          text: "งานของ ผศ.ดร.ธีรดา จงกลรัตนาภรณ์ (ตีพิมพ์ปี 2559) สำรวจผู้มีสิทธิเลือกตั้งในกรุงเทพฯ 400 คนที่ไปใช้สิทธิในการเลือกตั้งครั้งนั้น สื่อที่คนหันไปหาเป็นอันดับแรกเพื่อดูข้อมูลการเลือกตั้งคือโทรทัศน์ (47.3%) และสื่อที่มีผลต่อการตัดสินใจมากที่สุดก็คือโทรทัศน์เช่นกัน",
+          links: [{ match: "สำรวจผู้มีสิทธิเลือกตั้งในกรุงเทพฯ 400 คน", href: "/research/bangkok-election-social-media" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "สื่อออนไลน์มีผลต่อการตัดสินใจน้อยที่สุด",
+            subtitle: "สื่อที่มีผลต่อการตัดสินใจเลือกผู้ว่าฯ มากที่สุด · ผู้มีสิทธิเลือกตั้งในกรุงเทพฯ 400 คน การเลือกตั้งปี 2556",
+            alt: "กราฟแท่งแสดงสัดส่วนผู้ตอบที่บอกว่าสื่อแต่ละประเภทมีผลต่อการตัดสินใจมากที่สุด โทรทัศน์ 37.8% สื่อกลางแจ้ง 16.5% และเว็บไซต์กับโซเชียลมีเดีย 10%",
+            source: "ที่มา: Chongkolrattanaporn (2016) วารสารประชาสัมพันธ์และการโฆษณา · สำรวจ 400 คน",
+            guess: "เว็บไซต์และโซเชียลมีเดีย",
+            prompt: "ลองทายก่อน: กี่เปอร์เซ็นต์บอกว่าสื่อออนไลน์มีผลต่อการตัดสินใจมากที่สุด",
+            answerNote: "หนึ่งในสิบ ทั้งที่ผู้สมัครทุกคนใช้โซเชียลมีเดีย",
+            data: [
+              { label: "โทรทัศน์", value: 37.8 },
+              { label: "สื่อกลางแจ้ง", value: 16.5 },
+              { label: "เว็บไซต์และโซเชียลมีเดีย", value: 10 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "ข้อที่ผู้ตอบเห็นด้วยมากที่สุด (3.85 จาก 5) คือผู้สมัครควรพบปะผู้มีสิทธิเลือกตั้งด้วยตัวเอง และคนอายุ 56 ปีขึ้นไปเห็นด้วยน้อยกว่ากลุ่มอื่นว่าสื่อออนไลน์น่าสนใจหรือรวดเร็ว ทั้งสองงานสรุปตรงกันว่าโซเชียลมีเดียยังจำเป็น เพราะช่วยสร้างภาพลักษณ์ที่ทันสมัยและเปิดช่องคุยกับคนรุ่นใหม่ แต่ต้องใช้ควบคู่กับการพบปะและสื่อดั้งเดิม",
+        },
+        {
+          kind: "p",
+          text: "ข้อสรุปนี้ไปทางเดียวกับบทความเรื่องการวัดผลเกินยอดไลก์ที่เราเคยเล่าไว้",
+          links: [{ match: "บทความเรื่องการวัดผลเกินยอดไลก์", href: "/insights/beyond-likes-2026" }],
+        },
+        { kind: "h2", text: "สี่ข้อสำหรับคนทำแคมเปญ" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "ถามก่อนว่าผู้ติดตามเป็นคนที่ลงมือได้หรือไม่",
+              text: "ไลก์นับคนที่สนใจจากที่ไหนก็ได้ คะแนนเสียงนับคนที่มีสิทธิและไปถึงคูหา ก่อนใช้ตัวเลขออนไลน์เป็นตัวชี้วัด ตรวจว่าผู้ติดตามอยู่ในกลุ่มที่ทำสิ่งที่เราต้องการได้จริง",
+            },
+            {
+              title: "ดูการพูดถึง มากกว่าจำนวนผู้ติดตาม",
+              text: "ในการเลือกตั้งครั้งนั้น ตัวเลขเดียวที่ผู้ชนะนำคือจำนวนคนที่พูดถึง ไม่ใช่จำนวนคนกดถูกใจ",
+            },
+            {
+              title: "ใช้โซเชียลเพื่อภาพลักษณ์และการคุย",
+              text: "ช่องทางออนไลน์เหมาะกับการสร้างภาพลักษณ์และเปิดบทสนทนา ไม่ใช่การนับหัว",
+            },
+            {
+              title: "อย่าทิ้งการพบปะและสื่อดั้งเดิม",
+              text: "ผู้ตอบให้น้ำหนักกับการพบหน้ามากที่สุด และกลุ่มผู้สูงอายุยังรับข้อมูลจากสื่อดั้งเดิมเป็นหลัก",
+            },
+          ],
+        },
+        { kind: "h2", text: "ข้อควรระวังในการอ่านข้อมูล" },
+        {
+          kind: "p",
+          text: "ทั้งสองงานศึกษาการเลือกตั้งครั้งเดียวในปี 2556 ก่อนที่โซเชียลมีเดียจะแพร่หลายเท่าวันนี้ และก่อนที่แพลตฟอร์มจะเปลี่ยนวิธีแสดงตัวเลข ภาพของสื่อจึงเป็นของช่วงนั้น งานสำรวจครอบคลุมกรุงเทพฯ จังหวัดเดียว ส่วนงานที่เทียบตัวเลขโซเชียลเป็นเอกสารการประชุมวิชาการ บทคัดย่อพูดถึงการสำรวจผู้มีสิทธิเลือกตั้งที่ไม่มีอยู่ในตัวบทความ และตัวเลขโซเชียลในสองตารางเก็บต่างเวลากัน",
+        },
+        { kind: "h2", text: "ตัวเลขที่ดูดี กับคนที่ลงมือจริง" },
+        {
+          kind: "p",
+          text: "บทเรียนจากการเลือกตั้งเมื่อสิบกว่าปีก่อนยังใช้ได้กับทุกแคมเปญวันนี้ ตัวเลขบนออนไลน์บอกว่ามีคนสนใจ แต่สิ่งที่แคมเปญต้องการคือคนที่ลงมือ และสองกลุ่มนี้ไม่ใช่กลุ่มเดียวกันเสมอไป",
+        },
+        {
+          kind: "note",
+          text: "หากหน่วยงานของคุณกำลังวางแผนรณรงค์และต้องการตัวชี้วัดที่สะท้อนผลจริง ศูนย์ความเป็นเลิศด้านนวัตกรรมการสื่อสาร คณะนิเทศศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ยินดีพูดคุยและออกแบบร่วมกับคุณ",
+        },
+      ],
+    },
+    en: {
+      title: "Likes are not votes: lessons from a Bangkok governor election",
+      dek: "Two studies of the 2013 Bangkok governor election, the first in which every candidate campaigned seriously on social media, show that the people behind online numbers and the people who reach the ballot box are different groups.",
+      coverAlt: "Paper-craft illustration on cream paper: a dark blue ballot box with a pink ballot half inserted and a small pink heart stuck to its side",
+      coverCaption: "Illustration generated with AI",
+      body: [
+        {
+          kind: "p",
+          text: "A candidate's campaign team (a fictional scenario) is delighted that their candidate's page has more likes than any rival. When the votes are counted, their candidate comes third.",
+        },
+        {
+          kind: "p",
+          text: "This is not entirely fiction: it is what happened in the 2013 Bangkok governor election. Two studies by Asst. Prof. Dr Teerada Chongkolrattanaporn examined that election, and their lessons still apply to campaigns of every kind today. We deliberately do not name the candidates or parties and refer to them by finishing position.",
+        },
+        { kind: "h2", text: "The most-liked candidate finished third" },
+        {
+          kind: "p",
+          text: "A study by Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2014) compared the four candidates' social media numbers with the actual result. The third-placed candidate had the most Facebook likes, 238,138; the fourth-placed had the most YouTube views and Instagram followers. The winner led only on Facebook's \"talking about this\" count and on Twitter followers, and took 1,256,349 votes, 47.75% of votes cast.",
+          links: [{ match: "compared the four candidates' social media numbers with the actual result", href: "/en/research/bangkok-governor-2013-social-media" }],
+        },
+        {
+          kind: "p",
+          text: "Almost every campaign team interviewed agreed that social media could not predict votes, because anyone from anywhere can click like: followers might be under voting age, not registered in Bangkok, or living abroad.",
+        },
+        { kind: "h2", text: "Bangkok voters decided by television more than online" },
+        {
+          kind: "p",
+          text: "A study by Asst. Prof. Dr Teerada Chongkolrattanaporn (published in 2016) surveyed 400 registered Bangkok voters who voted in that election. The medium people turned to first for election information was television (47.3%), and television was also the medium that most influenced their decision.",
+          links: [{ match: "surveyed 400 registered Bangkok voters", href: "/en/research/bangkok-election-social-media" }],
+        },
+        {
+          kind: "chart",
+          chart: {
+            type: "race",
+            title: "Online media influenced the decision least",
+            subtitle: "Medium that most influenced the choice of governor · 400 registered Bangkok voters, 2013 election",
+            alt: "Bar chart of the share of respondents naming each medium as most influential: television 37.8%, outdoor media 16.5%, websites and social media 10%",
+            source: "Source: Chongkolrattanaporn (2016), Journal of Public Relations and Advertising · survey of 400 people",
+            guess: "Websites and social media",
+            prompt: "Guess first: what share said online media influenced their decision most?",
+            answerNote: "One in ten, even though every candidate used social media.",
+            data: [
+              { label: "Television", value: 37.8 },
+              { label: "Outdoor media", value: 16.5 },
+              { label: "Websites and social media", value: 10 },
+            ],
+          },
+        },
+        {
+          kind: "p",
+          text: "The statement respondents agreed with most (3.85 out of 5) was that candidates should meet voters in person, and voters aged 56 and over were less likely than others to find online media interesting or fast. Both studies conclude that social media is still necessary, for a modern image and for talking with younger people, but has to work alongside meeting people and traditional media.",
+        },
+        {
+          kind: "p",
+          text: "This conclusion points the same way as our earlier article on measuring beyond likes.",
+          links: [{ match: "our earlier article on measuring beyond likes", href: "/en/insights/beyond-likes-2026" }],
+        },
+        { kind: "h2", text: "Four points for campaigners" },
+        {
+          kind: "tips",
+          items: [
+            {
+              title: "Ask whether your followers can act",
+              text: "Likes count interested people anywhere; votes count eligible people who reach the booth. Before using online numbers as an indicator, check that your followers belong to the group that can do what you need.",
+            },
+            {
+              title: "Watch conversation, not follower counts",
+              text: "In that election, the one number the winner led on was how many people were talking about the candidate, not how many clicked like.",
+            },
+            {
+              title: "Use social media for image and dialogue",
+              text: "Online channels suit building an image and opening conversation, not counting heads.",
+            },
+            {
+              title: "Do not drop face-to-face contact and traditional media",
+              text: "Respondents gave the most weight to meeting candidates in person, and older voters still relied mainly on traditional media.",
+            },
+          ],
+        },
+        { kind: "h2", text: "Reading this evidence with care" },
+        {
+          kind: "p",
+          text: "Both studies cover a single election in 2013, before social media reached today's reach and before platforms changed how they display counts, so they describe that moment's media landscape. The survey covers Bangkok only. The study comparing social numbers is a conference paper whose abstract mentions a voter survey that does not appear in the paper, and its two tables of social figures were collected at different times.",
+        },
+        { kind: "h2", text: "Numbers that look good, and people who act" },
+        {
+          kind: "p",
+          text: "A lesson from an election more than a decade ago still applies to every campaign today. Online numbers show that people are interested, but a campaign needs people who act, and the two are not always the same group.",
+        },
+        {
+          kind: "note",
+          text: "If your organisation is planning a campaign and wants indicators that reflect real results, the Center of Excellence in Communication Innovation at Chulalongkorn University's Faculty of Communication Arts would be glad to talk and design it with you.",
+        },
+      ],
+    },
+  },
 ];
 
 export const insightsSorted = [...insights].sort((a, b) => b.date.localeCompare(a.date));
