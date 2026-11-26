@@ -1,4 +1,4 @@
-import { Noto_Sans_SC } from "next/font/google";
+import "./noto-sans-sc.css";
 
 /**
  * ฟอนต์เสริมสำหรับอักษรจีน — **ข้อยกเว้นเดียวของกฎ "Kanit ตระกูลเดียวทั้งเว็บ"**
@@ -29,9 +29,13 @@ import { Noto_Sans_SC } from "next/font/google";
  * การ preload ทุกชิ้นตั้งแต่เปิดหน้าจึงเป็นการโหลดเปล่าเกือบทั้งหมด
  * (ตรวจแล้ว: หน้าจีนไม่มี <link rel="preload" as="font"> ของ Noto เลย)
  */
-export const notoSansSC = Noto_Sans_SC({
-  weight: ["400", "500"],
-  variable: "--font-noto-sc",
-  display: "swap",
-  preload: false,
-});
+/**
+ * **self-host ตั้งแต่ 26 พ.ย. 2569** — เดิมใช้ `next/font/google` ซึ่งดึงฟอนต์จาก Google ทุกครั้งที่ build
+ * แล้ว Google ตอบเครื่อง build ของ GitHub Actions และ Vercel เป็นระยะด้วย URL ที่ next/font อ่านไม่ได้
+ * build จึงพังแบบสุ่ม (เครื่องอื่นดึงได้ปกติ) ไฟล์ฟอนต์ ~100 ชิ้นจึงอยู่ใน `public/fonts/noto-sans-sc/`
+ * และ `@font-face` อยู่ใน `noto-sans-sc.css` ข้างไฟล์นี้ ทั้งคู่สร้างด้วย `scripts/fetch-noto-sc.mjs`
+ * ยังหั่นตาม unicode-range เหมือนเดิม และยังไม่ preload ด้วยเหตุผลเดิมด้านบน
+ *
+ * คงรูป `{ variable }` ไว้ให้ layout จีนและหน้า 404 จีนใช้ได้โดยไม่ต้องแก้ — คลาสนี้ตั้ง `--font-noto-sc`
+ */
+export const notoSansSC = { variable: "font-noto-sc-vars" };
